@@ -36,3 +36,15 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - `engine/build.sh`, `engine/run.sh`, `engine/test.sh`. Byggeskriptet er testet fra en ren checkout.
 - Testet uten skjerm med en nearest-mod: 0 avvikende piksler for bakgrunner, objekter (rom 34 og 105) og uskalerte figurer. Skalerte figurer under 0,25 prosent (ventet). Filmrammer: rammenummeret er `_frame - 1`, etter rettingen er 198 av 198 rammer like.
 - La til `README.md`, `AGENTS.md`, `docs/HD-MOTOR.md`. Oppdaterte `.gitignore` (work/, mods/, engine/scummvm/).
+
+## 2026-10-06 23:17 til 23:31 (Codex)
+- Leste Claude-delingen og kontrollerte privat repo og åpen PR 1. Tok utgangspunkt i claude/analyse-hd, commit 70aed0523ff624cb6176d9b5911cdc1fdef0f336. Arbeidet ligger i egen kodegren codex/grafikkpilot-20261006.
+- Hentet spilldata fra den eksisterende spilldatagrenen. Alle sjekksummer bestod. Eksporterte fem rom (19 rom- og objektbilder uten feil) og kostyme 14 (840 ruter med RGBS-farger).
+- Laget bakgrunnskandidater for rom 9 og 22 med den innebygde ChatGPT-bildegeneratoren. Rom 9 fikk en ekstra generering for å korrigere et forskjøvet gulvhjørne. Generatorbildene på 1586x992 ble tilpasset teknisk til 1280x800 RGB uten beskjæring. Lagret fullstendige prompter og originalgeneratorbilder.
+- Laget én Boston Low-stilreferanse fra kostyme 14 rute 1 og den eksisterende Boston-referansen. RGBA med ekte alfa, 713x2205. Den avviker fra originalsilhuetten og ble avvist som direkte spritesrute. Den ligger bare i concepts/.
+- Bygde ScummVM fra den låste committen og uendret patch. libpng-utviklingsfiler ble pakket ut lokalt i work/build-deps/ fra Ubuntu-pakker. Ingen systempakker eller andre prosjekter ble endret.
+- Kjørte 4 pipeline-tester, alle bestod, inkludert telling mot originale spilldata. Native SDL2/Wayland/OpenGL-kjøringer av rom 9 og 22 lastet de nye bakgrunnene i 1280x800 med 4 byte per piksel og avsluttet med exit 0. Inspiserte uredigerte motorbilder. Native nearest-kontroll ga 0 sterke pikselavvik etter motorens terskel.
+- Første dummy-kjøringer ved bilde 60 endte i rom 2 fordi oppstartsskriptet overstyrte testhoppet. De er ikke regnet som godkjent romkontroll. Native hopp ved bilde 240 traff de bestilte rommene.
+- Leveranse i separat privat grafikkdatagren grafikkdata/pilot-20261006, commit cf8e6a9f6e30d662f7c73076ef1e1810851ceceb. 23,9 MiB med to kandidater, testmod, kilde- og indeksbilder, Boston-konsept, prompter, hasher og kjøringslogger. Grafikkgrenen har ingen felles historikk med main. Ingen bildedata i kode-PR-en.
+- La til tools/check_hd_art.py og tools/hent_grafikkpilot.sh, samt docs/GRAFIKKPILOT.md. Kontrollerte mål, format, indeks og alfasilhuett. Generatorstørrelse og Boston-silhuett avvises. Henting testet fra en fersk Git-arbeidsmappe; sjekksummer bestod; gjenbruk og avvisning av endrede lokale filer ble kontrollert uten overskriving.
+- Oppdaterte README, romoversikten, prosjektminne og todo. Stil er foreløpig. Manuell masketest, obj171-tilstander, spritesanimasjon, hele brukerreisen og lyd gjenstår.
