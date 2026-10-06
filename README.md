@@ -79,6 +79,8 @@ engine/test.sh                   # kjører spillet uten skjerm og sjekker at HD-
 
 Mer om hvordan motoren virker: `docs/HD-MOTOR.md`. Analyse og plan: `docs/ANALYSE.md`.
 
+Første grafikkpilot med to romkandidater, Boston-stilreferanse, henting og faktiske kjøringsbilder: `docs/GRAFIKKPILOT.md`.
+
 ## Opphavsrett
 
 The Dig eies av Disney/Lucasfilm. Patchen og pipelinen kan deles (ScummVM er GPL-3.0). Spillfiler og HD-grafikk laget fra dem skal ikke deles. Konseptbildene i roten er laget av en Reddit-tegner og brukes bare som stilreferanse.

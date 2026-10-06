@@ -8,6 +8,8 @@
 - [x] ScummVM-patch: HD-bakgrunner, HD-objekter, HD-sprites, HD-filmrammer
 - [x] Fargejustering ved palettbytte, fargesykling beholdt, mus og peker i HD
 - [x] Byggeskript testet fra ren checkout, automatisk test uten skjerm
+- [x] Grafikkpilot: rom 9 og 22 laget med ChatGPT-bildegeneratoren, kontrollert i native ScummVM med 32-bits farger og levert i privat grafikkdatagren
+- [x] Boston Low-stilreferanse og kontroll av egne HD-filnavn, mål, indeks og alfasilhuett
 
 ## ChatGPT-grafikk
 - [x] Bestilling, jobbverktøy, kontroll og arbeidsgren `gpt-arbeid`
@@ -23,6 +25,8 @@
 - [x] Velg stil: trofast HD
 - [ ] Stiltest med KI: fem rom gjennom Real-ESRGAN og en pikselkunstmodell (`dighd compare`, `--method realesrgan`)
 - [ ] Stiltest: Boston Low (kostyme 14) i ny stil
+- [ ] Kontroller grafikkpiloten med manuell bevegelse, forgrunnsmasker og obj171-tilstander før produksjonsgodkjenning
+- [ ] Lag Boston-ruter som består silhuettkontrollen og kontroller hele bevegelsesrekken i motoren
 - [ ] Fyll inn prioritet i `docs/rom-oversikt.csv`
 
 ## Motor
