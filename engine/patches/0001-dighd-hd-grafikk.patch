@@ -118,10 +118,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..c3fc48f2
+index 00000000..cd3b541d
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,771 @@
+@@ -0,0 +1,936 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -151,6 +151,8 @@ index 00000000..c3fc48f2
 +#include "common/fs.h"
 +#include "common/system.h"
 +#include "common/textconsole.h"
++#include "common/tokenizer.h"
++#include "common/events.h"
 +#include "engines/engine.h"
 +#include "engines/util.h"
 +#include "graphics/cursorman.h"
@@ -164,12 +166,15 @@ index 00000000..c3fc48f2
 +namespace Scumm {
 +
 +// Packed pixel source: top two bits say what kind, the rest are coordinates.
++// An original pixel is either kept on purpose (text, effects, banners) or
++// shown because no HD image exists for it (kSrcFlatMissing, marked yellow).
 +enum {
-+	kSrcFlat   = 0u,
-+	kSrcRoom   = 1u << 30,
-+	kSrcObject = 2u << 30,
-+	kSrcCel    = 3u << 30,
-+	kSrcMask   = 3u << 30
++	kSrcFlat        = 0u,
++	kSrcFlatMissing = 1u,
++	kSrcRoom        = 1u << 30,
++	kSrcObject      = 2u << 30,
++	kSrcCel         = 3u << 30,
++	kSrcMask        = 3u << 30
 +};
 +
 +static inline uint32 packRoom(int rx, int ry) { return kSrcRoom | ((uint32)ry << 15) | (uint32)rx; }
@@ -179,6 +184,10 @@ index 00000000..c3fc48f2
 +static int envInt(const char *name, int def) {
 +	const char *v = getenv(name);
 +	return (v && *v) ? atoi(v) : def;
++}
++
++static bool confBool(const char *key) {
++	return ConfMan.hasKey(key) && ConfMan.getBool(key);
 +}
 +
 +void DigHD::Image::free() {
@@ -216,8 +225,34 @@ index 00000000..c3fc48f2
 +	_quitAt = envInt("DIGHD_QUIT_AT", -1);
 +	_skipVideo = envInt("DIGHD_SKIP_VIDEO", 0) != 0;
 +	_verify = envInt("DIGHD_VERIFY", 0) != 0;
++	_classic = envInt("DIGHD_CLASSIC", confBool("dighd_classic")) != 0;
++	_showMissing = envInt("DIGHD_SHOW_MISSING", confBool("dighd_show_missing")) != 0;
 +
-+	debug("DigHD: mod '%s', scale %d", _modPath.toString().c_str(), _scale);
++	// DIGHD_TEST_KEYS=400:ctrl+h,500:ctrl+shift+h presses keys at the given
++	// frames, so the hotkeys can be tested without a keyboard.
++	if (const char *keys = getenv("DIGHD_TEST_KEYS")) {
++		Common::String all(keys);
++		all.toLowercase();
++		Common::StringTokenizer tok(all, ", ");
++		while (!tok.empty()) {
++			const Common::String item = tok.nextToken();
++			const size_t colon = item.findFirstOf(':');
++			const char key = item.lastChar();
++			if (colon == Common::String::npos || colon == 0 || key < 'a' || key > 'z')
++				continue;
++			const Common::String combo = item.substr(colon + 1);
++			TestKey k;
++			k.frame = atoi(item.substr(0, colon).c_str());
++			k.keycode = (Common::KeyCode)(Common::KEYCODE_a + (key - 'a'));
++			k.flags = (combo.contains("ctrl+") ? Common::KBD_CTRL : 0) |
++			          (combo.contains("shift+") ? Common::KBD_SHIFT : 0) |
++			          (combo.contains("alt+") ? Common::KBD_ALT : 0);
++			_testKeys.push_back(k);
++		}
++	}
++
++	debug("DigHD: mod '%s', scale %d%s%s", _modPath.toString().c_str(), _scale,
++	      _classic ? ", classic graphics" : "", _showMissing ? ", missing HD in yellow" : "");
 +}
 +
 +DigHD::~DigHD() {
@@ -416,7 +451,7 @@ index 00000000..c3fc48f2
 +	if (!_passStarted) {
 +		// New drawing pass for this actor: its earlier cels are being replaced
 +		for (int i = 0; i < kCelSlotsPerActor; i++)
-+			base[i].used = false;
++			base[i].used = base[i].missing = false;
 +		_curCelCount = 0;
 +		_passStarted = true;
 +	}
@@ -427,6 +462,7 @@ index 00000000..c3fc48f2
 +	Image *img = celImage(_curCostume, cel, -1, -1);
 +	CelSlot &c = base[_curCelCount++];
 +	c.used = img != nullptr;
++	c.missing = img == nullptr;
 +	c.costume = _curCostume;
 +	c.cel = cel;
 +	c.image = img;
@@ -499,7 +535,9 @@ index 00000000..c3fc48f2
 +				    *((const byte *)_roomImage.idx.getBasePtr(rx, ry)) == idx) {
 +					source = packRoom(rx, ry);
 +				} else {
-+					// Most recently drawn object image that matches this pixel
++					// Most recently drawn object image that matches this pixel.
++					// Without one, this background pixel has no HD image.
++					source = kSrcFlatMissing;
 +					uint32 bestSeq = 0;
 +					for (uint i = 0; i < _drawn.size(); i++) {
 +						const DrawnObject &d = _drawn[i];
@@ -520,7 +558,46 @@ index 00000000..c3fc48f2
 +			_source[sy * _w + sx] = source;
 +		}
 +	}
++
++	if (mapping && _showMissing)
++		markMissingCels(vs, src, pitch, back, x, y, top, width, height);
 +	writeRect(x, y, width, height);
++}
++
++void DigHD::markMissingCels(VirtScreen *vs, const byte *src, int pitch, const byte *back, int x, int y, int top, int width, int height) {
++	// Only while the yellow marking is on. An original pixel drawn over the
++	// background inside a cel that has no HD image is a figure pixel without HD.
++	// Outside such cels it is text or an effect, original on purpose.
++	int missing[kMaxCelSlots];
++	int numMissing = 0;
++	for (int i = 0; i < kMaxCelSlots; i++)
++		if (_cels[i].missing)
++			missing[numMissing++] = i;
++	if (!numMissing)
++		return;
++
++	for (int r = 0; r < height; r++) {
++		const int sy = y + r;
++		if (sy < 0 || sy >= _h)
++			continue;
++		const byte *f = src + r * pitch;
++		const byte *b = back + r * vs->pitch;
++		const int ry = top + r;
++		for (int c = 0; c < width; c++) {
++			const int sx = x + c;
++			if (sx < 0 || sx >= _w || b[c] == f[c] || _source[sy * _w + sx] != kSrcFlat)
++				continue;
++			const int rx = vs->xstart + x + c;
++			for (int k = 0; k < numMissing; k++) {
++				const CelSlot &cs = _cels[missing[k]];
++				const int lx = rx - cs.rx, ly = ry - cs.ry;
++				if (lx >= 0 && ly >= 0 && lx < cs.rw && ly < cs.rh) {
++					_source[sy * _w + sx] = kSrcFlatMissing;
++					break;
++				}
++			}
++		}
++	}
 +}
 +
 +void DigHD::blit8(const byte *src, int pitch, int x, int y, int width, int height) {
@@ -540,13 +617,6 @@ index 00000000..c3fc48f2
 +}
 +
 +void DigHD::blitSmush(const byte *src, int pitch, int width, int height, const Common::String &file, int frame) {
-+	// Keep the 8-bit shadow up to date in any case (palette changes, dumps)
-+	for (int r = 0; r < height && r < _h; r++)
-+		for (int c = 0; c < width && c < _w; c++) {
-+			_shadow[r * _w + c] = src[r * pitch + c];
-+			_source[r * _w + c] = kSrcFlat;
-+		}
-+
 +	Common::String name = file;
 +	int slash = name.findLastOf('/');
 +	if (slash >= 0)
@@ -564,7 +634,18 @@ index 00000000..c3fc48f2
 +	// picture on screen is frame - 1 in the numbering used by the extractor
 +	// (verified against thedig-textures output with DIGHD_VERIFY).
 +	Common::FSNode node(_modPath.join(Common::String::format("san/%s/%05d.png", name.c_str(), frame - 1)));
-+	if (node.exists()) {
++	const bool haveFrame = node.exists();
++
++	// Keep the 8-bit shadow up to date in any case (palette changes, dumps,
++	// classic mode). A frame without an HD version lacks HD as a whole.
++	const uint32 flat = haveFrame ? kSrcFlat : kSrcFlatMissing;
++	for (int r = 0; r < height && r < _h; r++)
++		for (int c = 0; c < width && c < _w; c++) {
++			_shadow[r * _w + c] = src[r * pitch + c];
++			_source[r * _w + c] = flat;
++		}
++
++	if (haveFrame && !_classic) {
 +		::Image::PNGDecoder dec;
 +		Common::SeekableReadStream *s = node.createReadStream();
 +		if (s && dec.loadStream(*s) && dec.getSurface()->w == _w * _scale && dec.getSurface()->h == _h * _scale) {
@@ -616,9 +697,20 @@ index 00000000..c3fc48f2
 +	return _fmt.RGBToColor(c[0], c[1], c[2]);
 +}
 +
-+void DigHD::kindFlat(byte *out, int outPitch, byte idx) {
++// The original colour mixed half and half with yellow: marks a pixel without HD
++static inline uint32 missingColor(const Graphics::PixelFormat &fmt, const byte *rgb) {
++	return fmt.RGBToColor((rgb[0] + 255) >> 1, (rgb[1] + 255) >> 1, rgb[2] >> 1);
++}
++
++void DigHD::kindFlat(byte *out, int outPitch, byte idx, bool missing) {
 +	const int bpp = _fmt.bytesPerPixel;
-+	const uint32 col = _fmt.RGBToColor(_pal[idx * 3], _pal[idx * 3 + 1], _pal[idx * 3 + 2]);
++	uint32 col;
++	if (missing) {
++		col = missingColor(_fmt, _pal + idx * 3);
++		_statMissing++;
++	} else {
++		col = _fmt.RGBToColor(_pal[idx * 3], _pal[idx * 3 + 1], _pal[idx * 3 + 2]);
++	}
 +	for (int dy = 0; dy < _scale; dy++) {
 +		byte *o = out + dy * outPitch;
 +		for (int dx = 0; dx < _scale; dx++, o += bpp) {
@@ -632,6 +724,10 @@ index 00000000..c3fc48f2
 +	const int n = _scale;
 +	const int bpp = _fmt.bytesPerPixel;
 +	const int outPitch = width * n * bpp;
++	// Classic mode (and the verify pass) shows every pixel as the original pixel
++	const bool flatOnly = _forceFlat || _classic;
++	// Yellow marking of original pixels without HD; nothing is missing in classic mode
++	const bool showMissing = _showMissing && !flatOnly;
 +
 +	// Colours that are being cycled (water, energy, lights) change hue all the
 +	// time. An HD texture cannot follow that per pixel, so those pixels keep the
@@ -654,8 +750,15 @@ index 00000000..c3fc48f2
 +			const uint32 kind = src & kSrcMask;
 +			byte *out = _outBuf.data() + (r * n) * outPitch + (c * n) * bpp;
 +
-+			if (_forceFlat || kind == kSrcFlat || cycled[idx] || (kind == kSrcObject && (((src >> 22) & 0xFF) >= _drawn.size() || !_drawn[(src >> 22) & 0xFF].image))) {
-+				const uint32 col = _fmt.RGBToColor(_pal[idx * 3], _pal[idx * 3 + 1], _pal[idx * 3 + 2]);
++			if (flatOnly || kind == kSrcFlat || cycled[idx] || (kind == kSrcObject && (((src >> 22) & 0xFF) >= _drawn.size() || !_drawn[(src >> 22) & 0xFF].image))) {
++				uint32 col;
++				// Here an object source means an object without HD image
++				if (showMissing && !cycled[idx] && (src == kSrcFlatMissing || kind == kSrcObject)) {
++					col = missingColor(_fmt, _pal + idx * 3);
++					_statMissing++;
++				} else {
++					col = _fmt.RGBToColor(_pal[idx * 3], _pal[idx * 3 + 1], _pal[idx * 3 + 2]);
++				}
 +				for (int dy = 0; dy < n; dy++) {
 +					byte *o = out + dy * outPitch;
 +					for (int dx = 0; dx < n; dx++, o += bpp) {
@@ -669,7 +772,7 @@ index 00000000..c3fc48f2
 +			if (kind == kSrcCel) {
 +				const CelSlot &cs = _cels[(src >> 20) & 0x3FF];
 +				if (!cs.used || !cs.image) {
-+					kindFlat(out, outPitch, idx);
++					kindFlat(out, outPitch, idx, showMissing);
 +					continue;
 +				}
 +				const int lx = src & 0x3FF, ly = (src >> 10) & 0x3FF;
@@ -699,7 +802,8 @@ index 00000000..c3fc48f2
 +					}
 +				}
 +				if (wild) {
-+					kindFlat(out, outPitch, idx);
++					// Shadow or effect: original on purpose
++					kindFlat(out, outPitch, idx, false);
 +					continue;
 +				}
 +				const uint32 flatCol = _fmt.RGBToColor(shown[0], shown[1], shown[2]);
@@ -712,15 +816,15 @@ index 00000000..c3fc48f2
 +						if (cs.mirror)
 +							hx = cw * n - 1 - hx;
 +						hx = CLIP(hx, 0, cs.image->hd.w - 1);
-+						byte a, r, g, b;
-+						_rgba.colorToARGB(row[hx], a, r, g, b);
++						byte ha, hr, hg, hb;
++						_rgba.colorToARGB(row[hx], ha, hr, hg, hb);
 +						uint32 col;
-+						if (a < 128)
++						if (ha < 128)
 +							col = flatCol;
 +						else if (plain)
-+							col = _fmt.RGBToColor(r, g, b);
++							col = _fmt.RGBToColor(hr, hg, hb);
 +						else
-+							col = _fmt.RGBToColor(MIN(255, r * f[0] >> 8), MIN(255, g * f[1] >> 8), MIN(255, b * f[2] >> 8));
++							col = _fmt.RGBToColor(MIN(255, hr * f[0] >> 8), MIN(255, hg * f[1] >> 8), MIN(255, hb * f[2] >> 8));
 +						if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
 +					}
 +				}
@@ -833,21 +937,82 @@ index 00000000..c3fc48f2
 +		_vm->_fullRedraw = true;
 +	}
 +
++	for (uint i = 0; i < _testKeys.size(); i++) {
++		if (_testKeys[i].frame != (int)_frameNo)
++			continue;
++		// Goes through the engine's normal key handling on the next poll
++		Common::Event ev;
++		ev.type = Common::EVENT_KEYDOWN;
++		ev.kbd = Common::KeyState(_testKeys[i].keycode, _testKeys[i].keycode, _testKeys[i].flags);
++		g_system->getEventManager()->pushEvent(ev);
++		ev.type = Common::EVENT_KEYUP;
++		g_system->getEventManager()->pushEvent(ev);
++		debug("DigHD: test, key %d with flags %d at frame %u", (int)_testKeys[i].keycode, (int)_testKeys[i].flags, _frameNo);
++	}
++
 +	if (_dumpEvery > 0 && !_dumpDir.empty() && (_frameNo % _dumpEvery) == 0)
 +		dumpFrame();
 +
 +	if (_quitAt > 0 && (int)_frameNo >= _quitAt) {
-+		debug("DigHD: frame %u, HD room px %u, HD object px %u, HD sprite px %u, original px %u",
-+		      _frameNo, _statRoom, _statObject, _statCel, _statFlat);
++		debug("DigHD: frame %u, %s", _frameNo, statText().c_str());
 +		Engine::quitGame();
 +	}
++}
++
++bool DigHD::handleKey(const Common::KeyState &kbd, bool repeat) {
++	if (kbd.keycode != Common::KEYCODE_h)
++		return false;
++	if (kbd.hasFlags(Common::KBD_CTRL)) {
++		if (!repeat)
++			setClassic(!_classic);
++		return true;
++	}
++	if (kbd.hasFlags(Common::KBD_CTRL | Common::KBD_SHIFT)) {
++		if (!repeat)
++			setShowMissing(!_showMissing);
++		return true;
++	}
++	return false;
++}
++
++void DigHD::setClassic(bool on) {
++	_classic = on;
++	debug("DigHD: %s graphics", on ? "classic" : "HD");
++	g_system->displayMessageOnOSD(Common::U32String(on ? "Dig HD: klassisk grafikk" : "Dig HD: HD-grafikk"));
++	// Everything on screen is built again from the 8-bit picture right away
++	writeRect(0, 0, _w, _h);
++}
++
++void DigHD::setShowMissing(bool on) {
++	_showMissing = on;
++	debug("DigHD: missing HD in yellow %s", on ? "on" : "off");
++	g_system->displayMessageOnOSD(Common::U32String(on ? "Dig HD: gult der HD mangler" : "Dig HD: gult felt av"));
++	// Figures without HD are only looked for while the marking is on, so the
++	// game screen is sent through blitVirtScreen() again on the next frame.
++	if (on)
++		_vm->_virtscr[kMainVirtScreen].setDirtyRange(0, _vm->_virtscr[kMainVirtScreen].h);
++	writeRect(0, 0, _w, _h);
++}
++
++Common::String DigHD::statText() const {
++	Common::String s = Common::String::format("HD room px %u, HD object px %u, HD sprite px %u, original px %u",
++	                                          _statRoom, _statObject, _statCel, _statFlat);
++	if (_showMissing)
++		s += Common::String::format(", yellow px %u", _statMissing);
++	if (_classic)
++		s += ", classic";
++	return s;
 +}
 +
 +void DigHD::dumpFrame() {
 +	if (_verify) {
 +		// Compare the HD frame with a plain scaled-up frame. With a mod made with
 +		// "nearest" the two must match; large differences mean misplaced HD pixels.
++		// The yellow marking is left out of the comparison.
++		const bool showMissing = _showMissing;
++		_showMissing = false;
 +		compose(0, 0, _w, _h);
++		_showMissing = showMissing;
 +		Common::Array<byte> hdCopy = _outBuf;
 +		_forceFlat = true;
 +		compose(0, 0, _w, _h);
@@ -887,18 +1052,18 @@ index 00000000..c3fc48f2
 +		ws->finalize();
 +		delete ws;
 +	}
-+	debug("DigHD: dumped frame %u (room %d, smush %d) HD room px %u, HD object px %u, HD sprite px %u, original px %u",
-+	      _frameNo, (int)_vm->_currentRoom, (int)_vm->isSmushActive(), _statRoom, _statObject, _statCel, _statFlat);
-+	_statRoom = _statObject = _statCel = _statFlat = 0;
++	debug("DigHD: dumped frame %u (room %d, smush %d) %s",
++	      _frameNo, (int)_vm->_currentRoom, (int)_vm->isSmushActive(), statText().c_str());
++	_statRoom = _statObject = _statCel = _statFlat = _statMissing = 0;
 +}
 +
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..91cb28f4
+index 00000000..8f61b23a
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,169 @@
+@@ -0,0 +1,197 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -937,6 +1102,11 @@ index 00000000..91cb28f4
 + * the original 8-bit image shipped next to each HD image (*_idx.png). When
 + * the palette changes (fades, light switches, colour cycling), the HD pixel
 + * is tinted by the ratio between the current and the original colour.
++ *
++ * While playing, Ctrl+H switches between HD and classic graphics (the
++ * original pixels scaled up, same screen size) and Ctrl+Shift+H puts a
++ * yellow tint on pixels that are shown as original pixels because no HD
++ * image exists for them.
 + */
 +
 +#ifndef SCUMM_DIGHD_H
@@ -944,6 +1114,7 @@ index 00000000..91cb28f4
 +
 +#include "common/array.h"
 +#include "common/hashmap.h"
++#include "common/keyboard.h"
 +#include "common/path.h"
 +#include "common/str.h"
 +#include "graphics/pixelformat.h"
@@ -985,6 +1156,15 @@ index 00000000..91cb28f4
 +	/** Called right before OSystem::updateScreen(); handles frame dumps and test hooks. */
 +	void beforeUpdateScreen();
 +
++	/**
++	 * Hotkeys while the game runs: Ctrl+H switches between HD and classic
++	 * graphics, Ctrl+Shift+H turns the yellow marking of missing HD on and off.
++	 * Returns true when the key was used here and must not reach the game.
++	 */
++	bool handleKey(const Common::KeyState &kbd, bool repeat);
++	void setClassic(bool on);
++	void setShowMissing(bool on);
++
 +private:
 +	explicit DigHD(ScummEngine *vm);
 +
@@ -1003,6 +1183,7 @@ index 00000000..91cb28f4
 +		Image *image = nullptr;
 +		int rx = 0, ry = 0, rw = 0, rh = 0;  // on-screen rect in room coordinates
 +		bool mirror = false;
++		bool missing = false;  // drawn, but there is no HD image for this cel
 +		uint32 seq = 0;
 +	};
 +	enum { kCelSlotsPerActor = 32, kMaxCelSlots = 1024 };
@@ -1016,8 +1197,9 @@ index 00000000..91cb28f4
 +	bool loadImage(const Common::Path &hdFile, const Common::Path &idxFile, int origW, int origH, Image &out);
 +	void loadRoom(int room);
 +	void clearRoom();
++	void markMissingCels(VirtScreen *vs, const byte *src, int pitch, const byte *back, int x, int y, int top, int width, int height);
 +	void compose(int x, int y, int width, int height);
-+	void kindFlat(byte *out, int outPitch, byte idx);
++	void kindFlat(byte *out, int outPitch, byte idx, bool missing);
 +	void writeRect(int x, int y, int width, int height);
 +	void recomputeTint();
 +	uint32 tinted(uint32 rgba, byte idx, const byte *basePal) const;
@@ -1056,13 +1238,24 @@ index 00000000..91cb28f4
 +	Common::String _smushFile;
 +	Graphics::Surface _smushFrame;
 +
++	// Display modes (hotkeys, DIGHD_CLASSIC, DIGHD_SHOW_MISSING)
++	bool _classic = false;      // every pixel is the original pixel scaled up
++	bool _showMissing = false;  // yellow tint where HD is missing
++
 +	// Test and debug hooks (environment variables)
++	struct TestKey {
++		int frame;
++		Common::KeyCode keycode;
++		byte flags;
++	};
++	Common::Array<TestKey> _testKeys;  // DIGHD_TEST_KEYS
 +	uint32 _frameNo = 0;
 +	Common::Path _dumpDir;
 +	int _dumpEvery = 0;
 +	int _testRoom = -1, _testAt = -1, _testCamX = -1, _quitAt = -1;
 +	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false;
-+	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statFlat = 0;
++	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statFlat = 0, _statMissing = 0;
++	Common::String statText() const;
 +};
 +
 +} // End of namespace Scumm
@@ -1159,7 +1352,7 @@ index bf85f13c..29f747f6 100644
  	while (now >= _shakeNextTick) {
  		_shakeFrame = (_shakeFrame + 1) % NUM_SHAKE_POSITIONS;
 diff --git a/engines/scumm/input.cpp b/engines/scumm/input.cpp
-index 3525910f..217950f6 100644
+index 3525910f..3e0fa77b 100644
 --- a/engines/scumm/input.cpp
 +++ b/engines/scumm/input.cpp
 @@ -28,6 +28,7 @@
@@ -1170,7 +1363,18 @@ index 3525910f..217950f6 100644
  #include "scumm/dialogs.h"
  #include "scumm/insane/insane.h"
  #include "scumm/imuse/imuse.h"
-@@ -255,6 +256,11 @@ void ScummEngine::parseEvent(Common::Event event) {
+@@ -134,6 +135,10 @@ void ScummEngine::parseEvent(Common::Event event) {
+ 
+ 
+ 	case Common::EVENT_KEYDOWN:
++		// Dig HD hotkeys (Ctrl+H, Ctrl+Shift+H) never reach the game
++		if (_digHD && _digHD->handleKey(event.kbd, event.kbdRepeat))
++			break;
++
+ 		if (event.kbd.keycode >= Common::KEYCODE_0 && event.kbd.keycode <= Common::KEYCODE_9 &&
+ 			((event.kbd.hasFlags(Common::KBD_ALT) && canSaveGameStateCurrently()) ||
+ 			(event.kbd.hasFlags(Common::KBD_CTRL) && canLoadGameStateCurrently()))) {
+@@ -255,6 +260,11 @@ void ScummEngine::parseEvent(Common::Event event) {
  			_mouse.y -= _macScreenDrawOffset;
  		}
  
