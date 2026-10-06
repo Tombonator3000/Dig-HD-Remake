@@ -1,26 +1,27 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-06 23:56 (norsk tid)
+Oppdatert 2026-10-07 00:40 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
 ## Status
 
-- Jobber: 162. godkjent 4, ny 158
+- Jobber: 192. godkjent 4, ny 188
 - Ferdige rom: 3 av 106 (9, 22, 28)
+- Ferdige objekter: 0 av 30
 
 ## Gjør disse nå
 
-1. `rom002_del2av3` (rom 2, cockpit, del 2/3).
-2. `rom002_del3av3` (rom 2, cockpit, del 3/3).
-3. `rom003` (rom 3, klein, del 1/1).
-4. `rom004` (rom 4, ast1, del 1/1).
-5. `rom005` (rom 5, ast2, del 1/1).
-6. `rom006` (rom 6, ast3, del 1/1).
-7. `rom007` (rom 7, ast4, del 1/1).
-8. `rom008` (rom 8, ast5, del 1/1).
-9. `rom010_del1av2` (rom 10, tun1, del 1/2).
-10. `rom010_del2av2` (rom 10, tun1, del 2/2).
+1. `obj241_01` (rom 28, shardcu, objekt 241 tilstand 01, del 1/1).
+2. `rom002_del2av3` (rom 2, cockpit, del 2/3).
+3. `rom002_del3av3` (rom 2, cockpit, del 3/3).
+4. `rom003` (rom 3, klein, del 1/1).
+5. `rom004` (rom 4, ast1, del 1/1).
+6. `rom005` (rom 5, ast2, del 1/1).
+7. `rom006` (rom 6, ast3, del 1/1).
+8. `rom007` (rom 7, ast4, del 1/1).
+9. `rom008` (rom 8, ast5, del 1/1).
+10. `rom010_del1av2` (rom 10, tun1, del 1/2).
 
 ## Stilankere
 
@@ -36,13 +37,15 @@ Begge formatene godtas av kontrollen:
 - `resultat.png` på 1536 x 1024 med samme grå kant som `referanse.png`.
 - `resultat.png` med bare bildet, i samme sideforhold som utsnittet (16:10 for vanlige rom, minst 1280 x 800). Slik pilotbildene ble levert.
 
+Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, paneler). De lages og leveres på samme måte. Utsnittet er da objektbildet, så leverer du bare bildet, skal det ha objektets sideforhold (se `bilde_i_lerret` i `jobb.json`).
+
 Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.
 
 ## Beskjeder
 
-- Rom 2 del 1, rom 22 og rom 28 er godkjent. Takk. Rom 22 beholdes som piloten fra Codex (se notat.md i jobben), så ikke lag den på nytt.
-- Leveransen ble laget fra en eldre utgave av grenen (560d654) uten stilankere. Kjør git pull før hver økt, les ORDRE.md og legg ved stilankeret fra stil/ som bilde to.
-- Ikke legg til nye stjerner, lyspunkter eller vann der originalen ikke har det. Tonevariasjon i den grå kanten er greit, den skjæres bort. Du kan også levere bare bildet i 16:10.
+- Nytt: 30 objektjobber (objNNN_SS). Det er store bilder spillet tegner over rommet, som nærbilder, kart og den blå trikken. De lages akkurat som romjobbene. obj241_01 (tavla i rom 28) står først fordi rom 28 er ferdig.
+- Objekter med flere tilstander (obj884 og obj886): lag tilstand 01 først. For de andre tilstandene legger du ved resultat.png fra tilstand 01 som bilde to i stedet for stilankeret. Claude gjør resten likt automatisk.
+- Kjør git pull før hver økt og les ORDRE.md. Ikke legg til stjerner, lyspunkter eller vann som ikke finnes i originalen. Kodehjelp og test på laptopen står under Kodeoppgaver når det trengs.
 
 ## Neste sjekk
 
