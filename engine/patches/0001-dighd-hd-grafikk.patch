@@ -1,0 +1,1409 @@
+diff --git a/engines/scumm/akos.cpp b/engines/scumm/akos.cpp
+index 8333a7ed..53d26fdd 100644
+--- a/engines/scumm/akos.cpp
++++ b/engines/scumm/akos.cpp
+@@ -20,6 +20,7 @@
+  */
+ 
+ #include "scumm/scumm.h"
++#include "scumm/dighd.h"
+ #include "scumm/actor.h"
+ #include "scumm/akos.h"
+ #include "scumm/bomp.h"
+@@ -368,6 +369,7 @@ byte AkosRenderer::drawLimb(const Actor *a, int limb) {
+ 		_srcPtr = _akcd + READ_LE_UINT32(&off->akcd);
+ 		costumeInfo = (const CostumeInfo *) (_akci + READ_LE_UINT16(&off->akci));
+ 
++		_digCel = code & AKC_CelMask;
+ 		_width = READ_LE_UINT16(&costumeInfo->width);
+ 		_height = READ_LE_UINT16(&costumeInfo->height);
+ 		xMoveCur = _xMove + (int16)READ_LE_UINT16(&costumeInfo->relX);
+@@ -408,6 +410,7 @@ byte AkosRenderer::drawLimb(const Actor *a, int limb) {
+ 			_srcPtr = _akcd + READ_LE_UINT32(&off->akcd);
+ 			costumeInfo = (const CostumeInfo *) (_akci + READ_LE_UINT16(&off->akci));
+ 
++			_digCel = code & 0xFFF;
+ 			_width = READ_LE_UINT16(&costumeInfo->width);
+ 			_height = READ_LE_UINT16(&costumeInfo->height);
+ 
+@@ -635,6 +638,10 @@ byte AkosRenderer::paintCelByleRLE(int xMoveCur, int yMoveCur) {
+ 
+ 	byleRLEDecode(compData, _actorHitX, _actorHitY, _actorHitMode ? &_actorHitResult : nullptr, _xmap);
+ 
++	if (_vm->_digHD && !_actorHitMode)
++		_vm->_digHD->noteCel(_digCel, _digRect.left, _digRect.top, _digRect.width(), _digRect.height(),
++		                     !_drawActorToRight, _vm->_virtscr[kMainVirtScreen].xstart);
++
+ 	return drawFlag;
+ }
+ 
+@@ -663,6 +670,7 @@ void AkosRenderer::markAsDirty(const Common::Rect &rect, ByleRLEData &compData,
+ 			decode = false;
+ 	} else {
+ 		markRectAsDirty(rect);
++		_digRect = rect;
+ 
+ 		if (_vm->_game.heversion >= 71) {
+ 			ActorHE *a = (ActorHE *)_vm->derefActor(_actorID, "paintCelByleRLE");
+@@ -733,6 +741,9 @@ byte AkosRenderer::paintCelCDATRLE(int xmoveCur, int ymoveCur) {
+ 
+ 	drawBomp(bdd);
+ 
++	if (_vm->_digHD)
++		_vm->_digHD->noteCel(_digCel, bdd.x, bdd.y, _width, _height, bdd.mirror, _vm->_virtscr[kMainVirtScreen].xstart);
++
+ 	_useBompPalette = false;
+ 
+ 	return 0;
+diff --git a/engines/scumm/akos.h b/engines/scumm/akos.h
+index dcfe41db..bd1264b6 100644
+--- a/engines/scumm/akos.h
++++ b/engines/scumm/akos.h
+@@ -67,6 +67,8 @@ protected:
+ 	uint16 _codec = 0;
+ 
+ 	bool _useBompPalette;
++	int _digCel = 0;            // Dig HD: cel being painted
++	Common::Rect _digRect;      // Dig HD: unclipped rect of the BYLE cel
+ 
+ 	// pointer to various parts of the costume resource
+ 	const AkosHeader *_akhd; // Header
+diff --git a/engines/scumm/base-costume.cpp b/engines/scumm/base-costume.cpp
+index d93b33e2..16e08e92 100644
+--- a/engines/scumm/base-costume.cpp
++++ b/engines/scumm/base-costume.cpp
+@@ -24,6 +24,9 @@
+ 
+ #include "common/textconsole.h"
+ #include "scumm/base-costume.h"
++#include "scumm/dighd.h"
++#include "scumm/scumm.h"
++#include "scumm/actor.h"
+ #include "scumm/util.h"
+ 
+ namespace Scumm {
+@@ -32,6 +35,9 @@ byte BaseCostumeRenderer::drawCostume(const VirtScreen &vs, int numStrips, const
+ 	int i;
+ 	byte result = 0;
+ 
++	if (_vm->_digHD && _akosRendering)
++		_vm->_digHD->beginActor(a->_number, a->_costume);
++
+ 	_out = vs;
+ 	if (drawToBackBuf)
+ 		_out.setPixels(vs.getBackPixels(0, 0));
+diff --git a/engines/scumm/cursor.cpp b/engines/scumm/cursor.cpp
+index 21938706..3b478c6a 100644
+--- a/engines/scumm/cursor.cpp
++++ b/engines/scumm/cursor.cpp
+@@ -28,6 +28,7 @@
+ #include "graphics/wincursor.h"
+ #endif
+ #include "scumm/bomp.h"
++#include "scumm/dighd.h"
+ #include "scumm/charset.h"
+ #include "scumm/he/intern_he.h"
+ #include "scumm/object.h"
+@@ -570,6 +571,11 @@ void ScummEngine_v7::updateCursor() {
+ 	if (_macScreen)
+ 		mac_scaleCursor(cursor, hotspotX, hotspotY, width, height);
+ 
++	if (_digHD) {
++		_digHD->updateCursor(cursor, width, height, hotspotX, hotspotY, transColor);
++		return;
++	}
++
+ 	Graphics::PixelFormat format = _system->getScreenFormat();
+ 	CursorMan.replaceCursor(cursor, width, height,
+ 							hotspotX, hotspotY,
+diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
+new file mode 100644
+index 00000000..c3fc48f2
+--- /dev/null
++++ b/engines/scumm/dighd.cpp
+@@ -0,0 +1,771 @@
++/* ScummVM - Graphic Adventure Engine
++ *
++ * ScummVM is the legal property of its developers, whose names
++ * are too numerous to list here. Please refer to the COPYRIGHT
++ * file distributed with this source distribution.
++ *
++ * This program is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ *
++ */
++
++#define FORBIDDEN_SYMBOL_EXCEPTION_getenv
++
++#include "common/config-manager.h"
++#include "common/debug.h"
++#include "common/file.h"
++#include "common/fs.h"
++#include "common/system.h"
++#include "common/textconsole.h"
++#include "engines/engine.h"
++#include "engines/util.h"
++#include "graphics/cursorman.h"
++#include "image/png.h"
++
++#include "scumm/dighd.h"
++#include "scumm/gfx.h"
++#include "scumm/scumm.h"
++#include "scumm/scumm_v7.h"
++
++namespace Scumm {
++
++// Packed pixel source: top two bits say what kind, the rest are coordinates.
++enum {
++	kSrcFlat   = 0u,
++	kSrcRoom   = 1u << 30,
++	kSrcObject = 2u << 30,
++	kSrcCel    = 3u << 30,
++	kSrcMask   = 3u << 30
++};
++
++static inline uint32 packRoom(int rx, int ry) { return kSrcRoom | ((uint32)ry << 15) | (uint32)rx; }
++static inline uint32 packObject(int slot, int ox, int oy) { return kSrcObject | ((uint32)slot << 22) | ((uint32)oy << 11) | (uint32)ox; }
++static inline uint32 packCel(int slot, int lx, int ly) { return kSrcCel | ((uint32)slot << 20) | ((uint32)ly << 10) | (uint32)lx; }
++
++static int envInt(const char *name, int def) {
++	const char *v = getenv(name);
++	return (v && *v) ? atoi(v) : def;
++}
++
++void DigHD::Image::free() {
++	hd.free();
++	idx.free();
++	transparent = -1;
++}
++
++DigHD *DigHD::create(ScummEngine *vm) {
++	if (vm->_game.id != GID_DIG)
++		return nullptr;
++	Common::String mod = ConfMan.get("dighd_mod");
++	if (const char *env = getenv("DIGHD_MOD"))
++		mod = env;
++	if (mod.empty())
++		return nullptr;
++	return new DigHD(vm);
++}
++
++DigHD::DigHD(ScummEngine *vm) : _vm(vm) {
++	Common::String mod = ConfMan.get("dighd_mod");
++	if (const char *env = getenv("DIGHD_MOD"))
++		mod = env;
++	_modPath = Common::Path(mod, '/');
++	_scale = CLIP(envInt("DIGHD_SCALE", ConfMan.hasKey("dighd_scale") ? ConfMan.getInt("dighd_scale") : 4), 1, 8);
++	_rgba = Graphics::PixelFormat::createFormatRGBA32();
++	memset(_pal, 0, sizeof(_pal));
++
++	if (const char *d = getenv("DIGHD_DUMP_DIR"))
++		_dumpDir = Common::Path(d, '/');
++	_dumpEvery = envInt("DIGHD_DUMP_EVERY", 0);
++	_testRoom = envInt("DIGHD_TEST_ROOM", -1);
++	_testAt = envInt("DIGHD_TEST_AT", 60);
++	_testCamX = envInt("DIGHD_TEST_CAMX", -1);
++	_quitAt = envInt("DIGHD_QUIT_AT", -1);
++	_skipVideo = envInt("DIGHD_SKIP_VIDEO", 0) != 0;
++	_verify = envInt("DIGHD_VERIFY", 0) != 0;
++
++	debug("DigHD: mod '%s', scale %d", _modPath.toString().c_str(), _scale);
++}
++
++DigHD::~DigHD() {
++	clearRoom();
++	_smushFrame.free();
++}
++
++bool DigHD::initGraphics(int width, int height) {
++	_w = width;
++	_h = height;
++	_shadow.resize(_w * _h);
++	_source.resize(_w * _h);
++	memset(_shadow.data(), 0, _shadow.size());
++	memset(_source.data(), 0, _source.size() * sizeof(uint32));
++
++	// Prefer a 32 bit mode, fall back to 16 bit.
++	Common::List<Graphics::PixelFormat> formats = g_system->getSupportedFormats();
++	Graphics::PixelFormat chosen;
++	for (const Graphics::PixelFormat &f : formats) {
++		if (f.bytesPerPixel == 4) {
++			chosen = f;
++			break;
++		}
++	}
++	if (chosen.bytesPerPixel != 4) {
++		for (const Graphics::PixelFormat &f : formats) {
++			if (f.bytesPerPixel == 2) {
++				chosen = f;
++				break;
++			}
++		}
++	}
++	if (chosen.bytesPerPixel < 2) {
++		warning("DigHD: no RGB screen mode available");
++		return false;
++	}
++	::initGraphics(_w * _scale, _h * _scale, &chosen);
++	_fmt = g_system->getScreenFormat();
++	if (_fmt.bytesPerPixel < 2) {
++		warning("DigHD: backend refused RGB mode");
++		return false;
++	}
++	_outBuf.resize(_w * _scale * _h * _scale * _fmt.bytesPerPixel);
++	debug("DigHD: screen %dx%d, %d bytes per pixel", _w * _scale, _h * _scale, _fmt.bytesPerPixel);
++	return true;
++}
++
++// ---------------------------------------------------------------- loading
++
++bool DigHD::loadImage(const Common::Path &hdFile, const Common::Path &idxFile, int origW, int origH, Image &out) {
++	Common::FSNode hdNode(_modPath.join(hdFile));
++	Common::FSNode idxNode(_modPath.join(idxFile));
++	if (!hdNode.exists() || !idxNode.exists())
++		return false;
++
++	::Image::PNGDecoder idxDec;
++	idxDec.setKeepTransparencyPaletted(true);
++	Common::SeekableReadStream *s = idxNode.createReadStream();
++	bool ok = s && idxDec.loadStream(*s);
++	delete s;
++	if (!ok || idxDec.getSurface()->format.bytesPerPixel != 1) {
++		warning("DigHD: %s is not an 8-bit indexed PNG", idxFile.toString().c_str());
++		return false;
++	}
++	const Graphics::Surface *is = idxDec.getSurface();
++	if ((origW > 0 && is->w != origW) || (origH > 0 && is->h != origH)) {
++		warning("DigHD: %s is %dx%d, expected %dx%d", idxFile.toString().c_str(), is->w, is->h, origW, origH);
++		return false;
++	}
++
++	::Image::PNGDecoder hdDec;
++	s = hdNode.createReadStream();
++	ok = s && hdDec.loadStream(*s);
++	delete s;
++	if (!ok)
++		return false;
++	const Graphics::Surface *hs = hdDec.getSurface();
++	if (hs->w != is->w * _scale || hs->h != is->h * _scale) {
++		warning("DigHD: %s is %dx%d, expected %dx%d", hdFile.toString().c_str(), hs->w, hs->h, is->w * _scale, is->h * _scale);
++		return false;
++	}
++
++	out.free();
++	out.idx.copyFrom(*is);
++	memset(out.basePal, 0, sizeof(out.basePal));
++	const Graphics::Palette &pal = idxDec.getPalette();
++	memcpy(out.basePal, pal.data(), MIN<uint>(pal.size() * 3, sizeof(out.basePal)));
++	out.transparent = idxDec.hasTransparentColor() ? (int)idxDec.getTransparentColor() : -1;
++
++	const Graphics::Palette &hpal = hdDec.getPalette();
++	Graphics::Surface *conv = hs->convertTo(_rgba, hpal.size() ? hpal.data() : nullptr, hpal.size());
++	out.hd.copyFrom(*conv);
++	conv->free();
++	delete conv;
++	return true;
++}
++
++void DigHD::clearRoom() {
++	_roomImage.free();
++	for (auto &it : _objectImages) {
++		if (it._value) {
++			it._value->free();
++			delete it._value;
++		}
++	}
++	_objectImages.clear();
++	_drawn.clear();
++	for (auto &it : _celImages) {
++		if (it._value) {
++			it._value->free();
++			delete it._value;
++		}
++	}
++	_celImages.clear();
++	for (int i = 0; i < kMaxCelSlots; i++)
++		_cels[i] = CelSlot();
++	_room = -1;
++}
++
++void DigHD::loadRoom(int room) {
++	clearRoom();
++	_room = room;
++	Common::Path hd(Common::String::format("rooms/room%03d.png", room));
++	Common::Path idx(Common::String::format("rooms/room%03d_idx.png", room));
++	if (loadImage(hd, idx, _vm->_roomWidth, _vm->_roomHeight, _roomImage))
++		debug("DigHD: room %d loaded (%dx%d)", room, _roomImage.hd.w, _roomImage.hd.h);
++	else
++		debug("DigHD: no HD background for room %d", room);
++}
++
++void DigHD::noteObject(int obj, int state, int x, int y, int width, int height) {
++	if (_vm->_currentRoom != _room)
++		loadRoom(_vm->_currentRoom);
++	if (state <= 0)
++		return;
++
++	uint32 key = ((uint32)obj << 8) | (uint32)state;
++	Image *img = nullptr;
++	if (!_objectImages.tryGetVal(key, img)) {
++		img = new Image();
++		Common::Path hd(Common::String::format("objects/obj%03d_%02X.png", obj, state));
++		Common::Path idx(Common::String::format("objects/obj%03d_%02X_idx.png", obj, state));
++		if (!loadImage(hd, idx, width, height, *img)) {
++			delete img;
++			img = nullptr;
++		}
++		_objectImages[key] = img;
++	}
++
++	// One stable slot per object for the current room. The slot index is
++	// stored per pixel, so slots are never moved or removed until the room changes.
++	for (uint i = 0; i < _drawn.size(); i++) {
++		if (_drawn[i].obj == obj) {
++			_drawn[i].state = state;
++			_drawn[i].x = x;
++			_drawn[i].y = y;
++			_drawn[i].image = img;
++			_drawn[i].seq = ++_seq;
++			return;
++		}
++	}
++	if (_drawn.size() < 255) {
++		DrawnObject d = { obj, state, x, y, img, ++_seq };
++		_drawn.push_back(d);
++	}
++}
++
++DigHD::Image *DigHD::celImage(int costume, int cel, int width, int height) {
++	const uint32 key = ((uint32)costume << 12) | (uint32)cel;
++	Image *img = nullptr;
++	if (_celImages.tryGetVal(key, img))
++		return img;
++	img = new Image();
++	Common::Path hd(Common::String::format("costumes/costume%03d_%03d.png", costume, cel));
++	Common::Path idx(Common::String::format("costumes/costume%03d_%03d_idx.png", costume, cel));
++	if (!loadImage(hd, idx, width, height, *img)) {
++		delete img;
++		img = nullptr;
++	}
++	_celImages[key] = img;
++	return img;
++}
++
++void DigHD::beginActor(int actor, int costume) {
++	_curActor = actor;
++	_curCostume = costume;
++	_passStarted = false;
++}
++
++void DigHD::noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart) {
++	if (_curActor < 0 || _curActor * kCelSlotsPerActor >= kMaxCelSlots || width <= 0 || height <= 0)
++		return;
++	if (_vm->_currentRoom != _room)
++		loadRoom(_vm->_currentRoom);
++	CelSlot *base = &_cels[_curActor * kCelSlotsPerActor];
++	if (!_passStarted) {
++		// New drawing pass for this actor: its earlier cels are being replaced
++		for (int i = 0; i < kCelSlotsPerActor; i++)
++			base[i].used = false;
++		_curCelCount = 0;
++		_passStarted = true;
++	}
++	if (_curCelCount >= kCelSlotsPerActor)
++		return;
++
++	// The cel's size in the costume (unscaled) comes from the original image
++	Image *img = celImage(_curCostume, cel, -1, -1);
++	CelSlot &c = base[_curCelCount++];
++	c.used = img != nullptr;
++	c.costume = _curCostume;
++	c.cel = cel;
++	c.image = img;
++	// The renderer draws into a buffer shifted by (xstart & 7); convert to room coordinates
++	c.rx = left - (xstart & 7) + xstart;
++	c.ry = top;
++	c.rw = width;
++	c.rh = height;
++	c.mirror = mirror;
++	c.seq = ++_seq;
++}
++
++// ---------------------------------------------------------------- blits
++
++void DigHD::blitVirtScreen(VirtScreen *vs, const byte *src, int pitch, int x, int y, int top, int width, int height) {
++	if (_vm->_currentRoom != _room)
++		loadRoom(_vm->_currentRoom);
++
++	const bool mapping = vs->number == kMainVirtScreen && vs->hasTwoBuffers && !_vm->isSmushActive();
++	const byte *back = mapping ? vs->getBackPixels(x, top) : nullptr;
++	const bool haveRoom = mapping && _roomImage.valid();
++	const int roomW = haveRoom ? _roomImage.idx.w : 0;
++	const int roomH = haveRoom ? _roomImage.idx.h : 0;
++
++	int active[kMaxCelSlots];
++	int numActive = 0;
++	if (mapping)
++		for (int i = 0; i < kMaxCelSlots; i++)
++			if (_cels[i].used)
++				active[numActive++] = i;
++
++	for (int r = 0; r < height; r++) {
++		const int sy = y + r;
++		if (sy < 0 || sy >= _h)
++			continue;
++		const byte *f = src + r * pitch;
++		const byte *b = back ? back + r * vs->pitch : nullptr;
++		const int ry = top + r;
++		for (int c = 0; c < width; c++) {
++			const int sx = x + c;
++			if (sx < 0 || sx >= _w)
++				continue;
++			const byte idx = f[c];
++			uint32 source = kSrcFlat;
++
++			if (b && b[c] != idx && numActive) {
++				// Something was drawn over the background: is it a costume cel?
++				const int rx = vs->xstart + x + c;
++				uint32 bestSeq = 0;
++				for (int k = 0; k < numActive; k++) {
++					const CelSlot &cs = _cels[active[k]];
++					if (cs.seq < bestSeq)
++						continue;
++					const int lx = rx - cs.rx, ly = ry - cs.ry;
++					if (lx < 0 || ly < 0 || lx >= cs.rw || ly >= cs.rh || lx >= 1024 || ly >= 1024)
++						continue;
++					int cx = lx * cs.image->idx.w / cs.rw;
++					const int cy = ly * cs.image->idx.h / cs.rh;
++					if (cs.mirror)
++						cx = cs.image->idx.w - 1 - cx;
++					const byte code = *((const byte *)cs.image->idx.getBasePtr(cx, cy));
++					if ((int)code != cs.image->transparent) {
++						source = packCel(active[k], lx, ly);
++						bestSeq = cs.seq;
++					}
++				}
++			} else if (b && b[c] == idx) {
++				const int rx = vs->xstart + x + c;
++				if (haveRoom && rx >= 0 && rx < roomW && ry >= 0 && ry < roomH &&
++				    *((const byte *)_roomImage.idx.getBasePtr(rx, ry)) == idx) {
++					source = packRoom(rx, ry);
++				} else {
++					// Most recently drawn object image that matches this pixel
++					uint32 bestSeq = 0;
++					for (uint i = 0; i < _drawn.size(); i++) {
++						const DrawnObject &d = _drawn[i];
++						if (!d.image || d.seq < bestSeq)
++							continue;
++						const int ox = rx - d.x, oy = ry - d.y;
++						if (ox < 0 || oy < 0 || ox >= d.image->idx.w || oy >= d.image->idx.h)
++							continue;
++						const byte oi = *((const byte *)d.image->idx.getBasePtr(ox, oy));
++						if (oi == idx && (int)oi != d.image->transparent) {
++							source = packObject(i, ox, oy);
++							bestSeq = d.seq;
++						}
++					}
++				}
++			}
++			_shadow[sy * _w + sx] = idx;
++			_source[sy * _w + sx] = source;
++		}
++	}
++	writeRect(x, y, width, height);
++}
++
++void DigHD::blit8(const byte *src, int pitch, int x, int y, int width, int height) {
++	for (int r = 0; r < height; r++) {
++		const int sy = y + r;
++		if (sy < 0 || sy >= _h)
++			continue;
++		for (int c = 0; c < width; c++) {
++			const int sx = x + c;
++			if (sx < 0 || sx >= _w)
++				continue;
++			_shadow[sy * _w + sx] = src[r * pitch + c];
++			_source[sy * _w + sx] = kSrcFlat;
++		}
++	}
++	writeRect(x, y, width, height);
++}
++
++void DigHD::blitSmush(const byte *src, int pitch, int width, int height, const Common::String &file, int frame) {
++	// Keep the 8-bit shadow up to date in any case (palette changes, dumps)
++	for (int r = 0; r < height && r < _h; r++)
++		for (int c = 0; c < width && c < _w; c++) {
++			_shadow[r * _w + c] = src[r * pitch + c];
++			_source[r * _w + c] = kSrcFlat;
++		}
++
++	Common::String name = file;
++	int slash = name.findLastOf('/');
++	if (slash >= 0)
++		name = name.substr(slash + 1);
++	int dot = name.findLastOf('.');
++	if (dot >= 0)
++		name = name.substr(0, dot);
++	name.toUppercase();
++	if (name != _smushFile) {
++		_smushFile = name;
++		debug("DigHD: film %s", name.c_str());
++	}
++
++	// SmushPlayer has already counted the frame when it is shown, so the
++	// picture on screen is frame - 1 in the numbering used by the extractor
++	// (verified against thedig-textures output with DIGHD_VERIFY).
++	Common::FSNode node(_modPath.join(Common::String::format("san/%s/%05d.png", name.c_str(), frame - 1)));
++	if (node.exists()) {
++		::Image::PNGDecoder dec;
++		Common::SeekableReadStream *s = node.createReadStream();
++		if (s && dec.loadStream(*s) && dec.getSurface()->w == _w * _scale && dec.getSurface()->h == _h * _scale) {
++			const Graphics::Palette &fpal = dec.getPalette();
++			Graphics::Surface *conv = dec.getSurface()->convertTo(_fmt, fpal.size() ? fpal.data() : nullptr, fpal.size());
++			if (_verify) {
++				// Does the HD frame show the same picture as the original frame?
++				// A high share of differences means the frame numbers are shifted.
++				uint32 bad = 0, n = 0;
++				for (int vy = 0; vy < MIN(height, _h); vy += 4) {
++					for (int vx = 0; vx < MIN(width, _w); vx += 4, n++) {
++						const byte i = src[vy * pitch + vx];
++						const uint32 c = _fmt.bytesPerPixel == 4
++							? READ_UINT32(conv->getBasePtr(vx * _scale + _scale / 2, vy * _scale + _scale / 2))
++							: READ_UINT16(conv->getBasePtr(vx * _scale + _scale / 2, vy * _scale + _scale / 2));
++						byte r, g, b;
++						_fmt.colorToRGB(c, r, g, b);
++						if (ABS(r - _pal[i * 3]) > 48 || ABS(g - _pal[i * 3 + 1]) > 48 || ABS(b - _pal[i * 3 + 2]) > 48)
++							bad++;
++					}
++				}
++				debug("DigHD: verify SAN %s frame %d: %u of %u samples differ", name.c_str(), frame - 1, bad, n);
++			}
++			g_system->copyRectToScreen(conv->getPixels(), conv->pitch, 0, 0, conv->w, conv->h);
++			conv->free();
++			delete conv;
++			delete s;
++			return;
++		}
++		delete s;
++	}
++	writeRect(0, 0, MIN(width, _w), MIN(height, _h));
++}
++
++// ---------------------------------------------------------------- composing
++
++uint32 DigHD::tinted(uint32 rgba, byte idx, const byte *basePal) const {
++	byte a, r, g, b;
++	_rgba.colorToARGB(rgba, a, r, g, b);
++	const byte *cur = _pal + idx * 3;
++	const byte *base = basePal + idx * 3;
++	if (cur[0] == base[0] && cur[1] == base[1] && cur[2] == base[2])
++		return _fmt.RGBToColor(r, g, b);
++	// Scale each channel by current/original; a channel that was black in the
++	// original cannot be scaled, so it takes the current colour directly.
++	int c[3] = { r, g, b };
++	for (int k = 0; k < 3; k++)
++		c[k] = base[k] ? MIN(255, c[k] * cur[k] / base[k]) : cur[k];
++	return _fmt.RGBToColor(c[0], c[1], c[2]);
++}
++
++void DigHD::kindFlat(byte *out, int outPitch, byte idx) {
++	const int bpp = _fmt.bytesPerPixel;
++	const uint32 col = _fmt.RGBToColor(_pal[idx * 3], _pal[idx * 3 + 1], _pal[idx * 3 + 2]);
++	for (int dy = 0; dy < _scale; dy++) {
++		byte *o = out + dy * outPitch;
++		for (int dx = 0; dx < _scale; dx++, o += bpp) {
++			if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
++		}
++	}
++	_statFlat++;
++}
++
++void DigHD::compose(int x, int y, int width, int height) {
++	const int n = _scale;
++	const int bpp = _fmt.bytesPerPixel;
++	const int outPitch = width * n * bpp;
++
++	// Colours that are being cycled (water, energy, lights) change hue all the
++	// time. An HD texture cannot follow that per pixel, so those pixels keep the
++	// original animated colour.
++	bool cycled[256];
++	memset(cycled, 0, sizeof(cycled));
++	for (int i = 0; i < 16; i++) {
++		const ColorCycle &cc = _vm->_colorCycle[i];
++		if (cc.delay && cc.start <= cc.end)
++			for (int k = cc.start; k <= cc.end; k++)
++				cycled[k] = true;
++	}
++
++	for (int r = 0; r < height; r++) {
++		const int sy = y + r;
++		for (int c = 0; c < width; c++) {
++			const int sx = x + c;
++			const byte idx = _shadow[sy * _w + sx];
++			const uint32 src = _source[sy * _w + sx];
++			const uint32 kind = src & kSrcMask;
++			byte *out = _outBuf.data() + (r * n) * outPitch + (c * n) * bpp;
++
++			if (_forceFlat || kind == kSrcFlat || cycled[idx] || (kind == kSrcObject && (((src >> 22) & 0xFF) >= _drawn.size() || !_drawn[(src >> 22) & 0xFF].image))) {
++				const uint32 col = _fmt.RGBToColor(_pal[idx * 3], _pal[idx * 3 + 1], _pal[idx * 3 + 2]);
++				for (int dy = 0; dy < n; dy++) {
++					byte *o = out + dy * outPitch;
++					for (int dx = 0; dx < n; dx++, o += bpp) {
++						if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
++					}
++				}
++				_statFlat++;
++				continue;
++			}
++
++			if (kind == kSrcCel) {
++				const CelSlot &cs = _cels[(src >> 20) & 0x3FF];
++				if (!cs.used || !cs.image) {
++					kindFlat(out, outPitch, idx);
++					continue;
++				}
++				const int lx = src & 0x3FF, ly = (src >> 10) & 0x3FF;
++				const int cw = cs.image->idx.w, ch = cs.image->idx.h;
++				int cx = lx * cw / cs.rw;
++				const int cy = ly * ch / cs.rh;
++				if (cs.mirror)
++					cx = cw - 1 - cx;
++				const byte code = *((const byte *)cs.image->idx.getBasePtr(cx, cy));
++				const byte *truec = cs.image->basePal + code * 3;
++				const byte *shown = _pal + idx * 3;
++				// Tint factor between the colour the engine shows and the costume's
++				// true colour. Close enough means normal light: use the HD pixel as is.
++				// Very different means a special effect (shadow): keep the original pixel.
++				int f[3];
++				bool wild = false, plain = true;
++				for (int k = 0; k < 3; k++) {
++					const int t = truec[k], v = shown[k];
++					if (ABS(t - v) > 24)
++						plain = false;
++					if (t < 16)
++						f[k] = 256;
++					else {
++						f[k] = v * 256 / t;
++						if (f[k] > 512 || (t > 64 && f[k] < 48))
++							wild = true;
++					}
++				}
++				if (wild) {
++					kindFlat(out, outPitch, idx);
++					continue;
++				}
++				const uint32 flatCol = _fmt.RGBToColor(shown[0], shown[1], shown[2]);
++				for (int dy = 0; dy < n; dy++) {
++					byte *o = out + dy * outPitch;
++					const int hy = ((ly * n + dy) * ch) / cs.rh;
++					const uint32 *row = (const uint32 *)cs.image->hd.getBasePtr(0, MIN(hy, cs.image->hd.h - 1));
++					for (int dx = 0; dx < n; dx++, o += bpp) {
++						int hx = ((lx * n + dx) * cw) / cs.rw;
++						if (cs.mirror)
++							hx = cw * n - 1 - hx;
++						hx = CLIP(hx, 0, cs.image->hd.w - 1);
++						byte a, r, g, b;
++						_rgba.colorToARGB(row[hx], a, r, g, b);
++						uint32 col;
++						if (a < 128)
++							col = flatCol;
++						else if (plain)
++							col = _fmt.RGBToColor(r, g, b);
++						else
++							col = _fmt.RGBToColor(MIN(255, r * f[0] >> 8), MIN(255, g * f[1] >> 8), MIN(255, b * f[2] >> 8));
++						if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
++					}
++				}
++				_statCel++;
++				continue;
++			}
++
++			const Graphics::Surface *hd;
++			const byte *basePal;
++			int hx, hy;
++			if (kind == kSrcRoom) {
++				hd = &_roomImage.hd;
++				basePal = _roomImage.basePal;
++				hx = (src & 0x7FFF) * n;
++				hy = ((src >> 15) & 0x7FFF) * n;
++				_statRoom++;
++			} else {
++				const DrawnObject &d = _drawn[(src >> 22) & 0xFF];
++				hd = &d.image->hd;
++				basePal = d.image->basePal;
++				hx = (src & 0x7FF) * n;
++				hy = ((src >> 11) & 0x7FF) * n;
++				_statObject++;
++			}
++			for (int dy = 0; dy < n; dy++) {
++				byte *o = out + dy * outPitch;
++				const uint32 *t = (const uint32 *)hd->getBasePtr(hx, hy + dy);
++				for (int dx = 0; dx < n; dx++, o += bpp) {
++					const uint32 col = tinted(t[dx], idx, basePal);
++					if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
++				}
++			}
++		}
++	}
++}
++
++void DigHD::writeRect(int x, int y, int width, int height) {
++	if (x < 0) { width += x; x = 0; }
++	if (y < 0) { height += y; y = 0; }
++	width = MIN(width, _w - x);
++	height = MIN(height, _h - y);
++	if (width <= 0 || height <= 0)
++		return;
++	compose(x, y, width, height);
++	g_system->copyRectToScreen(_outBuf.data(), width * _scale * _fmt.bytesPerPixel,
++	                           x * _scale, y * _scale, width * _scale, height * _scale);
++}
++
++void DigHD::setPalette(const byte *colors, uint first, uint num) {
++	if (first >= 256)
++		return;
++	num = MIN<uint>(num, 256 - first);
++	if (!memcmp(_pal + first * 3, colors, num * 3))
++		return;
++	memcpy(_pal + first * 3, colors, num * 3);
++	// Every visible pixel may have changed colour
++	writeRect(0, 0, _w, _h);
++	_cursorPending = true;
++}
++
++void DigHD::moveScreen(int dx, int dy, int height) {
++	// Rarely used by v7; simplest correct behaviour is to move the shadow and redraw
++	Common::Array<byte> sh = _shadow;
++	Common::Array<uint32> so = _source;
++	for (int y = 0; y < MIN(height, _h); y++) {
++		for (int x = 0; x < _w; x++) {
++			int fx = x - dx, fy = y - dy;
++			if (fx >= 0 && fx < _w && fy >= 0 && fy < _h) {
++				_shadow[y * _w + x] = sh[fy * _w + fx];
++				_source[y * _w + x] = kSrcFlat;
++			}
++		}
++	}
++	writeRect(0, 0, _w, MIN(height, _h));
++}
++
++void DigHD::updateCursor(const byte *cursor, int width, int height, int hotspotX, int hotspotY, int transColor) {
++	_cursorPending = false;
++	const int n = _scale;
++	const int bpp = _fmt.bytesPerPixel;
++	const uint32 key = _fmt.aBits() ? _fmt.ARGBToColor(0, 255, 0, 255) : _fmt.RGBToColor(255, 0, 255);
++	Common::Array<byte> buf(width * n * height * n * bpp);
++	for (int y = 0; y < height * n; y++) {
++		for (int x = 0; x < width * n; x++) {
++			const byte i = cursor[(y / n) * width + (x / n)];
++			const uint32 col = (i == transColor) ? key : _fmt.RGBToColor(_pal[i * 3], _pal[i * 3 + 1], _pal[i * 3 + 2]);
++			byte *o = buf.data() + (y * width * n + x) * bpp;
++			if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
++		}
++	}
++	CursorMan.replaceCursor(buf.data(), width * n, height * n, hotspotX * n, hotspotY * n, key, &_fmt);
++}
++
++// ---------------------------------------------------------------- per frame
++
++void DigHD::beforeUpdateScreen() {
++	_frameNo++;
++	if (_cursorPending)
++		_vm->updateCursor();
++
++	if (_skipVideo && _vm->isSmushActive())
++		static_cast<ScummEngine_v7 *>(_vm)->_smushVideoShouldFinish = true;
++
++	if (_testRoom > 0 && !_testDone && (int)_frameNo >= _testAt && !_vm->isSmushActive()) {
++		_testDone = true;
++		debug("DigHD: test, jumping to room %d", _testRoom);
++		_vm->startScene(_testRoom, nullptr, 0);
++		if (_testCamX >= 0)
++			_vm->setCameraAt(_testCamX, _vm->camera._cur.y);
++		_vm->_fullRedraw = true;
++	}
++
++	if (_dumpEvery > 0 && !_dumpDir.empty() && (_frameNo % _dumpEvery) == 0)
++		dumpFrame();
++
++	if (_quitAt > 0 && (int)_frameNo >= _quitAt) {
++		debug("DigHD: frame %u, HD room px %u, HD object px %u, HD sprite px %u, original px %u",
++		      _frameNo, _statRoom, _statObject, _statCel, _statFlat);
++		Engine::quitGame();
++	}
++}
++
++void DigHD::dumpFrame() {
++	if (_verify) {
++		// Compare the HD frame with a plain scaled-up frame. With a mod made with
++		// "nearest" the two must match; large differences mean misplaced HD pixels.
++		compose(0, 0, _w, _h);
++		Common::Array<byte> hdCopy = _outBuf;
++		_forceFlat = true;
++		compose(0, 0, _w, _h);
++		_forceFlat = false;
++		uint32 bad = 0, total = _w * _scale * _h * _scale;
++		const int bpp = _fmt.bytesPerPixel;
++		for (uint32 i = 0; i < total; i++) {
++			const uint32 a = bpp == 4 ? READ_UINT32(hdCopy.data() + i * 4) : READ_UINT16(hdCopy.data() + i * 2);
++			const uint32 b = bpp == 4 ? READ_UINT32(_outBuf.data() + i * 4) : READ_UINT16(_outBuf.data() + i * 2);
++			byte r1, g1, b1, r2, g2, b2;
++			_fmt.colorToRGB(a, r1, g1, b1);
++			_fmt.colorToRGB(b, r2, g2, b2);
++			if (ABS(r1 - r2) > 48 || ABS(g1 - g2) > 48 || ABS(b1 - b2) > 48)
++				bad++;
++		}
++		debug("DigHD: verify frame %u: %u of %u HD pixels differ strongly from the original (%.3f%%)",
++		      _frameNo, bad, total, 100.0 * bad / total);
++		if (bad) {
++			Graphics::Surface fs;
++			fs.init(_w * _scale, _h * _scale, _w * _scale * bpp, _outBuf.data(), _fmt);
++			Common::FSNode fnode(_dumpDir.join(Common::String::format("frame_%06u_flat.png", _frameNo)));
++			Common::WriteStream *fws = fnode.createWriteStream();
++			if (fws) {
++				::Image::writePNG(*fws, fs);
++				fws->finalize();
++				delete fws;
++			}
++		}
++	}
++	compose(0, 0, _w, _h);
++	Graphics::Surface s;
++	s.init(_w * _scale, _h * _scale, _w * _scale * _fmt.bytesPerPixel, _outBuf.data(), _fmt);
++	Common::FSNode node(_dumpDir.join(Common::String::format("frame_%06u_room%03d.png", _frameNo, (int)_vm->_currentRoom)));
++	Common::WriteStream *ws = node.createWriteStream();
++	if (ws) {
++		::Image::writePNG(*ws, s);
++		ws->finalize();
++		delete ws;
++	}
++	debug("DigHD: dumped frame %u (room %d, smush %d) HD room px %u, HD object px %u, HD sprite px %u, original px %u",
++	      _frameNo, (int)_vm->_currentRoom, (int)_vm->isSmushActive(), _statRoom, _statObject, _statCel, _statFlat);
++	_statRoom = _statObject = _statCel = _statFlat = 0;
++}
++
++} // End of namespace Scumm
+diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
+new file mode 100644
+index 00000000..91cb28f4
+--- /dev/null
++++ b/engines/scumm/dighd.h
+@@ -0,0 +1,169 @@
++/* ScummVM - Graphic Adventure Engine
++ *
++ * ScummVM is the legal property of its developers, whose names
++ * are too numerous to list here. Please refer to the COPYRIGHT
++ * file distributed with this source distribution.
++ *
++ * This program is free software: you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation, either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ *
++ */
++
++/*
++ * Dig HD: HD replacement graphics for The Dig.
++ *
++ * The engine keeps running in 320x200 with 256 colours. Every time a
++ * finished 8-bit area is sent to the screen, this class builds the same
++ * area at N times the resolution in full colour:
++ *
++ *  - pixels that still show the untouched room background are taken from
++ *    an HD room image (mods/<name>/rooms/roomNNN.png),
++ *  - pixels that show an object image (doors, machines) are taken from an
++ *    HD object image (mods/<name>/objects/objNNN_SS.png),
++ *  - everything else (actors, text, effects) is the original pixel scaled up.
++ *
++ * Which pixels are "untouched background" is decided by comparing against
++ * the original 8-bit image shipped next to each HD image (*_idx.png). When
++ * the palette changes (fades, light switches, colour cycling), the HD pixel
++ * is tinted by the ratio between the current and the original colour.
++ */
++
++#ifndef SCUMM_DIGHD_H
++#define SCUMM_DIGHD_H
++
++#include "common/array.h"
++#include "common/hashmap.h"
++#include "common/path.h"
++#include "common/str.h"
++#include "graphics/pixelformat.h"
++#include "graphics/surface.h"
++
++namespace Scumm {
++
++class ScummEngine;
++struct VirtScreen;
++
++class DigHD {
++public:
++	/** Returns nullptr unless HD mode is requested (DIGHD_MOD / dighd_mod). */
++	static DigHD *create(ScummEngine *vm);
++	~DigHD();
++
++	int scale() const { return _scale; }
++
++	/** Replaces initGraphics() for the game screen. */
++	bool initGraphics(int width, int height);
++
++	/** Final blit of a virtual screen area (front buffer), see drawStripToScreen(). */
++	void blitVirtScreen(VirtScreen *vs, const byte *src, int pitch, int x, int y, int top, int width, int height);
++	/** Plain 8-bit blit without any HD lookup (effects, menus). */
++	void blit8(const byte *src, int pitch, int x, int y, int width, int height);
++	/** SMUSH frame blit; uses mods/<name>/san/<FILE>/<frame>.png when present. */
++	void blitSmush(const byte *src, int pitch, int width, int height, const Common::String &file, int frame);
++
++	void setPalette(const byte *colors, uint first, uint num);
++	void moveScreen(int dx, int dy, int height);
++	void updateCursor(const byte *cursor, int width, int height, int hotspotX, int hotspotY, int transColor);
++	void noteObject(int obj, int state, int x, int y, int width, int height);
++
++	/** An actor is about to be drawn (costume renderer). */
++	void beginActor(int actor, int costume);
++	/** A costume cel was painted. Coordinates are in costume renderer space. */
++	void noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart);
++
++	/** Called right before OSystem::updateScreen(); handles frame dumps and test hooks. */
++	void beforeUpdateScreen();
++
++private:
++	explicit DigHD(ScummEngine *vm);
++
++	struct Image {
++		Graphics::Surface hd;   // RGBA32, scale x original
++		Graphics::Surface idx;  // CLUT8, original size
++		byte basePal[768];
++		int transparent = -1;
++		bool valid() const { return hd.getPixels() && idx.getPixels(); }
++		void free();
++	};
++
++	struct CelSlot {
++		bool used = false;
++		int costume = 0, cel = 0;
++		Image *image = nullptr;
++		int rx = 0, ry = 0, rw = 0, rh = 0;  // on-screen rect in room coordinates
++		bool mirror = false;
++		uint32 seq = 0;
++	};
++	enum { kCelSlotsPerActor = 32, kMaxCelSlots = 1024 };
++
++	struct DrawnObject {
++		int obj, state, x, y;
++		Image *image;
++		uint32 seq;
++	};
++
++	bool loadImage(const Common::Path &hdFile, const Common::Path &idxFile, int origW, int origH, Image &out);
++	void loadRoom(int room);
++	void clearRoom();
++	void compose(int x, int y, int width, int height);
++	void kindFlat(byte *out, int outPitch, byte idx);
++	void writeRect(int x, int y, int width, int height);
++	void recomputeTint();
++	uint32 tinted(uint32 rgba, byte idx, const byte *basePal) const;
++	void dumpFrame();
++
++	ScummEngine *_vm;
++	Common::Path _modPath;
++	int _scale = 4;
++	int _w = 0, _h = 0;
++	Graphics::PixelFormat _fmt;
++	Graphics::PixelFormat _rgba;
++
++	// What the original engine would have shown, per screen pixel
++	Common::Array<byte> _shadow;
++	// Where an HD pixel comes from: 0 = original pixel, else packed room/object coordinates
++	Common::Array<uint32> _source;
++	Common::Array<byte> _outBuf;
++
++	byte _pal[768];
++	bool _cursorPending = false;
++
++	int _room = -1;
++	Image _roomImage;
++	Common::HashMap<uint32, Image *> _objectImages;  // key: obj << 8 | state
++	Common::Array<DrawnObject> _drawn;
++
++	// Costume cels
++	Image *celImage(int costume, int cel, int width, int height);
++	Common::HashMap<uint32, Image *> _celImages;  // key: costume << 12 | cel
++	CelSlot _cels[kMaxCelSlots];
++	int _curActor = -1, _curCostume = -1, _curCelCount = 0;
++	bool _passStarted = false;
++	uint32 _seq = 0;
++
++	// Smush frame replacement
++	Common::String _smushFile;
++	Graphics::Surface _smushFrame;
++
++	// Test and debug hooks (environment variables)
++	uint32 _frameNo = 0;
++	Common::Path _dumpDir;
++	int _dumpEvery = 0;
++	int _testRoom = -1, _testAt = -1, _testCamX = -1, _quitAt = -1;
++	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false;
++	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statFlat = 0;
++};
++
++} // End of namespace Scumm
++
++#endif
+diff --git a/engines/scumm/gfx.cpp b/engines/scumm/gfx.cpp
+index bf85f13c..29f747f6 100644
+--- a/engines/scumm/gfx.cpp
++++ b/engines/scumm/gfx.cpp
+@@ -21,6 +21,7 @@
+ 
+ #include "common/system.h"
+ #include "scumm/actor.h"
++#include "scumm/dighd.h"
+ #include "scumm/charset.h"
+ #ifdef ENABLE_HE
+ #include "scumm/he/intern_he.h"
+@@ -814,6 +815,8 @@ void ScummEngine::drawStripToScreen(VirtScreen *vs, int x, int width, int top, i
+ 		// video buffer to screen with the following routine, because for newer games we
+ 		// need the text overlay to be already stamped on top of the buffer.
+ 		mac_drawBufferToScreen((const byte *)src, pitch, x, y, width, height);
++	} else if (_digHD) {
++		_digHD->blitVirtScreen(vs, (const byte *)src, pitch, x, y, top, width, height);
+ 	} else {
+ 		// Finally blit the whole thing to the screen
+ 		_system->copyRectToScreen(src, pitch, x, y, width, height);
+@@ -1729,6 +1732,11 @@ void ScummEngine::moveScreen(int dx, int dy, int height) {
+ 	if ((dx == 0 && dy == 0) || height <= 0)
+ 		return;
+ 
++	if (_digHD) {
++		_digHD->moveScreen(dx, dy, height);
++		return;
++	}
++
+ 	Graphics::Surface *screen = _system->lockScreen();
+ 	if (!screen)
+ 		return;
+@@ -4749,7 +4757,10 @@ void ScummEngine::dissolveEffect(int width, int height) {
+ 				src = ditherVGAtoEGA(pitch, x, y, wd, ht);
+ 			}
+ 
+-			_system->copyRectToScreen(src, pitch, x, y, wd, ht);
++			if (_digHD)
++				_digHD->blit8((const byte *)src, pitch, x, y, wd, ht);
++			else
++				_system->copyRectToScreen(src, pitch, x, y, wd, ht);
+ 		}
+ 
+ 		// Test for 1x1 pattern...
+@@ -4840,7 +4851,7 @@ void ScummEngine::scrollEffect(int dir) {
+ 						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
+ 					}
+ 
+-					_system->copyRectToScreen(src, vsPitch * m, tx, ty * m, wd, ht * m);
++					if (_digHD) _digHD->blit8((const byte *)src, vsPitch * m, tx, ty * m, wd, ht * m); else _system->copyRectToScreen(src, vsPitch * m, tx, ty * m, wd, ht * m);
+ 				}
+ 			}
+ 
+@@ -4874,7 +4885,7 @@ void ScummEngine::scrollEffect(int dir) {
+ 						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
+ 					}
+ 
+-					_system->copyRectToScreen(src, vsPitch * m, 0, 0, wd * m, ht * m);
++					if (_digHD) _digHD->blit8((const byte *)src, vsPitch * m, 0, 0, wd * m, ht * m); else _system->copyRectToScreen(src, vsPitch * m, 0, 0, wd * m, ht * m);
+ 				}
+ 			}
+ 
+@@ -4911,7 +4922,7 @@ void ScummEngine::scrollEffect(int dir) {
+ 						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
+ 					}
+ 
+-					_system->copyRectToScreen(src, vsPitch * m, tx * m, 0, wd * m, ht * m);
++					if (_digHD) _digHD->blit8((const byte *)src, vsPitch * m, tx * m, 0, wd * m, ht * m); else _system->copyRectToScreen(src, vsPitch * m, tx * m, 0, wd * m, ht * m);
+ 				}
+ 			}
+ 			waitForTimer(delay, true);
+@@ -4947,7 +4958,7 @@ void ScummEngine::scrollEffect(int dir) {
+ 						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
+ 					}
+ 
+-					_system->copyRectToScreen(src, vsPitch * m, 0, 0, wd * m, ht * m);
++					if (_digHD) _digHD->blit8((const byte *)src, vsPitch * m, 0, 0, wd * m, ht * m); else _system->copyRectToScreen(src, vsPitch * m, 0, 0, wd * m, ht * m);
+ 				}
+ 			}
+ 
+@@ -4991,7 +5002,7 @@ void ScummEngine::updateScreenShakeEffect() {
+ 	if (!_shakeNextTick)
+ 		_shakeNextTick = now;
+ 
+-	int multiplier = (_enableEGADithering ? 2 : 1) * _textSurfaceMultiplier;
++	int multiplier = (_enableEGADithering ? 2 : 1) * _textSurfaceMultiplier * (_digHD ? _digHD->scale() : 1);
+ 
+ 	while (now >= _shakeNextTick) {
+ 		_shakeFrame = (_shakeFrame + 1) % NUM_SHAKE_POSITIONS;
+diff --git a/engines/scumm/input.cpp b/engines/scumm/input.cpp
+index 3525910f..217950f6 100644
+--- a/engines/scumm/input.cpp
++++ b/engines/scumm/input.cpp
+@@ -28,6 +28,7 @@
+ #include "backends/keymapper/keymapper.h"
+ 
+ #include "scumm/debugger.h"
++#include "scumm/dighd.h"
+ #include "scumm/dialogs.h"
+ #include "scumm/insane/insane.h"
+ #include "scumm/imuse/imuse.h"
+@@ -255,6 +256,11 @@ void ScummEngine::parseEvent(Common::Event event) {
+ 			_mouse.y -= _macScreenDrawOffset;
+ 		}
+ 
++		if (_digHD) {
++			_mouse.x /= _digHD->scale();
++			_mouse.y /= _digHD->scale();
++		}
++
+ 		break;
+ 	case Common::EVENT_LBUTTONUP:
+ 		_leftBtnPressed &= ~msDown;
+diff --git a/engines/scumm/module.mk b/engines/scumm/module.mk
+index b0f7e3eb..42985c9e 100644
+--- a/engines/scumm/module.mk
++++ b/engines/scumm/module.mk
+@@ -1,6 +1,7 @@
+ MODULE := engines/scumm
+ 
+ MODULE_OBJS := \
++	dighd.o \
+ 	actor.o \
+ 	akos.o \
+ 	base-costume.o \
+diff --git a/engines/scumm/object.cpp b/engines/scumm/object.cpp
+index 0e97ae97..55adc85f 100644
+--- a/engines/scumm/object.cpp
++++ b/engines/scumm/object.cpp
+@@ -20,6 +20,7 @@
+  */
+ 
+ #include "scumm/actor.h"
++#include "scumm/dighd.h"
+ #include "scumm/bomp.h"
+ #include "scumm/he/intern_he.h"
+ #include "scumm/object.h"
+@@ -688,6 +689,9 @@ void ScummEngine::drawObject(int obj, int scrollType) {
+ 	if (!ptr)
+ 		return;
+ 
++	if (_digHD)
++		_digHD->noteObject(od.obj_nr, getState(od.obj_nr), od.x_pos, od.y_pos, od.width, od.height);
++
+ 	x = 0xFFFF;
+ 
+ 	for (a = numstrip = 0; a < width; a++) {
+diff --git a/engines/scumm/palette.cpp b/engines/scumm/palette.cpp
+index a3758d7f..a95fd624 100644
+--- a/engines/scumm/palette.cpp
++++ b/engines/scumm/palette.cpp
+@@ -29,6 +29,7 @@
+ #include "graphics/paletteman.h"
+ 
+ #include "scumm/resource.h"
++#include "scumm/dighd.h"
+ #include "scumm/scumm.h"
+ #include "scumm/scumm_v6.h"
+ #include "scumm/scumm_v8.h"
+@@ -1769,7 +1770,10 @@ void ScummEngine::updatePalette() {
+ 			paletteColors[i] = levels[(paletteColors[i] >> 5) & 0x07];
+ 	}
+ 
+-	_system->getPaletteManager()->setPalette(paletteColors, first, num);
++	if (_digHD)
++		_digHD->setPalette(paletteColors, first, num);
++	else
++		_system->getPaletteManager()->setPalette(paletteColors, first, num);
+ 
+ 	if (_macGui)
+ 		_macGui->setPaletteDirty();
+diff --git a/engines/scumm/saveload.cpp b/engines/scumm/saveload.cpp
+index d1d7a764..d28181c8 100644
+--- a/engines/scumm/saveload.cpp
++++ b/engines/scumm/saveload.cpp
+@@ -27,6 +27,7 @@
+ #include "common/translation.h"
+ 
+ #include "scumm/actor.h"
++#include "scumm/dighd.h"
+ #include "scumm/charset.h"
+ #include "scumm/imuse_digi/dimuse_engine.h"
+ #include "scumm/imuse/imuse.h"
+@@ -1719,6 +1720,9 @@ void ScummEngine::saveLoadWithSerializer(Common::Serializer &s) {
+ 		} else if (_macScreen) {
+ 			x *= 2;
+ 			y *= 2;
++		} else if (_digHD) {
++			x *= _digHD->scale();
++			y *= _digHD->scale();
+ 		}
+ 
+ 		updateCursor();
+diff --git a/engines/scumm/scumm.cpp b/engines/scumm/scumm.cpp
+index d1baa70b..8abc0a15 100644
+--- a/engines/scumm/scumm.cpp
++++ b/engines/scumm/scumm.cpp
+@@ -40,6 +40,7 @@
+ #include "graphics/macgui/macfontmanager.h"
+ 
+ #include "scumm/akos.h"
++#include "scumm/dighd.h"
+ #include "scumm/charset.h"
+ #include "scumm/costume.h"
+ #include "scumm/debugger.h"
+@@ -486,6 +487,7 @@ ScummEngine::ScummEngine(OSystem *syst, const DetectorResult &dr)
+ 
+ 
+ ScummEngine::~ScummEngine() {
++	delete _digHD;
+ 	delete _musicEngine;
+ 
+ 	// Delete the sound object earlier than the actors
+@@ -1471,7 +1473,11 @@ Common::Error ScummEngine::init() {
+ 	}
+ 
+ 	// Initialize backend
+-	if (_renderMode == Common::kRenderHercA || _renderMode == Common::kRenderHercG) {
++	_digHD = DigHD::create(this);
++	if (_digHD) {
++		if (!_digHD->initGraphics(_screenWidth, _screenHeight))
++			return Common::kUnsupportedColorMode;
++	} else if (_renderMode == Common::kRenderHercA || _renderMode == Common::kRenderHercG) {
+ 		initGraphics(kHercWidth, kHercHeight);
+ 	} else if (_renderMode == Common::kRenderCGA_BW || (_renderMode == Common::kRenderEGA && _supportsEGADithering)) {
+ 		initGraphics(_screenWidth * 2, _screenHeight * 2);
+@@ -1544,7 +1550,8 @@ Common::Error ScummEngine::init() {
+ 		_localizer = loc;
+ #endif
+ 
+-	_outputPixelFormat = _system->getScreenFormat();
++	// In Dig HD mode the engine keeps drawing in 8 bit; DigHD converts at the end
++	_outputPixelFormat = _digHD ? Graphics::PixelFormat::createFormatCLUT8() : _system->getScreenFormat();
+ 
+ 	setupScumm(macResourceFile);
+ 
+@@ -2986,6 +2993,8 @@ void ScummEngine::waitForTimer(int quarterFrames, bool freezeMacGui) {
+ 		if (_macGui && !freezeMacGui)
+ 			_macGui->updateWindowManager();
+ 
++		if (_digHD)
++			_digHD->beforeUpdateScreen();
+ 		_system->updateScreen();
+ 		cur = _system->getMillis();
+ 
+diff --git a/engines/scumm/scumm.h b/engines/scumm/scumm.h
+index 356a3602..20c4b0c5 100644
+--- a/engines/scumm/scumm.h
++++ b/engines/scumm/scumm.h
+@@ -93,6 +93,7 @@ class CharsetRenderer;
+ class IMuse;
+ class IMuseDigital;
+ class MacGui;
++class DigHD;
+ class MusicEngine;
+ class Player_Towns;
+ class ScummEngine;
+@@ -535,6 +536,7 @@ extern const char *const insaneKeymapId;
+  */
+ class ScummEngine : public Engine, public Common::Serializable {
+ 	friend class ScummDebugger;
++	friend class DigHD;
+ 	friend class CharsetRenderer;
+ 	friend class CharsetRendererClassic;
+ 	friend class CharsetRendererTownsClassic;
+@@ -1707,6 +1709,7 @@ public:
+ 	bool _useGammaCorrection = true;
+ 
+ 	Graphics::Surface *_macScreen = nullptr;
++	DigHD *_digHD = nullptr; // Dig HD replacement graphics (dighd.cpp)
+ 	MacGui *_macGui = nullptr;
+ 	bool _useMacGraphicsSmoothing = true;
+ 	byte _completeScreenBuffer[320 * 200];
+diff --git a/engines/scumm/scumm_v7.h b/engines/scumm/scumm_v7.h
+index 0e5aa900..15b08f44 100644
+--- a/engines/scumm/scumm_v7.h
++++ b/engines/scumm/scumm_v7.h
+@@ -40,6 +40,7 @@ class TextRenderer_v7;
+ 
+ class ScummEngine_v7 : public ScummEngine_v6 {
+ 	friend class SmushPlayer;
++	friend class DigHD;
+ 	friend class Insane;
+ 	friend class InsaneRebel1;
+ 	friend class InsaneRebel2;
+diff --git a/engines/scumm/smush/smush_player.cpp b/engines/scumm/smush/smush_player.cpp
+index 1c646316..7dc5df5b 100644
+--- a/engines/scumm/smush/smush_player.cpp
++++ b/engines/scumm/smush/smush_player.cpp
+@@ -32,6 +32,7 @@
+ #include "graphics/paletteman.h"
+ 
+ #include "scumm/file.h"
++#include "scumm/dighd.h"
+ #include "scumm/imuse_digi/dimuse_engine.h"
+ #include "scumm/scumm.h"
+ #include "scumm/scumm_v7.h"
+@@ -1339,7 +1340,9 @@ void SmushPlayer::updateScreen() {
+ }
+ 
+ void SmushPlayer::handleGameUpdateScreen(const byte *src, int srcPitch, int width, int height) {
+-	if (_vm->_macScreen) {
++	if (_vm->_digHD) {
++		_vm->_digHD->blitSmush(src, srcPitch, width, height, _seekFile, _frame);
++	} else if (_vm->_macScreen) {
+ 		_vm->mac_drawBufferToScreen(src, srcPitch, 0, 0, width, height);
+ 	} else {
+ 		_vm->_system->copyRectToScreen(src, srcPitch, 0, 0, width, height);
+@@ -1510,7 +1513,10 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
+ 			_vm->scummLoop_handleSound();
+ 
+ 			if (_warpNeeded) {
+-				_vm->_system->warpMouse(_vm->_macScreen ? _warpX * 2 : _warpX, _vm->_macScreen ? (_warpY * 2 + 2 * _vm->_macScreenDrawOffset) : _warpY);
++				if (_vm->_digHD)
++					_vm->_system->warpMouse(_warpX * _vm->_digHD->scale(), _warpY * _vm->_digHD->scale());
++				else
++					_vm->_system->warpMouse(_vm->_macScreen ? _warpX * 2 : _warpX, _vm->_macScreen ? (_warpY * 2 + 2 * _vm->_macScreenDrawOffset) : _warpY);
+ 				_warpNeeded = false;
+ 			}
+ 		}
+@@ -1543,6 +1549,8 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
+ 					}
+ 
+ 					_vm->_system->getPaletteManager()->setPalette(palette + _palDirtyMin * 3, _palDirtyMin, _palDirtyMax - _palDirtyMin + 1);
++				} else if (_vm->_digHD) {
++					_vm->_digHD->setPalette(_pal + _palDirtyMin * 3, _palDirtyMin, _palDirtyMax - _palDirtyMin + 1);
+ 				} else {
+ 					_vm->_system->getPaletteManager()->setPalette(_pal + _palDirtyMin * 3, _palDirtyMin, _palDirtyMax - _palDirtyMin + 1);
+ 				}
+@@ -1572,6 +1580,8 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
+ 
+ 					handleGameUpdateScreen(dst, _width, frameWidth, frameHeight);
+ 
++					if (_vm->_digHD)
++						_vm->_digHD->beforeUpdateScreen();
+ 					_vm->_system->updateScreen();
+ 					_updateNeeded = false;
+ 				}

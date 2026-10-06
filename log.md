@@ -18,3 +18,21 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
   - `.gitignore`: holder spillfiler og uttrukket grafikk ute av git.
   - `log.md`, `memory.md`, `todo.md`.
 - Ikke gjort: MD5 av DIG.LA0 er ikke kontrollert (fikk ikke byte-eksakt kopi via Drive-koblingen). DIG.LA1 og SAN-filene er ikke lastet ned eller kjørt gjennom uttrekk ennå.
+
+## 2026-10-06 21:51 til 22:55 (Claude)
+- Tom delte Drive-mappen via lenke en kort stund. Lastet ned DIG.LA0, DIG.LA1 og alle 61 filene i VIDEO/. Størrelsene stemmer.
+- DIG.LA0 MD5 `d8323015ecb8b10bf53474f6e6b0ae33` (standardoppføringen i ScummVM). DIG.LA1 SHA-256 `8f2a0474...a957`, nøyaktig samme fil som thedig-textures er verifisert mot.
+- La spillfilene i en egen gren `spilldata` (uten felles historikk med main), i tre commits for å holde hver push under grensen. Sjekksummer i `game/SHA256SUMS`. BUN-filene (musikk og tale) er over 100 MB og ligger bare på Drive.
+- `tools/hent_spilldata.sh`: henter grenen inn i `game/` og sjekker sjekksummene.
+- Pipeline `pipeline/` (pakke `dighd`):
+  - `gamedata.py`: leser LA0 og LA1 (romnavn, størrelser, paletter, fargesykling, objektposisjoner, kostyme-ID fra DCOS).
+  - `export.py`: rom og objekter som RGB og 8-bit indeksert, kostymeruter med de ekte fargene fra RGBS-blokken.
+  - `upscale.py`: nearest, lanczos, lanczos-sharp, Real-ESRGAN og valgfri kommando.
+  - `modpack.py`: bygger mod-mapper. Objekter skaleres i sammenheng med bakgrunnen. Egne HD-bilder kan brukes i stedet.
+  - CLI: `dighd info|extract|build-mod|compare|san`. Tester i `pipeline/tests`.
+- Eksportert: 111 rom, 642 objektbilder, 28 490 kostymeruter, 12 638 filmrammer.
+- Funnet underveis: thedig-textures lagrer kostymeruter med svart palett og nummererer kostymer i filrekkefølge. Løst i egen eksport (RGBS-farger, DCOS-ID).
+- ScummVM-patch `engine/patches/0001-dighd-hd-grafikk.patch` (ScummVM `c909132`): ny `engines/scumm/dighd.cpp` og små hooks i 14 filer. HD-bakgrunner, HD-objekter, HD-sprites, HD-filmrammer, fargejustering ved palettbytte, fargesykling beholdt, mus og peker i HD, test- og dumpvalg.
+- `engine/build.sh`, `engine/run.sh`, `engine/test.sh`. Byggeskriptet er testet fra en ren checkout.
+- Testet uten skjerm med en nearest-mod: 0 avvikende piksler for bakgrunner, objekter (rom 34 og 105) og uskalerte figurer. Skalerte figurer under 0,25 prosent (ventet). Filmrammer: rammenummeret er `_frame - 1`, etter rettingen er 198 av 198 rammer like.
+- La til `README.md`, `AGENTS.md`, `docs/HD-MOTOR.md`. Oppdaterte `.gitignore` (work/, mods/, engine/scummvm/).

@@ -1,29 +1,30 @@
 # Todo
 
-## Nå
-- [ ] Kopier spillfilene fra Drive til laptopen (for eksempel `~/Games/TheDig`)
-- [ ] Kjør `python3 tools/la0_info.py ~/Games/TheDig/DIG.LA0` og sjekk MD5
-- [ ] Start spillet i ScummVM og bekreft at filene er hele
-- [ ] Installer thedig-textures og kjør `extract --game ~/Games/TheDig --out ~/dig-out` (krever 15 GB ledig)
-- [ ] Dekompiler skriptene med NUTCracker eller `descumm -7`
+## Ferdig
+- [x] Spillfilene fra Drive til grenen `spilldata`, med sjekksummer og hentescript
+- [x] MD5 av DIG.LA0 sjekket (standardutgaven)
+- [x] Uttrekk av rom, objekter, kostymer (med riktige farger) og filmrammer
+- [x] Pipeline `dighd` med flere oppskaleringsmetoder og mod-mapper
+- [x] ScummVM-patch: HD-bakgrunner, HD-objekter, HD-sprites, HD-filmrammer
+- [x] Fargejustering ved palettbytte, fargesykling beholdt, mus og peker i HD
+- [x] Byggeskript testet fra ren checkout, automatisk test uten skjerm
 
-## Motor
-- [ ] Fork ScummVM og bygg på Linux
-- [ ] Legg til HD-flate (32 bit, 4x) etter mønster fra `_macScreen` / `mac_drawStripToScreen`
-- [ ] Bakgrunnsbytte for ett rom (kandidater: 22 beach eller 24 view)
-- [ ] Test et rullende rom (34 museum eller 25 airlock)
-- [ ] Objektbilder og z-planer i HD
-- [ ] AKOS-ruter i HD med ankerpunkter ganget med 4
-- [ ] Palettbytte og fargesykling i HD
-- [ ] SMUSH: bytte rammer per SAN-fil, og video for rene filmer
-- [ ] Hurtigtast for klassisk og HD
-
-## Grafikk
+## Neste
+- [ ] Bygg og kjør på laptopen (`engine/build.sh`, `engine/run.sh hd`), med musikk og tale fra Drive i game/
 - [ ] Velg stil: trofast HD (A) eller ny tegnestil (B)
-- [ ] Stiltest: fem rom gjennom tre oppskaleringsmetoder
-- [ ] Stiltest: Boston Low gangsyklus i ny stil
+- [ ] Stiltest med KI: fem rom gjennom Real-ESRGAN og en pikselkunstmodell (`dighd compare`, `--method realesrgan`)
+- [ ] Stiltest: Boston Low (kostyme 14) i ny stil
 - [ ] Fyll inn prioritet i `docs/rom-oversikt.csv`
 
+## Motor
+- [ ] Undertekster over HD-filmrammer: legg teksten over HD-rammen i stedet for å skjule den
+- [ ] HD-sprites for kodek 16 (5 kostymer) og kontroll av kodek 5 i spillet
+- [ ] HD-fonter for tekst
+- [ ] Fargesyklede områder i HD (eget animert lag)
+- [ ] Hurtigtast for å bytte mellom klassisk og HD
+- [ ] Spille av rene filmer som MP4/WebM i stedet for tusenvis av PNG-er
+- [ ] Prøv en nyere ScummVM-commit og oppdater patchen
+
 ## Senere
-- [ ] Finn ut i skriptene hvilke SAN-filer som er rene filmer og hvilke som styres av spillet
-- [ ] Skript som genererer HD-pakken lokalt fra brukerens egne spillfiler
+- [ ] Finn ut i skriptene hvilke SAN-filer som er rene filmer og hvilke som styres av spillet (NUTCracker eller descumm -7)
+- [ ] Skript som lager hele HD-pakken lokalt fra brukerens egne spillfiler (for eventuell deling)
