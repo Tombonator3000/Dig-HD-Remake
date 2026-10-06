@@ -1,0 +1,79 @@
+{
+  "status": "pilot",
+  "source_repository": "Tombonator3000/Dig-HD-Remake",
+  "source_code_commit": "70aed0523ff624cb6176d9b5911cdc1fdef0f336",
+  "scummvm_commit": "c9091321060acfc8f037767c18f8279a86305b7e",
+  "engine_patch_sha256": "cc48a6b2ab4ed408b93fe86fc741e8ced81e9142ab936a6080f40aa66c76b850",
+  "engine_binary_sha256": "3ee7a26b3b862fef2a85f43901329943196df76dd92d7d4b7637e40d4a9ded2a",
+  "generator": "Innebygd ChatGPT-bildegenerator; modellversjon ikke oppgitt",
+  "assets": [
+    {
+      "file": "assets/rooms/room009.png",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "fd37d46069b111b1f5c85bdfde9f429dbc5f8a7f8333efc9d24ab466fc6c2ba4"
+    },
+    {
+      "file": "assets/rooms/room022.png",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "08796e71cd07d91b4a6773cc383c8589bd1f69f491d7e20c8f9f01b2f296f39f"
+    }
+  ],
+  "concepts": [
+    {
+      "file": "concepts/boston-low-cel001.png",
+      "size": [
+        713,
+        2205
+      ],
+      "sha256": "6a097390feb57374460a2d180210a0a21e4c1f0cd85980a470fa71f54f6543e0",
+      "runtime_integrated": false
+    }
+  ],
+  "coverage": {
+    "room_candidates": 2,
+    "rooms_total": 111,
+    "new_object_images": 0,
+    "new_sprite_cels_integrated": 0,
+    "new_movie_frames": 0
+  },
+  "native_runtime": [
+    {
+      "room": 9,
+      "exit_code": 0,
+      "images": [
+        "frame_000480_room009.png"
+      ],
+      "loaded": true,
+      "screen": [
+        [
+          "1280",
+          "800",
+          "4"
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "room": 22,
+      "exit_code": 0,
+      "images": [
+        "frame_000480_room022.png"
+      ],
+      "loaded": true,
+      "screen": [
+        [
+          "1280",
+          "800",
+          "4"
+        ]
+      ],
+      "pass": true
+    }
+  ]
+}
