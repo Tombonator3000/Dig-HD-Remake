@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 00:40 (norsk tid)
+Oppdatert 2026-10-07 00:41 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -45,7 +45,20 @@ Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-ar
 
 - Nytt: 30 objektjobber (objNNN_SS). Det er store bilder spillet tegner over rommet, som nærbilder, kart og den blå trikken. De lages akkurat som romjobbene. obj241_01 (tavla i rom 28) står først fordi rom 28 er ferdig.
 - Objekter med flere tilstander (obj884 og obj886): lag tilstand 01 først. For de andre tilstandene legger du ved resultat.png fra tilstand 01 som bilde to i stedet for stilankeret. Claude gjør resten likt automatisk.
-- Kjør git pull før hver økt og les ORDRE.md. Ikke legg til stjerner, lyspunkter eller vann som ikke finnes i originalen. Kodehjelp og test på laptopen står under Kodeoppgaver når det trengs.
+- Kjør git pull før hver økt og les ORDRE.md. Ikke legg til stjerner, lyspunkter eller vann som ikke finnes i originalen.
+
+## Kodeoppgaver
+
+Disse er for Codex eller ChatGPT med tilgang til laptopen og repoet. Ta én om gangen, og skriv i `rapporter/` i denne grenen hva du gjorde og fant.
+
+1. **Test HD-modden på laptopen med skjerm og tastatur.** Hent og bygg: `git checkout main && git pull`, `tools/hent_spilldata.sh`, `tools/mod_gren.sh hent`, `engine/build.sh` (patchen er ny, så bygg på nytt), `engine/run.sh gpt`. Gå til rom 9, 22 og 28 (start med `DIGHD_TEST_ROOM=22 DIGHD_TEST_AT=240 engine/run.sh gpt` hvis det er lettere). Sjekk:
+   - at figurer går bak ting i forgrunnen der de skal,
+   - at objekter bytter bilde riktig,
+   - at Ctrl+H bytter mellom HD og klassisk, og at Ctrl+Shift+H viser gult felt der HD mangler, med melding på skjermen.
+   Ta skjermbilder i `rapporter/laptop-test/` og skriv `rapporter/laptop-test.md`: hva du testet, hva som var feil, med rom og omtrentlig sted. Ikke rett i motoren selv. Beskriv feilen, så retter Claude den.
+2. **Mål fart og lyd.** Kjør rom 22 i ett minutt med og uten modden, og noter bilder per sekund hvis ScummVM viser det, og om lyd eller tale hakker. Skriv det i `rapporter/laptop-test.md`.
+
+Kodeendringer går som PR mot `main`, aldri rett i `main`. Skjermbilder og andre filer fra spillet skal bare ligge i denne grenen.
 
 ## Neste sjekk
 
