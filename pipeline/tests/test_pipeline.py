@@ -135,3 +135,34 @@ def test_gpt_lock_and_stitch():
         parts.append(((x, y, w, h), full[y * 4:(y + h) * 4, x * 4:(x + w) * 4]))
     out = gpt._stitch(W, H, parts)
     assert np.abs(out.astype(float) - full).max() <= 1.0
+
+
+def test_gpt_layout_and_orders(tmp_path):
+    from dighd import gpt
+
+    # Hele lerretet, bare bildet i rommets sideforhold, eller feil
+    assert gpt.detect_layout((1536, 1024), (320, 200)) == "lerret"
+    assert gpt.detect_layout((1280, 800), (320, 200)) == "direkte"
+    assert gpt.detect_layout((1024, 1024), (320, 200)) is None
+    # Utsnitt som selv er 3:2 regnes som lerret
+    assert gpt.detect_layout((1536, 1024), (384, 256)) == "lerret"
+
+    rows = [
+        ("rom002_del1av3", 2, "ny", ""),
+        ("rom009", 9, "godkjent", ""),
+        ("rom010", 10, "avvist", "forskjøvet 3 px"),
+        ("rom011", 11, "sjekk", "kantlikhet 0,50"),
+    ]
+    with (tmp_path / "status.csv").open("w", encoding="utf-8") as f:
+        f.write(",".join(gpt.STATUS_FIELDS) + "\n")
+        for jobb, rom, status, kommentar in rows:
+            row = {k: "" for k in gpt.STATUS_FIELDS}
+            row.update(jobb=jobb, rom=rom, navn="x", status=status, kommentar=kommentar)
+            row["del"] = "1/1"
+            f.write(",".join(str(row[k]) for k in gpt.STATUS_FIELDS) + "\n")
+    text = gpt.write_orders(tmp_path, batch=2, anchors=["room009_core.png"], messages=["Hei"]).read_text()
+    # Avviste først, så nye. Sjekk-jobben kommer ikke med når køen er full.
+    assert text.index("rom010") < text.index("rom002_del1av3")
+    assert "1. `rom010`" in text and "rom011" not in text
+    assert "Ferdige rom: 1 av 4 (9)" in text
+    assert "stil/room009_core.png" in text and "- Hei" in text

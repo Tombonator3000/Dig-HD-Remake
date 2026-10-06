@@ -9,6 +9,7 @@ description = "HD-pipeline for The Dig: eksport, oppskalering og mod-pakker for 
 requires-python = ">=3.12"
 dependencies = [
   "pillow>=10",
+  "numpy>=1.26",
   # Dekoderne for LA1/AKOS/SAN, verifisert mot ScummVM. Låst til en kjent versjon.
   "thedig-textures @ git+https://github.com/felipe-dos-santos81/thedig-textures@1cf355ed1aa32326fc1b3097ba1d1df692b51501",
 ]

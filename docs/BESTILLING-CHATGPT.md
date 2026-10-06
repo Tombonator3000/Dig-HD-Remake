@@ -43,7 +43,7 @@ Hver jobb ligger i `jobber/<jobb>/`:
 | `original_1x.png` | Det samme utsnittet i originalstørrelse, til sammenligning. |
 | `prompt.txt` | Teksten til bildeverktøyet, på engelsk. Brukes ordrett. Den inneholder et notat for rom med spesielle hensyn. |
 | `jobb.json` | Metadata (rom, utsnitt, sjekksummer). Skal ikke endres. |
-| `resultat.png` | **Det du leverer.** 1536 x 1024, PNG, samme oppsett som referansen. |
+| `resultat.png` | **Det du leverer.** PNG, enten hele lerretet (1536 x 1024 med grå kant) eller bare bildet i samme sideforhold som utsnittet (16:10 for vanlige rom, minst 1280 x 800). |
 | `notat.md` | **Det du skriver:** verktøy og modell hvis det vises, dato, antall forsøk, og hva som var usikkert. |
 | `retur.md` | Kommer fra Claude hvis jobben ble avvist eller må sjekkes, med grunn og forslag til ny prompt. |
 
@@ -53,10 +53,10 @@ Oversikt over alle jobber: `JOBBER.md`. Status: `status.csv` (ny, godkjent, sjek
 
 ## 5. Rekkefølge
 
-1. **Pilot, tre jobber:** `rom022` (strand, malt), `rom002_del1av3` (romferge, forhåndsrendret) og `rom028` (hender med inngravert plate, symboler). Lever disse først og vent på Tom sin godkjenning.
-2. **Stilankere:** De godkjente pilotbildene legges i `stil/`. Fra nå av legger du ved det ankeret som passer best som bilde nummer to i hver jobb (prompten forklarer hvordan det brukes). Det holder stilen lik fra rom til rom.
-3. **Resten av rommene** i rekkefølgen i `JOBBER.md`, gjerne 10 jobber om gangen.
-4. **Retur:** Jobber med `retur.md` gjøres på nytt med teksten der.
+1. **Pilot (ferdig):** Codex leverte rom 9 og 22 den 6. oktober. Begge besto kontrollen og er godkjent av Claude på Tom sine vegne (Tom ba om at arbeidet skal fortsette). Tom kan overstyre.
+2. **Stilankere:** Pilotbildene ligger i `stil/` (`room009_core.png`, `room022_beach.png`). Legg ved det ankeret som passer best som bilde nummer to i hver jobb (prompten forklarer hvordan det brukes). Det holder stilen lik fra rom til rom.
+3. **Løpende ordre:** Claude skriver `ORDRE.md` i grenen etter hver kontroll, med de neste 10 jobbene. Ta dem i den rekkefølgen.
+4. **Retur:** Jobber med `retur.md` står først i ordren og gjøres på nytt med teksten der.
 
 Senere runder (egne bestillinger):
 
@@ -69,7 +69,7 @@ Senere runder (egne bestillinger):
 ### A. ChatGPT som Codex i repoet (anbefalt)
 
 1. Åpne repoet `Tombonator3000/Dig-HD-Remake` og bytt til grenen `gpt-arbeid`. Den har sin egen `AGENTS.md` og en kopi av denne bestillingen.
-2. Velg jobber med status `ny` eller `avvist` i `status.csv`.
+2. Les `ORDRE.md` og ta jobbene der. Lag ikke egne grener eller PR-er for grafikken.
 3. For hver jobb: bruk bildeverktøyet med `referanse.png` som bildet som skal redigeres (og et stilanker som bilde to, når de finnes), og `prompt.txt` ordrett som prompt. Be om 1536 x 1024. Lagre som `resultat.png` og skriv `notat.md`.
 4. Se på resultatet ved siden av referansen før du leverer. Ligger noe feil, prøv igjen.
 5. Commit i grenen `gpt-arbeid` med meldingen `GPT: rom022, rom024` (jobbene i commiten) og push. Aldri til `main`.
@@ -89,7 +89,7 @@ Claude henter grenen, kjører kontrollen og skriver `RAPPORT.md` og `retur.md` t
 
 | Sjekk | Hva den måler | Godkjent | Sjekk | Avvist |
 | --- | --- | --- | --- | --- |
-| Størrelse | Sideforhold 3:2 (1536 x 1024 eller samme forhold) | 3:2 | | annet |
+| Størrelse | Sideforhold 3:2 (lerret) eller samme som utsnittet (direkte) | ett av dem | | annet |
 | Forskyvning | Hele bildet mot originalen, i originalpiksler | 0,75 eller mindre | 1,5 eller mindre | mer |
 | Blokker | Forskyvning i deler av bildet (avslører zoom og flyttede ting) | 1,0 eller mindre | 2,0 eller mindre | mer |
 | Kantlikhet | Om formene er de samme (0 til 1) | 0,55 eller mer | 0,40 eller mer | mindre |

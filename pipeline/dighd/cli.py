@@ -7,6 +7,7 @@
   dighd san                          Trekker ut filmrammer (via thedig-textures)
   dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt
   dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom
+  dighd gpt-ordre                    Skriver ORDRE.md med neste jobber til ChatGPT
 """
 from __future__ import annotations
 
@@ -129,6 +130,13 @@ def cmd_gpt_inn(a) -> int:
     return 0
 
 
+def cmd_gpt_ordre(a) -> int:
+    anchors = sorted(p.name for p in Path(a.stil).glob("*.png")) if a.stil and Path(a.stil).is_dir() else []
+    path = gpt.write_orders(Path(a.fra), batch=a.antall, anchors=anchors, messages=a.beskjed or None)
+    print(f"Ordre skrevet: {path}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     root = _repo_root()
     ap = argparse.ArgumentParser(prog="dighd", description="HD-pipeline for The Dig")
@@ -186,10 +194,16 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--styrke", type=float, default=1.0, help="fargelås 0 til 1 (0 = av)")
     p.add_argument("--bare-godkjente", action="store_true", help="ikke bruk jobber med status sjekk")
 
+    p = sub.add_parser("gpt-ordre", help="skriv ORDRE.md med neste jobber til ChatGPT")
+    p.add_argument("--fra", default=str(root / "work" / "gpt"))
+    p.add_argument("--stil", default=str(root / "work" / ".gpt-gren" / "stil"), help="mappe med stilankere")
+    p.add_argument("--antall", type=int, default=10)
+    p.add_argument("--beskjed", action="append", help="beskjed til ChatGPT (kan gjentas)")
+
     a = ap.parse_args(argv)
     return {"info": cmd_info, "extract": cmd_extract, "build-mod": cmd_build_mod,
             "compare": cmd_compare, "san": cmd_san, "gpt-pakke": cmd_gpt_pakke,
-            "gpt-inn": cmd_gpt_inn}[a.command](a)
+            "gpt-inn": cmd_gpt_inn, "gpt-ordre": cmd_gpt_ordre}[a.command](a)
 
 
 if __name__ == "__main__":

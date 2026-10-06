@@ -312,6 +312,23 @@ def lock_colors(candidate: np.ndarray, original_4x: np.ndarray, sigma: float, st
 
 # ---------------------------------------------------------------- mottak
 
+def detect_layout(size: tuple[int, int], region: tuple[int, int]) -> str | None:
+    """Gjenkjenner hvordan et resultat er levert.
+
+    "lerret": hele 1536 x 1024-lerretet med grå kant (3:2), slik referanse.png er.
+    "direkte": bare bildet, i samme sideforhold som utsnittet (16:10 for vanlige rom).
+    Er utsnittet selv 3:2, er de to like, og lerret brukes (da er det ingen kant).
+    """
+    aspect = size[0] / size[1]
+    canvas = CANVAS[0] / CANVAS[1]
+    own = region[0] / region[1]
+    if abs(aspect - canvas) / canvas <= 0.02:
+        return "lerret"
+    if abs(aspect - own) / own <= 0.02:
+        return "direkte"
+    return None
+
+
 def _find_result(d: Path) -> Path | None:
     for name in ("resultat.png", "resultat.webp", "resultat.jpg", "resultat.jpeg"):
         if (d / name).exists():
@@ -343,16 +360,24 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         res = Image.open(res_path).convert("RGB")
         x, y, w, h = job.region
         ox, oy = job.plassering
-        sx, sy = res.width / CANVAS[0], res.height / CANVAS[1]
         r = {"resultat": res_path.name, "storrelse": list(res.size), "sha256_resultat": _sha(res_path)}
-        if abs(sx - sy) / max(sx, sy) > 0.02:
-            r.update(status="avvist", kommentar=f"feil sideforhold {res.width}x{res.height}, skal være 3:2 (1536x1024)")
+        layout = detect_layout(res.size, (w, h))
+        if layout is None:
+            r.update(status="avvist", kommentar=f"feil sideforhold {res.width}x{res.height}: skal være 3:2 som "
+                     f"referanse.png (1536x1024) eller {w}:{h} som utsnittet (for eksempel {w * SCALE}x{h * SCALE})")
             results[job.id] = r
             _write_return(d, r)
             tiles.setdefault(job.rom, []).append((job, None))
             continue
-        box = (ox * SCALE * sx, oy * SCALE * sy, (ox + w) * SCALE * sx, (oy + h) * SCALE * sy)
-        part = res.crop(tuple(round(v) for v in box)).resize((w * SCALE, h * SCALE), Image.LANCZOS)
+        r["format"] = layout
+        if layout == "lerret":
+            sx, sy = res.width / CANVAS[0], res.height / CANVAS[1]
+            box = (ox * SCALE * sx, oy * SCALE * sy, (ox + w) * SCALE * sx, (oy + h) * SCALE * sy)
+            part = res.crop(tuple(round(v) for v in box)).resize((w * SCALE, h * SCALE), Image.LANCZOS)
+        else:
+            part = res.resize((w * SCALE, h * SCALE), Image.LANCZOS)
+        if min(res.width / (w * SCALE), res.height / (h * SCALE)) < 0.6:
+            r["merknad"] = "lav oppløsning fra generatoren"
         original = Image.open(d / "original_1x.png").convert("RGB")
         m = compare(original, part)
         status, why = judge(m)
@@ -478,3 +503,64 @@ def _report(work: Path, jobs: list[Job], results: dict[str, dict], done: list[in
     lines += ["", "Forhåndsvisning per jobb i `forhandsvisning/`: original 4x, ChatGPT, etter fargelås."]
     (work / "RAPPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return {"status": counts, "ferdige_rom": done, "venter": incomplete}
+
+
+# ---------------------------------------------------------------- ordre til ChatGPT
+
+def read_status(work: Path) -> list[dict]:
+    path = work / "status.csv"
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
+                 messages: list[str] | None = None) -> Path:
+    """Skriver ORDRE.md: status, neste jobber og beskjeder. ChatGPT leser denne først."""
+    rows = read_status(work)
+    counts: dict[str, int] = {}
+    for r in rows:
+        counts[r["status"]] = counts.get(r["status"], 0) + 1
+    rooms_total = len({r["rom"] for r in rows})
+    rooms_done = sorted({int(r["rom"]) for r in rows} - {int(r["rom"]) for r in rows if r["status"] != "godkjent"})
+
+    retry = [r for r in rows if r["status"] == "avvist"]
+    fresh = [r for r in rows if r["status"] == "ny"]
+    better = [r for r in rows if r["status"] == "sjekk"]
+    queue = (retry + fresh + better)[:batch]
+
+    lines = ["# Ordre fra Claude", "", time.strftime("Oppdatert %Y-%m-%d %H:%M (norsk tid)"), "",
+             "Les denne filen før du starter. Den erstatter tidligere ordre.", "",
+             "## Status", "",
+             f"- Jobber: {len(rows)}. " + ", ".join(f"{k} {v}" for k, v in sorted(counts.items())),
+             f"- Ferdige rom: {len(rooms_done)} av {rooms_total}" + (f" ({', '.join(map(str, rooms_done))})" if rooms_done else ""),
+             "", "## Gjør disse nå", ""]
+    if not queue:
+        lines.append("Alle romjobber er levert. Vent på ny bestilling.")
+    for i, r in enumerate(queue, 1):
+        why = ""
+        if r["status"] == "avvist":
+            why = f" Avvist: {r['kommentar']}. Les retur.md."
+        elif r["status"] == "sjekk":
+            why = f" Godtatt foreløpig, men kan bli bedre: {r['kommentar']}."
+        lines.append(f"{i}. `{r['jobb']}` (rom {r['rom']}, {r['navn']}, del {r['del']}).{why}")
+    lines += ["", "## Stilankere", ""]
+    if anchors:
+        lines += [f"- `stil/{a}`" for a in anchors]
+        lines += ["", "Legg ved det ankeret som ligner mest på rommet som bilde to."]
+    else:
+        lines.append("Ingen ennå.")
+    lines += ["", "## Leveringsformat", "",
+              "Begge formatene godtas av kontrollen:", "",
+              "- `resultat.png` på 1536 x 1024 med samme grå kant som `referanse.png`.",
+              "- `resultat.png` med bare bildet, i samme sideforhold som utsnittet (16:10 for vanlige rom, "
+              "minst 1280 x 800). Slik pilotbildene ble levert.", "",
+              "Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.", ""]
+    if messages:
+        lines += ["## Beskjeder", ""] + [f"- {m}" for m in messages] + [""]
+    lines += ["## Neste sjekk", "", "Claude henter grenen omtrent hver halvtime, kontrollerer leveransene, "
+              "oppdaterer `status.csv`, `RAPPORT.md` og `retur.md`, og skriver ny ordre her."]
+    path = work / "ORDRE.md"
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path

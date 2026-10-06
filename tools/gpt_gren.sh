@@ -37,12 +37,32 @@ copy_jobs_out() {
 		done
 		if [ -f "$d/retur.md" ]; then cp "$d/retur.md" "$TREE/jobber/$id/retur.md"; else rm -f "$TREE/jobber/$id/retur.md"; fi
 	done
-	for f in JOBBER.md status.csv RAPPORT.md; do
+	for f in JOBBER.md status.csv RAPPORT.md ORDRE.md; do
 		[ -f "$WORK/$f" ] && cp "$WORK/$f" "$TREE/$f"
+	done
+	# Forhåndsvisning bare for jobber som må gjøres om (de andre tar for mye plass)
+	rm -rf "$TREE/forhandsvisning"
+	for r in "$WORK"/jobber/*/retur.md; do
+		[ -f "$r" ] || continue
+		id="$(basename "$(dirname "$r")")"
+		if [ -f "$WORK/forhandsvisning/$id.png" ]; then
+			mkdir -p "$TREE/forhandsvisning"
+			cp "$WORK/forhandsvisning/$id.png" "$TREE/forhandsvisning/"
+		fi
 	done
 	cp "$ROOT/docs/BESTILLING-CHATGPT.md" "$TREE/BESTILLING.md"
 	cp "$ROOT/docs/gpt-arbeid-AGENTS.md" "$TREE/AGENTS.md"
 	[ -f "$TREE/README.md" ] || printf '# gpt-arbeid\n\nArbeidsbordet for HD-grafikken. Les AGENTS.md og BESTILLING.md.\n' > "$TREE/README.md"
+}
+
+restore_jobs() {
+	# Ny arbeidsmappe (for eksempel etter at maskinen er byttet): hent alle jobbene fra grenen
+	mkdir -p "$WORK"
+	cp -r "$TREE/jobber" "$WORK/"
+	for f in JOBBER.md status.csv ORDRE.md RAPPORT.md; do
+		[ -f "$TREE/$f" ] && cp "$TREE/$f" "$WORK/$f"
+	done
+	echo "Jobbene hentet fra grenen til $WORK."
 }
 
 copy_results_in() {
@@ -77,6 +97,7 @@ send)
 	;;
 hent)
 	ensure_tree
+	[ -d "$WORK/jobber" ] || restore_jobs
 	copy_results_in
 	echo "Kjør nå: dighd gpt-inn"
 	;;
