@@ -47,6 +47,11 @@ def walk_blocks(data):
             pos = nxt
             continue
         size = struct.unpack(">I", data[pos + 4:pos + 8])[0]
+        if size < 8 or pos + size > len(data):
+            # Skadet blokkhode: en størrelse under 8 ville gitt evig løkke, og en for stor
+            # ville lest forbi slutten av filen. Lagre resten som ukjent og stopp.
+            blocks.append(("SKADET", pos, len(data) - pos))
+            break
         blocks.append((tag.decode(), pos, size))
         pos += size
     return blocks
@@ -97,7 +102,7 @@ def main():
     for k, v in info.get("maxs", {}).items():
         print(f"  {k:15} {v}")
     print("Kataloger (antall plasser):", ", ".join(f"{k}={v}" for k, v in info["directories"].items()))
-    resync = [b for b in info["blocks"] if b["tag"] == "RESYNC"]
+    resync = [b for b in info["blocks"] if b["tag"] in ("RESYNC", "SKADET")]
     if resync:
         print(f"Advarsel: {len(resync)} ukjente omrader i filen. Filen kan vaere skadet.")
     print(f"Navngitte rom: {len(info.get('rooms', []))}")
