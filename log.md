@@ -78,7 +78,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Første runde kjørt 23:43: 2 godkjent, 160 nye. Modden med rom 9 og 22 publisert i `hd-mod` (3,2 MB). `ORDRE.md` sendt til `gpt-arbeid` med rom 2 (tre deler), rom 3 til 8 og første del av rom 10.
 - Oppdatert `docs/gpt-arbeid-AGENTS.md` og `docs/BESTILLING-CHATGPT.md`: les `ORDRE.md` først, ingen egne grener eller PR-er, begge leveringsformater godtas.
 
-## 2026-10-06 23:45 til 23:58 (Claude)
+## 2026-10-06 23:45 til 23:52 (Claude)
 - Tom ba om å rydde repoet med README, status og todo slik som i de andre prosjektene (Moonstone og Jones).
 - Skrev README på nytt: kort om prosjektet, statustabell, spille med HD, lage HD selv, samarbeidet med ChatGPT, test, grener, mapper, dokumentasjon og opphavsrett.
 - Ny `STATUS.md`: HD-dekning (2 av 106 rom, 0 av 642 objekter, 0 av 28 490 ruter, 0 av 12 638 filmrammer), hva som virker og hvordan det er testet, kjente begrensninger og grener.
@@ -87,3 +87,5 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Flyttet de tre konseptbildene fra roten til `docs/konsept/` med lesbare navn (ludger-brink.jpeg, maggie-robbins.webp, boston-low.webp). Rettet henvisningene.
 - La til NumPy i avhengighetene til pipelinen (brukes av `gpt.py`, manglet i `pyproject.toml`). Ny test for leveringsformat og ordre. 7 tester bestått.
 - Ny CI (`.github/workflows/test.yml`): installerer pipelinen, kjører `pytest -m "not game"` og stopper hvis spillfiler eller `work/` og `mods/` er sjekket inn.
+- Pushet to commits til `claude/analyse-hd` (9076632 og 8440b5c). CI grønn. PR 2 står som flettet. Oppdatert tittel og beskrivelse på PR 1. Fletting av PR 1 inn i `main` ble stoppet av tillatelsene her, så den er lagt til Tom i `todo.md`.
+- Neste ChatGPT-runde er satt opp til kl. 00:21.

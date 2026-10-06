@@ -4,6 +4,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Neste
 
+- [ ] Tom fletter PR 1 inn i `main` (CI er grønn), så `main` viser hele prosjektet
 - [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 162 romjobber er godkjent
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres
 - [ ] Juster grensene i `gpt.py` etter de første 20 ekte leveransene
