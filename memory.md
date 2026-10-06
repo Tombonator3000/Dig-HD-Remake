@@ -25,6 +25,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Kostymefarger: RGBS-blokken i AKOS har de ekte fargene. thedig-textures sin egen PNG-eksport av kostymer har svart palett og brukes ikke.
 - SAN-rammenummer: filnavn = SmushPlayer `_frame - 1`.
 - Fargesyklede palettindekser vises som originalpiksler.
+- Motor: Ctrl+H bytter HD og klassisk, Ctrl+Shift+H viser gult felt der HD mangler. `DIGHD_CLASSIC=1`, `DIGHD_SHOW_MISSING=1`, `DIGHD_TEST_KEYS=ramme:tast,...` for test uten skjerm. Binær her: /home/claude/scummvm.
 - Pipeline: `dighd` (Python 3.12+, Pillow, NumPy, thedig-textures låst til commit 1cf355e). CI kjører `pytest -m "not game"` på hver push og PR.
 
 ## HD-grafikk fra ChatGPT
@@ -35,6 +36,9 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - ChatGPT leser `ORDRE.md` i `gpt-arbeid` først. Claude skriver den hver runde (`dighd gpt-ordre`): avviste jobber først, så nye, så de som kan bli bedre, 10 om gangen.
 - En runde = `tools/gpt_runde.sh`. Ferdig mod publiseres i grenen `hd-mod` (én commit som erstattes, med SHA256SUMS). Hentes med `tools/mod_gren.sh hent`.
 - Pilot: rom 9 og 22 fra Codex, godkjent av Claude på vegne av Tom 6. oktober (forskyvning 0,73 og 0,25 px). Stilankere: `stil/room009_core.png` og `stil/room022_beach.png`.
+- Store objektbilder (w*h >= 16000, w >= 200 eller h >= 150) er egne jobber `objNNN_SS`, 30 stykker. Rutenettene obj618 og obj627 (rom 93) er tatt ut. Objektnotater i `docs/gpt-romnotater.csv` med `objNNN` i kolonnen rom. Senere tilstander gjøres like den første der originalene er like (`match_state`).
+- Kodeoppgaver til Codex står i `docs/gpt-kodeoppgaver.md` og kommer med i ORDRE.md. Rapporter i `rapporter/` i `gpt-arbeid`.
+- Rom 22 i modden er piloten fra Codex. En senere leveranse ligger som `alternativ_forsok2.png` (bakken ble til vann).
 - Leveranse godtas som hele lerretet (1536 x 1024 med grå kant) eller bare bildet i utsnittets sideforhold (`detect_layout`).
 - Godkjenning: forskyvning 0,75 px, blokker 1,0 px, kantlikhet 0,55 (sjekk: 1,5 / 2,0 / 0,40). Fargelås sigma 6, styrke 1.
 - Erfaring fra Jones: ChatGPT bommer på tekst og plassering, og stilen ble skiftet flere ganger. Derfor pilot, stilankere, automatisk kontroll og sporing.

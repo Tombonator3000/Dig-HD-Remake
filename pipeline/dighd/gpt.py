@@ -32,7 +32,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 
 from .upscale import upscale_alpha
 
@@ -48,6 +48,8 @@ CHECK_SHIFT, CHECK_BLOCK, CHECK_EDGES = 1.5, 2.0, 0.40
 
 # Objektbilder som er så store at de dekker mye av skjermen, blir egne jobber
 BIG_AREA, BIG_W, BIG_H = 16000, 200, 150
+# Store objekter som ikke blir jobber: ensfargede rutenett i inventaret (rom 93, icons)
+SKIP_OBJECTS = {618: "rutenett i inventaret", 627: "rutenett i inventaret"}
 
 PROMPT_BASE = """Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.
 
@@ -69,6 +71,8 @@ Output: one image, exactly 1536 x 1024 pixels, with the same layout as the input
 PROMPT_STYLE = """If a second image is attached, it is an already approved HD picture from the same game. Match its level of detail and brushwork, but take all content, shapes and colors from the first image."""
 
 PROMPT_TILE = """This is part {part} of {parts} of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading."""
+
+PROMPT_STATE = """This picture is one of several states of the same image in the game, and the game switches between them. If a second image is attached, it is the approved HD version of the first state. Copy everything that looks the same in both from that second image, so the states match exactly, and only paint the parts that differ."""
 
 PROMPT_OBJECT = """This picture is a large image that the game draws on top of the room, such as a close-up, a map or a panel. Treat it as a background picture and follow all the rules above."""
 
@@ -149,14 +153,20 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def read_notes(path: Path | None) -> dict[int, str]:
+def read_notes(path: Path | None) -> dict[int | str, str]:
+    """Romnotater (rom = nummer) og objektnotater (rom = objNNN, for eksempel obj241)."""
     if not path or not path.exists():
         return {}
-    notes = {}
+    notes: dict[int | str, str] = {}
     with path.open(newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            if row.get("rom", "").strip().isdigit() and row.get("notat", "").strip():
-                notes[int(row["rom"])] = row["notat"].strip()
+            key, note = row.get("rom", "").strip().lower(), row.get("notat", "").strip()
+            if not note:
+                continue
+            if key.isdigit():
+                notes[int(key)] = note
+            elif re.fullmatch(r"obj\d+", key):
+                notes[f"obj{int(key[3:]):03d}"] = note
     return notes
 
 
@@ -182,15 +192,19 @@ def object_in_room(room: Image.Image | None, obj: Image.Image, x: int, y: int) -
     return back.convert("RGB")
 
 
-def _prompt(num: int, notes: dict[int, str], part: int, parts: int, is_object: bool = False) -> str:
+def _prompt(num: int, notes: dict, part: int, parts: int, is_object: bool = False,
+            obj_key: str | None = None, later_state: bool = False) -> str:
     prompt = PROMPT_BASE
     if is_object:
         prompt += "\n\n" + PROMPT_OBJECT
-    if num in notes:
+    if obj_key and obj_key in notes:
+        # Objektet har eget notat. Romnotatet beskriver rommet bak og kan være feil for objektet.
+        prompt += "\n\nNote for this picture: " + notes[obj_key]
+    elif num in notes:
         prompt += "\n\nNote for this room: " + notes[num]
     if parts > 1:
         prompt += "\n\n" + PROMPT_TILE.format(part=part, parts=parts)
-    return prompt + "\n\n" + PROMPT_STYLE
+    return prompt + "\n\n" + (PROMPT_STATE if later_state else PROMPT_STYLE)
 
 
 def _write_job(jobs_dir: Path, job: Job, image: Image.Image, prompt: str, style_ref: Path | None) -> None:
@@ -254,6 +268,8 @@ def _object_jobs(extract: Path, jobs_dir: Path, num: int, info: dict, room: Imag
                  notes: dict[int, str], style_ref: Path | None) -> list[Job]:
     jobs = []
     for obj in info["objects"]:
+        if obj["id"] in SKIP_OBJECTS:
+            continue
         for state in obj["states"]:
             name = f"obj{obj['id']:03d}_{state}"
             src = extract / "objects" / f"{name}.png"
@@ -269,7 +285,9 @@ def _object_jobs(extract: Path, jobs_dir: Path, num: int, info: dict, room: Imag
                 job = Job(jid, num, info["name"], i + 1, len(tiles), (info["width"], info["height"]),
                           (x, y, w, h), (ox, oy), type="objekt", objekt=obj["id"], tilstand=state,
                           objekt_i_rom=(obj["x"], obj["y"], image.width, image.height))
-                _write_job(jobs_dir, job, image, _prompt(num, notes, i + 1, len(tiles), is_object=True), style_ref)
+                prompt = _prompt(num, notes, i + 1, len(tiles), is_object=True, obj_key=f"obj{obj['id']:03d}",
+                                 later_state=state != min(obj["states"]))
+                _write_job(jobs_dir, job, image, prompt, style_ref)
                 jobs.append(job)
     return jobs
 
@@ -502,8 +520,18 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
 
     provenance = {}
     done_rooms, done_objects, incomplete = [], [], []
+    first_state = {}
+    for j in jobs:
+        if j.type == "objekt":
+            first_state[j.objekt] = min(first_state.get(j.objekt, j.tilstand), j.tilstand)
+    finished: dict[str, np.ndarray] = {}
     for name, parts in tiles.items():
         first = parts[0][0]
+        base = f"obj{first.objekt:03d}_{first_state[first.objekt]}" if first.type == "objekt" else None
+        if base and base != name and base not in finished and all(t is not None for _, t in parts):
+            # Senere tilstander venter på den første, så de kan bli like der bildene er like
+            incomplete.append(f"{name} (rom {first.rom}): venter på {base}")
+            continue
         if any(t is None for _, t in parts):
             have = sum(t is not None for _, t in parts)
             if have:
@@ -517,6 +545,12 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
                        if k in ("sha256_referanse", "sha256_prompt", "laget", "stilreferanse")}}
                    for j, _ in parts]
         if first.type == "objekt":
+            same_as = None
+            if base != name:
+                img = match_state(img, finished[base], extract / "objects" / f"{name}_idx.png",
+                                  extract / "objects" / f"{base}_idx.png")
+                same_as = base
+            finished[name] = img
             dest = out / "objects" / f"{name}.png"
             _with_alpha(img, extract / "objects" / f"{name}.png").save(dest)
             done_objects.append(name)
@@ -525,6 +559,8 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
                 "type": "objekt", "rom": first.rom, "objekt": first.objekt, "tilstand": first.tilstand,
                 "fargelås": {"sigma": sigma, "styrke": strength}, "jobber": made_by,
             }
+            if same_as:
+                provenance[name]["likt_med"] = same_as
         else:
             dest = out / "rooms" / f"{name}.png"
             Image.fromarray(img).save(dest)
@@ -540,6 +576,28 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
     prov_path.write_text(json.dumps(old, indent=1, ensure_ascii=False))
     summary = _report(work, jobs, results, sorted(done_rooms), sorted(done_objects), incomplete)
     return summary
+
+
+def match_state(img: np.ndarray, base_hd: np.ndarray, idx: Path, base_idx: Path, grow: int = 2,
+                feather: float = 3.0) -> np.ndarray:
+    """Gjør en senere tilstand lik den første der originalbildene er like.
+
+    Der indeksbildene er like (med en margin på `grow` originalpiksler), brukes HD-bildet til den
+    første tilstanden. Bare det som er forskjellig, tas fra ChatGPT-bildet for denne tilstanden.
+    Overgangen mykes opp med `feather` HD-piksler. Da skifter ikke hender og bakgrunn utseende
+    når spillet bytter tilstand.
+    """
+    a, b = np.asarray(Image.open(idx)), np.asarray(Image.open(base_idx))
+    if a.shape != b.shape or base_hd.shape != img.shape:
+        return img
+    diff = Image.fromarray(((a != b) * 255).astype(np.uint8))
+    if grow:
+        diff = diff.filter(ImageFilter.MaxFilter(2 * grow + 1))
+    mask = np.asarray(diff.resize((img.shape[1], img.shape[0]), Image.NEAREST), dtype=np.float64) / 255
+    if feather:
+        mask = np.clip(blur(mask, feather), 0, 1)
+    out = base_hd.astype(np.float64) * (1 - mask[..., None]) + img.astype(np.float64) * mask[..., None]
+    return np.clip(np.rint(out), 0, 255).astype(np.uint8)
 
 
 def _with_alpha(img: np.ndarray, original: Path) -> Image.Image:
@@ -673,7 +731,7 @@ def _image_of(row: dict) -> str:
 
 
 def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
-                 messages: list[str] | None = None) -> Path:
+                 messages: list[str] | None = None, tasks: Path | None = None) -> Path:
     """Skriver ORDRE.md: status, neste jobber og beskjeder. ChatGPT leser denne først."""
     rows = read_status(work)
     counts: dict[str, int] = {}
@@ -716,6 +774,12 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
         m = _OBJ_ID.match(r["jobb"]) if r["type"] == "objekt" else None
         if m:
             what += f", objekt {int(m.group(1))} tilstand {m.group(2)}"
+            states = sorted({_OBJ_ID.match(o["jobb"]).group(2) for o in obj_rows
+                             if _OBJ_ID.match(o["jobb"]) and _OBJ_ID.match(o["jobb"]).group(1) == m.group(1)})
+            if m.group(2) != states[0]:
+                first = f"obj{m.group(1)}_{states[0]}"
+                why += (f" Legg ved `jobber/{first}/resultat.png` som bilde to (ikke stilankeret), så tilstandene "
+                        f"blir like. Lag denne etter {first}.")
         lines.append(f"{i}. `{r['jobb']}` ({what}, del {r['del']}).{why}")
     lines += ["", "## Stilankere", ""]
     if anchors:
@@ -734,6 +798,8 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
               "Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.", ""]
     if messages:
         lines += ["## Beskjeder", ""] + [f"- {m}" for m in messages] + [""]
+    if tasks and tasks.exists() and tasks.read_text(encoding="utf-8").strip():
+        lines += ["## Kodeoppgaver", "", tasks.read_text(encoding="utf-8").strip(), ""]
     lines += ["## Neste sjekk", "", "Claude henter grenen omtrent hver halvtime, kontrollerer leveransene, "
               "oppdaterer `status.csv`, `RAPPORT.md` og `retur.md`, og skriver ny ordre her."]
     path = work / "ORDRE.md"

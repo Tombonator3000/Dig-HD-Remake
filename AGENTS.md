@@ -28,7 +28,7 @@ Instrukser for alle KI-agenter som jobber i dette repoet (Claude, Codex, ChatGPT
 - Repoet er privat. *The Dig* tilhører Disney/Lucasfilm. Ingenting fra spillet deles.
 - Konseptbildene i `docs/konsept/` er laget av en Reddit-tegner. Spør og krediter før noe vises offentlig.
 - Kjør testene før du committer endringer i pipelinen eller motoren.
-- Kodeendringer går via PR mot `main`.
+- Kodeendringer går via PR mot `main` og flettes når CI er grønn. Logg, status, todo og minne kan committes rett i `main`.
 
 ## Roller
 

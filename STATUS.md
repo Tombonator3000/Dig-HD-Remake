@@ -1,18 +1,19 @@
 # Status
 
-Oppdatert 6. oktober 2026, 23:52. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 7. oktober 2026, 00:45. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
-Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 2 av 106 rom. Resten går i runder: ChatGPT lager, Claude kontrollerer og bygger modden, Tom godkjenner.
+Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 3 av 106 rom. Resten går i runder: ChatGPT lager, Claude kontrollerer og bygger modden, Tom godkjenner.
 
 ## HD-grafikk
 
 | Del | Ferdig | Totalt | Kilde | Merknad |
 | --- | --- | --- | --- | --- |
-| Rombakgrunner | 2 | 106 | ChatGPT | Rom 9 (core) og 22 (beach). 5 nesten tomme rom tegnes av filmer og er tatt ut. |
-| ChatGPT-jobber | 2 | 162 | ChatGPT | Brede og høye rom er delt i flere jobber. Se `work/gpt/status.csv` eller grenen `gpt-arbeid`. |
-| Objektbilder | 0 | 642 | | Automatisk oppskalering i sammenheng med rommet. Egen ChatGPT-runde senere. |
+| Rombakgrunner | 3 | 106 | ChatGPT | Rom 9 (core), 22 (beach) og 28 (shardcu). 5 nesten tomme rom tegnes av filmer og er tatt ut. |
+| ChatGPT-jobber | 4 | 192 | ChatGPT | 162 for rom (brede og høye rom er delt i flere jobber) og 30 for store objektbilder. Se `work/gpt/status.csv` eller grenen `gpt-arbeid`. |
+| Store objektbilder | 0 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
+| Andre objektbilder | 0 | 610 | | Automatisk oppskalering i sammenheng med rommet. Egen ChatGPT-runde senere. |
 | Kostymeruter | 0 | 28 490 | | Automatisk oppskalering. Plan: modellark per hovedperson fra ChatGPT, så oppskalering. |
 | Filmrammer | 0 | 12 638 | | Utskifting virker. Videooppskalering senere. |
 
@@ -28,10 +29,12 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Motor: figurer | HD-sprites for kostymeruter med kodek 1 og 5 | 0 avvik for uskalerte figurer, under 0,25 prosent for skalerte (jevn skalering, ventet) |
 | Motor: filmer | HD-rammer per SAN-fil | 198 av 198 rammer i introen like med nearest-rammer etter rettingen til `_frame - 1` |
 | Motor: farger | Fade og palettbytte følger med; fargesyklede farger vises som originalen | Sett i dumpede bilder fra rom 2 og 22 |
+| Motor: brytere | Ctrl+H bytter mellom HD og klassisk, Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`) | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Ikke prøvd med ekte tastatur |
+| Motor: store objekter | HD-objektbilder fra ChatGPT også i rom uten HD-bakgrunn | Rom 28 kjørt uten skjerm: tavla obj241 dekker nesten hele skjermen (69 492 objektpiksler mot 185 rompiksler) |
 | Motor på laptopen | SDL2, Wayland, OpenGL, 1280 x 800, 32 bit | Codex sin pilotkjøring, logger i `grafikkdata/pilot-20261006` |
 | Bygg | `engine/build.sh` fra ren checkout av låst ScummVM-commit | Kjørt fra tom mappe her og av Codex på laptopen |
-| ChatGPT-kontroll | Sideforhold, forskyvning, zoom, kantlikhet, fargelås, sammensying | Kunstige svar: 3 px forskyvning og 3 prosent zoom avvises, riktig plassert godkjennes; pilotbildene godkjent (forskyvning 0,73 og 0,25 px) |
-| Pipeline | 7 tester, 6 uten spillfiler | `cd pipeline && pytest`, og `pytest -m "not game"` i CI på hver push |
+| ChatGPT-kontroll | Sideforhold, forskyvning, zoom, kantlikhet, fargelås, sammensying, objektjobber, like tilstander | Kunstige svar: 3 px forskyvning og 3 prosent zoom avvises, riktig plassert godkjennes; pilotbildene godkjent (forskyvning 0,73 og 0,25 px) |
+| Pipeline | 10 tester, 9 uten spillfiler | `cd pipeline && pytest`, og `pytest -m "not game"` i CI på hver push |
 
 ## Kjente begrensninger
 

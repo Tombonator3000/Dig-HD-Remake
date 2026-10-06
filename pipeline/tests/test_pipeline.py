@@ -167,6 +167,10 @@ def test_gpt_layout_and_orders(tmp_path):
     assert "1. `rom010`" in text and "rom011" not in text
     assert "Ferdige rom: 1 av 4 (9)" in text
     assert "stil/room009_core.png" in text and "- Hei" in text
+    tasks = tmp_path / "oppgaver.md"
+    tasks.write_text("1. Test på laptopen.\n", encoding="utf-8")
+    text = gpt.write_orders(tmp_path, tasks=tasks).read_text()
+    assert "## Kodeoppgaver" in text and "1. Test på laptopen." in text
 
 
 def _texture(rng, w, h, sigma=2.0):
@@ -310,3 +314,30 @@ def test_gpt_orders_with_objects(tmp_path):
     assert pos == sorted(pos)
     assert "Ferdige rom: 1 av 5 (9)" in text and "Ferdige objekter: 1 av 3 (obj050_02)" in text
     assert "`obj050_01` (rom 9, x, objekt 50 tilstand 01, del 1/1)" in text
+
+
+def test_gpt_object_notes_and_states(tmp_path):
+    from dighd import gpt
+    import numpy as np
+    from PIL import Image
+
+    notes_csv = tmp_path / "notater.csv"
+    notes_csv.write_text('rom,navn,notat\n28,shardcu,"Hands."\nobj241,shardcu,"No hands."\n', encoding="utf-8")
+    notes = gpt.read_notes(notes_csv)
+    assert notes == {28: "Hands.", "obj241": "No hands."}
+    p = gpt._prompt(28, notes, 1, 1, is_object=True, obj_key="obj241")
+    assert "No hands." in p and "Hands." not in p.replace("No hands.", "")
+    assert gpt._prompt(28, notes, 1, 1, is_object=True, obj_key="obj999", later_state=True).endswith(gpt.PROMPT_STATE)
+
+    # Senere tilstand: likt område tas fra første tilstand, forskjellen fra det nye bildet
+    a = np.zeros((40, 40), np.uint8)
+    b = a.copy()
+    b[10:20, 10:20] = 7
+    Image.fromarray(a, "L").convert("P").save(tmp_path / "base_idx.png")
+    Image.fromarray(b, "L").convert("P").save(tmp_path / "ny_idx.png")
+    base = np.full((160, 160, 3), 100, np.uint8)
+    new = np.full((160, 160, 3), 200, np.uint8)
+    out = gpt.match_state(new, base, tmp_path / "ny_idx.png", tmp_path / "base_idx.png")
+    assert out[60, 60, 0] == 200          # midt i det som er forskjellig
+    assert out[150, 150, 0] == 100        # langt unna: som første tilstand
+    assert out[5, 5, 0] == 100

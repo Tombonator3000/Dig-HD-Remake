@@ -140,7 +140,8 @@ def cmd_gpt_inn(a) -> int:
 
 def cmd_gpt_ordre(a) -> int:
     anchors = sorted(p.name for p in Path(a.stil).glob("*.png")) if a.stil and Path(a.stil).is_dir() else []
-    path = gpt.write_orders(Path(a.fra), batch=a.antall, anchors=anchors, messages=a.beskjed or None)
+    path = gpt.write_orders(Path(a.fra), batch=a.antall, anchors=anchors, messages=a.beskjed or None,
+                           tasks=Path(a.oppgaver) if a.oppgaver else None)
     print(f"Ordre skrevet: {path}")
     return 0
 
@@ -208,6 +209,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--stil", default=str(root / "work" / ".gpt-gren" / "stil"), help="mappe med stilankere")
     p.add_argument("--antall", type=int, default=10)
     p.add_argument("--beskjed", action="append", help="beskjed til ChatGPT (kan gjentas)")
+    p.add_argument("--oppgaver", default=str(root / "docs" / "gpt-kodeoppgaver.md"),
+                   help="kodeoppgaver som tas med i ORDRE.md (tom streng for ingen)")
 
     a = ap.parse_args(argv)
     return {"info": cmd_info, "extract": cmd_extract, "build-mod": cmd_build_mod,
