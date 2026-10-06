@@ -40,6 +40,7 @@ def test_index_parsing_and_helpers(tmp_path):
     assert cli._rooms("22,24") == {22, 24}
     assert cli._rooms("20-22,30") == {20, 21, 22, 30}
     assert cli._rooms(None) is None
+    assert cli._rooms("ingen") == set()
 
 
 def test_upscale_and_alpha():
@@ -166,3 +167,146 @@ def test_gpt_layout_and_orders(tmp_path):
     assert "1. `rom010`" in text and "rom011" not in text
     assert "Ferdige rom: 1 av 4 (9)" in text
     assert "stil/room009_core.png" in text and "- Hei" in text
+
+
+def _texture(rng, w, h, sigma=2.0):
+    """Kunstig bilde med former og farger, så kontrollen har noe å kjenne igjen."""
+    from dighd import gpt
+    import numpy as np
+
+    a = np.stack([gpt.blur(rng.random((h, w)), sigma) for _ in range(3)], axis=-1)
+    a = (a - a.min()) / (a.max() - a.min()) * 255
+    return Image.fromarray(a.astype("uint8"))
+
+
+def _fake_extract(tmp_path):
+    """Et lite uttrekk: rom 5 (320 x 200) med ett stort objektbilde med gjennomsiktig hjørne og ett lite."""
+    import json
+    import numpy as np
+
+    rng = np.random.default_rng(3)
+    ex = tmp_path / "extract"
+    (ex / "rooms").mkdir(parents=True)
+    (ex / "objects").mkdir()
+    room = _texture(rng, 320, 200)
+    room.save(ex / "rooms" / "room005.png")
+    Image.new("P", (320, 200)).save(ex / "rooms" / "room005_idx.png")
+    big = _texture(rng, 220, 120, 1.5).convert("RGBA")
+    for x in range(60):
+        for y in range(40):
+            big.putpixel((x, y), (255, 0, 255, 0))   # gjennomsiktig, fargen skal ikke synes
+    big.save(ex / "objects" / "obj241_01.png")
+    Image.new("P", (220, 120)).save(ex / "objects" / "obj241_01_idx.png")
+    Image.new("RGBA", (20, 20), (9, 9, 9, 255)).save(ex / "objects" / "obj007_01.png")
+    Image.new("P", (20, 20)).save(ex / "objects" / "obj007_01_idx.png")
+    meta = {"game_md5_la0": "x", "rooms": {"5": {
+        "name": "testrom", "width": 320, "height": 200, "palettes": 1, "zplane": False, "cycles": [],
+        "objects": [{"id": 241, "x": 40, "y": 30, "w": 220, "h": 120, "states": ["01"]},
+                    {"id": 7, "x": 10, "y": 10, "w": 20, "h": 20, "states": ["01"]}]}}}
+    (ex / "rooms.json").write_text(json.dumps(meta))
+    return ex, room, big
+
+
+def test_gpt_object_jobs_and_import(tmp_path):
+    import json
+    from PIL import ImageFilter
+    from dighd import gpt
+
+    ex, room, big = _fake_extract(tmp_path)
+    work, done = tmp_path / "gpt", tmp_path / "gpt-ferdig"
+    jobs = gpt.make_jobs(ex, work, notes={5: "Test note."})
+    # Romjobben først, så det store objektbildet. Det lille blir ikke egen jobb.
+    assert [j.id for j in jobs] == ["rom005", "obj241_01"]
+    assert [r["type"] for r in gpt.read_status(work)] == ["rom", "objekt"]
+
+    d = work / "jobber" / "obj241_01"
+    data = json.loads((d / "jobb.json").read_text())
+    assert data["type"] == "objekt" and data["objekt"] == 241 and data["tilstand"] == "01"
+    assert data["objekt_i_rom"] == [40, 30, 220, 120] and data["region"] == [0, 0, 220, 120]
+    ox, oy = (384 - 220) // 2, (256 - 120) // 2
+    assert data["plassering"] == [ox, oy] and data["bilde_i_lerret"] == [ox * 4, oy * 4, 880, 480]
+    room_job = json.loads((work / "jobber" / "rom005" / "jobb.json").read_text())
+    assert room_job["type"] == "rom" and room_job["objekt"] is None
+
+    # Samme lerret og kant som rommene, objektet i 4x på riktig sted
+    ref = Image.open(d / "referanse.png")
+    assert ref.size == (1536, 1024) and ref.getpixel((0, 0)) == gpt.BORDER
+
+    def at(x, y):
+        return ref.getpixel(((ox + x) * 4 + 2, (oy + y) * 4 + 2))
+
+    # Gjennomsiktig del: rommet bak objektet. Synlig del: objektet.
+    assert at(5, 5) == room.getpixel((40 + 5, 30 + 5))
+    assert at(100, 80) == big.getpixel((100, 80))[:3]
+    orig = Image.open(d / "original_1x.png")
+    assert orig.size == (220, 120) and orig.getpixel((5, 5)) == room.getpixel((45, 35))
+    prompt = (d / "prompt.txt").read_text()
+    assert gpt.PROMPT_OBJECT in prompt and "Note for this room: Test note." in prompt
+    assert prompt.startswith(gpt.PROMPT_BASE) and prompt.rstrip().endswith(gpt.PROMPT_STYLE)
+
+    # Et riktig plassert, litt mykere resultat godkjennes og blir et HD-objekt i 4x
+    ref.filter(ImageFilter.GaussianBlur(1.5)).save(d / "resultat.png")
+    s = gpt.import_results(work, ex, done)
+    assert s["ferdige_objekter"] == ["obj241_01"] and s["ferdige_rom"] == []
+    assert (s["rom_totalt"], s["objekter_totalt"]) == (1, 1)
+    status = {r["jobb"]: r for r in gpt.read_status(work)}
+    assert status["obj241_01"]["status"] == "godkjent" and status["obj241_01"]["type"] == "objekt"
+    hd = Image.open(done / "objects" / "obj241_01.png")
+    assert hd.size == (880, 480) and hd.mode == "RGBA"
+    assert hd.getpixel((5 * 4, 5 * 4))[3] == 0 and hd.getpixel((100 * 4, 80 * 4))[3] == 255
+    assert not (done / "rooms" / "room005.png").exists()
+    prov = json.loads((done / "provenance.json").read_text())["obj241_01"]
+    assert prov["fil"] == "objects/obj241_01.png" and prov["storrelse"] == [880, 480]
+    assert prov["type"] == "objekt" and prov["jobber"][0]["status"] == "godkjent"
+    report = (work / "RAPPORT.md").read_text()
+    assert "Ferdige rom: 0 av 1" in report and "Ferdige objekter: 1 av 1 (obj241_01)" in report
+    orders = gpt.write_orders(work).read_text()
+    assert "Ferdige rom: 0 av 1" in orders and "Ferdige objekter: 1 av 1 (obj241_01)" in orders
+    assert "1. `rom005`" in orders
+
+    # Modden: det godkjente objektbildet kommer med selv om rommet ikke har HD-bakgrunn
+    m = modpack.build_mod(ex, tmp_path / "mod", scale=4, method="nearest", rooms=set(), own=done)
+    assert m["rooms"] == [] and m["objects"] == ["obj241_01"]
+    assert not (tmp_path / "mod" / "rooms" / "room005.png").exists()
+    assert (tmp_path / "mod" / "objects" / "obj241_01_idx.png").exists()
+    assert not (tmp_path / "mod" / "objects" / "obj007_01.png").exists()
+    # Med rommet valgt: bakgrunnen og det lille objektet skaleres automatisk, det store er det egne
+    m = modpack.build_mod(ex, tmp_path / "mod2", scale=4, method="nearest", rooms={5}, own=done)
+    assert m["rooms"] == [5] and m["objects"] == ["obj007_01", "obj241_01"]
+    assert Image.open(tmp_path / "mod2" / "objects" / "obj241_01.png").tobytes() == hd.tobytes()
+
+
+def test_gpt_orders_with_objects(tmp_path):
+    from dighd import gpt
+
+    # Gammel status.csv uten kolonnen type: alt er romjobber
+    old = ["jobb", "rom", "navn", "del", "status", "kommentar"]
+    with (tmp_path / "status.csv").open("w", encoding="utf-8") as f:
+        f.write(",".join(old) + "\nrom009,9,core,1/1,godkjent,\nrom010,10,x,1/1,ny,\n")
+    assert [r["type"] for r in gpt.read_status(tmp_path)] == ["rom", "rom"]
+    assert "Ferdige rom: 1 av 2 (9)" in gpt.write_orders(tmp_path).read_text()
+
+    rows = [
+        ("rom002_del1av3", "rom", 2, "ny", ""),
+        ("rom003", "rom", 3, "ny", ""),
+        ("obj060_01", "objekt", 3, "ny", ""),
+        ("rom009", "rom", 9, "godkjent", ""),
+        ("obj050_01", "objekt", 9, "ny", ""),
+        ("obj050_02", "objekt", 9, "godkjent", ""),
+        ("rom010", "rom", 10, "avvist", "forskjøvet 3 px"),
+        ("rom011", "rom", 11, "sjekk", "kantlikhet 0,50"),
+    ]
+    with (tmp_path / "status.csv").open("w", encoding="utf-8") as f:
+        f.write(",".join(gpt.STATUS_FIELDS) + "\n")
+        for jobb, typ, rom, status, kommentar in rows:
+            row = {k: "" for k in gpt.STATUS_FIELDS}
+            row.update(jobb=jobb, type=typ, rom=rom, navn="x", status=status, kommentar=kommentar)
+            row["del"] = "1/1"
+            f.write(",".join(str(row[k]) for k in gpt.STATUS_FIELDS) + "\n")
+    text = gpt.write_orders(tmp_path, batch=10).read_text()
+    # Avviste, så nye objektjobber i ferdige rom, så nye etter romnummer (rom før objekt), så sjekk
+    order = ["rom010", "obj050_01", "rom002_del1av3", "rom003", "obj060_01", "rom011"]
+    pos = [text.index(f"`{j}`") for j in order]
+    assert pos == sorted(pos)
+    assert "Ferdige rom: 1 av 5 (9)" in text and "Ferdige objekter: 1 av 3 (obj050_02)" in text
+    assert "`obj050_01` (rom 9, x, objekt 50 tilstand 01, del 1/1)" in text

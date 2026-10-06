@@ -3,8 +3,8 @@
 #
 #   1. Setter opp det som mangler (spillfiler, pipeline, uttrekk, jobber)
 #   2. Henter nye bilder fra grenen gpt-arbeid
-#   3. Kontrollerer dem (dighd gpt-inn) og lager HD-rom
-#   4. Bygger modden mods/gpt av de godkjente rommene og publiserer den i grenen hd-mod
+#   3. Kontrollerer dem (dighd gpt-inn) og lager HD-rom og HD-objekter
+#   4. Bygger modden mods/gpt av de godkjente rommene og objektbildene og publiserer den i grenen hd-mod
 #   5. Skriver ny ORDRE.md og sender status, rapport og retur tilbake til grenen
 #
 # Bruk: tools/gpt_runde.sh [--beskjed "tekst til ChatGPT"] ...
@@ -36,16 +36,19 @@ tools/gpt_gren.sh hent
 dighd gpt-inn
 after="$(sha256sum work/gpt-ferdig/provenance.json 2>/dev/null || true)"
 
-# 4. Mod, bare når noe nytt er godkjent
-if [ "$before" != "$after" ] && [ -d work/gpt-ferdig/rooms ]; then
-	rooms="$(ls work/gpt-ferdig/rooms | sed -n 's/^room0*\([0-9][0-9]*\)\.png$/\1/p' | paste -sd, -)"
-	if [ -n "$rooms" ]; then
+# 4. Mod, bare når noe nytt er godkjent. Rommene med HD-bakgrunn velges med --rooms.
+#    Godkjente objektbilder i work/gpt-ferdig/objects kommer med uansett, også i rom
+#    uten HD-bakgrunn (de får ingen automatisk oppskalert bakgrunn).
+if [ "$before" != "$after" ] && [ -d work/gpt-ferdig ]; then
+	rooms="$(ls work/gpt-ferdig/rooms 2>/dev/null | sed -n 's/^room0*\([0-9][0-9]*\)\.png$/\1/p' | paste -sd, - || true)"
+	objects="$(ls work/gpt-ferdig/objects 2>/dev/null | grep -c '^obj.*\.png$' || true)"
+	if [ -n "$rooms" ] || [ "${objects:-0}" -gt 0 ]; then
 		rm -rf mods/gpt
-		dighd build-mod --name gpt --method lanczos-sharp --rooms "$rooms" --egne work/gpt-ferdig
+		dighd build-mod --name gpt --method lanczos-sharp --rooms "${rooms:-ingen}" --egne work/gpt-ferdig
 		tools/mod_gren.sh send mods/gpt
 	fi
 else
-	echo "Ingen nye godkjente rom denne runden."
+	echo "Ingen nye godkjente rom eller objekter denne runden."
 fi
 
 # 5. Ordre og status tilbake

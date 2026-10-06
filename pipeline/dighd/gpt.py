@@ -8,6 +8,11 @@ bilder, 3:2). Lerretet tilsvarer 384 x 256 originalpiksler i 4x, så et vanlig r
 320 x 200 får en grå kant rundt seg, og bredere eller høyere rom deles i flere jobber
 som overlapper. Da blir hver jobb nøyaktig 4x, uten omregning.
 
+Store objektbilder (nærbilder, kart, paneler som spillet tegner over rommet) blir egne
+jobber på samme måte: objektjobber med ID objNNN_SS. Referansen er objektbildet lagt over
+rommets bakgrunn der spillet tegner det, så gjennomsiktige deler viser det som er bak.
+Resultatet blir objects/objNNN_SS.png i nøyaktig 4x objektstørrelse.
+
 Mottaket sjekker hvert resultat mot originalen:
   - forskyvning (fasekorrelasjon på hele bildet og i blokker, for å se zoom og vridning)
   - likhet i kanter (om formene er de samme)
@@ -21,12 +26,15 @@ import csv
 import hashlib
 import json
 import math
+import re
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import numpy as np
 from PIL import Image
+
+from .upscale import upscale_alpha
 
 SCALE = 4
 TILE = (384, 256)            # originalpiksler per jobb (gir 1536 x 1024 i 4x)
@@ -37,6 +45,9 @@ BORDER = (128, 128, 128)     # grå kant rundt bildet på lerretet
 # Grenser for vurdering (originalpiksler). Kan justeres når vi ser ekte resultater.
 OK_SHIFT, OK_BLOCK, OK_EDGES = 0.75, 1.0, 0.55
 CHECK_SHIFT, CHECK_BLOCK, CHECK_EDGES = 1.5, 2.0, 0.40
+
+# Objektbilder som er så store at de dekker mye av skjermen, blir egne jobber
+BIG_AREA, BIG_W, BIG_H = 16000, 200, 150
 
 PROMPT_BASE = """Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.
 
@@ -59,6 +70,8 @@ PROMPT_STYLE = """If a second image is attached, it is an already approved HD pi
 
 PROMPT_TILE = """This is part {part} of {parts} of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading."""
 
+PROMPT_OBJECT = """This picture is a large image that the game draws on top of the room, such as a close-up, a map or a panel. Treat it as a background picture and follow all the rules above."""
+
 
 @dataclass
 class Job:
@@ -68,10 +81,42 @@ class Job:
     del_nr: int
     deler: int
     rom_storrelse: tuple[int, int]
-    region: tuple[int, int, int, int]      # x, y, w, h i rommet (originalpiksler)
+    region: tuple[int, int, int, int]      # x, y, w, h i bildet: rommet, eller objektbildet (originalpiksler)
     plassering: tuple[int, int]            # hvor regionen ligger på 384 x 256-lerretet
     skala: int = SCALE
     lerret: tuple[int, int] = CANVAS
+    type: str = "rom"                      # "rom" eller "objekt"
+    objekt: int | None = None              # objekt-ID (bare objektjobber)
+    tilstand: str | None = None            # tilstand som i filnavnet, for eksempel "01"
+    objekt_i_rom: tuple[int, int, int, int] | None = None   # objektbildets x, y, b, h i rommet
+
+    @property
+    def bilde(self) -> str:
+        """HD-bildet jobben hører til: roomNNN eller objNNN_SS."""
+        if self.type == "objekt":
+            return f"obj{self.objekt:03d}_{self.tilstand}"
+        return f"room{self.rom:03d}"
+
+    @property
+    def storrelse(self) -> tuple[int, int]:
+        """Størrelsen på hele bildet (rommet eller objektbildet) i originalpiksler."""
+        if self.type == "objekt":
+            return (self.objekt_i_rom[2], self.objekt_i_rom[3])
+        return (self.rom_storrelse[0], self.rom_storrelse[1])
+
+
+def _load_job(data: dict) -> Job:
+    """Leser jobb.json. Jobber laget før objektjobbene fantes, har ikke type og er romjobber."""
+    in_room = data.get("objekt_i_rom")
+    return Job(data["id"], data["rom"], data["navn"], data["del_nr"], data["deler"],
+               tuple(data["rom_storrelse"]), tuple(data["region"]), tuple(data["plassering"]),
+               type=data.get("type") or "rom", objekt=data.get("objekt"), tilstand=data.get("tilstand"),
+               objekt_i_rom=tuple(in_room) if in_room else None)
+
+
+def _order(job: Job) -> tuple:
+    """Etter rom, romjobbene før objektjobbene i samme rom, så objekt, tilstand og del."""
+    return (job.rom, job.type != "rom", job.objekt or 0, job.tilstand or "", job.del_nr)
 
 
 # ---------------------------------------------------------------- planlegging
@@ -115,6 +160,64 @@ def read_notes(path: Path | None) -> dict[int, str]:
     return notes
 
 
+def is_big_object(width: int, height: int) -> bool:
+    """Objektbilder som dekker mye av skjermen (nærbilder, kart, paneler) blir egne jobber."""
+    return width * height >= BIG_AREA or width >= BIG_W or height >= BIG_H
+
+
+def object_in_room(room: Image.Image | None, obj: Image.Image, x: int, y: int) -> Image.Image:
+    """Objektbildet lagt over rommet der spillet tegner det.
+
+    Gjennomsiktighet: objNNN_SS.png er RGBA med alfa 0 der objNNN_SS_idx.png har fargen som er
+    merket gjennomsiktig. Der vises rommet bak. Utenfor rommet (noen UI-objekter er større
+    enn rommet sitt) er det svart, som på skjermen.
+    """
+    obj = obj.convert("RGBA")
+    if room is None:
+        back = Image.new("RGBA", obj.size, (0, 0, 0, 255))
+    else:
+        # crop fyller det som ligger utenfor rommet med svart
+        back = room.convert("RGB").crop((x, y, x + obj.width, y + obj.height)).convert("RGBA")
+    back.alpha_composite(obj)
+    return back.convert("RGB")
+
+
+def _prompt(num: int, notes: dict[int, str], part: int, parts: int, is_object: bool = False) -> str:
+    prompt = PROMPT_BASE
+    if is_object:
+        prompt += "\n\n" + PROMPT_OBJECT
+    if num in notes:
+        prompt += "\n\nNote for this room: " + notes[num]
+    if parts > 1:
+        prompt += "\n\n" + PROMPT_TILE.format(part=part, parts=parts)
+    return prompt + "\n\n" + PROMPT_STYLE
+
+
+def _write_job(jobs_dir: Path, job: Job, image: Image.Image, prompt: str, style_ref: Path | None) -> None:
+    """Skriver referanse.png, original_1x.png, prompt.txt og jobb.json for én jobb."""
+    x, y, w, h = job.region
+    ox, oy = job.plassering
+    d = jobs_dir / job.id
+    d.mkdir(parents=True, exist_ok=True)
+    canvas = Image.new("RGB", CANVAS, BORDER)
+    part = image.crop((x, y, x + w, y + h)).resize((w * SCALE, h * SCALE), Image.NEAREST)
+    canvas.paste(part, (ox * SCALE, oy * SCALE))
+    canvas.save(d / "referanse.png")
+    # Originalutsnittet i 1x, til kontroll og til ChatGPT hvis den vil se det
+    image.crop((x, y, x + w, y + h)).save(d / "original_1x.png")
+    (d / "prompt.txt").write_text(prompt + "\n", encoding="utf-8")
+
+    data = asdict(job)
+    data.update({
+        "laget": time.strftime("%Y-%m-%d %H:%M"),
+        "sha256_referanse": _sha(d / "referanse.png"),
+        "sha256_prompt": hashlib.sha256(prompt.encode()).hexdigest(),
+        "bilde_i_lerret": [ox * SCALE, oy * SCALE, w * SCALE, h * SCALE],
+        "stilreferanse": style_ref.name if style_ref else None,
+    })
+    (d / "jobb.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
+
+
 def make_jobs(extract: Path, out: Path, rooms: set[int] | None = None, notes: dict[int, str] | None = None,
               style_ref: Path | None = None) -> list[Job]:
     meta = json.loads((extract / "rooms.json").read_text())
@@ -128,61 +231,66 @@ def make_jobs(extract: Path, out: Path, rooms: set[int] | None = None, notes: di
         if rooms and num not in rooms:
             continue
         src = extract / "rooms" / f"room{num:03d}.png"
-        if not src.exists():
-            continue
-        room = Image.open(src).convert("RGB")
-        if _is_nearly_empty(room):
+        room = Image.open(src).convert("RGB") if src.exists() else None
+        if room is not None and _is_nearly_empty(room):
             skipped.append(f"rom {num} ({info['name']}): nesten tomt (under 6 farger)")
-            continue
-        tiles = plan_tiles(room.width, room.height)
-        for i, (x, y, w, h, ox, oy) in enumerate(tiles):
-            jid = f"rom{num:03d}" if len(tiles) == 1 else f"rom{num:03d}_del{i + 1}av{len(tiles)}"
-            job = Job(jid, num, info["name"], i + 1, len(tiles), (room.width, room.height),
-                      (x, y, w, h), (ox, oy))
-            d = jobs_dir / jid
-            d.mkdir(parents=True, exist_ok=True)
-            canvas = Image.new("RGB", CANVAS, BORDER)
-            part = room.crop((x, y, x + w, y + h)).resize((w * SCALE, h * SCALE), Image.NEAREST)
-            canvas.paste(part, (ox * SCALE, oy * SCALE))
-            canvas.save(d / "referanse.png")
-            # Originalutsnittet i 1x, til kontroll og til ChatGPT hvis den vil se det
-            room.crop((x, y, x + w, y + h)).save(d / "original_1x.png")
-
-            prompt = PROMPT_BASE
-            if num in notes:
-                prompt += "\n\nNote for this room: " + notes[num]
-            if len(tiles) > 1:
-                prompt += "\n\n" + PROMPT_TILE.format(part=i + 1, parts=len(tiles))
-            prompt += "\n\n" + PROMPT_STYLE
-            (d / "prompt.txt").write_text(prompt + "\n", encoding="utf-8")
-
-            data = asdict(job)
-            data.update({
-                "laget": time.strftime("%Y-%m-%d %H:%M"),
-                "sha256_referanse": _sha(d / "referanse.png"),
-                "sha256_prompt": hashlib.sha256(prompt.encode()).hexdigest(),
-                "bilde_i_lerret": [ox * SCALE, oy * SCALE, w * SCALE, h * SCALE],
-                "stilreferanse": style_ref.name if style_ref else None,
-            })
-            (d / "jobb.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
-            jobs.append(job)
+        elif room is not None:
+            tiles = plan_tiles(room.width, room.height)
+            for i, (x, y, w, h, ox, oy) in enumerate(tiles):
+                jid = f"rom{num:03d}" if len(tiles) == 1 else f"rom{num:03d}_del{i + 1}av{len(tiles)}"
+                job = Job(jid, num, info["name"], i + 1, len(tiles), (room.width, room.height),
+                          (x, y, w, h), (ox, oy))
+                _write_job(jobs_dir, job, room, _prompt(num, notes, i + 1, len(tiles)), style_ref)
+                jobs.append(job)
+        # Store objektbilder i rommet, også når selve rommet er hoppet over
+        jobs += _object_jobs(extract, jobs_dir, num, info, room, notes, style_ref)
 
     _write_status(out, jobs, {})
     _write_overview(out, jobs, skipped)
     return jobs
 
 
+def _object_jobs(extract: Path, jobs_dir: Path, num: int, info: dict, room: Image.Image | None,
+                 notes: dict[int, str], style_ref: Path | None) -> list[Job]:
+    jobs = []
+    for obj in info["objects"]:
+        for state in obj["states"]:
+            name = f"obj{obj['id']:03d}_{state}"
+            src = extract / "objects" / f"{name}.png"
+            if not src.exists():
+                continue
+            im = Image.open(src)
+            if not is_big_object(im.width, im.height):
+                continue
+            image = object_in_room(room, im, obj["x"], obj["y"])
+            tiles = plan_tiles(image.width, image.height)
+            for i, (x, y, w, h, ox, oy) in enumerate(tiles):
+                jid = name if len(tiles) == 1 else f"{name}_del{i + 1}av{len(tiles)}"
+                job = Job(jid, num, info["name"], i + 1, len(tiles), (info["width"], info["height"]),
+                          (x, y, w, h), (ox, oy), type="objekt", objekt=obj["id"], tilstand=state,
+                          objekt_i_rom=(obj["x"], obj["y"], image.width, image.height))
+                _write_job(jobs_dir, job, image, _prompt(num, notes, i + 1, len(tiles), is_object=True), style_ref)
+                jobs.append(job)
+    return jobs
+
+
 def _write_overview(out: Path, jobs: list[Job], skipped: list[str]) -> None:
-    lines = ["# Jobbliste", "", f"{len(jobs)} jobber. Status oppdateres i `status.csv` av `dighd gpt-inn`.", "",
-             "| Jobb | Rom | Navn | Del | Utsnitt (x, y, b, h) |", "| --- | --- | --- | --- | --- |"]
+    n_obj = sum(j.type == "objekt" for j in jobs)
+    lines = ["# Jobbliste", "",
+             f"{len(jobs)} jobber: {len(jobs) - n_obj} for rom og {n_obj} for store objektbilder. "
+             "Status oppdateres i `status.csv` av `dighd gpt-inn`.", "",
+             "Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, paneler). "
+             "Utsnittet er da en del av objektbildet, ikke av rommet.", "",
+             "| Jobb | Type | Rom | Navn | Del | Utsnitt (x, y, b, h) |", "| --- | --- | --- | --- | --- | --- |"]
     for j in jobs:
-        lines.append(f"| {j.id} | {j.rom} | {j.navn} | {j.del_nr} av {j.deler} | {', '.join(map(str, j.region))} |")
+        lines.append(f"| {j.id} | {j.type} | {j.rom} | {j.navn} | {j.del_nr} av {j.deler} | "
+                     f"{', '.join(map(str, j.region))} |")
     if skipped:
         lines += ["", "Hoppet over:", ""] + [f"- {s}" for s in skipped]
     (out / "JOBBER.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-STATUS_FIELDS = ["jobb", "rom", "navn", "del", "status", "skift_x", "skift_y", "blokk_maks", "kantlikhet",
+STATUS_FIELDS = ["jobb", "type", "rom", "navn", "del", "status", "skift_x", "skift_y", "blokk_maks", "kantlikhet",
                  "fargeavvik", "kommentar"]
 
 
@@ -192,7 +300,7 @@ def _write_status(out: Path, jobs: list[Job], results: dict[str, dict]) -> None:
         w.writeheader()
         for j in jobs:
             r = results.get(j.id, {})
-            w.writerow({"jobb": j.id, "rom": j.rom, "navn": j.navn, "del": f"{j.del_nr}/{j.deler}",
+            w.writerow({"jobb": j.id, "type": j.type, "rom": j.rom, "navn": j.navn, "del": f"{j.del_nr}/{j.deler}",
                         "status": r.get("status", "ny"), "skift_x": r.get("skift_x", ""),
                         "skift_y": r.get("skift_y", ""), "blokk_maks": r.get("blokk_maks", ""),
                         "kantlikhet": r.get("kantlikhet", ""), "fargeavvik": r.get("fargeavvik", ""),
@@ -343,19 +451,19 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
     preview_dir = work / "forhandsvisning"
     preview_dir.mkdir(parents=True, exist_ok=True)
     (out / "rooms").mkdir(parents=True, exist_ok=True)
+    (out / "objects").mkdir(parents=True, exist_ok=True)
 
+    entries = sorted(((_load_job(json.loads(jf.read_text())), jf.parent) for jf in jobs_dir.glob("*/jobb.json")),
+                     key=lambda e: _order(e[0]))
     jobs: list[Job] = []
     results: dict[str, dict] = {}
-    tiles: dict[int, list[tuple[Job, np.ndarray | None]]] = {}
-    for jf in sorted(jobs_dir.glob("*/jobb.json")):
-        data = json.loads(jf.read_text())
-        job = Job(data["id"], data["rom"], data["navn"], data["del_nr"], data["deler"],
-                  tuple(data["rom_storrelse"]), tuple(data["region"]), tuple(data["plassering"]))
+    # Delene til hvert HD-bilde (roomNNN eller objNNN_SS), i jobbrekkefølge
+    tiles: dict[str, list[tuple[Job, np.ndarray | None]]] = {}
+    for job, d in entries:
         jobs.append(job)
-        d = jf.parent
         res_path = _find_result(d)
         if not res_path:
-            tiles.setdefault(job.rom, []).append((job, None))
+            tiles.setdefault(job.bilde, []).append((job, None))
             continue
         res = Image.open(res_path).convert("RGB")
         x, y, w, h = job.region
@@ -367,7 +475,7 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
                      f"referanse.png (1536x1024) eller {w}:{h} som utsnittet (for eksempel {w * SCALE}x{h * SCALE})")
             results[job.id] = r
             _write_return(d, r)
-            tiles.setdefault(job.rom, []).append((job, None))
+            tiles.setdefault(job.bilde, []).append((job, None))
             continue
         r["format"] = layout
         if layout == "lerret":
@@ -388,38 +496,60 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         _write_return(d, r)
         _preview(preview_dir / f"{job.id}.png", original, part, locked)
         keep = status == "godkjent" or (status == "sjekk" and not only_approved)
-        tiles.setdefault(job.rom, []).append((job, locked if keep else None))
+        tiles.setdefault(job.bilde, []).append((job, locked if keep else None))
 
     _write_status(work, jobs, results)
 
     provenance = {}
-    done_rooms, incomplete = [], []
-    for num, parts in sorted(tiles.items()):
+    done_rooms, done_objects, incomplete = [], [], []
+    for name, parts in tiles.items():
+        first = parts[0][0]
         if any(t is None for _, t in parts):
             have = sum(t is not None for _, t in parts)
             if have:
-                incomplete.append(f"rom {num}: {have} av {len(parts)} deler klare")
+                label = f"rom {first.rom}" if first.type == "rom" else f"{name} (rom {first.rom})"
+                incomplete.append(f"{label}: {have} av {len(parts)} deler klare")
             continue
-        W, H = parts[0][0].rom_storrelse
+        W, H = first.storrelse
         img = _stitch(W, H, [(j.region, t) for j, t in parts])
-        dest = out / "rooms" / f"room{num:03d}.png"
-        Image.fromarray(img).save(dest)
-        done_rooms.append(num)
-        provenance[f"room{num:03d}"] = {
-            "fil": f"rooms/room{num:03d}.png", "sha256": _sha(dest), "storrelse": [W * SCALE, H * SCALE],
-            "fargelås": {"sigma": sigma, "styrke": strength},
-            "jobber": [{"jobb": j.id, **results[j.id],
-                        **{k: v for k, v in json.loads((jobs_dir / j.id / "jobb.json").read_text()).items()
-                           if k in ("sha256_referanse", "sha256_prompt", "laget", "stilreferanse")}}
-                       for j, _ in parts],
-        }
+        made_by = [{"jobb": j.id, **results[j.id],
+                    **{k: v for k, v in json.loads((jobs_dir / j.id / "jobb.json").read_text()).items()
+                       if k in ("sha256_referanse", "sha256_prompt", "laget", "stilreferanse")}}
+                   for j, _ in parts]
+        if first.type == "objekt":
+            dest = out / "objects" / f"{name}.png"
+            _with_alpha(img, extract / "objects" / f"{name}.png").save(dest)
+            done_objects.append(name)
+            provenance[name] = {
+                "fil": f"objects/{name}.png", "sha256": _sha(dest), "storrelse": [W * SCALE, H * SCALE],
+                "type": "objekt", "rom": first.rom, "objekt": first.objekt, "tilstand": first.tilstand,
+                "fargelås": {"sigma": sigma, "styrke": strength}, "jobber": made_by,
+            }
+        else:
+            dest = out / "rooms" / f"{name}.png"
+            Image.fromarray(img).save(dest)
+            done_rooms.append(first.rom)
+            provenance[name] = {
+                "fil": f"rooms/{name}.png", "sha256": _sha(dest), "storrelse": [W * SCALE, H * SCALE],
+                "fargelås": {"sigma": sigma, "styrke": strength}, "jobber": made_by,
+            }
 
     prov_path = out / "provenance.json"
     old = json.loads(prov_path.read_text()) if prov_path.exists() else {}
     old.update(provenance)
     prov_path.write_text(json.dumps(old, indent=1, ensure_ascii=False))
-    summary = _report(work, jobs, results, done_rooms, incomplete)
+    summary = _report(work, jobs, results, sorted(done_rooms), sorted(done_objects), incomplete)
     return summary
+
+
+def _with_alpha(img: np.ndarray, original: Path) -> Image.Image:
+    """HD-objektbildet som RGBA med gjennomsiktigheten fra originalen (skarpe kanter, som i modden)."""
+    hd = Image.fromarray(img).convert("RGBA")
+    if original.exists():
+        o = Image.open(original).convert("RGBA")
+        if (o.width * SCALE, o.height * SCALE) == hd.size:
+            hd.putalpha(upscale_alpha(o.getchannel("A"), SCALE))
+    return hd
 
 
 def _take_inbox(inbox: Path, jobs_dir: Path) -> None:
@@ -486,33 +616,60 @@ def _stitch(W: int, H: int, parts: list[tuple[tuple[int, int, int, int], np.ndar
     return np.clip(acc / np.maximum(wsum, 1e-9), 0, 255).astype(np.uint8)
 
 
-def _report(work: Path, jobs: list[Job], results: dict[str, dict], done: list[int], incomplete: list[str]) -> dict:
+def _done_line(label: str, done: list, total: int) -> str:
+    return f"Ferdige {label}: {len(done)} av {total}" + (f" ({', '.join(map(str, done))})" if done else "")
+
+
+def _report(work: Path, jobs: list[Job], results: dict[str, dict], done_rooms: list[int], done_objects: list[str],
+            incomplete: list[str]) -> dict:
     counts: dict[str, int] = {}
+    by_type: dict[tuple[str, str], int] = {}
     for j in jobs:
         s = results.get(j.id, {}).get("status", "ny")
         counts[s] = counts.get(s, 0) + 1
+        by_type[(j.type, s)] = by_type.get((j.type, s), 0) + 1
+    rooms_total = len({j.rom for j in jobs if j.type == "rom"})
+    objects_total = len({j.bilde for j in jobs if j.type == "objekt"})
     lines = ["# Rapport fra gpt-inn", "", time.strftime("Laget %Y-%m-%d %H:%M"), "",
-             "| Status | Antall |", "| --- | --- |"] + [f"| {k} | {v} |" for k, v in sorted(counts.items())]
-    lines += ["", f"Ferdige rom: {', '.join(map(str, done)) or 'ingen'}"]
+             "| Status | Romjobber | Objektjobber |", "| --- | --- | --- |"]
+    lines += [f"| {s} | {by_type.get(('rom', s), 0)} | {by_type.get(('objekt', s), 0)} |" for s in sorted(counts)]
+    lines += ["", f"- {_done_line('rom', done_rooms, rooms_total)}",
+              f"- {_done_line('objekter', done_objects, objects_total)}"]
     if incomplete:
-        lines += ["", "Rom som venter på flere deler:", ""] + [f"- {s}" for s in incomplete]
+        lines += ["", "Bilder som venter på flere deler:", ""] + [f"- {s}" for s in incomplete]
     bad = [(j, results[j.id]) for j in jobs if results.get(j.id, {}).get("status") in ("avvist", "sjekk")]
     if bad:
         lines += ["", "Må sees på (se `retur.md` i jobbmappen):", "", "| Jobb | Status | Grunn |", "| --- | --- | --- |"]
         lines += [f"| {j.id} | {r['status']} | {r.get('kommentar', '')} |" for j, r in bad]
     lines += ["", "Forhåndsvisning per jobb i `forhandsvisning/`: original 4x, ChatGPT, etter fargelås."]
     (work / "RAPPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    return {"status": counts, "ferdige_rom": done, "venter": incomplete}
+    return {"status": counts, "ferdige_rom": done_rooms, "ferdige_objekter": done_objects,
+            "rom_totalt": rooms_total, "objekter_totalt": objects_total, "venter": incomplete}
 
 
 # ---------------------------------------------------------------- ordre til ChatGPT
 
 def read_status(work: Path) -> list[dict]:
+    """Leser status.csv. Eldre filer uten kolonnen type har bare romjobber."""
     path = work / "status.csv"
     if not path.exists():
         return []
     with path.open(newline="", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    for r in rows:
+        r["type"] = (r.get("type") or "").strip() or "rom"
+    return rows
+
+
+_OBJ_ID = re.compile(r"obj(\d+)_([0-9A-Za-z]+)")
+
+
+def _image_of(row: dict) -> str:
+    """HD-bildet en rad i status.csv hører til: roomNNN eller objNNN_SS (jobb-ID uten delnummer)."""
+    m = _OBJ_ID.match(row["jobb"]) if row["type"] == "objekt" else None
+    if m:
+        return m.group(0)
+    return row["jobb"] if row["type"] == "objekt" else f"room{int(row['rom']):03d}"
 
 
 def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
@@ -522,11 +679,20 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
     counts: dict[str, int] = {}
     for r in rows:
         counts[r["status"]] = counts.get(r["status"], 0) + 1
-    rooms_total = len({r["rom"] for r in rows})
-    rooms_done = sorted({int(r["rom"]) for r in rows} - {int(r["rom"]) for r in rows if r["status"] != "godkjent"})
+    room_rows = [r for r in rows if r["type"] == "rom"]
+    obj_rows = [r for r in rows if r["type"] == "objekt"]
+    # Et rom er ferdig når romjobbene er godkjent, uavhengig av objektene
+    rooms_all = {int(r["rom"]) for r in room_rows}
+    rooms_done = sorted(rooms_all - {int(r["rom"]) for r in room_rows if r["status"] != "godkjent"})
+    objects_all = {_image_of(r) for r in obj_rows}
+    objects_done = sorted(objects_all - {_image_of(r) for r in obj_rows if r["status"] != "godkjent"})
 
     retry = [r for r in rows if r["status"] == "avvist"]
-    fresh = [r for r in rows if r["status"] == "ny"]
+    # Nye jobber etter romnummer, romjobbene før objektjobbene i samme rom. Objektjobber i rom
+    # som allerede er ferdige, kommer først, så rommet blir helt ferdig.
+    fresh = sorted((r for r in rows if r["status"] == "ny"),
+                   key=lambda r: (not (r["type"] == "objekt" and int(r["rom"]) in rooms_done),
+                                  int(r["rom"]), r["type"] != "rom"))
     better = [r for r in rows if r["status"] == "sjekk"]
     queue = (retry + fresh + better)[:batch]
 
@@ -534,17 +700,23 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
              "Les denne filen før du starter. Den erstatter tidligere ordre.", "",
              "## Status", "",
              f"- Jobber: {len(rows)}. " + ", ".join(f"{k} {v}" for k, v in sorted(counts.items())),
-             f"- Ferdige rom: {len(rooms_done)} av {rooms_total}" + (f" ({', '.join(map(str, rooms_done))})" if rooms_done else ""),
-             "", "## Gjør disse nå", ""]
+             f"- {_done_line('rom', rooms_done, len(rooms_all))}"]
+    if obj_rows:
+        lines.append(f"- {_done_line('objekter', objects_done, len(objects_all))}")
+    lines += ["", "## Gjør disse nå", ""]
     if not queue:
-        lines.append("Alle romjobber er levert. Vent på ny bestilling.")
+        lines.append("Alle jobber er levert. Vent på ny bestilling.")
     for i, r in enumerate(queue, 1):
         why = ""
         if r["status"] == "avvist":
             why = f" Avvist: {r['kommentar']}. Les retur.md."
         elif r["status"] == "sjekk":
             why = f" Godtatt foreløpig, men kan bli bedre: {r['kommentar']}."
-        lines.append(f"{i}. `{r['jobb']}` (rom {r['rom']}, {r['navn']}, del {r['del']}).{why}")
+        what = f"rom {r['rom']}, {r['navn']}"
+        m = _OBJ_ID.match(r["jobb"]) if r["type"] == "objekt" else None
+        if m:
+            what += f", objekt {int(m.group(1))} tilstand {m.group(2)}"
+        lines.append(f"{i}. `{r['jobb']}` ({what}, del {r['del']}).{why}")
     lines += ["", "## Stilankere", ""]
     if anchors:
         lines += [f"- `stil/{a}`" for a in anchors]
@@ -556,6 +728,9 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
               "- `resultat.png` på 1536 x 1024 med samme grå kant som `referanse.png`.",
               "- `resultat.png` med bare bildet, i samme sideforhold som utsnittet (16:10 for vanlige rom, "
               "minst 1280 x 800). Slik pilotbildene ble levert.", "",
+              "Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, "
+              "paneler). De lages og leveres på samme måte. Utsnittet er da objektbildet, så leverer du bare "
+              "bildet, skal det ha objektets sideforhold (se `bilde_i_lerret` i `jobb.json`).", "",
               "Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.", ""]
     if messages:
         lines += ["## Beskjeder", ""] + [f"- {m}" for m in messages] + [""]

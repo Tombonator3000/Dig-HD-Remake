@@ -13,6 +13,11 @@ detaljnivå og farger som bakgrunnen og stikker seg ikke ut.
 Har du laget HD-bilder selv (KI-verktøy, maling), legg dem i en mappe med samme navn
 (rooms/roomNNN.png, objects/objNNN_SS.png) og bruk --egne. De brukes da i stedet for
 automatisk oppskalering, så lenge størrelsen stemmer.
+
+Egne objektbilder tas med også for rom som ikke er valgt med --rooms (for eksempel store
+nærbilder fra ChatGPT i rom som ikke har HD-bakgrunn ennå). Da lages ingen bakgrunn og
+ingen automatisk oppskalerte objekter for rommet, bare de egne objektbildene. Motoren
+bruker objektbildene også når rommet ikke har HD-bakgrunn.
 """
 from __future__ import annotations
 
@@ -46,7 +51,12 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
 
     for key, info in meta["rooms"].items():
         num = int(key)
-        if rooms and num not in rooms:
+        if rooms is not None and num not in rooms:
+            if own and with_objects:
+                extra = _own_objects_only(extract, out, own, info, scale)
+                if extra:
+                    done_objects += extra
+                    print(f"  rom {num:3d} {info['name']:<10} bare egne objektbilder: {', '.join(extra)}")
             continue
         src = extract / "rooms" / f"room{num:03d}.png"
         if not src.exists():
@@ -108,6 +118,27 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
     print(f"Ferdig: {len(done_rooms)} rom, {len(done_objects)} objektbilder og {len(done_costumes)} kostymeruter "
           f"på {time.time() - t0:.1f} s -> {out}")
     return manifest
+
+
+def _own_objects_only(extract: Path, out: Path, own: Path, info: dict, scale: int) -> list[str]:
+    """Egne objektbilder for et rom som ikke er med i modden. Ingen bakgrunn, ingen automatisk oppskalering."""
+    done = []
+    for obj in info["objects"]:
+        for state in obj["states"]:
+            name = f"obj{obj['id']:03d}_{state}"
+            custom = own / "objects" / f"{name}.png"
+            osrc = extract / "objects" / f"{name}.png"
+            if not custom.exists() or not osrc.exists():
+                continue
+            with Image.open(osrc) as oim:
+                owant = (oim.width * scale, oim.height * scale)
+            ohd = Image.open(custom).convert("RGBA")
+            if not _check_size(ohd, owant, custom.name):
+                continue
+            ohd.save(out / "objects" / f"{name}.png")
+            shutil.copyfile(extract / "objects" / f"{name}_idx.png", out / "objects" / f"{name}_idx.png")
+            done.append(name)
+    return done
 
 
 def _upscale_object_in_context(room: Image.Image, obj: Image.Image, x: int, y: int, scale: int,
