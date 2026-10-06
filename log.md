@@ -48,3 +48,8 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Leveranse i separat privat grafikkdatagren grafikkdata/pilot-20261006, commit cf8e6a9f6e30d662f7c73076ef1e1810851ceceb. 23,9 MiB med to kandidater, testmod, kilde- og indeksbilder, Boston-konsept, prompter, hasher og kjøringslogger. Grafikkgrenen har ingen felles historikk med main. Ingen bildedata i kode-PR-en.
 - La til tools/check_hd_art.py og tools/hent_grafikkpilot.sh, samt docs/GRAFIKKPILOT.md. Kontrollerte mål, format, indeks og alfasilhuett. Generatorstørrelse og Boston-silhuett avvises. Henting testet fra en fersk Git-arbeidsmappe; sjekksummer bestod; gjenbruk og avvisning av endrede lokale filer ble kontrollert uten overskriving.
 - Oppdaterte README, romoversikten, prosjektminne og todo. Stil er foreløpig. Manuell masketest, obj171-tilstander, spritesanimasjon, hele brukerreisen og lyd gjenstår.
+
+## 2026-10-06 23:32 (Codex, overlevering)
+- Grafikkdata og kodegren er pushet til det private repoet. PR 2 er opprettet som utkast mot claude/analyse-hd: https://github.com/Tombonator3000/Dig-HD-Remake/pull/2
+- La overlevering med filplassering, kjøringsstatus og resterende grafikkontroller i Claudes PR 1: https://github.com/Tombonator3000/Dig-HD-Remake/pull/1#issuecomment-6025842984
+- Henting fra en fersk Git-arbeidsmappe bestod. Endrede lokale filer ble avvist og bevart. Ingen PR er flettet.
