@@ -9,9 +9,18 @@
 - [x] Fargejustering ved palettbytte, fargesykling beholdt, mus og peker i HD
 - [x] Byggeskript testet fra ren checkout, automatisk test uten skjerm
 
+## ChatGPT-grafikk
+- [x] Bestilling, jobbverktøy, kontroll og arbeidsgren `gpt-arbeid`
+- [ ] Pilot: ChatGPT leverer rom022, rom002_del1av3 og rom028
+- [ ] Tom godkjenner piloten, godkjente bilder legges i `stil/` som stilankere
+- [ ] Juster grensene i `gpt.py` etter ekte resultater
+- [ ] Resten av de 162 romjobbene
+- [ ] Bestilling runde 2: objekter (642 bilder) i sammenheng med godkjente HD-rom
+- [ ] Bestilling runde 3: modellark for hovedpersonene, så automatisk oppskalering av rutene
+
 ## Neste
 - [ ] Bygg og kjør på laptopen (`engine/build.sh`, `engine/run.sh hd`), med musikk og tale fra Drive i game/
-- [ ] Velg stil: trofast HD (A) eller ny tegnestil (B)
+- [x] Velg stil: trofast HD
 - [ ] Stiltest med KI: fem rom gjennom Real-ESRGAN og en pikselkunstmodell (`dighd compare`, `--method realesrgan`)
 - [ ] Stiltest: Boston Low (kostyme 14) i ny stil
 - [ ] Fyll inn prioritet i `docs/rom-oversikt.csv`
@@ -22,6 +31,7 @@
 - [ ] HD-fonter for tekst
 - [ ] Fargesyklede områder i HD (eget animert lag)
 - [ ] Hurtigtast for å bytte mellom klassisk og HD
+- [ ] Vis et gult felt der HD mangler (som i Moonstone), for å se dekningen
 - [ ] Spille av rene filmer som MP4/WebM i stedet for tusenvis av PNG-er
 - [ ] Prøv en nyere ScummVM-commit og oppdater patchen
 

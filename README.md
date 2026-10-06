@@ -57,6 +57,18 @@ dighd build-mod --name hd --egne mine_hd_bilder/
 
 Filmer: `dighd san` trekker ut alle 12 638 filmrammer. `dighd build-mod --filmer SQ1` skalerer dem opp. Det tar mye plass som PNG, så velg filmene du tester.
 
+## HD-grafikk fra ChatGPT
+
+ChatGPT lager den trofaste HD-grafikken, Claude står for koden. Bestillingen med regler og arbeidsflyt: `docs/BESTILLING-CHATGPT.md`.
+
+```sh
+dighd gpt-pakke          # 162 jobber for 106 rom i work/gpt
+tools/gpt_gren.sh send   # til grenen gpt-arbeid, der ChatGPT (Codex) jobber
+tools/gpt_gren.sh hent   # resultatene tilbake
+dighd gpt-inn            # sjekk, fargelås og sammensying, rapport i work/gpt/RAPPORT.md
+dighd build-mod --name gpt --egne work/gpt-ferdig
+```
+
 ## Test
 
 ```sh

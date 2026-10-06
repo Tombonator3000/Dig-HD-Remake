@@ -36,3 +36,16 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - `engine/build.sh`, `engine/run.sh`, `engine/test.sh`. Byggeskriptet er testet fra en ren checkout.
 - Testet uten skjerm med en nearest-mod: 0 avvikende piksler for bakgrunner, objekter (rom 34 og 105) og uskalerte figurer. Skalerte figurer under 0,25 prosent (ventet). Filmrammer: rammenummeret er `_frame - 1`, etter rettingen er 198 av 198 rammer like.
 - La til `README.md`, `AGENTS.md`, `docs/HD-MOTOR.md`. Oppdaterte `.gitignore` (work/, mods/, engine/scummvm/).
+
+## 2026-10-06 23:16 til 23:35 (Claude)
+- Tom ba om en bestilling til ChatGPT om trofast HD-grafikk, med Claude på koden og ChatGPT på grafikken, og om å se hvordan Jones og Moonstone gjorde det.
+- Gikk gjennom Jonesinthefastlane (docs/HD_GRAPHICS.md, native/public/hd/prompts.md, README og provenance) og MOONSTONE (docs/hd-grafikk.md, log.md, todo.md). Jones brukte ChatGPT sitt innebygde bildeverktøy via Codex, med presise prompter, sporing og korrigeringsrunder. Moonstone har HD-infrastruktur (navngiving, grafikkliste, bryter, gult felt, plasseringssjekk), men ingen ferdig grafikk.
+- Sjekket dagens bildeverktøy: sideforhold opptil 3:1, mål delelige med 16, standard 1536 x 1024, kvaliteten synker over 2560 x 1440, og geometri bevares ikke garantert.
+- Nytt i pipelinen (`pipeline/dighd/gpt.py`, kommandoene `dighd gpt-pakke` og `dighd gpt-inn`):
+  - Jobber på 1536 x 1024 som tilsvarer 384 x 256 originalpiksler i 4x. Vanlige rom får grå kant, brede og høye rom deles med 64 pikslers overlapp. 162 jobber for 106 rom (5 nesten tomme rom hoppet over).
+  - Prompt på engelsk med bevar- og ikke-lister, romnotater fra `docs/gpt-romnotater.csv` (17 rom med symboler, krystaller, kart og liknende), delnotat og stilanker.
+  - Mottak: sideforhold, forskyvning (fasekorrelasjon), forskyvning i blokker (zoom og flytting), kantlikhet, fargeavvik. Status godkjent, sjekk eller avvist, med `retur.md` og forslag til ny prompt. Fargelås mot originalen, sammensying av deler, `provenance.json`, `RAPPORT.md`, forhåndsvisninger. Innboks for manuelle leveranser.
+  - Testet med kunstige svar: riktig plassert godkjennes, 3 piksler forskyvning og 3 prosent zoom avvises, 1 prosent zoom gir sjekk, feil sideforhold avvises, mindre bilde i 3:2 godkjennes, fargestikk på +30 rødt fjernes av fargelåsen, sammensydde deler er identiske med helt bilde.
+- `docs/BESTILLING-CHATGPT.md`: bestillingen (roller, hva trofast betyr, jobbformat, rekkefølge med pilot og stilankere, arbeidsflyt for Codex og vanlig chat, kontroll, sporing, erfaringer fra Jones og Moonstone, tekst til ChatGPT-prosjektet).
+- `docs/gpt-arbeid-AGENTS.md` og `tools/gpt_gren.sh` (send og hent). Laget den private grenen `gpt-arbeid` med alle jobbene, bestillingen og en egen AGENTS.md for ChatGPT. Rundturen hent og gpt-inn er testet og ryddet etterpå.
+- Oppdatert AGENTS.md (roller, ChatGPT-kommandoer), README, memory og todo. Nye tester i pipeline (6 bestått).

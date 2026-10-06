@@ -4,7 +4,9 @@
   dighd extract                      Eksporterer rom, objekter og kostymer til work/extract
   dighd build-mod --name test        Lager en mod-mappe for HD-motoren
   dighd compare --room 22            Lager et sammenligningsbilde av oppskaleringsmetoder
-  dighd san --films SQ1              Trekker ut filmrammer (via thedig-textures)
+  dighd san                          Trekker ut filmrammer (via thedig-textures)
+  dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt
+  dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom
 """
 from __future__ import annotations
 
@@ -13,7 +15,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import export, gamedata, modpack
+from . import export, gamedata, gpt, modpack
 from .upscale import METHODS
 
 KNOWN_LA0_MD5 = "d8323015ecb8b10bf53474f6e6b0ae33"
@@ -109,6 +111,24 @@ def cmd_san(a) -> int:
     return subprocess.call(argv)
 
 
+def cmd_gpt_pakke(a) -> int:
+    notes = gpt.read_notes(Path(a.notater)) if a.notater else {}
+    jobs = gpt.make_jobs(Path(a.extract), Path(a.ut), _rooms(a.rooms), notes)
+    print(f"{len(jobs)} jobber -> {Path(a.ut) / 'jobber'} (oversikt i JOBBER.md, status i status.csv)")
+    return 0
+
+
+def cmd_gpt_inn(a) -> int:
+    s = gpt.import_results(Path(a.fra), Path(a.extract), Path(a.ut), sigma=a.sigma, strength=a.styrke,
+                           only_approved=a.bare_godkjente)
+    print("Status:", ", ".join(f"{k} {v}" for k, v in sorted(s["status"].items())))
+    print("Ferdige rom:", ", ".join(map(str, s["ferdige_rom"])) or "ingen")
+    for line in s["venter"]:
+        print("  venter:", line)
+    print(f"Rapport: {Path(a.fra) / 'RAPPORT.md'}. Bruk resultatet med: dighd build-mod --egne {a.ut}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     root = _repo_root()
     ap = argparse.ArgumentParser(prog="dighd", description="HD-pipeline for The Dig")
@@ -152,9 +172,24 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("san", help="trekk ut filmrammer med thedig-textures")
     p.add_argument("--out", default=str(root / "work" / "san"))
 
+    p = sub.add_parser("gpt-pakke", help="lag jobber for ChatGPT (referansebilder og prompter)")
+    p.add_argument("--extract", default=str(root / "work" / "extract"))
+    p.add_argument("--ut", default=str(root / "work" / "gpt"))
+    p.add_argument("--rooms", help="for eksempel 22,24 eller 20-30 (standard: alle)")
+    p.add_argument("--notater", default=str(root / "docs" / "gpt-romnotater.csv"), help="CSV med rom,notat")
+
+    p = sub.add_parser("gpt-inn", help="ta imot bilder fra ChatGPT, sjekk dem og lag HD-rom")
+    p.add_argument("--extract", default=str(root / "work" / "extract"))
+    p.add_argument("--fra", default=str(root / "work" / "gpt"))
+    p.add_argument("--ut", default=str(root / "work" / "gpt-ferdig"))
+    p.add_argument("--sigma", type=float, default=6.0, help="hvor grove fargene som låses til originalen er (HD-piksler)")
+    p.add_argument("--styrke", type=float, default=1.0, help="fargelås 0 til 1 (0 = av)")
+    p.add_argument("--bare-godkjente", action="store_true", help="ikke bruk jobber med status sjekk")
+
     a = ap.parse_args(argv)
     return {"info": cmd_info, "extract": cmd_extract, "build-mod": cmd_build_mod,
-            "compare": cmd_compare, "san": cmd_san}[a.command](a)
+            "compare": cmd_compare, "san": cmd_san, "gpt-pakke": cmd_gpt_pakke,
+            "gpt-inn": cmd_gpt_inn}[a.command](a)
 
 
 if __name__ == "__main__":

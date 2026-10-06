@@ -9,6 +9,12 @@ Instrukser for KI-agenter som jobber i dette repoet.
 - Skriv dokumentasjon på norsk, uten emoji og uten tankestreker. Skriv vanlig og direkte.
 - Spillfiler (`*.LA0`, `*.LA1`, `*.BUN`, `*.SAN`, `*.NUT`, `*.TRS`) og alt som lages fra dem (`work/`, `mods/`) skal aldri inn i `main`. Spillfilene ligger i grenen `spilldata`.
 
+## Roller
+
+- Claude: all kode (pipeline, motor, test, verktøy for ChatGPT-jobbene).
+- ChatGPT: HD-grafikken, etter `docs/BESTILLING-CHATGPT.md`. Jobber i grenen `gpt-arbeid`, aldri i `main`.
+- Tom: godkjenner stil og resultater.
+
 ## Oppsett
 
 ```sh
@@ -25,6 +31,18 @@ cd pipeline && pytest            # etter endringer i pipelinen
 pytest -m game                   # mot ekte spillfiler
 engine/test.sh                   # etter endringer i patchen: avvik skal være 0 for bakgrunner og uskalerte figurer
 ```
+
+## ChatGPT-jobber
+
+```sh
+dighd gpt-pakke                  # jobber i work/gpt (referanse, prompt, metadata)
+tools/gpt_gren.sh send           # jobbene til grenen gpt-arbeid
+tools/gpt_gren.sh hent           # resultatene fra ChatGPT tilbake
+dighd gpt-inn                    # sjekker plassering, låser farger, syr sammen deler, skriver RAPPORT.md
+dighd build-mod --name gpt --egne work/gpt-ferdig
+```
+
+Romnotater som legges i promptene: `docs/gpt-romnotater.csv`. Grensene for godkjenning står i `pipeline/dighd/gpt.py`.
 
 ## Arbeid med motoren
 

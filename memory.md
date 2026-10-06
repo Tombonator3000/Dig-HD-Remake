@@ -27,8 +27,17 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Fargesyklede palettindekser vises som originalpiksler.
 - Pipeline: `dighd` (Python 3.12+, Pillow, thedig-textures låst til commit 1cf355e).
 
+## HD-grafikk fra ChatGPT
+- Roller: Claude koden, ChatGPT grafikken (bestilling i `docs/BESTILLING-CHATGPT.md`), Tom godkjenner.
+- Valgt stil: trofast HD (samme motiv og farger, mer detalj). Ingen ny tegnestil i denne runden.
+- Jobber: 1536 x 1024 lerret = 384 x 256 originalpiksler i 4x, grå kant (#808080), overlapp 64. 162 jobber for 106 rom.
+- Arbeidsgren: `gpt-arbeid` (privat, egen AGENTS.md). Synk med `tools/gpt_gren.sh send|hent`.
+- Pilot: rom022, rom002_del1av3, rom028. Godkjente piloter blir stilankere i `stil/`.
+- Godkjenning: forskyvning 0,75 px, blokker 1,0 px, kantlikhet 0,55 (sjekk: 1,5 / 2,0 / 0,40). Fargelås sigma 6, styrke 1.
+- Erfaring fra Jones: ChatGPT bommer på tekst og plassering, og stilen ble skiftet flere ganger. Derfor pilot, stilankere, automatisk kontroll og sporing.
+
 ## Åpne valg
-- Stil: trofast HD (A) eller ny tegnestil som konseptbildene (B). Anbefalt: bygg A først, test B på Boston Low (kostyme 14 i rom 7) og ett rom.
+- Ny tegnestil som konseptbildene (B) er ikke valgt bort, men venter. Kan testes på Boston Low (kostyme 14) senere.
 
 ## Annet
 - Konseptbildene i roten av repoet er laget av en Reddit-tegner (signert). Brukes som stilreferanse. Spør og krediter før noe vises offentlig.

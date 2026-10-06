@@ -87,3 +87,51 @@ def test_real_game_files():
     ids = gamedata.costume_ids(idx, rooms)
     assert len(ids) == 331 and -1 not in ids
     assert (rooms[2].width, rooms[2].height) == (976, 200)
+
+
+def test_gpt_tiles_shift_and_judge():
+    from dighd import gpt
+    import numpy as np
+
+    # Vanlig rom: én jobb med grå kant, nøyaktig 4x på lerretet
+    assert gpt.plan_tiles(320, 200) == [(0, 0, 320, 200, 32, 28)]
+    # Bredt rom: flere deler som dekker hele bredden og overlapper
+    tiles = gpt.plan_tiles(976, 200)
+    assert len(tiles) == 3 and tiles[0][0] == 0 and tiles[-1][0] + tiles[-1][2] == 976
+    assert all(t[2] == 384 for t in tiles)
+    # Høyt rom deles i høyden
+    assert len(gpt.plan_tiles(320, 528)) == 3
+
+    # Fasekorrelasjon finner en kjent forskyvning med riktig fortegn
+    rng = np.random.default_rng(0)
+    base = gpt.blur(rng.random((96, 128)), 1.5)
+    moved = np.roll(base, (2, -3), axis=(0, 1))
+    dx, dy, _ = gpt.phase_shift(base, moved)
+    assert abs(dx + 3) < 0.3 and abs(dy - 2) < 0.3
+
+    assert gpt.judge({"skift_x": 0.1, "skift_y": 0.0, "blokk_maks": 0.3, "kantlikhet": 0.8})[0] == "godkjent"
+    assert gpt.judge({"skift_x": 0.0, "skift_y": 0.0, "blokk_maks": 1.4, "kantlikhet": 0.8})[0] == "sjekk"
+    assert gpt.judge({"skift_x": 3.0, "skift_y": 0.0, "blokk_maks": 3.0, "kantlikhet": 0.5})[0] == "avvist"
+
+
+def test_gpt_lock_and_stitch():
+    from dighd import gpt
+    import numpy as np
+
+    # Fargelås fjerner et fargestikk, men beholder fin detalj
+    rng = np.random.default_rng(1)
+    orig = np.full((64, 64, 3), 100.0)
+    detail = rng.normal(0, 8, (64, 64, 3))
+    cand = orig + 40 + detail
+    locked = gpt.lock_colors(cand, orig, sigma=6, strength=1.0)
+    assert abs(locked.mean() - 100) < 1.5
+    assert locked.std() > 5
+
+    # To like deler sys sammen uten skjøt
+    W, H = 600, 200
+    full = rng.random((H * gpt.SCALE, W * gpt.SCALE, 3)) * 255
+    parts = []
+    for x, y, w, h, _, _ in gpt.plan_tiles(W, H):
+        parts.append(((x, y, w, h), full[y * 4:(y + h) * 4, x * 4:(x + w) * 4]))
+    out = gpt._stitch(W, H, parts)
+    assert np.abs(out.astype(float) - full).max() <= 1.0
