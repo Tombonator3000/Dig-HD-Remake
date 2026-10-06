@@ -1,0 +1,21 @@
+# Spillfiler og uttrukket grafikk skal aldri inn i git (opphavsrett og storrelse)
+game/
+out/
+dig-out/
+*.LA0
+*.LA1
+*.BUN
+*.SAN
+*.NUT
+*.TRS
+*.la0
+*.la1
+*.bun
+*.san
+*.nut
+*.trs
+
+# Python
+__pycache__/
+*.pyc
+.venv/
