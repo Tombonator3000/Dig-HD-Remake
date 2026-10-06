@@ -4,19 +4,20 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Neste
 
-- [ ] Tom fletter PR 1 inn i `main` (CI er grønn), så `main` viser hele prosjektet
-- [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 162 romjobber er godkjent
+- [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 192 jobber (162 rom, 30 store objekter) er godkjent
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres
 - [ ] Juster grensene i `gpt.py` etter de første 20 ekte leveransene
 - [ ] Kontroller de nye rommene i motoren med forgrunnsmasker og objektbytte (`engine/test.sh` og manuelt)
-- [ ] Bygg og kjør på laptopen med modden fra `hd-mod` og musikk og tale fra Drive i game/
+- [ ] Laptoptest med skjerm og tastatur (kodeoppgave 1 i ORDRE.md for Codex): masker, objektbytte, Ctrl+H og Ctrl+Shift+H
 
 ## ChatGPT-grafikk
 
 - [x] Bestilling, jobbverktøy, kontroll og arbeidsgren `gpt-arbeid`
 - [x] Pilot: rom 9 og 22 levert av Codex, kontrollert og godkjent, lagt i `stil/` som stilankere
 - [x] Fast ordre i `ORDRE.md` og runde-skript (`tools/gpt_runde.sh`), mod publiseres i `hd-mod`
-- [ ] Resten av romjobbene (160 igjen)
+- [ ] Resten av romjobbene (159 igjen)
+- [x] Objektjobber for de 30 største objektbildene, med egne notater og like tilstander
+- [ ] De 30 objektjobbene
 - [ ] Tom ser over stilen når 10 til 15 rom er ferdige
 - [ ] Bestilling runde 2: objekter (642 bilder) i sammenheng med godkjente HD-rom
 - [ ] Bestilling runde 3: modellark for hovedpersonene, så automatisk oppskalering av rutene
@@ -24,8 +25,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Motor
 
-- [ ] Hurtigtast for å bytte mellom klassisk og HD
-- [ ] Vis et gult felt der HD mangler (som i Moonstone), for å se dekningen
+- [x] Hurtigtast for å bytte mellom klassisk og HD (Ctrl+H)
+- [x] Vis et gult felt der HD mangler (Ctrl+Shift+H)
+- [ ] Tekst over figurer uten HD blir gul med gult felt på (motoren kjenner bare rektangelet til figuren)
 - [ ] Undertekster over HD-filmrammer: legg teksten over HD-rammen i stedet for å skjule den
 - [ ] HD-sprites for kodek 16 (5 kostymer) og kontroll av kodek 5 i spillet
 - [ ] HD-fonter for tekst
@@ -54,3 +56,4 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Boston Low-stilreferanse og kontroll av egne HD-filnavn, mål, indeks og alfasilhuett
 - [x] Valgt stil: trofast HD
 - [x] Repo ryddet: README, STATUS.md, AGENTS.md, konseptbilder i `docs/konsept/`, CI for pipelinen
+- [x] PR 1 til 4 flettet inn i `main`

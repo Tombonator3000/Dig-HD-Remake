@@ -15,7 +15,7 @@ Repoet er privat. Spillfilene og alt som lages fra dem ligger i egne grener og s
 | Spillfiler | Engelsk standardutgave (DIG.LA0 MD5 `d8323015...`). LA0, LA1 og VIDEO i grenen `spilldata`. Musikk og tale bare på Drive. |
 | Uttrekk | Alle 111 rom, 642 objektbilder, 28 490 kostymeruter (med ekte farger) og 12 638 filmrammer ut som PNG. |
 | HD-motor | ScummVM-patch med HD-bakgrunner, HD-objekter, HD-sprites og HD-filmrammer, fargejustering ved palettbytte, mus og peker i HD. Testet uten skjerm (0 avvik med nearest-mod) og kjørt på laptopen med OpenGL og 32-bits farger. |
-| HD-grafikk | 2 av 106 rom ferdige fra ChatGPT (rom 9 og 22). 160 jobber igjen. Oppdateres hver runde i `work/gpt/RAPPORT.md` og grenen `gpt-arbeid`. |
+| HD-grafikk | 3 av 106 rom ferdige fra ChatGPT (rom 9, 22 og 28), og 0 av 30 store objektbilder. 188 av 192 jobber igjen. Oppdateres hver runde i `work/gpt/RAPPORT.md` og grenen `gpt-arbeid`. |
 | Objekter og figurer | Bare automatisk oppskalering så langt. Egne runder med ChatGPT kommer etter rommene. |
 | Filmer | Utskifting av rammer virker og er testet. Ingen HD-filmer laget ennå. |
 
@@ -58,7 +58,7 @@ tools/gpt_runde.sh               # henter, kontrollerer, bygger og publiserer mo
 Det samme steg for steg:
 
 ```sh
-dighd gpt-pakke                  # 162 jobber for 106 rom og 32 for store objektbilder i work/gpt
+dighd gpt-pakke                  # 162 jobber for 106 rom og 30 for store objektbilder i work/gpt
 tools/gpt_gren.sh send           # jobbene, status og ordre til grenen gpt-arbeid
 tools/gpt_gren.sh hent           # resultatene fra ChatGPT tilbake
 dighd gpt-inn                    # plassering, fargelås, sammensying, RAPPORT.md og retur.md

@@ -89,3 +89,23 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Ny CI (`.github/workflows/test.yml`): installerer pipelinen, kjører `pytest -m "not game"` og stopper hvis spillfiler eller `work/` og `mods/` er sjekket inn.
 - Pushet to commits til `claude/analyse-hd` (9076632 og 8440b5c). CI grønn. PR 2 står som flettet. Oppdatert tittel og beskrivelse på PR 1. Fletting av PR 1 inn i `main` ble stoppet av tillatelsene her, så den er lagt til Tom i `todo.md`.
 - Neste ChatGPT-runde er satt opp til kl. 00:21.
+
+## 2026-10-06 23:53 til 2026-10-07 00:45 (Claude)
+- Tom ga full autonomi: flette og hente der det trengs, gi ordre til ChatGPT om bilder og kodehjelp, og bruke flere agenter.
+- Flettet PR 1 inn i `main` (5c6a5c7). `main` er nå hovedgrenen lokalt og på GitHub.
+- ChatGPT leverte rom 22 på nytt, rom 2 del 1 og rom 28 (laget fra en eldre utgave av `gpt-arbeid`, uten stilankere). Alle tre godkjent av kontrollen. Så på bildene:
+  - Rom 2 del 1: trofast, men flere stjerner enn originalen.
+  - Rom 28: tavla med symbolene følger originalen tett. Noen små symboler er tolket litt fritt.
+  - Rom 22: bakken ved den oransje veggen er blitt blank som vann og fargeavviket er 15 mot 8,5 i piloten. Satte `resultat.png` tilbake til piloten og la den nye som `alternativ_forsok2.png` med forklaring i `notat.md`.
+- Kjørte motoren uten skjerm i rom 22 og 28 med modden. Fant at objekt 241 (tavla, 320 x 200) dekker nesten hele rom 28, så HD-bakgrunnen synes bare i 185 piksler. 32 objektbilder er så store at de fungerer som bakgrunner.
+- Satte to agenter på jobb samtidig i hver sin arbeidskopi:
+  - PR 3 (objektjobber): de store objektbildene blir ChatGPT-jobber `objNNN_SS`, med objektet lagt over rommet på samme lerret som romjobbene. `status.csv` har kolonnen `type`. `gpt-inn` skriver godkjente objekter til `work/gpt-ferdig/objects/` i 4x med alfa fra originalen. RAPPORT og ORDRE teller rom og objekter hver for seg. `build-mod` tar med egne objektbilder også for rom uten HD-bakgrunn. Kontrollert mot ekte data: romjobbene har samme SHA-256 som før, og `gpt-inn` gir byte for byte samme HD-rom.
+  - PR 4 (motor): Ctrl+H bytter mellom HD og klassisk grafikk, Ctrl+Shift+H farger gult der HD mangler. `DIGHD_CLASSIC=1`, `DIGHD_SHOW_MISSING=1` og testvariabelen `DIGHD_TEST_KEYS`. `engine/test.sh` gir fortsatt 0 avvik. Klassisk dump er lik originalen i rom 22 og 28. Farten er den samme som før. Patchen gjelder rent på ScummVM c9091321. Ikke prøvd med ekte tastatur.
+- Gikk gjennom begge PR-ene og flettet dem (2089ed4 og 41fbeea) etter grønn CI. Ryddet bort agentenes arbeidskopier og grener.
+- Så gjennom alle 32 store objektbilder. Rettet etter funnene:
+  - Tok ut de to ensfargede rutenettene i inventaret (obj618 og obj627, rom 93). Det gir 30 objektjobber.
+  - Objekter kan få eget notat (`objNNN` i `docs/gpt-romnotater.csv`). Notater for obj241 (tavla uten hender), obj547 (håndholdt maskin med tom skjerm) og obj097 (kartmerker).
+  - Objekter med flere tilstander (obj884 og obj886): senere tilstander ber om første tilstand som bilde to, og `gpt-inn` tar alt som er likt fra den godkjente første tilstanden (`match_state`), så hånden ikke skifter utseende når spillet bytter bilde.
+- Kodeoppgaver til Codex: ny fil `docs/gpt-kodeoppgaver.md` som kommer med i ORDRE.md (`dighd gpt-ordre --oppgaver`). Første oppgave er test på laptopen med skjerm og tastatur, med rapport i `rapporter/` i `gpt-arbeid`.
+- Kjørte `dighd gpt-pakke` (192 jobber: 162 rom, 30 objekter) og en runde. Ny ORDRE.md sendt: obj241_01 først, så rom 2 del 2 og 3, rom 3 til 8 og rom 10 del 1. Modden med rom 9, 22 og 28 ligger i `hd-mod`.
+- 10 tester bestått. Oppdatert README, STATUS.md, AGENTS.md, todo.md og memory.md.
