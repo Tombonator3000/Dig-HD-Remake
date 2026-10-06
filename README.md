@@ -56,7 +56,7 @@ tools/gpt_runde.sh               # henter, kontrollerer, bygger og publiserer mo
 Det samme steg for steg:
 
 ```sh
-dighd gpt-pakke                  # 162 jobber for 106 rom i work/gpt
+dighd gpt-pakke                  # 162 jobber for 106 rom og 32 for store objektbilder i work/gpt
 tools/gpt_gren.sh send           # jobbene, status og ordre til grenen gpt-arbeid
 tools/gpt_gren.sh hent           # resultatene fra ChatGPT tilbake
 dighd gpt-inn                    # plassering, fargelås, sammensying, RAPPORT.md og retur.md

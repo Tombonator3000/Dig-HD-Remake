@@ -8,7 +8,7 @@ Dato: 6. oktober 2026
 
 Vi lager en HD-versjon av LucasArts' The Dig (1995). Spillet kjører i ScummVM med en patch som legger HD-bilder nøyaktig oppå originalgrafikken, piksel for piksel. Vi trenger at du maler bakgrunnene på nytt i 4x oppløsning (1280 x 800 for et vanlig rom), **trofast mot originalen**: samme motiv, samme former på samme sted, samme farger og samme stemning. Bare skarpere og med mer detalj.
 
-Første runde er de 106 rombakgrunnene, delt i 162 jobber. Hver jobb er ett bilde på 1536 x 1024 piksler.
+Første runde er de 106 rombakgrunnene, delt i 162 jobber, og 32 objektjobber for store bilder som spillet tegner over rommet (se punkt 4). Hver jobb er ett bilde på 1536 x 1024 piksler.
 
 ## 2. Hvem gjør hva
 
@@ -49,18 +49,28 @@ Hver jobb ligger i `jobber/<jobb>/`:
 
 Den grå kanten er bare fyll, slik at bildet får sideforholdet 3:2. Hold den grå. Rom som er bredere eller høyere enn ett lerret, er delt i deler med overlapp (for eksempel `rom002_del1av3`). Delene sys sammen av Claude, så kantene skal være naturlige, uten ramme eller toning.
 
-Oversikt over alle jobber: `JOBBER.md`. Status: `status.csv` (ny, godkjent, sjekk, avvist).
+Oversikt over alle jobber: `JOBBER.md`. Status: `status.csv` (ny, godkjent, sjekk, avvist). Kolonnen `type` sier om jobben er et rom eller et objekt.
+
+### Objektjobber
+
+I mange rom tegner spillet et stort bilde over bakgrunnen: nærbilder, kart og paneler. I rom 28 (shardcu) dekker objekt 241 hele skjermen, så HD-bakgrunnen synes nesten ikke. De 32 største objektbildene (29 objekter) er derfor egne jobber. Grensen er minst 16 000 piksler i alt, eller minst 200 piksler bredt, eller minst 150 piksler høyt.
+
+- Jobbene heter `objNNN_SS`: objekt-ID og tilstand som i filnavnet, for eksempel `obj241_01`.
+- `referanse.png` viser objektbildet lagt over rommet der spillet tegner det, på samme lerret og med samme grå kant som rommene. Der objektet er gjennomsiktig, synes rommet bak. Utenfor rommet er det svart.
+- Mal hele bildet som en bakgrunn. Bare objektets egne piksler brukes i spillet, de gjennomsiktige delene klippes ut igjen etterpå.
+- `prompt.txt` har en ekstra linje om at bildet er et stort bilde spillet viser over rommet, og romnotatet for rommet.
+- Leveres som rommene. Leverer du bare bildet, skal det ha objektets sideforhold (`bilde_i_lerret` i `jobb.json`).
 
 ## 5. Rekkefølge
 
 1. **Pilot (ferdig):** Codex leverte rom 9 og 22 den 6. oktober. Begge besto kontrollen og er godkjent av Claude på Tom sine vegne (Tom ba om at arbeidet skal fortsette). Tom kan overstyre.
 2. **Stilankere:** Pilotbildene ligger i `stil/` (`room009_core.png`, `room022_beach.png`). Legg ved det ankeret som passer best som bilde nummer to i hver jobb (prompten forklarer hvordan det brukes). Det holder stilen lik fra rom til rom.
-3. **Løpende ordre:** Claude skriver `ORDRE.md` i grenen etter hver kontroll, med de neste 10 jobbene. Ta dem i den rekkefølgen.
+3. **Løpende ordre:** Claude skriver `ORDRE.md` i grenen etter hver kontroll, med de neste 10 jobbene. Ta dem i den rekkefølgen. Nye jobber står etter romnummer, med romjobbene før objektjobbene i samme rom. Objektjobber i rom som allerede er ferdige, kommer først.
 4. **Retur:** Jobber med `retur.md` står først i ordren og gjøres på nytt med teksten der.
 
 Senere runder (egne bestillinger):
 
-- **Objekter** (642 bilder: dører, maskiner, lys). Lages i sammenheng med det godkjente HD-rommet.
+- **Objekter** (642 bilder: dører, maskiner, lys). De 32 største er med nå som objektjobber. De andre 610 lages i sammenheng med det godkjente HD-rommet.
 - **Figurer:** 331 kostymer med 28 490 animasjonsruter er for mye å male enkeltvis. Plan: et modellark per hovedperson fra ChatGPT som stilfasit, og så automatisk oppskalering av rutene, med retusj der det trengs.
 - **Filmer:** 12 638 rammer. Ikke ChatGPT. Videooppskalering.
 
@@ -72,7 +82,7 @@ Senere runder (egne bestillinger):
 2. Les `ORDRE.md` og ta jobbene der. Lag ikke egne grener eller PR-er for grafikken.
 3. For hver jobb: bruk bildeverktøyet med `referanse.png` som bildet som skal redigeres (og et stilanker som bilde to, når de finnes), og `prompt.txt` ordrett som prompt. Be om 1536 x 1024. Lagre som `resultat.png` og skriv `notat.md`.
 4. Se på resultatet ved siden av referansen før du leverer. Ligger noe feil, prøv igjen.
-5. Commit i grenen `gpt-arbeid` med meldingen `GPT: rom022, rom024` (jobbene i commiten) og push. Aldri til `main`.
+5. Commit i grenen `gpt-arbeid` med meldingen `GPT: rom022, obj241_01` (jobbene i commiten) og push. Aldri til `main`.
 
 Claude henter grenen, kjører kontrollen og skriver `RAPPORT.md` og `retur.md` tilbake.
 
@@ -98,7 +108,9 @@ Testet med kunstige svar: et bilde som er forskjøvet 3 piksler, avvises. 3 pros
 
 Etter sjekken **låses fargene til originalen**: de grove fargeflatene hentes fra originalen og detaljene fra ditt bilde. Et lite fargestikk gjør derfor ikke noe, men feil plassering gjør det. Grensene justeres når vi har sett ekte resultater.
 
-Ferdige rom havner i `work/gpt-ferdig/rooms/`, og `dighd build-mod --egne work/gpt-ferdig` lager mod-mappen motoren bruker.
+Objektjobber kontrolleres på samme måte mot sitt eget `original_1x.png` (objektbildet over rommet i 1x).
+
+Ferdige rom havner i `work/gpt-ferdig/rooms/` og ferdige objektbilder i `work/gpt-ferdig/objects/` (nøyaktig 4x objektstørrelse, med gjennomsiktigheten fra originalen). `dighd build-mod --egne work/gpt-ferdig` lager mod-mappen motoren bruker. Godkjente objektbilder kommer med i modden også i rom som ikke har HD-bakgrunn ennå. Et rom regnes som ferdig når romjobbene er godkjent, uavhengig av objektene.
 
 ## 8. Sporing
 
@@ -132,7 +144,8 @@ Claude skriver all kode. Du lager bildene. Tom godkjenner.
 
 For hver jobb får du referanse.png (originalen forstørret 4x med harde piksler på grå kant, 1536 x 1024)
 og prompt.txt. Bruk prompt.txt ordrett og referanse.png som bildet som redigeres. Lever ett bilde på
-1536 x 1024 med samme oppsett.
+1536 x 1024 med samme oppsett. Jobber som heter objNNN_SS, er store bilder spillet viser over rommet
+(nærbilder, kart, paneler). Behandle dem som bakgrunner.
 
 Regler: ingenting flyttes, zoomes eller beskjæres. Ingenting legges til eller fjernes. Symboler og
 inngraveringer kopieres nøyaktig. Samme farger, lys og stemning. Samme malte 1990-tallsstil fra

@@ -5,8 +5,8 @@
   dighd build-mod --name test        Lager en mod-mappe for HD-motoren
   dighd compare --room 22            Lager et sammenligningsbilde av oppskaleringsmetoder
   dighd san                          Trekker ut filmrammer (via thedig-textures)
-  dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt
-  dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom
+  dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt (rom og store objektbilder)
+  dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom og HD-objekter
   dighd gpt-ordre                    Skriver ORDRE.md med neste jobber til ChatGPT
 """
 from __future__ import annotations
@@ -31,8 +31,11 @@ def _repo_root() -> Path:
 
 
 def _rooms(arg: str | None) -> set[int] | None:
+    """Romliste fra kommandolinjen. Uten liste betyr alle rom, og "ingen" betyr ingen rom."""
     if not arg:
         return None
+    if arg.strip().lower() == "ingen":
+        return set()
     out: set[int] = set()
     for part in arg.split(","):
         if "-" in part:
@@ -115,7 +118,9 @@ def cmd_san(a) -> int:
 def cmd_gpt_pakke(a) -> int:
     notes = gpt.read_notes(Path(a.notater)) if a.notater else {}
     jobs = gpt.make_jobs(Path(a.extract), Path(a.ut), _rooms(a.rooms), notes)
-    print(f"{len(jobs)} jobber -> {Path(a.ut) / 'jobber'} (oversikt i JOBBER.md, status i status.csv)")
+    n_obj = sum(j.type == "objekt" for j in jobs)
+    print(f"{len(jobs)} jobber ({len(jobs) - n_obj} for rom, {n_obj} for store objektbilder) -> "
+          f"{Path(a.ut) / 'jobber'} (oversikt i JOBBER.md, status i status.csv)")
     return 0
 
 
@@ -123,7 +128,10 @@ def cmd_gpt_inn(a) -> int:
     s = gpt.import_results(Path(a.fra), Path(a.extract), Path(a.ut), sigma=a.sigma, strength=a.styrke,
                            only_approved=a.bare_godkjente)
     print("Status:", ", ".join(f"{k} {v}" for k, v in sorted(s["status"].items())))
-    print("Ferdige rom:", ", ".join(map(str, s["ferdige_rom"])) or "ingen")
+    print(f"Ferdige rom ({len(s['ferdige_rom'])} av {s['rom_totalt']}):",
+          ", ".join(map(str, s["ferdige_rom"])) or "ingen")
+    print(f"Ferdige objekter ({len(s['ferdige_objekter'])} av {s['objekter_totalt']}):",
+          ", ".join(s["ferdige_objekter"]) or "ingen")
     for line in s["venter"]:
         print("  venter:", line)
     print(f"Rapport: {Path(a.fra) / 'RAPPORT.md'}. Bruk resultatet med: dighd build-mod --egne {a.ut}")
@@ -164,8 +172,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--name", default="hd")
     p.add_argument("--mods", default=str(root / "mods"))
     p.add_argument("--out", help="overstyr målmappe")
-    p.add_argument("--rooms", help="for eksempel 22,24 eller 20-30 (standard: alle)")
-    p.add_argument("--egne", help="mappe med egne HD-bilder (rooms/, objects/) som brukes i stedet")
+    p.add_argument("--rooms", help="for eksempel 22,24 eller 20-30, eller 'ingen' (standard: alle)")
+    p.add_argument("--egne", help="mappe med egne HD-bilder (rooms/, objects/) som brukes i stedet. Egne "
+                   "objektbilder tas med også for rom utenfor --rooms, men da uten bakgrunn")
     p.add_argument("--uten-objekter", action="store_true", help="bare bakgrunner")
     p.add_argument("--kostymer", help="kostyme-ID-er som skal skaleres, for eksempel 14-18, eller 'alle'")
     p.add_argument("--filmer", help="filmer som skal skaleres, for eksempel SQ1,TRAM1, eller 'alle' (tar mye plass)")
