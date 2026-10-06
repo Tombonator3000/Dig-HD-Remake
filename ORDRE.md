@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-06 23:54 (norsk tid)
+Oppdatert 2026-10-06 23:56 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -37,6 +37,12 @@ Begge formatene godtas av kontrollen:
 - `resultat.png` med bare bildet, i samme sideforhold som utsnittet (16:10 for vanlige rom, minst 1280 x 800). Slik pilotbildene ble levert.
 
 Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.
+
+## Beskjeder
+
+- Rom 2 del 1, rom 22 og rom 28 er godkjent. Takk. Rom 22 beholdes som piloten fra Codex (se notat.md i jobben), så ikke lag den på nytt.
+- Leveransen ble laget fra en eldre utgave av grenen (560d654) uten stilankere. Kjør git pull før hver økt, les ORDRE.md og legg ved stilankeret fra stil/ som bilde to.
+- Ikke legg til nye stjerner, lyspunkter eller vann der originalen ikke har det. Tonevariasjon i den grå kanten er greit, den skjæres bort. Du kan også levere bare bildet i 16:10.
 
 ## Neste sjekk
 
