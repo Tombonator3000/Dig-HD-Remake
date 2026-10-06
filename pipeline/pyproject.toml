@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dighd"
+version = "0.1.0"
+description = "HD-pipeline for The Dig: eksport, oppskalering og mod-pakker for HD-motoren"
+requires-python = ">=3.12"
+dependencies = [
+  "pillow>=10",
+  "numpy>=1.26",
+  # Dekoderne for LA1/AKOS/SAN, verifisert mot ScummVM. Låst til en kjent versjon.
+  "thedig-textures @ git+https://github.com/felipe-dos-santos81/thedig-textures@1cf355ed1aa32326fc1b3097ba1d1df692b51501",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+dighd = "dighd.cli:main"
+
+[tool.setuptools]
+packages = ["dighd"]
+
+[tool.pytest.ini_options]
+markers = ["game: trenger spillfilene i game/ (hentes med tools/hent_spilldata.sh)"]

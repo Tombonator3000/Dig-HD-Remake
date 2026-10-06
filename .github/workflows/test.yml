@@ -1,0 +1,24 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installer pipelinen
+        run: pip install -e "pipeline[dev]"
+      - name: Tester uten spillfiler
+        working-directory: pipeline
+        run: pytest -m "not game" -q
+      - name: Ingen spillfiler i grenen
+        run: |
+          if git ls-files | grep -iE '\.(la0|la1|bun|san|nut|trs)$|^work/|^mods/'; then
+            echo "Spillfiler eller avledede filer er sjekket inn"; exit 1
+          fi
