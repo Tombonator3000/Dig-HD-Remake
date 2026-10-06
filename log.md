@@ -66,3 +66,24 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Grafikkdata og kodegren er pushet til det private repoet. PR 2 er opprettet som utkast mot claude/analyse-hd: https://github.com/Tombonator3000/Dig-HD-Remake/pull/2
 - La overlevering med filplassering, kjøringsstatus og resterende grafikkontroller i Claudes PR 1: https://github.com/Tombonator3000/Dig-HD-Remake/pull/1#issuecomment-6025842984
 - Henting fra en fersk Git-arbeidsmappe bestod. Endrede lokale filer ble avvist og bevart. Ingen PR er flettet.
+
+## 2026-10-06 23:36 til 23:45 (Claude)
+- Tom ba om at ChatGPT lager grafikk fortløpende, at Claude sjekker repoet jevnlig, fortsetter konverteringen og gir ordre hele tiden.
+- Leste overleveringen fra Codex i PR 1 og PR 2. Flettet PR 2 (grafikkpiloten) inn i `claude/analyse-hd` (commit c7e3338).
+- Rettet funnet fra Codex sin gjennomgang i `tools/la0_info.py`: blokkstørrelse 0 ga evig løkke. Blokker under 8 byte eller forbi filslutt merkes nå som skadet, og lesingen stopper (commit 287d309).
+- Kontrollerte pilotbildene for rom 9 og 22 med `dighd gpt-inn`: forskyvning 0,73 og 0,25 px, begge godkjent. Så på bildene: trofaste, samme motiv og farger med mer detalj. Godkjent som stilankere på vegne av Tom, lagt i `stil/` i `gpt-arbeid`.
+- Nytt i pipelinen: `detect_layout` (godtar hele lerretet eller bare bildet i utsnittets sideforhold, slik piloten ble levert) og `write_orders` med kommandoen `dighd gpt-ordre`, som skriver `ORDRE.md` med status, de neste 10 jobbene (avviste først), stilankere, leveringsformat og beskjeder.
+- Nye verktøy: `tools/gpt_runde.sh` (hele runden: hent, kontroll, bygg mod når noe nytt er godkjent, publiser, ny ordre, send) og `tools/mod_gren.sh` (modden til og fra den private grenen `hd-mod`, én commit med SHA256SUMS som erstattes hver gang). `tools/gpt_gren.sh` sender nå også `ORDRE.md`, gjenoppretter jobbene hvis `work/gpt/jobber` mangler, og tar bare med forhåndsvisninger for jobber med `retur.md`.
+- Rettet i `gpt_runde.sh`: `cat | sha256sum` med pipefail stoppet skriptet uten melding når filen manglet.
+- Første runde kjørt 23:43: 2 godkjent, 160 nye. Modden med rom 9 og 22 publisert i `hd-mod` (3,2 MB). `ORDRE.md` sendt til `gpt-arbeid` med rom 2 (tre deler), rom 3 til 8 og første del av rom 10.
+- Oppdatert `docs/gpt-arbeid-AGENTS.md` og `docs/BESTILLING-CHATGPT.md`: les `ORDRE.md` først, ingen egne grener eller PR-er, begge leveringsformater godtas.
+
+## 2026-10-06 23:45 til 23:58 (Claude)
+- Tom ba om å rydde repoet med README, status og todo slik som i de andre prosjektene (Moonstone og Jones).
+- Skrev README på nytt: kort om prosjektet, statustabell, spille med HD, lage HD selv, samarbeidet med ChatGPT, test, grener, mapper, dokumentasjon og opphavsrett.
+- Ny `STATUS.md`: HD-dekning (2 av 106 rom, 0 av 642 objekter, 0 av 28 490 ruter, 0 av 12 638 filmrammer), hva som virker og hvordan det er testet, kjente begrensninger og grener.
+- Skrev `AGENTS.md` på nytt etter mønster fra Moonstone: Før du starter, Mens du jobber, Stil, Regler, Roller, Oppsett, Kommandoer, ChatGPT-runder, Arbeid med motoren og Grener.
+- `todo.md` med `## Neste` øverst og ferdige punkter nederst. `memory.md` oppdatert med ordreflyten, `hd-mod`, piloten og ny plassering av konseptbildene.
+- Flyttet de tre konseptbildene fra roten til `docs/konsept/` med lesbare navn (ludger-brink.jpeg, maggie-robbins.webp, boston-low.webp). Rettet henvisningene.
+- La til NumPy i avhengighetene til pipelinen (brukes av `gpt.py`, manglet i `pyproject.toml`). Ny test for leveringsformat og ordre. 7 tester bestått.
+- Ny CI (`.github/workflows/test.yml`): installerer pipelinen, kjører `pytest -m "not game"` og stopper hvis spillfiler eller `work/` og `mods/` er sjekket inn.

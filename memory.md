@@ -1,4 +1,4 @@
-# Prosjektminne
+# memory.md
 
 Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 
@@ -25,14 +25,17 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Kostymefarger: RGBS-blokken i AKOS har de ekte fargene. thedig-textures sin egen PNG-eksport av kostymer har svart palett og brukes ikke.
 - SAN-rammenummer: filnavn = SmushPlayer `_frame - 1`.
 - Fargesyklede palettindekser vises som originalpiksler.
-- Pipeline: `dighd` (Python 3.12+, Pillow, thedig-textures låst til commit 1cf355e).
+- Pipeline: `dighd` (Python 3.12+, Pillow, NumPy, thedig-textures låst til commit 1cf355e). CI kjører `pytest -m "not game"` på hver push og PR.
 
 ## HD-grafikk fra ChatGPT
 - Roller: Claude koden, ChatGPT grafikken (bestilling i `docs/BESTILLING-CHATGPT.md`), Tom godkjenner.
 - Valgt stil: trofast HD (samme motiv og farger, mer detalj). Ingen ny tegnestil i denne runden.
 - Jobber: 1536 x 1024 lerret = 384 x 256 originalpiksler i 4x, grå kant (#808080), overlapp 64. 162 jobber for 106 rom.
-- Arbeidsgren: `gpt-arbeid` (privat, egen AGENTS.md). Synk med `tools/gpt_gren.sh send|hent`.
-- Pilot: rom022, rom002_del1av3, rom028. Godkjente piloter blir stilankere i `stil/`.
+- Arbeidsgren: `gpt-arbeid` (privat, egen AGENTS.md laget fra `docs/gpt-arbeid-AGENTS.md`). Synk med `tools/gpt_gren.sh send|hent`.
+- ChatGPT leser `ORDRE.md` i `gpt-arbeid` først. Claude skriver den hver runde (`dighd gpt-ordre`): avviste jobber først, så nye, så de som kan bli bedre, 10 om gangen.
+- En runde = `tools/gpt_runde.sh`. Ferdig mod publiseres i grenen `hd-mod` (én commit som erstattes, med SHA256SUMS). Hentes med `tools/mod_gren.sh hent`.
+- Pilot: rom 9 og 22 fra Codex, godkjent av Claude på vegne av Tom 6. oktober (forskyvning 0,73 og 0,25 px). Stilankere: `stil/room009_core.png` og `stil/room022_beach.png`.
+- Leveranse godtas som hele lerretet (1536 x 1024 med grå kant) eller bare bildet i utsnittets sideforhold (`detect_layout`).
 - Godkjenning: forskyvning 0,75 px, blokker 1,0 px, kantlikhet 0,55 (sjekk: 1,5 / 2,0 / 0,40). Fargelås sigma 6, styrke 1.
 - Erfaring fra Jones: ChatGPT bommer på tekst og plassering, og stilen ble skiftet flere ganger. Derfor pilot, stilankere, automatisk kontroll og sporing.
 
@@ -42,4 +45,4 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 ## Annet
 - Grafikkpilot 6. oktober 2026: to romkandidater (9 og 22) i 1280x800, native SDL2/Wayland/OpenGL-kjøring med 32-bits farger. Stil er foreløpig. Pakken ligger i privat grafikkdatagren `grafikkdata/pilot-20261006`, commit `cf8e6a9f6e30d662f7c73076ef1e1810851ceceb`; `tools/hent_grafikkpilot.sh` henter og kontrollerer den uten å skrive over endrede filer.
 - Boston Low-prøven er bare stilreferanse. Alfasilhuetten avviker fra kostyme 14 rute 1 og den er ikke i mod-mappen. Manuell okklusjon, objektbytte og hele brukerreisen er ikke verifisert for nye rombilder. Se `docs/GRAFIKKPILOT.md`.
-- Konseptbildene i roten av repoet er laget av en Reddit-tegner (signert). Brukes som stilreferanse. Spør og krediter før noe vises offentlig.
+- Konseptbildene i `docs/konsept/` (flyttet fra roten 6. oktober) er laget av en Reddit-tegner (signert). Brukes som stilreferanse. Spør og krediter før noe vises offentlig.

@@ -33,7 +33,7 @@ Totalt rundt 660 MB.
 
 ## 2. Hva som ligger i repoet
 
-Tre bilder lastet opp 5. oktober: modellark for Maggie Robbins, Boston Low og Ludger Brink i en ren tegneseriestil, med originalspriten ved siden av. Filnavnene viser at de kommer fra et Reddit-innlegg ("If The Dig were remastered, art by me"), og de er signert av tegneren. De fungerer godt som stilmål, men tegningene er hans. Hvis prosjektet en gang skal vises fram, bør du spørre ham og kreditere ham.
+Tre bilder lastet opp 5. oktober: modellark for Maggie Robbins, Boston Low og Ludger Brink i en ren tegneseriestil, med originalspriten ved siden av. Filnavnene viser at de kommer fra et Reddit-innlegg ("If The Dig were remastered, art by me"), og de er signert av tegneren. De ligger nå i `docs/konsept/`. De fungerer godt som stilmål, men tegningene er hans. Hvis prosjektet en gang skal vises fram, bør du spørre ham og kreditere ham.
 
 Repoet er privat. Det er bra, men spillfilene og uttrukket grafikk skal likevel ikke inn i git. `.gitignore` er satt opp for det.
 

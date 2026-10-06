@@ -1,86 +1,114 @@
 # The Dig HD Remake
 
-HD-versjon av LucasArts' The Dig (1995). Spillet kjører i ScummVM som før, men bakgrunner, objekter, figurer og filmer vises i 4x oppløsning fra en mod-mappe. Det som ikke har en HD-versjon ennå, vises som originalen skalert opp, så spillet kan spilles hele veien mens grafikken bygges.
+HD-versjon av *The Dig* (LucasArts 1995). Spillet kjører i ScummVM med en patch som legger HD-grafikk nøyaktig oppå originalen: bakgrunner, objekter, figurer og filmer i 4x oppløsning fra en mod-mappe. Det som ikke har en HD-versjon ennå, vises som originalen skalert opp, så spillet kan spilles hele veien mens grafikken bygges.
 
-Repoet er privat. Spillfilene ligger i grenen `spilldata` og skal aldri inn i `main`.
+Spillets regler, skript, lagring og lyd er ScummVM sine og helt som før. Bare bildet endres.
 
-## Innhold
+Arbeidsdeling: Claude skriver koden, ChatGPT lager HD-grafikken etter [bestillingen](docs/BESTILLING-CHATGPT.md), Tom godkjenner.
 
-| Mappe | Hva |
+Repoet er privat. Spillfilene og alt som lages fra dem ligger i egne grener og skal aldri inn i `main`.
+
+## Status
+
+| Del | Status |
 | --- | --- |
-| `pipeline/` | `dighd`: eksporterer originalgrafikken, skalerer opp og bygger mod-mapper |
-| `engine/` | Patch for ScummVM og skript for å bygge, kjøre og teste |
-| `tools/` | Henting av spilldata, lesing av DIG.LA0 |
-| `docs/` | Analysen, romoversikten og beskrivelse av HD-motoren |
+| Spillfiler | Engelsk standardutgave (DIG.LA0 MD5 `d8323015...`). LA0, LA1 og VIDEO i grenen `spilldata`. Musikk og tale bare på Drive. |
+| Uttrekk | Alle 111 rom, 642 objektbilder, 28 490 kostymeruter (med ekte farger) og 12 638 filmrammer ut som PNG. |
+| HD-motor | ScummVM-patch med HD-bakgrunner, HD-objekter, HD-sprites og HD-filmrammer, fargejustering ved palettbytte, mus og peker i HD. Testet uten skjerm (0 avvik med nearest-mod) og kjørt på laptopen med OpenGL og 32-bits farger. |
+| HD-grafikk | 2 av 106 rom ferdige fra ChatGPT (rom 9 og 22). 160 jobber igjen. Oppdateres hver runde i `work/gpt/RAPPORT.md` og grenen `gpt-arbeid`. |
+| Objekter og figurer | Bare automatisk oppskalering så langt. Egne runder med ChatGPT kommer etter rommene. |
+| Filmer | Utskifting av rammer virker og er testet. Ingen HD-filmer laget ennå. |
 
-## Kom i gang (Linux)
+Detaljer, tester og kjente begrensninger: [STATUS.md](STATUS.md). Hva som gjenstår: [todo.md](todo.md).
+
+## Spille med HD-grafikken
 
 ```sh
-# 1. Spillfilene (fra grenen spilldata)
-tools/hent_spilldata.sh
+tools/hent_spilldata.sh          # spillfilene til game/ (sjekker sjekksummene)
+tools/mod_gren.sh hent           # siste HD-mod fra grenen hd-mod til mods/gpt
+engine/build.sh                  # ScummVM med patchen (første gang tar det noen minutter)
+engine/run.sh gpt                # start spillet med HD-modden
+```
 
-# 2. Pipelinen
+Krever på Linux: `sudo apt install build-essential git libsdl2-dev libpng-dev zlib1g-dev`. Legg `DIGMUSIC.BUN` og `DIGVOICE.BUN` fra Drive i `game/` for musikk og tale.
+
+## Lage HD-grafikk selv
+
+```sh
 python3 -m venv .venv && . .venv/bin/activate
 pip install -e "pipeline[dev]"
-dighd info
-
-# 3. Eksporter originalgrafikken (rom, objekter og 28 490 kostymeruter, cirka 3 minutter)
-dighd extract
-
-# 4. Lag en HD-mod (her med enkel oppskalering, alle rom og objekter, kostyme 1-20)
+dighd info                       # sjekker spillfilene
+dighd extract                    # originalgrafikken til work/extract (cirka 3 minutter)
 dighd build-mod --name hd --method lanczos-sharp --kostymer 1-20
-
-# 5. Bygg ScummVM med patchen og start spillet
-sudo apt install build-essential git libsdl2-dev libpng-dev zlib1g-dev
-engine/build.sh
 engine/run.sh hd
 ```
 
-Musikk og tale (`DIGMUSIC.BUN`, `DIGVOICE.BUN`) er for store for GitHub. Legg dem fra Drive i `game/` for å spille med lyd.
+`--method` kan være `nearest`, `lanczos`, `lanczos-sharp`, `realesrgan` (realesrgan-ncnn-vulkan i PATH) eller `cmd` (`--cmd "verktoy {inn} {ut} {skala}"`). Egne bilder med samme navn og eksakt 4x størrelse brukes med `--egne MAPPE`. `dighd compare --room 22` viser flere metoder side om side. `dighd san` trekker ut filmrammene, og `--filmer SQ1` tar dem med i modden.
 
-## Bedre oppskalering
+## Samarbeidet med ChatGPT
 
-`--method` kan være `nearest`, `lanczos`, `lanczos-sharp`, `realesrgan` eller `cmd`:
+En runde (Claude kjører den jevnlig):
 
 ```sh
-# Real-ESRGAN (last ned realesrgan-ncnn-vulkan og legg den i PATH)
-dighd build-mod --name esrgan --method realesrgan --kostymer 14-18
-
-# Hvilket som helst verktøy som tar inn- og utfil
-dighd build-mod --name test --method cmd --cmd "mittverktoy {inn} {ut} {skala}"
-
-# Egne bilder (maling, KI-verktøy): samme navn og eksakt 4x størrelse
-dighd build-mod --name hd --egne mine_hd_bilder/
+tools/gpt_runde.sh               # henter, kontrollerer, bygger og publiserer modden, skriver ny ordre
 ```
 
-`dighd compare --room 22` lager et bilde med flere metoder side om side, nyttig for stiltester.
-
-Filmer: `dighd san` trekker ut alle 12 638 filmrammer. `dighd build-mod --filmer SQ1` skalerer dem opp. Det tar mye plass som PNG, så velg filmene du tester.
-
-## HD-grafikk fra ChatGPT
-
-ChatGPT lager den trofaste HD-grafikken, Claude står for koden. Bestillingen med regler og arbeidsflyt: `docs/BESTILLING-CHATGPT.md`.
+Det samme steg for steg:
 
 ```sh
-dighd gpt-pakke          # 162 jobber for 106 rom i work/gpt
-tools/gpt_gren.sh send   # til grenen gpt-arbeid, der ChatGPT (Codex) jobber
-tools/gpt_gren.sh hent   # resultatene tilbake
-dighd gpt-inn            # sjekk, fargelås og sammensying, rapport i work/gpt/RAPPORT.md
+dighd gpt-pakke                  # 162 jobber for 106 rom i work/gpt
+tools/gpt_gren.sh send           # jobbene, status og ordre til grenen gpt-arbeid
+tools/gpt_gren.sh hent           # resultatene fra ChatGPT tilbake
+dighd gpt-inn                    # plassering, fargelås, sammensying, RAPPORT.md og retur.md
+dighd gpt-ordre                  # ORDRE.md med de neste jobbene
 dighd build-mod --name gpt --egne work/gpt-ferdig
+tools/mod_gren.sh send           # modden til grenen hd-mod
 ```
+
+ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. Regler og format: [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md).
 
 ## Test
 
 ```sh
-cd pipeline && pytest            # pipelinen
-pytest -m game                   # mot de ekte spillfilene
-engine/test.sh                   # kjører spillet uten skjerm og sjekker at HD-pikslene ligger riktig
+cd pipeline && pytest -m "not game"   # pipelinen uten spillfiler (kjøres også i CI)
+cd pipeline && pytest -m game         # mot de ekte spillfilene
+engine/test.sh                        # spillet uten skjerm: HD-pikslene skal ligge der originalen har dem
 ```
 
-Mer om hvordan motoren virker: `docs/HD-MOTOR.md`. Analyse og plan: `docs/ANALYSE.md`.
+## Grener
 
-Første grafikkpilot med to romkandidater, Boston-stilreferanse, henting og faktiske kjøringsbilder: `docs/GRAFIKKPILOT.md`.
+| Gren | Innhold |
+| --- | --- |
+| `main` | Kode og dokumentasjon. Ingen spillfiler eller grafikk. |
+| `spilldata` | Spillfilene (DIG.LA0, DIG.LA1, VIDEO/) med sjekksummer. Privat. |
+| `gpt-arbeid` | Arbeidsbordet med ChatGPT: jobber, resultater, status, ordre og stilankere. Privat. |
+| `hd-mod` | Siste ferdige HD-mod, én commit som erstattes hver runde. Privat. |
+| `grafikkdata/pilot-20261006` | Grafikkpiloten fra Codex med prompter og kjøringsbevis. Privat. |
 
-## Opphavsrett
+## Mappene
 
-The Dig eies av Disney/Lucasfilm. Patchen og pipelinen kan deles (ScummVM er GPL-3.0). Spillfiler og HD-grafikk laget fra dem skal ikke deles. Konseptbildene i roten er laget av en Reddit-tegner og brukes bare som stilreferanse.
+```
+pipeline/dighd/   gamedata (LA0/LA1), export, upscale, modpack, gpt (jobber og kontroll), cli
+pipeline/tests/   tester for pipelinen
+engine/           patches/ (ScummVM-patchen), SCUMMVM_COMMIT, build.sh, run.sh, test.sh
+tools/            hent_spilldata.sh, gpt_runde.sh, gpt_gren.sh, mod_gren.sh, la0_info.py,
+                  check_hd_art.py, hent_grafikkpilot.sh
+docs/             ANALYSE, HD-MOTOR, BESTILLING-CHATGPT, GRAFIKKPILOT, rom-oversikt.csv,
+                  gpt-romnotater.csv, gpt-arbeid-AGENTS.md, konsept/ (stilreferanser)
+game/             spillfilene (lokalt, fra spilldata)
+work/             uttrekk, jobber og mellomresultater (lokalt)
+mods/             ferdige mod-mapper (lokalt)
+```
+
+## Dokumentasjon
+
+- [STATUS.md](STATUS.md): hva som virker, hva som er testet og hva som mangler
+- [docs/HD-MOTOR.md](docs/HD-MOTOR.md): hvordan HD-motoren bestemmer hvor hver piksel kommer fra
+- [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md): bestillingen til ChatGPT
+- [docs/GRAFIKKPILOT.md](docs/GRAFIKKPILOT.md): første grafikkpilot fra Codex
+- [docs/ANALYSE.md](docs/ANALYSE.md): analysen av spillfilene og planen
+- [AGENTS.md](AGENTS.md), [memory.md](memory.md), [todo.md](todo.md), [log.md](log.md): for alle som jobber i repoet
+
+## Lisenser og opphavsrett
+
+Egen kode i prosjektet er laget for Tom. ScummVM-patchen er GPL-3.0 som ScummVM. thedig-textures (dekoderne pipelinen bruker) er GPL-3.0. *The Dig* tilhører Disney/Lucasfilm. Spillfiler og HD-grafikk laget fra dem skal ikke deles. Konseptbildene i `docs/konsept/` er laget av en Reddit-tegner og brukes bare som stilreferanse; spør og krediter før noe vises offentlig.
