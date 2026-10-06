@@ -32,6 +32,8 @@ engine/run.sh gpt                # start spillet med HD-modden
 
 Krever på Linux: `sudo apt install build-essential git libsdl2-dev libpng-dev zlib1g-dev`. Legg `DIGMUSIC.BUN` og `DIGVOICE.BUN` fra Drive i `game/` for musikk og tale.
 
+Mens du spiller: Ctrl+H bytter mellom HD og klassisk grafikk, og Ctrl+Shift+H farger gult der HD mangler (se [docs/HD-MOTOR.md](docs/HD-MOTOR.md)).
+
 ## Lage HD-grafikk selv
 
 ```sh
