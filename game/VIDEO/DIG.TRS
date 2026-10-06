@@ -1,0 +1,880 @@
+#define TRS_BTN_YES         80
+//Yes (enter)
+#define TRS_BTN_NO          82
+//No (esc)
+#define TRS_BTN_CANCEL      84
+//Cancel (esc)
+#define TRS_BTN_OK          85
+//OK (enter)
+#define TRS_BTN_PREV        86
+//&Prev Page
+#define TRS_BTN_CLOSE       87
+//&Close
+#define TRS_BTN_NEXT        88
+//&Next Page
+#define TRS_BTN_EXIT        89
+//E&xit
+#define TRS_MAIN_MENU_SETPOS    95
+//165 170 310 200
+#define TRS_MAIN_MENU0          100
+//^f01Main Menu
+#define TRS_MAIN_MENU_PLAY      102
+//&Play The DIG
+#define TRS_MAIN_MENU_CFGSND    103
+//&Configure Sound Card
+#define TRS_MAIN_MENU_README    104
+//&View Latest Updates
+#define TRS_MAIN_MENU_GUIDE     107
+//&Troubleshooting Guide
+#define TRS_MAIN_MENU_BOOTDK    108
+//&Make Boot Disk
+#define TRS_SAVE_TITLE      400
+//System Request
+#define TRS_SAVE_YES        401
+//Yes (enter)
+#define TRS_SAVE_NO         402
+//No  (esc)
+#define TRS_SAVE_Y          403
+//y
+#define TRS_SAVE_N          404
+//n
+#define TRS_README_TITLE        450
+//Latest Updates
+#define TRS_README_EXIT_DATA    451
+//c     7   3   100 24          ;key, X rel to dlg edge, Y rel to text bottom, w, h
+#define TRS_README_PREV_DATA    453
+//<     157 3   100 24          ;key, X rel to EXIT, Y rel to text bottom,w,h
+#define TRS_README_NEXT_DATA    455
+//>     5   3   100 24          ;key, X rel to PREV, Y rel to text bottom,w,h
+
+#define TRS_DIR_GAME        500
+//DIG\
+#define TRS_FILE_BRUSH      510
+//brush.nut
+#define TRS_FILE_BACKDROP   520
+//dig.flc
+#define TRS_FILE_FONT1         530
+//smlfont.nut
+#define TRS_FILE_FONT2         540
+//bigfont.nut
+#define TRS_FILE_INSTALL_NUM      550
+//1
+#define TRS_FILE_INSTALL_LIST       560
+//dos4gw.exe
+#define TRS_FILE_README_NUM       570
+//1
+#define TRS_FILE_README_LIST        580
+//readme.txt
+
+#define TRS_MSG_VERSION    			800
+//The DIG Launch Utility, Version 1.0
+#define TRS_MSG_WAIT    			803
+//^f01One Moment Please...
+#define TRS_MSG_HOWMUCH1        	815
+//^c014The DIG requires 
+#define TRS_MSG_HOWMUCH2        	817
+// K bytes to install.^c014
+#define TRS_MSG_PATHDLG         	820
+//Installation Path for The DIG
+#define TRS_MSG_ASKPATH         	825
+//Please enter a path to install to:
+#define TRS_MSG_COPY            	832
+//Copying The DIG Files...
+#define TRS_MSG_NOACCESS        	835
+//0 K bytes available.
+#define TRS_MSG_ACCESSBYTES     	837
+// K bytes free.
+#define TRS_MSG_NOSPACE         	839
+//insufficient space.
+#define TRS_MSG_SOUNDSETUP      	850
+//Sound Card Setup
+#define TRS_MSG_SOUNDCFG            860
+//
+//
+//Before the game can be run, your sound card 
+//must be configured.
+//
+//The configuration information will be saved in %s.
+//
+//If this fails, restart, and configure your
+//sound card using the 'Configure' option
+//
+#define TRS_MSG_IMUSECFG            870
+//
+//
+//The sound card configuration utility will now
+//set up your sound card.
+//
+//The configuration information will be saved in %s.
+#define TRS_MSG_ERRNOCD             900
+//Please Insert the The DIG CD
+#define TRS_MSG_ERRNOCANDO          905
+//Unable to complete request
+#define TRS_MSG_ERRFILENOTFOUND     910
+//An important file is missing!
+#define TRS_MSG_DODRIVEOVER_SPACE     923
+//Please delete files on that drive to make space available
+//
+//or select a different drive.
+#define TRS_MSG_ERRINWINDOWS        935
+//You are running in a Windows DOS box.
+//
+//The DIG will not run from a DOS box.
+//Please exit Windows and then try again.
+#define TRS_MSG_DOS4GW_COPY     959
+//Copying DOS Extender File...
+
+#define TRS_TROUBLE_TITLE       1025
+//Troubleshooting Guide
+
+#define TRS_LAUNCH_TROUBLE_CONTROL     1202
+// 2            ; number of pages
+//1210     10    ; HOME PAGE
+//              -1      0   (E&xit Guide)               33   -34  100   24
+//              1230    0   (&Next Page)              -133   -34  100   24
+//              1292    0   (&Windows 95 Issues)       45  -215  120   30
+//              1230    0   (&Game Crash Issues)       170  -215  120   30
+//              1220    0   (&Memory Issues)           294  -215  120   30
+//              1300    0   (Mis&cellaneous Issues)    418  -215  120   30
+//              1350    0   (CD-&ROM Issues)           105  -180  120   30
+//              1400    0   (Inp&ut Device Issues)     235  -180  120   30
+//              1240    0   (&Sound Issues)            365  -180  120   30
+//              1280    0   (&How to Reach Us)         365  -107  120   30
+//1292     4    ; Windows 95
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1210    0   (&Prev Page)      -238    -34     100     24
+//              1293    0   (&Next Page)      -133    -34     100     24
+//1293     4    ; Windows 95
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1292    0   (&Prev Page)      -238    -34     100     24
+//              1294    0   (&Next Page)      -133    -34     100     24
+//1294     4    ; Windows 95
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1293    0   (&Prev Page)      -238    -34     100     24
+//              1295    0   (&Next Page)      -133    -34     100     24
+//1295     4    ; Windows 95
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1294    0   (&Prev Page)      -238    -34     100     24
+//              1296    0   (&Next Page)      -133    -34     100     24
+//1296     4    ; Windows 95
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1295    0   (&Prev Page)      -238    -34     100     24
+//              1297    0   (&Next Page)      -133    -34     100     24
+//1297     4    ; Windows 95
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1296    0   (&Prev Page)      -238    -34     100     24
+//              1298    0   (&Next Page)      -133    -34     100     24
+//1298     4    ; Windows 95
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1297    0   (&Prev Page)      -238    -34     100     24
+//              1210    0   (&Next Page)      -133    -34     100     24
+//1230     8    ; CRASHES
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1210    0   (&Prev Page)      -238    -34     100     24
+//              1220    0   (&Next Page)      -133    -34     100     24
+//              1230    30  (&1 Copy DOS Extender 1.92)  93    -145     155     30
+//              1230    40  (&2 Copy DOS Extender 1.97) 269    -145     155     30
+//              1230    50  (&3 Copy DOS Extender 1.95)  93    -105     155     30
+//              1230    60  (&4 Copy DOS Extender 1.80) 269    -105     155     30
+//1400     4    ; INPUT Devices
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1350    0   (&Prev Page)      -238    -34     100     24
+//              1240    0   (&Next Page)      -133    -34     100     24
+//1220     4    ; MEMORY
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1230    0   (&Prev Page)      -238    -34     100     24
+//              1300    0   (&Next Page)      -133    -34     100     24
+//1240     8    ; SOUND
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1400    0   (&Prev Page)      -238    -34     100     24
+//              1280    0   (&Next Page)      -133    -34     100     24
+//              1242    0   (&Sound Card Not Detected)        170  -255  165   30
+//              1243    0   (S&ound Card Improperly Detected) 345  -255  165   30
+//              1244    0   (Poo&r Sound Quality)             345  -215  165   30
+//              1250    0   (&Hardware Compatibility)         345  -155  165   30
+//1242     3    ; IMUSE - no sound card
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1240    0   (&Prev Page)      -238    -34     100     24
+//1243     3    ; IMUSE - improper sound card
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1240    0   (&Prev Page)      -238    -34     100     24
+//1244     3    ; IMUSE - poor sound
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1240    0   (&Prev Page)      -238    -34     100     24
+//1250     4    ; Sound hardware compat 1    
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1240    0   (&Prev Page)      -238    -34     100     24
+//              1251    0    (&Next Page)      -133    -34     100     24
+//1251     4    ; Sound hardware compat 1    
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1250    0   (&Prev Page)      -238    -34     100     24
+//              1240    0    (&Next Page)      -133    -34     100     24
+//1300     4    ; MISCELLANEOUS NOTES 0
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1220    0   (&Prev Page)      -238    -34     100     24
+//              1301    0   (&Next Page)      -133    -34     100     24
+//1301     4    ; MISCELLANEOUS NOTES 1
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1300    0   (&Prev Page)      -238    -34     100     24
+//              1350    0   (&Next Page)      -133    -34     100     24
+//1280     4    ; TECH SUPPORT
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1240    0   (&Prev Page)      -238    -34     100     24
+//              1290    0   (&Next Page)      -133    -34     100     24
+//1290     3    ; TECH SUPPORT2
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1280    0   (&Prev Page)      -238    -34     100     24
+//1350     4    ; CD-ROM0
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1300    0   (&Prev Page)      -238    -34     100     24
+//              1351    0   (&Next Page)      -133    -34     100     24
+//1351     4    ; CD-ROM1
+//              -1      0   (E&xit Guide)       33    -34     100     24
+//              1210    0   (&Index)           138    -34     100     24
+//              1350    0   (&Prev Page)      -238    -34     100     24
+//              1400    0   (&Next Page)      -133    -34     100     24
+
+
+#define TRS_TROUBLE_INDEX_LAUNCH        1210
+//If you experience any trouble with The DIG, it may be the result of hardware conflicts or improper
+//configuration of your computer.  The DIG pushes a computer to its performance limits.  Thus, minor
+//conflicts may show themselves when playing The DIG, even if the computer seems to behave
+//properly with other software.
+//
+//The first step in diagnosing a problem running The DIG is to isolate the conditions under which problems
+//occur.  Please use this interactive troubleshooting manual to aid in your troubleshooting procedure.
+//
+//If you are unable to resolve the problem, call technical support at the numbers at the 
+//end of this manual, or contact us on-line.
+//
+//
+//^f01 Guide Index^f00
+//
+//
+//
+//     ^c001Help Text_________________________________________________________________________________^c014
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//     ^c001LucasArts Entertainment Contact Information_______________________________________________^c014
+//
+//
+//
+//
+//
+//
+//   * All trademarks are hereby acknowledged as the proprietary property of their respective owners.
+
+#define TRS_TROUBLE_MEM        1220
+//
+//^f01 Memory Issues and Concerns
+//^f00
+//You should have 8 megabytes of memory or more on your machine to run The DIG
+//properly.  The amount of low memory (below 640k) is not important.
+//
+//The DIG runs in your computer's 386/486 native "protect" mode.  Many programs
+//still run in what is called "real" mode, which is a mode 386 and 486 chips can run in to emulate 
+//the 8088 chip found in the original IBM PC.  One of the limitations of running in "real" mode 
+//is that such programs must fit entirely in a computer's lower 640k of memory, even if a particular 
+//machine has many megabytes of total memory.  In addition, such programs cannot access the 
+//memory above one megabyte without use of a memory manager such as EMM386 or 386Max.  These 
+//utilities exist to allow older "real" mode programs to see memory above one megabyte and also 
+//to maximize the amount of low (below 640k) memory that these programs must fit into.
+//
+//Since The DIG runs in protected mode, it does not care how much "low" memory exists
+//because high memory is just as easy to use.  Therefore, it does not need a memory manager to
+//run.  In fact, some memory managers allocate all of a system's memory for real-mode emulation,
+//leaving none for protected-mode programs to run.  While this feature can often be overridden
+//by reconfiguring the memory manager, it is often undesirable to do so because of the 
+//following reason:  memory managers slow down access to memory, even if their functionality is
+//not being utilized.  Thus, when running The DIG, it's often best to run with no memory manager
+//at all.
+//
+//Since you'll probably want to still run your normal "real" mode programs, the best
+//way to disable your memory manager is to start your computer with a boot disk made using the
+//"Make Boot Disk" option under the Main Menu of this program.
+
+
+#define TRS_TROUBLE_WIN95        1292
+//^f01 Windows 95 Compatibility Issues
+//^f00
+//The DIG is designed to run under MS-DOS (Your computer says, "Starting MS-DOS," when it 
+//starts up as opposed to, "Starting Windows 95.") However, users of Windows 95 can run The DIG
+//in several different ways:
+//
+//1.  Dual-Boot Machines:
+//    If your computer is configured to dual-boot, please restart your previous version of MS-DOS 
+//    to run The DIG.  If you don't know whether or not you can Dual-Boot, try pressing the F4 key
+//    immediately when your computer says, "Starting Windows 95."  If it responds with, "Restarting
+//    your Previous version of MS-DOS," then your computer has Dual-Boot capabilities.
+//
+//2.  MS-DOS Prompt:
+//    The DIG can be run through the MS-DOS Prompt by using one of the PIF files provided on The DIG 
+//    CD-ROM. If your computer has 16 Megabytes of RAM or more, use the icon labeled:
+//    'DIG16MB.'  This is the recommended method for running The DIG on a computer that 
+//    has 16 or more Megabytes of RAM.  If your computer has less than 16 Megabytes of RAM, use
+//    the icon labeled 'DIG8MB.'   
+//
+//    Double-click on The DIG icon to start The DIG in this mode.  This runs The DIG in an MS-DOS
+//    'Box.' Please note that machines with 8 Megabytes of RAM may suffer some performance problems
+//    when running The DIG in this manner.  Please refer to the section, 'Windows 95 Trouble-
+//    shooting,' for details.  
+//
+//3.  MS-DOS Mode:
+//    If you are running Windows 95 you can restart your computer in MS-DOS Mode.  Once you are at 
+//    the C:\WINDOWS> prompt, switch to your CD-ROM drive and type DIG to launch the program.
+//    NOTE:  When restarting in MS-DOS Mode you may experience problems running The DIG if your 
+//    computer is configured with memory managers. The first step in solving this problem is to
+//    make a boot disk.  To make a boot disk in Windows 95, follow the instructions on the next page.
+//    If, after making a boot disk, you still experience problems, please refer to the section 'Windows 95
+//    Troubleshooting,' for details.   
+//
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_WIN95_1     1293
+//
+//^f01          Windows 95 Compatibility Issues Cont.
+//
+//^f01            Making A Boot Disk in Windows 95
+//^f00
+//
+//To make a boot disk for The DIG in Windows 95, follow these instructions.  First, double-click on the
+//'My Computer' icon on your desktop (please note:  The name of this icon may have been changed 
+//by you or by the person who installed Windows 95 on your computer).  Double click on the CD-ROM
+//drive icon in the 'My Computer' window.  This should open a window titled DIGWIN95.  Inside, you 
+//should see a folder labeled 'Dig'.  Open this folder, and double click on the 'ALLBOOT' icon.  This
+//starts the Boot Disk Maker utility.  Follow the instructions on your screen to make a boot disk.
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_WIN95_1     1294
+//^f01 Windows 95 Compatibility Issues Cont.
+//^f00
+//WINDOWS 95 TROUBLESHOOTING: 
+//
+//MS-DOS Prompt:
+//
+//If you are running The DIG by double-clicking on the DIG8MB or the DIG16MB icon on The DIG CD-ROM,
+//you are running The DIG through your MS-DOS Prompt.  (Please note that this is NOT the same as running
+//The DIG under real MS-DOS).  The DIG may suffer some performance problems when running through the
+//MS-DOS Prompt, especially if your computer has only 8 Megabytes of RAM.
+//
+//Why this is true:  
+//
+//The DIG is an MS-DOS program that requires 8 Megabytes of free RAM to run.  However, when you are
+//using Windows 95 on an 8 Megabyte machine you are unlikely to have 8 Megabytes of free RAM.  The Windows
+//95 Operating System can consume anywhere from 1.5 to 4 Megabytes of RAM depending on how your
+//system is configured.  Therefore, an 8 Megabyte machine running Windows 95 may only have 6.5 to 4
+//Megabytes of free RAM at any time.  Because The DIG requires 8 Megabytes of free RAM, Windows 95
+//will utilize Virtual Memory to allow The DIG to run even though the amount of actual free RAM is
+//less than 8 Megabytes.  Most machines running Windows 95 with 8 Megabytes of RAM will utilize
+//Virtual Memory to run The DIG.  Virtual Memory, as the name implies, is not real, physical RAM and is
+//much slower than actual RAM.  Because it is so much slower, it slows down gameplay in The DIG.
+//
+//
+//
+//
+//
+//
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_WIN95_1     1296
+//^f01 Windows 95 Compatibility Issues Cont.
+//^f00
+//
+//A SPECIAL NOTE ABOUT MACHINES THAT COME WITH WINDOWS 95 PRE-INSTALLED
+//
+//If your computer came with Windows 95 pre-installed, your computer may have certain aspects
+//of its configuration that harm gameplay performance in The DIG.  These configuration options,  
+//when set properly, can help boost performance on a computer running The DIG through the MS-DOS
+//Prompt.  Please note that changing these configuration options will not affect The DIG when it is run 
+//in MS-DOS Mode.  
+//
+//WARNING:  Changing your system configuration settings may hinder performance of other applications.
+//
+//If your computer came with a Windows 95 interface program such as the Packard Bell
+//Navigator, HP Personal Page, or other utility program that runs on top of the Windows 95
+//operating system, you should exit it before you run The DIG.  If you are not sure if you have
+//one of these types of programs running on your computer, you can tell in one of several ways.
+//If you can not see the Windows Taskbar (the grey bar with the 'Start' button on it) or you can
+//not see the standard Windows 95 system icons (the 'My Computer', and 'Recycle Bin' icons)
+//when your computer has started up then you are likely running an operating system 'shell' 
+//program supplied by the manufacturer of your computer.  These 'shell' programs consume 
+//large amounts of memory and should be disabled or exited before running The DIG.
+//    
+//Many systems set the CD-ROM Read Ahead Cache to Large by default.  This setting can cause 
+//stuttering music, sound, and voice,  as well as stuttering video playback during cutscenes in The
+//DIG.  If you experience these symptoms, reducing the Windows 95 CD-ROM Read Ahead cache
+//to its minimum size can help.  To do this, exit The DIG.  Click on the Start button on your Taskbar.
+//Highlight your 'Settings', and select 'Control Panel'.   When your Control Panel window appears, 
+//double-click on the 'System' icon.  This will bring up a window titled 'System Properties'.  Select 
+//the 'Performance' tab from the top-right corner of the window, then click the 'File System' button
+//on the bottom left.  This will bring up a window titled 'File System Properties'.  Click on the 
+//'CD-ROM' tab at the top of the window.  Under 'Settings', drag the slider for 'Supplemental cache
+//Size' all the way to the left toward 'Small'.  To further optimize these settings for The DIG, you can
+//set the 'Optimize Access Pattern for:' setting to 'No read-ahead'.
+//
+//  
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_WIN95_1     1295
+//^f01 Windows 95 Compatibility Issues Cont.
+//^f00
+//
+//Below is a list of normal problems encountered when running The DIG through
+//the MS-DOS Prompt:
+//
+//1. Occasional Sound / Voice Stuttering.  (for example, you may hear voices that sound like t-t-thank 
+//    you, Boston L-Low).  Further, music may momentarily pause from time to time.  This can happen
+//    during normal gameplay, when moving from room to room, and during video cutscenes.
+//
+//2. Frame Dropping.  (Non-interactive scenes during the game may appear choppy).
+//
+//3. Slow Frame Rate (Some interactive portions of the game may appear to be in slow motion).
+//
+//4. Long Load Times (It may take a long time to move from room to room.)  Also, you may experience a 
+//   'lag' of one or two seconds between right-clicking to bring up your inventory and when your inventory
+//   actually comes up. Further, upon entering a room you may find that the cursor will move around but
+//   not be useful to interact with items for one or two seconds
+//
+//Solutions to the Above Problems:
+//If you find that The DIG runs too slow when using the MS-DOS Prompt there is only one way to
+//speed it up: increase the available free RAM on your system.  Start by making sure that you
+//do not have ANY other programs running when you start The DIG.  If The DIG is still too slow
+//to play when no other applications are running, to increase performance further you must reduce
+//the amount of memory that Windows 95 itself uses.  This can be accomplished by turning off 
+//or disabling system extensions such as, but not limited to, desktop pictures, animated icons,
+//event sounds, desktop themes, system activity monitors (such as System Agent), and screen savers.
+//If your computer has one or more of the above features installed, turning them off and restarting
+//your computer will help free up some memory for The DIG.  If The DIG is still too slow, 
+//restarting your computer in MS-DOS mode should allow The DIG to run at full speed.  
+//   
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_WIN95_1     1297
+//^f01 Windows 95 Compatibility Issues Cont.
+//^f00
+//MS-DOS Mode:
+//
+//If you are restarting your computer in MS-DOS mode (Please note that this is NOT the same as 
+//running The DIG under real MS-DOS) you may experience one of the following problems:
+//
+//1.	Program Crashes
+//	If the game crashes when you try to run it in MS-DOS Mode it is probably because your computer is
+//	loading a 16-bit memory manager such as EMM386.  To fix this problem, select the 'Make Boot Disk'
+//	option from the launcher menu and re-boot your computer with the boot disk.  If the game crashes
+//	before you even get to the launcher screen, run ALLBOOT.EXE.  ALLBOOT.EXE is located in the DIG
+//	subdirectory of The DIG CD-ROM.  Reboot your computer with the boot disk in your disk drive and 
+//	then run The DIG.
+//  
+//2.	No CD-ROM Drive Present
+//	Computers that came with Windows 95 as their original operating system (usually newer machines that
+//	have never had DOS) may not load the drivers necessary for the CD-ROM drive to work in MS-DOS Mode.
+//	If your CD-ROM drive is normally D: in Windows 95, but when you restart in MS-DOS mode and type D:
+//	you get, 'Invalid Drive Specification,' then this is the problem.  To fix this problem you need to
+//	add the DOS drivers for your CD-ROM drive to your CONFIG.SYS file, and MSCDEX.EXE to your 
+//	DOSSTART.BAT file.  Please contact your hardware manufacturer for details about locating the proper
+//	drivers for your hardware.  An alternative is to try running The DIG in an MS-DOS Box by following 
+//	the instructions under, 'WINDOWS 95 ISSUES, MS-DOS Prompt.'
+//
+// 
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_WIN95_1     1298
+//^f01 Windows 95 Compatibility Issues Cont.
+//^f00
+//MS-DOS Mode:
+//
+//If you are restarting your computer in MS-DOS mode (Please note that this is NOT the same as 
+//running The DIG under real MS-DOS) you may experience one of the following problems (Continued):
+//
+//3.	Mouse Not Working
+//	Computers that came with Windows 95 as their original operating system (usually newer machines that have
+//	never had DOS) may not load the drivers necessary for the mouse to work in MS-DOS Mode.  To fix this 
+//	problem you need to add the DOS driver for your mouse to your DOSSTART.BAT file.  Please contact your 
+//	hardware manufacturer for details about locating the proper drivers for your hardware.  An alternative
+//	is to try running The DIG in an MS-DOS Box by following the instructions under, 'WINDOWS 95 ISSUES, MS-
+//	DOS Prompt.'
+//
+//4.	Sound Doesn't Work
+//	Computers that came with Windows 95 as their original operating system (usually newer machines that have
+//	never had DOS) may not load the drivers necessary for the sound card  to work in MS-DOS Mode.  To fix
+//	this problem you need to add the DOS drivers for your sound card to your DOSSTART.BAT file and / or your 
+//	AUTOEXEC.BAT file.  Please contact your hardware manufacturer for details about locating the proper
+//	drivers for your hardware.  An alternative is to try running The DIG in an MS-DOS Box by following the
+//	instructions under, 'WINDOWS 95 ISSUES, MS-DOS Prompt.'
+//
+//5.	Boot Disk Maker Says "No Config or Autoexec Files"
+//	If your computer came with Windows 95 pre-installed and does not load DOS mode drivers at startup time,
+//	or, when you upgraded to Windows 95 you erased all of your DOS configuration files, you will not be able
+//	to run The DIG in MS-DOS Mode.  If you try to make a Boot Disk on a machine with this configuration you 
+//	will get the above error message.  Contact your hardware manufacturer for details about installing 
+//	MS-DOS Mode drivers for Windows 95.  An alternative is to try running The DIG in an MS-DOS Box by
+//	following the instructions under, 'WINDOWS 95 ISSUES, MS-DOS Prompt.'
+//
+
+
+#define TRS_TROUBLE_CRASH_LAUNCH        1230
+//^f01 Game Crash or Lockup Issues
+//^f00
+//If you are experiencing crashes during any part of The DIG, try one of the following 
+//steps to resolve the problem:
+//
+//* If you have not done so already, make a boot disk using the "Make Boot Disk" option from the main
+//  menu of this launcher or by running "ALLBOOT.EXE" from the DIG directory of the The DIG CD.  Reboot 
+//  off the boot disk and see if the problem remains.  If it disappears, you most likely have a memory 
+//  manager or utility whose operation conflicts with The DIG.
+//
+//***PLEASE NOTE*** The Boot Disk maker utility will NOT run under Windows 95 if you start it by using the
+//  "Make Boot Disk" option from the main menu of this launcher.  To run the Boot Disk maker in Windows 95,
+//   follow the instructions in the "Windows 95 Issues" section of this guide.
+//
+//* If the problem remains, try disabling your sound by using the "Configure Sound" option from the main
+//  menu of this launcher.  Type 'N' when prompted for the 'No Sound Card' option. If symptoms disappear,
+//  your mouse and/or soundcard most likely conflict with another device in your computer or each other.
+//  You will need to consult the documentation that came with your mouse or sound card for specific
+//  instructions on how to configure those items so that they do not conflict.
+//
+//* If you still have problems, select one of the DOS Extender buttons below which will copy an alternate
+//  version of  the DOS extender to your disk drive.  Version 1.97 is the default that is copied when you
+//  install.  The other versions may be more compatible with some systems.  PLEASE NOTE: To use your
+//  new DOS Extender you must first exit to the DOS prompt before running The DIG.     
+//
+#define TRS_TROUBLE_SOUND        1240
+//^f01 Sound Issues and Concerns
+//^f00
+//After selecting the 'Configure Sound Card' option from game launcher utility you will be 
+//asked to choose either 'Express Setup' or 'Custom Setup.' If the sound setup program fails to
+//configure your sound board automatically then you should choose 'Custom Setup.'  If you have added 
+//a new sound card to your system or changed your sound board configuration, then select 
+//'Express Setup' and the program will attempt to set up your sound board automatically.
+//
+//From the 'Custom Setup' Standard Menu, you can choose from the sound standards supported by 
+//The DIG and manually set the Port, IRQ, DMA, and Stereo Reverse settings.  You can also 
+//test your configuration.
+//
+//     ^c001Sound Configuration Problems______________________________________________________________^c014
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//     ^c001Hardware Specific Issues__________________________________________________________________^c014
+//
+
+#define TRS_TROUBLE_IMUSENOCARD        1242
+//^f01 No Sound Card Found
+//^f00
+//
+//Check your startup files to be sure that the device drivers for your sound card are being loaded
+//correctly.  If not, refer to the documentation for your sound card or contact your sound card 
+//manufacturer for instructions.
+//
+//If you are using Windows 95 and are restarting your computer in MS-DOS Mode, you must make sure that you 
+//are loading MS-DOS Mode drivers for your sound card when you start Windows 95.  If your sound card does
+//not work properly in MS-DOS Mode, please contact your sound card manufacturer for details on how to 
+//properly configure it to run in MS-DOS Mode.
+#define TRS_TROUBLE_IMUSEBADDETECT     1243
+//^f01 Sound Card Detected Incorrectly
+//^f00
+//Some Sound Blaster Pro compatible sound cards may not detect properly if set to DMA 0 or DMA 3. You may
+//set the values manually using the sound configuration utility.  The Dig's  sound configuration is run 
+//when installing the game or when you choose 'Configure Sound Card' from the Main Menu of the launcher.
+//When prompted for 'Express' or 'Custom' setup, choose 'Custom' and manually set the DMA to match the 
+//setting on your sound card.  This should resolve the problem.
+//
+//The original Sound Blaster Pro should detect properly on all channels.
+//
+//If you are using Windows 95 and are restarting your computer in MS-DOS Mode, you must make sure that you 
+//are loading MS-DOS Mode drivers for your sound card when you start Windows 95.  If your sound card does
+//not work properly in MS-DOS Mode, please contact your sound card manufacturer for details on how to 
+//properly configure it to run in MS-DOS Mode.
+#define TRS_TROUBLE_IMUSEBADSOUND      1244
+//^f01 Poor Sound Quality
+//^f00
+//If you are experiencing poor sound quality with your Sound Blaster Pro compatible sound card, you may get
+//better results if you configure your sound card as 'Sound Blaster 2.0' in the sound configuration utility.  The 
+//DIG sound configuration is run when you choose 'Configure Sound Card' from the Main Menu of the game 
+//launcher.  The original Sound Blaster Pro card should not have this problem.
+//
+//If you are running The DIG on an 8 Megabyte computer with the Windows 95 MS-DOS Prompt (by using the 
+//DIG8MB icon) you may experience stuttering sound and voice (for example, you may hear voices that sound
+//like t-t-thank you, Boston L-Low).  Further, music may momentarily pause from time to time.  Please
+//refer to the Windows 95 Issues section of this guide for details.
+//
+#define TRS_TROUBLE_SOUND_HDWR0  1250
+//^f01 Sound Card Compatibility
+//^f00
+//We experienced some problems when testing The DIG with the following sound cards.  You may or may not 
+//experience these problems when using this hardware.  We pass this information along for your benefit.
+//
+//OPTi MAD16 Based sound cards:
+//If you experience difficulty running The DIG with this type of card, you can configure it by selecting
+//'Configure Sound Card' in the main menu of this launcher.  However, when prompted, select 'Custom
+//Setup' by pressing 'C' and manually configure the card.  Choose 'Sound Blaster 2.0' for the type of card.
+//DO NOT run the sound tests.  Exit the sound configuration utility and start The DIG. 
+//
+//Logitech SoundMan 16
+//Logitech cards MUST be set up manually as a Sound Blaster 2.0 in The DIG's sound card configuration 
+//utility.  The Auto-Detect will express-detect as a Pro Audio Spectrum card.  You may experience 
+//problems with this setting.  If you do, try choosing 'Sound Blaster 2.0'.
+// 
+//Pro Audio Spectrum 16
+//This card will have improved performance in The DIG if you configure it with a 16-bit high (5 or above) 
+//DMA channel.  Setting a low (8-bit) DMA channel causes degraded sound and music quality.  Please 
+//refer to your sound card documentation for details.
+//
+//Early Sound Blaster Cards (version 1.0 -1.5) and compatibles
+//These early versions of the 8-bit Sound Blaster card and other sound cards that emulate a Sound Blaster 
+//version 1.0 - 1.5 are unable to support the type of high-definition music used in The DIG.  Using this 
+//type of card with The DIG may result in graphic corruptions or other errors, especially on 486 machines.  
+//This type of card is NOT supported by The DIG.  Sound Blaster 2.0 and 100% compatible cards should 
+//perform well when used with The DIG.
+//
+//Sound Blaster 16 / AWE-32 / Vibra 16 / SB32
+//This card will have improved performance in The DIG if you configure the high DMA channel setting to use
+//a 16-bit DMA channel (5 or above).  Setting the high DMA to a low (8-bit) DMA channel causes degraded 
+//sound and music quality.  Please refer to your sound card documentation for details.
+//
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_SOUND_HDWR0  1251
+//^f01 Sound Card Compatibility Continued
+//^f00
+//
+//Advanced Gravis Ultrasound 
+//The DIG may perform poorly when used with this card on 486's or with CD-ROM drives that use
+//or exceed 60% of CPU time to maintain a 300k/sec transfer rate.  Problems include slow gameplay, 
+//choppy or skipped video sequences, and possible game crashes.  
+//
+#define TRS_TROUBLE_GETUS        1280
+//^f01 How to Reach Us
+//^f00
+//If you are having any technical difficulties with this product, please phone the technical 
+//support department.  If you have a technical problem, we recommend that you are sitting in 
+//front of your computer when you call so that we will be able to assist you more quickly.
+//It is also helpful to have a list of your machine's current hardware and software configurations.
+//
+//Please DO NOT call technical support if you have not first tried to resolve your problem
+//by making a Boot Disk.
+//
+//Phone - (415) 507-4545 - M-Th:8:30am - 6:00pm, F:8:30am - 5:00pm, Pacific Standard Time
+//                         No hints will be given out over this phone line.
+//Fax   - (415) 507-0300 - 24 Hours 
+//BBS   - (415) 507-0400 - 24 Hours
+//Mail  - LucasArts Entertainment Co.
+//        P.O. Box 10307
+//        San Rafael, CA  94912
+//
+//^c001Hints^c014
+//
+//If you require hints for our games, please call our hintline at 1-900-740-JEDI.  Callers 
+//must be over the age of 18 or have parents permission when they call.  
+//Each call costs $.95 per minute.
+//
+//If you are calling from Canada, please call our hint line at 1-900-677-JEDI.  Each call
+//costs $1.25 per minute in U.S. funds.
+//
+//Outside the USA call (415) 444-8359 for game hints.
+//
+//                                             ^c001More Next Page^c014
+
+#define TROUBLE9        1290
+//^f01 On-line Technical Support
+//^f00
+//
+//^c001Compuserve ^c014
+//
+//  Send mail to 75300.454@compuserve.com
+//  Game Publisher's Forum A
+//  (Go GAMAPUB) Section 7
+//
+//^c001America Online^c014
+//
+//  Keyword "LucasArts"
+//
+//^c001LucasArts World Wide Web Site^c014
+//
+//http://www.lucasarts.com
+//
+//^c001Internet E-Mail^c014
+//
+//  Send mail to: "75300.454@compuserve.com", or
+//                "lucasarts3@aol.com"
+//
+//If you would like information about our other games or would
+//like a catalog of our products, please call us at 1-800-98-LUCAS.
+
+
+
+#define TRS_TROUBLE_MISC0       1300
+//^f01 Miscellaneous Issues
+//^f00
+//     ^c001CONFIGURATION FILES_______________________________________________________________________^c014
+//
+//DIG.EXE, the The DIG setup utility creates one file needed for game play.
+//
+//This file is called IMUSE.INI and contains sound configuration information.  The file is kept 
+//in the C:\DIG directory.  If it is accidentally deleted, simply select the "Configure Sound Card"
+//option from the main menu of the game launcher.
+//
+//     ^c001COMPUTERS_________________________________________________________________________________^c014
+//
+//If you are running The DIG on a computer that came with Windows 95 you should read the section of
+//this guide titled 'Windows 95 Issues' for specific information on how best to run The DIG.
+//
+//     ^c001CONTROLLERS_______________________________________________________________________________^c014
+//
+//To use the joystick, it's important to note that you must first calibrate it.  To calibrate the
+//joystick, press Ctrl-J while The DIG is running and follow the instructions given.
+//
+//     ^c001DISPLAY____________________________________________________________________________________^c014
+//
+//If, after making a Bootdisk and restarting your computer, you find that your display is suddenly
+//off center, please readjust the centering of your monitor manually using the standard control knobs.
+//
+//
+//                                             ^c001More Next Page^c014
+#define TRS_TROUBLE_MISC1       1301
+//^f01 Miscellaneous Issues Cont.
+//^f00
+//     ^c001SAVED GAME FILES__________________________________________________________________________^c014
+//
+//Saving your game while running The DIG creates a saved game file in the C:\DIG directory.
+//Each saved game file requires anywhere from  90-350K of hard disk space.
+//
+//     ^c001SMARTDRIVE / CD-CACHING SOFTWARE__________________________________________________________^c014
+//
+//CD disk-caching software may confuse The DIG if the CD drive encounters a read error.
+//If you are having problems, disable any disk-caching software or caching options of your CD driver.
+//This can especially be a problem for Windows 95 users.  See the Windows 95 Issues section of
+//this guide for instructions on how to configure the CD-ROM Read Ahead cache in Windows 95.
+//
+//     ^c001DEDICATED GAME CARDS______________________________________________________________________^c014
+//
+//Game cards can cause major problems with The DIG.  An improperly adjusted or conflicting game card 
+//can cause The DIG to run extremely slow, even on very fast CPU's (Pentium 133).  If you experience
+//large slowdowns and you have a game card installed try the following steps to correct the problem:
+//
+//1.	Unplug any devices from the card.
+//2.	If it is an adjustable-speed game card, make sure that it is adjusted properly.
+//3.	If all else fails, remove the card from your system.
+//
+#define TRS_TROUBLE_CDROM0 1350
+//^f01 CD-ROM Hardware Issues
+//^f00
+//If you are experiencing some slowdowns while running The DIG, small performance gains
+//can be obtained by optimizing your CD-ROM drive's configuration for this type of program.  To 
+//optimize your CD-ROM drive's configuration for The DIG, you should reduce the size of your 
+//MSCDEX buffer to the minimum value of 4, and be sure that you are running the latest version of the
+//driver software for your CD-ROM drive.  The Boot Disk Maker included with The DIG will automatically
+//change the MSCDEX buffer to 4 if you make a boot disk.  Please contact your hardware manufacturer
+//for the latest CD-ROM drivers for your CD-ROM drive.  
+//
+//Remember that The DIG requires a minimum 486DX2-66 CPU, in addition to an MPC-Level 2 CD-ROM drive.
+//Keep in mind that anything that exceeds roughly 60% of the CPU on a 486DX2-66, will most likely have
+//performance problems with The DIG.  In addition, while the MPC-Level 2 standard has a minimum CPU
+//of 486DX-33, The DIG requires a 486DX2-66 minimum CPU to run properly.  
+//^c001Definition of MPC Level 2^c014
+//
+//  Short Version:
+//MPC Level 2 means that a CD-ROM can spool data to the CPU at a sustained rate of 300K/second
+//while using less than 60% of the CPU.
+//
+//  Long Version:
+//MPC Level 2 specifies a minimum of a 25 MHz 486 CPU with 4 Megabytes of RAM and 160 Megabytes of
+//available hard disk space.  CD-ROMs for MPC Level 2 must be capable of a sustained rate of at least
+//300K/second and must have an access time of 400 milliseconds or less.  An MPC Level 2 CD must also
+//use no more than 60% of the CPU's resources during a 300K/second read and no more than 40% at
+//150K/second throughput.
+//
+//
+//                                             ^c001More Next Page^c014
+//
+#define TRS_TROUBLE_CDROM1 1351
+//^f01 CD-ROM Compatibility Cont.
+//^f00
+//  
+//When we tested The DIG with the following equipment, we experienced some difficulty with certain
+//hardware combinations.  You may or may not experience the same problems.  We pass this information
+//along for your benefit.
+//
+//Keep in mind that anything that exceeds roughly 60% of the CPU on a 486DX2-66, will most likely have
+//performance problems with The DIG.  In addition, while the MPC-Level 2 standard has a minimum CPU
+//of 486DX-33, The DIG requires a 486DX2-66 minimum CPU to run properly.
+//
+//Older CD-ROM drives may benifit from using updated driver software.  If you are having problems, 
+//check with your manufacturer to make sure that you are using the latest drivers for your CD-ROM
+//hardware.  This includes drivers for interface cards as well as CD-ROM drives.
+//
+//Controllers:
+//8-bit Future Domain SCSI controller  
+//8-Bit Trantor SCSI controller
+//8-Bit DTC SCSI controller
+//
+//CD-ROM drives:
+//Media Vision ReNO [SCSI] 
+//NEC 210T [SCSI]
+//NEC CDR-84-1 [SCSI]
+//NEC 3xp [SCSI]
+//NEC 3xe [SCSI]
+//NEC 4X PRO [SCSI]
+//Sony CDU33A-01 [Sony Proprietary Interface]
+//Teac CD-55A [Panasonic Proprietary Interface]
+//
+//Drivers:
+//If you are using CORELCDX.COM instead of MSCDEX.EXE you may experience crashes when running The DIG.
+//
+//
+#define TRS_TROUBLE_MICE0   1400
+//^f01 Input Device Issues
+//^f00
+//
+//The DIG requires a Microsoft or 100% compatible Microsoft mouse.  We experienced no problems when
+//testing The DIG with Microsoft or 100% Microsoft compatible mice.  Use of other types of pointing
+//devices is not supported.  If you are using a mouse or other pointing device that is not 100% Microsoft
+//compatible you may experience problems.  
+//
+//
+//To use the joystick, it's important to note that you must first calibrate it.  To calibrate the joystick,
+//press Ctrl-J while The DIG is running and follow the instructions given.
+
+#define TRS_TROUBLE_EVAL    1500
+
