@@ -109,3 +109,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Kodeoppgaver til Codex: ny fil `docs/gpt-kodeoppgaver.md` som kommer med i ORDRE.md (`dighd gpt-ordre --oppgaver`). Første oppgave er test på laptopen med skjerm og tastatur, med rapport i `rapporter/` i `gpt-arbeid`.
 - Kjørte `dighd gpt-pakke` (192 jobber: 162 rom, 30 objekter) og en runde. Ny ORDRE.md sendt: obj241_01 først, så rom 2 del 2 og 3, rom 3 til 8 og rom 10 del 1. Modden med rom 9, 22 og 28 ligger i `hd-mod`.
 - 10 tester bestått. Oppdatert README, STATUS.md, AGENTS.md, todo.md og memory.md.
+
+## 2026-10-07 00:45 (Claude)
+- Planlagt runde (satt til 00:21, kom inn 00:43). Ingen nye leveranser i `gpt-arbeid` siden 00:41.
+- `tools/gpt_runde.sh` lar nå ORDRE.md stå når ingenting nytt er kommet inn og ingen ny beskjed er gitt, så beskjeder ChatGPT ikke har lest ennå, ikke blir borte. Kjørt: ORDRE.md uendret.

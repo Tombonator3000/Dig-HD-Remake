@@ -30,6 +30,7 @@ fi
 
 # 2. Hent
 before="$(sha256sum work/gpt-ferdig/provenance.json 2>/dev/null || true)"
+status_before="$(sha256sum work/gpt/status.csv 2>/dev/null || true)"
 tools/gpt_gren.sh hent
 
 # 3. Kontroller
@@ -51,7 +52,13 @@ else
 	echo "Ingen nye godkjente rom eller objekter denne runden."
 fi
 
-# 5. Ordre og status tilbake
+# 5. Ordre og status tilbake. Er ingenting nytt kommet inn og ingen ny beskjed gitt, står
+#    ORDRE.md som før, så beskjeder ChatGPT ikke har lest ennå, ikke forsvinner.
+status_after="$(sha256sum work/gpt/status.csv 2>/dev/null || true)"
+if [ "$status_before" = "$status_after" ] && [ "${#BESKJED[@]}" -eq 0 ] && [ -f work/gpt/ORDRE.md ]; then
+	echo "Ingen nye leveranser og ingen ny beskjed. ORDRE.md står som før."
+	exit 0
+fi
 dighd gpt-ordre "${BESKJED[@]}"
 tools/gpt_gren.sh send
 echo "Runden er ferdig. Rapport: work/gpt/RAPPORT.md, ordre: work/gpt/ORDRE.md"
