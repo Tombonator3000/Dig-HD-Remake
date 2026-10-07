@@ -1,6 +1,6 @@
 # Grafikkliste
 
-Oppdatert 2026-10-07 13:40 (norsk tid)
+Oppdatert 2026-10-07 16:26 (norsk tid)
 
 Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bestilling 1 er det samme som står i `ORDRE.md`. Når en bestilling er levert, tar du neste uten å vente på ny ordre. Hopp over jobber som er krysset av.
 
@@ -8,8 +8,8 @@ Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bes
 
 | Del | Ferdig | Totalt | Når |
 | --- | --- | --- | --- |
-| Rombakgrunner | 101 | 106 | Nå, bestillingene under (162 jobber, brede og høye rom er delt) |
-| Store objektbilder (nærbilder, kart, trikken) | 27 | 30 | Nå, sammen med rommene |
+| Rombakgrunner | 100 | 106 | Nå, bestillingene under (162 jobber, brede og høye rom er delt) |
+| Store objektbilder (nærbilder, kart, trikken) | 22 | 30 | Nå, sammen med rommene |
 | Små objektbilder i lag (`lagNNN_KK`: dører, brytere, lys, ting) | 0 | 460 | Etter rommene og de store objektbildene (236 lagjobber) |
 | Ikoner i inventaret (`ikonNN`) | 0 | 149 | Til slutt (3 ikonark) |
 | Figurer (modellark for Boston, Maggie og Brink) | 0 | 3 | Senere, egen bestilling |
@@ -17,11 +17,23 @@ Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bes
 
 ## Bestilling 1 (nå, samme som ORDRE.md)
 
-Rom 2, 3, 4, 5, 50, 88.
+Rom 32, 41, 43, 44, 46, 50, 79, 88.
 
+- [ ] `rom032` (rom 32 pool) (avvist, les retur.md)
+- [ ] `obj343_01` (rom 41 falls, objekt 343 tilstand 01) (avvist, les retur.md)
+- [ ] `obj347_01` (rom 43 fallsour, objekt 347 tilstand 01) (avvist, les retur.md)
+- [ ] `obj355_01` (rom 44 nest, objekt 355 tilstand 01) (avvist, les retur.md)
+- [ ] `obj886_01` (rom 46 cusarc, objekt 886 tilstand 01) (avvist, les retur.md)
+- [ ] `obj886_02` (rom 46 cusarc, objekt 886 tilstand 02) (avvist, les retur.md)
 - [ ] `rom050` (rom 50 cuengrav) (avvist, les retur.md)
+- [ ] `obj547_01` (rom 79 newton, objekt 547 tilstand 01) (avvist, les retur.md)
 - [ ] `rom088_del6av9` (rom 88 tombot, del 6/9) (avvist, les retur.md)
 - [ ] `rom088_del7av9` (rom 88 tombot, del 7/9) (avvist, les retur.md)
+
+## Bestilling 2
+
+Rom 2, 3, 4, 5, 6, 88.
+
 - [ ] `rom088_del8av9` (rom 88 tombot, del 8/9) (avvist, les retur.md)
 - [ ] `rom088_del9av9` (rom 88 tombot, del 9/9) (avvist, les retur.md)
 - [ ] `lag002_01_del1av3` (rom 2 cockpit, lag 01 med 2 objektbilder, del 1/3, bilde to `jobber/rom002_del1av3/resultat.png`)
@@ -29,14 +41,14 @@ Rom 2, 3, 4, 5, 50, 88.
 - [ ] `lag003_01` (rom 3 klein, lag 01 med 1 objektbilde, bilde to `jobber/rom003/resultat.png`)
 - [ ] `lag004_01` (rom 4 ast1, lag 01 med 1 objektbilde, bilde to `jobber/rom004/resultat.png`)
 - [ ] `lag005_01` (rom 5 ast2, lag 01 med 1 objektbilde, bilde to `jobber/rom005/resultat.png`)
-
-## Bestilling 2
-
-Rom 5, 6, 10, 11.
-
 - [ ] `lag005_02` (rom 5 ast2, lag 02 med 1 objektbilde, bilde to `jobber/rom005/resultat.png`)
 - [ ] `lag005_03` (rom 5 ast2, lag 03 med 1 objektbilde, bilde to `jobber/rom005/resultat.png`)
 - [ ] `lag006_01` (rom 6 ast3, lag 01 med 1 objektbilde, bilde to `jobber/rom006/resultat.png`)
+
+## Bestilling 3
+
+Rom 6, 10, 11, 12, 14.
+
 - [ ] `lag006_02` (rom 6 ast3, lag 02 med 1 objektbilde, bilde to `jobber/rom006/resultat.png`)
 - [ ] `lag010_01_del2av2` (rom 10 tun1, lag 01 med 3 objektbilder, del 2/2, bilde to `jobber/rom010_del2av2/resultat.png`)
 - [ ] `lag010_02_del2av2` (rom 10 tun1, lag 02 med 3 objektbilder, del 2/2, bilde to `jobber/rom010_del2av2/resultat.png`)
@@ -44,14 +56,14 @@ Rom 5, 6, 10, 11.
 - [ ] `lag010_04_del2av2` (rom 10 tun1, lag 04 med 1 objektbilde, del 2/2, bilde to `jobber/rom010_del2av2/resultat.png`)
 - [ ] `lag011_01` (rom 11 mapbase, lag 01 med 1 objektbilde, bilde to `jobber/rom011/resultat.png`)
 - [ ] `lag011_02` (rom 11 mapbase, lag 02 med 1 objektbilde, bilde to `jobber/rom011/resultat.png`)
-
-## Bestilling 3
-
-Rom 12, 14, 15, 17.
-
 - [ ] `lag012_01` (rom 12 coreped, lag 01 med 4 objektbilder, bilde to `jobber/rom012/resultat.png`)
 - [ ] `lag014_01` (rom 14 squares, lag 01 med 1 objektbilde, bilde to `jobber/rom014/resultat.png`)
 - [ ] `lag014_02` (rom 14 squares, lag 02 med 1 objektbilde, bilde to `jobber/rom014/resultat.png`)
+
+## Bestilling 4
+
+Rom 14, 15, 17, 19.
+
 - [ ] `lag014_03` (rom 14 squares, lag 03 med 1 objektbilde, bilde to `jobber/rom014/resultat.png`)
 - [ ] `lag015_01_del3av3` (rom 15 canyon, lag 01 med 2 objektbilder, del 3/3, bilde to `jobber/rom015_del3av3/resultat.png`)
 - [ ] `lag015_02_del3av3` (rom 15 canyon, lag 02 med 3 objektbilder, del 3/3, bilde to `jobber/rom015_del3av3/resultat.png`)
@@ -59,14 +71,14 @@ Rom 12, 14, 15, 17.
 - [ ] `lag017_01` (rom 17 pig, lag 01 med 1 objektbilde, bilde to `jobber/rom017/resultat.png`)
 - [ ] `lag017_02` (rom 17 pig, lag 02 med 1 objektbilde, bilde to `jobber/rom017/resultat.png`)
 - [ ] `lag017_03` (rom 17 pig, lag 03 med 1 objektbilde, bilde to `jobber/rom017/resultat.png`)
-
-## Bestilling 4
-
-Rom 19, 20, 21.
-
 - [ ] `lag019_01` (rom 19 wreck, lag 01 med 2 objektbilder, bilde to `jobber/rom019/resultat.png`)
 - [ ] `lag019_02` (rom 19 wreck, lag 02 med 2 objektbilder, bilde to `jobber/rom019/resultat.png`)
 - [ ] `lag019_03` (rom 19 wreck, lag 03 med 1 objektbilde, bilde to `jobber/rom019/resultat.png`)
+
+## Bestilling 5
+
+Rom 19, 20, 21, 22.
+
 - [ ] `lag019_04` (rom 19 wreck, lag 04 med 1 objektbilde, bilde to `jobber/rom019/resultat.png`)
 - [ ] `lag020_01` (rom 20 grave, lag 01 med 2 objektbilder, bilde to `jobber/rom020/resultat.png`)
 - [ ] `lag020_02` (rom 20 grave, lag 02 med 1 objektbilde, bilde to `jobber/rom020/resultat.png`)
@@ -74,14 +86,14 @@ Rom 19, 20, 21.
 - [ ] `lag020_04` (rom 20 grave, lag 04 med 1 objektbilde, bilde to `jobber/rom020/resultat.png`)
 - [ ] `lag020_05` (rom 20 grave, lag 05 med 1 objektbilde, bilde to `jobber/rom020/resultat.png`)
 - [ ] `lag021_01` (rom 21 botramp, lag 01 med 1 objektbilde, bilde to `jobber/rom021/resultat.png`)
-
-## Bestilling 5
-
-Rom 21, 22, 23.
-
 - [ ] `lag021_02` (rom 21 botramp, lag 02 med 1 objektbilde, bilde to `jobber/rom021/resultat.png`)
 - [ ] `lag022_01` (rom 22 beach, lag 01 med 1 objektbilde, bilde to `jobber/rom022/resultat.png`)
 - [ ] `lag022_02` (rom 22 beach, lag 02 med 1 objektbilde, bilde to `jobber/rom022/resultat.png`)
+
+## Bestilling 6
+
+Rom 23.
+
 - [ ] `lag023_01_del1av6` (rom 23 nexus, lag 01 med 2 objektbilder, del 1/6, bilde to `jobber/rom023_del1av6/resultat.png`)
 - [ ] `lag023_01_del2av6` (rom 23 nexus, lag 01 med 1 objektbilde, del 2/6, bilde to `jobber/rom023_del2av6/resultat.png`)
 - [ ] `lag023_01_del3av6` (rom 23 nexus, lag 01 med 4 objektbilder, del 3/6, bilde to `jobber/rom023_del3av6/resultat.png`)
@@ -89,14 +101,14 @@ Rom 21, 22, 23.
 - [ ] `lag023_01_del5av6` (rom 23 nexus, lag 01 med 3 objektbilder, del 5/6, bilde to `jobber/rom023_del5av6/resultat.png`)
 - [ ] `lag023_01_del6av6` (rom 23 nexus, lag 01 med 3 objektbilder, del 6/6, bilde to `jobber/rom023_del6av6/resultat.png`)
 - [ ] `lag023_02_del1av6` (rom 23 nexus, lag 02 med 1 objektbilde, del 1/6, bilde to `jobber/rom023_del1av6/resultat.png`)
-
-## Bestilling 6
-
-Rom 23, 24, 25.
-
 - [ ] `lag023_02_del3av6` (rom 23 nexus, lag 02 med 3 objektbilder, del 3/6, bilde to `jobber/rom023_del3av6/resultat.png`)
 - [ ] `lag023_02_del5av6` (rom 23 nexus, lag 02 med 2 objektbilder, del 5/6, bilde to `jobber/rom023_del5av6/resultat.png`)
 - [ ] `lag023_02_del6av6` (rom 23 nexus, lag 02 med 2 objektbilder, del 6/6, bilde to `jobber/rom023_del6av6/resultat.png`)
+
+## Bestilling 7
+
+Rom 23, 24, 25, 26.
+
 - [ ] `lag023_03_del3av6` (rom 23 nexus, lag 03 med 2 objektbilder, del 3/6, bilde to `jobber/rom023_del3av6/resultat.png`)
 - [ ] `lag023_03_del6av6` (rom 23 nexus, lag 03 med 1 objektbilde, del 6/6, bilde to `jobber/rom023_del6av6/resultat.png`)
 - [ ] `lag023_04_del2av6` (rom 23 nexus, lag 04 med 1 objektbilde, del 2/6, bilde to `jobber/rom023_del2av6/resultat.png`)
@@ -104,14 +116,14 @@ Rom 23, 24, 25.
 - [ ] `lag023_06_del2av6` (rom 23 nexus, lag 06 med 1 objektbilde, del 2/6, bilde to `jobber/rom023_del2av6/resultat.png`)
 - [ ] `lag024_01` (rom 24 view, lag 01 med 2 objektbilder, bilde to `jobber/rom024/resultat.png`)
 - [ ] `lag025_01_del1av3` (rom 25 airlock, lag 01 med 3 objektbilder, del 1/3, bilde to `jobber/rom025_del1av3/resultat.png`)
-
-## Bestilling 7
-
-Rom 26, 27.
-
 - [ ] `lag026_01_del2av3` (rom 26 cntlroom, lag 01 med 1 objektbilde, del 2/3, bilde to `jobber/rom026_del2av3/resultat.png`)
 - [ ] `lag026_02_del2av3` (rom 26 cntlroom, lag 02 med 1 objektbilde, del 2/3, bilde to `jobber/rom026_del2av3/resultat.png`)
 - [ ] `lag026_03_del2av3` (rom 26 cntlroom, lag 03 med 3 objektbilder, del 2/3, bilde to `jobber/rom026_del2av3/resultat.png`)
+
+## Bestilling 8
+
+Rom 26, 27, 29.
+
 - [ ] `lag026_04_del2av3` (rom 26 cntlroom, lag 04 med 2 objektbilder, del 2/3, bilde to `jobber/rom026_del2av3/resultat.png`)
 - [ ] `lag027_01_del2av8` (rom 27 powerrm, lag 01 med 1 objektbilde, del 2/8, bilde to `jobber/rom027_del2av8/resultat.png`)
 - [ ] `lag027_01_del7av8` (rom 27 powerrm, lag 01 med 1 objektbilde, del 7/8, bilde to `jobber/rom027_del7av8/resultat.png`)
@@ -119,29 +131,17 @@ Rom 26, 27.
 - [ ] `lag027_03_del2av8` (rom 27 powerrm, lag 03 med 1 objektbilde, del 2/8, bilde to `jobber/rom027_del2av8/resultat.png`)
 - [ ] `lag027_04_del2av8` (rom 27 powerrm, lag 04 med 1 objektbilde, del 2/8, bilde to `jobber/rom027_del2av8/resultat.png`)
 - [ ] `lag027_05_del2av8` (rom 27 powerrm, lag 05 med 1 objektbilde, del 2/8, bilde to `jobber/rom027_del2av8/resultat.png`)
-
-## Bestilling 8
-
-Rom 29, 31, 32.
-
 - [ ] `lag029_01_del2av2` (rom 29 trmmuf, lag 01 med 2 objektbilder, del 2/2, bilde to `jobber/rom029_del2av2/resultat.png`)
 - [ ] `lag029_02_del1av2` (rom 29 trmmuf, lag 02 med 1 objektbilde, del 1/2, bilde to `jobber/rom029_del1av2/resultat.png`)
 - [ ] `lag029_03_del1av2` (rom 29 trmmuf, lag 03 med 1 objektbilde, del 1/2, bilde to `jobber/rom029_del1av2/resultat.png`)
-- [ ] `lag029_04_del1av2` (rom 29 trmmuf, lag 04 med 1 objektbilde, del 1/2, bilde to `jobber/rom029_del1av2/resultat.png`)
-- [ ] `lag031_01` (rom 31 mudoor, lag 01 med 2 objektbilder, bilde to `jobber/rom031/resultat.png`)
-- [ ] `lag031_02` (rom 31 mudoor, lag 02 med 2 objektbilder, bilde to `jobber/rom031/resultat.png`)
-- [ ] `lag032_01` (rom 32 pool, lag 01 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
-- [ ] `lag032_02` (rom 32 pool, lag 02 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
-- [ ] `lag032_03` (rom 32 pool, lag 03 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
-- [ ] `lag032_04` (rom 32 pool, lag 04 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
 
 ## Bestilling 9
 
-Rom 32, 34, 35, 37.
+Rom 29, 31, 34, 35, 37.
 
-- [ ] `lag032_05` (rom 32 pool, lag 05 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
-- [ ] `lag032_06` (rom 32 pool, lag 06 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
-- [ ] `lag032_07` (rom 32 pool, lag 07 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
+- [ ] `lag029_04_del1av2` (rom 29 trmmuf, lag 04 med 1 objektbilde, del 1/2, bilde to `jobber/rom029_del1av2/resultat.png`)
+- [ ] `lag031_01` (rom 31 mudoor, lag 01 med 2 objektbilder, bilde to `jobber/rom031/resultat.png`)
+- [ ] `lag031_02` (rom 31 mudoor, lag 02 med 2 objektbilder, bilde to `jobber/rom031/resultat.png`)
 - [ ] `lag034_01_del1av2` (rom 34 museum, lag 01 med 1 objektbilde, del 1/2, bilde to `jobber/rom034_del1av2/resultat.png`)
 - [ ] `lag034_01_del2av2` (rom 34 museum, lag 01 med 2 objektbilder, del 2/2, bilde to `jobber/rom034_del2av2/resultat.png`)
 - [ ] `lag034_02_del2av2` (rom 34 museum, lag 02 med 1 objektbilde, del 2/2, bilde to `jobber/rom034_del2av2/resultat.png`)
@@ -347,7 +347,7 @@ Rom 105.
 
 ## Bestilling 23
 
-Rom 77, 105, 107, 109.
+Rom 32, 105, 107, 109.
 
 - [ ] `lag105_03_del3av4` (rom 105 backint, lag 03 med 1 objektbilde, del 3/4, bilde to `jobber/rom105_del3av4/resultat.png`)
 - [ ] `lag105_03_del4av4` (rom 105 backint, lag 03 med 1 objektbilde, del 4/4, bilde to `jobber/rom105_del4av4/resultat.png`)
@@ -356,17 +356,29 @@ Rom 77, 105, 107, 109.
 - [ ] `lag107_02` (rom 107 powercu, lag 02 med 2 objektbilder, bilde to `jobber/rom107/resultat.png`)
 - [ ] `lag107_03` (rom 107 powercu, lag 03 med 3 objektbilder, bilde to `jobber/rom107/resultat.png`)
 - [ ] `lag109_01` (rom 109 labcu, lag 01 med 2 objektbilder, bilde to `jobber/rom109/resultat.png`)
-- [ ] `lag077_01` (rom 77 worldmap, lag 01 med 3 objektbilder, bilde to `jobber/rom077/resultat.png`)
-- [ ] `lag077_02` (rom 77 worldmap, lag 02 med 2 objektbilder, bilde to `jobber/rom077/resultat.png`)
-- [ ] `lag077_03` (rom 77 worldmap, lag 03 med 1 objektbilde, bilde to `jobber/rom077/resultat.png`)
+- [ ] `lag032_01` (rom 32 pool, lag 01 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
+- [ ] `lag032_02` (rom 32 pool, lag 02 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
+- [ ] `lag032_03` (rom 32 pool, lag 03 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
 
 ## Bestilling 24
 
-Rom 77, 79, 88.
+Rom 32, 77, 79.
 
+- [ ] `lag032_04` (rom 32 pool, lag 04 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
+- [ ] `lag032_05` (rom 32 pool, lag 05 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
+- [ ] `lag032_06` (rom 32 pool, lag 06 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
+- [ ] `lag032_07` (rom 32 pool, lag 07 med 1 objektbilde, bilde to `jobber/rom032/resultat.png`)
+- [ ] `lag077_01` (rom 77 worldmap, lag 01 med 3 objektbilder, bilde to `jobber/rom077/resultat.png`)
+- [ ] `lag077_02` (rom 77 worldmap, lag 02 med 2 objektbilder, bilde to `jobber/rom077/resultat.png`)
+- [ ] `lag077_03` (rom 77 worldmap, lag 03 med 1 objektbilde, bilde to `jobber/rom077/resultat.png`)
 - [ ] `lag077_04` (rom 77 worldmap, lag 04 med 1 objektbilde, bilde to `jobber/rom077/resultat.png`)
 - [ ] `lag079_01` (rom 79 newton, lag 01 med 1 objektbilde, bilde to `jobber/rom079/resultat.png`)
 - [ ] `lag079_02` (rom 79 newton, lag 02 med 5 objektbilder, bilde to `jobber/obj547_01/resultat.png`)
+
+## Bestilling 25
+
+Rom 79, 88, 93.
+
 - [ ] `lag079_03` (rom 79 newton, lag 03 med 4 objektbilder, bilde to `jobber/obj547_01/resultat.png`)
 - [ ] `lag079_04` (rom 79 newton, lag 04 med 5 objektbilder, bilde to `jobber/obj547_01/resultat.png`)
 - [ ] `lag079_05` (rom 79 newton, lag 05 med 3 objektbilder, bilde to `jobber/obj547_01/resultat.png`)
@@ -374,19 +386,18 @@ Rom 77, 79, 88.
 - [ ] `lag088_01_del7av9` (rom 88 tombot, lag 01 med 2 objektbilder, del 7/9, bilde to `jobber/rom088_del7av9/resultat.png`)
 - [ ] `lag088_02_del7av9` (rom 88 tombot, lag 02 med 1 objektbilde, del 7/9, bilde to `jobber/rom088_del7av9/resultat.png`)
 - [ ] `lag088_03_del7av9` (rom 88 tombot, lag 03 med 1 objektbilde, del 7/9, bilde to `jobber/rom088_del7av9/resultat.png`)
-
-## Bestilling 25
-
-Rom 50, 77, 79, 81, 88, 93, 111.
-
 - [ ] `lag088_04_del7av9` (rom 88 tombot, lag 04 med 1 objektbilde, del 7/9, bilde to `jobber/rom088_del7av9/resultat.png`)
 - [ ] `ikon01` (ikonark 1 med 55 ikoner)
 - [ ] `ikon02` (ikonark 2 med 56 ikoner)
+
+## Bestilling 26
+
+Rom 50, 77, 79, 81, 93, 111.
+
 - [ ] `ikon03` (ikonark 3 med 38 ikoner)
 - [ ] `obj884_01` (rom 50 cuengrav, objekt 884 tilstand 01) (kan bli bedre)
 - [ ] `rom077` (rom 77 worldmap) (kan bli bedre)
 - [ ] `rom079` (rom 79 newton) (kan bli bedre)
-- [ ] `obj547_01` (rom 79 newton, objekt 547 tilstand 01) (kan bli bedre)
 - [ ] `obj557_01` (rom 81 trmcathn, objekt 557 tilstand 01) (kan bli bedre)
 - [ ] `rom111` (rom 111 labcu3) (kan bli bedre)
 
@@ -453,7 +464,6 @@ Rom 50, 77, 79, 81, 88, 93, 111.
 - [x] `rom030_del1av2` (rom 30 connect)
 - [x] `rom030_del2av2` (rom 30 connect)
 - [x] `rom031` (rom 31 mudoor)
-- [x] `rom032` (rom 32 pool)
 - [x] `rom033_del1av2` (rom 33 skeleton)
 - [x] `rom033_del2av2` (rom 33 skeleton)
 - [x] `rom034_del1av2` (rom 34 museum)
@@ -467,17 +477,12 @@ Rom 50, 77, 79, 81, 88, 93, 111.
 - [x] `rom039_del2av2` (rom 39 batdoor)
 - [x] `rom040` (rom 40 mapcntl)
 - [x] `rom041` (rom 41 falls)
-- [x] `obj343_01` (rom 41 falls)
 - [x] `rom042` (rom 42 pit)
 - [x] `rom043` (rom 43 fallsour)
-- [x] `obj347_01` (rom 43 fallsour)
 - [x] `rom044_del1av2` (rom 44 nest)
 - [x] `rom044_del2av2` (rom 44 nest)
-- [x] `obj355_01` (rom 44 nest)
 - [x] `rom045` (rom 45 labcu1)
 - [x] `rom046` (rom 46 cusarc)
-- [x] `obj886_01` (rom 46 cusarc)
-- [x] `obj886_02` (rom 46 cusarc)
 - [x] `rom047` (rom 47 emboss2)
 - [x] `rom048_del1av2` (rom 48 mapdome)
 - [x] `rom048_del2av2` (rom 48 mapdome)

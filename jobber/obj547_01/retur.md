@@ -1,9 +1,9 @@
-# obj547_01: sjekk
+# obj547_01: avvist
 
-Grunn: deler av bildet er flyttet eller zoomet (opptil 1.9 px)
+Grunn: fingrene og tommelen har en annen form og plass enn i originalen, og det gir en synlig søm mot rom 79
 
 Forslag til nytt forsøk (lim inn sammen med referanse.png):
 
 ```text
-Precise correction of the attached HD picture. The previous result did not line up with the original. Start again from referanse.png and keep every outline, edge and object at exactly the same pixel position as in that image. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.
+Redo this picture from referanse.png. Attach jobber/rom079/resultat.png as the second image: it is the approved HD room behind this object. Keep the hand exactly where it is in referanse.png: same finger positions and thumb outline, pixel for pixel, and match the hand and screen in the second image. Keep the screen plain and empty. Same size 1536 x 1024.
 ```
