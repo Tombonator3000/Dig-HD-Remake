@@ -1,6 +1,6 @@
 # Status
 
-Oppdatert 7. oktober 2026, 16:30. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 7. oktober 2026, 18:30. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
@@ -14,7 +14,7 @@ Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og 
 | ChatGPT-jobber | 187 | 431 | ChatGPT | 162 for rom, 30 for store objekter, 236 lagjobber og 3 ikonark. Se `work/gpt/status.csv` eller grenen `gpt-arbeid`. |
 | Store objektbilder | 30 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
 | Mindre objektbilder | 0 | 609 | ChatGPT | 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå) og 149 ikoner i ikonark. Til de er levert: automatisk oppskalering. |
-| Kostymeruter | 0 | 28 490 | | Automatisk oppskalering. Plan: modellark per hovedperson fra ChatGPT, så oppskalering. |
+| Kostymeruter | 0 | 28 490 | ChatGPT | Figurark: rutene i en animasjon males samlet og klippes ut. Pilot med 4 ark (229 ruter) for Boston Low er bestilt. Alle kostymer gir 4031 ark, hovedpersonene 114. |
 | Filmrammer | 0 | 12 638 | | Utskifting virker. Videooppskalering senere. |
 
 Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 (i `gpt-arbeid/stil/`).

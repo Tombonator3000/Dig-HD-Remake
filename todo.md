@@ -27,7 +27,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Lagjobbene og ikonarkene fra ChatGPT
 - [x] En dårligere ny leveranse erstatter ikke en godtatt (beste leveranse per jobb i `work/gpt/beste`)
 - [x] Nettleserversjon lokalt: `./spill.sh --nettleser` (PR 15)
-- [ ] Bestilling runde 3: modellark for hovedpersonene, så automatisk oppskalering av rutene
+- [x] Figurark for kostymene og pilot for Boston Low (PR 20)
+- [ ] Pilotarkene fra ChatGPT: se om figurene blir like fra rute til rute, juster flimmergrensen, og bestill så hovedpersonene (114 ark)
 - [ ] Lag Boston-ruter som består silhuettkontrollen og kontroller hele bevegelsesrekken i motoren
 
 ## Motor

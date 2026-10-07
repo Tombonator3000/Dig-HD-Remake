@@ -41,6 +41,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Pilot: rom 9 og 22 fra Codex, godkjent av Claude på vegne av Tom 6. oktober (forskyvning 0,73 og 0,25 px). Stilankere: `stil/room009_core.png` og `stil/room022_beach.png`.
 - Store objektbilder (w*h >= 16000, w >= 200 eller h >= 150) er egne jobber `objNNN_SS`, 30 stykker. Rutenettene obj618 og obj627 (rom 93) er tatt ut. Objektnotater i `docs/gpt-romnotater.csv` med `objNNN` i kolonnen rom. Senere tilstander gjøres like den første der originalene er like (`match_state`).
 - Mindre objektbilder: lagjobber `lagNNN_KK` (rommet med et sett objekttilstander på plass, klippes ut etterpå, godkjent HD-rom som bilde to) og ikonark `ikonNN` for inventaret. Kontroll per objekt i `gpt-inn` (mangler eller tegnet om).
+- Figurer: figurark `figCCC_KK` (rutene i en animasjon på ett ark, klippes ut med originalens alfa). Hovedpersonene: Boston Low kostyme 14, Maggie Robbins 18, Ludger Brink 15 (varianter 16 og 17). `dighd gpt-pakke --figurer alle` eller en liste; standard er bare piloten.
 - Kodeoppgaver til Codex står i `docs/gpt-kodeoppgaver.md` og kommer med i ORDRE.md. Rapporter i `rapporter/` i `gpt-arbeid`.
 - Rom 22 i modden er piloten fra Codex. En senere leveranse ligger som `alternativ_forsok2.png` (bakken ble til vann).
 - `gpt-inn` tar vare på beste godtatte leveranse per jobb i `work/gpt/beste/`. En ny leveranse som er dårligere, erstatter den ikke.
