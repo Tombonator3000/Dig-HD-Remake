@@ -1,18 +1,19 @@
 # Rapport fra gpt-inn
 
-Laget 2026-10-07 16:33
+Laget 2026-10-07 18:32
 
-| Status | Romjobber | Objektjobber | Lagjobber | Ikonark |
-| --- | --- | --- | --- | --- |
-| avvist | 6 | 0 | 0 | 0 |
-| godkjent | 153 | 22 | 0 | 0 |
-| ny | 0 | 0 | 236 | 3 |
-| sjekk | 3 | 8 | 0 | 0 |
+| Status | Romjobber | Objektjobber | Lagjobber | Ikonark | Figurark |
+| --- | --- | --- | --- | --- | --- |
+| avvist | 6 | 0 | 0 | 0 | 0 |
+| godkjent | 153 | 22 | 0 | 0 | 0 |
+| ny | 0 | 0 | 236 | 3 | 4 |
+| sjekk | 3 | 8 | 0 | 0 | 0 |
 
 - Ferdige rom: 103 av 106 (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 87, 89, 90, 91, 92, 94, 95, 96, 97, 98, 99, 100, 101, 102, 105, 106, 107, 108, 109, 110, 111)
 - Ferdige objekter: 30 av 30 (obj097_01, obj117_01, obj137_01, obj141_01, obj160_01, obj191_01, obj241_01, obj317_01, obj343_01, obj347_01, obj355_01, obj404_01, obj405_01, obj406_01, obj547_01, obj554_01, obj557_01, obj563_01, obj580_01, obj698_01, obj701_01, obj841_01, obj844_01, obj884_01, obj884_02, obj884_03, obj886_01, obj886_02, obj915_01, obj983_01)
 - Ferdige objektbilder fra lag: 0 av 460
 - Ferdige ikoner fra ikonark: 0 av 149
+- Figurark: 0 av 4 godtatt. Ferdige figurruter: 0 av 229
 
 Bilder som venter på flere deler:
 

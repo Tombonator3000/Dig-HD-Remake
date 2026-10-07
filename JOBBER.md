@@ -1,10 +1,12 @@
 # Jobbliste
 
-431 jobber: 162 for rom, 30 for store objektbilder, 236 lagjobber med 460 små objektbilder og 3 ikonark med 149 ikoner. Status oppdateres i `status.csv` av `dighd gpt-inn`.
+435 jobber: 162 for rom, 30 for store objektbilder, 236 lagjobber med 460 små objektbilder og 3 ikonark med 149 ikoner, og 4 figurark (4 jobber) med 229 kostymeruter. Status oppdateres i `status.csv` av `dighd gpt-inn`.
 
 Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, paneler). Utsnittet er da en del av objektbildet, ikke av rommet.
 
 Lagjobbene (`lagNNN_KK`) er rommet med et sett små objektbilder tegnet på plass, delt som rommet. Objektene klippes ut etterpå. Ikonarkene (`ikonNN`) er ikonene i inventaret i et rutenett.
+
+Figurarkene (`figCCC_KK`) er animasjonsruter fra kostyme CCC på en flat bakgrunnsfarge. Rutene klippes ut etterpå til `costumes/costumeCCC_NNN.png`. Kolonnen Objektbilder er da antall ruter.
 
 | Jobb | Type | Rom | Navn | Del | Utsnitt (x, y, b, h) | Objektbilder |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -439,6 +441,10 @@ Lagjobbene (`lagNNN_KK`) er rommet med et sett små objektbilder tegnet på plas
 | ikon01 | ikon | 93 | ikonark | 1 av 1 | 0, 0, 320, 224 | 55 |
 | ikon02 | ikon | 93 | ikonark | 1 av 1 | 0, 0, 320, 224 | 56 |
 | ikon03 | ikon | 93 | ikonark | 1 av 1 | 0, 0, 320, 224 | 38 |
+| fig014_01 | figur | 7 | Boston Low | 1 av 1 | 0, 0, 352, 240 | 28 |
+| fig014_02 | figur | 7 | Boston Low | 1 av 1 | 0, 0, 352, 240 | 62 |
+| fig014_03 | figur | 7 | Boston Low | 1 av 1 | 0, 0, 352, 240 | 127 |
+| fig014_04 | figur | 7 | Boston Low | 1 av 1 | 0, 0, 352, 240 | 12 |
 
 Hoppet over:
 
