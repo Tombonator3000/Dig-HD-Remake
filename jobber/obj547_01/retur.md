@@ -1,6 +1,6 @@
-# rom111: sjekk
+# obj547_01: avvist
 
-Grunn: deler av bildet er flyttet eller zoomet (opptil 1.4 px)
+Grunn: deler av bildet er flyttet eller zoomet (opptil 6.7 px)
 
 Forslag til nytt forsøk (lim inn sammen med referanse.png):
 

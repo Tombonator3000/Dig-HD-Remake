@@ -1,4 +1,4 @@
-# rom111: sjekk
+# obj886_01: sjekk
 
 Grunn: deler av bildet er flyttet eller zoomet (opptil 1.4 px)
 

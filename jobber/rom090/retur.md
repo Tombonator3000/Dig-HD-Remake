@@ -1,6 +1,6 @@
-# rom101: sjekk
+# rom090: sjekk
 
-Grunn: deler av bildet er flyttet eller zoomet (opptil 1.6 px)
+Grunn: forskjøvet +0.2, -0.9 originalpiksler
 
 Forslag til nytt forsøk (lim inn sammen med referanse.png):
 

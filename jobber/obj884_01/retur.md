@@ -1,6 +1,6 @@
-# rom111: sjekk
+# obj884_01: sjekk
 
-Grunn: deler av bildet er flyttet eller zoomet (opptil 1.4 px)
+Grunn: deler av bildet er flyttet eller zoomet (opptil 1.7 px)
 
 Forslag til nytt forsøk (lim inn sammen med referanse.png):
 
