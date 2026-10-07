@@ -8,7 +8,7 @@ Dato: 6. oktober 2026
 
 Vi lager en HD-versjon av LucasArts' The Dig (1995). Spillet kjører i ScummVM med en patch som legger HD-bilder nøyaktig oppå originalgrafikken, piksel for piksel. Vi trenger at du maler bakgrunnene på nytt i 4x oppløsning (1280 x 800 for et vanlig rom), **trofast mot originalen**: samme motiv, samme former på samme sted, samme farger og samme stemning. Bare skarpere og med mer detalj.
 
-Første runde er de 106 rombakgrunnene, delt i 162 jobber, og 32 objektjobber for store bilder som spillet tegner over rommet (se punkt 4). Hver jobb er ett bilde på 1536 x 1024 piksler.
+Første runde er de 106 rombakgrunnene, delt i 162 jobber, og 30 objektjobber for store bilder som spillet tegner over rommet (se punkt 4). Andre runde er de små objektbildene: 236 lagjobber med 460 objektbilder tegnet på plass i rommet, og 3 ikonark med de 149 ikonene i inventaret. Hver jobb er ett bilde på 1536 x 1024 piksler.
 
 ## 2. Hvem gjør hva
 
@@ -49,11 +49,11 @@ Hver jobb ligger i `jobber/<jobb>/`:
 
 Den grå kanten er bare fyll, slik at bildet får sideforholdet 3:2. Hold den grå. Rom som er bredere eller høyere enn ett lerret, er delt i deler med overlapp (for eksempel `rom002_del1av3`). Delene sys sammen av Claude, så kantene skal være naturlige, uten ramme eller toning.
 
-Oversikt over alle jobber: `JOBBER.md`. Status: `status.csv` (ny, godkjent, sjekk, avvist). Kolonnen `type` sier om jobben er et rom eller et objekt.
+Oversikt over alle jobber: `JOBBER.md`. Status: `status.csv` (ny, godkjent, sjekk, avvist). Kolonnen `type` sier om jobben er et rom (`rom`), et stort objektbilde (`objekt`), et lag (`lag`) eller et ikonark (`ikon`).
 
 ### Objektjobber
 
-I mange rom tegner spillet et stort bilde over bakgrunnen: nærbilder, kart og paneler. I rom 28 (shardcu) dekker objekt 241 hele skjermen, så HD-bakgrunnen synes nesten ikke. De 32 største objektbildene (29 objekter) er derfor egne jobber. Grensen er minst 16 000 piksler i alt, eller minst 200 piksler bredt, eller minst 150 piksler høyt.
+I mange rom tegner spillet et stort bilde over bakgrunnen: nærbilder, kart og paneler. I rom 28 (shardcu) dekker objekt 241 hele skjermen, så HD-bakgrunnen synes nesten ikke. De 30 største objektbildene er derfor egne jobber. Grensen er minst 16 000 piksler i alt, eller minst 200 piksler bredt, eller minst 150 piksler høyt. To ensfargede rutenett i inventaret (obj618 og obj627) er tatt ut.
 
 - Jobbene heter `objNNN_SS`: objekt-ID og tilstand som i filnavnet, for eksempel `obj241_01`.
 - `referanse.png` viser objektbildet lagt over rommet der spillet tegner det, på samme lerret og med samme grå kant som rommene. Der objektet er gjennomsiktig, synes rommet bak. Utenfor rommet er det svart.
@@ -61,16 +61,37 @@ I mange rom tegner spillet et stort bilde over bakgrunnen: nærbilder, kart og p
 - `prompt.txt` har en ekstra linje om at bildet er et stort bilde spillet viser over rommet, og romnotatet for rommet.
 - Leveres som rommene. Leverer du bare bildet, skal det ha objektets sideforhold (`bilde_i_lerret` i `jobb.json`).
 
+### Lagjobber (små objekter)
+
+De andre objektbildene er små: dører, brytere, lys og ting. De males på plass i rommet, så de får samme stil og lys som HD-rommet, og klippes ut etterpå.
+
+- Jobbene heter `lagNNN_KK`: rom NNN, lag KK. Brede og høye rom har samme deler som romjobbene, for eksempel `lag023_01_del3av6` hører til `rom023_del3av6`. Deler uten objekter er ikke med.
+- `referanse.png` er rommet med lagets objekter tegnet der spillet tegner dem. Lag 01 har første tilstand av hvert objekt, lag 02 neste og så videre. Objekter som ville ligget oppå hverandre, står i hvert sitt lag.
+- Ligger objektene på et stort objektbilde (for eksempel skjermen på håndcomputeren i rom 79), er det store bildet med i referansen.
+- Bilde to er det godkjente HD-bildet for samme del: `jobber/romNNN/resultat.png` eller `jobber/romNNN_delXavY/resultat.png`, eller objektjobben for det store bildet objektene ligger på. Det står i `bilde_to` i `jobb.json` og i ordren. Bruk det i stedet for stilankeret.
+- Mal hele bildet trofast, også rommet rundt. Objektene klippes ut etter posisjon, så de må ligge nøyaktig der de er, med samme størrelse, omriss og farger. Ingen objekter skal mangle eller flyte inn i rommet.
+- `jobb.json` lister objektene som klippes ut av akkurat denne jobben (`objekter`, med rektangel i originalpiksler).
+- Leveres som rommene.
+
+### Ikonark (inventaret)
+
+Ikonene i inventaret (rom 93) og seks små sekskanter i rom 107 tegnes ikke på plass i et rom. De ligger i et rutenett på ikonark, på den mørkeblå fargen inventaret har bak ikonene.
+
+- Jobbene heter `ikonNN`. Tilstandene til et ikon (vanlig, uthevet) står ved siden av hverandre.
+- Mal hvert ikon trofast i ruten sin. Hold bakgrunnen flat mørkeblå, uten rammer eller rutenett.
+- Leveres som rommene, med stilankeret som bilde to.
+
 ## 5. Rekkefølge
 
 1. **Pilot (ferdig):** Codex leverte rom 9 og 22 den 6. oktober. Begge besto kontrollen og er godkjent av Claude på Tom sine vegne (Tom ba om at arbeidet skal fortsette). Tom kan overstyre.
 2. **Stilankere:** Pilotbildene ligger i `stil/` (`room009_core.png`, `room022_beach.png`). Legg ved det ankeret som passer best som bilde nummer to i hver jobb (prompten forklarer hvordan det brukes). Det holder stilen lik fra rom til rom.
-3. **Løpende ordre:** Claude skriver `ORDRE.md` i grenen etter hver kontroll, med de neste 10 jobbene. Ta dem i den rekkefølgen. Nye jobber står etter romnummer, med romjobbene før objektjobbene i samme rom. Objektjobber i rom som allerede er ferdige, kommer først.
+3. **Løpende ordre:** Claude skriver `ORDRE.md` i grenen etter hver kontroll, med de neste 10 jobbene. Ta dem i den rekkefølgen. Nye jobber står etter romnummer, med romjobbene før objektjobbene i samme rom. Objektjobber i rom som allerede er ferdige, kommer først. Lagjobbene kommer etter alle rom- og objektjobbene, etter romnummer, og først de der bilde to er godkjent. Ikonarkene kommer til slutt.
 4. **Retur:** Jobber med `retur.md` står først i ordren og gjøres på nytt med teksten der.
+
+Objektbildene (642): de 30 største er objektjobber, 460 små er i lagjobbene og 149 ikoner er på ikonarkene. Tre står igjen og skaleres automatisk: de to ensfargede rutenettene i inventaret og obj460_01 i rom 67, som er helt gjennomsiktig.
 
 Senere runder (egne bestillinger):
 
-- **Objekter** (642 bilder: dører, maskiner, lys). De 32 største er med nå som objektjobber. De andre 610 lages i sammenheng med det godkjente HD-rommet.
 - **Figurer:** 331 kostymer med 28 490 animasjonsruter er for mye å male enkeltvis. Plan: et modellark per hovedperson fra ChatGPT som stilfasit, og så automatisk oppskalering av rutene, med retusj der det trengs.
 - **Filmer:** 12 638 rammer. Ikke ChatGPT. Videooppskalering.
 
@@ -80,7 +101,7 @@ Senere runder (egne bestillinger):
 
 1. Åpne repoet `Tombonator3000/Dig-HD-Remake` og bytt til grenen `gpt-arbeid`. Den har sin egen `AGENTS.md` og en kopi av denne bestillingen.
 2. Les `ORDRE.md` og ta jobbene der. Lag ikke egne grener eller PR-er for grafikken.
-3. For hver jobb: bruk bildeverktøyet med `referanse.png` som bildet som skal redigeres (og et stilanker som bilde to, når de finnes), og `prompt.txt` ordrett som prompt. Be om 1536 x 1024. Lagre som `resultat.png` og skriv `notat.md`.
+3. For hver jobb: bruk bildeverktøyet med `referanse.png` som bildet som skal redigeres (og et stilanker som bilde to, når de finnes; for lagjobber det godkjente HD-bildet i `bilde_to`), og `prompt.txt` ordrett som prompt. Be om 1536 x 1024. Lagre som `resultat.png` og skriv `notat.md`.
 4. Se på resultatet ved siden av referansen før du leverer. Ligger noe feil, prøv igjen.
 5. Commit i grenen `gpt-arbeid` med meldingen `GPT: rom022, obj241_01` (jobbene i commiten) og push. Aldri til `main`.
 
@@ -110,11 +131,22 @@ Etter sjekken **låses fargene til originalen**: de grove fargeflatene hentes fr
 
 Objektjobber kontrolleres på samme måte mot sitt eget `original_1x.png` (objektbildet over rommet i 1x).
 
-Ferdige rom havner i `work/gpt-ferdig/rooms/` og ferdige objektbilder i `work/gpt-ferdig/objects/` (nøyaktig 4x objektstørrelse, med gjennomsiktigheten fra originalen). `dighd build-mod --egne work/gpt-ferdig` lager mod-mappen motoren bruker. Godkjente objektbilder kommer med i modden også i rom som ikke har HD-bakgrunn ennå. Et rom regnes som ferdig når romjobbene er godkjent, uavhengig av objektene.
+Lagjobber og ikonark kontrolleres som helhet på samme måte, og i tillegg hvert objekt for seg, bare på objektets synlige piksler:
+
+| Sjekk per objekt | Avvist når |
+| --- | --- |
+| Mangler | Resultatet ligner mer på rommet uten objektet enn på objektet (kantlikhet mot bakgrunnen er over kantlikheten mot objektet pluss 0,05). Måles når objektet skiller seg fra bakgrunnen (kantlikhet under 0,90 mellom dem). |
+| Tegnet om | Kantlikheten i objektet er under 0,50, for objekter med tydelige kanter. |
+
+Ett feil objekt avviser hele jobben. Prøvd på ekte data: i 212 lagjobber med kunstige resultater der objektene manglet, godkjente den vanlige kontrollen 206, mens sjekken per objekt fant 348 av 409 målte objekter (de andre ligner bakgrunnen). Referansen og HD-rommet med objektene limt inn ga ingen avvisninger. ChatGPT sine godkjente rombilder har kantlikhet 0,75 eller mer i de samme feltene der grensen for tegnet om gjelder.
+
+Etter fargelåsen klippes hvert objekt ut av delen det står i (sydd sammen hvis det står i flere) på rektangelet sitt, i 4x med gjennomsiktigheten fra originalen. Et objekt er ferdig når alle delene det står i, er godtatt (godkjent, eller sjekk som for rommene; med `--bare-godkjente` bare godkjent). Senere tilstander av et objekt gjøres like den første der originalene er like, som for objektjobbene.
+
+Ferdige rom havner i `work/gpt-ferdig/rooms/` og ferdige objektbilder i `work/gpt-ferdig/objects/` (nøyaktig 4x objektstørrelse, med gjennomsiktigheten fra originalen). `dighd build-mod --egne work/gpt-ferdig` lager mod-mappen motoren bruker, og bruker de godkjente objektbildene i stedet for automatisk oppskalering. Godkjente objektbilder kommer med i modden også i rom som ikke har HD-bakgrunn ennå. Et rom regnes som ferdig når romjobbene er godkjent, uavhengig av objektene.
 
 ## 8. Sporing
 
-Hver leveranse skal kunne spores. Claude skriver `work/gpt-ferdig/provenance.json` med sjekksum for referanse, prompt og resultat, målingene og innstillingene for fargelåsen. Ditt `notat.md` utfyller med verktøy, modell, dato, antall forsøk og eventuelle endringer i prompten.
+Hver leveranse skal kunne spores. Claude skriver `work/gpt-ferdig/provenance.json` med sjekksum for referanse, prompt og resultat, målingene og innstillingene for fargelåsen. Objektbilder fra lag og ikonark får hver sin oppføring med laget eller arket de kom fra og rektangelet i det. Ditt `notat.md` utfyller med verktøy, modell, dato, antall forsøk og eventuelle endringer i prompten.
 
 ## 9. Erfaringer fra Jones og Moonstone
 
@@ -145,7 +177,10 @@ Claude skriver all kode. Du lager bildene. Tom godkjenner.
 For hver jobb får du referanse.png (originalen forstørret 4x med harde piksler på grå kant, 1536 x 1024)
 og prompt.txt. Bruk prompt.txt ordrett og referanse.png som bildet som redigeres. Lever ett bilde på
 1536 x 1024 med samme oppsett. Jobber som heter objNNN_SS, er store bilder spillet viser over rommet
-(nærbilder, kart, paneler). Behandle dem som bakgrunner.
+(nærbilder, kart, paneler). Behandle dem som bakgrunner. Jobber som heter lagNNN_KK, er rommet med små
+objekter tegnet på plass. Mal alt trofast; objektene klippes ut etter posisjon, så de må ligge nøyaktig
+der de er. Bruk det godkjente HD-bildet i bilde_to som bilde to. Jobber som heter ikonNN, er ikonene i
+inventaret på mørkeblå bakgrunn.
 
 Regler: ingenting flyttes, zoomes eller beskjæres. Ingenting legges til eller fjernes. Symboler og
 inngraveringer kopieres nøyaktig. Samme farger, lys og stemning. Samme malte 1990-tallsstil fra

@@ -1,9 +1,9 @@
 # rom050: avvist
 
-Grunn: hånden og staven er flyttet opp og til høyre
+Grunn: deler av bildet er flyttet eller zoomet (opptil 6.9 px)
 
 Forslag til nytt forsøk (lim inn sammen med referanse.png):
 
 ```text
-Edit referanse.png. Keep the hand, every finger and the red rod at exactly the same position, size and angle as in referanse.png; do not move, enlarge or rotate them. Keep the clouds where they are. Repaint only with finer detail. Same size 1536 x 1024.
+Precise correction of the attached HD picture. The previous result did not line up with the original. Start again from referanse.png and keep every outline, edge and object at exactly the same pixel position as in that image. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.
 ```

@@ -1,6 +1,6 @@
-# rom079: avvist
+# rom079: sjekk
 
-Grunn: deler av bildet er flyttet eller zoomet (opptil 7.0 px)
+Grunn: deler av bildet er flyttet eller zoomet (opptil 1.1 px)
 
 Forslag til nytt forsøk (lim inn sammen med referanse.png):
 
