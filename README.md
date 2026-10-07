@@ -24,15 +24,16 @@ Detaljer, tester og kjente begrensninger: [STATUS.md](STATUS.md). Hva som gjenst
 ## Spille med HD-grafikken
 
 ```sh
-tools/hent_spilldata.sh          # spillfilene til game/ (sjekker sjekksummene)
-tools/mod_gren.sh hent           # siste HD-mod fra grenen hd-mod til mods/gpt
-engine/build.sh                  # ScummVM med patchen (første gang tar det noen minutter)
-engine/run.sh gpt                # start spillet med HD-modden
+sudo apt install build-essential git pkg-config libsdl2-dev libpng-dev zlib1g-dev   # én gang (Ubuntu/Debian)
+git clone https://github.com/Tombonator3000/Dig-HD-Remake.git && cd Dig-HD-Remake
+./spill.sh
 ```
 
-Krever på Linux: `sudo apt install build-essential git libsdl2-dev libpng-dev zlib1g-dev`. Legg `DIGMUSIC.BUN` og `DIGVOICE.BUN` fra Drive i `game/` for musikk og tale.
+`spill.sh` henter spillfilene og siste HD-mod, bygger motoren første gang (noen minutter) og når den er endret, og starter spillet. `./spill.sh --rom 22` hopper til et rom, `--klassisk` starter med originalgrafikken, `--gult` viser hvor HD mangler, og `--auto` fyller resten med automatisk oppskalering. Legg `DIGMUSIC.BUN` og `DIGVOICE.BUN` fra Drive i `game/` for musikk og tale.
 
-Mens du spiller: Ctrl+H bytter mellom HD og klassisk grafikk, og Ctrl+Shift+H farger gult der HD mangler (se [docs/HD-MOTOR.md](docs/HD-MOTOR.md)).
+Mens du spiller: Ctrl+H bytter mellom HD og klassisk grafikk, og Ctrl+Shift+H farger gult der HD mangler. Hva du bør se etter, og alle valgene: [docs/SPILLTEST.md](docs/SPILLTEST.md).
+
+Det samme steg for steg: `tools/hent_spilldata.sh`, `tools/mod_gren.sh hent`, `engine/build.sh`, `engine/run.sh gpt`.
 
 ## Lage HD-grafikk selv
 
@@ -106,6 +107,7 @@ mods/             ferdige mod-mapper (lokalt)
 ## Dokumentasjon
 
 - [STATUS.md](STATUS.md): hva som virker, hva som er testet og hva som mangler
+- [docs/SPILLTEST.md](docs/SPILLTEST.md): spille og teste rett fra repoet, og hva du bør se etter
 - [docs/HD-MOTOR.md](docs/HD-MOTOR.md): hvordan HD-motoren bestemmer hvor hver piksel kommer fra
 - [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md): bestillingen til ChatGPT
 - [docs/GRAFIKKPILOT.md](docs/GRAFIKKPILOT.md): første grafikkpilot fra Codex
