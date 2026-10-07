@@ -5,7 +5,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 ## Neste
 
 - [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 192 jobber (162 rom, 30 store objekter) er godkjent
-- [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres
+- [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres (avvis med `docs/gpt-avvisninger.csv`)
 - [ ] Juster grensene i `gpt.py` etter de første 20 ekte leveransene
 - [ ] Kontroller de nye rommene i motoren med forgrunnsmasker og objektbytte (`engine/test.sh` og manuelt)
 - [x] `./spill.sh` og `docs/SPILLTEST.md`: spille og teste rett fra repoet
@@ -17,7 +17,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Pilot: rom 9 og 22 levert av Codex, kontrollert og godkjent, lagt i `stil/` som stilankere
 - [x] Fast ordre i `ORDRE.md` og runde-skript (`tools/gpt_runde.sh`), mod publiseres i `hd-mod`
 - [x] `GRAFIKKLISTE.md` med alt som skal lages, i 19 bestillinger, så ChatGPT kan jobbe videre uten å vente
-- [ ] Resten av romjobbene (159 igjen)
+- [ ] Resten av romjobbene (69 rom igjen)
 - [x] Objektjobber for de 30 største objektbildene, med egne notater og like tilstander
 - [ ] De 30 objektjobbene
 - [ ] Tom ser over stilen når 10 til 15 rom er ferdige

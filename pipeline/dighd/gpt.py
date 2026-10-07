@@ -462,9 +462,22 @@ def _find_result(d: Path) -> Path | None:
     return None
 
 
+def read_rejections(path: Path | None) -> dict[str, dict]:
+    """Manuelle avvisninger etter at Claude har sett på bildet: jobb, sha256_resultat, grunn, forslag.
+
+    Avvisningen gjelder bare resultatet med den sjekksummen (eller alle med "*"), så en ny
+    leveranse blir kontrollert på vanlig måte.
+    """
+    if not path or not path.exists():
+        return {}
+    with path.open(newline="", encoding="utf-8") as f:
+        return {r["jobb"].strip(): r for r in csv.DictReader(f) if r.get("jobb", "").strip()}
+
+
 def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, strength: float = 1.0,
-                   only_approved: bool = False) -> dict:
+                   only_approved: bool = False, rejections: Path | None = None) -> dict:
     jobs_dir = work / "jobber"
+    manual = read_rejections(rejections)
     _take_inbox(work / "innboks", jobs_dir)
     preview_dir = work / "forhandsvisning"
     preview_dir.mkdir(parents=True, exist_ok=True)
@@ -507,6 +520,10 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         original = Image.open(d / "original_1x.png").convert("RGB")
         m = compare(original, part)
         status, why = judge(m)
+        rej = manual.get(job.id)
+        if rej and rej.get("sha256_resultat", "").strip() in ("*", r["sha256_resultat"]):
+            status, why = "avvist", rej.get("grunn", "").strip() or "avvist ved gjennomsyn"
+            r["forslag"] = rej.get("forslag", "").strip()
         r.update(m, status=status, kommentar=why)
         orig4 = np.asarray(original.resize((w * SCALE, h * SCALE), Image.LANCZOS), dtype=np.float64)
         locked = lock_colors(np.asarray(part, dtype=np.float64), orig4, sigma, strength)
@@ -525,14 +542,17 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         if j.type == "objekt":
             first_state[j.objekt] = min(first_state.get(j.objekt, j.tilstand), j.tilstand)
     finished: dict[str, np.ndarray] = {}
+    stale: list[str] = []
     for name, parts in tiles.items():
         first = parts[0][0]
         base = f"obj{first.objekt:03d}_{first_state[first.objekt]}" if first.type == "objekt" else None
         if base and base != name and base not in finished and all(t is not None for _, t in parts):
             # Senere tilstander venter på den første, så de kan bli like der bildene er like
             incomplete.append(f"{name} (rom {first.rom}): venter på {base}")
+            stale.append(name)
             continue
         if any(t is None for _, t in parts):
+            stale.append(name)
             have = sum(t is not None for _, t in parts)
             if have:
                 label = f"rom {first.rom}" if first.type == "rom" else f"{name} (rom {first.rom})"
@@ -572,6 +592,11 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
 
     prov_path = out / "provenance.json"
     old = json.loads(prov_path.read_text()) if prov_path.exists() else {}
+    for name in stale:
+        # Et bilde som var ferdig før, men ikke er det nå, skal ikke bli med i modden
+        entry = old.pop(name, None)
+        if entry:
+            (out / entry["fil"]).unlink(missing_ok=True)
     old.update(provenance)
     prov_path.write_text(json.dumps(old, indent=1, ensure_ascii=False))
     summary = _report(work, jobs, results, sorted(done_rooms), sorted(done_objects), incomplete)
@@ -630,12 +655,13 @@ def _write_return(d: Path, r: dict) -> None:
         if ret.exists():
             ret.unlink()
         return
+    suggestion = r.get("forslag") or (
+        "Precise correction of the attached HD picture. The previous result did not line up with the original. "
+        "Start again from referanse.png and keep every outline, edge and object at exactly the same pixel position "
+        "as in that image. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. "
+        "Same size 1536 x 1024.")
     text = [f"# {d.name}: {r['status']}", "", f"Grunn: {r.get('kommentar') or 'se status.csv'}", "",
-            "Forslag til nytt forsøk (lim inn sammen med referanse.png):", "", "```text",
-            "Precise correction of the attached HD picture. The previous result did not line up with the original. "
-            "Start again from referanse.png and keep every outline, edge and object at exactly the same pixel position "
-            "as in that image. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. "
-            "Same size 1536 x 1024.", "```"]
+            "Forslag til nytt forsøk (lim inn sammen med referanse.png):", "", "```text", suggestion, "```"]
     ret.write_text("\n".join(text) + "\n", encoding="utf-8")
 
 
