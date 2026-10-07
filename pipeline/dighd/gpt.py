@@ -36,6 +36,7 @@ import hashlib
 import json
 import math
 import re
+import shutil
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -932,9 +933,58 @@ def read_rejections(path: Path | None) -> dict[str, dict]:
         return {r["jobb"].strip(): r for r in csv.DictReader(f) if r.get("jobb", "").strip()}
 
 
+RANK = {"avvist": 0, "sjekk": 1, "godkjent": 2}
+
+
+def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, sigma: float, strength: float,
+              preview_dir: Path) -> tuple[dict, np.ndarray | None]:
+    """Kontrollerer én leveranse for en jobb. Gir resultatraden og det fargelåste bildet (None hvis avvist på format)."""
+    res = Image.open(res_path).convert("RGB")
+    x, y, w, h = job.region
+    ox, oy = job.plassering
+    r = {"resultat": res_path.name, "storrelse": list(res.size), "sha256_resultat": _sha(res_path)}
+    layout = detect_layout(res.size, (w, h))
+    if layout is None:
+        r.update(status="avvist", kommentar=f"feil sideforhold {res.width}x{res.height}: skal være 3:2 som "
+                 f"referanse.png (1536x1024) eller {w}:{h} som utsnittet (for eksempel {w * SCALE}x{h * SCALE})")
+        return r, None
+    r["format"] = layout
+    if layout == "lerret":
+        sx, sy = res.width / CANVAS[0], res.height / CANVAS[1]
+        box = (ox * SCALE * sx, oy * SCALE * sy, (ox + w) * SCALE * sx, (oy + h) * SCALE * sy)
+        part = res.crop(tuple(round(v) for v in box)).resize((w * SCALE, h * SCALE), Image.LANCZOS)
+    else:
+        part = res.resize((w * SCALE, h * SCALE), Image.LANCZOS)
+    if min(res.width / (w * SCALE), res.height / (h * SCALE)) < 0.6:
+        r["merknad"] = "lav oppløsning fra generatoren"
+    original = Image.open(d / "original_1x.png").convert("RGB")
+    m = compare(original, part)
+    status, why = judge(m)
+    if job.objekter:
+        # Lag og ikonark: hvert objekt må også ligne på originalen, ellers blir utklippet feil
+        checks = check_pieces(original, part, job, extract)
+        r["objektkontroll"] = checks
+        bad = [f"{n} {piece_problem(c)}" for n, c in checks.items() if piece_problem(c)]
+        if bad:
+            status = "avvist"
+            listed = ", ".join(bad[:5]) + (f" og {len(bad) - 5} til" if len(bad) > 5 else "")
+            why = "; ".join(filter(None, [why, f"objekter er feil: {listed}"]))
+            r["forslag"] = PIECE_RETRY
+    rej = manual.get(job.id)
+    if rej and rej.get("sha256_resultat", "").strip() in ("*", r["sha256_resultat"]):
+        status, why = "avvist", rej.get("grunn", "").strip() or "avvist ved gjennomsyn"
+        r["forslag"] = rej.get("forslag", "").strip()
+    r.update(m, status=status, kommentar=why)
+    orig4 = np.asarray(original.resize((w * SCALE, h * SCALE), Image.LANCZOS), dtype=np.float64)
+    locked = lock_colors(np.asarray(part, dtype=np.float64), orig4, sigma, strength)
+    _preview(preview_dir / f"{job.id}.png", original, part, locked)
+    return r, locked
+
+
 def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, strength: float = 1.0,
                    only_approved: bool = False, rejections: Path | None = None) -> dict:
     jobs_dir = work / "jobber"
+    best_dir = work / "beste"   # beste godtatte leveranse per jobb, så en dårligere ny ikke erstatter den
     manual = read_rejections(rejections)
     _take_inbox(work / "innboks", jobs_dir)
     preview_dir = work / "forhandsvisning"
@@ -954,50 +1004,28 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         if not res_path:
             tiles.setdefault(job.bilde, []).append((job, None))
             continue
-        res = Image.open(res_path).convert("RGB")
-        x, y, w, h = job.region
-        ox, oy = job.plassering
-        r = {"resultat": res_path.name, "storrelse": list(res.size), "sha256_resultat": _sha(res_path)}
-        layout = detect_layout(res.size, (w, h))
-        if layout is None:
-            r.update(status="avvist", kommentar=f"feil sideforhold {res.width}x{res.height}: skal være 3:2 som "
-                     f"referanse.png (1536x1024) eller {w}:{h} som utsnittet (for eksempel {w * SCALE}x{h * SCALE})")
-            results[job.id] = r
-            _write_return(d, r)
-            tiles.setdefault(job.bilde, []).append((job, None))
-            continue
-        r["format"] = layout
-        if layout == "lerret":
-            sx, sy = res.width / CANVAS[0], res.height / CANVAS[1]
-            box = (ox * SCALE * sx, oy * SCALE * sy, (ox + w) * SCALE * sx, (oy + h) * SCALE * sy)
-            part = res.crop(tuple(round(v) for v in box)).resize((w * SCALE, h * SCALE), Image.LANCZOS)
-        else:
-            part = res.resize((w * SCALE, h * SCALE), Image.LANCZOS)
-        if min(res.width / (w * SCALE), res.height / (h * SCALE)) < 0.6:
-            r["merknad"] = "lav oppløsning fra generatoren"
-        original = Image.open(d / "original_1x.png").convert("RGB")
-        m = compare(original, part)
-        status, why = judge(m)
-        if job.objekter:
-            # Lag og ikonark: hvert objekt må også ligne på originalen, ellers blir utklippet feil
-            checks = check_pieces(original, part, job, extract)
-            r["objektkontroll"] = checks
-            bad = [f"{n} {piece_problem(c)}" for n, c in checks.items() if piece_problem(c)]
-            if bad:
-                status = "avvist"
-                listed = ", ".join(bad[:5]) + (f" og {len(bad) - 5} til" if len(bad) > 5 else "")
-                why = "; ".join(filter(None, [why, f"objekter er feil: {listed}"]))
-                r["forslag"] = PIECE_RETRY
-        rej = manual.get(job.id)
-        if rej and rej.get("sha256_resultat", "").strip() in ("*", r["sha256_resultat"]):
-            status, why = "avvist", rej.get("grunn", "").strip() or "avvist ved gjennomsyn"
-            r["forslag"] = rej.get("forslag", "").strip()
-        r.update(m, status=status, kommentar=why)
-        orig4 = np.asarray(original.resize((w * SCALE, h * SCALE), Image.LANCZOS), dtype=np.float64)
-        locked = lock_colors(np.asarray(part, dtype=np.float64), orig4, sigma, strength)
+        r, locked = _evaluate(res_path, job, d, extract, manual, sigma, strength, preview_dir)
+        best_png, best_json = best_dir / f"{job.id}.png", best_dir / f"{job.id}.json"
+        best = json.loads(best_json.read_text()) if best_json.exists() and best_png.exists() else None
+        if best and best["sha256"] != r["sha256_resultat"] and RANK[r["status"]] < RANK.get(best["status"], 0):
+            # Den nye leveransen er dårligere enn en tidligere: bruk den tidligere
+            rb, lb = _evaluate(best_png, job, d, extract, manual, sigma, strength, preview_dir)
+            if RANK[rb["status"]] > RANK[r["status"]]:
+                rb["resultat"] = f"beste tidligere leveranse ({best['sha256'][:12]})"
+                rb["kommentar"] = "; ".join(filter(None, [
+                    rb.get("kommentar"), f"ny leveranse ({r['sha256_resultat'][:12]}) ble {r['status']}: "
+                    f"{r.get('kommentar') or 'se retur.md'}, så den forrige brukes"]))
+                r, locked = rb, lb
+            else:
+                best_png.unlink(missing_ok=True)
+                best_json.unlink(missing_ok=True)
+        elif RANK[r["status"]] > 0 and (not best or RANK[r["status"]] >= RANK.get(best["status"], 0)):
+            best_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(res_path, best_png)
+            best_json.write_text(json.dumps({"sha256": r["sha256_resultat"], "status": r["status"]}))
+        status = r["status"]
         results[job.id] = r
         _write_return(d, r)
-        _preview(preview_dir / f"{job.id}.png", original, part, locked)
         keep = status == "godkjent" or (status == "sjekk" and not only_approved)
         tiles.setdefault(job.bilde, []).append((job, locked if keep else None))
 

@@ -678,3 +678,34 @@ def test_gpt_layer_parts_and_stitch():
     full = gpt._stitch(976, 200, parts)
     box = gpt._stitch(976, 200, parts, (350, 40, 300, 30))
     assert np.array_equal(box, full[40 * 4:70 * 4, 350 * 4:650 * 4])
+
+
+def test_gpt_keeps_better_earlier_delivery(tmp_path):
+    from PIL import ImageFilter
+    from dighd import gpt
+
+    ex, room, big = _fake_extract(tmp_path)
+    work, done = tmp_path / "gpt", tmp_path / "gpt-ferdig"
+    gpt.make_jobs(ex, work)
+    d = work / "jobber" / "obj241_01"
+    ref = Image.open(d / "referanse.png")
+    # Første leveranse er god og blir husket
+    ref.filter(ImageFilter.GaussianBlur(1.5)).save(d / "resultat.png")
+    gpt.import_results(work, ex, done)
+    good = Image.open(done / "objects" / "obj241_01.png").tobytes()
+    assert (work / "beste" / "obj241_01.png").exists()
+    # Ny leveranse er forskjøvet og blir avvist: den forrige brukes fortsatt
+    ref.transform(ref.size, Image.AFFINE, (1, 0, -24, 0, 1, -16)).save(d / "resultat.png")
+    s = gpt.import_results(work, ex, done)
+    row = {r["jobb"]: r for r in gpt.read_status(work)}["obj241_01"]
+    assert row["status"] == "godkjent" and "så den forrige brukes" in row["kommentar"]
+    assert s["ferdige_objekter"] == ["obj241_01"]
+    assert Image.open(done / "objects" / "obj241_01.png").tobytes() == good
+    # Avvises den forrige ved gjennomsyn, finnes ingen god leveranse lenger
+    import hashlib
+    sha = hashlib.sha256((work / "beste" / "obj241_01.png").read_bytes()).hexdigest()
+    rej = tmp_path / "avvisninger.csv"
+    rej.write_text(f'jobb,sha256_resultat,grunn,forslag\nobj241_01,{sha},"feil",""\n', encoding="utf-8")
+    s = gpt.import_results(work, ex, done, rejections=rej)
+    assert s["ferdige_objekter"] == [] and not (done / "objects" / "obj241_01.png").exists()
+    assert not (work / "beste" / "obj241_01.png").exists()
