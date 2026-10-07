@@ -195,10 +195,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..c09447b9
+index 00000000..525e0e8e
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,2424 @@
+@@ -0,0 +1,2741 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -329,6 +329,33 @@ index 00000000..c09447b9
 +	_testPalette = envInt("DIGHD_TEST_PALETTE", -1);
 +	if (const char *pos = getenv("DIGHD_TEST_POS"))
 +		sscanf(pos, "%d,%d", &_testPosX, &_testPosY);
++	// DIGHD_TEST_OBJSTATE=884:2,886:1 puts these objects in these states after
++	// the test jump; DIGHD_TEST_OBJSTATE=alle shows every state of every object
++	// in the room, one after the other (see testObjectStates())
++	if (const char *os = getenv("DIGHD_TEST_OBJSTATE")) {
++		Common::String list(os);
++		list.toLowercase();
++		if (list == "alle" || list == "all") {
++			_testObjAll = true;
++		} else {
++			Common::StringTokenizer tok(list, ", ");
++			while (!tok.empty()) {
++				const Common::String item = tok.nextToken();
++				const size_t colon = item.findFirstOf(':');
++				TestObjStep s = { 0, -1 };
++				if (colon != Common::String::npos && colon > 0) {
++					s.obj = atoi(item.substr(0, colon).c_str());
++					s.state = atoi(item.substr(colon + 1).c_str());
++				}
++				if (s.obj > 0 && s.state >= 0 && s.state <= 255)
++					_testObjSteps.push_back(s);
++				else
++					warning("DigHD: DIGHD_TEST_OBJSTATE: '%s' is not object:state", item.c_str());
++			}
++		}
++	}
++	_testObjAt = MAX(0, envInt("DIGHD_TEST_OBJSTATE_AT", 30));
++	_testObjEvery = MAX(2, envInt("DIGHD_TEST_OBJSTATE_EVERY", 40));
 +	_quitAt = envInt("DIGHD_QUIT_AT", -1);
 +	_skipVideo = envInt("DIGHD_SKIP_VIDEO", 0) != 0;
 +	_verify = envInt("DIGHD_VERIFY", 0) != 0;
@@ -2294,6 +2321,9 @@ index 00000000..c09447b9
 +		}
 +	}
 +
++	// DIGHD_TEST_OBJSTATE: true at the end of a step, when the object shows the state
++	const bool objStepEnd = testObjectStates();
++
 +	for (uint i = 0; i < _testKeys.size(); i++) {
 +		if (_testKeys[i].frame != (int)_frameNo)
 +			continue;
@@ -2307,8 +2337,10 @@ index 00000000..c09447b9
 +		debug("DigHD: test, key %d with flags %d at frame %u", (int)_testKeys[i].keycode, (int)_testKeys[i].flags, _frameNo);
 +	}
 +
-+	if (_dumpEvery > 0 && !_dumpDir.empty() && (_frameNo % _dumpEvery) == 0)
-+		dumpFrame();
++	if (!_dumpDir.empty() && ((_dumpEvery > 0 && (_frameNo % _dumpEvery) == 0) || objStepEnd))
++		dumpFrame();  // logs the test objects too
++	else if (objStepEnd)
++		logTestObjects();
 +
 +	// The test camera stays where it was set in the test room, also when a
 +	// script moves it. It is set again after this frame has been shown (and
@@ -2323,6 +2355,290 @@ index 00000000..c09447b9
 +	if (_quitAt > 0 && (int)_frameNo >= _quitAt) {
 +		debug("DigHD: frame %u, %s", _frameNo, statText().c_str());
 +		Engine::quitGame();
++	}
++}
++
++// ---------------------------------------------------------------- object states (test hook)
++
++// DIGHD_TEST_OBJSTATE. After the test jump (DIGHD_TEST_OBJSTATE_AT frames after
++// DIGHD_TEST_AT, once the game is in the test room), the hook puts objects in a
++// state the way the script opcode setState does it (o6_setState(): putState(),
++// markObjectRectAsDirty() and the draw queue cleared when the background is
++// redrawn). The engine then draws them on its normal path in the next frame,
++// and DigHD sees them as in the game. A state the game changes is set back.
++//
++// With a list (884:2,886:1) all objects are set at once and held. With "alle"
++// every state of every object in the room with images is shown for
++// DIGHD_TEST_OBJSTATE_EVERY frames, object by object; an object is set back to
++// the state it had before the next object starts. The camera is moved to an
++// object that is not on screen (unless DIGHD_TEST_CAMX or CAMY is set).
++//
++// Returns true at the end of a step (the last frame before the next state, and
++// once for a list), when the screen is dumped and the test objects are logged.
++bool DigHD::testObjectStates() {
++	if ((_testObjSteps.empty() && !_testObjAll) || _testObjFinished || _vm->isSmushActive())
++		return false;
++	if (!_testObjStarted) {
++		if ((int)_frameNo < _testAt)
++			return false;
++		if (_testObjRoom < 0) {
++			// Wait for the test jump; without DIGHD_TEST_ROOM, the room the game is in
++			if (_testRoom > 0 && (!_testDone || _vm->_currentRoom != _testRoom))
++				return false;
++			_testObjRoom = _vm->_currentRoom;
++			_testObjFrom = _frameNo + _testObjAt;
++		}
++	}
++	if (_vm->_currentRoom != _testObjRoom) {
++		debug("DigHD: test, object states stopped at frame %u: the game left room %d for room %d",
++		      _frameNo, _testObjRoom, (int)_vm->_currentRoom);
++		_testObjHeld.clear();
++		_testObjFinished = true;
++		return false;
++	}
++	if (_frameNo < _testObjFrom)
++		return false;
++
++	if (!_testObjStarted) {
++		_testObjStarted = true;
++		if (_testObjAll) {
++			// Every object in the room with images, every state with an image (IM01, IM02 ...)
++			Common::Array<int> objs;
++			for (int i = 1; i < _vm->_numLocalObjects; i++) {
++				const ObjectData &od = _vm->_objs[i];
++				if (od.obj_nr > 0 && od.width > 0 && od.height > 0 && _vm->getObjectImageCount(od.obj_nr) > 0)
++					objs.push_back(od.obj_nr);
++			}
++			Common::sort(objs.begin(), objs.end());
++			uint left = 0;
++			for (uint i = 0; i < objs.size(); i++) {
++				const int count = MIN(_vm->getObjectImageCount(objs[i]), 16);  // IM01 to IM10
++				for (int s = 1; s <= count; s++) {
++					if (!testObjectDrawable(objs[i], s)) {
++						left++;
++						continue;
++					}
++					TestObjStep step = { objs[i], s };
++					_testObjSteps.push_back(step);
++				}
++			}
++			debug("DigHD: test, object states in room %d: %u objects with images, %u states, %u left out, one every %d frames from frame %u",
++			      _testObjRoom, objs.size(), _testObjSteps.size(), left, _testObjEvery, _frameNo);
++		}
++	}
++
++	const int since = (int)(_frameNo - _testObjFrom);
++	if (_testObjAll) {
++		const int step = since / _testObjEvery;
++		if (step != _testObjStep) {
++			const int prev = (_testObjStep >= 0 && _testObjStep < (int)_testObjSteps.size()) ? _testObjSteps[_testObjStep].obj : -1;
++			if (step >= (int)_testObjSteps.size()) {
++				restoreTestObjects();
++				_testObjFinished = true;
++				debug("DigHD: test, object states done at frame %u", _frameNo);
++				// With DIGHD_QUIT_AT the game ends now
++				if (_quitAt > 0)
++					_quitAt = _frameNo;
++				return false;
++			}
++			_testObjStep = step;
++			const TestObjStep &s = _testObjSteps[step];
++			if (s.obj != prev) {
++				restoreTestObjects();
++				showTestObject(s.obj);
++			}
++			holdTestObject(s.obj, s.state, Common::String::format(" (step %d of %u)", step + 1, _testObjSteps.size()).c_str());
++		}
++	} else if (_testObjStep < 0) {
++		_testObjStep = 0;
++		for (uint i = 0; i < _testObjSteps.size(); i++)
++			holdTestObject(_testObjSteps[i].obj, _testObjSteps[i].state, "");
++	}
++
++	// A state the game has changed since (a script) is set back
++	for (uint i = 0; i < _testObjHeld.size(); i++) {
++		TestObjHeld &h = _testObjHeld[i];
++		const int now = _vm->getState(h.obj);
++		if (now == h.state)
++			continue;
++		if (!h.changed)
++			debug("DigHD: test, the game set object %d to state %d at frame %u; set back to %d", h.obj, now, _frameNo, h.state);
++		h.changed = true;
++		putTestObjectState(h.obj, h.state);
++	}
++	return _testObjAll ? since % _testObjEvery == _testObjEvery - 1 : since == _testObjEvery - 1;
++}
++
++bool DigHD::testObjectDrawable(int obj, int state) {
++	// The engine draws an object in a state as part of the room (drawObject(),
++	// Gdi::drawBitmap()), which needs a room image (SMAP) for the state. Some
++	// objects only have BOMP images (room 107, the inventory icons in room 93);
++	// scripts draw them as blast objects, and drawBitmap() would stop at an
++	// assertion. State 0 shows no image.
++	if (state == 0)
++		return true;
++	const int idx = _vm->getObjectIndex(obj);
++	const byte *obim = idx >= 0 ? _vm->getOBIMFromObjectData(_vm->_objs[idx]) : nullptr;
++	const byte *img = (obim && state <= 16) ? _vm->getObjectImage(obim, state) : nullptr;
++	if (!img) {
++		debug("DigHD: test, object %d state %d has no image, left out", obj, state);
++		return false;
++	}
++	if (!_vm->findResource(MKTAG('S', 'M', 'A', 'P'), img)) {
++		debug("DigHD: test, object %d state %d is not a room image (no SMAP, a BOMP the scripts draw as a blast object), left out",
++		      obj, state);
++		return false;
++	}
++	return true;
++}
++
++void DigHD::putTestObjectState(int obj, int state) {
++	// As the script opcode setState (o6_setState())
++	_vm->putState(obj, state);
++	_vm->markObjectRectAsDirty(obj);
++	if (_vm->_bgNeedsRedraw)
++		_vm->clearDrawObjectQueue();
++}
++
++void DigHD::holdTestObject(int obj, int state, const char *why) {
++	const int idx = _vm->getObjectIndex(obj);
++	if (idx < 0) {
++		debug("DigHD: test, object %d is not in room %d", obj, (int)_vm->_currentRoom);
++		return;
++	}
++	if (!testObjectDrawable(obj, state))
++		return;
++	TestObjHeld *h = nullptr;
++	for (uint i = 0; i < _testObjHeld.size() && !h; i++)
++		if (_testObjHeld[i].obj == obj)
++			h = &_testObjHeld[i];
++	if (!h) {
++		TestObjHeld n = { obj, state, _vm->getState(obj), 0, 0, false };
++		_testObjHeld.push_back(n);
++		h = &_testObjHeld.back();
++	}
++	h->state = state;
++	h->seq = _seq;
++	h->frame = _frameNo;
++	h->changed = false;
++	putTestObjectState(obj, state);
++	const ObjectData &od = _vm->_objs[idx];
++	debug("DigHD: test, object %d state %d at frame %u%s, at %d,%d %dx%d, %d images", obj, state, _frameNo, why,
++	      od.x_pos, od.y_pos, od.width, od.height, _vm->getObjectImageCount(obj));
++	// An object with a parent is drawn only while the parent has the state the
++	// object names (drawRoomObject()), so the parent is set too
++	if (od.parent > 0 && od.parent < _vm->_numLocalObjects) {
++		const int parent = _vm->_objs[od.parent].obj_nr, want = od.parentstate;
++		if (parent > 0 && (_vm->getState(parent) & 0xF) != want)
++			holdTestObject(parent, want, Common::String::format(" (parent of object %d)", obj).c_str());
++	}
++}
++
++void DigHD::restoreTestObjects() {
++	for (uint i = 0; i < _testObjHeld.size(); i++) {
++		const TestObjHeld &h = _testObjHeld[i];
++		if (_vm->getObjectIndex(h.obj) >= 0 && _vm->getState(h.obj) != h.orig) {
++			putTestObjectState(h.obj, h.orig);
++			debug("DigHD: test, object %d back to state %d at frame %u", h.obj, h.orig, _frameNo);
++		}
++	}
++	_testObjHeld.clear();
++}
++
++void DigHD::showTestObject(int obj) {
++	// The camera stays where DIGHD_TEST_CAMX or CAMY put it
++	const int idx = _vm->getObjectIndex(obj);
++	if (idx < 0 || _testCamX >= 0 || _testCamY >= 0)
++		return;
++	const ObjectData &od = _vm->_objs[idx];
++	const int sw = _vm->_screenWidth, sh = _vm->_screenHeight;
++	const int left = _vm->camera._cur.x - sw / 2, top = _vm->camera._cur.y - sh / 2;
++	if (od.x_pos >= left && od.x_pos + od.width <= left + sw && od.y_pos >= top && od.y_pos + od.height <= top + sh)
++		return;
++	_vm->camera._follows = 0;
++	_vm->setCameraAt(od.x_pos + od.width / 2, od.y_pos + od.height / 2);
++	_testCamPos = _vm->camera._cur;  // clamped to the room; held as for DIGHD_TEST_CAMX
++	_testCamSet = true;
++	_vm->_fullRedraw = true;
++	debug("DigHD: test, camera to %d,%d for object %d at frame %u", _testCamPos.x, _testCamPos.y, obj, _frameNo);
++}
++
++void DigHD::logTestObjects() {
++	// For each object the hook holds: whether it was drawn in the state since it
++	// was set, whether the HD image for the object and state was found, and
++	// where the pixels in its rectangle on screen come from now
++	const VirtScreen *vs = &_vm->_virtscr[kMainVirtScreen];
++	const bool haveRoom = _roomImage.valid();
++	for (uint k = 0; k < _testObjHeld.size(); k++) {
++		const TestObjHeld &h = _testObjHeld[k];
++		const int idx = _vm->getObjectIndex(h.obj);
++		if (idx < 0)
++			continue;
++		const ObjectData &od = _vm->_objs[idx];
++		int slot = -1;
++		for (uint i = 0; i < _drawn.size(); i++)
++			if (_drawn[i].obj == h.obj)
++				slot = i;
++		Common::String drawn = "no";
++		if (slot >= 0 && _drawn[slot].seq > h.seq)
++			drawn = _drawn[slot].state == h.state ? Common::String("yes") : Common::String::format("with state %d", _drawn[slot].state);
++		// yes, no (not in the mod), unreadable (see the warning), not loaded (not drawn yet)
++		const Common::Path hdFile(Common::String::format("objects/obj%03d_%02X.png", h.obj, h.state));
++		const Common::Path idxFile(Common::String::format("objects/obj%03d_%02X_idx.png", h.obj, h.state));
++		const bool files = Common::FSNode(_modPath.join(hdFile)).exists() && Common::FSNode(_modPath.join(idxFile)).exists();
++		Image *img = nullptr;
++		const bool cached = _objectImages.tryGetVal(((uint32)h.obj << 8) | (uint32)h.state, img);
++		const char *hd = !files ? "no" : !cached ? "not loaded" : img ? "yes" : "unreadable";
++		const Image *drawnImg = (drawn == "yes" && slot >= 0) ? _drawn[slot].image : nullptr;
++
++		uint32 onScreen = 0, objPx = 0, hdObject = 0, room = 0, other = 0, sprite = 0, orig = 0, missing = 0;
++		for (int ry = od.y_pos; ry < od.y_pos + od.height; ry++) {
++			const int sy = ry - _vm->_screenTop + vs->topline;
++			if (sy < 0 || sy >= _h)
++				continue;
++			for (int rx = od.x_pos; rx < od.x_pos + od.width; rx++) {
++				const int sx = rx - vs->xstart;
++				if (sx < 0 || sx >= _w)
++					continue;
++				onScreen++;
++				const uint32 src = _source[sy * _w + sx];
++				switch (src & kSrcMask) {
++				case kSrcRoom:
++					room++;
++					break;
++				case kSrcObject:
++					if ((int)((src >> 22) & 0xFF) == slot)
++						hdObject++;
++					else
++						other++;
++					break;
++				case kSrcCel:
++					sprite++;
++					break;
++				default:
++					orig++;
++					missing += src == kSrcFlatMissing;
++					break;
++				}
++				// The object's own pixels that are seen: not transparent, not the
++				// same as the room background (there the engine shows the HD room),
++				// and not covered: the pixel holds the object's value (under text
++				// too), and no other object drawn later shows it
++				const int ox = rx - od.x_pos, oy = ry - od.y_pos;
++				const bool otherObject = (src & kSrcMask) == kSrcObject && (int)((src >> 22) & 0xFF) != slot;
++				if (drawnImg && ox < drawnImg->idx.w && oy < drawnImg->idx.h && !otherObject) {
++					const byte oi = *((const byte *)drawnImg->idx.getBasePtr(ox, oy));
++					const bool asRoom = haveRoom && rx >= 0 && ry >= 0 && rx < _roomImage.idx.w && ry < _roomImage.idx.h &&
++					                    *((const byte *)_roomImage.idx.getBasePtr(rx, ry)) == oi;
++					if ((int)oi != drawnImg->transparent && !asRoom && _base[sy * _w + sx] == oi)
++						objPx++;
++				}
++			}
++		}
++		debug("DigHD: test object %d state %d frame %u: drawn %s, HD image %s, object px %u, HD object px %u, "
++		      "at %d,%d %dx%d, on screen %u px: HD room px %u, other HD object px %u, HD sprite px %u, original px %u (without HD %u)",
++		      h.obj, h.state, _frameNo, drawn.c_str(), hd, objPx, hdObject, od.x_pos, od.y_pos, od.width, od.height,
++		      onScreen, room, other, sprite, orig, missing);
 +	}
 +}
 +
@@ -2521,6 +2837,7 @@ index 00000000..c09447b9
 +		      _frameNo, (int)_vm->_currentRoom, vs->xstart, _vm->_screenTop,
 +		      _statRoom - room0, _statObject - object0, _statCel - cel0, _statFlat - flat0,
 +		      bgMissing, figMissing, _statText - text0, _statCycle - cycle0);
++		logTestObjects();  // DIGHD_TEST_OBJSTATE
 +	}
 +	if (film) {
 +		// Where the pixels of this film frame come from, in original pixels.
@@ -2625,10 +2942,10 @@ index 00000000..c09447b9
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..bc00d0cf
+index 00000000..a7cb03cc
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,386 @@
+@@ -0,0 +1,414 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -3006,6 +3323,34 @@ index 00000000..bc00d0cf
 +	int _testCostume = -1, _testActor = 29, _testChoreEvery = 60, _testPosX = -1, _testPosY = -1, _testPalette = -1;  // DIGHD_TEST_COSTUME
 +	Common::Array<int> _testAnims;  // animations of the test costume (AKCH entries in use)
 +	int _testDirs = 4;
++
++	// DIGHD_TEST_OBJSTATE: objects put in a state after the test jump, as the
++	// script opcode setState does it (putState() and the object marked for
++	// redrawing). Either a fixed list (884:2,886:1), or every state of every
++	// object in the room, one after the other (alle), with a dump at the end of
++	// each step. See testObjectStates().
++	struct TestObjStep {
++		int obj, state;
++	};
++	struct TestObjHeld {
++		int obj, state;  // the object and the state the hook wants
++		int orig;        // its state before the hook changed it
++		uint32 seq;      // _seq when it was set: drawn since if noteObject() came later
++		uint32 frame;    // frame it was set
++		bool changed;    // the game has set another state since (logged once)
++	};
++	Common::Array<TestObjStep> _testObjSteps;  // the list, or one step per object and state (alle)
++	Common::Array<TestObjHeld> _testObjHeld;   // the objects the hook holds in a state now
++	bool _testObjAll = false, _testObjStarted = false, _testObjFinished = false;
++	int _testObjAt = 30, _testObjEvery = 40, _testObjStep = -1, _testObjRoom = -1;
++	uint32 _testObjFrom = 0;  // first frame of the first step
++	bool testObjectStates();
++	bool testObjectDrawable(int obj, int state);
++	void holdTestObject(int obj, int state, const char *why);
++	void putTestObjectState(int obj, int state);
++	void restoreTestObjects();
++	void showTestObject(int obj);
++	void logTestObjects();
 +	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false, _dumpFlat = false;
 +	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statSan = 0, _statFlat = 0, _statMissing = 0, _statCycle = 0, _statText = 0;
 +	uint32 _statCelTint = 0, _statCelKept = 0;  // HD sprite px tinted, figure px with HD image kept original

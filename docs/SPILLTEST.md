@@ -68,6 +68,7 @@ tools/romtest.sh                     # alle rom med mods/gpt
 tools/romtest.sh --rom 2,9,22        # noen rom (--rom 20-30 for et område)
 tools/romtest.sh --mod test-nearest  # en annen mod
 tools/romtest.sh --kamera ett        # bare der spillet selv setter kameraet
+tools/romtest.sh --objekter          # i tillegg alle tilstandene til alle objektene i hvert rom
 tools/romtest.sh --bare-rapport      # rapport og ark på nytt fra kjøringene som finnes
 ```
 
@@ -75,9 +76,34 @@ Skriptet kjører motoren uten skjerm (SDL dummy) én gang per rom og hopper til 
 
 For hver kjøring samles: om rommet ble lastet, om motoren krasjet eller hang (tidsgrense 180 sekunder), om HD-bakgrunnen ble lastet og brukt, andelen piksler fra HD-bakgrunn, HD-objekt, HD-figur og originalen i det siste bildet (linjen `whole screen` i loggen, se `docs/HD-MOTOR.md`), og avviket fra originalen (`DIGHD_VERIFY`). Bildene sammenlignes også i skriptet: forskyvning av HD-bildet, svarte felt der originalen ikke er svart, og de største avvikene. Der lages det nærbilder, og i rom med forgrunnsmasker nærbilder av figurene, så en kan se om de går bak det samme i HD som i originalen. Til slutt måles sømmene mellom HD-objekter og HD-rommet i modden: der et objekt er likt rombakgrunnen, viser motoren HD-rommet, og der objektet skiller seg fra den, HD-objektet. Er de to bildene laget hver for seg, kan grensen synes.
 
-Resultatet ligger i `work/romtest`: `RAPPORT.md` (sammendrag og tabeller), `romtest.csv`, `somer.csv`, kontaktark `ark_NN.png` med HD og originalen side om side for hvert rom, en mappe per kjøring med logg og bilder, og `naerbilder/`. Notater fra gjennomsynet kan skrives i `work/romtest/FUNN.md`, og kommer med i rapporten neste gang den lages.
+Resultatet ligger i `work/romtest`: `RAPPORT.md` (sammendrag og tabeller), `romtest.csv`, `somer.csv`, kontaktark `ark_NN.png` med HD og originalen side om side for hvert rom, en mappe per kjøring med logg og bilder, og `naerbilder/`. Med `--objekter` også `objekter.csv` (se under). Notater fra gjennomsynet kan skrives i `work/romtest/FUNN.md`, og kommer med i rapporten neste gang den lages. Stien i `--ut` kan være relativ; skriptet gjør den absolutt, fordi motoren kjører i en egen mappe.
 
 Hoppet setter ikke spillet i vanlig tilstand. Figurer og objekter kan mangle eller stå et annet sted enn i vanlig spill, og noen rom starter en film eller bytter rom selv. Testen fanger krasj, rom som ikke lastes, rom der HD-bakgrunnen ikke brukes og tydelige feil i bildet, ikke feil som bare viser seg i vanlig spill.
+
+### Objekttilstander
+
+Etter hoppet står hvert objekt i tilstanden skriptene ga det, så HD-bildene for de andre tilstandene (`objNNN_02.png` og videre) blir ikke prøvd i den vanlige kjøringen. Med `--objekter` kjøres hvert rom som har objekter, én gang til med `DIGHD_TEST_OBJSTATE=alle` (se Objekttilstander i testen i `docs/HD-MOTOR.md`). Motoren setter hvert objekt i hver tilstand slik skriptene gjør det, viser tilstanden i 40 bilder (`--objekt-bilder`) og lagrer skjermen i HD og med originalpikslene. Objektet settes tilbake før neste objekt, og kameraet flyttes til objekter som ikke er på skjermen. Kjøringen heter `romNNN_objekter`.
+
+For hvert objekt og hver tilstand står dette i rapporten (avsnittet Objekttilstander) og i `objekter.csv`:
+
+- Status: `HD brukt`, `likt rommet` (objektet er likt rombakgrunnen overalt, og motoren viser HD-rommet), `ikke i modden`, `HD-bildet ikke lest` (finnes, men har for eksempel feil størrelse), `ikke tegnet`, `ikke på skjermen` eller `utelatt` (BOMP-bilder som skriptene tegner som blast-objekter).
+- HD-andel: hvor stor del av objektets egne synlige piksler som kom fra HD-objektet. Objektpikslene er de som ikke er gjennomsiktige, ikke like rombakgrunnen der modden har HD-rommet, og ikke dekket av noe annet. Talt i motoren.
+- Snitt og sterkt avvik: HD-bildet skalert ned mot originalpikslene i objektpikslene (fra uttrekket), største kanal. Sterkt er over 56.
+- Om skjermen var lik hele skjermen bygget på nytt etter byttet (`DIGHD_VERIFY`), og merknader: forelder satt, tilstanden endret av spillet, kameraet flyttet tilbake av et skript.
+- Nærbilde i `naerbilder/objNNN_SS_romRRR.png` med HD til venstre og originalen til høyre.
+
+Tid og plass: med to kjøringer samtidig tok rom 85 (64 tilstander) 65 sekunder og rom 23 (29 tilstander) 28 sekunder. `tools/romtest.sh --objekter --kamera ett` for alle 111 rom (111 vanlige kjøringer og 72 med objekttilstander) tok 16 minutter og 730 MB. Hver tilstand gir to bilder på omtrent 1 MB til sammen. Resultatet fra 2026-10-07 står under Hva som er testet i `docs/HD-MOTOR.md`.
+
+Et objekt som et annet objekt dekker i tilstanden etter hoppet, får status `dekket`. Det kan testes for seg med en liste, der det som dekker får tilstand 0:
+
+```sh
+mkdir -p /tmp/dump
+DIGHD_MOD="$PWD/mods/gpt" DIGHD_TEST_ROOM=100 DIGHD_TEST_OBJSTATE=769:0,775:5 DIGHD_SKIP_VIDEO=1 \
+  DIGHD_DUMP_DIR=/tmp/dump DIGHD_DUMP_FLAT=1 DIGHD_QUIT_AT=400 \
+  engine/scummvm/scummvm --path="$PWD/game" --debuglevel=1 dig 2>&1 | grep "DigHD: test"
+```
+
+Skjermen lagres i `/tmp/dump` 40 bilder etter at tilstandene er satt, og linjen `test object 775 state 5` sier om HD-bildet ble brukt.
 
 ## I nettleseren
 
