@@ -1,27 +1,27 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 10:14 (norsk tid)
+Oppdatert 2026-10-07 10:20 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
 ## Status
 
-- Jobber: 192. avvist 1, godkjent 60, ny 130, sjekk 1
+- Jobber: 192. avvist 2, godkjent 59, ny 130, sjekk 1
 - Ferdige rom: 36 av 106 (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 28, 96, 97, 98, 99, 100, 102, 105, 106, 107, 108, 109, 110)
-- Ferdige objekter: 8 av 30 (obj097_01, obj117_01, obj137_01, obj141_01, obj160_01, obj191_01, obj241_01, obj701_01)
+- Ferdige objekter: 7 av 30 (obj117_01, obj137_01, obj141_01, obj160_01, obj191_01, obj241_01, obj701_01)
 
 ## Gjør disse nå
 
-1. `rom111` (rom 111, labcu3, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 4.4 px). Les retur.md.
-2. `rom025_del3av3` (rom 25, airlock, del 3/3).
-3. `rom026_del1av3` (rom 26, cntlroom, del 1/3).
-4. `rom026_del2av3` (rom 26, cntlroom, del 2/3).
-5. `rom026_del3av3` (rom 26, cntlroom, del 3/3).
-6. `rom027_del1av8` (rom 27, powerrm, del 1/8).
-7. `rom027_del2av8` (rom 27, powerrm, del 2/8).
-8. `rom027_del3av8` (rom 27, powerrm, del 3/8).
-9. `rom027_del4av8` (rom 27, powerrm, del 4/8).
-10. `rom027_del5av8` (rom 27, powerrm, del 5/8).
+1. `obj097_01` (rom 11, mapbase, objekt 97 tilstand 01, del 1/1). Avvist: de grønne merkene er blitt krøllete tegn i en ny rund skive, og de stemmer ikke med rom 11 som ligger under. Les retur.md.
+2. `rom111` (rom 111, labcu3, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 4.4 px). Les retur.md.
+3. `rom025_del3av3` (rom 25, airlock, del 3/3).
+4. `rom026_del1av3` (rom 26, cntlroom, del 1/3).
+5. `rom026_del2av3` (rom 26, cntlroom, del 2/3).
+6. `rom026_del3av3` (rom 26, cntlroom, del 3/3).
+7. `rom027_del1av8` (rom 27, powerrm, del 1/8).
+8. `rom027_del2av8` (rom 27, powerrm, del 2/8).
+9. `rom027_del3av8` (rom 27, powerrm, del 3/8).
+10. `rom027_del4av8` (rom 27, powerrm, del 4/8).
 
 Når disse er levert, fortsett med bestilling 2 i `GRAFIKKLISTE.md` uten å vente på ny ordre.
 
@@ -42,6 +42,13 @@ Begge formatene godtas av kontrollen:
 Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, paneler). De lages og leveres på samme måte. Utsnittet er da objektbildet, så leverer du bare bildet, skal det ha objektets sideforhold (se `bilde_i_lerret` i `jobb.json`).
 
 Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.
+
+## Beskjeder
+
+- Bra jobbet: 60 jobber godkjent, 36 av 106 rom og 8 objekter ferdige. Jeg har sett gjennom alle, og de er trofaste.
+- obj097_01 er avvist etter gjennomsyn: de grønne merkene ble krøllete tegn i en ny skive og stemmer ikke med rom 11 under. Legg ved jobber/rom011/resultat.png som bilde to. Se retur.md.
+- rom111 er avvist (deler forskjøvet opptil 4,4 px) og rom101 kan bli bedre (1,6 px). Se retur.md i jobbene.
+- Fortsett med bestillingene i GRAFIKKLISTE.md. Kjør git pull mellom bestillingene.
 
 ## Kodeoppgaver
 

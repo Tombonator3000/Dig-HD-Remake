@@ -1,6 +1,6 @@
 # Grafikkliste
 
-Oppdatert 2026-10-07 10:14 (norsk tid)
+Oppdatert 2026-10-07 10:20 (norsk tid)
 
 Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bestilling 1 er det samme som står i `ORDRE.md`. Når en bestilling er levert, tar du neste uten å vente på ny ordre. Hopp over jobber som er krysset av.
 
@@ -9,15 +9,16 @@ Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bes
 | Del | Ferdig | Totalt | Når |
 | --- | --- | --- | --- |
 | Rombakgrunner | 36 | 106 | Nå, bestillingene under (162 jobber, brede og høye rom er delt) |
-| Store objektbilder (nærbilder, kart, trikken) | 8 | 30 | Nå, sammen med rommene |
+| Store objektbilder (nærbilder, kart, trikken) | 7 | 30 | Nå, sammen med rommene |
 | Andre objektbilder (610) | 0 | 610 | Senere, egen bestilling når rommene er ferdige |
 | Figurer (modellark for Boston, Maggie og Brink) | 0 | 3 | Senere, egen bestilling |
 | Filmrammer (12 638) | 0 | 12 638 | Senere, egen bestilling |
 
 ## Bestilling 1 (nå, samme som ORDRE.md)
 
-Rom 25, 26, 27, 111.
+Rom 11, 25, 26, 27, 111.
 
+- [ ] `obj097_01` (rom 11 mapbase, objekt 97 tilstand 01) (avvist, les retur.md)
 - [ ] `rom111` (rom 111 labcu3) (avvist, les retur.md)
 - [ ] `rom025_del3av3` (rom 25 airlock, del 3/3)
 - [ ] `rom026_del1av3` (rom 26 cntlroom, del 1/3)
@@ -27,12 +28,12 @@ Rom 25, 26, 27, 111.
 - [ ] `rom027_del2av8` (rom 27 powerrm, del 2/8)
 - [ ] `rom027_del3av8` (rom 27 powerrm, del 3/8)
 - [ ] `rom027_del4av8` (rom 27 powerrm, del 4/8)
-- [ ] `rom027_del5av8` (rom 27 powerrm, del 5/8)
 
 ## Bestilling 2
 
-Rom 27, 29, 30, 31, 32, 33.
+Rom 27, 29, 30, 31, 32.
 
+- [ ] `rom027_del5av8` (rom 27 powerrm, del 5/8)
 - [ ] `rom027_del6av8` (rom 27 powerrm, del 6/8)
 - [ ] `rom027_del7av8` (rom 27 powerrm, del 7/8)
 - [ ] `rom027_del8av8` (rom 27 powerrm, del 8/8)
@@ -42,12 +43,12 @@ Rom 27, 29, 30, 31, 32, 33.
 - [ ] `rom030_del2av2` (rom 30 connect, del 2/2)
 - [ ] `rom031` (rom 31 mudoor)
 - [ ] `rom032` (rom 32 pool)
-- [ ] `rom033_del1av2` (rom 33 skeleton, del 1/2)
 
 ## Bestilling 3
 
 Rom 33, 34, 35, 36, 37, 38, 39.
 
+- [ ] `rom033_del1av2` (rom 33 skeleton, del 1/2)
 - [ ] `rom033_del2av2` (rom 33 skeleton, del 2/2)
 - [ ] `rom034_del1av2` (rom 34 museum, del 1/2)
 - [ ] `rom034_del2av2` (rom 34 museum, del 2/2)
@@ -57,12 +58,12 @@ Rom 33, 34, 35, 36, 37, 38, 39.
 - [ ] `obj317_01` (rom 37 trmmapf, objekt 317 tilstand 01)
 - [ ] `rom038` (rom 38 ledge)
 - [ ] `rom039_del1av2` (rom 39 batdoor, del 1/2)
-- [ ] `rom039_del2av2` (rom 39 batdoor, del 2/2)
 
 ## Bestilling 4
 
-Rom 40, 41, 42, 43, 44, 45.
+Rom 39, 40, 41, 42, 43, 44.
 
+- [ ] `rom039_del2av2` (rom 39 batdoor, del 2/2)
 - [ ] `rom040` (rom 40 mapcntl)
 - [ ] `rom041` (rom 41 falls)
 - [ ] `obj343_01` (rom 41 falls, objekt 343 tilstand 01)
@@ -72,12 +73,12 @@ Rom 40, 41, 42, 43, 44, 45.
 - [ ] `rom044_del1av2` (rom 44 nest, del 1/2)
 - [ ] `rom044_del2av2` (rom 44 nest, del 2/2)
 - [ ] `obj355_01` (rom 44 nest, objekt 355 tilstand 01)
-- [ ] `rom045` (rom 45 labcu1)
 
 ## Bestilling 5
 
-Rom 46, 47, 48, 49, 50.
+Rom 45, 46, 47, 48, 49, 50.
 
+- [ ] `rom045` (rom 45 labcu1)
 - [ ] `rom046` (rom 46 cusarc)
 - [ ] `obj886_01` (rom 46 cusarc, objekt 886 tilstand 01)
 - [ ] `obj886_02` (rom 46 cusarc, objekt 886 tilstand 02)
@@ -87,12 +88,12 @@ Rom 46, 47, 48, 49, 50.
 - [ ] `rom049` (rom 49 mapdoor)
 - [ ] `rom050` (rom 50 cuengrav)
 - [ ] `obj884_01` (rom 50 cuengrav, objekt 884 tilstand 01)
-- [ ] `obj884_02` (rom 50 cuengrav, objekt 884 tilstand 02)
 
 ## Bestilling 6
 
 Rom 50, 51, 52, 53, 54, 55, 56, 57, 58.
 
+- [ ] `obj884_02` (rom 50 cuengrav, objekt 884 tilstand 02)
 - [ ] `obj884_03` (rom 50 cuengrav, objekt 884 tilstand 03)
 - [ ] `rom051` (rom 51 mapbridg)
 - [ ] `rom052` (rom 52 edge)
@@ -102,12 +103,12 @@ Rom 50, 51, 52, 53, 54, 55, 56, 57, 58.
 - [ ] `rom056` (rom 56 sparkle)
 - [ ] `rom057` (rom 57 backdoor)
 - [ ] `rom058` (rom 58 tomb)
-- [ ] `obj404_01` (rom 58 tomb, objekt 404 tilstand 01)
 
 ## Bestilling 7
 
-Rom 58, 59, 60, 61, 62, 63, 64.
+Rom 58, 59, 60, 61, 62, 63.
 
+- [ ] `obj404_01` (rom 58 tomb, objekt 404 tilstand 01)
 - [ ] `obj405_01` (rom 58 tomb, objekt 405 tilstand 01)
 - [ ] `obj406_01` (rom 58 tomb, objekt 406 tilstand 01)
 - [ ] `rom059` (rom 59 tombbridg)
@@ -117,12 +118,12 @@ Rom 58, 59, 60, 61, 62, 63, 64.
 - [ ] `rom061_del2av2` (rom 61 planclear, del 2/2)
 - [ ] `rom062` (rom 62 waves)
 - [ ] `rom063` (rom 63 cave)
-- [ ] `rom064` (rom 64 crevice)
 
 ## Bestilling 8
 
-Rom 65, 66, 67, 68, 69, 70, 71.
+Rom 64, 65, 66, 67, 68, 69, 70.
 
+- [ ] `rom064` (rom 64 crevice)
 - [ ] `rom065` (rom 65 dome)
 - [ ] `obj915_01` (rom 65 dome, objekt 915 tilstand 01)
 - [ ] `rom066` (rom 66 emboss4)
@@ -132,12 +133,12 @@ Rom 65, 66, 67, 68, 69, 70, 71.
 - [ ] `rom069` (rom 69 planbridg)
 - [ ] `rom070` (rom 70 trmcathf)
 - [ ] `obj844_01` (rom 70 trmcathf, objekt 844 tilstand 01)
-- [ ] `rom071` (rom 71 bonehint)
 
 ## Bestilling 9
 
-Rom 72, 73, 74, 75, 76, 77, 78, 79.
+Rom 71, 72, 73, 74, 75, 76, 77, 78.
 
+- [ ] `rom071` (rom 71 bonehint)
 - [ ] `rom072` (rom 72 emboss3)
 - [ ] `rom073_del1av2` (rom 73 lab, del 1/2)
 - [ ] `rom073_del2av2` (rom 73 lab, del 2/2)
@@ -147,12 +148,12 @@ Rom 72, 73, 74, 75, 76, 77, 78, 79.
 - [ ] `rom076` (rom 76 cathbrid)
 - [ ] `rom077` (rom 77 worldmap)
 - [ ] `rom078` (rom 78 theeye)
-- [ ] `rom079` (rom 79 newton)
 
 ## Bestilling 10
 
 Rom 79, 80, 81.
 
+- [ ] `rom079` (rom 79 newton)
 - [ ] `obj547_01` (rom 79 newton, objekt 547 tilstand 01)
 - [ ] `rom080_del1av3` (rom 80 trmmapn, del 1/3)
 - [ ] `rom080_del2av3` (rom 80 trmmapn, del 2/3)
@@ -162,12 +163,12 @@ Rom 79, 80, 81.
 - [ ] `rom081_del1av3` (rom 81 trmcathn, del 1/3)
 - [ ] `rom081_del2av3` (rom 81 trmcathn, del 2/3)
 - [ ] `rom081_del3av3` (rom 81 trmcathn, del 3/3)
-- [ ] `obj557_01` (rom 81 trmcathn, objekt 557 tilstand 01)
 
 ## Bestilling 11
 
-Rom 82, 83, 84, 85, 87, 88.
+Rom 81, 82, 83, 84, 85, 87, 88.
 
+- [ ] `obj557_01` (rom 81 trmcathn, objekt 557 tilstand 01)
 - [ ] `rom082` (rom 82 lockup)
 - [ ] `rom083_del1av3` (rom 83 trmtombn, del 1/3)
 - [ ] `rom083_del2av3` (rom 83 trmtombn, del 2/3)
@@ -177,12 +178,12 @@ Rom 82, 83, 84, 85, 87, 88.
 - [ ] `rom085` (rom 85 planmach)
 - [ ] `rom087` (rom 87 labcu2)
 - [ ] `rom088_del1av9` (rom 88 tombot, del 1/9)
-- [ ] `rom088_del2av9` (rom 88 tombot, del 2/9)
 
 ## Bestilling 12
 
 Rom 88, 89.
 
+- [ ] `rom088_del2av9` (rom 88 tombot, del 2/9)
 - [ ] `rom088_del3av9` (rom 88 tombot, del 3/9)
 - [ ] `rom088_del4av9` (rom 88 tombot, del 4/9)
 - [ ] `rom088_del5av9` (rom 88 tombot, del 5/9)
@@ -192,12 +193,12 @@ Rom 88, 89.
 - [ ] `rom088_del9av9` (rom 88 tombot, del 9/9)
 - [ ] `obj580_01` (rom 88 tombot, objekt 580 tilstand 01)
 - [ ] `rom089_del1av2` (rom 89 sarcoph, del 1/2)
-- [ ] `rom089_del2av2` (rom 89 sarcoph, del 2/2)
 
 ## Bestilling 13
 
-Rom 90, 91, 92, 94, 95.
+Rom 89, 90, 91, 92, 94, 95.
 
+- [ ] `rom089_del2av2` (rom 89 sarcoph, del 2/2)
 - [ ] `rom090` (rom 90 cathplat)
 - [ ] `rom091` (rom 91 eyehub)
 - [ ] `rom092_del1av2` (rom 92 library, del 1/2)
@@ -207,12 +208,12 @@ Rom 90, 91, 92, 94, 95.
 - [ ] `rom094_del3av3` (rom 94 trmplann, del 3/3)
 - [ ] `obj698_01` (rom 94 trmplann, objekt 698 tilstand 01)
 - [ ] `rom095_del1av3` (rom 95 trmmun, del 1/3)
-- [ ] `rom095_del2av3` (rom 95 trmmun, del 2/3)
 
 ## Bestilling 14
 
 Rom 95, 101.
 
+- [ ] `rom095_del2av3` (rom 95 trmmun, del 2/3)
 - [ ] `rom095_del3av3` (rom 95 trmmun, del 3/3)
 - [ ] `rom101` (rom 101 wavesbot) (kan bli bedre)
 
@@ -231,7 +232,6 @@ Rom 95, 101.
 - [x] `rom010_del1av2` (rom 10 tun1)
 - [x] `rom010_del2av2` (rom 10 tun1)
 - [x] `rom011` (rom 11 mapbase)
-- [x] `obj097_01` (rom 11 mapbase)
 - [x] `rom012` (rom 12 coreped)
 - [x] `rom013` (rom 13 emboss1)
 - [x] `rom014` (rom 14 squares)
