@@ -195,10 +195,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..67dcfe0a
+index 00000000..c09447b9
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,2363 @@
+@@ -0,0 +1,2424 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -240,6 +240,7 @@ index 00000000..67dcfe0a
 +#include "scumm/actor.h"
 +#include "scumm/dighd.h"
 +#include "scumm/gfx.h"
++#include "scumm/object.h"
 +#include "scumm/scumm.h"
 +#include "scumm/scumm_v7.h"
 +#include "scumm/usage_bits.h"
@@ -321,6 +322,7 @@ index 00000000..67dcfe0a
 +	_testRoom = envInt("DIGHD_TEST_ROOM", -1);
 +	_testAt = envInt("DIGHD_TEST_AT", 60);
 +	_testCamX = envInt("DIGHD_TEST_CAMX", -1);
++	_testCamY = envInt("DIGHD_TEST_CAMY", -1);
 +	_testCostume = envInt("DIGHD_TEST_COSTUME", -1);
 +	_testActor = envInt("DIGHD_TEST_ACTOR", 29);
 +	_testChoreEvery = MAX(1, envInt("DIGHD_TEST_CHORE_EVERY", 60));
@@ -2218,12 +2220,30 @@ index 00000000..67dcfe0a
 +	if (_skipVideo && _vm->isSmushActive())
 +		static_cast<ScummEngine_v7 *>(_vm)->_smushVideoShouldFinish = true;
 +
++	// A room smaller than the screen (room 93 holds the inventory icons) is never
++	// shown by the game: the camera cannot be placed in it, and ScummVM stops with
++	// an assertion in clampCameraPos(). The test jump leaves it out.
++	if (_testRoom > 0 && !_testDone && (int)_frameNo >= _testAt && !_vm->isSmushActive()) {
++		const byte *roomptr = _vm->getResourceAddress(rtRoom, _testRoom);
++		const RoomHeader *rmhd = roomptr ? (const RoomHeader *)_vm->findResourceData(MKTAG('R', 'M', 'H', 'D'), roomptr) : nullptr;
++		const int rw = rmhd ? READ_LE_UINT16(&rmhd->v7.width) : 0, rh = rmhd ? READ_LE_UINT16(&rmhd->v7.height) : 0;
++		if (rw < _vm->_screenWidth || rh < _vm->_screenHeight) {
++			_testDone = true;
++			debug("DigHD: test, room %d is %dx%d, smaller than the screen: no jump", _testRoom, rw, rh);
++		}
++	}
 +	if (_testRoom > 0 && !_testDone && (int)_frameNo >= _testAt && !_vm->isSmushActive()) {
 +		_testDone = true;
 +		debug("DigHD: test, jumping to room %d", _testRoom);
 +		_vm->startScene(_testRoom, nullptr, 0);
-+		if (_testCamX >= 0)
-+			_vm->setCameraAt(_testCamX, _vm->camera._cur.y);
++		if (_testCamX >= 0 || _testCamY >= 0) {
++			// The camera stays there: it no longer follows an actor
++			_vm->camera._follows = 0;
++			_vm->setCameraAt(_testCamX >= 0 ? _testCamX : _vm->camera._cur.x,
++			                 _testCamY >= 0 ? _testCamY : _vm->camera._cur.y);
++			_testCamPos = _vm->camera._cur;  // clamped to the room
++			_testCamSet = true;
++		}
 +		_vm->_fullRedraw = true;
 +	}
 +
@@ -2289,6 +2309,16 @@ index 00000000..67dcfe0a
 +
 +	if (_dumpEvery > 0 && !_dumpDir.empty() && (_frameNo % _dumpEvery) == 0)
 +		dumpFrame();
++
++	// The test camera stays where it was set in the test room, also when a
++	// script moves it. It is set again after this frame has been shown (and
++	// dumped), so the next frame is drawn there.
++	if (_testCamSet && _vm->_currentRoom == _testRoom && !_vm->isSmushActive() &&
++	    (_vm->camera._cur.x != _testCamPos.x || _vm->camera._cur.y != _testCamPos.y)) {
++		_vm->camera._follows = 0;
++		_vm->setCameraAt(_testCamPos.x, _testCamPos.y);
++		_vm->_fullRedraw = true;
++	}
 +
 +	if (_quitAt > 0 && (int)_frameNo >= _quitAt) {
 +		debug("DigHD: frame %u, %s", _frameNo, statText().c_str());
@@ -2450,7 +2480,11 @@ index 00000000..67dcfe0a
 +			delete fws;
 +		}
 +	}
-+	// The dump is built the same way as the screen, so it shows what is on screen
++	// The dump is built the same way as the screen, so it shows what is on screen.
++	// The counts of this pass alone are the whole picture in the dump (the counts
++	// in the line below are summed over everything built since the last dump).
++	const uint32 room0 = _statRoom, object0 = _statObject, cel0 = _statCel, flat0 = _statFlat;
++	const uint32 text0 = _statText, cycle0 = _statCycle;
 +	compose(0, 0, _w, _h);
 +	Common::FSNode node(_dumpDir.join(fname));
 +	Common::WriteStream *ws = node.createWriteStream();
@@ -2461,6 +2495,33 @@ index 00000000..67dcfe0a
 +	}
 +	debug("DigHD: dumped frame %u (room %d, smush %d) %s",
 +	      _frameNo, (int)_vm->_currentRoom, (int)_vm->isSmushActive(), statText().c_str());
++	if (!film) {
++		// Original pixels without HD, split into background (a room without HD
++		// background, or an object without HD image) and what is drawn over it
++		// (figures without HD image): equal to the background buffer or not
++		uint32 bgMissing = 0, figMissing = 0;
++		const VirtScreen *vs = &_vm->_virtscr[kMainVirtScreen];
++		for (int sy = 0; sy < _h; sy++) {
++			const int vy = sy - vs->topline + _vm->_screenTop;
++			for (int sx = 0; sx < _w; sx++) {
++				if (_source[sy * _w + sx] != kSrcFlatMissing)
++					continue;
++				const byte *back = (vs->hasTwoBuffers && vy >= 0 && vy < vs->h) ? vs->getBackPixels(sx, vy) : nullptr;
++				if (back && *back == _base[sy * _w + sx])
++					bgMissing++;
++				else
++					figMissing++;
++			}
++		}
++		// The place in the room shown at the top left of the screen (set when the
++		// camera moved, before the screen was drawn; a script may already have
++		// moved the camera again)
++		debug("DigHD: whole screen frame %u (room %d, screen at %d,%d): HD room px %u, HD object px %u, HD sprite px %u, "
++		      "original px %u (background without HD %u, figure without HD %u), HD text px %u, cycled HD px %u",
++		      _frameNo, (int)_vm->_currentRoom, vs->xstart, _vm->_screenTop,
++		      _statRoom - room0, _statObject - object0, _statCel - cel0, _statFlat - flat0,
++		      bgMissing, figMissing, _statText - text0, _statCycle - cycle0);
++	}
 +	if (film) {
 +		// Where the pixels of this film frame come from, in original pixels.
 +		// Text with an HD glyph is drawn over the picture under it.
@@ -2564,10 +2625,10 @@ index 00000000..67dcfe0a
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..9f31b3d0
+index 00000000..bc00d0cf
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,384 @@
+@@ -0,0 +1,386 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -2939,7 +3000,9 @@ index 00000000..9f31b3d0
 +	Common::Path _dumpDir;
 +	int _dumpEvery = 0;
 +	int _bench = 0;  // DIGHD_BENCH: build the whole screen this many times at each dump and log the time
-+	int _testRoom = -1, _testAt = -1, _testCamX = -1, _quitAt = -1;
++	int _testRoom = -1, _testAt = -1, _testCamX = -1, _testCamY = -1, _quitAt = -1;
++	bool _testCamSet = false;
++	Common::Point _testCamPos;  // where DIGHD_TEST_CAMX/CAMY put the camera (clamped to the room)
 +	int _testCostume = -1, _testActor = 29, _testChoreEvery = 60, _testPosX = -1, _testPosY = -1, _testPalette = -1;  // DIGHD_TEST_COSTUME
 +	Common::Array<int> _testAnims;  // animations of the test costume (AKCH entries in use)
 +	int _testDirs = 4;

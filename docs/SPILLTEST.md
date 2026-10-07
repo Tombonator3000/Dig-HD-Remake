@@ -61,6 +61,24 @@ HD fra ChatGPT finnes i over halvparten av rommene (se `STATUS.md`). Resten vise
 6. Gå mellom rom med og uten HD, og se at spillet ikke krasjer eller blinker.
 7. Ctrl+Shift+H: det gule skal vise nøyaktig det som mangler HD. Tekst og pekeren skal ikke bli gul.
 
+## Uten skjerm: alle rom
+
+```sh
+tools/romtest.sh                     # alle rom med mods/gpt
+tools/romtest.sh --rom 2,9,22        # noen rom (--rom 20-30 for et område)
+tools/romtest.sh --mod test-nearest  # en annen mod
+tools/romtest.sh --kamera ett        # bare der spillet selv setter kameraet
+tools/romtest.sh --bare-rapport      # rapport og ark på nytt fra kjøringene som finnes
+```
+
+Skriptet kjører motoren uten skjerm (SDL dummy) én gang per rom og hopper til rommet med `DIGHD_TEST_ROOM`. I rom som er bredere eller høyere enn skjermen, kjører det i tillegg med kameraet satt (`DIGHD_TEST_CAMX` og `DIGHD_TEST_CAMY`) så hele rommet blir vist. Etter 600 bilder lagres skjermen i HD og med originalpikslene. Forlater spillet rommet før det første bildet (rom 1, 10 og 104), kjøres det en gang til med et bilde hvert 10. bilde. To kjøringer går samtidig. Alle 111 rom (226 kjøringer) tok 25 minutter her. Motoren er `$SCUMMVM_SRC/scummvm` eller `engine/scummvm/scummvm` (`--motor` for en annen).
+
+For hver kjøring samles: om rommet ble lastet, om motoren krasjet eller hang (tidsgrense 180 sekunder), om HD-bakgrunnen ble lastet og brukt, andelen piksler fra HD-bakgrunn, HD-objekt, HD-figur og originalen i det siste bildet (linjen `whole screen` i loggen, se `docs/HD-MOTOR.md`), og avviket fra originalen (`DIGHD_VERIFY`). Bildene sammenlignes også i skriptet: forskyvning av HD-bildet, svarte felt der originalen ikke er svart, og de største avvikene. Der lages det nærbilder, og i rom med forgrunnsmasker nærbilder av figurene, så en kan se om de går bak det samme i HD som i originalen. Til slutt måles sømmene mellom HD-objekter og HD-rommet i modden: der et objekt er likt rombakgrunnen, viser motoren HD-rommet, og der objektet skiller seg fra den, HD-objektet. Er de to bildene laget hver for seg, kan grensen synes.
+
+Resultatet ligger i `work/romtest`: `RAPPORT.md` (sammendrag og tabeller), `romtest.csv`, `somer.csv`, kontaktark `ark_NN.png` med HD og originalen side om side for hvert rom, en mappe per kjøring med logg og bilder, og `naerbilder/`. Notater fra gjennomsynet kan skrives i `work/romtest/FUNN.md`, og kommer med i rapporten neste gang den lages.
+
+Hoppet setter ikke spillet i vanlig tilstand. Figurer og objekter kan mangle eller stå et annet sted enn i vanlig spill, og noen rom starter en film eller bytter rom selv. Testen fanger krasj, rom som ikke lastes, rom der HD-bakgrunnen ikke brukes og tydelige feil i bildet, ikke feil som bare viser seg i vanlig spill.
+
 ## I nettleseren
 
 ```sh

@@ -80,7 +80,10 @@ ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. `GRAFIKKLISTE.m
 cd pipeline && pytest -m "not game"   # pipelinen uten spillfiler (kjøres også i CI)
 cd pipeline && pytest -m game         # mot de ekte spillfilene
 engine/test.sh                        # spillet uten skjerm: HD-pikslene skal ligge der originalen har dem
+tools/romtest.sh                      # hvert rom uten skjerm med mods/gpt: krasj, HD-bakgrunn brukt, kontaktark
 ```
+
+`tools/romtest.sh` hopper til hvert rom (eller `--rom 2,9,22`) og lagrer skjermen i HD og med originalpikslene. Rapporten `work/romtest/RAPPORT.md` sier om rommet ble lastet, om motoren krasjet eller hang, og hvor mye av bildet som kom fra HD-bakgrunn, HD-objekter og originalen. Kontaktarkene `work/romtest/ark_NN.png` har HD og originalen side om side. Se [docs/SPILLTEST.md](docs/SPILLTEST.md#uten-skjerm-alle-rom).
 
 ## Grener
 
@@ -100,7 +103,7 @@ pipeline/tests/   tester for pipelinen
 engine/           patches/ (ScummVM-patchen), SCUMMVM_COMMIT, build.sh, run.sh, test.sh,
                   build-web.sh, run-web.sh og web/ (nettleseren, bare lokalt)
 tools/            hent_spilldata.sh, gpt_runde.sh, gpt_gren.sh, mod_gren.sh, la0_info.py,
-                  check_hd_art.py, hent_grafikkpilot.sh
+                  check_hd_art.py, hent_grafikkpilot.sh, romtest.sh og romtest.py (alle rom uten skjerm)
 docs/             ANALYSE, HD-MOTOR, BESTILLING-CHATGPT, GRAFIKKPILOT, rom-oversikt.csv,
                   gpt-romnotater.csv, gpt-arbeid-AGENTS.md, kostymefarger.csv (rom og palett
                   for kostymer med kodek 5 og 16), konsept/ (stilreferanser)
