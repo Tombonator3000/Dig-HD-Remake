@@ -1,4 +1,4 @@
-# obj886_01: avvist
+# obj886_01: sjekk
 
 Grunn: synlig søm mot HD-rommet (rom 46)
 

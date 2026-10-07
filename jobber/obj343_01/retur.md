@@ -1,4 +1,4 @@
-# obj343_01: avvist
+# obj343_01: sjekk
 
 Grunn: synlig søm mot HD-rommet (rom 41)
 

@@ -1,4 +1,4 @@
-# obj547_01: avvist
+# obj547_01: sjekk
 
 Grunn: fingrene og tommelen har en annen form og plass enn i originalen, og det gir en synlig søm mot rom 79
 

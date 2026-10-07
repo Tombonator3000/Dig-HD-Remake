@@ -1,4 +1,4 @@
-# obj355_01: avvist
+# obj355_01: sjekk
 
 Grunn: synlig søm mot HD-rommet (rom 44)
 

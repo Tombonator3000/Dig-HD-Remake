@@ -1,4 +1,4 @@
-# obj886_02: avvist
+# obj886_02: sjekk
 
 Grunn: synlig søm mot HD-rommet (rom 46); lages på nytt etter obj886_01
 

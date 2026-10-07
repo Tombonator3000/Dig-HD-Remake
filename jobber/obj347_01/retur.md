@@ -1,4 +1,4 @@
-# obj347_01: avvist
+# obj347_01: sjekk
 
 Grunn: synlig søm mot HD-rommet (rom 43), lys stripe i berget
 
