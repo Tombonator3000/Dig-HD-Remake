@@ -1,6 +1,6 @@
 # Status
 
-Oppdatert 7. oktober 2026, 00:45. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 7. oktober 2026, 02:25. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
@@ -26,8 +26,8 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Spillfiler | DIG.LA0, DIG.LA1 og VIDEO i `spilldata`, hentes og sjekkes med `tools/hent_spilldata.sh` | SHA-256 for alle 62 filer; LA1 er byte for byte lik filen thedig-textures er verifisert mot |
 | Uttrekk | Rom, objekter, kostymer med RGBS-farger og DCOS-ID, filmrammer | Tellinger mot LA1 (111, 642, 28 490, 12 638), testen `pytest -m game` |
 | Motor: bakgrunner og objekter | HD der originalen viser uendret bakgrunn eller et kjent objektbilde | `engine/test.sh` med nearest-mod: 0 avvikende piksler i rom 2, 26, 34 og 105 |
-| Motor: figurer | HD-sprites for kostymeruter med kodek 1 og 5 | 0 avvik for uskalerte figurer, under 0,25 prosent for skalerte (jevn skalering, ventet) |
-| Motor: filmer | HD-rammer per SAN-fil | 198 av 198 rammer i introen like med nearest-rammer etter rettingen til `_frame - 1` |
+| Motor: figurer | HD-sprites for kostymeruter med kodek 1 og 5 | 0 avvik for uskalerte figurer, under 0,25 prosent for skalerte (jevn skalering, ventet). Kodek 5 for seg: 30 kostymer i 15 rom med nearest-mod, 0 avvik i 135 dumper |
+| Motor: filmer | HD-rammer per SAN-fil, med undertekstene oppå som originalpiksler | 198 av 198 rammer i introen like med nearest-rammer etter rettingen til `_frame - 1`. Undertekster: hele SQ1 med nearest-rammer og merkede rammer, all synlig tekst på samme sted som i originalen og resten HD |
 | Motor: farger | Fade og palettbytte følger med; fargesyklede farger vises som originalen | Sett i dumpede bilder fra rom 2 og 22 |
 | Motor: brytere | Ctrl+H bytter mellom HD og klassisk, Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`) | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Ikke prøvd med ekte tastatur |
 | Motor: store objekter | HD-objektbilder fra ChatGPT også i rom uten HD-bakgrunn | Rom 28 kjørt uten skjerm: tavla obj241 dekker nesten hele skjermen (69 492 objektpiksler mot 185 rompiksler) |
@@ -38,8 +38,9 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 
 ## Kjente begrensninger
 
-- Undertekster over filmer med HD-rammer blir borte (teksten er tegnet inn i originalrammen).
-- Kostymer med kodek 16 (5 stykker) får ikke HD-sprites. Kodek 5 er koblet inn, men ikke kontrollert for seg i spillet.
+- Kostymer med kodek 16 (5 stykker) får ikke HD-sprites.
+- Kodek 5: når skriptet ikke har satt skuespillerpaletten, tegner ScummVM kodene rett som palettindekser. Uttrekket fargelegger med RGBS, så noen farger i HD-rutene stemmer ikke med spillet (sett i kostyme 210). Der blir det originalpiksler.
+- Tekst over figurer uten HD blir gul med gult felt på.
 - Tekst og fonter er originalpiksler.
 - Fargesyklede områder (vann, energi) er originalpiksler også med HD-bakgrunn.
 - Fargelåsen gjør ChatGPT-bildene litt mindre mettet enn generatoren laget dem, fordi fargene trekkes mot originalen. Styrken kan justeres (`dighd gpt-inn --styrke`).

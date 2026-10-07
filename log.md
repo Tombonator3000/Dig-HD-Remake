@@ -113,3 +113,15 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 ## 2026-10-07 00:45 (Claude)
 - Planlagt runde (satt til 00:21, kom inn 00:43). Ingen nye leveranser i `gpt-arbeid` siden 00:41.
 - `tools/gpt_runde.sh` lar nå ORDRE.md stå når ingenting nytt er kommet inn og ingen ny beskjed er gitt, så beskjeder ChatGPT ikke har lest ennå, ikke blir borte. Kjørt: ORDRE.md uendret.
+
+## 2026-10-07 01:16 til 02:25 (Claude)
+- Planlagt runde 01:16: ingen nye leveranser fra ChatGPT siden 23:43. ORDRE.md står som før.
+- Brukte ventetiden på motoren. En agent i egen arbeidskopi laget PR 7:
+  - Undertekster over HD-filmrammer: SmushPlayer tegner teksten også i et invertert lag fra DigHD, og pikslene som blir like, vises som originalpiksler over HD-rammen. Teksten står på samme sted som i originalen og blir aldri gul.
+  - Filmrammene bygges med kilde per piksel, så dumpene og `DIGHD_VERIFY` viser det som faktisk er på skjermen. Dumpen heter `frame_NNNNNN_FILM_RRRRR.png` under film.
+  - Kodek 5 kontrollert: indeksbilder med gjennomsiktig indeks 255 ble avvist av PNG-leseren i ScummVM, så ingen av de 14 124 rutene med kodek 5 og 150 objektbilder i rom 93 og 107 fikk HD. Rettet. Nå 30 kostymer med HD i 15 rom, 0 avvik i 135 dumper.
+  - Rettet en krasj i `compose` ved fade etter skifte fra rom med HD-bakgrunn til rom uten (sett mellom rom 79 og 92), og svart HD der spillet viser en lys farge.
+  - `engine/test.sh` gir 0 avvik for bakgrunner og uskalerte figurer. Patchen gjelder rent på c9091321.
+- Så på dumpene (undertekst over filmramme i introen, kodek 5-figurer i rom 40) og flettet PR 7 (0a49408) etter grønn CI. Slettet testmoddene (470 MB) og agentens arbeidskopi.
+- Runde 02:20: fortsatt ingen nye leveranser.
+- Åpent: farger i uttrekket for kodek 5 når skuespillerpaletten ikke er satt. Lagt i todo.

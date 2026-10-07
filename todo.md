@@ -28,8 +28,10 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Hurtigtast for å bytte mellom klassisk og HD (Ctrl+H)
 - [x] Vis et gult felt der HD mangler (Ctrl+Shift+H)
 - [ ] Tekst over figurer uten HD blir gul med gult felt på (motoren kjenner bare rektangelet til figuren)
-- [ ] Undertekster over HD-filmrammer: legg teksten over HD-rammen i stedet for å skjule den
-- [ ] HD-sprites for kodek 16 (5 kostymer) og kontroll av kodek 5 i spillet
+- [x] Undertekster over HD-filmrammer: teksten ligger over HD-rammen som originalpiksler
+- [x] Kontroll av kodek 5 i spillet (fant og rettet at ingen ruter med kodek 5 fikk HD, og en krasj ved romskifte)
+- [ ] Farger i uttrekket for kodek 5 når skuespillerpaletten ikke er satt (kostyme 210: kode 26 svart i uttrekket, brun i spillet)
+- [ ] HD-sprites for kodek 16 (5 kostymer)
 - [ ] HD-fonter for tekst
 - [ ] Fargesyklede områder i HD (eget animert lag)
 - [ ] Spille av rene filmer som MP4/WebM i stedet for tusenvis av PNG-er
