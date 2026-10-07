@@ -175,7 +175,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Så gjennom alle 69 nye HD-bilder side om side med originalen. Nærbilder: symbolpanelene i rom 69 og 76 er trofaste, spirene på verdenskartet (rom 77) står der de skal, og hånden i obj884 er lik i alle tre tilstandene. Ingenting avvist ved gjennomsyn.
 - Ny ORDRE.md med beskjed om det som gjenstår (rom 50, 79, obj547, rom 88) og om at jobbene med status sjekk kan bli bedre.
 
-## 2026-10-07 12:14 til 13:05 (Claude)
+## 2026-10-07 12:14 til 13:40 (Claude)
 - Runde 12:14: rom 88 del 2 til 9 kom inn, men del 6 til 9 er avvist (forskjøvet opptil 23 px, del 7 med kantlikhet 0,08). Del 7: ChatGPT malte over det svarte feltet øverst i alle fem forsøkene. Rom 50: hånden og staven er flyttet. La inn presis retur for begge i `docs/gpt-avvisninger.csv` og sendte beskjed.
 - Agent laget neste bestilling (PR 16): lagjobber `lagNNN_KK` for de mindre objektbildene, der rommet tegnes med et sett objekttilstander på plass og objektene klippes ut etterpå, med samme deler som romjobbene og det godkjente HD-rommet som bilde to. Overlappende objekter får hvert sitt lag, og store objektbilder som små objekter ligger oppå, er med som underlag. Inventaret blir ikonark `ikonNN`. 236 lagjobber dekker 460 objektbilder, og 3 ikonark dekker 149 ikoner; i alt 639 av 642 objektbilder. `gpt-inn` kontrollerer hvert objekt for seg (mangler eller tegnet om). Rom- og objektjobbene er byte for byte uendret. 16 tester bestått. Så på referansebilder for et lag og et ikonark, og flettet PR 16 (12455c2).
 - Kjørte `dighd gpt-pakke` (431 jobber) og en runde. Ny ORDRE.md med de avviste romjobbene først og så lagjobbene. 25 bestillinger i GRAFIKKLISTE.md.
