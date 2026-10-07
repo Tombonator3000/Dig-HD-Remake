@@ -17,11 +17,13 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Pilot: rom 9 og 22 levert av Codex, kontrollert og godkjent, lagt i `stil/` som stilankere
 - [x] Fast ordre i `ORDRE.md` og runde-skript (`tools/gpt_runde.sh`), mod publiseres i `hd-mod`
 - [x] `GRAFIKKLISTE.md` med alt som skal lages, i 19 bestillinger, så ChatGPT kan jobbe videre uten å vente
-- [ ] Resten av romjobbene (rom 50, 79 og 88)
+- [ ] Resten av romjobbene (rom 50 og 88)
 - [x] Objektjobber for de 30 største objektbildene, med egne notater og like tilstander
-- [ ] De 30 objektjobbene (obj547 igjen)
+- [x] De 30 objektjobbene
 - [ ] Tom ser over stilen når 10 til 15 rom er ferdige
-- [ ] Bestilling runde 2: de 610 mindre objektbildene i sammenheng med HD-rommene (lages nå, rommene er nesten ferdige)
+- [x] Bestilling runde 2 laget: 236 lagjobber og 3 ikonark for de mindre objektbildene (PR 16)
+- [ ] Lagjobbene og ikonarkene fra ChatGPT
+- [ ] La en ny leveranse som er dårligere enn den forrige, ikke erstatte den forrige automatisk (skjedde med rom 111)
 - [x] Nettleserversjon lokalt: `./spill.sh --nettleser` (PR 15)
 - [ ] Bestilling runde 3: modellark for hovedpersonene, så automatisk oppskalering av rutene
 - [ ] Lag Boston-ruter som består silhuettkontrollen og kontroller hele bevegelsesrekken i motoren

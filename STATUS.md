@@ -1,19 +1,19 @@
 # Status
 
-Oppdatert 7. oktober 2026, 12:25. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 7. oktober 2026, 13:05. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
-Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 103 av 106 rom. Rom 50 og 79 er avvist og lages på nytt, og rom 88 er på vei. Resten går i runder: ChatGPT lager, Claude kontrollerer og bygger modden, Tom godkjenner.
+Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 104 av 106 rom (rom 50 og 88 gjenstår) og alle 30 store objekter. Neste bestilling er de mindre objektene i lagjobber og ikonark.
 
 ## HD-grafikk
 
 | Del | Ferdig | Totalt | Kilde | Merknad |
 | --- | --- | --- | --- | --- |
-| Rombakgrunner | 103 | 106 | ChatGPT | Alle unntatt rom 50, 79 og 88. 9 jobber står til sjekk og kan bli bedre. Se `GRAFIKKLISTE.md` i `gpt-arbeid`. 5 nesten tomme rom tegnes av filmer og er tatt ut. |
-| ChatGPT-jobber | 172 | 192 | ChatGPT | 162 for rom (brede og høye rom er delt i flere jobber) og 30 for store objektbilder. Se `work/gpt/status.csv` eller grenen `gpt-arbeid`. |
-| Store objektbilder | 29 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
-| Andre objektbilder | 0 | 610 | | Automatisk oppskalering i sammenheng med rommet. Egen ChatGPT-runde senere. |
+| Rombakgrunner | 104 | 106 | ChatGPT | Alle unntatt rom 50 og 88. Noen står til sjekk og kan bli bedre. Se `GRAFIKKLISTE.md` i `gpt-arbeid`. 5 nesten tomme rom tegnes av filmer og er tatt ut. |
+| ChatGPT-jobber | 187 | 431 | ChatGPT | 162 for rom, 30 for store objekter, 236 lagjobber og 3 ikonark. Se `work/gpt/status.csv` eller grenen `gpt-arbeid`. |
+| Store objektbilder | 30 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
+| Mindre objektbilder | 0 | 609 | ChatGPT | 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå) og 149 ikoner i ikonark. Til de er levert: automatisk oppskalering. |
 | Kostymeruter | 0 | 28 490 | | Automatisk oppskalering. Plan: modellark per hovedperson fra ChatGPT, så oppskalering. |
 | Filmrammer | 0 | 12 638 | | Utskifting virker. Videooppskalering senere. |
 
