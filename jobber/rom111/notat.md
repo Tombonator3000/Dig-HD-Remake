@@ -23,3 +23,7 @@ Referanse SHA256: 2c68dd79b7849d984845ee2599e6e445b194ad9df4d67b66f03077b04dc2ae
 Prompt SHA256: f5e5319b2aeb869bb02243dc9cc98900cdc8dc9731a63d232b8ddf92dd84ab3e
 Stilanker SHA256: fd37d46069b111b1f5c85bdfde9f429dbc5f8a7f8333efc9d24ab466fc6c2ba4
 Resultat SHA256: e5243da5f77118f1a6ba2a9e428f64527858bcc4ecc23e2cf91c7d9b3a761347
+
+## Claude, 2026-10-07 13:00
+
+`resultat.png` er satt tilbake til leveransen fra 11:09, som kontrollen ga status sjekk (blokker opptil 1,4 px). Leveransen fra 12:38 er lagt i `alternativ_1238.png`, fordi den var dårligere (opptil 4,6 px) og ble avvist. En ny leveranse er bare nyttig hvis den blir godkjent; ellers står 11:09-versjonen.
