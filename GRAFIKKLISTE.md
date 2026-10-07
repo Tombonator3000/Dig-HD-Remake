@@ -1,6 +1,6 @@
 # Grafikkliste
 
-Oppdatert 2026-10-07 12:14 (norsk tid)
+Oppdatert 2026-10-07 12:20 (norsk tid)
 
 Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bestilling 1 er det samme som står i `ORDRE.md`. Når en bestilling er levert, tar du neste uten å vente på ny ordre. Hopp over jobber som er krysset av.
 
@@ -16,27 +16,23 @@ Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bes
 
 ## Bestilling 1 (nå, samme som ORDRE.md)
 
-Rom 50, 79, 88.
+Rom 46, 50, 79, 88.
 
 - [ ] `rom050` (rom 50 cuengrav) (avvist, les retur.md)
 - [ ] `rom079` (rom 79 newton) (avvist, les retur.md)
 - [ ] `obj547_01` (rom 79 newton, objekt 547 tilstand 01) (avvist, les retur.md)
-- [ ] `rom088_del2av9` (rom 88 tombot, del 2/9)
-- [ ] `rom088_del3av9` (rom 88 tombot, del 3/9)
-- [ ] `rom088_del4av9` (rom 88 tombot, del 4/9)
-- [ ] `rom088_del5av9` (rom 88 tombot, del 5/9)
-- [ ] `rom088_del6av9` (rom 88 tombot, del 6/9)
-- [ ] `rom088_del7av9` (rom 88 tombot, del 7/9)
-- [ ] `rom088_del8av9` (rom 88 tombot, del 8/9)
-
-## Bestilling 2
-
-Rom 46, 50, 72, 77, 81, 88, 90, 111.
-
-- [ ] `rom088_del9av9` (rom 88 tombot, del 9/9)
+- [ ] `rom088_del6av9` (rom 88 tombot, del 6/9) (avvist, les retur.md)
+- [ ] `rom088_del7av9` (rom 88 tombot, del 7/9) (avvist, les retur.md)
+- [ ] `rom088_del8av9` (rom 88 tombot, del 8/9) (avvist, les retur.md)
+- [ ] `rom088_del9av9` (rom 88 tombot, del 9/9) (avvist, les retur.md)
 - [ ] `obj886_01` (rom 46 cusarc, objekt 886 tilstand 01) (kan bli bedre)
 - [ ] `obj884_01` (rom 50 cuengrav, objekt 884 tilstand 01) (kan bli bedre)
 - [ ] `obj884_02` (rom 50 cuengrav, objekt 884 tilstand 02) (kan bli bedre)
+
+## Bestilling 2
+
+Rom 50, 72, 77, 81, 90, 111.
+
 - [ ] `obj884_03` (rom 50 cuengrav, objekt 884 tilstand 03) (kan bli bedre)
 - [ ] `rom072` (rom 72 emboss3) (kan bli bedre)
 - [ ] `rom077` (rom 77 worldmap) (kan bli bedre)
@@ -188,6 +184,10 @@ Rom 46, 50, 72, 77, 81, 88, 90, 111.
 - [x] `rom085` (rom 85 planmach)
 - [x] `rom087` (rom 87 labcu2)
 - [x] `rom088_del1av9` (rom 88 tombot)
+- [x] `rom088_del2av9` (rom 88 tombot)
+- [x] `rom088_del3av9` (rom 88 tombot)
+- [x] `rom088_del4av9` (rom 88 tombot)
+- [x] `rom088_del5av9` (rom 88 tombot)
 - [x] `obj580_01` (rom 88 tombot)
 - [x] `rom089_del1av2` (rom 89 sarcoph)
 - [x] `rom089_del2av2` (rom 89 sarcoph)
