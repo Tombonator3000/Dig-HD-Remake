@@ -90,6 +90,94 @@ def test_real_game_files():
     assert (rooms[2].width, rooms[2].height) == (976, 200)
 
 
+def test_costume_colours(tmp_path):
+    import numpy as np
+    from dighd import export
+
+    # Kodene 0 til 63 er en jevn overgang i rommets riktige palett (palett 1). Palett 0 har
+    # de samme fargene i en annen rekkefølge, slik en feil palett gir prikkete bilder.
+    ramp = bytes(v for k in range(256) for v in (4 * (k % 64), 2 * (k % 64), 255 - 4 * (k % 64)))
+    order = list(range(256))
+    np.random.default_rng(5).shuffle(order)
+    shuffled = bytes(v for k in order for v in ramp[3 * k:3 * k + 3])
+    rooms = {7: gamedata.Room(7, offset=0, palettes=[shuffled, ramp])}
+    codes = np.tile(np.arange(64, dtype=np.uint8), (16, 1))
+    codes[0, :8] = 255  # gjennomsiktig (kodek 5 og 16)
+    cels = [(codes, 255)]
+    rgb = [np.frombuffer(p, np.uint8).reshape(256, 3) for p in (shuffled, ramp)]
+    assert export.smoothness(rgb[1], cels) < export.smoothness(rgb[0], cels) / 4
+
+    rgbs = bytes(range(256)) * 3
+    akpl = bytes(range(256))
+    # Kodek 5 og 16 uten tabell: kodene rett i den jevneste paletten i hjemmerommet
+    for codec in (export.CODEC_BOMP, export.CODEC_MAJMIN):
+        pal, how = export.costume_palette(codec, akpl, rgbs, 7, rooms, cels, None)
+        assert pal == ramp and how["kind"] == "rom" and how["palette"] == 1 and how["source"] == "jevnest"
+    # Like jevne paletter: den første, som rommet starter med
+    same = {8: gamedata.Room(8, offset=0, palettes=[ramp, shuffled, ramp])}
+    assert export.costume_palette(export.CODEC_BOMP, akpl, rgbs, 8, same, cels, None)[1]["palette"] == 0
+    # Kodek 1: RGBS som før, uansett rom
+    pal, how = export.costume_palette(export.CODEC_BYLE, akpl, rgbs, 7, rooms, cels, None)
+    assert pal == rgbs[:768] and how == {"kind": "rgbs"}
+    # Kodek 1 uten RGBS: AKPL-plassen i hjemmerommets første palett
+    pal, _ = export.costume_palette(export.CODEC_BYLE, bytes([3, 9]), b"", 7, rooms, cels, None)
+    assert pal[:6] == shuffled[9:12] + shuffled[27:30] and pal[6:9] == shuffled[6:9]
+
+    # Tabellen går foran: rom og palett, eller RGBS for kostymer skriptet setter paletten på
+    csv_path = tmp_path / "kostymefarger.csv"
+    csv_path.write_text("kostyme,farger,rom,palett,kilde,notat\n"
+                        "96,rom,7,0,målt,Spøkelset\n"
+                        "120,rgbs,,,målt,\n", encoding="utf-8")
+    table = export.read_costume_colours(csv_path)
+    assert table[96] == {"kind": "rom", "room": 7, "palette": 0, "source": "målt"}
+    assert table[120]["kind"] == "rgbs"
+    pal, how = export.costume_palette(export.CODEC_MAJMIN, akpl, b"", 2, rooms, cels, table[96])
+    assert pal == shuffled and how["source"] == "målt" and how["room"] == 7
+    pal, how = export.costume_palette(export.CODEC_BOMP, akpl, rgbs, 7, rooms, cels, table[120])
+    assert pal == rgbs[:768] and how["kind"] == "rgbs"
+    assert export.read_costume_colours(tmp_path / "finnes-ikke.csv") == {}
+    csv_path.write_text("kostyme,farger,rom,palett,kilde,notat\n5,feil,1,0,,\n", encoding="utf-8")
+    with pytest.raises(ValueError):
+        export.read_costume_colours(csv_path)
+
+    # Tabellen i repoet kan leses, og hver kostyme står bare én gang
+    path = ROOT / "docs" / "kostymefarger.csv"
+    table = export.read_costume_colours(path)
+    ids = [line.split(",")[0] for line in path.read_text(encoding="utf-8").splitlines()[1:] if line.strip()]
+    assert len(table) == len(ids) == len(set(ids)) and all(t["kind"] in ("rom", "rgbs") for t in table.values())
+
+
+@pytest.mark.game
+def test_costume_colours_in_game(tmp_path):
+    """Kostyme 210 (kodek 5, rom 78) og 96 (kodek 16, rom 31) får fargene spillet viser."""
+    if not (GAME / "DIG.LA1").exists():
+        pytest.skip("game/ mangler, kjør tools/hent_spilldata.sh")
+    import json
+    from dighd import export
+
+    rooms = gamedata.read_rooms(GAME / "DIG.LA1")
+    export.export_costumes(GAME, tmp_path, {1, 96, 210}, {})
+    meta = json.loads((tmp_path / "costumes.json").read_text())
+    assert meta["1"]["codec"] == 1 and meta["1"]["colours"] == {"kind": "rgbs"}
+    assert meta["210"]["codec"] == 5 and meta["210"]["colours"]["room"] == 78
+    # Spøkelset i rom 31 er bare jevnt med rommets andre palett
+    assert meta["96"]["codec"] == 16 and meta["96"]["colours"]["palette"] == 1
+    for name, pal in (("costume210_001", rooms[78].palettes[0]), ("costume096_026", rooms[31].palettes[1])):
+        idx = Image.open(tmp_path / "costumes" / f"{name}_idx.png")
+        rgba = Image.open(tmp_path / "costumes" / f"{name}.png")
+        assert bytes(idx.getpalette()[:768]) == pal
+        for xy in ((idx.width // 2, idx.height // 2), (idx.width // 3, idx.height - 3)):
+            code = idx.getpixel(xy)
+            if code != 255:
+                assert rgba.getpixel(xy) == (*pal[3 * code:3 * code + 3], 255)
+    # Kode 26 i kostyme 210 er brun i spillet (rompaletten), ikke svart som i RGBS
+    assert Image.open(tmp_path / "costumes" / "costume210_001_idx.png").getpalette()[78:81] == [107, 91, 75]
+    # Rommene og palettene i tabellen finnes
+    for cid, spec in export.read_costume_colours(ROOT / "docs" / "kostymefarger.csv").items():
+        if spec["kind"] == "rom":
+            assert spec["palette"] < len(rooms[spec["room"]].palettes), cid
+
+
 def test_gpt_tiles_shift_and_judge():
     from dighd import gpt
     import numpy as np

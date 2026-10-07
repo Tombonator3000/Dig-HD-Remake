@@ -13,8 +13,8 @@ Repoet er privat. Spillfilene og alt som lages fra dem ligger i egne grener og s
 | Del | Status |
 | --- | --- |
 | Spillfiler | Engelsk standardutgave (DIG.LA0 MD5 `d8323015...`). LA0, LA1 og VIDEO i grenen `spilldata`. Musikk og tale bare på Drive. |
-| Uttrekk | Alle 111 rom, 642 objektbilder, 28 490 kostymeruter (med ekte farger) og 12 638 filmrammer ut som PNG. |
-| HD-motor | ScummVM-patch med HD-bakgrunner, HD-objekter, HD-sprites og HD-filmrammer, fargejustering ved palettbytte, mus og peker i HD. Testet uten skjerm (0 avvik med nearest-mod) og kjørt på laptopen med OpenGL og 32-bits farger. |
+| Uttrekk | Alle 111 rom, 642 objektbilder, 28 490 kostymeruter (med fargene spillet viser, også for kodek 5 og 16) og 12 638 filmrammer ut som PNG. |
+| HD-motor | ScummVM-patch med HD-bakgrunner, HD-objekter, HD-sprites (alle tre kostymekodekene) og HD-filmrammer, fargejustering ved palettbytte, mus og peker i HD. Testet uten skjerm (0 avvik med nearest-mod) og kjørt på laptopen med OpenGL og 32-bits farger. |
 | HD-grafikk | 3 av 106 rom ferdige fra ChatGPT (rom 9, 22 og 28), og 0 av 30 store objektbilder. 188 av 192 jobber igjen. Oppdateres hver runde i `work/gpt/RAPPORT.md` og grenen `gpt-arbeid`. |
 | Objekter og figurer | Bare automatisk oppskalering så langt. Egne runder med ChatGPT kommer etter rommene. |
 | Filmer | Utskifting av rammer virker og er testet. Ingen HD-filmer laget ennå. |
@@ -96,7 +96,8 @@ engine/           patches/ (ScummVM-patchen), SCUMMVM_COMMIT, build.sh, run.sh, 
 tools/            hent_spilldata.sh, gpt_runde.sh, gpt_gren.sh, mod_gren.sh, la0_info.py,
                   check_hd_art.py, hent_grafikkpilot.sh
 docs/             ANALYSE, HD-MOTOR, BESTILLING-CHATGPT, GRAFIKKPILOT, rom-oversikt.csv,
-                  gpt-romnotater.csv, gpt-arbeid-AGENTS.md, konsept/ (stilreferanser)
+                  gpt-romnotater.csv, gpt-arbeid-AGENTS.md, kostymefarger.csv (rom og palett
+                  for kostymer med kodek 5 og 16), konsept/ (stilreferanser)
 game/             spillfilene (lokalt, fra spilldata)
 work/             uttrekk, jobber og mellomresultater (lokalt)
 mods/             ferdige mod-mapper (lokalt)
