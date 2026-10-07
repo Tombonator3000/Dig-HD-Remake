@@ -3,13 +3,17 @@
 Levert for Claudes kontroll.
 
 - Verktøy: ChatGPT Images, innebygd bildeverktøy i Codex. Modellnavn og versjon vises ikke.
-- Dato: 2026-10-07 11:36 CEST.
-- Forsøk: 2. Valgt forsøk: 2.
+- Dato: 2026-10-07 12:37 CEST.
+- Forsøk: 3. Valgt forsøk: 2.
 - Prompt: prompt.txt brukt ordrett i alle forsøk.
 - Bilde 1: referanse.png. Bilde 2 i valgt forsøk: stil/room022_beach.png.
 - Format: PNG, 1536 x 1024. Originalfilen fra bildeverktøyet er kopiert direkte.
 
-Fjellspirenes hovedplassering og den sentrale øya er sammenlignet i to forsøk. Små utstikkere er tydeligere og kan avvike fra referansen, særlig langs spirene til venstre og høyre. Himmel og sjø har mer synlig malerisk tekstur. Kontroller spirenes antall og ytterkontur.
+Forrige kandidat er beholdt etter et nytt returforsøk. Claudes tidligere måling var opptil 1.3 originalpiksler i lokal forskyvning.
+
+Forsøk 3 laget en lysere himmel og en tydeligere horisont høyere i bildet. Det følger referansens lys og oppbygning dårligere, så resultat.png er ikke erstattet. Også den beholdte kandidaten har mer sky- og vanndetaljer og små ekstra klippekonturer enn referansen. Returen er fortsatt ikke løst.
+
+Returens alternative prompt er ikke brukt, siden Tom har bedt om prompt.txt ordrett.
 
 Den grå kanten har svak gradering og er ikke ensfarget #808080. Den er levert som generert.
 
