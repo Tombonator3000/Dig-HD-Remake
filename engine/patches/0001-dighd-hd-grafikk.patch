@@ -118,10 +118,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..cd3b541d
+index 00000000..2c005d91
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,936 @@
+@@ -0,0 +1,1105 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -147,8 +147,10 @@ index 00000000..cd3b541d
 +
 +#include "common/config-manager.h"
 +#include "common/debug.h"
++#include "common/endian.h"
 +#include "common/file.h"
 +#include "common/fs.h"
++#include "common/memstream.h"
 +#include "common/system.h"
 +#include "common/textconsole.h"
 +#include "common/tokenizer.h"
@@ -168,9 +170,11 @@ index 00000000..cd3b541d
 +// Packed pixel source: top two bits say what kind, the rest are coordinates.
 +// An original pixel is either kept on purpose (text, effects, banners) or
 +// shown because no HD image exists for it (kSrcFlatMissing, marked yellow).
++// kSrcSan is the pixel at the same place in the current HD film frame.
 +enum {
 +	kSrcFlat        = 0u,
 +	kSrcFlatMissing = 1u,
++	kSrcSan         = 2u,
 +	kSrcRoom        = 1u << 30,
 +	kSrcObject      = 2u << 30,
 +	kSrcCel         = 3u << 30,
@@ -302,6 +306,42 @@ index 00000000..cd3b541d
 +
 +// ---------------------------------------------------------------- loading
 +
++// ScummVM's PNG decoder keeps a paletted image in 8 bit only when its
++// transparency chunk (tRNS) makes palette index 0 alone transparent. BOMP
++// images (costumes with codec 5, inventory objects) are transparent at index
++// 255, which takes 256 tRNS entries, and the decoder would turn them into RGBA.
++// So the index image is decoded without its tRNS chunk, and the transparent
++// index (the first entry with alpha 0) is read from the chunk here.
++static Common::SeekableReadStream *withoutTRNS(Common::SeekableReadStream &in, int &transparent) {
++	transparent = -1;
++	const uint32 size = in.size();
++	if (size < 8)
++		return nullptr;
++	byte *data = (byte *)malloc(size);
++	if (!data || in.read(data, size) != size) {
++		free(data);
++		return nullptr;
++	}
++	// Chunks after the 8 byte signature: length, type, data, CRC
++	uint32 out = 8, p = 8;
++	while (p + 12 <= size) {
++		const uint32 len = READ_BE_UINT32(data + p);
++		if (len > size - p - 12)
++			break;
++		if (READ_BE_UINT32(data + p + 4) == MKTAG('t', 'R', 'N', 'S')) {
++			for (uint32 i = 0; i < len && transparent < 0; i++)
++				if (data[p + 8 + i] == 0)
++					transparent = i;
++		} else {
++			if (out != p)
++				memmove(data + out, data + p, len + 12);
++			out += len + 12;
++		}
++		p += len + 12;
++	}
++	return new Common::MemoryReadStream(data, out, DisposeAfterUse::YES);
++}
++
 +bool DigHD::loadImage(const Common::Path &hdFile, const Common::Path &idxFile, int origW, int origH, Image &out) {
 +	Common::FSNode hdNode(_modPath.join(hdFile));
 +	Common::FSNode idxNode(_modPath.join(idxFile));
@@ -309,8 +349,10 @@ index 00000000..cd3b541d
 +		return false;
 +
 +	::Image::PNGDecoder idxDec;
-+	idxDec.setKeepTransparencyPaletted(true);
-+	Common::SeekableReadStream *s = idxNode.createReadStream();
++	int transparent = -1;
++	Common::SeekableReadStream *raw = idxNode.createReadStream();
++	Common::SeekableReadStream *s = raw ? withoutTRNS(*raw, transparent) : nullptr;
++	delete raw;
 +	bool ok = s && idxDec.loadStream(*s);
 +	delete s;
 +	if (!ok || idxDec.getSurface()->format.bytesPerPixel != 1) {
@@ -340,7 +382,7 @@ index 00000000..cd3b541d
 +	memset(out.basePal, 0, sizeof(out.basePal));
 +	const Graphics::Palette &pal = idxDec.getPalette();
 +	memcpy(out.basePal, pal.data(), MIN<uint>(pal.size() * 3, sizeof(out.basePal)));
-+	out.transparent = idxDec.hasTransparentColor() ? (int)idxDec.getTransparentColor() : -1;
++	out.transparent = transparent;
 +
 +	const Graphics::Palette &hpal = hdDec.getPalette();
 +	Graphics::Surface *conv = hs->convertTo(_rgba, hpal.size() ? hpal.data() : nullptr, hpal.size());
@@ -351,6 +393,12 @@ index 00000000..cd3b541d
 +}
 +
 +void DigHD::clearRoom() {
++	// Screen pixels that point into the images of the old room would read
++	// freed memory (a fade in the new room can rebuild the screen before it
++	// is drawn again). They show the original pixel until they are redrawn.
++	for (uint i = 0; i < _source.size(); i++)
++		if (_source[i] & kSrcMask)
++			_source[i] = kSrcFlat;
 +	_roomImage.free();
 +	for (auto &it : _objectImages) {
 +		if (it._value) {
@@ -633,51 +681,105 @@ index 00000000..cd3b541d
 +	// SmushPlayer has already counted the frame when it is shown, so the
 +	// picture on screen is frame - 1 in the numbering used by the extractor
 +	// (verified against thedig-textures output with DIGHD_VERIFY).
++	_smushFrameNo = frame - 1;
 +	Common::FSNode node(_modPath.join(Common::String::format("san/%s/%05d.png", name.c_str(), frame - 1)));
 +	const bool haveFrame = node.exists();
 +
-+	// Keep the 8-bit shadow up to date in any case (palette changes, dumps,
-+	// classic mode). A frame without an HD version lacks HD as a whole.
-+	const uint32 flat = haveFrame ? kSrcFlat : kSrcFlatMissing;
-+	for (int r = 0; r < height && r < _h; r++)
-+		for (int c = 0; c < width && c < _w; c++) {
-+			_shadow[r * _w + c] = src[r * pitch + c];
-+			_source[r * _w + c] = flat;
-+		}
++	// Text drawn into this frame by SmushPlayer (see smushTextEnd). The mask
++	// has the layout of SmushPlayer's frame buffer, src may start inside it.
++	const byte *text = nullptr;
++	if (_smushHasText && _smushTextBase && src >= _smushTextBase) {
++		const size_t off = src - _smushTextBase;
++		if (off + (size_t)(MIN(height, _h) - 1) * pitch + MIN(width, _w) <= _smushText.size())
++			text = _smushText.data() + off;
++	}
 +
++	// The HD frame is only read in HD mode; classic mode shows the original anyway
++	_smushLoaded = false;
 +	if (haveFrame && !_classic) {
 +		::Image::PNGDecoder dec;
 +		Common::SeekableReadStream *s = node.createReadStream();
 +		if (s && dec.loadStream(*s) && dec.getSurface()->w == _w * _scale && dec.getSurface()->h == _h * _scale) {
 +			const Graphics::Palette &fpal = dec.getPalette();
 +			Graphics::Surface *conv = dec.getSurface()->convertTo(_fmt, fpal.size() ? fpal.data() : nullptr, fpal.size());
-+			if (_verify) {
-+				// Does the HD frame show the same picture as the original frame?
-+				// A high share of differences means the frame numbers are shifted.
-+				uint32 bad = 0, n = 0;
-+				for (int vy = 0; vy < MIN(height, _h); vy += 4) {
-+					for (int vx = 0; vx < MIN(width, _w); vx += 4, n++) {
-+						const byte i = src[vy * pitch + vx];
-+						const uint32 c = _fmt.bytesPerPixel == 4
-+							? READ_UINT32(conv->getBasePtr(vx * _scale + _scale / 2, vy * _scale + _scale / 2))
-+							: READ_UINT16(conv->getBasePtr(vx * _scale + _scale / 2, vy * _scale + _scale / 2));
-+						byte r, g, b;
-+						_fmt.colorToRGB(c, r, g, b);
-+						if (ABS(r - _pal[i * 3]) > 48 || ABS(g - _pal[i * 3 + 1]) > 48 || ABS(b - _pal[i * 3 + 2]) > 48)
-+							bad++;
-+					}
-+				}
-+				debug("DigHD: verify SAN %s frame %d: %u of %u samples differ", name.c_str(), frame - 1, bad, n);
-+			}
-+			g_system->copyRectToScreen(conv->getPixels(), conv->pitch, 0, 0, conv->w, conv->h);
-+			conv->free();
++			_smushFrame.free();
++			_smushFrame = *conv;  // takes over the pixels
 +			delete conv;
-+			delete s;
-+			return;
++			_smushLoaded = true;
 +		}
 +		delete s;
 +	}
++
++	if (_smushLoaded && _verify) {
++		// Does the HD frame show the same picture as the original frame?
++		// A high share of differences means the frame numbers are shifted.
++		// Text pixels are not part of the HD frame and are left out.
++		uint32 bad = 0, n = 0;
++		for (int vy = 0; vy < MIN(height, _h); vy += 4) {
++			for (int vx = 0; vx < MIN(width, _w); vx += 4) {
++				if (text && text[vy * pitch + vx])
++					continue;
++				n++;
++				const byte i = src[vy * pitch + vx];
++				const byte *p = (const byte *)_smushFrame.getBasePtr(vx * _scale + _scale / 2, vy * _scale + _scale / 2);
++				const uint32 c = _fmt.bytesPerPixel == 4 ? READ_UINT32(p) : READ_UINT16(p);
++				byte r, g, b;
++				_fmt.colorToRGB(c, r, g, b);
++				if (ABS(r - _pal[i * 3]) > 48 || ABS(g - _pal[i * 3 + 1]) > 48 || ABS(b - _pal[i * 3 + 2]) > 48)
++					bad++;
++			}
++		}
++		debug("DigHD: verify SAN %s frame %d: %u of %u samples differ", name.c_str(), frame - 1, bad, n);
++	}
++
++	// Keep the 8-bit shadow up to date in any case (palette changes, dumps,
++	// classic mode). Text stays the original pixel on purpose, also over an
++	// HD frame. Everything else comes from the HD frame, and a frame without
++	// an HD version lacks HD as a whole.
++	const uint32 picture = _smushLoaded ? kSrcSan : (haveFrame ? kSrcFlat : kSrcFlatMissing);
++	for (int r = 0; r < height && r < _h; r++)
++		for (int c = 0; c < width && c < _w; c++) {
++			_shadow[r * _w + c] = src[r * pitch + c];
++			_source[r * _w + c] = (text && text[r * pitch + c]) ? kSrcFlat : picture;
++		}
++
 +	writeRect(0, 0, MIN(width, _w), MIN(height, _h));
++}
++
++byte *DigHD::smushTextBegin(const byte *frame, int pitch, int height) {
++	const size_t size = (size_t)pitch * height;
++	if (!size || !frame)
++		return nullptr;
++	if (_smushText.size() != size || _smushTextBase != frame) {
++		_smushText.resize(size);
++		memset(_smushText.data(), 0, size);
++		_smushHasText = false;
++	}
++	_smushTextBase = frame;
++	_smushTextLayer.resize(size);
++	byte *layer = _smushTextLayer.data();
++	for (size_t i = 0; i < size; i++)
++		layer[i] = frame[i] ^ 0xFF;
++	return layer;
++}
++
++void DigHD::smushTextEnd(const byte *frame) {
++	// The text renderer only writes pixels, it never reads them. A pixel it
++	// wrote has the same value in both buffers, every other pixel differs.
++	const byte *layer = _smushTextLayer.data();
++	byte *mask = _smushText.data();
++	for (size_t i = 0; i < _smushText.size(); i++) {
++		if (layer[i] == frame[i]) {
++			mask[i] = 1;
++			_smushHasText = true;
++		}
++	}
++}
++
++void DigHD::smushClearText() {
++	if (_smushHasText)
++		memset(_smushText.data(), 0, _smushText.size());
++	_smushHasText = false;
 +}
 +
 +// ---------------------------------------------------------------- composing
@@ -728,6 +830,8 @@ index 00000000..cd3b541d
 +	const bool flatOnly = _forceFlat || _classic;
 +	// Yellow marking of original pixels without HD; nothing is missing in classic mode
 +	const bool showMissing = _showMissing && !flatOnly;
++	// HD film frame for kSrcSan pixels; after the film these are original pixels
++	const bool useSan = _smushLoaded && !flatOnly && _vm->isSmushActive();
 +
 +	// Colours that are being cycled (water, energy, lights) change hue all the
 +	// time. An HD texture cannot follow that per pixel, so those pixels keep the
@@ -749,6 +853,19 @@ index 00000000..cd3b541d
 +			const uint32 src = _source[sy * _w + sx];
 +			const uint32 kind = src & kSrcMask;
 +			byte *out = _outBuf.data() + (r * n) * outPitch + (c * n) * bpp;
++
++			if (src == kSrcSan) {
++				// The film frame is shown as it was made, also for cycled colours
++				if (useSan) {
++					const byte *hdp = (const byte *)_smushFrame.getBasePtr(sx * n, sy * n);
++					for (int dy = 0; dy < n; dy++)
++						memcpy(out + dy * outPitch, hdp + dy * _smushFrame.pitch, n * bpp);
++					_statSan++;
++				} else {
++					kindFlat(out, outPitch, idx, false);
++				}
++				continue;
++			}
 +
 +			if (flatOnly || kind == kSrcFlat || cycled[idx] || (kind == kSrcObject && (((src >> 22) & 0xFF) >= _drawn.size() || !_drawn[(src >> 22) & 0xFF].image))) {
 +				uint32 col;
@@ -793,9 +910,14 @@ index 00000000..cd3b541d
 +					const int t = truec[k], v = shown[k];
 +					if (ABS(t - v) > 24)
 +						plain = false;
-+					if (t < 16)
++					if (t < 16) {
++						// A black channel cannot be scaled. Shown much brighter, the
++						// pixel is not this colour at all (another palette mapping,
++						// as for BOMP cels drawn with raw codes): keep the original.
 +						f[k] = 256;
-+					else {
++						if (v > 48)
++							wild = true;
++					} else {
 +						f[k] = v * 256 / t;
 +						if (f[k] > 512 || (t > 64 && f[k] < 48))
 +							wild = true;
@@ -997,6 +1119,8 @@ index 00000000..cd3b541d
 +Common::String DigHD::statText() const {
 +	Common::String s = Common::String::format("HD room px %u, HD object px %u, HD sprite px %u, original px %u",
 +	                                          _statRoom, _statObject, _statCel, _statFlat);
++	if (_statSan)
++		s += Common::String::format(", HD film px %u", _statSan);
 +	if (_showMissing)
 +		s += Common::String::format(", yellow px %u", _statMissing);
 +	if (_classic)
@@ -1042,10 +1166,15 @@ index 00000000..cd3b541d
 +			}
 +		}
 +	}
++	// The dump is built the same way as the screen, so it shows what is on screen
 +	compose(0, 0, _w, _h);
 +	Graphics::Surface s;
 +	s.init(_w * _scale, _h * _scale, _w * _scale * _fmt.bytesPerPixel, _outBuf.data(), _fmt);
-+	Common::FSNode node(_dumpDir.join(Common::String::format("frame_%06u_room%03d.png", _frameNo, (int)_vm->_currentRoom)));
++	const bool film = _vm->isSmushActive() && !_smushFile.empty();
++	const Common::String fname = film
++		? Common::String::format("frame_%06u_%s_%05d.png", _frameNo, _smushFile.c_str(), _smushFrameNo)
++		: Common::String::format("frame_%06u_room%03d.png", _frameNo, (int)_vm->_currentRoom);
++	Common::FSNode node(_dumpDir.join(fname));
 +	Common::WriteStream *ws = node.createWriteStream();
 +	if (ws) {
 +		::Image::writePNG(*ws, s);
@@ -1054,16 +1183,56 @@ index 00000000..cd3b541d
 +	}
 +	debug("DigHD: dumped frame %u (room %d, smush %d) %s",
 +	      _frameNo, (int)_vm->_currentRoom, (int)_vm->isSmushActive(), statText().c_str());
-+	_statRoom = _statObject = _statCel = _statFlat = _statMissing = 0;
++	if (film) {
++		// Where the pixels of this film frame come from, in original pixels
++		uint32 hd = 0, kept = 0, missing = 0;
++		for (uint i = 0; i < _source.size(); i++) {
++			if (_source[i] == kSrcSan)
++				hd++;
++			else if (_source[i] == kSrcFlatMissing)
++				missing++;
++			else
++				kept++;
++		}
++		if (_classic)
++			debug("DigHD: film %s frame %d: classic graphics, all %u px original",
++			      _smushFile.c_str(), _smushFrameNo, (uint32)_source.size());
++		else
++			debug("DigHD: film %s frame %d: %u px from HD frame, %u px original on purpose (text), %u px original without HD",
++			      _smushFile.c_str(), _smushFrameNo, hd, kept, missing);
++	} else if (_verify) {
++		// Which costumes the last drawing pass of each actor used, and how many
++		// of their cels have an HD image. Helps to test costumes one by one.
++		Common::String list;
++		for (int a = 0; a < kMaxCelSlots / kCelSlotsPerActor; a++) {
++			int costume = -1, hd = 0, without = 0;
++			for (int i = 0; i < kCelSlotsPerActor; i++) {
++				const CelSlot &cs = _cels[a * kCelSlotsPerActor + i];
++				if (!cs.used && !cs.missing)
++					continue;
++				costume = cs.costume;
++				if (cs.used)
++					hd++;
++				else
++					without++;
++			}
++			if (costume >= 0)
++				list += Common::String::format("%sactor %d costume %d (%d cels HD, %d without)",
++				                               list.empty() ? "" : ", ", a, costume, hd, without);
++		}
++		if (!list.empty())
++			debug("DigHD: costumes drawn: %s", list.c_str());
++	}
++	_statRoom = _statObject = _statCel = _statSan = _statFlat = _statMissing = 0;
 +}
 +
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..8f61b23a
+index 00000000..945d5d9b
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,197 @@
+@@ -0,0 +1,218 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -1096,7 +1265,10 @@ index 00000000..8f61b23a
 + *    an HD room image (mods/<name>/rooms/roomNNN.png),
 + *  - pixels that show an object image (doors, machines) are taken from an
 + *    HD object image (mods/<name>/objects/objNNN_SS.png),
-+ *  - everything else (actors, text, effects) is the original pixel scaled up.
++ *  - pixels of a costume cel come from mods/<name>/costumes/costumeCCC_NNN.png,
++ *  - film frames come from mods/<name>/san/<FILE>/NNNNN.png, except the
++ *    pixels of text (subtitles) that SmushPlayer draws over the film,
++ *  - everything else (text, effects) is the original pixel scaled up.
 + *
 + * Which pixels are "untouched background" is decided by comparing against
 + * the original 8-bit image shipped next to each HD image (*_idx.png). When
@@ -1142,6 +1314,18 @@ index 00000000..8f61b23a
 +	void blit8(const byte *src, int pitch, int x, int y, int width, int height);
 +	/** SMUSH frame blit; uses mods/<name>/san/<FILE>/<frame>.png when present. */
 +	void blitSmush(const byte *src, int pitch, int width, int height, const Common::String &file, int frame);
++
++	/**
++	 * Text over SMUSH frames (subtitles). SmushPlayer draws text straight into
++	 * its 8-bit frame buffer. The same text is also drawn into the layer from
++	 * smushTextBegin(), which holds the frame with every byte inverted; after
++	 * both draws, the pixels where layer and frame are equal are exactly the
++	 * pixels the text wrote. These stay original pixels over an HD frame.
++	 */
++	byte *smushTextBegin(const byte *frame, int pitch, int height);
++	void smushTextEnd(const byte *frame);
++	/** A new picture was decoded into the SMUSH frame buffer: no text on it yet. */
++	void smushClearText();
 +
 +	void setPalette(const byte *colors, uint first, uint num);
 +	void moveScreen(int dx, int dy, int height);
@@ -1236,7 +1420,13 @@ index 00000000..8f61b23a
 +
 +	// Smush frame replacement
 +	Common::String _smushFile;
-+	Graphics::Surface _smushFrame;
++	int _smushFrameNo = -1;             // frame shown last, numbered as the files in san/<FILE>/
++	Graphics::Surface _smushFrame;      // HD frame in screen format, used for kSrcSan pixels
++	bool _smushLoaded = false;          // _smushFrame belongs to the frame shown last
++	Common::Array<byte> _smushTextLayer;
++	Common::Array<byte> _smushText;     // 1 where the SMUSH frame buffer holds text
++	const byte *_smushTextBase = nullptr;
++	bool _smushHasText = false;
 +
 +	// Display modes (hotkeys, DIGHD_CLASSIC, DIGHD_SHOW_MISSING)
 +	bool _classic = false;      // every pixel is the original pixel scaled up
@@ -1254,7 +1444,7 @@ index 00000000..8f61b23a
 +	int _dumpEvery = 0;
 +	int _testRoom = -1, _testAt = -1, _testCamX = -1, _quitAt = -1;
 +	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false;
-+	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statFlat = 0, _statMissing = 0;
++	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statSan = 0, _statFlat = 0, _statMissing = 0;
 +	Common::String statText() const;
 +};
 +
@@ -1559,7 +1749,7 @@ index 0e5aa900..15b08f44 100644
  	friend class InsaneRebel1;
  	friend class InsaneRebel2;
 diff --git a/engines/scumm/smush/smush_player.cpp b/engines/scumm/smush/smush_player.cpp
-index 1c646316..7dc5df5b 100644
+index 1c646316..433a8d34 100644
 --- a/engines/scumm/smush/smush_player.cpp
 +++ b/engines/scumm/smush/smush_player.cpp
 @@ -32,6 +32,7 @@
@@ -1570,7 +1760,63 @@ index 1c646316..7dc5df5b 100644
  #include "scumm/imuse_digi/dimuse_engine.h"
  #include "scumm/scumm.h"
  #include "scumm/scumm_v7.h"
-@@ -1339,7 +1340,9 @@ void SmushPlayer::updateScreen() {
+@@ -348,6 +349,8 @@ void SmushPlayer::init(int32 speed) {
+ 
+ 	_vm->setDirtyColors(0, 255);
+ 	_dst = vs->getPixels(0, 0);
++	if (_vm->_digHD)
++		_vm->_digHD->smushClearText();
+ 
+ 	// Game-specific per-video init that needs _dst to be set
+ 	// (e.g. RA2 palette re-push + buffer clear/preserve).
+@@ -758,6 +761,10 @@ void SmushPlayer::handleTextResource(uint32 subType, int32 subSize, Common::Seek
+ 		// changes on the fly will be ignored for Smush texts, since our code design does
+ 		// not permit it and the feature isn't used anyway).
+ 
++		// Dig HD: the text is drawn into a layer as well, so it can be shown
++		// over HD film frames (the renderer changes clipRect, so each draw gets a copy)
++		byte *hdText = _vm->_digHD ? _vm->_digHD->smushTextBegin(_dst, _width, _height) : nullptr;
++
+ 		if (flg & kStyleWordWrap) {
+ 			// COMI has to do it all a bit different, of course. SCUMM7 games immediately render the text from here and actually use the clipping data
+ 			// provided by the text resource. COMI does not render directly, but enqueues a blast string (which is then drawn through the usual main
+@@ -769,13 +776,24 @@ void SmushPlayer::handleTextResource(uint32 subType, int32 subSize, Common::Seek
+ 				height = _height - 20;
+ 			}
+ 			Common::Rect clipRect(MAX<int>(0, left), MAX<int>(0, top), MIN<int>(left + width, _width), MIN<int>(top + height, _height));
++			if (hdText) {
++				Common::Rect hdClip(clipRect);
++				sf->drawStringWrap(str, hdText, hdClip, pos_x, pos_y, color, flg);
++			}
+ 			sf->drawStringWrap(str, _dst, clipRect, pos_x, pos_y, color, flg);
+ 		} else {
+ 			// Similar to the wrapped text, COMI will pass on rect coords here, which will later be lost. Unlike with the wrapped text, it will
+ 			// finally use the full screen dimenstions. SCUMM7 renders directly from here (see comment above), but also with the full screen.
+ 			Common::Rect clipRect(0, 0, _width, _height);
++			if (hdText) {
++				Common::Rect hdClip(clipRect);
++				sf->drawString(str, hdText, hdClip, pos_x, pos_y, color, flg);
++			}
+ 			sf->drawString(str, _dst, clipRect, pos_x, pos_y, color, flg);
+ 		}
++
++		if (hdText)
++			_vm->_digHD->smushTextEnd(_dst);
+ 	}
+ 
+ 	free(string);
+@@ -952,6 +970,10 @@ void SmushPlayer::decodeFrameObject(int codec, const uint8 *src, int left, int t
+ 		}
+ 	}
+ 
++	// Dig HD: the decoded picture has replaced any text from earlier frames
++	if (_vm->_digHD)
++		_vm->_digHD->smushClearText();
++
+ 	handleGameFrameObjectDecoded(codec, left, top, width, height);
+ 
+ 	if (_storeFrame && !handleGameStoreFrame()) {
+@@ -1339,7 +1361,9 @@ void SmushPlayer::updateScreen() {
  }
  
  void SmushPlayer::handleGameUpdateScreen(const byte *src, int srcPitch, int width, int height) {
@@ -1581,7 +1827,7 @@ index 1c646316..7dc5df5b 100644
  		_vm->mac_drawBufferToScreen(src, srcPitch, 0, 0, width, height);
  	} else {
  		_vm->_system->copyRectToScreen(src, srcPitch, 0, 0, width, height);
-@@ -1510,7 +1513,10 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
+@@ -1510,7 +1534,10 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
  			_vm->scummLoop_handleSound();
  
  			if (_warpNeeded) {
@@ -1593,7 +1839,7 @@ index 1c646316..7dc5df5b 100644
  				_warpNeeded = false;
  			}
  		}
-@@ -1543,6 +1549,8 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
+@@ -1543,6 +1570,8 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
  					}
  
  					_vm->_system->getPaletteManager()->setPalette(palette + _palDirtyMin * 3, _palDirtyMin, _palDirtyMax - _palDirtyMin + 1);
@@ -1602,7 +1848,7 @@ index 1c646316..7dc5df5b 100644
  				} else {
  					_vm->_system->getPaletteManager()->setPalette(_pal + _palDirtyMin * 3, _palDirtyMin, _palDirtyMax - _palDirtyMin + 1);
  				}
-@@ -1572,6 +1580,8 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
+@@ -1572,6 +1601,8 @@ void SmushPlayer::play(const char *filename, int32 speed, int32 offset, int32 st
  
  					handleGameUpdateScreen(dst, _width, frameWidth, frameHeight);
  
