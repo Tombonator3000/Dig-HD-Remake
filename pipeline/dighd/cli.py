@@ -74,7 +74,8 @@ def cmd_extract(a) -> int:
         if meta["errors"]:
             print(f"  {len(meta['errors'])} feil, se rooms.json")
     if "akos" in parts:
-        n = export.export_costumes(game, out, _rooms(a.costumes))
+        colours = export.read_costume_colours(Path(a.kostymefarger) if a.kostymefarger else None)
+        n = export.export_costumes(game, out, _rooms(a.costumes), colours)
         print(f"Kostymeruter: {n} bilder -> {out / 'costumes'}")
     return 0
 
@@ -160,6 +161,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--only", help="la1, akos (kommaseparert). Standard: begge")
     p.add_argument("--rooms", help="for eksempel 22,24 eller 20-30")
     p.add_argument("--costumes", help="kostyme-ID-er, for eksempel 1-10")
+    p.add_argument("--kostymefarger", default=str(root / "docs" / "kostymefarger.csv"),
+                   help="rom og palett for kostymer med kodek 5 og 16 (tom streng for ingen tabell)")
 
     def up(p):
         p.add_argument("--method", default="lanczos", choices=METHODS)

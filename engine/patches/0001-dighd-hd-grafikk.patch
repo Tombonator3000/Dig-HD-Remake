@@ -1,5 +1,5 @@
 diff --git a/engines/scumm/akos.cpp b/engines/scumm/akos.cpp
-index 8333a7ed..53d26fdd 100644
+index 8333a7ed..801959ae 100644
 --- a/engines/scumm/akos.cpp
 +++ b/engines/scumm/akos.cpp
 @@ -20,6 +20,7 @@
@@ -32,7 +32,7 @@ index 8333a7ed..53d26fdd 100644
  
 +	if (_vm->_digHD && !_actorHitMode)
 +		_vm->_digHD->noteCel(_digCel, _digRect.left, _digRect.top, _digRect.width(), _digRect.height(),
-+		                     !_drawActorToRight, _vm->_virtscr[kMainVirtScreen].xstart);
++		                     !_drawActorToRight, _vm->_virtscr[kMainVirtScreen].xstart, false);
 +
  	return drawFlag;
  }
@@ -45,16 +45,39 @@ index 8333a7ed..53d26fdd 100644
  
  		if (_vm->_game.heversion >= 71) {
  			ActorHE *a = (ActorHE *)_vm->derefActor(_actorID, "paintCelByleRLE");
-@@ -733,6 +741,9 @@ byte AkosRenderer::paintCelCDATRLE(int xmoveCur, int ymoveCur) {
+@@ -733,6 +741,11 @@ byte AkosRenderer::paintCelCDATRLE(int xmoveCur, int ymoveCur) {
  
  	drawBomp(bdd);
  
++	// Without the actor palette (setPalette()), the codes are drawn as palette indices
 +	if (_vm->_digHD)
-+		_vm->_digHD->noteCel(_digCel, bdd.x, bdd.y, _width, _height, bdd.mirror, _vm->_virtscr[kMainVirtScreen].xstart);
++		_vm->_digHD->noteCel(_digCel, bdd.x, bdd.y, _width, _height, bdd.mirror, _vm->_virtscr[kMainVirtScreen].xstart,
++		                     !_useBompPalette);
 +
  	_useBompPalette = false;
  
  	return 0;
+@@ -800,6 +813,8 @@ byte AkosRenderer::paintCelMajMin(int xMoveCur, int yMoveCur) {
+ 	clip.top = _actorY + yMoveCur;
+ 	clip.right = clip.left + _width;
+ 	clip.bottom = clip.top + _height;
++	// Dig HD: the cel's rectangle before clipping
++	const int digLeft = clip.left, digTop = clip.top;
+ 
+ 	minX = minY = 0;
+ 	maxW = _out.w;
+@@ -891,6 +906,11 @@ byte AkosRenderer::paintCelMajMin(int xMoveCur, int yMoveCur) {
+ 	byte *dst = (byte *)_out.getBasePtr(widthUnk, heightUnk);
+ 
+ 	majMinCodecDecompress(dst, _out.pitch, _srcPtr, curX, outHeight, dir, numSkipBefore, numSkipAfter, transparency, clip.left, clip.top, _zbuf);
++
++	// The codes are always drawn as palette indices: this codec does not use the actor palette
++	if (_vm->_digHD)
++		_vm->_digHD->noteCel(_digCel, digLeft, digTop, _width, _height, !_drawActorToRight,
++		                     _vm->_virtscr[kMainVirtScreen].xstart, true);
+ 	return 0;
+ }
+ 
 diff --git a/engines/scumm/akos.h b/engines/scumm/akos.h
 index dcfe41db..bd1264b6 100644
 --- a/engines/scumm/akos.h
@@ -172,10 +195,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..70c8bdbf
+index 00000000..67dcfe0a
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,2276 @@
+@@ -0,0 +1,2363 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -214,11 +237,13 @@ index 00000000..70c8bdbf
 +#include "graphics/cursorman.h"
 +#include "image/png.h"
 +
++#include "scumm/actor.h"
 +#include "scumm/dighd.h"
 +#include "scumm/gfx.h"
 +#include "scumm/scumm.h"
 +#include "scumm/scumm_v7.h"
 +#include "scumm/usage_bits.h"
++#include "scumm/util.h"
 +
 +namespace Scumm {
 +
@@ -296,6 +321,12 @@ index 00000000..70c8bdbf
 +	_testRoom = envInt("DIGHD_TEST_ROOM", -1);
 +	_testAt = envInt("DIGHD_TEST_AT", 60);
 +	_testCamX = envInt("DIGHD_TEST_CAMX", -1);
++	_testCostume = envInt("DIGHD_TEST_COSTUME", -1);
++	_testActor = envInt("DIGHD_TEST_ACTOR", 29);
++	_testChoreEvery = MAX(1, envInt("DIGHD_TEST_CHORE_EVERY", 60));
++	_testPalette = envInt("DIGHD_TEST_PALETTE", -1);
++	if (const char *pos = getenv("DIGHD_TEST_POS"))
++		sscanf(pos, "%d,%d", &_testPosX, &_testPosY);
 +	_quitAt = envInt("DIGHD_QUIT_AT", -1);
 +	_skipVideo = envInt("DIGHD_SKIP_VIDEO", 0) != 0;
 +	_verify = envInt("DIGHD_VERIFY", 0) != 0;
@@ -605,11 +636,22 @@ index 00000000..70c8bdbf
 +	_passStarted = false;
 +}
 +
-+void DigHD::noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart) {
++void DigHD::noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart, bool raw) {
 +	if (_curActor < 0 || _curActor * kCelSlotsPerActor >= kMaxCelSlots || width <= 0 || height <= 0)
 +		return;
 +	if (_vm->_currentRoom != _room)
 +		loadRoom(_vm->_currentRoom);
++	if (_verify) {
++		// Which colours the costume is drawn with, once per room and palette.
++		// The pipeline colours the cels the same way (docs/kostymefarger.csv).
++		const uint32 key = ((uint32)(_curCostume & 0x3FF) << 20) | ((uint32)(_vm->_currentRoom & 0xFF) << 12) |
++		                   ((uint32)(_vm->_curPalIndex & 0x7FF) << 1) | (raw ? 1 : 0);
++		if (!_celModesSeen.contains(key)) {
++			_celModesSeen[key] = true;
++			debug("DigHD: costume %d in room %d with palette %d: %s", _curCostume, (int)_vm->_currentRoom,
++			      _vm->_curPalIndex, raw ? "codes as palette indices" : "codes through AKPL and the actor palette");
++		}
++	}
 +	CelSlot *base = &_cels[_curActor * kCelSlotsPerActor];
 +	if (!_passStarted) {
 +		// New drawing pass for this actor: its earlier cels are being replaced
@@ -635,6 +677,7 @@ index 00000000..70c8bdbf
 +	c.rw = width;
 +	c.rh = height;
 +	c.mirror = mirror;
++	c.raw = raw;
 +	c.seq = ++_seq;
 +	// A cel drawn into the back buffer becomes part of the background
 +	if (_curFront)
@@ -1913,6 +1956,8 @@ index 00000000..70c8bdbf
 +			}
 +
 +			// A figure pixel in a cycled colour is an effect and stays the original pixel
++			if (kind == kSrcCel && _cycled[idx] && !flatOnly)
++				_statCelKept++;
 +			if (flatOnly || kind == kSrcFlat || (kind == kSrcCel && _cycled[idx]) ||
 +			    (kind == kSrcObject && (((src >> 22) & 0xFF) >= _drawn.size() || !_drawn[(src >> 22) & 0xFF].image))) {
 +				uint32 col;
@@ -1947,6 +1992,13 @@ index 00000000..70c8bdbf
 +				if (cs.mirror)
 +					cx = cw - 1 - cx;
 +				const byte code = *((const byte *)cs.image->idx.getBasePtr(cx, cy));
++				if (cs.raw && code != idx) {
++					// Codes drawn as palette indices: the pixel holds the code unless a
++					// shadow table changed it. A shadow is original on purpose.
++					kindFlat(out, outPitch, idx, false);
++					_statCelKept++;
++					continue;
++				}
 +				const byte *truec = cs.image->basePal + code * 3;
 +				const byte *shown = _pal + idx * 3;
 +				// Tint factor between the colour the engine shows and the costume's
@@ -1974,8 +2026,11 @@ index 00000000..70c8bdbf
 +				if (wild) {
 +					// Shadow or effect: original on purpose
 +					kindFlat(out, outPitch, idx, false);
++					_statCelKept++;
 +					continue;
 +				}
++				if (!plain)
++					_statCelTint++;
 +				const uint32 flatCol = _fmt.RGBToColor(shown[0], shown[1], shown[2]);
 +				for (int dy = 0; dy < n; dy++) {
 +					byte *o = out + dy * outPitch;
@@ -2172,6 +2227,53 @@ index 00000000..70c8bdbf
 +		_vm->_fullRedraw = true;
 +	}
 +
++	// DIGHD_TEST_COSTUME: shortly after the jump, an actor is put in the room
++	// with this costume and plays its animations (AKCH, every direction) one
++	// after the other, so costumes that the scripts only show later in the
++	// story can be tested
++	if (_testCostume > 0 && _testDone && _testActor > 0 && _testActor < _vm->_numActors && !_vm->isSmushActive()) {
++		const int since = (int)_frameNo - _testAt - 30;
++		if (since >= 0 && since % _testChoreEvery == 0) {
++			Actor *a = _vm->derefActor(_testActor, "DigHD test costume");
++			if (since == 0) {
++				a->_ignoreBoxes = true;
++				a->_forceClip = 0;
++				a->setElevation(0);
++				a->setActorCostume(_testCostume);
++				const int x = _testPosX >= 0 ? _testPosX : _vm->camera._cur.x;
++				const int y = _testPosY >= 0 ? _testPosY : 180;
++				a->putActor(x, y, _vm->_currentRoom);
++				debug("DigHD: test, actor %d with costume %d at %d,%d", _testActor, _testCostume, x, y);
++				if (_testPalette >= 0) {
++					// The room palette the scripts use while the costume is shown
++					_vm->setCurrentPalette(_testPalette);
++					debug("DigHD: test, room palette %d", _testPalette);
++				}
++				// The animations the costume has: frame * directions + direction
++				_testAnims.clear();
++				_vm->ensureResourceLoaded(rtCostume, _testCostume);
++				const byte *akos = _vm->getResourceAddress(rtCostume, _testCostume);
++				const byte *akhd = akos ? _vm->findResourceData(MKTAG('A', 'K', 'H', 'D'), akos) : nullptr;
++				const byte *akch = akos ? _vm->findResourceData(MKTAG('A', 'K', 'C', 'H'), akos) : nullptr;
++				if (akhd && akch) {
++					_testDirs = (READ_LE_UINT16(akhd + 2) & 2) ? 8 : 4;
++					const int count = READ_LE_UINT16(akhd + 4);
++					for (int anim = 0; anim < count; anim++)
++						if (READ_LE_UINT16(akch + anim * 2))
++							_testAnims.push_back(anim);
++				}
++			}
++			if (!_testAnims.empty()) {
++				const int anim = _testAnims[(since / _testChoreEvery) % _testAnims.size()];
++				const int frame = anim / _testDirs, dir = anim % _testDirs;
++				a->setFacing(_testDirs == 8 ? dir * 45 : oldDirToNewDir(dir));
++				a->startAnimActor(frame);
++				debug("DigHD: test, actor %d animation %d (chore %d, direction %d) at frame %u",
++				      _testActor, anim, frame, dir, _frameNo);
++			}
++		}
++	}
++
 +	for (uint i = 0; i < _testKeys.size(); i++) {
 +		if (_testKeys[i].frame != (int)_frameNo)
 +			continue;
@@ -2235,6 +2337,10 @@ index 00000000..70c8bdbf
 +		s += Common::String::format(", cycled HD px %u", _statCycle);  // part of HD room/object px
 +	if (_statText)
 +		s += Common::String::format(", HD text px %u", _statText);  // drawn over the pixels counted above
++	if (_statCelTint)
++		s += Common::String::format(", tinted sprite px %u", _statCelTint);  // part of HD sprite px
++	if (_statCelKept)
++		s += Common::String::format(", figure px kept original %u", _statCelKept);  // part of original px
 +	if (_showMissing)
 +		s += Common::String::format(", yellow px %u", _statMissing);
 +	if (_classic)
@@ -2381,19 +2487,22 @@ index 00000000..70c8bdbf
 +		Common::String list;
 +		for (int a = 0; a < kMaxCelSlots / kCelSlotsPerActor; a++) {
 +			int costume = -1, hd = 0, without = 0;
++			bool raw = false;
 +			for (int i = 0; i < kCelSlotsPerActor; i++) {
 +				const CelSlot &cs = _cels[a * kCelSlotsPerActor + i];
 +				if (!cs.used && !cs.missing)
 +					continue;
 +				costume = cs.costume;
++				raw |= cs.raw;
 +				if (cs.used)
 +					hd++;
 +				else
 +					without++;
 +			}
 +			if (costume >= 0)
-+				list += Common::String::format("%sactor %d costume %d (%d cels HD, %d without)",
-+				                               list.empty() ? "" : ", ", a, costume, hd, without);
++				list += Common::String::format("%sactor %d costume %d (%d cels HD, %d without%s)",
++				                               list.empty() ? "" : ", ", a, costume, hd, without,
++				                               raw ? ", raw codes" : "");
 +		}
 +		if (!list.empty())
 +			debug("DigHD: costumes drawn: %s", list.c_str());
@@ -2449,15 +2558,16 @@ index 00000000..70c8bdbf
 +		}
 +	}
 +	_statRoom = _statObject = _statCel = _statSan = _statFlat = _statMissing = _statCycle = _statText = 0;
++	_statCelTint = _statCelKept = 0;
 +}
 +
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..bdf1c2bf
+index 00000000..9f31b3d0
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,373 @@
+@@ -0,0 +1,384 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -2607,8 +2717,13 @@ index 00000000..bdf1c2bf
 +
 +	/** An actor is about to be drawn (costume renderer), into the front buffer or the back buffer. */
 +	void beginActor(int actor, int costume, bool front);
-+	/** A costume cel was painted. Coordinates are in costume renderer space. */
-+	void noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart);
++	/**
++	 * A costume cel was painted. Coordinates are in costume renderer space.
++	 * raw: the cel's codes were drawn as palette indices, without the actor
++	 * palette (codec 16 always, codec 5 when the script has not set the actor
++	 * palette). The shown colour then depends on the room palette.
++	 */
++	void noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart, bool raw);
 +
 +	/** Called right before OSystem::updateScreen(); handles frame dumps and test hooks. */
 +	void beforeUpdateScreen();
@@ -2643,6 +2758,7 @@ index 00000000..bdf1c2bf
 +		int rx = 0, ry = 0, rw = 0, rh = 0;  // on-screen rect in room coordinates
 +		bool mirror = false;
 +		bool missing = false;  // drawn, but there is no HD image for this cel
++		bool raw = false;      // codes drawn as palette indices (see noteCel())
 +		uint32 seq = 0;
 +	};
 +	enum { kCelSlotsPerActor = 32, kMaxCelSlots = 1024 };
@@ -2777,6 +2893,7 @@ index 00000000..bdf1c2bf
 +	// Costume cels
 +	Image *celImage(int costume, int cel, int width, int height);
 +	Common::HashMap<uint32, Image *> _celImages;  // key: costume << 12 | cel
++	Common::HashMap<uint32, bool> _celModesSeen;  // DIGHD_VERIFY: costume, room, palette and raw logged once
 +	CelSlot _cels[kMaxCelSlots];
 +	CelLayer _celMain;
 +	int _curActor = -1, _curCostume = -1, _curCelCount = 0;
@@ -2823,8 +2940,12 @@ index 00000000..bdf1c2bf
 +	int _dumpEvery = 0;
 +	int _bench = 0;  // DIGHD_BENCH: build the whole screen this many times at each dump and log the time
 +	int _testRoom = -1, _testAt = -1, _testCamX = -1, _quitAt = -1;
++	int _testCostume = -1, _testActor = 29, _testChoreEvery = 60, _testPosX = -1, _testPosY = -1, _testPalette = -1;  // DIGHD_TEST_COSTUME
++	Common::Array<int> _testAnims;  // animations of the test costume (AKCH entries in use)
++	int _testDirs = 4;
 +	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false, _dumpFlat = false;
 +	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statSan = 0, _statFlat = 0, _statMissing = 0, _statCycle = 0, _statText = 0;
++	uint32 _statCelTint = 0, _statCelKept = 0;  // HD sprite px tinted, figure px with HD image kept original
 +	Common::String statText() const;
 +};
 +

@@ -22,7 +22,7 @@ Fordi alt som ikke kan avgjøres sikkert faller tilbake til originalpikselen, ka
 
 - **Palettbytte og toning:** Når fargen motoren viser er forskjellig fra fargen HD-bildet ble laget med, justeres HD-pikselen med forholdet mellom dem. Fade til svart og lysbytter følger derfor med. Bare pikslene som får en annen farge, bygges på nytt (se Fargesykling under).
 - **Fargesykling:** Farger som sykles (vann, energi, lys) skifter hele tiden. HD-bakgrunnen og HD-objektene vises også der, og følger syklingen. Se eget avsnitt under.
-- **Figurer:** Kostymene har sine "ekte" farger i RGBS-blokken. Motoren tilpasser dem til rompaletten og lyset. HD-sprites bruker de ekte fargene, og justeres bare når rommet er tydelig mørkere eller lysere. Skygger og spesialeffekter blir originalpiksler. Det samme gjelder en piksel som er svart i den ekte fargen, men vises lys i spillet, for da er det ikke denne fargen som vises (se kodek 5 under Hva som er testet).
+- **Figurer:** Kostymer med kodek 1 har sine "ekte" farger i RGBS-blokken. Motoren tilpasser dem til rompaletten og lyset. Kostymer med kodek 5 og 16 tegnes med kodene rett som palettindekser, så der er fargene rommets palett (se Kostymer med kodek 5 og 16). Uttrekket farger rutene slik spillet viser dem, og HD-sprites bruker de fargene. De justeres bare når fargen spillet viser er tydelig mørkere eller lysere. Skygger og spesialeffekter blir originalpiksler. Det samme gjelder en piksel som er svart i HD-fargen, men vises lys i spillet, for da er det ikke denne fargen som vises.
 - **Skalerte figurer:** Figurer som skaleres med dybden, tegnes med HD-pikslene skalert jevnt i stedet for med originalens hoppemønster. Silhuetten følger fortsatt originalen.
 
 ## Fargesykling
@@ -90,6 +90,64 @@ Valg og begrunnelse. Før kjente figurkilden bare rektangelet til hver rute og o
 | Merke per piksel med verdien ruten skrev (valgt) | Følger det som faktisk står i bufferen, uansett hva som har tegnet over. Verdien alene skiller ikke en boks med samme farge som figuren, derfor tar `markRectAsDirty` også bort merkene |
 
 Merkingen koster lite: 0,006 ms per bilde i rom 2 (3 ruter). Oppslaget er en sammenligning per piksel i stedet for en løkke over alle rutene, og tidene for hele skjermen er de samme som før innenfor målestøyen. Se Hva som er testet.
+
+## Kostymer med kodek 5 og 16
+
+Kodeken står i AKHD-blokken i hvert kostyme. Av de 331 kostymene har 182 kodek 1 (Byle RLE), 144 kodek 5 (BOMP) og 5 kodek 16 (MajMin). Alle tre får HD-sprites på samme måte: tegneren melder hver rute til DigHD (`noteCel`) etter at den er tegnet, med rektangelet før klipping og om den er speilvendt.
+
+### Kostymene med kodek 16
+
+| Kostyme | Ligger i rom | Hva det er | Hvor det er sett |
+| --- | --- | --- | --- |
+| 95 | 30 (connect) | Lyn fra skyene ned i havet, 180 ruter | Rom 30, til høyre i rommet. Synes når kameraet står til høyre |
+| 96 | 31 (mudoor) | Et lysende spøkelse i blågrønt og oransje, 68 ruter | Bare med testkroken. Fargene er bare riktige med rommets palett 1 |
+| 118 | 33 (skeleton) | Boston Low som svømmer under vann, med bobler og vannflaten, 181 ruter | Bare med testkroken |
+| 266 | 92 (library) | Små mørke detaljer i biblioteket: tynne streker og små former, 247 ruter | Rom 92 med en gang (skuespiller 13), og rom 79 i en mellomsekvens |
+| 267 | 92 (library) | Bildene i krystallskapene i biblioteket: lysende kuler, pyramider og krystaller, 264 ruter | I mellomsekvensen som starter når spillet hopper til rom 95, og med testkroken |
+
+Er det verdt det? Low som svømmer (118) er hovedpersonen i en hel scene, og bildene i biblioteket (267) dekker opptil 10 000 originalpiksler. Lynet, spøkelset og 266 er små effekter. Koblingen i motoren er en melding i `paintCelMajMin`, så alle fem er tatt med.
+
+### Når ScummVM bruker AKPL
+
+En kode i en rute blir en palettindeks på en av to måter: gjennom AKPL og skuespillerpaletten, eller rett, slik at koden er palettindeksen. Fra `akos.cpp` (`AkosRenderer::setPalette`, `paintCelByleRLE`, `paintCelCDATRLE`, `paintCelMajMin`) og `actor.cpp`:
+
+| Kodek | Hvordan koden blir en palettindeks |
+| --- | --- |
+| 1 | Alltid gjennom `_palette`: plassen i skuespillerpaletten når den er satt, ellers AKPL |
+| 5 | Har AKPL 256 plasser og plass 0 i skuespillerpaletten er satt, går kodene gjennom `_palette` som for kodek 1 (`_useBompPalette`). Ellers tegnes de rett. `_useBompPalette` settes tilbake etter hver rute, så i en tegning med flere ruter får bare den første paletten |
+| 16 | Alltid rett. `paintCelMajMin` bruker ikke paletten i The Dig (bare HE-spill fra versjon 61) |
+
+Skuespillerpaletten tømmes (0xFF på alle plasser) når skuespilleren får et nytt kostyme (`setActorCostume`). Skriptet kan fylle den med `remapActorPalette` (kernelSetFunctions 13 og 14: RGBS ganget med en faktor og tilpasset rompaletten) eller én plass om gangen med actorOps.
+
+Målt i spillet: med `DIGHD_VERIFY=1` skriver motoren en linje første gang et kostyme tegnes i et rom med en palett, for eksempel `costume 210 in room 78 with palette 0: codes as palette indices`. Spillet hoppet til hvert av de 111 rommene og gikk 860 bilder etter hoppet. 45 kostymer med kodek 1 og 34 med kodek 5 og 16 ble tegnet, og kostyme 95 i en egen kjøring med kameraet til høyre. Alle med kodek 5 og 16 ble tegnet rett, alle med kodek 1 gjennom AKPL. Ingen skript satte skuespillerpaletten på et kostyme med kodek 5 i disse kjøringene. Hoppet til rom 55 ble ikke gjort (spillet var i en film).
+
+Hva det betyr for fargene: RGBS-blokken har fargen til hver AKPL-plass. For 105 av de 144 kostymene med kodek 5 er RGBS nesten nøyaktig fargen AKPL-plassen har i en av palettene i rommet kostymet ligger i (under 25 i hver kanal for alle kodene rutene bruker). Når kodene tegnes rett, viser spillet i stedet rompalettens farge for selve koden, og den er ofte en helt annen (i kostyme 210 for halvparten av pikslene). Øyet i rom 78 (kostyme 210) er glatt grått i spillet, men flekkete brunt og blått med RGBS-fargene.
+
+### Uttrekket
+
+`dighd extract` farger nå hver rute med fargene spillet viser:
+
+- Kodek 1: RGBS som før. Filene er byte for byte like.
+- Kodek 5 og 16: kodene rett i paletten til rommet der kostymet vises. Rommet og paletten står i `docs/kostymefarger.csv` når de er målt i spillet (35 kostymer). Ellers brukes rommet kostymet ligger i. Har rommet flere paletter, velges den som gir det jevneste bildet: snittet av største fargeforskjell mellom nabopiksler i alle rutene. Er flere nesten like jevne (under 2 prosent fra den beste), brukes den første av dem, helst palett 0, som rommet starter med. 57 kostymer ligger i rom med én palett, og for 57 er paletten valgt slik.
+- Står det `rgbs` i tabellen, brukes RGBS som for kodek 1. Det er for kostymer skriptet setter skuespillerpaletten på. Ingen er funnet ennå.
+
+Indeksbildet (`_idx.png`) har de samme fargene som palett, så motoren sammenligner med fargene uttrekket brukte. `costumes.json` har nå kodeken og hvordan fargene er valgt (`codec`, `colours`).
+
+Jevnhet er brukt fordi det skiller tydelig: med den valgte paletten er 133 av de 146 kostymene som har RGBS, minst 20 prosent jevnere enn med RGBS, 13 er omtrent like, og ingen er jevnere med RGBS. Av de målte kostymene i rom med flere paletter valgte jevnheten den samme paletten som spillet for 229 (rom 82, palett 1) og 240 (rom 91, palett 0), men ikke for 225 (rom 79, palett 2 i spillet). Der er palettene nesten like for kodene kostymet bruker, og tabellen avgjør.
+
+### Motoren
+
+- `paintCelMajMin` melder rutene til DigHD som de andre tegnerne.
+- Tegnerne sier om kodene ble tegnet rett (kodek 16 alltid, kodek 5 uten `_useBompPalette`). For slike ruter skal pikselen ha verdien koden har. Har den en annen verdi, har en skyggetabell endret den (skyggemodus 3 endrer kodene under 8 etter det som ligger under, som i kostyme 74 i rom 25), og pikselen blir originalpiksel. Før ble dette avgjort bare av hvor ulike fargene var.
+- Fargene ellers som for kodek 1: HD-pikselen brukes som den er når fargen spillet viser er nær fargen i uttrekket, ellers justeres den med forholdet, og helt ulike farger blir originalpiksler. Vises kostymet med en annen palett enn uttrekket brukte, blir det dermed som for bakgrunner ved palettbytte.
+
+Valg og begrunnelse:
+
+| Vei | Vurdering |
+| --- | --- |
+| Motoren justerer HD-pikselen mot fargen spillet viser (forhold per kanal, slik det var) | HD-bildet lages fra uttrekket. Med RGBS-farger har det andre farger og former enn spillet viser, og forholdet per kode kan ikke rette det: en svart kanal kan ikke skaleres, og der en oppskalert piksel blander to koder, blandes feil farger. Målt med nearest-mod i 17 rom: 12 til 100 prosent av figurpikslene fikk HD (i 15 av rommene 56 til 99), og opptil 56 prosent av dem måtte tones (i rom 89 alle) |
+| Uttrekket bruker rompaletten der kostymet vises (valgt) | HD-bildet lages fra de samme fargene som spillet viser, og motoren bruker HD-pikselen som den er. I de samme rommene: 96 til 100 prosent HD og ingen toning (se Hva som er testet). Fargene avhenger av rommets palett, så rommet og paletten må være kjent: målt (tabellen) eller valgt etter jevnhet |
+| Ett HD-bilde per rom og palett | Bare nyttig for kostymer som vises med flere paletter. Bare 266 er sett slik, i en kort mellomsekvens. Ikke gjort |
 
 ## Klassisk grafikk og gult felt
 
@@ -203,7 +261,7 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `
 | `string_v7.cpp` | Teksten som tegnes og merkes, nullstiller ikke seg selv. `removeBlastTexts` nullstiller glyfene i spillskjermen |
 | `palette.cpp` | Palett sendes til DigHD i stedet for til skjermen |
 | `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand. Blast-objekter beholder figurmerkene under seg |
-| `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes, hvor, om de er speilvendt og om de tegnes i skjermbufferen eller i bakgrunnsbufferen |
+| `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes (kodek 1, 5 og 16), hvor, om de er speilvendt, om kodene er tegnet rett som palettindekser, og om de tegnes i skjermbufferen eller i bakgrunnsbufferen |
 | `cursor.cpp`, `input.cpp`, `saveload.cpp` | Musepeker i HD, museposisjon delt på skala, hurtigtastene Ctrl+H og Ctrl+Shift+H |
 | `smush/smush_player.cpp` | Filmrammer og filmpalett via DigHD. Filmteksten tegnes også i laget til DigHD, og DigHD får beskjed når en ny ramme er pakket ut |
 
@@ -231,8 +289,10 @@ Test og feilsøking (bare miljøvariabler):
 | `DIGHD_TEST_ROOM`, `DIGHD_TEST_AT`, `DIGHD_TEST_CAMX` | Hopper rett til et rom etter N bilder |
 | `DIGHD_QUIT_AT` | Avslutter etter N bilder |
 | `DIGHD_TEST_KEYS` | Trykker taster ved gitte bilder, for eksempel `420:ctrl+h,570:ctrl+shift+h,600:f5`. Tastene a til z, f1 til f12, `space` og `escape`, med `ctrl+`, `shift+` og `alt+`. Tastene går gjennom den vanlige tastehåndteringen i motoren |
+| `DIGHD_TEST_COSTUME` | Testkroken: 30 bilder etter hoppet med `DIGHD_TEST_ROOM` settes en skuespiller inn i rommet med dette kostymet, og den spiller alle animasjonene i AKCH (alle retninger) etter hverandre. For kostymer skriptene først viser senere i historien |
+| `DIGHD_TEST_ACTOR`, `DIGHD_TEST_POS`, `DIGHD_TEST_PALETTE`, `DIGHD_TEST_CHORE_EVERY` | Skuespilleren testkroken bruker (standard 29), plassen i rommet (`x,y`, standard midt på skjermen og 180), rompaletten som settes (`setCurrentPalette`, standard ingen) og hvor mange bilder hver animasjon vises (standard 60) |
 
-Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). `HD text px` er pikslene som fikk en HD-glyf over seg (de er også med i tallet for det som er under teksten). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
+Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). `HD text px` er pikslene som fikk en HD-glyf over seg (de er også med i tallet for det som er under teksten). `tinted sprite px` er figurpikslene som ble justert med forholdet mellom fargene (de er også med i `HD sprite px`), og `figure px kept original` figurpikslene med HD-bilde som ble originalpiksler med vilje: skygger, effekter, syklede farger og farger som er helt forskjellige (de er også med i `original px`). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
 
 Med `DIGHD_VERIFY=1` skriver hver dump to til fire linjer:
 
@@ -241,7 +301,7 @@ Med `DIGHD_VERIFY=1` skriver hver dump to til fire linjer:
 - `colour cycling, N of M HD pixels differ strongly`: avvik i pikslene som gikk gjennom fargekartet. De er jevnet ut mellom originalpikslene med vilje, så med en `nearest`-mod avviker noen av dem. De holdes utenfor hovedtallet.
 - `HD text, N of M HD pixels differ strongly`: avvik i pikslene med HD-glyf. Kantene på glyfene er glatte med vilje, så med xBR avviker omtrent 10 prosent av dem. Med `DIGHD_TEXT=nearest` skal tallet være 0. De holdes utenfor hovedtallet.
 
-Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 0 px original on purpose (text), 0 px original without HD, HD text over 2845 px`. Tekstpiksler med HD-glyf telles under det som er under dem (her HD-rammen), og i tillegg i det siste tallet. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without)`.
+Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 0 px original on purpose (text), 0 px original without HD, HD text over 2845 px`. Tekstpiksler med HD-glyf telles under det som er under dem (her HD-rammen), og i tillegg i det siste tallet. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without, raw codes)`. `raw codes` betyr at kodene ble tegnet rett som palettindekser. Første gang et kostyme tegnes i et rom med en palett, kommer også en linje som `costume 210 in room 78 with palette 0: codes as palette indices` (eller `codes through AKPL and the actor palette`).
 
 ## Hva som er testet
 
@@ -294,7 +354,7 @@ Undertekster over filmer (testet uten skjerm 2026-10-07, introen SQ1 med `--subt
 - Skjermen uten skjermkort (SDL dummy) er 16 bit (RGB565). Sammenligningene med `work/san` er gjort etter samme avrunding.
 - Ikke testet med ekte skjerm.
 
-Kodek 5 (testet uten skjerm 2026-10-07). Modden `test-k5` er laget med `nearest` og har alle 144 kostymer med kodek 5 og de 59 rommene de ligger i. Spillet hoppet med `DIGHD_TEST_ROOM` til hvert av rommene, med `DIGHD_VERIFY=1` og 700 bilder etter hoppet. Kodeken er lest fra AKHD-blokken i hver kostyme (`work/extract/costumes.json` har ikke kodek).
+Kodek 5 (testet uten skjerm 2026-10-07). Modden `test-k5` er laget med `nearest` og har alle 144 kostymer med kodek 5 og de 59 rommene de ligger i. Spillet hoppet med `DIGHD_TEST_ROOM` til hvert av rommene, med `DIGHD_VERIFY=1` og 700 bilder etter hoppet. Kodeken er lest fra AKHD-blokken i hver kostyme (`costumes.json` har nå kodeken). Uttrekket brukte RGBS også for kodek 5 da dette ble testet, så andelene under gjelder de gamle fargene. Se Kodek 16 og fargene for kodek 5 og 16 for tallene etter rettingen.
 
 - Funnet og rettet: indeksbildene for alle kostymer med kodek 5 (14 124 ruter) og 150 objektbilder (inventaret i rom 93 og 6 i rom 107) har gjennomsiktig palettindeks 255. I PNG krever det en tRNS-blokk med 256 verdier, og da gjør PNG-leseren i ScummVM bildet om til RGBA. DigHD avviste dem ("not an 8-bit indexed PNG"), så ingen av dem fikk HD. Nå leses indeksbildet uten tRNS-blokken, og den gjennomsiktige indeksen hentes fra blokken.
 - Funnet og rettet: piksler der den ekte fargen er svart, men spillet viser en lys farge, ble svarte i HD (30 piksler i kostyme 210 i rom 78). Nå blir de originalpiksler, som skygger og effekter. Dette fjernet også noen avvik i `engine/test.sh` (bilde 250 gikk fra 72 til 0).
@@ -302,6 +362,42 @@ Kodek 5 (testet uten skjerm 2026-10-07). Modden `test-k5` er laget med `nearest`
 - Etter rettingene ble 30 kostymer med kodek 5 tegnet med HD i 15 rom: 31 (rom 13), 74 (25), 119 (34), 278 til 281 (40), 318 (47), 326 (66), 320 (72), 210 (78), 238 (89), 240 (91), 225 (79), 282 til 297 (96 til 99). 0 sterkt avvikende piksler i alle 135 dumper.
 - Andel av figurpikslene som kom fra HD-bildet (resten er originalpiksler som skygger, effekter eller farger som ikke stemmer): 91 prosent i rom 13, 69 prosent i rom 40, 60 til 85 prosent i rom 78.
 - Ikke testet: inventaret (rom 93) og rom 107 i spillet, og ekte HD-bilder for kodek 5.
+
+Kodek 16 og fargene for kodek 5 og 16 (testet uten skjerm 2026-10-07). To modder laget med `nearest`, en fra det gamle uttrekket (RGBS) og en fra det nye, med de 34 kostymene med kodek 5 og 16 som ble sett da spillet hoppet til hvert rom, og 95, 96 og 118. Spillet hoppet med `DIGHD_TEST_ROOM`, gikk 1000 bilder med `DIGHD_VERIFY=1` og dumpet hvert 25. bilde.
+
+- 0 sterkt avvikende piksler, og skjermen lik hele skjermen bygget på nytt, i alle 40 dumper i hver av de 22 kjøringene, med begge moddene.
+- Kodek 16 tegnes med HD: 95 i rom 30 (med `DIGHD_TEST_CAMX=264`), 266 i rom 92, og med testkroken 267 i rom 92, 96 i rom 31 (med `DIGHD_TEST_PALETTE=1`) og 118 i rom 33.
+- Andel av figurpikslene med HD-bilde som fikk HD, og hvor mange av dem som måtte tones, summert over dumpene:
+
+| Rom | Kostymer | Gammelt uttrekk | Nytt uttrekk |
+| --- | --- | --- | --- |
+| 8 | 21 | 91 % (13 % tonet) | 100 % |
+| 13 | 31 | 90 % (56 %) | 100 % |
+| 25 | 74 | 0 % | 0 % (skygge, se under) |
+| 34 | 119 | 97 % (38 %) | 99,7 % |
+| 40 | 278 til 281 | 69 % (24 %) | 100 % |
+| 47 | 318 | 81 % (49 %) | 100 % |
+| 66 | 326 | 87 % (44 %) | 100 % |
+| 72 | 320 | 83 % (41 %) | 100 % |
+| 78 | 210 | 72 % (32 %) | 100 % |
+| 82 | 229 | ikke tegnet i kjøringen | 99 % |
+| 89 | 238 | 12 % (100 %) | 96 % |
+| 91 | 240 | 99 % (22 %) | 99 % |
+| 92 | 266 | 88 % (21 %) | 100 % |
+| 95, mellomsekvens i rom 79 og 92 | 225, 266, 267 | 84 % (23 %) | 99,8 % |
+| 96 til 99 | 282 til 297 | 56 til 78 % (19 til 39 %) | 100 % |
+| 30 | 95 | 100 % (0 %) | 99 % |
+| 31, testkroken | 96 | 47 % (72 %) | 70 % |
+| 33, testkroken | 118 | 66 % (21 %) | 68 % |
+| 92, testkroken | 267 | 73 % (64 %) | 100 % |
+
+  Med det nye uttrekket ble ingen figurpiksler tonet.
+- Rom 25 (kostyme 74, airlock): ruten tegnes med skyggemodus, så alle pikslene er en blanding med det som ligger under. De blir originalpiksler med vilje, med begge uttrekkene.
+- 96 og 118: 5 prosent av pikslene har koder som sykles i rommet, og syklede farger på figurer er originalpiksler. Tallene i tabellen er summert over alt som ble bygget, også når skjermen bygges på nytt etter et syklingssteg før skuespillerne er tegnet på nytt. Da peker noen piksler en kort stund på en rute som er byttet, og de blir originalpiksler. Talt bare i de ferdige bildene i dumpene (midlertidig måling, tatt ut igjen) fikk 96 76 prosent HD og 118 81 prosent, og resten var syklede farger.
+- Med `lanczos-sharp` for 95, 96, 118, 210, 266 og 267: figurene er glatte og står på samme sted som originalen (sett på kulene i biblioteket og spøkelset).
+- Uttrekket: `dighd extract` til en ny mappe og sammenlignet fil for fil med det gamle. 149 kostymer endret, nøyaktig de med kodek 5 og 16. De 182 med kodek 1 er byte for byte like. Rutene og størrelsene er de samme.
+- `engine/test.sh`: 0 avvik ved bilde 250, 750, 1000, 1750 og 2500 til 3000, og 0,081 til 0,195 prosent ved 500, 1250, 1500, 2000 og 2250 (de samme bildene med skalerte astronauter som før). Skjermen lik hele skjermen bygget på nytt i alle 12 dumper.
+- Ikke testet: ekte skjerm, 96 og 118 der skriptene viser dem, og de 110 kostymene med kodek 5 og 16 som ikke ble tegnet da spillet hoppet til rommene.
 
 Tekst i HD (testet uten skjerm 2026-10-07, med `--subtitles`, `DIGHD_VERIFY=1` og `DIGHD_DUMP_FLAT=1`):
 
@@ -340,8 +436,9 @@ Figurkilden (testet uten skjerm 2026-10-07, rom 2, med `DIGHD_DUMP_FLAT=1`). Sam
 
 ## Kjente begrensninger
 
-- Kostymer med kodek 16 (5 kostymer) får ikke HD-sprites ennå. Kodek 1 (182 kostymer, blant dem hovedpersonene) og kodek 5 (144 kostymer) er testet i spillet.
-- Kodek 5: når skriptet ikke har satt skuespillerpaletten, tegner ScummVM kodene rett som palettindekser i rommet, uten AKPL (`_useBompPalette` i `akos.cpp`). Uttrekket farger rutene med RGBS, som følger AKPL. Da har HD-bildet andre farger enn spillet for kodene der AKPL ikke er lik koden. Sett i kostyme 210 i rom 78: kode 26 er svart i uttrekket og brun i spillet. Pikslene med for store fargeforskjeller blir originalpiksler, de andre justeres med forholdet mellom fargene. Om uttrekket bør bruke rompaletten for slike kostymer, er ikke avgjort.
+- Kostymer med kodek 16: 96 (spøkelset) og 118 (Low som svømmer) er bare testet med testkroken, ikke der skriptene viser dem. Paletten for 96 er valgt etter jevnhet.
+- Kodek 5 og 16: fargene i uttrekket er rompaletten der kostymet vises. For 35 kostymer er rommet og paletten målt i spillet, for de andre er det rommet kostymet ligger i og den jevneste paletten. Vises et kostyme i et annet rom eller med en annen palett (266 i rom 79), eller setter skriptet skuespillerpaletten, justerer motoren fargene, og farger som er helt forskjellige blir originalpiksler. Et kostyme som vises med to helt ulike paletter, kan bare få riktige HD-farger i den ene.
+- Kodek 5: setter skriptet skuespillerpaletten, får bare den første ruten i hver tegning paletten (`_useBompPalette` settes tilbake etter hver rute i ScummVM). Motoren følger dette per rute. Ikke sett i spillet.
 - Objekter som tegnes direkte i bakgrunnsbufferen av skript (sjeldent) blir originalpiksler.
 - Fargesykling: kartet jevner ut over 3 x 3 originalpiksler, så glitter av enkeltpiksler (fossen i rom 43) beveger seg svakere enn i originalen. Bølger over flere piksler (vannet i rom 22) synes godt.
 - Fargesykling: kartet leses fra indeksbildet til rommet eller objektet. Ligger et objekt over syklet vann, får bakgrunnspikselen rett ved siden av objektet litt av syklingen under objektet. Ikke sett i rommene som er prøvd.
