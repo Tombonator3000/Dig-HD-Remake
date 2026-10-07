@@ -291,6 +291,8 @@ Test og feilsøking (bare miljøvariabler):
 | `DIGHD_TEST_KEYS` | Trykker taster ved gitte bilder, for eksempel `420:ctrl+h,570:ctrl+shift+h,600:f5`. Tastene a til z, f1 til f12, `space` og `escape`, med `ctrl+`, `shift+` og `alt+`. Tastene går gjennom den vanlige tastehåndteringen i motoren |
 | `DIGHD_TEST_COSTUME` | Testkroken: 30 bilder etter hoppet med `DIGHD_TEST_ROOM` settes en skuespiller inn i rommet med dette kostymet, og den spiller alle animasjonene i AKCH (alle retninger) etter hverandre. For kostymer skriptene først viser senere i historien |
 | `DIGHD_TEST_ACTOR`, `DIGHD_TEST_POS`, `DIGHD_TEST_PALETTE`, `DIGHD_TEST_CHORE_EVERY` | Skuespilleren testkroken bruker (standard 29), plassen i rommet (`x,y`, standard midt på skjermen og 180), rompaletten som settes (`setCurrentPalette`, standard ingen) og hvor mange bilder hver animasjon vises (standard 60) |
+| `DIGHD_TEST_OBJSTATE` | Testkroken for objekttilstander. `884:2,886:1` setter objektene i disse tilstandene etter hoppet og holder dem der. `alle` viser hver tilstand av hvert objekt i rommet etter hverandre og lagrer skjermen etter hver tilstand. Se Objekttilstander i testen |
+| `DIGHD_TEST_OBJSTATE_AT`, `DIGHD_TEST_OBJSTATE_EVERY` | Bilder etter at spillet er i testrommet før den første tilstanden settes (standard 30), og hvor mange bilder hver tilstand vises med `alle` (standard 40) |
 
 Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). `HD text px` er pikslene som fikk en HD-glyf over seg (de er også med i tallet for det som er under teksten). `tinted sprite px` er figurpikslene som ble justert med forholdet mellom fargene (de er også med i `HD sprite px`), og `figure px kept original` figurpikslene med HD-bilde som ble originalpiksler med vilje: skygger, effekter, syklede farger og farger som er helt forskjellige (de er også med i `original px`). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
 
@@ -304,6 +306,35 @@ Med `DIGHD_VERIFY=1` skriver hver dump to til fire linjer:
 - `HD text, N of M HD pixels differ strongly`: avvik i pikslene med HD-glyf. Kantene på glyfene er glatte med vilje, så med xBR avviker omtrent 10 prosent av dem. Med `DIGHD_TEXT=nearest` skal tallet være 0. De holdes utenfor hovedtallet.
 
 Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 0 px original on purpose (text), 0 px original without HD, HD text over 2845 px`. Tekstpiksler med HD-glyf telles under det som er under dem (her HD-rammen), og i tillegg i det siste tallet. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without, raw codes)`. `raw codes` betyr at kodene ble tegnet rett som palettindekser. Første gang et kostyme tegnes i et rom med en palett, kommer også en linje som `costume 210 in room 78 with palette 0: codes as palette indices` (eller `codes through AKPL and the actor palette`).
+
+## Objekttilstander i testen
+
+Et objekt (dør, maskin, lys) har ett bilde per tilstand: `objNNN_01.png`, `objNNN_02.png` og så videre. Etter testhoppet vises hvert objekt bare i tilstanden skriptene ga det, så HD-bildene for de andre tilstandene blir aldri prøvd. `DIGHD_TEST_OBJSTATE` setter tilstanden selv:
+
+- `DIGHD_TEST_OBJSTATE=884:2,886:1`: objektene settes i disse tilstandene `DIGHD_TEST_OBJSTATE_AT` bilder (standard 30) etter at spillet er i testrommet. Uten `DIGHD_TEST_ROOM` gjelder det rommet spillet er i ved bilde `DIGHD_TEST_AT`.
+- `DIGHD_TEST_OBJSTATE=alle`: alle objektene i rommet som har bilder, sortert etter nummer, og for hvert av dem tilstand 1 til antallet bilder (IM01, IM02 og så videre). Hver tilstand vises i `DIGHD_TEST_OBJSTATE_EVERY` bilder (standard 40, omtrent 0,4 sekunder uten skjerm; bildene her er skjermoppdateringer, som for de andre testvariablene). Før neste objekt settes objektet tilbake til tilstanden det hadde. Når alt er vist, skriver loggen `object states done`, og med `DIGHD_QUIT_AT` avslutter spillet med en gang.
+
+Tilstanden settes slik skript-opkoden setState gjør det (`o6_setState`): `putState`, `markObjectRectAsDirty`, og tegnekøen tømmes når bakgrunnen skal tegnes på nytt. Motoren tegner da objektet på den vanlige veien i neste bilde (`drawObject`, som melder objektet til DigHD), og DigHD ser det slik det ser det i spillet. Andre ting testkroken gjør:
+
+- Setter spillet en annen tilstand på objektet senere, settes den tilbake. Loggen sier det én gang per objekt.
+- Har objektet en forelder, tegner motoren det bare når forelderen har tilstanden objektet krever (`drawRoomObject`). Da settes forelderen også.
+- Er objektet ikke helt på skjermen, flyttes kameraet til midten av objektet og holdes der som med `DIGHD_TEST_CAMX`. Ikke når `DIGHD_TEST_CAMX` eller `DIGHD_TEST_CAMY` er satt.
+- Tilstander uten rombilde (SMAP) hoppes over: noen objekter har bare BOMP-bilder (6 i rom 107 og ikonene i rom 93), og skriptene tegner dem som blast-objekter. Tegnet som en del av rommet ville ScummVM stoppet med en assert i `Gdi::drawBitmap`.
+- Uten variabelen gjør testkroken ingenting.
+
+Ved slutten av hver tilstand lagres skjermen når `DIGHD_DUMP_DIR` er satt, og loggen får en linje per objekt testkroken holder. Med en liste skjer det én gang, `DIGHD_TEST_OBJSTATE_EVERY` bilder etter at tilstandene ble satt. Linjen kommer også ved hver vanlig dump. Eksempel fra rom 50:
+
+```
+DigHD: test, object 884 state 2 at frame 334 (step 2 of 3), at 0,88 160x112, 3 images
+DigHD: test object 884 state 2 frame 373: drawn yes, HD image yes, object px 15894, HD object px 15894, at 0,88 160x112, on screen 17920 px: HD room px 0, other HD object px 0, HD sprite px 0, original px 2026 (without HD 2026)
+```
+
+- `drawn`: `yes` når objektet er tegnet i tilstanden etter at den ble satt, `no` når det ikke er tegnet (for eksempel utenfor skjermen), og `with state N` når spillet har tegnet det i en annen tilstand.
+- `HD image`: `yes` (lest og brukt der objektet vises), `no` (`objects/objNNN_SS.png` eller `_idx.png` finnes ikke i modden), `unreadable` (finnes, men kunne ikke brukes; advarselen over sier hvorfor, for eksempel feil størrelse) og `not loaded` (objektet er ikke tegnet i tilstanden ennå).
+- `object px`: objektets egne piksler på skjermen. Det vil si piksler som ikke er gjennomsiktige, som ikke er like rombakgrunnen når rommet har HD-bakgrunn (der viser motoren HD-rommet), og som ikke er dekket av noe annet: pikselen har verdien objektet tegnet, og ikke et annet objekt tegnet senere viser den. `HD object px` er de av dem som kom fra HD-objektet.
+- Resten er kildene for alle pikslene i objektets rektangel på skjermen, som i linjen `whole screen`.
+
+`tools/romtest.sh --objekter` bruker `alle` i hvert rom og lager en rapport med nærbilder per objekt og tilstand (se `docs/SPILLTEST.md`).
 
 ## Hva som er testet
 
@@ -445,12 +476,29 @@ Alle rom (testet uten skjerm 2026-10-07 med `tools/romtest.sh`, modden `gpt` med
 - `engine/test.sh` etter endringene: 0 avvik ved bilde 250, 750, 1000, 1500, 1750 og 2500 til 3000, og 0,077 til 0,172 prosent ved 500, 1250, 2000 og 2250 (skalerte figurer, som før). Skjermen lik hele skjermen bygget på nytt i alle 12 dumper.
 - Ikke kontrollert: rom 10 og 104 (spillet tonet ned og forlot rommet straks etter hoppet).
 
+Objekttilstander (testet uten skjerm 2026-10-07 med `tools/romtest.sh --objekter --kamera ett`, modden `gpt`, 40 bilder per tilstand, `DIGHD_VERIFY=1`, alle 111 rom på 16 minutter med to kjøringer samtidig):
+
+- 72 rom har objekter med bilder. 70 ble kjørt med `alle`: 489 tilstander av 296 objekter. Rom 93 hoppes ikke til (mindre enn skjermen), og i rom 10 forlater spillet rommet ved bilde 290, før den første tilstanden.
+- HD-bildet ble brukt i 406 tilstander, og i alle av dem kom alle objektets synlige piksler fra HD-bildet. Alle 30 ChatGPT-objektene er blant dem, også obj884 i rom 50 (3 tilstander) og obj886 i rom 46 (2).
+- 5 tilstander er like rombakgrunnen overalt (obj179_03 i rom 23 og fire andre), og der viser motoren HD-rommet. 12 tilstander mangler i modden (rom 32 og 88, som ikke er i modden). 3 er utenfor skjermen: obj789 i rom 105, der skriptet flytter kameraet tilbake hvert bilde. 6 er BOMP-bilder i rom 107 og ble hoppet over.
+- 57 tilstander er dekket av et annet objekt i tilstanden etter hoppet: krystallene obj775, obj776, obj778 og obj779 i rom 100 (14 tilstander hver) og obj592 i rom 89. Med listen `DIGHD_TEST_OBJSTATE=769:0,775:5` i rom 100 synes obj775, og alle 337 objektpikslene kom fra HD-bildet.
+- Skjermen var lik hele skjermen bygget på nytt i alle 483 dumpene etter et tilstandsbytte, også når kameraet ble flyttet. Tegningen etter `putState` går riktig gjennom de skitne områdene.
+- Nærbildene er sett på for obj884 (alle tre tilstandene), obj886 (skjelettet er der i tilstand 1 og borte i tilstand 2), obj191, obj547, obj400 (fire tilstander), obj775 og obj537: HD-bildet står der originalen har objektet, og byttet mellom tilstandene synes.
+- Funnet og rettet: testkroken satte først også objekter med bare BOMP-bilde, og ScummVM stoppet med en assert i `Gdi::drawBitmap` (rom 107, obj807). Nå hoppes de over.
+- Funnet og rettet i `tools/romtest.py`: med en relativ `--ut` havnet dumpene i den midlertidige mappen motoren kjører i, og ble slettet. Alle rom fikk status svart skjerm. Stiene gjøres nå absolutte.
+- Med en mod med feil med vilje (obj884_02 fjernet og obj884_03 i feil størrelse) skrev loggen `HD image no` og `HD image unreadable` med advarselen `objects/obj884_03.png is 320x224, expected 640x448`, og rapporten viste `ikke i modden` og `HD-bildet ikke lest` med HD-andel 0.
+- Funnet, ikke rettet (gjelder bildene i modden, ikke motoren): obj547_01 (ChatGPT, rom 79) har en grå strek, 1 HD-piksel bred, langs nederste rad og venstre kolonne. Nederste rad har snittlysstyrke 88 mot 45 i raden over, og venstre kolonne 62 mot 9. Den synes langs skjermkanten i rom 79, der originalen er mørk. 10 andre ChatGPT-bilder har også en nederste rad som er tydelig lysere enn raden over. I obj844, obj701 og obj160 er den nederste originalraden lik rommet, så motoren viser HD-rommet der, og streken synes ikke. Det samme ligger i `work/gpt-ferdig`, så det kommer fra bildet eller fra `dighd gpt-inn`, ikke fra motoren. I ChatGPT sitt lerret (`resultat.png`) går bildet 1 til 4 piksler ut over feltet det skulle ligge i, inn i den grå kanten; det kan være årsaken, men det er ikke undersøkt.
+- Funnet, ikke rettet: obj400 i rom 58 (automatisk oppskalert) har en lys loddrett strek langs venstre og høyre kant i tilstand 1 og 3, som originalen ikke har. Den ytterste HD-kolonnen er lysere enn de neste. Målt på alle bildene i modden har 59 av 455 automatiske objektbilder en kant som skiller seg mer enn 3 ganger så mye fra pikslene innenfor som de indre pikselgrensene gjør. Ikke alle synes i spillet, for der objektet er likt rommet, vises HD-rommet.
+- Ikke testet: at testkroken setter en forelder, og at den setter tilstanden tilbake når spillet endrer den. Ingen av objektene i kjøringene trengte det.
+- `engine/test.sh` etter endringen, to kjøringer: 0 avvik ved bilde 250, 750, 1000, 1750 og 2500 til 3000, og 0,103 til 0,236 prosent ved 500, 1250, 1500, 2000 og 2250 (skalerte figurer, sett på i bilde 1500: en astronaut). Skjermen lik hele skjermen bygget på nytt i alle dumpene. Ingen linjer fra testkroken i loggen; den gjør ingenting uten variabelen.
+
 ## Kjente begrensninger
 
 - Kostymer med kodek 16: 96 (spøkelset) og 118 (Low som svømmer) er bare testet med testkroken, ikke der skriptene viser dem. Paletten for 96 er valgt etter jevnhet.
 - Kodek 5 og 16: fargene i uttrekket er rompaletten der kostymet vises. For 35 kostymer er rommet og paletten målt i spillet, for de andre er det rommet kostymet ligger i og den jevneste paletten. Vises et kostyme i et annet rom eller med en annen palett (266 i rom 79), eller setter skriptet skuespillerpaletten, justerer motoren fargene, og farger som er helt forskjellige blir originalpiksler. Et kostyme som vises med to helt ulike paletter, kan bare få riktige HD-farger i den ene.
 - Kodek 5: setter skriptet skuespillerpaletten, får bare den første ruten i hver tegning paletten (`_useBompPalette` settes tilbake etter hver rute i ScummVM). Motoren følger dette per rute. Ikke sett i spillet.
 - Objekter som tegnes direkte i bakgrunnsbufferen av skript (sjeldent) blir originalpiksler.
+- Testkroken for objekttilstander (`DIGHD_TEST_OBJSTATE=alle`) viser hvert objekt med de andre objektene i tilstanden de har etter hoppet. Et objekt som et annet objekt dekker, synes ikke (57 tilstander i rom 89 og 100), og må testes med en liste der det som dekker har tilstand 0. I rom der skriptet setter kameraet hvert bilde (27 og 105), blir objekter utenfor kameraet ikke vist. BOMP-objekter (blast-objekter) testes ikke.
 - Fargesykling: kartet jevner ut over 3 x 3 originalpiksler, så glitter av enkeltpiksler (fossen i rom 43) beveger seg svakere enn i originalen. Bølger over flere piksler (vannet i rom 22) synes godt.
 - Fargesykling: kartet leses fra indeksbildet til rommet eller objektet. Ligger et objekt over syklet vann, får bakgrunnspikselen rett ved siden av objektet litt av syklingen under objektet. Ikke sett i rommene som er prøvd.
 - Fargesykling på figurer (lys på drakter og maskiner) er fortsatt originalpiksler.

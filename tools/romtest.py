@@ -8,11 +8,18 @@ ble lastet, og hvor pikslene i det siste bildet kom fra. Bildene sammenlignes
 for å finne forskyvning, svarte felt og store avvik, og det lages kontaktark med
 HD og originalen side om side.
 
+Med --objekter kjøres hvert rom én gang til med DIGHD_TEST_OBJSTATE=alle: motoren
+viser hver tilstand av hvert objekt i rommet etter hverandre og lagrer skjermen
+etter hver tilstand. Rapporten sier for hvert objekt og hver tilstand om HD-bildet
+ble brukt, hvor stor del av objektpikslene som var HD, og avviket fra originalen,
+med nærbilder.
+
 Resultat i work/romtest: RAPPORT.md, romtest.csv, ark_NN.png, en mappe per kjøring
 med logg og bilder, og nærbilder av det som skiller seg mest ut i naerbilder/.
+Med --objekter også objekter.csv og nærbilder av objektene (naerbilder/objNNN_SS_romRRR.png).
 Notater fra gjennomsynet kan legges i FUNN.md i samme mappe; de tas med i rapporten.
 
-Bruk: tools/romtest.sh [--rom 2,9,22 | --rom 20-30] [--mod gpt] [--kamera ett|alle] ...
+Bruk: tools/romtest.sh [--rom 2,9,22 | --rom 20-30] [--mod gpt] [--kamera ett|alle] [--objekter] ...
 """
 from __future__ import annotations
 
@@ -47,6 +54,7 @@ BLACK_MIN_AREA = 16      # minste svarte felt (HD nesten svart, originalen ikke)
 FIG_MIN_AREA = 30        # minste figur funnet mot originalbakgrunnen
 CLOSEUPS_PER_KIND = 3    # nærbilder per kjøring og slag
 SEAM_LEVEL = 32          # avvik mellom HD-objekt og HD-rom (største kanal) som gir en synlig søm
+OBJ_START = 30           # bilder etter hoppet før objekttilstandene begynner (DIGHD_TEST_OBJSTATE_AT)
 
 
 # ---------------------------------------------------------------- oppsett
@@ -56,6 +64,7 @@ class Run:
     room: int
     camx: int | None = None
     camy: int | None = None
+    objekter: bool = False   # DIGHD_TEST_OBJSTATE=alle: alle tilstandene til alle objektene i rommet
 
     @property
     def name(self) -> str:
@@ -64,6 +73,8 @@ class Run:
             s += f"_x{self.camx:04d}"
         if self.camy is not None:
             s += f"_y{self.camy:04d}"
+        if self.objekter:
+            s += "_objekter"
         return s
 
     @property
@@ -152,7 +163,14 @@ def run_engine(run: Run, args, out: Path, dense: bool = False) -> Result:
     if rundir.exists():
         shutil.rmtree(rundir)
     rundir.mkdir(parents=True)
-    if dense:
+    timeout = args.tidsgrense
+    if run.objekter:
+        # Motoren avslutter selv når alle tilstandene er vist; grensen er for sikkerhets skyld
+        steps = object_steps(args.rooms_meta.get(str(run.room), {}))
+        quit_at = args.hopp + OBJ_START + (steps + 4) * args.objekt_bilder + 300
+        every = 0
+        timeout = args.tidsgrense + 3 * steps
+    elif dense:
         quit_at = args.hopp + min(args.bilder, 300)
         every = 10
     else:
@@ -173,10 +191,16 @@ def run_engine(run: Run, args, out: Path, dense: bool = False) -> Result:
         "DIGHD_SKIP_VIDEO": "1",
         "DIGHD_QUIT_AT": str(quit_at),
         "DIGHD_DUMP_DIR": str(rundir),
-        "DIGHD_DUMP_EVERY": str(every),
         "DIGHD_DUMP_FLAT": "1",
         "DIGHD_VERIFY": "1",
     })
+    if every:
+        env["DIGHD_DUMP_EVERY"] = str(every)
+    if run.objekter:
+        # Skjermen lagres ved slutten av hver tilstand
+        env["DIGHD_TEST_OBJSTATE"] = "alle"
+        env["DIGHD_TEST_OBJSTATE_AT"] = str(OBJ_START)
+        env["DIGHD_TEST_OBJSTATE_EVERY"] = str(args.objekt_bilder)
     if run.camx is not None:
         env["DIGHD_TEST_CAMX"] = str(run.camx)
     if run.camy is not None:
@@ -187,14 +211,14 @@ def run_engine(run: Run, args, out: Path, dense: bool = False) -> Result:
     with open(log, "wb") as fh:
         try:
             p = subprocess.run(cmd, env=env, cwd=home, stdout=fh, stderr=subprocess.STDOUT,
-                               timeout=args.tidsgrense)
+                               timeout=timeout)
             code = p.returncode
         except subprocess.TimeoutExpired:
             code = None
     res.seconds = time.monotonic() - t0
     shutil.rmtree(home, ignore_errors=True)
     if code is None:
-        res.exit = f"tidsgrense {args.tidsgrense} s"
+        res.exit = f"tidsgrense {timeout} s"
     elif code < 0:
         res.exit = f"signal {-code}"
     elif code > 0:
@@ -205,7 +229,8 @@ def run_engine(run: Run, args, out: Path, dense: bool = False) -> Result:
     (rundir / "kjoring.json").write_text(json.dumps({
         "rom": run.room, "kamera": run.camera_wish, "sekunder": round(res.seconds, 1), "slutt": res.exit,
         "mod": str(args.mod), "motor": str(args.motor), "bilder": quit_at - args.hopp, "hopp": args.hopp,
-        "tett": dense,
+        "tett": dense, "objekter": run.objekter,
+        "bilder_per_tilstand": args.objekt_bilder if run.objekter else None,
     }, indent=1))
     return res
 
@@ -471,10 +496,18 @@ def closeup(hd_img: Image.Image, flat_img: Image.Image, box: dict, title: str, m
         b = b.resize(size, Image.NEAREST if f > 1 else Image.LANCZOS)
     font = font_of(18)
     pad, bar = 8, 30
-    sheet = Image.new("RGB", (a.width * 2 + pad * 3, a.height + bar + pad), (40, 40, 40))
+    text = f"{title}   originalpiksler x {x0}-{x1}, y {y0}-{y1}   venstre HD, høyre original"
+    # Smale bilder (høye objekter) får teksten på to linjer
+    lines = [text]
+    width = a.width * 2 + pad * 3
+    if hasattr(font, "getlength") and font.getlength(text) > width - 2 * pad:
+        lines = [title, f"originalpiksler x {x0}-{x1}, y {y0}-{y1}   venstre HD, høyre original"]
+        bar = 54
+        width = max(width, int(max(font.getlength(ln) for ln in lines)) + 2 * pad)
+    sheet = Image.new("RGB", (width, a.height + bar + pad), (40, 40, 40))
     d = ImageDraw.Draw(sheet)
-    d.text((pad, 6), f"{title}   originalpiksler x {x0}-{x1}, y {y0}-{y1}   venstre HD, høyre original",
-           fill=(255, 255, 255), font=font)
+    for i, ln in enumerate(lines):
+        d.text((pad, 6 + 24 * i), ln, fill=(255, 255, 255), font=font)
     sheet.paste(a, (pad, bar))
     sheet.paste(b, (pad * 2 + a.width, bar))
     return sheet
@@ -683,6 +716,268 @@ def object_seams(mod: Path, extract: Path, rooms: list[int], rooms_meta: dict, j
     return found
 
 
+# ---------------------------------------------------------------- objekttilstander
+
+def object_steps(meta: dict) -> int:
+    """Antall tilstander motoren viser med DIGHD_TEST_OBJSTATE=alle (fra rooms.json)."""
+    return sum(len(o.get("states", [])) for o in meta.get("objects", []))
+
+
+RE_OBJROOM = re.compile(r"DigHD: test, object states in room (\d+): (\d+) objects with images, (\d+) states")
+RE_OBJLEFT = re.compile(r"DigHD: test, object (\d+) state (\d+) (has no image|is not a room image)")
+RE_OBJSET = re.compile(r"DigHD: test, object (\d+) state (\d+) at frame (\d+)(?: \((?:step (\d+) of (\d+)|parent of object (\d+))\))?"
+                       r", at (-?\d+),(-?\d+) (\d+)x(\d+), (\d+) images")
+RE_OBJLOG = re.compile(
+    r"DigHD: test object (\d+) state (\d+) frame (\d+): drawn (yes|no|with state \d+), HD image ([a-z ]+), "
+    r"object px (\d+), HD object px (\d+), at (-?\d+),(-?\d+) (\d+)x(\d+), on screen (\d+) px: HD room px (\d+), "
+    r"other HD object px (\d+), HD sprite px (\d+), original px (\d+) \(without HD (\d+)\)")
+RE_OBJCHANGED = re.compile(r"DigHD: test, the game set object (\d+) to state (\d+) at frame (\d+); set back to (\d+)")
+RE_OBJSTOP = re.compile(r"DigHD: test, object states stopped at frame (\d+): the game left room (\d+) for room (\d+)")
+RE_OBJDONE = re.compile(r"DigHD: test, object states done at frame (\d+)")
+RE_OBJCAM = re.compile(r"DigHD: test, camera to (-?\d+),(-?\d+) for object (\d+)")
+
+
+@dataclass
+class ObjRun:
+    run: Run
+    status: str = "ok"
+    notes: list[str] = field(default_factory=list)
+    seconds: float = 0.0
+    exit: str = ""
+    expected: int = 0            # tilstander i rooms.json
+    shown: int | None = None     # tilstander motoren fant
+    rows: list[dict] = field(default_factory=list)
+
+
+def object_states(run: Run, args, out: Path, meta: dict, jobs: list[dict]) -> ObjRun:
+    """Leser loggen fra en kjøring med DIGHD_TEST_OBJSTATE=alle og ser på hver tilstand:
+    om objektet ble tegnet, om HD-bildet ble brukt, andelen HD-objektpiksler (fra motoren)
+    og avviket mot originalen i objektpikslene (fra bildene), med nærbilder."""
+    res = ObjRun(run=run, expected=object_steps(meta))
+    rundir = out / run.name
+    info = rundir / "kjoring.json"
+    k = json.loads(info.read_text()) if info.exists() else {}
+    res.seconds = k.get("sekunder", 0.0)
+    res.exit = k.get("slutt", "")
+    log = rundir / "scummvm.log"
+    lines = log.read_text(errors="replace").splitlines() if log.exists() else []
+    gpt = {j["id"] for j in jobs if j.get("type") == "objekt"}
+    stale: dict[int, int] = {}
+    screen: dict[int, tuple[int, int]] = {}
+    steps: dict[tuple[int, int], dict] = {}   # (objekt, tilstand) -> bildet tilstanden ble satt
+    parents: dict[int, list[int]] = {}        # objekt -> foreldre som ble satt sammen med det
+    changed: dict[int, list[str]] = {}
+    camera: dict[int, str] = {}               # objekt -> kameraet testkroken satte
+    logged: list[dict] = []
+    done = False
+    current = None  # tilstanden som vises nå (ikke en forelder som ble satt sammen med den)
+    left_out: dict[tuple[int, int], str] = {}  # tilstander motoren ikke kan tegne som en del av rommet
+    for ln in lines:
+        if m := RE_OBJROOM.search(ln):
+            res.shown = int(m.group(3))
+        elif m := RE_OBJLEFT.search(ln):
+            why = "uten bilde" if m.group(3) == "has no image" else "BOMP, tegnes av skriptene som blast-objekt"
+            left_out[(int(m.group(1)), int(m.group(2)))] = why
+        elif m := RE_OBJSET.search(ln):
+            o, st, f = int(m.group(1)), int(m.group(2)), int(m.group(3))
+            if m.group(6):
+                parents.setdefault(int(m.group(6)), []).append(o)
+            else:
+                steps[(o, st)] = {"frame": f, "images": int(m.group(11))}
+                current = (o, st)
+        elif m := RE_OBJLOG.search(ln):
+            g = m.groups()
+            if (int(g[0]), int(g[1])) != current:
+                continue
+            logged.append({
+                "objekt": int(g[0]), "tilstand": int(g[1]), "bilde": int(g[2]), "tegnet": g[3], "hd_bilde": g[4],
+                "objekt_px": int(g[5]), "hd_objekt_px": int(g[6]), "x": int(g[7]), "y": int(g[8]), "w": int(g[9]),
+                "h": int(g[10]), "paa_skjermen": int(g[11]), "hd_rom_px": int(g[12]), "annet_objekt_px": int(g[13]),
+                "figur_px": int(g[14]), "original_px": int(g[15]), "uten_hd_px": int(g[16])})
+        elif m := RE_OBJCHANGED.search(ln):
+            changed.setdefault(int(m.group(1)), []).append(f"spillet satte tilstand {m.group(2)} ved bilde {m.group(3)}")
+        elif m := RE_OBJSTOP.search(ln):
+            res.notes.append(f"spillet forlot rommet for rom {m.group(3)} ved bilde {m.group(1)}")
+        elif m := RE_NOJUMP.search(ln):
+            res.notes.append(f"motoren hopper ikke til et rom som er mindre enn skjermen ({m.group(2)}x{m.group(3)})")
+        elif RE_OBJDONE.search(ln):
+            done = True
+        elif m := RE_OBJCAM.search(ln):
+            camera[int(m.group(3))] = f"{m.group(1)},{m.group(2)}"
+        elif m := RE_STALE.search(ln):
+            stale[int(m.group(1))] = int(m.group(2))
+        elif m := RE_WHOLE.search(ln):
+            screen[int(m.group(1))] = (int(m.group(3)), int(m.group(4)))
+
+    if res.exit:
+        res.status = "hang" if res.exit.startswith("tidsgrense") else "krasj"
+        res.notes.insert(0, f"avsluttet: {res.exit}")
+    elif res.shown is None:
+        res.status = "ikke startet"
+    elif not done:
+        res.status = "ikke ferdig"
+    if res.shown is not None and res.shown + len(left_out) != res.expected:
+        res.notes.append(f"motoren fant {res.shown + len(left_out)} tilstander, rooms.json har {res.expected}")
+    for (o, st), why in sorted(left_out.items()):
+        res.rows.append({"objekt": o, "tilstand": st, "navn": f"obj{o:03d}_{st:02X}", "rom": run.room,
+                         "status": "utelatt", "merknad": [why]})
+
+    nd = out / "naerbilder"
+    nd.mkdir(exist_ok=True)
+    room = run.room
+    # Der objektet er likt rombakgrunnen, viser motoren HD-rommet, men bare når modden har det
+    ridx_path = args.uttrekk / "rooms" / f"room{room:03d}_idx.png"
+    hd_room = (args.mod / "rooms" / f"room{room:03d}.png").exists()
+    room_idx = load_idx(ridx_path)[0] if ridx_path.exists() and hd_room else None
+    for e in logged:
+        o, st, f = e["objekt"], e["tilstand"], e["bilde"]
+        name = f"obj{o:03d}_{st:02X}"
+        e.update(navn=name, rom=room, kilde="ChatGPT" if name in gpt else "automatisk",
+                 i_modden=(args.mod / "objects" / f"{name}.png").exists(), ulik_hel_skjerm_px=stale.get(f),
+                 snittavvik=None, sterkt_avvik_pst=None, maske_px=0, naerbilde="", merknad=[])
+        if parents.get(o):
+            e["merknad"].append("forelder satt: " + ", ".join(f"obj{p:03d}" for p in parents[o]))
+        e["merknad"] += changed.get(o, [])
+        if e["ulik_hel_skjerm_px"]:
+            e["merknad"].append(f"{e['ulik_hel_skjerm_px']} px ulik hele skjermen bygget på nytt")
+        # Status for objektet i denne tilstanden. Motoren tegner ikke objekter utenfor skjermen
+        if e["paa_skjermen"] == 0:
+            e["status"] = "ikke på skjermen"
+            if o in camera and f in screen:
+                e["merknad"].append(f"kameraet ble satt til {camera[o]}, men skjermen viste rommet fra "
+                                    f"{screen[f][0]},{screen[f][1]} (skriptet flytter kameraet)")
+        elif e["tegnet"] != "yes":
+            e["status"] = "ikke tegnet" if e["tegnet"] == "no" else f"tegnet i tilstand {e['tegnet'].split()[-1]}"
+        elif e["hd_bilde"] == "no":
+            e["status"] = "ikke i modden"
+        elif e["hd_bilde"] != "yes":
+            e["status"] = "HD-bildet ikke lest"
+        elif e["objekt_px"] == 0:
+            e["status"] = "likt rommet"   # alle synlige piksler er som rombakgrunnen; der vises HD-rommet
+        elif e["hd_objekt_px"] == 0:
+            e["status"] = "HD ikke brukt"
+        else:
+            e["status"] = "HD brukt"
+        e["hd_andel_pst"] = round(100 * e["hd_objekt_px"] / e["objekt_px"], 1) if e["objekt_px"] else None
+
+        # Avviket mellom HD og originalen i objektpikslene: der objektet ikke er
+        # gjennomsiktig og skiller seg fra rombakgrunnen (uttrekket)
+        dump = rundir / f"frame_{f:06d}_room{room:03d}.png"
+        flat = rundir / f"frame_{f:06d}_room{room:03d}_flat.png"
+        oidx_path = args.uttrekk / "objects" / f"{name}_idx.png"
+        if not (dump.exists() and flat.exists()) or f not in screen:
+            e["merknad"].append("mangler bildet fra motoren")
+            res.rows.append(e)
+            continue
+        left, top = screen[f]
+        x0, y0 = e["x"] - left, e["y"] - top
+        cx0, cy0 = max(0, x0), max(0, y0)
+        cx1, cy1 = min(SCREEN_W, x0 + e["w"]), min(SCREEN_H, y0 + e["h"])
+        if cx1 <= cx0 or cy1 <= cy0:
+            res.rows.append(e)
+            continue
+        hd1 = box_down(load_rgb(dump), SCALE)[cy0:cy1, cx0:cx1]
+        fl1 = load_rgb(flat)[::SCALE, ::SCALE][cy0:cy1, cx0:cx1].astype(np.float32)
+        diff = np.abs(hd1 - fl1).max(axis=2)
+        if oidx_path.exists():
+            oidx, tr = load_idx(oidx_path)
+            part = oidx[cy0 - y0:cy1 - y0, cx0 - x0:cx1 - x0]
+            mask = part != tr if tr is not None else np.ones(part.shape, dtype=bool)
+            if room_idx is not None:
+                rpart = room_idx[cy0 + top:cy1 + top, cx0 + left:cx1 + left]
+                if rpart.shape == part.shape:
+                    mask &= part != rpart
+            if mask.shape == diff.shape and mask.any():
+                e["maske_px"] = int(mask.sum())
+                e["snittavvik"] = round(float(diff[mask].mean()), 1)
+                e["sterkt_avvik_pst"] = round(100 * float((diff[mask] > DIFF_LEVEL).mean()), 1)
+        else:
+            e["merknad"].append("objektet mangler i uttrekket")
+        if e["hd_bilde"] != "yes" and e["tegnet"] == "yes" and e["maske_px"]:
+            # Uten HD-bilde teller ikke motoren objektpikslene; uttrekket gir dem
+            e["hd_andel_pst"] = 0.0
+        if e["status"] == "likt rommet" and e["maske_px"]:
+            # Objektet har egne piksler, men ingen av dem synes: noe annet ligger over
+            e["status"] = "dekket"
+            what = [f"et annet objekt ({e['annet_objekt_px']} px)" if e["annet_objekt_px"] else "",
+                    f"en figur ({e['figur_px']} px)" if e["figur_px"] else ""]
+            e["merknad"].append("dekket av " + (" og ".join(w for w in what if w) or "noe annet") +
+                                "; prøv med en liste der det som dekker har tilstand 0")
+            e["snittavvik"] = e["sterkt_avvik_pst"] = None
+        box = {"x0": cx0, "y0": cy0, "x1": cx1, "y1": cy1}
+        title = f"Rom {room} {name} ({e['kilde']}): {e['status']}"
+        if e["hd_andel_pst"] is not None:
+            title += f", HD {e['hd_andel_pst']:.0f} %"
+        img = closeup(Image.open(dump).convert("RGB"), Image.open(flat).convert("RGB"), box, title, margin=8)
+        fn = f"{name}_rom{room:03d}.png"
+        img.save(nd / fn)
+        e["naerbilde"] = f"naerbilder/{fn}"
+        res.rows.append(e)
+    seen = {(e["objekt"], e["tilstand"]) for e in res.rows}
+    for (o, st), d in sorted(steps.items()):
+        if (o, st) not in seen:
+            res.rows.append({"objekt": o, "tilstand": st, "navn": f"obj{o:03d}_{st:02X}", "rom": room,
+                             "status": "ingen måling", "bilde": d["frame"], "merknad": ["kjøringen sluttet før målingen"]})
+    res.rows.sort(key=lambda e: (e["objekt"], e["tilstand"]))
+    return res
+
+
+def write_objects_csv(objruns: list[ObjRun], out: Path) -> None:
+    cols = ["rom", "objekt", "tilstand", "navn", "kilde", "i_modden", "status", "tegnet", "hd_bilde", "objekt_px",
+            "hd_objekt_px", "hd_andel_pst", "maske_px", "snittavvik", "sterkt_avvik_pst", "paa_skjermen", "hd_rom_px",
+            "annet_objekt_px", "figur_px", "original_px", "uten_hd_px", "ulik_hel_skjerm_px", "x", "y", "w", "h",
+            "bilde", "merknad", "naerbilde"]
+    with open(out / "objekter.csv", "w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(cols)
+        for r in objruns:
+            for e in r.rows:
+                w.writerow(["; ".join(e.get(c) or []) if c == "merknad" else
+                            ("" if e.get(c) is None else e.get(c)) for c in cols])
+
+
+def objects_report(objruns: list[ObjRun], rooms_meta: dict, args) -> list[str]:
+    rows = [e for r in objruns for e in r.rows]
+    L = ["## Objekttilstander", ""]
+    L.append(f"Hvert rom kjørt én gang til med `DIGHD_TEST_OBJSTATE=alle`: motoren setter hvert objekt i hver "
+             f"tilstand slik skriptene gjør det (putState og ny tegning), viser den i {args.objekt_bilder} bilder og "
+             "lagrer skjermen. Objektet settes tilbake til tilstanden det hadde før neste objekt, og kameraet "
+             "flyttes til objekter som ikke er på skjermen. Objekt (px): objektets egne synlige piksler, det vil si "
+             "ikke gjennomsiktige, ulik rombakgrunnen og ikke dekket av noe annet (talt i motoren; uten HD-bilde "
+             "talt i uttrekket, uten det som dekker). HD-andel: andelen av dem som kom fra HD-objektet. Snitt og "
+             "sterkt avvik: HD skalert ned mot originalen i objektpikslene fra uttrekket, største kanal, sterkt over "
+             f"{DIFF_LEVEL}. Likt rommet: objektet er likt rombakgrunnen overalt, og motoren viser HD-rommet der. "
+             "Dekket: objektet har egne piksler, men et annet objekt eller en figur ligger over alle; test det "
+             "med en liste der det som dekker har tilstand 0, for eksempel `DIGHD_TEST_OBJSTATE=769:0,775:5`. "
+             "Nærbildene viser HD til venstre og originalen til høyre.")
+    L.append("")
+    count = lambda s: sum(1 for e in rows if e.get("status") == s)
+    L.append(f"- {len(rows)} tilstander av {len({(e['rom'], e['objekt']) for e in rows})} objekter i {len(objruns)} rom")
+    L.append(f"- HD brukt: {count('HD brukt')}. Likt rommet (HD-rommet vises): {count('likt rommet')}. "
+             f"Dekket av noe annet: {count('dekket')}. Ikke i modden: {count('ikke i modden')}")
+    other = sorted({e.get("status", "") for e in rows} - {"HD brukt", "likt rommet", "dekket", "ikke i modden"})
+    if other:
+        L.append("- Annet: " + ", ".join(f"{s} {count(s)}" for s in other))
+    stale = [e for e in rows if e.get("ulik_hel_skjerm_px")]
+    L.append(f"- Skjermen ulik hele skjermen bygget på nytt (`DIGHD_VERIFY`): {len(stale)} tilstander")
+    for r in objruns:
+        if r.status != "ok" or r.notes:
+            L.append(f"- {r.run.name}: {r.status}. {'; '.join(r.notes)}")
+    L.append("")
+    L.append("| Rom | Objekt | Kilde | Status | HD-andel | Objekt (px) | Snitt | Sterkt avvik | Merknad | Nærbilde |")
+    L.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+    for e in rows:
+        meta = rooms_meta.get(str(e["rom"]), {})
+        num = lambda k, fmt="{}": "" if e.get(k) is None else fmt.format(e[k])
+        px = e.get("objekt_px") or e.get("maske_px")  # uten HD-bilde: talt i uttrekket
+        L.append(f"| {e['rom']} {meta.get('name', '')} | {e['navn']} | {e.get('kilde', '')} | {e.get('status', '')} | "
+                 f"{num('hd_andel_pst', '{:.1f} %')} | {'' if px is None else px} | {num('snittavvik')} | "
+                 f"{num('sterkt_avvik_pst', '{:.1f} %')} | {'; '.join(e.get('merknad') or [])} | "
+                 f"{e.get('naerbilde', '')} |")
+    L.append("")
+    return L
+
+
 # ---------------------------------------------------------------- vurdering
 
 def judge(res: Result, meta: dict) -> None:
@@ -828,7 +1123,7 @@ def jobs_for(res: Result, box: dict, jobs: list[dict]) -> list[str]:
 
 
 def write_report(results: list[Result], out: Path, args, rooms_meta: dict, sheets: list[str],
-                 jobs: list[dict], started: str, seams: list[dict]) -> None:
+                 jobs: list[dict], started: str, seams: list[dict], objruns: list[ObjRun]) -> None:
     by_room: dict[int, list[Result]] = {}
     for r in results:
         by_room.setdefault(r.run.room, []).append(r)
@@ -846,7 +1141,8 @@ def write_report(results: list[Result], out: Path, args, rooms_meta: dict, sheet
              f"Rapporten laget {dt.datetime.now().strftime('%Y-%m-%d %H:%M')}.")
     L.append(f"{len(by_room)} rom og {len(results)} kjøringer. Hopp til rommet ved bilde {args.hopp}, "
              f"siste bilde {args.hopp + args.bilder}, tidsgrense {args.tidsgrense} s per kjøring. "
-             f"Kamera: {args.kamera}.")
+             f"Kamera: {args.kamera}." + (f" Objekttilstander: {len(objruns)} kjøringer, se Objekttilstander."
+                                          if objruns else ""))
     L.append("")
     L.append("Hoppet setter ikke spillet i vanlig tilstand. Figurer og objekter kan mangle eller stå et annet sted "
              "enn i vanlig spill. Andelene gjelder hele skjermen i det siste bildet i rommet "
@@ -942,6 +1238,8 @@ def write_report(results: list[Result], out: Path, args, rooms_meta: dict, sheet
         L.append(f"| {f['objekt']} | {f['rom']} {rooms_meta.get(str(f['rom']), {}).get('name', '')} | {f['kilde']} | "
                  f"{f['grense_px']} | {f['avvik']} | {f.get('naerbilde', '')} |")
     L.append("")
+    if objruns:
+        L += objects_report(objruns, rooms_meta, args)
     L.append("## Kontaktark")
     L.append("")
     L.append("HD-bildet til venstre og originalpikslene til høyre, med romnummer, kamera og andelene over.")
@@ -973,6 +1271,11 @@ def main() -> int:
     ap.add_argument("--per-ark", type=int, default=4, help="kjøringer per kontaktark")
     ap.add_argument("--topp", type=int, default=40, help="antall avvik og sømmer i tabellene i rapporten")
     ap.add_argument("--somer", type=int, default=12, help="antall nærbilder av sømmer mellom HD-objekt og HD-rom")
+    ap.add_argument("--objekter", action="store_true",
+                    help="kjør hvert rom med objekter én gang til og vis alle tilstandene til alle objektene "
+                         "(DIGHD_TEST_OBJSTATE=alle), med en dump og et nærbilde per tilstand")
+    ap.add_argument("--objekt-bilder", type=int, default=40,
+                    help="bilder hver objekttilstand vises før skjermen lagres (standard 40, omtrent 0,4 sekunder)")
     ap.add_argument("--bare-rapport", action="store_true", help="ingen nye kjøringer, bare rapport og ark fra mappene som finnes")
     args = ap.parse_args()
 
@@ -985,15 +1288,18 @@ def main() -> int:
     else:
         src = Path(os.environ.get("SCUMMVM_SRC", ROOT / "engine" / "scummvm"))
         args.motor = src / "scummvm"
-    args.spill = Path(args.spill)
-    args.uttrekk = Path(args.uttrekk)
-    out = Path(args.ut)
+    # Motoren kjører i en egen mappe, så stiene må være absolutte
+    args.motor = args.motor.resolve()
+    args.spill = Path(args.spill).resolve()
+    args.uttrekk = Path(args.uttrekk).resolve()
+    out = Path(args.ut).resolve()
 
     rooms_json = args.uttrekk / "rooms.json"
     if not rooms_json.exists():
         print(f"Fant ikke {rooms_json}. Kjør dighd extract først.")
         return 1
     rooms_meta = json.loads(rooms_json.read_text())["rooms"]
+    args.rooms_meta = rooms_meta
     all_rooms = sorted(int(k) for k in rooms_meta)
     rooms = parse_rooms(args.rom, all_rooms)
     mod_json = args.mod / "mod.json"
@@ -1010,6 +1316,9 @@ def main() -> int:
                 pass
 
     runs = [r for room in rooms for r in camera_runs(room, rooms_meta.get(str(room), {}), args.kamera)]
+    # Med --objekter: én kjøring til per rom med objekttilstander
+    obj_runs = [Run(room, objekter=True) for room in rooms
+                if args.objekter and object_steps(rooms_meta.get(str(room), {}))]
     out.mkdir(parents=True, exist_ok=True)
     started = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
 
@@ -1023,19 +1332,21 @@ def main() -> int:
         if not args.mod.is_dir():
             print(f"Fant ikke modden {args.mod}.")
             return 1
-        print(f"{len(runs)} kjøringer i {len(rooms)} rom, {args.parallelt} om gangen, mod {args.mod}")
+        extra = f" og {len(obj_runs)} med objekttilstander" if obj_runs else ""
+        print(f"{len(runs)} kjøringer{extra} i {len(rooms)} rom, {args.parallelt} om gangen, mod {args.mod}")
         lock = threading.Lock()
         done = 0
 
-        def one(run: Run, dense: bool = False, total: int = len(runs)) -> None:
+        def one(run: Run, dense: bool = False, total: int = len(runs) + len(obj_runs)) -> None:
             nonlocal done
             r = run_engine(run, args, out, dense)
             with lock:
                 done += 1
                 print(f"  [{done}/{total}] {run.name}: {r.exit or 'ferdig'} ({r.seconds:.0f} s)", flush=True)
 
+        # Kjøringene med objekttilstander tar lengst tid og starter først
         with ThreadPoolExecutor(max_workers=max(1, args.parallelt)) as ex:
-            list(ex.map(one, runs))
+            list(ex.map(one, obj_runs + runs))
 
         # Andre forsøk for rom spillet forlot før det første bildet: et bilde hvert 10. bilde
         retry = []
@@ -1053,11 +1364,14 @@ def main() -> int:
 
     results = []
     # Nærbildene skriptet laget sist; egne nærbilder med andre navn blir liggende
-    for pat in ("rom*_avvik*.png", "rom*_figur*.png", "rom*_svart*.png", "rom*_forskyvning*.png", "som_*.png"):
+    pats = ["rom*_avvik*.png", "rom*_figur*.png", "rom*_svart*.png", "rom*_forskyvning*.png", "som_*.png"]
+    if obj_runs:
+        pats.append("obj*_rom*.png")
+    for pat in pats:
         for p in (out / "naerbilder").glob(pat):
             p.unlink()
     # Tid og motor for kjøringene (også når rapporten lages på nytt med --bare-rapport)
-    logs = [out / r.name / "scummvm.log" for r in runs if (out / r.name / "scummvm.log").exists()]
+    logs = [out / r.name / "scummvm.log" for r in runs + obj_runs if (out / r.name / "scummvm.log").exists()]
     if logs:
         first, last = min(p.stat().st_mtime for p in logs), max(p.stat().st_mtime for p in logs)
         fmt = lambda t: dt.datetime.fromtimestamp(t).strftime("%Y-%m-%d %H:%M")
@@ -1097,11 +1411,28 @@ def main() -> int:
         for f in seams:
             w.writerow([f["objekt"], f["rom"], f["kilde"], f["grense_px"], f["avvik"], f["x"], f["y"], f["w"], f["h"],
                         f.get("naerbilde", "")])
-    write_report(results, out, args, rooms_meta, sheets, jobs, started, seams)
+    objruns = [object_states(run, args, out, rooms_meta.get(str(run.room), {}), jobs)
+               for run in obj_runs if (out / run.name / "scummvm.log").exists()]
+    if objruns:
+        write_objects_csv(objruns, out)
+    write_report(results, out, args, rooms_meta, sheets, jobs, started, seams, objruns)
     bad = [r for r in results if r.status not in ("ok", "uten HD")]
-    print(f"Ferdig: {out / 'RAPPORT.md'}, {out / 'romtest.csv'} og {len(sheets)} kontaktark.")
+    print(f"Ferdig: {out / 'RAPPORT.md'}, {out / 'romtest.csv'}{', objekter.csv' if objruns else ''} "
+          f"og {len(sheets)} kontaktark.")
     for r in bad:
         print(f"  {r.name}: {r.status}; {'; '.join(r.notes)}")
+    if objruns:
+        states: dict[str, int] = {}
+        for e in (e for r in objruns for e in r.rows):
+            states[e.get("status", "")] = states.get(e.get("status", ""), 0) + 1
+        print("  Objekttilstander: " + ", ".join(f"{s} {n}" for s, n in sorted(states.items())))
+    quiet = ("HD brukt", "likt rommet", "ikke i modden", "dekket", "utelatt")
+    for r in objruns:
+        if r.status != "ok":
+            print(f"  {r.run.name}: {r.status}; {'; '.join(r.notes)}")
+        for e in r.rows:
+            if e.get("status") not in quiet:
+                print(f"  {r.run.name} {e['navn']}: {e.get('status')}; {'; '.join(e.get('merknad') or [])}")
     return 0
 
 
