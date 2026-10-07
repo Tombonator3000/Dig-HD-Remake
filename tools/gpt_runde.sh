@@ -3,8 +3,8 @@
 #
 #   1. Setter opp det som mangler (spillfiler, pipeline, uttrekk, jobber)
 #   2. Henter nye bilder fra grenen gpt-arbeid
-#   3. Kontrollerer dem (dighd gpt-inn) og lager HD-rom og HD-objekter
-#   4. Bygger modden mods/gpt av de godkjente rommene og objektbildene og publiserer den i grenen hd-mod
+#   3. Kontrollerer dem (dighd gpt-inn) og lager HD-rom, HD-objekter og HD-figurruter
+#   4. Bygger modden mods/gpt av de godkjente rommene, objektbildene og figurrutene og publiserer den i grenen hd-mod
 #   5. Skriver ny ORDRE.md og sender status, rapport og retur tilbake til grenen
 #
 # Bruk: tools/gpt_runde.sh [--beskjed "tekst til ChatGPT"] ...
@@ -39,11 +39,14 @@ after="$(sha256sum work/gpt-ferdig/provenance.json 2>/dev/null || true)"
 
 # 4. Mod, bare når noe nytt er godkjent. Rommene med HD-bakgrunn velges med --rooms.
 #    Godkjente objektbilder i work/gpt-ferdig/objects kommer med uansett, også i rom
-#    uten HD-bakgrunn (de får ingen automatisk oppskalert bakgrunn).
+#    uten HD-bakgrunn (de får ingen automatisk oppskalert bakgrunn). Godkjente figurruter i
+#    work/gpt-ferdig/costumes kommer også med; de andre rutene vises som originalen (ingen
+#    --kostymer, så ingenting skaleres automatisk).
 if [ "$before" != "$after" ] && [ -d work/gpt-ferdig ]; then
 	rooms="$(ls work/gpt-ferdig/rooms 2>/dev/null | sed -n 's/^room0*\([0-9][0-9]*\)\.png$/\1/p' | paste -sd, - || true)"
 	objects="$(ls work/gpt-ferdig/objects 2>/dev/null | grep -c '^obj.*\.png$' || true)"
-	if [ -n "$rooms" ] || [ "${objects:-0}" -gt 0 ]; then
+	cels="$(ls work/gpt-ferdig/costumes 2>/dev/null | grep -c '^costume[0-9]*_[0-9]*\.png$' || true)"
+	if [ -n "$rooms" ] || [ "${objects:-0}" -gt 0 ] || [ "${cels:-0}" -gt 0 ]; then
 		rm -rf mods/gpt
 		dighd build-mod --name gpt --method lanczos-sharp --rooms "${rooms:-ingen}" --egne work/gpt-ferdig
 		tools/mod_gren.sh send mods/gpt

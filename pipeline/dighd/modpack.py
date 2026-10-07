@@ -18,6 +18,10 @@ Egne objektbilder tas med også for rom som ikke er valgt med --rooms (for eksem
 nærbilder fra ChatGPT i rom som ikke har HD-bakgrunn ennå). Da lages ingen bakgrunn og
 ingen automatisk oppskalerte objekter for rommet, bare de egne objektbildene. Motoren
 bruker objektbildene også når rommet ikke har HD-bakgrunn.
+
+Egne kostymeruter (costumes/costumeCCC_NNN.png, for eksempel figurruter fra ChatGPT) tas
+med på samme måte for alle kostymer, også uten --kostymer. --kostymer velger kostymene
+der resten av rutene skaleres automatisk. Ruter uten HD-bilde vises som originalen.
 """
 from __future__ import annotations
 
@@ -99,7 +103,9 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
                 shutil.copyfile(extract / "objects" / f"{name}_idx.png", out / "objects" / f"{name}_idx.png")
                 done_objects.append(name)
 
-    done_costumes = _build_costumes(extract, out, scale, method, costumes, own, **upscale_kw) if costumes else []
+    has_own_cels = bool(own and (own / "costumes").is_dir() and any((own / "costumes").glob("costume*.png")))
+    done_costumes = _build_costumes(extract, out, scale, method, costumes or set(), own, **upscale_kw) \
+        if costumes or has_own_cels else []
     done_films = _build_films(san, out, scale, method, films, own, **upscale_kw) if films and san else []
 
     manifest = {
@@ -191,35 +197,46 @@ def _bleed(im: Image.Image, passes: int = 3) -> Image.Image:
 
 def _build_costumes(extract: Path, out: Path, scale: int, method: str, costumes: set[int],
                     own: Path | None, **kw) -> list[str]:
-    """Skalerer kostymeruter. Filnavn: costumes/costumeCCC_NNN.png (+ _idx.png fra eksporten)."""
+    """Kostymeruter. Filnavn: costumes/costumeCCC_NNN.png (+ _idx.png fra eksporten).
+
+    Egne ruter (own/costumes, for eksempel figurruter fra ChatGPT) tas med for alle kostymer når
+    størrelsen stemmer. For kostymene i `costumes` ({-1} er alle) skaleres resten av rutene
+    automatisk. Andre kostymer får bare de egne rutene, og rutene uten HD-bilde vises som originalen.
+    """
     meta = json.loads((extract / "costumes.json").read_text())
     dest = out / "costumes"
     dest.mkdir(parents=True, exist_ok=True)
     done = []
     for key, info in sorted(meta.items(), key=lambda kv: int(kv[0])):
         cid = int(key)
-        if costumes != {-1} and cid not in costumes:
-            continue
+        auto = costumes == {-1} or cid in costumes
+        n_own = n_auto = 0
         for cel in info["cels"]:
             name = f"costume{cid:03d}_{cel['cel']:03d}"
             src = extract / "costumes" / f"{name}.png"
-            if not src.exists():
+            custom = own / "costumes" / f"{name}.png" if own else None
+            if not src.exists() or not (auto or (custom and custom.exists())):
                 continue
             im = Image.open(src).convert("RGBA")
             want = (im.width * scale, im.height * scale)
             hd = None
-            custom = own / "costumes" / f"{name}.png" if own else None
             if custom and custom.exists():
                 hd = Image.open(custom).convert("RGBA")
                 if not _check_size(hd, want, custom.name):
                     hd = None
+            if hd is None and not auto:
+                continue
             if hd is None:
                 hd = upscale(_bleed(im), scale, method, **kw)
                 hd.putalpha(upscale_alpha(im.getchannel("A"), scale))
+                n_auto += 1
+            else:
+                n_own += 1
             hd.save(dest / f"{name}.png")
             shutil.copyfile(extract / "costumes" / f"{name}_idx.png", dest / f"{name}_idx.png")
             done.append(name)
-        print(f"  kostyme {cid:3d}: {len(info['cels'])} ruter")
+        if n_own or n_auto:
+            print(f"  kostyme {cid:3d}: {len(info['cels'])} ruter, {n_own} egne og {n_auto} skalert automatisk")
     return done
 
 

@@ -209,3 +209,143 @@ def costume_ids(index: Index, rooms: dict[int, Room]) -> list[int]:
         for o in rooms[num].akos_offsets:
             ids.append(by_pos.get((num, o), -1))
     return ids
+
+
+def iter_akos(d: bytes, index: Index, rooms: dict[int, Room]):
+    """Gir (kostyme-ID, hjemrom, offset, størrelse) for hver AKOS-blokk i filrekkefølge."""
+    ids = costume_ids(index, rooms)
+    n = 0
+    for num in sorted(rooms, key=lambda r: rooms[r].offset):
+        off = rooms[num].offset
+        lflf_end = off - 8 + be32(d, off - 4)
+        for tag, c, size in children(d, off, lflf_end):
+            if tag == b"AKOS":
+                yield ids[n], num, c, size
+                n += 1
+
+
+# ---------------------------------------------------------------- AKOS-animasjoner
+#
+# Fra ScummVM (akos.cpp, akos.h): AKHD har versjon, flagg, antall valg (chores), antall
+# ruter, kodek og antall lag. AKCH har en offset per valg. Valg nummer = retning +
+# animasjon * 4, eller * 8 når flagg & 2 (8 retninger). Ved offseten står en 16-bits maske
+# med ett bit per lag (bit 15 er lag 0), og for hvert lag en kode: 1 (tømt), 4 (stoppet),
+# 5 (startet igjen) eller animasjonstypen fulgt av start og lengde i AKSQ. AKSQ er en
+# bytekode der en verdi under 0xC000 er en rute (verdi & 0xFFF er rutenummeret i AKOF) og
+# 0xC0xx er kommandoer. Animasjonsnumrene ScummVM bruker for skuespillere: 1 start,
+# 2 gange, 3 stå, 4 snakke, 5 slutt å snakke. Andre nummer settes av skriptene.
+
+# Kommandoer i AKSQ og hvor mange byte de tar (akos_increaseAnim, AKAT_AlwaysRun)
+_AKC_SIZE = {
+    **dict.fromkeys((0x10, 0x16, 0x17, 0x18, 0x19, 0x31, 0x40, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95), 5),
+    **dict.fromkeys((0x15, 0x42, 0x44, 0x50, 0x80, 0x81, 0x83, 0x88, 0x8C, 0x8D, 0xA3), 3),
+    **dict.fromkeys((0x85, 0x87, 0x8B), 6),
+    **dict.fromkeys((0x01, 0x60, 0x61, 0x86, 0x9F, 0xFF), 2),
+    **dict.fromkeys((0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x82), 7),
+    **dict.fromkeys((0x30, 0x84, 0x8A, 0x8E, 0xA0, 0xA1, 0xA2), 4),
+    0x89: 8,
+}
+_AKC_DRAW_MANY, _AKC_REL_DRAW_MANY = 0x20, 0x25
+_AKC_COND = (0x21, 0x22, 0x45, 0x46, 0x47, 0x48)          # lengden står i byte 2
+_AKC_GOTO = 0x30
+_AKC_COND_JUMPS = (0x16, 0x17, 0x18, 0x19, 0x31, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0xA1, 0xA2)
+_AKC_EMPTY, _AKC_END = 0x01, 0xFF
+
+
+def akos_sequence(aksq: bytes, start: int, limit: int = 4096) -> list[list[int]]:
+    """Rutene en animasjon i AKSQ viser, steg for steg fra `start`.
+
+    Hvert steg er listen av ruter som tegnes samtidig (én, eller flere med DrawMany). Hopp
+    følges til et sted som er besøkt før (animasjonen går i ring) eller til slutten. Hopp som
+    avhenger av variabler, følges begge veier etter hverandre, så alle rutene kommer med.
+    """
+    steps: list[list[int]] = []
+    seen: set[int] = set()
+    todo = [start]
+    while todo and len(seen) < limit:
+        p = todo.pop(0)
+        while 0 <= p < len(aksq) and p not in seen:
+            seen.add(p)
+            b = aksq[p]
+            code = struct.unpack_from(">H", aksq, p)[0] if b & 0x80 and p + 1 < len(aksq) else b
+            if code & 0xC000 != 0xC000:
+                steps.append([code & 0xFFF])
+                p += 2 if b & 0x80 else 1
+                continue
+            op = code & 0xFF
+            if op in (_AKC_DRAW_MANY, _AKC_REL_DRAW_MANY):
+                q = p + 3 + (4 if op == _AKC_REL_DRAW_MANY else 0)
+                if q > len(aksq):
+                    break
+                cels = []
+                for _ in range(aksq[q - 1]):
+                    q += 4
+                    if q >= len(aksq):
+                        break
+                    bb = aksq[q]
+                    c = struct.unpack_from(">H", aksq, q)[0] if bb & 0x80 else bb
+                    cels.append(c & 0xFFF)
+                    q += 2 if bb & 0x80 else 1
+                steps.append(cels)
+                p = q
+                continue
+            if op == _AKC_END:
+                break
+            if op == _AKC_EMPTY:
+                p += 2
+                continue
+            if op == _AKC_GOTO:
+                p = struct.unpack_from("<H", aksq, p + 2)[0]
+                continue
+            if op in _AKC_COND_JUMPS:
+                todo.append(struct.unpack_from("<H", aksq, p + 2)[0])
+            if op in _AKC_COND:
+                p += max(1, aksq[p + 2]) if p + 2 < len(aksq) else len(aksq)
+                continue
+            if op not in _AKC_SIZE:
+                break                          # ukjent kommando: stopp her
+            p += _AKC_SIZE[op]
+    return steps
+
+
+def akos_animations(d: bytes, akos: int, size: int) -> dict:
+    """Animasjonene i en AKOS-blokk: antall retninger og rutene per valg og lag.
+
+    Gir {"retninger": 4 eller 8, "animasjoner": [{"valg", "animasjon", "retning", "lag", "ruter"}]}.
+    "ruter" er rutene i rekkefølgen animasjonen viser dem første gang, uten gjentakelser. Lag
+    som tømmes eller stoppes, er ikke med.
+    """
+    blocks = {t: (o, s) for t, o, s in children(d, akos + 8, akos + size)}
+    if b"AKHD" not in blocks or b"AKCH" not in blocks or b"AKSQ" not in blocks:
+        return {"retninger": 4, "animasjoner": []}
+    akhd = blocks[b"AKHD"][0] + 8
+    flags, chores = le16(d, akhd + 2), le16(d, akhd + 4)
+    dirs = 8 if flags & 2 else 4
+    akch, akch_size = blocks[b"AKCH"]
+    aksq_off, aksq_size = blocks[b"AKSQ"]
+    aksq = d[aksq_off + 8:aksq_off + aksq_size]
+    body = akch + 8
+    out = []
+    for chore in range(min(chores, (akch_size - 8) // 2)):
+        offs = le16(d, body + 2 * chore)
+        if not offs or body + offs + 2 > akch + akch_size:
+            continue
+        r = body + offs
+        mask = le16(d, r)
+        r += 2
+        for limb in range(16):
+            if not mask & (0x8000 >> limb):
+                continue
+            kind = d[r]
+            r += 1
+            if kind in (1, 4, 5):
+                continue
+            start = le16(d, r)
+            r += 4
+            cels: list[int] = []
+            for step in akos_sequence(aksq, start):
+                cels += [c for c in step if c not in cels]
+            if cels:
+                out.append({"valg": chore, "animasjon": chore // dirs, "retning": chore % dirs, "lag": limb,
+                            "ruter": cels})
+    return {"retninger": dirs, "animasjoner": out}

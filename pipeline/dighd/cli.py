@@ -5,7 +5,8 @@
   dighd build-mod --name test        Lager en mod-mappe for HD-motoren
   dighd compare --room 22            Lager et sammenligningsbilde av oppskaleringsmetoder
   dighd san                          Trekker ut filmrammer (via thedig-textures)
-  dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt (rom, store objektbilder, lag og ikonark)
+  dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt (rom, store objektbilder, lag, ikonark
+                                     og figurark; --figurer alle for alle kostymene)
   dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom og HD-objekter
   dighd gpt-ordre                    Skriver ORDRE.md med neste jobber til ChatGPT
 """
@@ -116,13 +117,22 @@ def cmd_san(a) -> int:
     return subprocess.call(argv)
 
 
+def _figures(arg: str | None):
+    """--figurer: pilot (standard), alle, ingen eller kostyme-ID-er (14,18 eller 14-20)."""
+    arg = (arg or "pilot").strip().lower()
+    return arg if arg in ("pilot", "alle", "ingen") else _rooms(arg)
+
+
 def cmd_gpt_pakke(a) -> int:
     notes = gpt.read_notes(Path(a.notater)) if a.notater else {}
-    jobs = gpt.make_jobs(Path(a.extract), Path(a.ut), _rooms(a.rooms), notes)
-    n = {t: sum(j.type == t for j in jobs) for t in ("rom", "objekt", "lag", "ikon")}
-    pieces = {t: len({p["bilde"] for j in jobs if j.type == t for p in j.objekter or []}) for t in ("lag", "ikon")}
+    jobs = gpt.make_jobs(Path(a.extract), Path(a.ut), _rooms(a.rooms), notes, figures=_figures(a.figurer),
+                         game=Path(a.game), figure_list=Path(a.figurliste) if a.figurliste else None)
+    n = {t: sum(j.type == t for j in jobs) for t in ("rom", "objekt", "lag", "ikon", "figur")}
+    pieces = {t: len(gpt._pieces_of(jobs, t)) for t in ("lag", "ikon", "figur")}
+    sheets = len({j.bilde for j in jobs if j.type == "figur"})
     print(f"{len(jobs)} jobber ({n['rom']} for rom, {n['objekt']} for store objektbilder, {n['lag']} lagjobber med "
-          f"{pieces['lag']} små objektbilder, {n['ikon']} ikonark med {pieces['ikon']} ikoner) -> "
+          f"{pieces['lag']} små objektbilder, {n['ikon']} ikonark med {pieces['ikon']} ikoner, {n['figur']} jobber "
+          f"for {sheets} figurark med {pieces['figur']} kostymeruter) -> "
           f"{Path(a.ut) / 'jobber'} (oversikt i JOBBER.md, status i status.csv)")
     return 0
 
@@ -140,6 +150,8 @@ def cmd_gpt_inn(a) -> int:
         print(f"Ferdige objektbilder fra lag: {len(s['ferdige_lagobjekter'])} av {s['lagobjekter_totalt']}")
     if s["ikoner_totalt"]:
         print(f"Ferdige ikoner fra ikonark: {len(s['ferdige_ikoner'])} av {s['ikoner_totalt']}")
+    if s["figurruter_totalt"]:
+        print(f"Ferdige figurruter fra figurark: {len(s['ferdige_figurruter'])} av {s['figurruter_totalt']}")
     for line in s["venter"]:
         print("  venter:", line)
     print(f"Rapport: {Path(a.fra) / 'RAPPORT.md'}. Bruk resultatet med: dighd build-mod --egne {a.ut}")
@@ -185,10 +197,12 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--mods", default=str(root / "mods"))
     p.add_argument("--out", help="overstyr målmappe")
     p.add_argument("--rooms", help="for eksempel 22,24 eller 20-30, eller 'ingen' (standard: alle)")
-    p.add_argument("--egne", help="mappe med egne HD-bilder (rooms/, objects/) som brukes i stedet. Egne "
-                   "objektbilder tas med også for rom utenfor --rooms, men da uten bakgrunn")
+    p.add_argument("--egne", help="mappe med egne HD-bilder (rooms/, objects/, costumes/) som brukes i stedet. Egne "
+                   "objektbilder tas med også for rom utenfor --rooms, men da uten bakgrunn, og egne kostymeruter "
+                   "tas med for alle kostymer")
     p.add_argument("--uten-objekter", action="store_true", help="bare bakgrunner")
-    p.add_argument("--kostymer", help="kostyme-ID-er som skal skaleres, for eksempel 14-18, eller 'alle'")
+    p.add_argument("--kostymer", help="kostyme-ID-er der rutene uten eget bilde skaleres automatisk, for eksempel "
+                   "14-18, eller 'alle'")
     p.add_argument("--filmer", help="filmer som skal skaleres, for eksempel SQ1,TRAM1, eller 'alle' (tar mye plass)")
     p.add_argument("--san", default=str(root / "work" / "san"), help="utdata fra dighd san")
 
@@ -206,6 +220,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--ut", default=str(root / "work" / "gpt"))
     p.add_argument("--rooms", help="for eksempel 22,24 eller 20-30 (standard: alle)")
     p.add_argument("--notater", default=str(root / "docs" / "gpt-romnotater.csv"), help="CSV med rom,notat")
+    p.add_argument("--figurer", default="pilot",
+                   help="figurark: pilot (standard, de første arkene for Boston Low), alle, ingen, eller "
+                        "kostyme-ID-er som 14,18 eller 14-20 (alle arkene for dem)")
+    p.add_argument("--figurliste", default=str(root / "docs" / "figurer.csv"),
+                   help="CSV med kostymene (navn og rekkefølge for figurarkene)")
 
     p = sub.add_parser("gpt-inn", help="ta imot bilder fra ChatGPT, sjekk dem og lag HD-rom")
     p.add_argument("--extract", default=str(root / "work" / "extract"))

@@ -8,7 +8,7 @@ Dato: 6. oktober 2026
 
 Vi lager en HD-versjon av LucasArts' The Dig (1995). Spillet kjører i ScummVM med en patch som legger HD-bilder nøyaktig oppå originalgrafikken, piksel for piksel. Vi trenger at du maler bakgrunnene på nytt i 4x oppløsning (1280 x 800 for et vanlig rom), **trofast mot originalen**: samme motiv, samme former på samme sted, samme farger og samme stemning. Bare skarpere og med mer detalj.
 
-Første runde er de 106 rombakgrunnene, delt i 162 jobber, og 30 objektjobber for store bilder som spillet tegner over rommet (se punkt 4). Andre runde er de små objektbildene: 236 lagjobber med 460 objektbilder tegnet på plass i rommet, og 3 ikonark med de 149 ikonene i inventaret. Hver jobb er ett bilde på 1536 x 1024 piksler.
+Første runde er de 106 rombakgrunnene, delt i 162 jobber, og 30 objektjobber for store bilder som spillet tegner over rommet (se punkt 4). Andre runde er de små objektbildene: 236 lagjobber med 460 objektbilder tegnet på plass i rommet, og 3 ikonark med de 149 ikonene i inventaret. Tredje runde starter med en pilot for figurene: 4 figurark med 229 animasjonsruter av Boston Low. Hver jobb er ett bilde på 1536 x 1024 piksler.
 
 ## 2. Hvem gjør hva
 
@@ -49,7 +49,7 @@ Hver jobb ligger i `jobber/<jobb>/`:
 
 Den grå kanten er bare fyll, slik at bildet får sideforholdet 3:2. Hold den grå. Rom som er bredere eller høyere enn ett lerret, er delt i deler med overlapp (for eksempel `rom002_del1av3`). Delene sys sammen av Claude, så kantene skal være naturlige, uten ramme eller toning.
 
-Oversikt over alle jobber: `JOBBER.md`. Status: `status.csv` (ny, godkjent, sjekk, avvist). Kolonnen `type` sier om jobben er et rom (`rom`), et stort objektbilde (`objekt`), et lag (`lag`) eller et ikonark (`ikon`).
+Oversikt over alle jobber: `JOBBER.md`. Status: `status.csv` (ny, godkjent, sjekk, avvist). Kolonnen `type` sier om jobben er et rom (`rom`), et stort objektbilde (`objekt`), et lag (`lag`), et ikonark (`ikon`) eller et figurark (`figur`).
 
 ### Objektjobber
 
@@ -81,18 +81,34 @@ Ikonene i inventaret (rom 93) og seks små sekskanter i rom 107 tegnes ikke på 
 - Mal hvert ikon trofast i ruten sin. Hold bakgrunnen flat mørkeblå, uten rammer eller rutenett.
 - Leveres som rommene, med stilankeret som bilde to.
 
+### Figurark (pilot)
+
+Figurene er kostymer: animasjonsruter som spillet tegner etter hverandre. 331 kostymer har 28 490 ruter. Males hver rute for seg, blir det for mange jobber, og figuren flimrer fordi hver rute blir litt ulik. Derfor står rutene som hører sammen, på figurark.
+
+- Jobbene heter `figCCC_KK`: kostyme CCC, ark KK. Piloten er de 4 første arkene for Boston Low (kostyme 14): stående i alle 8 retninger med hodene og gange mot høyre (ark 1), gange mot venstre og snakking mot høyre og venstre (ark 2), snakking i de andre retningene (ark 3) og gange mot oss (ark 4).
+- `referanse.png` er rutene i 4x på en flat bakgrunnsfarge som ikke finnes i kostymet (for Boston turkis, #00C8C8), med 32 HD-piksler mellom rutene og samme grå kant som de andre jobbene. Ruter i samme animasjon og retning står etter hverandre på samme rad, i den rekkefølgen spillet viser dem. Prompten sier hva som står på arket.
+- Hodet er et eget lag i kostymene til hovedpersonene: kroppene står uten hode, og hodene står for seg. Mal dem som de er, uten å gjøre dem hele.
+- Mal alle rutene som den samme personen: samme ansikt, hår, klær, farger og lys. Bare posen skal være forskjellig, nøyaktig som i originalen. Omrisset skal være nøyaktig som originalen, og bakgrunnen skal være flat i samme farge.
+- Bilde to er stilankeret for ark 1. For de andre arkene er bilde to det godkjente ark 1 for samme kostyme (`bilde_to` i `jobb.json`). Lag dem etter at ark 1 er godkjent.
+- Ruter som ikke får plass på et ark i 4x, skaleres ikke ned. De blir egne jobber, og er de bredere eller høyere enn lerretet, deles de som rommene. Det gjelder bare én rute i hele spillet (kostyme 119, 468 x 122).
+- Leveres som rommene.
+
+Alle kostymene med navn, antall ruter og antall ark står i `docs/figurer.csv` i grenen `main`, sortert etter hvor mye de vises: hovedpersonene først (Boston Low 14, Maggie Robbins 18, Ludger Brink 15 med variantene 17 og 16), så de andre kostymene deres, så resten. Alle kostymene ville gitt 4031 ark. De tre hovedkostymene gir 114 ark, og alle de 54 kostymene der hovedpersonene er med, 509 ark.
+
+Kolonnene i `docs/figurer.csv`: `figur` og `hva` er satt ved gjennomsyn av rutene (tom: ikke kartlagt). `rom` er rommet kostymet ligger i (hovedkostymene ligger i rom 7, men brukes på hele planeten). `retninger` og `animasjoner` er lest fra AKOS (AKHD, AKCH og AKSQ). `ark` er antall figurark med pakkingen over, `jobber` antall jobber (store ruter kan bli flere), `store_ruter` ruter som ikke får plass på et ark. `skript_ganger` og `skript_rom` er hvor mange ganger og i hvilke rom skriptene gir en skuespiller kostymet med et fast nummer (`actorOps` med `SO_COSTUME`). `tegnet_i_romtest` er rommene der motoren tegnet kostymet da den hoppet til hvert rom fra starten av spillet; der har mannskapet fortsatt romdrakt, så hovedkostymene vises lite. Rekkefølgen: de tre hovedkostymene, så de andre kostymene med hovedpersonene, så resten, hver gruppe etter `skript_rom`, `skript_ganger` og antall ruter. Navnet i `figur` brukes i prompten når det er en av hovedpersonene, og `rekkefolge` avgjør rekkefølgen på figurarkene med `--figurer alle`.
+
 ## 5. Rekkefølge
 
 1. **Pilot (ferdig):** Codex leverte rom 9 og 22 den 6. oktober. Begge besto kontrollen og er godkjent av Claude på Tom sine vegne (Tom ba om at arbeidet skal fortsette). Tom kan overstyre.
 2. **Stilankere:** Pilotbildene ligger i `stil/` (`room009_core.png`, `room022_beach.png`). Legg ved det ankeret som passer best som bilde nummer to i hver jobb (prompten forklarer hvordan det brukes). Det holder stilen lik fra rom til rom.
-3. **Løpende ordre:** Claude skriver `ORDRE.md` i grenen etter hver kontroll, med de neste 10 jobbene. Ta dem i den rekkefølgen. Nye jobber står etter romnummer, med romjobbene før objektjobbene i samme rom. Objektjobber i rom som allerede er ferdige, kommer først. Lagjobbene kommer etter alle rom- og objektjobbene, etter romnummer, og først de der bilde to er godkjent. Ikonarkene kommer til slutt.
+3. **Løpende ordre:** Claude skriver `ORDRE.md` i grenen etter hver kontroll, med de neste 10 jobbene. Ta dem i den rekkefølgen. Avviste rom- og objektjobber står først, og rett etter dem figurarkene i piloten. Nye jobber står etter romnummer, med romjobbene før objektjobbene i samme rom. Objektjobber i rom som allerede er ferdige, kommer først. Lagjobbene kommer etter alle rom- og objektjobbene, etter romnummer, og først de der bilde to er godkjent. Så ikonarkene, og til slutt figurark utenfor piloten når de er bestilt.
 4. **Retur:** Jobber med `retur.md` står først i ordren og gjøres på nytt med teksten der.
 
 Objektbildene (642): de 30 største er objektjobber, 460 små er i lagjobbene og 149 ikoner er på ikonarkene. Tre står igjen og skaleres automatisk: de to ensfargede rutenettene i inventaret og obj460_01 i rom 67, som er helt gjennomsiktig.
 
 Senere runder (egne bestillinger):
 
-- **Figurer:** 331 kostymer med 28 490 animasjonsruter er for mye å male enkeltvis. Plan: et modellark per hovedperson fra ChatGPT som stilfasit, og så automatisk oppskalering av rutene, med retusj der det trengs.
+- **Figurer:** 331 kostymer med 28 490 animasjonsruter er for mye å male enkeltvis. Plan: figurark (punkt 4), først piloten for Boston Low. Virker den, bestilles hovedpersonene og så resten. Kostymer med effekter (lyn, lys, vann) kan få automatisk oppskalering i stedet.
 - **Filmer:** 12 638 rammer. Ikke ChatGPT. Videooppskalering.
 
 ## 6. Arbeidsflyt
@@ -140,13 +156,24 @@ Lagjobber og ikonark kontrolleres som helhet på samme måte, og i tillegg hvert
 
 Ett feil objekt avviser hele jobben. Prøvd på ekte data: i 212 lagjobber med kunstige resultater der objektene manglet, godkjente den vanlige kontrollen 206, mens sjekken per objekt fant 348 av 409 målte objekter (de andre ligner bakgrunnen). Referansen og HD-rommet med objektene limt inn ga ingen avvisninger. ChatGPT sine godkjente rombilder har kantlikhet 0,75 eller mer i de samme feltene der grensen for tegnet om gjelder.
 
-Etter fargelåsen klippes hvert objekt ut av delen det står i (sydd sammen hvis det står i flere) på rektangelet sitt, i 4x med gjennomsiktigheten fra originalen. Et objekt er ferdig når alle delene det står i, er godtatt (godkjent, eller sjekk som for rommene; med `--bare-godkjente` bare godkjent). Senere tilstander av et objekt gjøres like den første der originalene er like, som for objektjobbene.
+Figurark kontrolleres som helhet på samme måte (plassering), og i tillegg hver rute for seg og flimmer mellom rutene:
 
-Ferdige rom havner i `work/gpt-ferdig/rooms/` og ferdige objektbilder i `work/gpt-ferdig/objects/` (nøyaktig 4x objektstørrelse, med gjennomsiktigheten fra originalen). `dighd build-mod --egne work/gpt-ferdig` lager mod-mappen motoren bruker, og bruker de godkjente objektbildene i stedet for automatisk oppskalering. Godkjente objektbilder kommer med i modden også i rom som ikke har HD-bakgrunn ennå. Et rom regnes som ferdig når romjobbene er godkjent, uavhengig av objektene.
+| Sjekk per figurark | Avvist når |
+| --- | --- |
+| Mangler | Under halvparten av rutens piksler er malt som figur (resten har bakgrunnsfargen) |
+| Omriss | Overlappen mellom det som er malt som figur og originalens omriss (snitt delt på union, i 4x) er under 0,80 |
+| Tegnet om | Kantlikheten inne i omrisset er under 0,50, for ruter med tydelige kanter |
+| Flimmer | To nabo-ruter i samme animasjon og retning skiller seg mye mer fra hverandre i HD enn i originalen. Rutene legges over hverandre der originalene passer best, og forskjellen måles i 1x etter fargelåsen, der begge har figur, jevnet ut over 3 x 3 piksler. Avvist når HD skiller seg mer enn 30 (0 til 255) mer enn originalen noe sted |
+
+Prøvd på de 4 pilotarkene for Boston Low (kostyme 14) med kunstige resultater: referansen, referansen uskarp (1,2 og 3 HD-piksler) og originalen skalert med lanczos-sharp ga flimmer høyst 12 og ble godkjent. Én rute med kraftig støy i detaljene (standardavvik 60 per originalpiksel) eller speilet ga 48 til 85 og ble avvist. Støy med standardavvik 30 ga 22 til 31, rett rundt grensen. Grensene justeres etter de første ekte leveransene.
+
+Etter fargelåsen klippes hvert objekt ut av delen det står i (sydd sammen hvis det står i flere) på rektangelet sitt, i 4x med gjennomsiktigheten fra originalen. Figurruter klippes ut på samme måte til `costumes/costumeCCC_NNN.png`. Myke kanter i arket blander inn bakgrunnsfargen langs omrisset; der en HD-piksel innenfor omrisset (høyst 2 originalpiksler fra kanten) er dratt mer enn 12 prosent av veien fra originalfargen mot bakgrunnsfargen, fylles den innenfra. Ellers får figuren en glorie i bakgrunnsfargen i spillet; det ble sett i motoren med det kunstige resultatet før rettingen, og med 25 prosent som grense var det fortsatt en svak farge langs de mørke støvlene. Et objekt er ferdig når alle delene det står i, er godtatt (godkjent, eller sjekk som for rommene; med `--bare-godkjente` bare godkjent). Senere tilstander av et objekt gjøres like den første der originalene er like, som for objektjobbene.
+
+Ferdige rom havner i `work/gpt-ferdig/rooms/`, ferdige objektbilder i `work/gpt-ferdig/objects/` og ferdige figurruter i `work/gpt-ferdig/costumes/` (nøyaktig 4x, med gjennomsiktigheten fra originalen). `dighd build-mod --egne work/gpt-ferdig` lager mod-mappen motoren bruker, og bruker de godkjente objektbildene og figurrutene i stedet for automatisk oppskalering. Godkjente objektbilder kommer med i modden også i rom som ikke har HD-bakgrunn ennå, og godkjente figurruter for alle kostymer. Ruter uten HD-bilde vises som originalen, med mindre kostymet er valgt med `--kostymer`; da skaleres resten automatisk. Et rom regnes som ferdig når romjobbene er godkjent, uavhengig av objektene.
 
 ## 8. Sporing
 
-Hver leveranse skal kunne spores. Claude skriver `work/gpt-ferdig/provenance.json` med sjekksum for referanse, prompt og resultat, målingene og innstillingene for fargelåsen. Objektbilder fra lag og ikonark får hver sin oppføring med laget eller arket de kom fra og rektangelet i det. Ditt `notat.md` utfyller med verktøy, modell, dato, antall forsøk og eventuelle endringer i prompten.
+Hver leveranse skal kunne spores. Claude skriver `work/gpt-ferdig/provenance.json` med sjekksum for referanse, prompt og resultat, målingene og innstillingene for fargelåsen. Objektbilder fra lag og ikonark får hver sin oppføring med laget eller arket de kom fra og rektangelet i det. Figurruter får én oppføring per rute med arket, rektangelet, animasjonen og målingene for ruten og nabo-rutene. Ditt `notat.md` utfyller med verktøy, modell, dato, antall forsøk og eventuelle endringer i prompten.
 
 ## 9. Erfaringer fra Jones og Moonstone
 
@@ -180,7 +207,9 @@ og prompt.txt. Bruk prompt.txt ordrett og referanse.png som bildet som redigeres
 (nærbilder, kart, paneler). Behandle dem som bakgrunner. Jobber som heter lagNNN_KK, er rommet med små
 objekter tegnet på plass. Mal alt trofast; objektene klippes ut etter posisjon, så de må ligge nøyaktig
 der de er. Bruk det godkjente HD-bildet i bilde_to som bilde to. Jobber som heter ikonNN, er ikonene i
-inventaret på mørkeblå bakgrunn.
+inventaret på mørkeblå bakgrunn. Jobber som heter figCCC_KK, er figurark: animasjonsruter av samme figur på
+en flat bakgrunnsfarge. Mal alle rutene som samme person (samme ansikt, klær, farger og lys), med nøyaktig
+samme omriss, og hold bakgrunnen flat. Kropper uten hode og hoder alene males som de er.
 
 Regler: ingenting flyttes, zoomes eller beskjæres. Ingenting legges til eller fjernes. Symboler og
 inngraveringer kopieres nøyaktig. Samme farger, lys og stemning. Samme malte 1990-tallsstil fra

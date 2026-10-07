@@ -22,6 +22,9 @@ Etter kontrollen klippes hvert objekt ut på rektangelet sitt med gjennomsiktigh
 Ikoner i inventaret (rom 93) og andre ikoner som ikke tegnes på plass i rommet (rom 107),
 legges i rutenett på ikonark med ID ikonNN og klippes ut på samme måte.
 
+Kostymerutene (figurene) pakkes på figurark med ID figCCC_KK, animasjon for animasjon, og
+klippes ut til costumes/costumeCCC_NNN.png. Planleggingen og kontrollen av dem står i figur.py.
+
 Mottaket sjekker hvert resultat mot originalen:
   - forskyvning (fasekorrelasjon på hele bildet og i blokker, for å se zoom og vridning)
   - likhet i kanter (om formene er de samme)
@@ -118,25 +121,34 @@ class Job:
     plassering: tuple[int, int]            # hvor regionen ligger på 384 x 256-lerretet
     skala: int = SCALE
     lerret: tuple[int, int] = CANVAS
-    type: str = "rom"                      # "rom", "objekt", "lag" eller "ikon"
+    type: str = "rom"                      # "rom", "objekt", "lag", "ikon" eller "figur"
     objekt: int | None = None              # objekt-ID (bare objektjobber)
     tilstand: str | None = None            # tilstand som i filnavnet, for eksempel "01"
     objekt_i_rom: tuple[int, int, int, int] | None = None   # objektbildets x, y, b, h i rommet
-    # Bare lag og ikonark. For ikonark er rom_storrelse arkets størrelse.
-    lag: int | None = None                 # lagnummer (KK i lagNNN_KK) eller arknummer (NN i ikonNN)
+    # Bare lag, ikonark og figurark. For ikonark og figurark er rom_storrelse arkets størrelse.
+    lag: int | None = None                 # lagnummer (KK i lagNNN_KK) eller arknummer (NN i ikonNN, KK i figCCC_KK)
     objekter: list[dict] | None = None     # objektbildene i dette utsnittet: bilde, objekt, tilstand, rom, rekt
     underlag: list[str] | None = None      # store objektbilder under objektene, i tegnerekkefølge
     bilde_to: str | None = None            # anbefalt bilde to, for eksempel jobber/rom005/resultat.png
+    # Bare figurark (figCCC_KK, se figur.py). rom er hjemrommet til kostymet og navn figuren.
+    kostyme: int | None = None             # kostyme-ID (CCC)
+    ruter: list[dict] | None = None        # kostymerutene i utsnittet: bilde, kostyme, rute, rekt, synlig, animasjon ...
+    bakgrunn: list[int] | None = None      # den flate bakgrunnsfargen på arket
+    pilot: bool | None = None              # med i piloten (står tidlig i ordren)
+    rekkefolge: int | None = None          # plassen til kostymet i docs/figurer.csv
+    innhold: str | None = None             # hva som står på arket, på norsk
 
     @property
     def bilde(self) -> str:
-        """Bildet jobben hører til: roomNNN, objNNN_SS, lagNNN_KK eller ikonNN."""
+        """Bildet jobben hører til: roomNNN, objNNN_SS, lagNNN_KK, ikonNN eller figCCC_KK."""
         if self.type == "objekt":
             return f"obj{self.objekt:03d}_{self.tilstand}"
         if self.type == "lag":
             return f"lag{self.rom:03d}_{self.lag:02d}"
         if self.type == "ikon":
             return f"ikon{self.lag:02d}"
+        if self.type == "figur":
+            return f"fig{self.kostyme:03d}_{self.lag:02d}"
         return f"room{self.rom:03d}"
 
     @property
@@ -147,8 +159,9 @@ class Job:
         return (self.rom_storrelse[0], self.rom_storrelse[1])
 
 
-# Felt som bare lag og ikonark har. Romjobber og objektjobber skriver dem ikke i jobb.json.
-_PIECE_FIELDS = ("lag", "objekter", "underlag", "bilde_to")
+# Felt som bare lag, ikonark og figurark har. Romjobber og objektjobber skriver dem ikke i jobb.json.
+_PIECE_FIELDS = ("lag", "objekter", "underlag", "bilde_to", "kostyme", "ruter", "bakgrunn", "pilot", "rekkefolge",
+                 "innhold")
 
 
 def _load_job(data: dict) -> Job:
@@ -158,16 +171,21 @@ def _load_job(data: dict) -> Job:
                tuple(data["rom_storrelse"]), tuple(data["region"]), tuple(data["plassering"]),
                type=data.get("type") or "rom", objekt=data.get("objekt"), tilstand=data.get("tilstand"),
                objekt_i_rom=tuple(in_room) if in_room else None, lag=data.get("lag"),
-               objekter=data.get("objekter"), underlag=data.get("underlag"), bilde_to=data.get("bilde_to"))
+               objekter=data.get("objekter"), underlag=data.get("underlag"), bilde_to=data.get("bilde_to"),
+               kostyme=data.get("kostyme"), ruter=data.get("ruter"), bakgrunn=data.get("bakgrunn"),
+               pilot=data.get("pilot"), rekkefolge=data.get("rekkefolge"), innhold=data.get("innhold"))
 
 
 def _order(job: Job) -> tuple:
     """Rom- og objektjobbene først: etter rom, romjobbene før objektjobbene i samme rom, så objekt,
-    tilstand og del. Så lagjobbene etter rom, lag og del, og til slutt ikonarkene."""
+    tilstand og del. Så lagjobbene etter rom, lag og del, ikonarkene, og til slutt figurarkene:
+    piloten først, så etter rekkefølgen i docs/figurer.csv, kostyme, ark og del."""
     if job.type == "lag":
         return (1, job.rom, job.lag, 0, "", job.del_nr)
     if job.type == "ikon":
         return (2, job.lag, 0, 0, "", job.del_nr)
+    if job.type == "figur":
+        return (3, 0 if job.pilot else 1, job.rekkefolge or 10 ** 6, job.kostyme or 0, job.lag or 0, job.del_nr)
     return (0, job.rom, job.type != "rom", job.objekt or 0, job.tilstand or "", job.del_nr)
 
 
@@ -202,9 +220,10 @@ def _sha(path: Path) -> str:
 
 
 def read_notes(path: Path | None) -> dict[int | str, str]:
-    """Romnotater (rom = nummer), objektnotater (rom = objNNN, for eksempel obj241) og notater for
-    lagjobbene i et rom (rom = lagNNN). Lagnotatet går foran romnotatet i lagjobbene, for eksempel
-    når romnotatet sier at en flate skal være tom fordi spillet tegner objekter der."""
+    """Romnotater (rom = nummer), objektnotater (rom = objNNN, for eksempel obj241), notater for
+    lagjobbene i et rom (rom = lagNNN) og for figurarkene til et kostyme (rom = figCCC). Lagnotatet
+    går foran romnotatet i lagjobbene, for eksempel når romnotatet sier at en flate skal være tom
+    fordi spillet tegner objekter der."""
     if not path or not path.exists():
         return {}
     notes: dict[int | str, str] = {}
@@ -215,7 +234,7 @@ def read_notes(path: Path | None) -> dict[int | str, str]:
                 continue
             if key.isdigit():
                 notes[int(key)] = note
-            elif re.fullmatch(r"(obj|lag)\d+", key):
+            elif re.fullmatch(r"(obj|lag|fig)\d+", key):
                 notes[f"{key[:3]}{int(key[3:]):03d}"] = note
     return notes
 
@@ -286,7 +305,15 @@ def _write_job(jobs_dir: Path, job: Job, image: Image.Image, prompt: str, style_
 
 
 def make_jobs(extract: Path, out: Path, rooms: set[int] | None = None, notes: dict[int, str] | None = None,
-              style_ref: Path | None = None) -> list[Job]:
+              style_ref: Path | None = None, figures: str | set[int] | None = None, game: Path | None = None,
+              figure_list: Path | None = None) -> list[Job]:
+    """Lager alle jobbene i out/jobber, status.csv og JOBBER.md.
+
+    figures: figurark (figCCC_KK) for kostymene. None eller "ingen": ingen. "pilot": bare piloten
+    (FIG_PILOT i figur.py). "alle" eller et sett kostyme-ID-er: alle arkene for dem. Animasjonene
+    leses fra costumes.json, eller fra spillfilene i game når uttrekket er eldre. figure_list er
+    docs/figurer.csv (navn og rekkefølge).
+    """
     meta = json.loads((extract / "rooms.json").read_text())
     jobs_dir = out / "jobber"
     jobs_dir.mkdir(parents=True, exist_ok=True)
@@ -326,6 +353,15 @@ def make_jobs(extract: Path, out: Path, rooms: set[int] | None = None, notes: di
             big_jobs = [j for j in jobs if j.type == "objekt" and j.rom == num]
             jobs += _layer_jobs(extract, jobs_dir, num, info, room, layers, notes, big_jobs)
     jobs += _icon_jobs(extract, jobs_dir, plan_icon_sheets(icons), style_ref)
+
+    # Figurark for kostymene, etter alt annet
+    if figures not in (None, "ingen"):
+        from . import export, figur
+        costumes = export.load_costumes(extract, game)
+        names = figur.read_figure_list(figure_list)
+        chosen, pilot_only = figur.select_costumes(figures, costumes, names)
+        jobs += figur.figure_jobs(extract, jobs_dir, chosen, costumes, names, meta["rooms"], notes, style_ref,
+                                  pilot_only)
 
     _write_status(out, jobs, {})
     _write_overview(out, jobs, skipped, left)
@@ -671,24 +707,32 @@ def _icon_jobs(extract: Path, jobs_dir: Path, sheets: list[list[Piece]], style_r
 
 
 def _pieces_of(jobs: list[Job], kind: str) -> set[str]:
-    return {p["bilde"] for j in jobs if j.type == kind for p in j.objekter or []}
+    """Objektbildene i lag eller ikonark, eller kostymerutene på figurarkene (kind = figur)."""
+    return {p["bilde"] for j in jobs if j.type == kind for p in (j.ruter if kind == "figur" else j.objekter) or []}
 
 
 def _write_overview(out: Path, jobs: list[Job], skipped: list[str], left: list[str] | None = None) -> None:
-    n = {t: sum(j.type == t for j in jobs) for t in ("rom", "objekt", "lag", "ikon")}
+    n = {t: sum(j.type == t for j in jobs) for t in ("rom", "objekt", "lag", "ikon", "figur")}
     lines = ["# Jobbliste", "",
              f"{len(jobs)} jobber: {n['rom']} for rom, {n['objekt']} for store objektbilder, {n['lag']} lagjobber "
              f"med {len(_pieces_of(jobs, 'lag'))} små objektbilder og {n['ikon']} ikonark med "
-             f"{len(_pieces_of(jobs, 'ikon'))} ikoner. Status oppdateres i `status.csv` av `dighd gpt-inn`.", "",
+             f"{len(_pieces_of(jobs, 'ikon'))} ikoner"
+             + (f", og {len({j.bilde for j in jobs if j.type == 'figur'})} figurark ({n['figur']} jobber) med "
+                f"{len(_pieces_of(jobs, 'figur'))} kostymeruter" if n["figur"] else "")
+             + ". Status oppdateres i `status.csv` av `dighd gpt-inn`.", "",
              "Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, paneler). "
              "Utsnittet er da en del av objektbildet, ikke av rommet.", "",
              "Lagjobbene (`lagNNN_KK`) er rommet med et sett små objektbilder tegnet på plass, delt som rommet. "
-             "Objektene klippes ut etterpå. Ikonarkene (`ikonNN`) er ikonene i inventaret i et rutenett.", "",
-             "| Jobb | Type | Rom | Navn | Del | Utsnitt (x, y, b, h) | Objektbilder |",
-             "| --- | --- | --- | --- | --- | --- | --- |"]
+             "Objektene klippes ut etterpå. Ikonarkene (`ikonNN`) er ikonene i inventaret i et rutenett.", ""]
+    if n["figur"]:
+        lines += ["Figurarkene (`figCCC_KK`) er animasjonsruter fra kostyme CCC på en flat bakgrunnsfarge. Rutene "
+                  "klippes ut etterpå til `costumes/costumeCCC_NNN.png`. Kolonnen Objektbilder er da antall ruter.", ""]
+    lines += ["| Jobb | Type | Rom | Navn | Del | Utsnitt (x, y, b, h) | Objektbilder |",
+              "| --- | --- | --- | --- | --- | --- | --- |"]
     for j in jobs:
+        pieces = j.ruter if j.type == "figur" else j.objekter
         lines.append(f"| {j.id} | {j.type} | {j.rom} | {j.navn} | {j.del_nr} av {j.deler} | "
-                     f"{', '.join(map(str, j.region))} | {len(j.objekter) if j.objekter else ''} |")
+                     f"{', '.join(map(str, j.region))} | {len(pieces) if pieces else ''} |")
     if skipped:
         lines += ["", "Hoppet over:", ""] + [f"- {s}" for s in skipped]
     if left:
@@ -963,6 +1007,8 @@ def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, 
     original = Image.open(d / "original_1x.png").convert("RGB")
     m = compare(original, part)
     status, why = judge(m)
+    orig4 = np.asarray(original.resize((w * SCALE, h * SCALE), Image.LANCZOS), dtype=np.float64)
+    locked = lock_colors(np.asarray(part, dtype=np.float64), orig4, sigma, strength)
     if job.objekter:
         # Lag og ikonark: hvert objekt må også ligne på originalen, ellers blir utklippet feil
         checks = check_pieces(original, part, job, extract)
@@ -973,6 +1019,22 @@ def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, 
             listed = ", ".join(bad[:5]) + (f" og {len(bad) - 5} til" if len(bad) > 5 else "")
             why = "; ".join(filter(None, [why, f"objekter er feil: {listed}"]))
             r["forslag"] = PIECE_RETRY
+    if job.type == "figur":
+        # Figurark: hver rute for seg, og flimmer mellom nabo-ruter (etter fargelåsen, som i spillet)
+        from . import figur
+        checks = figur.check_cels(original, part, job, extract)
+        pairs = figur.check_flicker(locked, job, extract)
+        r["figurkontroll"], r["flimmer"] = checks, pairs
+        bad, flick = figur.judge_sheet(checks, pairs)
+        if bad:
+            listed = ", ".join(bad[:5]) + (f" og {len(bad) - 5} til" if len(bad) > 5 else "")
+            why = "; ".join(filter(None, [why, f"ruter er feil: {listed}"]))
+        if flick:
+            listed = ", ".join(flick[:3]) + (f" og {len(flick) - 3} til" if len(flick) > 3 else "")
+            why = "; ".join(filter(None, [why, f"flimmer mellom nabo-ruter: {listed}"]))
+        if bad or flick:
+            status = "avvist"
+            r["forslag"] = figur.FIG_RETRY if bad else figur.FIG_FLICKER_RETRY
     rej = manual.get(job.id)
     if rej and rej.get("sha256_resultat", "").strip() in ("*", r["sha256_resultat"]):
         status = (rej.get("status") or "").strip()
@@ -981,8 +1043,6 @@ def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, 
         why = rej.get("grunn", "").strip() or f"{status} ved gjennomsyn"
         r["forslag"] = rej.get("forslag", "").strip()
     r.update(m, status=status, kommentar=why)
-    orig4 = np.asarray(original.resize((w * SCALE, h * SCALE), Image.LANCZOS), dtype=np.float64)
-    locked = lock_colors(np.asarray(part, dtype=np.float64), orig4, sigma, strength)
     _preview(preview_dir / f"{job.id}.png", original, part, locked)
     return r, locked
 
@@ -1039,7 +1099,7 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
 
     provenance = {}
     done_rooms, done_objects, incomplete = [], [], []
-    done_pieces: dict[str, list[str]] = {"lag": [], "ikon": []}
+    done_pieces: dict[str, list[str]] = {"lag": [], "ikon": [], "figur": []}
     first_state = {}
     piece_first: dict[int, str] = {}
     for j in jobs:
@@ -1052,6 +1112,16 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
     settings = {"sigma": sigma, "styrke": strength}
     for name, parts in tiles.items():
         first = parts[0][0]
+        if first.type == "figur":
+            from . import figur
+            done, not_done, prov = figur.finish_cels(name, parts, results, jobs_dir, extract, out, settings)
+            done_pieces["figur"] += done
+            stale += not_done
+            provenance.update(prov)
+            if not_done and (done or any(t is not None for _, t in parts)):
+                incomplete.append(f"{name} (kostyme {first.kostyme}): {len(done)} av {len(done) + len(not_done)} "
+                                  "ruter klare")
+            continue
         if first.type in ("lag", "ikon"):
             done, not_done, waiting, prov = _finish_pieces(name, parts, results, jobs_dir, extract, out, finished,
                                                            piece_first, settings)
@@ -1110,9 +1180,11 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
 
     prov_path = out / "provenance.json"
     old = json.loads(prov_path.read_text()) if prov_path.exists() else {}
-    # Objektbilder fra lag og ikonark er bestemt av jobbene som finnes nå. De som ikke kom fra noen
-    # av dem denne gangen (for eksempel etter at lagene er lagt på nytt), er ikke ferdige lenger.
-    stale += [name for name, entry in old.items() if entry.get("type") in ("lag", "ikon") and name not in provenance]
+    # Objektbilder fra lag og ikonark og kostymeruter fra figurark er bestemt av jobbene som finnes nå.
+    # De som ikke kom fra noen av dem denne gangen (for eksempel etter at lagene er lagt på nytt),
+    # er ikke ferdige lenger.
+    stale += [name for name, entry in old.items()
+              if entry.get("type") in ("lag", "ikon", "figur") and name not in provenance]
     for name in stale:
         # Et bilde som var ferdig før, men ikke er det nå, skal ikke bli med i modden
         entry = old.pop(name, None)
@@ -1334,8 +1406,10 @@ def _report(work: Path, jobs: list[Job], results: dict[str, dict], done_rooms: l
         by_type[(j.type, s)] = by_type.get((j.type, s), 0) + 1
     rooms_total = len({j.rom for j in jobs if j.type == "rom"})
     objects_total = len({j.bilde for j in jobs if j.type == "objekt"})
-    pieces_total = {k: len(_pieces_of(jobs, k)) for k in ("lag", "ikon")}
+    pieces_total = {k: len(_pieces_of(jobs, k)) for k in ("lag", "ikon", "figur")}
     types = [("rom", "Romjobber"), ("objekt", "Objektjobber"), ("lag", "Lagjobber"), ("ikon", "Ikonark")]
+    if pieces_total["figur"]:
+        types.append(("figur", "Figurark"))
     lines = ["# Rapport fra gpt-inn", "", time.strftime("Laget %Y-%m-%d %H:%M"), "",
              "| Status | " + " | ".join(t for _, t in types) + " |", "| --- " * (len(types) + 1) + "|"]
     lines += [f"| {s} | " + " | ".join(str(by_type.get((k, s), 0)) for k, _ in types) + " |" for s in sorted(counts)]
@@ -1345,6 +1419,12 @@ def _report(work: Path, jobs: list[Job], results: dict[str, dict], done_rooms: l
         lines.append(f"- Ferdige objektbilder fra lag: {len(done_pieces.get('lag', []))} av {pieces_total['lag']}")
     if pieces_total["ikon"]:
         lines.append(f"- Ferdige ikoner fra ikonark: {len(done_pieces.get('ikon', []))} av {pieces_total['ikon']}")
+    if pieces_total["figur"]:
+        sheets = {j.bilde for j in jobs if j.type == "figur"}
+        ok = {j.bilde for j in jobs if j.type == "figur"} - {
+            j.bilde for j in jobs if j.type == "figur" and results.get(j.id, {}).get("status") not in ("godkjent", "sjekk")}
+        lines.append(f"- Figurark: {len(ok)} av {len(sheets)} godtatt. Ferdige figurruter: "
+                     f"{len(done_pieces.get('figur', []))} av {pieces_total['figur']}")
     if incomplete:
         lines += ["", "Bilder som venter på flere deler:", ""] + [f"- {s}" for s in incomplete]
     bad = [(j, results[j.id]) for j in jobs if results.get(j.id, {}).get("status") in ("avvist", "sjekk")]
@@ -1356,7 +1436,8 @@ def _report(work: Path, jobs: list[Job], results: dict[str, dict], done_rooms: l
     return {"status": counts, "ferdige_rom": done_rooms, "ferdige_objekter": done_objects,
             "rom_totalt": rooms_total, "objekter_totalt": objects_total, "venter": incomplete,
             "ferdige_lagobjekter": done_pieces.get("lag", []), "lagobjekter_totalt": pieces_total["lag"],
-            "ferdige_ikoner": done_pieces.get("ikon", []), "ikoner_totalt": pieces_total["ikon"]}
+            "ferdige_ikoner": done_pieces.get("ikon", []), "ikoner_totalt": pieces_total["ikon"],
+            "ferdige_figurruter": done_pieces.get("figur", []), "figurruter_totalt": pieces_total["figur"]}
 
 
 # ---------------------------------------------------------------- ordre til ChatGPT
@@ -1375,16 +1456,21 @@ def read_status(work: Path) -> list[dict]:
 
 _OBJ_ID = re.compile(r"obj(\d+)_([0-9A-Za-z]+)")
 _LAG_ID = re.compile(r"lag(\d+)_(\d+)(_del\d+av\d+)?")
+_FIG_ID = re.compile(r"fig(\d+)_(\d+)(_del\d+av\d+)?")
 
 
 def _image_of(row: dict) -> str:
-    """Bildet en rad i status.csv hører til: roomNNN, objNNN_SS, lagNNN_KK eller ikonNN (jobb-ID uten delnummer)."""
+    """Bildet en rad i status.csv hører til: roomNNN, objNNN_SS, lagNNN_KK, ikonNN eller figCCC_KK
+    (jobb-ID uten delnummer)."""
     m = _OBJ_ID.match(row["jobb"]) if row["type"] == "objekt" else None
     if m:
         return m.group(0)
     m = _LAG_ID.match(row["jobb"]) if row["type"] == "lag" else None
     if m:
         return f"lag{m.group(1)}_{m.group(2)}"
+    m = _FIG_ID.match(row["jobb"]) if row["type"] == "figur" else None
+    if m:
+        return f"fig{m.group(1)}_{m.group(2)}"
     return row["jobb"] if row["type"] in ("objekt", "ikon") else f"room{int(row['rom']):03d}"
 
 
@@ -1409,26 +1495,32 @@ def _second_job(info: dict) -> str | None:
 
 
 def _piece_progress(work: Path | None, rows: list[dict], kind: str) -> tuple[int, int]:
-    """Ferdige og alle objektbilder i lagjobbene (kind = lag) eller ikonarkene (kind = ikon).
+    """Ferdige og alle objektbilder i lagjobbene (kind = lag) eller ikonarkene (kind = ikon), eller
+    kostymeruter på figurarkene (kind = figur).
 
-    Et objektbilde er ferdig når alle jobbene det ligger i, er godkjent.
+    Et objektbilde eller en rute er ferdig når alle jobbene det ligger i, er godkjent.
     """
     states: dict[str, list[str]] = {}
     for r in rows:
         if r["type"] == kind:
-            for p in _job_info(work, r).get("objekter") or []:
+            for p in _job_info(work, r).get("ruter" if kind == "figur" else "objekter") or []:
                 states.setdefault(p["bilde"], []).append(r["status"])
     return sum(all(s == "godkjent" for s in v) for v in states.values()), len(states)
+
+
+def _is_pilot(work: Path | None, r: dict) -> bool:
+    return r["type"] == "figur" and bool(_job_info(work, r).get("pilot"))
 
 
 def work_queue(rows: list[dict], work: Path | None = None) -> list[dict]:
     """Alle jobber som ikke er godkjent, i den rekkefølgen ChatGPT skal ta dem.
 
-    Avviste først. Så nye etter romnummer, romjobbene før objektjobbene i samme rom; objektjobber
-    i rom som allerede er ferdige, kommer først blant de nye, så rommet blir helt ferdig. Etter rom-
-    og objektjobbene kommer lagjobbene etter romnummer: først de der bilde to (det godkjente
-    HD-bildet) finnes, så resten. Ikonarkene til slutt. Helt til slutt de som er godtatt
-    foreløpig, men kan bli bedre (sjekk).
+    Avviste rom- og objektjobber først. Så figurarkene i piloten (avviste, så nye), så de andre
+    avviste. Så nye etter romnummer, romjobbene før objektjobbene i samme rom; objektjobber i rom
+    som allerede er ferdige, kommer først blant de nye, så rommet blir helt ferdig. Etter rom- og
+    objektjobbene kommer lagjobbene etter romnummer: først de der bilde to (det godkjente HD-bildet)
+    finnes, så resten. Så ikonarkene og figurarkene utenfor piloten. Helt til slutt de som er
+    godtatt foreløpig, men kan bli bedre (sjekk).
     """
     room_rows = [r for r in rows if r["type"] == "rom"]
     rooms_done = {int(r["rom"]) for r in room_rows} - {int(r["rom"]) for r in room_rows if r["status"] != "godkjent"}
@@ -1440,17 +1532,34 @@ def work_queue(rows: list[dict], work: Path | None = None) -> list[dict]:
             return (2 if ready else 3, int(r["rom"]), 0)
         if r["type"] == "ikon":
             return (4, int(r["rom"]), 0)
+        if r["type"] == "figur":
+            return (5, 0, 0)                      # i rekkefølgen fra status.csv (sortert stabilt)
         return (0 if r["type"] == "objekt" and int(r["rom"]) in rooms_done else 1, int(r["rom"]), r["type"] != "rom")
 
-    retry = [r for r in rows if r["status"] == "avvist"]
-    fresh = sorted((r for r in rows if r["status"] == "ny"), key=key)
+    pilot = [r for r in rows if _is_pilot(work, r)]
+    pilot = [r for r in pilot if r["status"] == "avvist"] + [r for r in pilot if r["status"] == "ny"]
+    in_pilot = {r["jobb"] for r in pilot}
+    retry_main = [r for r in rows if r["status"] == "avvist" and r["type"] in ("rom", "objekt")]
+    retry_rest = [r for r in rows if r["status"] == "avvist" and r["type"] not in ("rom", "objekt")
+                  and r["jobb"] not in in_pilot]
+    fresh = sorted((r for r in rows if r["status"] == "ny" and r["jobb"] not in in_pilot), key=key)
     better = [r for r in rows if r["status"] == "sjekk"]
-    return retry + fresh + better
+    return retry_main + pilot + retry_rest + fresh + better
 
 
 def _piece_label(work: Path | None, r: dict) -> tuple[str, str | None]:
-    """Hva en lagjobb eller et ikonark er, og anbefalt bilde to."""
+    """Hva en lagjobb, et ikonark eller et figurark er, og anbefalt bilde to."""
     info = _job_info(work, r)
+    if r["type"] == "figur":
+        m = _FIG_ID.match(r["jobb"])
+        sheet = int(m.group(2)) if m else r["jobb"]
+        n = len(info.get("ruter") or [])
+        cid = f"kostyme {int(m.group(1))}" if m else "kostyme"
+        who = cid if r["navn"].startswith("kostyme") else f"{r['navn']} ({cid})"
+        what = f"figurark {sheet} for {who}, {n} {'rute' if n == 1 else 'ruter'}"
+        if info.get("innhold"):
+            what += f": {info['innhold']}"
+        return what, info.get("bilde_to")
     n = len(info.get("objekter") or [])
     if r["type"] == "ikon":
         sheet = re.match(r"ikon(\d+)", r["jobb"])
@@ -1474,6 +1583,7 @@ def write_list(work: Path, batch: int = 10) -> Path:
     obj_rows = [r for r in rows if r["type"] == "objekt"]
     lag_rows = [r for r in rows if r["type"] == "lag"]
     icon_rows = [r for r in rows if r["type"] == "ikon"]
+    fig_rows = [r for r in rows if r["type"] == "figur"]
     rooms_all = {int(r["rom"]) for r in room_rows}
     rooms_done = rooms_all - {int(r["rom"]) for r in room_rows if r["status"] != "godkjent"}
     objects_all = {_image_of(r) for r in obj_rows}
@@ -1488,13 +1598,15 @@ def write_list(work: Path, batch: int = 10) -> Path:
         if r["type"] == "lag":
             piece, second = _piece_label(work, r)
             what += f", {piece}"
-        elif r["type"] == "ikon":
+        elif r["type"] in ("ikon", "figur"):
             what, second = _piece_label(work, r)
         if r["del"] not in ("1/1", ""):
             what += f", del {r['del']}"
         if second:
             what += f", bilde to `{second}`"
         note = {"avvist": " (avvist, les retur.md)", "sjekk": " (kan bli bedre)"}.get(r["status"], "")
+        if _is_pilot(work, r):
+            note += " (pilot)"
         return f"`{r['jobb']}` ({what}){note}"
 
     if lag_rows or icon_rows:
@@ -1505,6 +1617,19 @@ def write_list(work: Path, batch: int = 10) -> Path:
                  f"| Ikoner i inventaret (`ikonNN`) | {icon_done} | {icon_total} | Til slutt ({len(icon_rows)} ikonark) |"]
     else:
         small = ["| Andre objektbilder (610) | 0 | 610 | Senere, egen bestilling når rommene er ferdige |"]
+    if fig_rows:
+        fig_done, fig_total = _piece_progress(work, rows, "figur")
+        pilot_rows = [r for r in fig_rows if _is_pilot(work, r)]
+        sheets = {_image_of(r) for r in fig_rows}
+        if len(pilot_rows) == len(fig_rows):
+            figures = [f"| Figurer: pilot med figurark for {pilot_rows[0]['navn']} (`figCCC_KK`, kostymeruter) | "
+                       f"{fig_done} | {fig_total} | Nå, etter de avviste rom- og objektjobbene ({len(sheets)} ark) |",
+                       f"| Alle figurene (331 kostymer) | {fig_done} | 28 490 | Senere, når piloten er godkjent |"]
+        else:
+            figures = [f"| Figurer (`figCCC_KK`, kostymeruter; piloten først) | {fig_done} | {fig_total} | "
+                       f"Piloten etter de avviste rom- og objektjobbene, resten til slutt ({len(sheets)} ark) |"]
+    else:
+        figures = ["| Figurer (modellark for Boston, Maggie og Brink) | 0 | 3 | Senere, egen bestilling |"]
 
     lines = ["# Grafikkliste", "", time.strftime("Oppdatert %Y-%m-%d %H:%M (norsk tid)"), "",
              "Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. "
@@ -1515,14 +1640,20 @@ def write_list(work: Path, batch: int = 10) -> Path:
              f"| Rombakgrunner | {len(rooms_done)} | {len(rooms_all)} | Nå, bestillingene under ({len(room_rows)} jobber, brede og høye rom er delt) |",
              f"| Store objektbilder (nærbilder, kart, trikken) | {len(objects_done)} | {len(objects_all)} | Nå, sammen med rommene |",
              *small,
-             "| Figurer (modellark for Boston, Maggie og Brink) | 0 | 3 | Senere, egen bestilling |",
+             *figures,
              "| Filmrammer (12 638) | 0 | 12 638 | Senere, egen bestilling |", ""]
+    if fig_rows:
+        lines += ["Figurarkene i piloten står rett etter de avviste rom- og objektjobbene. De er en pilot: vi skal se "
+                  "om ChatGPT kan male animasjonsruter som er like nok til at figuren ikke flimrer, før resten av "
+                  "figurene bestilles.", ""]
     for i in range(0, len(queue), batch):
         part = queue[i:i + batch]
         n = i // batch + 1
-        rooms = sorted({int(r["rom"]) for r in part})
-        lines += [f"## Bestilling {n}" + (" (nå, samme som ORDRE.md)" if n == 1 else ""), "",
-                  f"Rom {', '.join(map(str, rooms))}.", ""]
+        rooms = sorted({int(r["rom"]) for r in part if r["type"] != "figur"})
+        who = list(dict.fromkeys(r["navn"] for r in part if r["type"] == "figur"))
+        where = ([f"Rom {', '.join(map(str, rooms))}."] if rooms else []) + \
+            ([f"Figurark for {', '.join(who)}."] if who else [])
+        lines += [f"## Bestilling {n}" + (" (nå, samme som ORDRE.md)" if n == 1 else ""), "", " ".join(where), ""]
         lines += [f"- [ ] {label(r)}" for r in part]
         lines.append("")
     if not queue:
@@ -1550,6 +1681,7 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
     objects_done = sorted(objects_all - {_image_of(r) for r in obj_rows if r["status"] != "godkjent"})
     lag_rows = [r for r in rows if r["type"] == "lag"]
     icon_rows = [r for r in rows if r["type"] == "ikon"]
+    fig_rows = [r for r in rows if r["type"] == "figur"]
     status = {r["jobb"]: r["status"] for r in rows}
 
     queue = work_queue(rows, work)[:batch]
@@ -1562,7 +1694,8 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
     if obj_rows:
         lines.append(f"- {_done_line('objekter', objects_done, len(objects_all))}")
     for kind, kind_rows, jobs_label, label in (("lag", lag_rows, "Lagjobber", "objektbilder fra lag"),
-                                                ("ikon", icon_rows, "Ikonark", "ikoner fra ikonark")):
+                                                ("ikon", icon_rows, "Ikonark", "ikoner fra ikonark"),
+                                                ("figur", fig_rows, "Figurark", "figurruter")):
         if kind_rows:
             done, total = _piece_progress(work, rows, kind)
             ok = sum(r["status"] == "godkjent" for r in kind_rows)
@@ -1576,6 +1709,18 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
             why = f" Avvist: {r['kommentar']}. Les retur.md."
         elif r["status"] == "sjekk":
             why = f" Godtatt foreløpig, men kan bli bedre: {r['kommentar']}."
+        if r["type"] == "figur":
+            what, second = _piece_label(work, r)
+            pilot = " Pilot for figurarkene, så vi ser om figurene kan lages slik." if _is_pilot(work, r) else ""
+            if second:
+                dep = _second_job({"bilde_to": second})
+                why += (f" Legg ved `{second}` som bilde to (ikke stilankeret), så figuren blir lik på alle arkene.")
+                if dep and status.get(dep) != "godkjent":
+                    why += f" Lag denne etter at {dep} er godkjent."
+            else:
+                why += " Legg ved stilankeret som bilde to."
+            lines.append(f"{i}. `{r['jobb']}` ({what}, del {r['del']}).{pilot}{why}")
+            continue
         what = f"rom {r['rom']}, {r['navn']}"
         m = _OBJ_ID.match(r["jobb"]) if r["type"] == "objekt" else None
         if m:
@@ -1617,6 +1762,11 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
                   "Objektene klippes ut etter posisjonen, så de må ligge nøyaktig der de er. Bilde to er det "
                   "godkjente HD-bildet som står i ordren (`bilde_to` i `jobb.json`). Ikonarkene (`ikonNN`) er "
                   "ikonene i inventaret på mørkeblå bakgrunn. Begge leveres som rommene.", ""]
+    if fig_rows:
+        lines += ["Figurarkene (`figCCC_KK`) er animasjonsruter av samme figur på en flat bakgrunnsfarge. Mal alle "
+                  "rutene som den samme personen (samme ansikt, klær, farger og lys), med nøyaktig samme omriss som "
+                  "originalen, og hold bakgrunnen flat. Rutene klippes ut etter posisjonen. Arkene i piloten er en "
+                  "prøve: lag dem i rekkefølge, ark 01 først. Leveres som rommene.", ""]
     lines += ["Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.", ""]
     if messages:
         lines += ["## Beskjeder", ""] + [f"- {m}" for m in messages] + [""]
