@@ -118,10 +118,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..2c005d91
+index 00000000..803d4d56
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,1105 @@
+@@ -0,0 +1,1407 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -198,6 +198,8 @@ index 00000000..2c005d91
 +	hd.free();
 +	idx.free();
 +	transparent = -1;
++	nearCycle.clear();
++	nearCycleGen = 0;
 +}
 +
 +DigHD *DigHD::create(ScummEngine *vm) {
@@ -219,10 +221,23 @@ index 00000000..2c005d91
 +	_scale = CLIP(envInt("DIGHD_SCALE", ConfMan.hasKey("dighd_scale") ? ConfMan.getInt("dighd_scale") : 4), 1, 8);
 +	_rgba = Graphics::PixelFormat::createFormatRGBA32();
 +	memset(_pal, 0, sizeof(_pal));
++	memset(_cycled, 0, sizeof(_cycled));
++
++	// Quadratic B-spline weights for the 3 original pixels around HD sub pixel d
++	// (left/centre/right, or above/centre/below). t is the sub pixel's distance
++	// from the centre of its original pixel, always inside (-0.5, 0.5).
++	memset(_cycleTap, 0, sizeof(_cycleTap));
++	for (int d = 0; d < _scale; d++) {
++		const float t = (d + 0.5f) / _scale - 0.5f;
++		_cycleTap[0][d] = (0.5f - t) * (0.5f - t) / 2;
++		_cycleTap[1][d] = 0.75f - t * t;
++		_cycleTap[2][d] = (0.5f + t) * (0.5f + t) / 2;
++	}
 +
 +	if (const char *d = getenv("DIGHD_DUMP_DIR"))
 +		_dumpDir = Common::Path(d, '/');
 +	_dumpEvery = envInt("DIGHD_DUMP_EVERY", 0);
++	_bench = envInt("DIGHD_BENCH", 0);
 +	_testRoom = envInt("DIGHD_TEST_ROOM", -1);
 +	_testAt = envInt("DIGHD_TEST_AT", 60);
 +	_testCamX = envInt("DIGHD_TEST_CAMX", -1);
@@ -269,8 +284,10 @@ index 00000000..2c005d91
 +	_h = height;
 +	_shadow.resize(_w * _h);
 +	_source.resize(_w * _h);
++	_cycleArea.resize(_w * _h);
 +	memset(_shadow.data(), 0, _shadow.size());
 +	memset(_source.data(), 0, _source.size() * sizeof(uint32));
++	memset(_cycleArea.data(), 0, _cycleArea.size());
 +
 +	// Prefer a 32 bit mode, fall back to 16 bit.
 +	Common::List<Graphics::PixelFormat> formats = g_system->getSupportedFormats();
@@ -400,6 +417,7 @@ index 00000000..2c005d91
 +		if (_source[i] & kSrcMask)
 +			_source[i] = kSrcFlat;
 +	_roomImage.free();
++	_cycleTableBase = nullptr;  // a new image may get the same address
 +	for (auto &it : _objectImages) {
 +		if (it._value) {
 +			it._value->free();
@@ -822,6 +840,190 @@ index 00000000..2c005d91
 +	_statFlat++;
 +}
 +
++void DigHD::updateCycled() {
++	bool cycled[256];
++	memset(cycled, 0, sizeof(cycled));
++	bool any = false;
++	for (int i = 0; i < 16; i++) {
++		const ColorCycle &cc = _vm->_colorCycle[i];
++		if (cc.delay && cc.start <= cc.end) {
++			for (int k = cc.start; k <= cc.end; k++)
++				cycled[k] = true;
++			any = true;
++		}
++	}
++	if (memcmp(cycled, _cycled, sizeof(cycled))) {
++		memcpy(_cycled, cycled, sizeof(cycled));
++		_cycledGen++;  // the masks of the images are made again when used
++	}
++	_anyCycled = any;
++}
++
++const byte *DigHD::nearCycleMask(Image &img) {
++	if (img.nearCycleGen == _cycledGen)
++		return img.nearCycle.data();
++	// Pixels that cycle or have a cycled pixel among their 8 neighbours: the
++	// colour map of composeCycled() reaches one original pixel around a cycled
++	// pixel. Transparent pixels of an object never count. Horizontal pass into
++	// rows, then vertical into the mask.
++	const int w = img.idx.w, h = img.idx.h;
++	Common::Array<byte> rows(w * h);
++	for (int y = 0; y < h; y++) {
++		const byte *p = (const byte *)img.idx.getBasePtr(0, y);
++		byte *o = rows.data() + y * w;
++		for (int x = 0; x < w; x++)
++			o[x] = (int)p[x] != img.transparent && _cycled[p[x]];
++	}
++	for (int y = 0; y < h; y++) {
++		byte *o = rows.data() + y * w;
++		byte left = 0;
++		for (int x = 0; x < w; x++) {
++			const byte self = o[x];
++			o[x] = left | self | (x + 1 < w ? o[x + 1] : 0);
++			left = self;
++		}
++	}
++	img.nearCycle.resize(w * h);
++	for (int y = 0; y < h; y++) {
++		const byte *up = rows.data() + MAX(y - 1, 0) * w;
++		const byte *mid = rows.data() + y * w;
++		const byte *down = rows.data() + MIN(y + 1, h - 1) * w;
++		byte *o = img.nearCycle.data() + y * w;
++		for (int x = 0; x < w; x++)
++			o[x] = up[x] | mid[x] | down[x];
++	}
++	img.nearCycleGen = _cycledGen;
++	return img.nearCycle.data();
++}
++
++void DigHD::updateCycleTable(const Image &img) {
++	if (_cycleTablePal == _palVersion) {
++		if (_cycleTableBase == img.basePal)
++			return;
++		// Room and object images usually share the room palette, and their pixels
++		// alternate on screen: a table for the same palette fits as it is.
++		if (!memcmp(_cycleTableColors, img.basePal, sizeof(_cycleTableColors))) {
++			_cycleTableBase = img.basePal;
++			return;
++		}
++	}
++	_cycleTableBase = img.basePal;
++	_cycleTablePal = _palVersion;
++	memcpy(_cycleTableColors, img.basePal, sizeof(_cycleTableColors));
++	// HD pixel = HD * gain + add, per palette index and channel, the same as
++	// tinted() for one pixel: an unchanged colour keeps the HD pixel, otherwise
++	// gain is the ratio current/original, and a channel that is black in the
++	// original takes the current value. Ratios above kMaxGain only come from
++	// nearly black original colours; there the detail of the HD image is raised
++	// at most this much and the rest of the change is added, as interpolating
++	// a very large gain would raise the noise around the pixel as well.
++	const float kMaxGain = 2.0f;
++	for (int k = 0; k < 256; k++) {
++		const byte *cp = _pal + k * 3, *bp = img.basePal + k * 3;
++		if (cp[0] == bp[0] && cp[1] == bp[1] && cp[2] == bp[2]) {
++			for (int ch = 0; ch < 3; ch++) {
++				_cycleGain[k][ch] = 1.0f;
++				_cycleAdd[k][ch] = 0.0f;
++			}
++			_cycleFlags[k] = 0;
++			continue;
++		}
++		byte flags = kCycleChanged;
++		for (int ch = 0; ch < 3; ch++) {
++			const float cur = cp[ch], base = bp[ch];
++			const float gain = base > 0.0f ? MIN(cur / base, kMaxGain) : 0.0f;
++			float add = cur - gain * base;
++			if (add > -0.01f && add < 0.01f)
++				add = 0.0f;  // rounding only
++			_cycleGain[k][ch] = gain;
++			_cycleAdd[k][ch] = add;
++			if (add != 0.0f)
++				flags |= kCycleAdd;
++		}
++		_cycleFlags[k] = flags;
++	}
++}
++
++void DigHD::composeCycled(byte *out, int outPitch, const Image &img, int ix, int iy) {
++	// One original pixel (ix, iy) of a room or object image that is colour cycled
++	// or touches a cycled pixel. Tinting each block by its own palette ratio, as
++	// tinted() does, shows the 4x4 blocks as a grid when neighbouring indices
++	// cycle to different colours. Instead the ratios (gain and add, see
++	// updateCycleTable()) of the 3 x 3 original pixels around it are interpolated
++	// to every HD sub pixel with a quadratic B-spline: smooth, with no edges at
++	// the block borders. A neighbour whose colour has not changed has gain 1, so
++	// the change fades out towards it within half an original pixel, and nothing
++	// outside the 3 x 3 pixels around a cycled pixel is touched.
++	updateCycleTable(img);
++	const int n = _scale, bpp = _fmt.bytesPerPixel;
++	const Graphics::PixelFormat fmt = _fmt;
++	const int w = img.idx.w, h = img.idx.h;
++	const byte centre = *(const byte *)img.idx.getBasePtr(ix, iy);
++	float gain[3][3][3], add[3][3][3];  // [row][column][channel]
++	byte flags = 0;
++	for (int j = 0; j < 3; j++) {
++		const byte *row = (const byte *)img.idx.getBasePtr(0, CLIP(iy + j - 1, 0, h - 1));
++		for (int i = 0; i < 3; i++) {
++			int k = row[CLIP(ix + i - 1, 0, w - 1)];
++			if (k == img.transparent)
++				k = centre;  // outside an object: use the pixel itself
++			for (int ch = 0; ch < 3; ch++) {
++				gain[j][i][ch] = _cycleGain[k][ch];
++				add[j][i][ch] = _cycleAdd[k][ch];
++			}
++			flags |= _cycleFlags[k];
++		}
++	}
++	// Local copies: the writes to the screen buffer below may alias members
++	float tap[3][8];
++	memcpy(tap, _cycleTap, sizeof(tap));
++	// HD images are in _rgba (RGBA32)
++	const int rs = _rgba.rShift, gs = _rgba.gShift, bs = _rgba.bShift;
++
++	for (int dy = 0; dy < n; dy++) {
++		byte *o = out + dy * outPitch;
++		const uint32 *hd = (const uint32 *)img.hd.getBasePtr(ix * n, iy * n + dy);
++		if (!(flags & kCycleChanged)) {
++			// No colour around here differs from the original: the HD image as it is
++			for (int dx = 0; dx < n; dx++, o += bpp) {
++				const uint32 c = hd[dx];
++				const uint32 col = fmt.RGBToColor((c >> rs) & 0xFF, (c >> gs) & 0xFF, (c >> bs) & 0xFF);
++				if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
++			}
++			continue;
++		}
++		// Vertical pass for the three columns, then horizontal for the sub pixels
++		// of this row (gain and add per channel), then the HD pixels.
++		const float wy0 = tap[0][dy], wy1 = tap[1][dy], wy2 = tap[2][dy];
++		float g[3][8], a[3][8];  // [channel][sub pixel], 0.5 for rounding is in a
++		for (int ch = 0; ch < 3; ch++) {
++			const float c0 = wy0 * gain[0][0][ch] + wy1 * gain[1][0][ch] + wy2 * gain[2][0][ch];
++			const float c1 = wy0 * gain[0][1][ch] + wy1 * gain[1][1][ch] + wy2 * gain[2][1][ch];
++			const float c2 = wy0 * gain[0][2][ch] + wy1 * gain[1][2][ch] + wy2 * gain[2][2][ch];
++			for (int dx = 0; dx < n; dx++)
++				g[ch][dx] = tap[0][dx] * c0 + tap[1][dx] * c1 + tap[2][dx] * c2;
++			if (flags & kCycleAdd) {
++				const float d0 = wy0 * add[0][0][ch] + wy1 * add[1][0][ch] + wy2 * add[2][0][ch];
++				const float d1 = wy0 * add[0][1][ch] + wy1 * add[1][1][ch] + wy2 * add[2][1][ch];
++				const float d2 = wy0 * add[0][2][ch] + wy1 * add[1][2][ch] + wy2 * add[2][2][ch];
++				for (int dx = 0; dx < n; dx++)
++					a[ch][dx] = tap[0][dx] * d0 + tap[1][dx] * d1 + tap[2][dx] * d2 + 0.5f;
++			} else {
++				for (int dx = 0; dx < n; dx++)
++					a[ch][dx] = 0.5f;
++			}
++		}
++		for (int dx = 0; dx < n; dx++, o += bpp) {
++			const uint32 c = hd[dx];
++			const int r = (int)((float)((c >> rs) & 0xFF) * g[0][dx] + a[0][dx]);
++			const int gr = (int)((float)((c >> gs) & 0xFF) * g[1][dx] + a[1][dx]);
++			const int b = (int)((float)((c >> bs) & 0xFF) * g[2][dx] + a[2][dx]);
++			const uint32 col = fmt.RGBToColor(CLIP(r, 0, 255), CLIP(gr, 0, 255), CLIP(b, 0, 255));
++			if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
++		}
++	}
++}
++
 +void DigHD::compose(int x, int y, int width, int height) {
 +	const int n = _scale;
 +	const int bpp = _fmt.bytesPerPixel;
@@ -833,17 +1035,12 @@ index 00000000..2c005d91
 +	// HD film frame for kSrcSan pixels; after the film these are original pixels
 +	const bool useSan = _smushLoaded && !flatOnly && _vm->isSmushActive();
 +
-+	// Colours that are being cycled (water, energy, lights) change hue all the
-+	// time. An HD texture cannot follow that per pixel, so those pixels keep the
-+	// original animated colour.
-+	bool cycled[256];
-+	memset(cycled, 0, sizeof(cycled));
-+	for (int i = 0; i < 16; i++) {
-+		const ColorCycle &cc = _vm->_colorCycle[i];
-+		if (cc.delay && cc.start <= cc.end)
-+			for (int k = cc.start; k <= cc.end; k++)
-+				cycled[k] = true;
-+	}
++	// Colours that are being cycled (water, energy, lights) change all the time.
++	// Room and object HD pixels in and next to them go through composeCycled().
++	updateCycled();
++	const bool anyCycled = _anyCycled && !flatOnly;
++	const byte *roomNear = (anyCycled && _roomImage.valid()) ? nearCycleMask(_roomImage) : nullptr;
++	const int roomW = _roomImage.idx.w;
 +
 +	for (int r = 0; r < height; r++) {
 +		const int sy = y + r;
@@ -853,6 +1050,7 @@ index 00000000..2c005d91
 +			const uint32 src = _source[sy * _w + sx];
 +			const uint32 kind = src & kSrcMask;
 +			byte *out = _outBuf.data() + (r * n) * outPitch + (c * n) * bpp;
++			_cycleArea[sy * _w + sx] = 0;
 +
 +			if (src == kSrcSan) {
 +				// The film frame is shown as it was made, also for cycled colours
@@ -867,10 +1065,13 @@ index 00000000..2c005d91
 +				continue;
 +			}
 +
-+			if (flatOnly || kind == kSrcFlat || cycled[idx] || (kind == kSrcObject && (((src >> 22) & 0xFF) >= _drawn.size() || !_drawn[(src >> 22) & 0xFF].image))) {
++			// A figure pixel in a cycled colour is an effect and stays the original pixel
++			if (flatOnly || kind == kSrcFlat || (kind == kSrcCel && _cycled[idx]) ||
++			    (kind == kSrcObject && (((src >> 22) & 0xFF) >= _drawn.size() || !_drawn[(src >> 22) & 0xFF].image))) {
 +				uint32 col;
-+				// Here an object source means an object without HD image
-+				if (showMissing && !cycled[idx] && (src == kSrcFlatMissing || kind == kSrcObject)) {
++				// Here an object source means an object without HD image. A cycled
++				// colour without HD is missing HD like any other pixel.
++				if (showMissing && (src == kSrcFlatMissing || kind == kSrcObject)) {
 +					col = missingColor(_fmt, _pal + idx * 3);
 +					_statMissing++;
 +				} else {
@@ -954,23 +1155,31 @@ index 00000000..2c005d91
 +				continue;
 +			}
 +
-+			const Graphics::Surface *hd;
-+			const byte *basePal;
-+			int hx, hy;
++			Image *img;
++			int ix, iy;
++			bool nearCycle = false;
 +			if (kind == kSrcRoom) {
-+				hd = &_roomImage.hd;
-+				basePal = _roomImage.basePal;
-+				hx = (src & 0x7FFF) * n;
-+				hy = ((src >> 15) & 0x7FFF) * n;
++				img = &_roomImage;
++				ix = src & 0x7FFF;
++				iy = (src >> 15) & 0x7FFF;
++				nearCycle = roomNear && roomNear[iy * roomW + ix];
 +				_statRoom++;
 +			} else {
-+				const DrawnObject &d = _drawn[(src >> 22) & 0xFF];
-+				hd = &d.image->hd;
-+				basePal = d.image->basePal;
-+				hx = (src & 0x7FF) * n;
-+				hy = ((src >> 11) & 0x7FF) * n;
++				img = _drawn[(src >> 22) & 0xFF].image;
++				ix = src & 0x7FF;
++				iy = (src >> 11) & 0x7FF;
++				nearCycle = anyCycled && nearCycleMask(*img)[iy * img->idx.w + ix];
 +				_statObject++;
 +			}
++			if (nearCycle) {
++				composeCycled(out, outPitch, *img, ix, iy);
++				_cycleArea[sy * _w + sx] = 1;
++				_statCycle++;
++				continue;
++			}
++			const Graphics::Surface *hd = &img->hd;
++			const byte *basePal = img->basePal;
++			const int hx = ix * n, hy = iy * n;
 +			for (int dy = 0; dy < n; dy++) {
 +				byte *o = out + dy * outPitch;
 +				const uint32 *t = (const uint32 *)hd->getBasePtr(hx, hy + dy);
@@ -1001,10 +1210,50 @@ index 00000000..2c005d91
 +	num = MIN<uint>(num, 256 - first);
 +	if (!memcmp(_pal + first * 3, colors, num * 3))
 +		return;
++	bool changed[256];
++	memset(changed, 0, sizeof(changed));
++	for (uint i = 0; i < num; i++)
++		changed[first + i] = memcmp(_pal + (first + i) * 3, colors + i * 3, 3) != 0;
 +	memcpy(_pal + first * 3, colors, num * 3);
-+	// Every visible pixel may have changed colour
-+	writeRect(0, 0, _w, _h);
++	_palVersion++;
++	redrawColors(changed);
 +	_cursorPending = true;
++}
++
++void DigHD::redrawColors(const bool *changed) {
++	// Only pixels shown in a changed colour look different now, and the pixels
++	// built with the colour map of composeCycled(), which also depend on the
++	// colours around them. With colour cycling that is often a small part of
++	// the screen. The screen is built again in bands of 8 rows, each band as
++	// wide as its changed pixels.
++	const uint32 gen = _cycledGen;
++	updateCycled();
++	if (_cycledGen != gen) {
++		// Other pixels go through the colour map from now on
++		writeRect(0, 0, _w, _h);
++		return;
++	}
++	const int kBand = 8;
++	for (int y0 = 0; y0 < _h; y0 += kBand) {
++		const int y1 = MIN(y0 + kBand, _h);
++		int left = _w, right = -1;
++		for (int y = y0; y < y1; y++) {
++			const byte *sh = _shadow.data() + y * _w;
++			const byte *ca = _cycleArea.data() + y * _w;
++			int x = 0;
++			while (x < left && !changed[sh[x]] && !ca[x])
++				x++;
++			if (x == _w)
++				continue;
++			left = MIN(left, x);
++			x = _w - 1;
++			while (x > right && !changed[sh[x]] && !ca[x])
++				x--;
++			right = MAX(right, x);
++		}
++		if (right >= left)
++			writeRect(left, y0, right - left + 1, y1 - y0);
++	}
 +}
 +
 +void DigHD::moveScreen(int dx, int dy, int height) {
@@ -1121,6 +1370,8 @@ index 00000000..2c005d91
 +	                                          _statRoom, _statObject, _statCel, _statFlat);
 +	if (_statSan)
 +		s += Common::String::format(", HD film px %u", _statSan);
++	if (_statCycle)
++		s += Common::String::format(", cycled HD px %u", _statCycle);  // part of HD room/object px
 +	if (_showMissing)
 +		s += Common::String::format(", yellow px %u", _statMissing);
 +	if (_classic)
@@ -1130,6 +1381,26 @@ index 00000000..2c005d91
 +
 +void DigHD::dumpFrame() {
 +	if (_verify) {
++		// The screen is built piece by piece (dirty areas, palette changes). It
++		// must look the same as the whole screen built again now.
++		compose(0, 0, _w, _h);
++		if (Graphics::Surface *scr = g_system->lockScreen()) {
++			const int bpp = _fmt.bytesPerPixel, rowBytes = _w * _scale * bpp;
++			uint32 stale = 0;
++			if (scr->w == _w * _scale && scr->h == _h * _scale && scr->format == _fmt) {
++				for (int y = 0; y < scr->h; y++) {
++					const byte *a = (const byte *)scr->getBasePtr(0, y);
++					const byte *b = _outBuf.data() + y * rowBytes;
++					if (!memcmp(a, b, rowBytes))
++						continue;
++					for (int i = 0; i < rowBytes; i += bpp)
++						stale += memcmp(a + i, b + i, bpp) != 0;
++				}
++				debug("DigHD: verify frame %u: %u screen pixels differ from the whole screen built again", _frameNo, stale);
++			}
++			g_system->unlockScreen();
++		}
++
 +		// Compare the HD frame with a plain scaled-up frame. With a mod made with
 +		// "nearest" the two must match; large differences mean misplaced HD pixels.
 +		// The yellow marking is left out of the comparison.
@@ -1138,22 +1409,36 @@ index 00000000..2c005d91
 +		compose(0, 0, _w, _h);
 +		_showMissing = showMissing;
 +		Common::Array<byte> hdCopy = _outBuf;
++		// Pixels in and next to cycled colours are interpolated smoothly between
++		// the original pixels on purpose, so they can differ from a "nearest" mod.
++		// They are counted on their own and left out of the main count.
++		Common::Array<byte> cycleArea = _cycleArea;
 +		_forceFlat = true;
 +		compose(0, 0, _w, _h);
 +		_forceFlat = false;
-+		uint32 bad = 0, total = _w * _scale * _h * _scale;
++		const int n = _scale, outW = _w * n;
++		uint32 bad = 0, total = 0, cycBad = 0, cycTotal = 0;
 +		const int bpp = _fmt.bytesPerPixel;
-+		for (uint32 i = 0; i < total; i++) {
++		for (uint32 i = 0; i < (uint32)(outW * _h * n); i++) {
 +			const uint32 a = bpp == 4 ? READ_UINT32(hdCopy.data() + i * 4) : READ_UINT16(hdCopy.data() + i * 2);
 +			const uint32 b = bpp == 4 ? READ_UINT32(_outBuf.data() + i * 4) : READ_UINT16(_outBuf.data() + i * 2);
 +			byte r1, g1, b1, r2, g2, b2;
 +			_fmt.colorToRGB(a, r1, g1, b1);
 +			_fmt.colorToRGB(b, r2, g2, b2);
-+			if (ABS(r1 - r2) > 48 || ABS(g1 - g2) > 48 || ABS(b1 - b2) > 48)
-+				bad++;
++			const bool differs = ABS(r1 - r2) > 48 || ABS(g1 - g2) > 48 || ABS(b1 - b2) > 48;
++			if (cycleArea[(i / outW / n) * _w + (i % outW) / n]) {
++				cycTotal++;
++				cycBad += differs;
++			} else {
++				total++;
++				bad += differs;
++			}
 +		}
 +		debug("DigHD: verify frame %u: %u of %u HD pixels differ strongly from the original (%.3f%%)",
-+		      _frameNo, bad, total, 100.0 * bad / total);
++		      _frameNo, bad, total, total ? 100.0 * bad / total : 0.0);
++		if (cycTotal)
++			debug("DigHD: verify frame %u: colour cycling, %u of %u HD pixels differ strongly (smooth colour map, left out above)",
++			      _frameNo, cycBad, cycTotal);
 +		if (bad) {
 +			Graphics::Surface fs;
 +			fs.init(_w * _scale, _h * _scale, _w * _scale * bpp, _outBuf.data(), _fmt);
@@ -1223,16 +1508,33 @@ index 00000000..2c005d91
 +		if (!list.empty())
 +			debug("DigHD: costumes drawn: %s", list.c_str());
 +	}
-+	_statRoom = _statObject = _statCel = _statSan = _statFlat = _statMissing = 0;
++	if (_bench > 0) {
++		// Time to build the whole screen and send it, as after every palette
++		// change (fades, colour cycling). Includes copyRectToScreen().
++		const uint32 start = g_system->getMillis();
++		for (int i = 0; i < _bench; i++)
++			writeRect(0, 0, _w, _h);
++		const uint32 ms = g_system->getMillis() - start;
++		debug("DigHD: bench frame %u: whole screen %.2f ms (mean of %d)", _frameNo, (double)ms / _bench, _bench);
++		if (_anyCycled) {
++			// What one step of colour cycling builds again: the cycled colours
++			const uint32 start2 = g_system->getMillis();
++			for (int i = 0; i < _bench; i++)
++				redrawColors(_cycled);
++			const uint32 ms2 = g_system->getMillis() - start2;
++			debug("DigHD: bench frame %u: colour cycling step %.2f ms (mean of %d)", _frameNo, (double)ms2 / _bench, _bench);
++		}
++	}
++	_statRoom = _statObject = _statCel = _statSan = _statFlat = _statMissing = _statCycle = 0;
 +}
 +
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..945d5d9b
+index 00000000..e59ef74c
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,218 @@
+@@ -0,0 +1,246 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -1272,8 +1574,10 @@ index 00000000..945d5d9b
 + *
 + * Which pixels are "untouched background" is decided by comparing against
 + * the original 8-bit image shipped next to each HD image (*_idx.png). When
-+ * the palette changes (fades, light switches, colour cycling), the HD pixel
-+ * is tinted by the ratio between the current and the original colour.
++ * the palette changes (fades, light switches), the HD pixel is tinted by the
++ * ratio between the current and the original colour. Where colours cycle
++ * (water, energy), that ratio is interpolated smoothly between the original
++ * pixels, so the HD image follows the cycling without a grid of blocks.
 + *
 + * While playing, Ctrl+H switches between HD and classic graphics (the
 + * original pixels scaled up, same screen size) and Ctrl+Shift+H puts a
@@ -1357,6 +1661,8 @@ index 00000000..945d5d9b
 +		Graphics::Surface idx;  // CLUT8, original size
 +		byte basePal[768];
 +		int transparent = -1;
++		Common::Array<byte> nearCycle;  // per original pixel: cycles or touches a cycled pixel
++		uint32 nearCycleGen = 0;        // _cycledGen the mask was made for
 +		bool valid() const { return hd.getPixels() && idx.getPixels(); }
 +		void free();
 +	};
@@ -1384,7 +1690,12 @@ index 00000000..945d5d9b
 +	void markMissingCels(VirtScreen *vs, const byte *src, int pitch, const byte *back, int x, int y, int top, int width, int height);
 +	void compose(int x, int y, int width, int height);
 +	void kindFlat(byte *out, int outPitch, byte idx, bool missing);
++	void updateCycled();
++	const byte *nearCycleMask(Image &img);
++	void updateCycleTable(const Image &img);
++	void composeCycled(byte *out, int outPitch, const Image &img, int ix, int iy);
 +	void writeRect(int x, int y, int width, int height);
++	void redrawColors(const bool *changed);
 +	void recomputeTint();
 +	uint32 tinted(uint32 rgba, byte idx, const byte *basePal) const;
 +	void dumpFrame();
@@ -1403,7 +1714,25 @@ index 00000000..945d5d9b
 +	Common::Array<byte> _outBuf;
 +
 +	byte _pal[768];
++	uint32 _palVersion = 1;  // counts palette changes
 +	bool _cursorPending = false;
++
++	// Colour cycling (CYCL): the palette indices that cycle now. Room and object
++	// HD pixels that cycle or touch a cycled pixel (Image::nearCycle) follow the
++	// cycling through a smooth colour map, see composeCycled().
++	bool _cycled[256];
++	bool _anyCycled = false;
++	uint32 _cycledGen = 1;            // changes with _cycled
++	float _cycleTap[3][8];            // quadratic B-spline weight of each of 3 taps per HD sub pixel
++	Common::Array<byte> _cycleArea;   // per screen pixel: 1 if the last compose used the colour map,
++	                                  // which depends on the colours around it (see redrawColors())
++	// Per palette index for the image's palette and the current palette: HD * gain + add
++	enum { kCycleChanged = 1, kCycleAdd = 2 };
++	float _cycleGain[256][3], _cycleAdd[256][3];
++	byte _cycleFlags[256];
++	const byte *_cycleTableBase = nullptr;  // basePal of the image the table was made for
++	byte _cycleTableColors[768];            // and its colours
++	uint32 _cycleTablePal = 0;              // _palVersion the table was made for
 +
 +	int _room = -1;
 +	Image _roomImage;
@@ -1442,9 +1771,10 @@ index 00000000..945d5d9b
 +	uint32 _frameNo = 0;
 +	Common::Path _dumpDir;
 +	int _dumpEvery = 0;
++	int _bench = 0;  // DIGHD_BENCH: build the whole screen this many times at each dump and log the time
 +	int _testRoom = -1, _testAt = -1, _testCamX = -1, _quitAt = -1;
 +	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false;
-+	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statSan = 0, _statFlat = 0, _statMissing = 0;
++	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statSan = 0, _statFlat = 0, _statMissing = 0, _statCycle = 0;
 +	Common::String statText() const;
 +};
 +

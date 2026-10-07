@@ -3,7 +3,9 @@
 #
 # Lager en mod med "nearest" (hver piksel blir en blokk). Da skal HD-bildet være
 # likt originalen skalert opp. Motoren sammenligner selv og skriver hvor mange
-# piksler som avviker kraftig. Bilder av skjermen lagres i work/test-dumps.
+# piksler som avviker kraftig, og om skjermen er lik hele skjermen bygget på nytt.
+# Fargesyklede områder telles for seg (de jevnes ut med vilje, se docs/HD-MOTOR.md).
+# Bilder av skjermen lagres i work/test-dumps.
 #
 # Bruk: engine/test.sh [antall bilder, standard 3000]
 set -euo pipefail

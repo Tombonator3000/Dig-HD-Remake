@@ -19,10 +19,48 @@ Fordi alt som ikke kan avgjøres sikkert faller tilbake til originalpikselen, ka
 
 ## Farger
 
-- **Palettbytte og toning:** Når fargen motoren viser er forskjellig fra fargen HD-bildet ble laget med, justeres HD-pikselen med forholdet mellom dem. Fade til svart og lysbytter følger derfor med.
-- **Fargesykling:** Farger som sykles (vann, energi) skifter fargetone hele tiden. Der brukes originalpikselen, så animasjonen blir som før. Vil du ha HD her, må det lages som eget animert lag senere.
+- **Palettbytte og toning:** Når fargen motoren viser er forskjellig fra fargen HD-bildet ble laget med, justeres HD-pikselen med forholdet mellom dem. Fade til svart og lysbytter følger derfor med. Bare pikslene som får en annen farge, bygges på nytt (se Fargesykling under).
+- **Fargesykling:** Farger som sykles (vann, energi, lys) skifter hele tiden. HD-bakgrunnen og HD-objektene vises også der, og følger syklingen. Se eget avsnitt under.
 - **Figurer:** Kostymene har sine "ekte" farger i RGBS-blokken. Motoren tilpasser dem til rompaletten og lyset. HD-sprites bruker de ekte fargene, og justeres bare når rommet er tydelig mørkere eller lysere. Skygger og spesialeffekter blir originalpiksler. Det samme gjelder en piksel som er svart i den ekte fargen, men vises lys i spillet, for da er det ikke denne fargen som vises (se kodek 5 under Hva som er testet).
 - **Skalerte figurer:** Figurer som skaleres med dybden, tegnes med HD-pikslene skalert jevnt i stedet for med originalens hoppemønster. Silhuetten følger fortsatt originalen.
+
+## Fargesykling
+
+I 52 rom sykles deler av paletten (CYCL): fargene i et indeksområde roteres et steg om gangen, og vann, lys og energi ser ut til å bevege seg. Originalbildet har de samme indeksene hele tiden, det er fargen bak hver indeks som flytter seg.
+
+Justering per piksel (forholdet mellom nåværende og opprinnelig farge for indeksen, som ved toning) virker ikke her. Nabopiksler med ulike indekser får helt ulike forhold samtidig, og da synes hver 4 x 4-blokk i HD-bildet som en egen rute. Før ble syklede piksler derfor vist som originalpiksler.
+
+Nå brukes et jevnt fargekart:
+
+1. For hver palettindeks regnes det ut hvordan fargen er endret: forholdet mellom nåværende og opprinnelig farge per kanal, som ved toning. Uendret farge gir 1. En kanal som er svart i originalen kan ikke skaleres og får den nåværende verdien, også som ved toning. Forholdet er begrenset til 2, og resten av endringen legges til, så støyen i HD-bildet ikke forsterkes mye der originalfargen er nesten svart.
+2. For hver HD-piksel interpoleres disse tallene (forhold og tillegg) fra de 3 x 3 originalpikslene rundt med en kvadratisk B-spline. Kartet er glatt (også stigningen er sammenhengende), så det blir ingen kanter ved blokkgrensene.
+3. HD-pikselen ganges med det interpolerte forholdet, og tillegget legges til.
+
+Dette gjelder bare piksler som viser HD-bakgrunn eller et HD-objekt (`roomNNN.png`, `objNNN_SS.png`), og bare der pikselen selv eller en av de 8 naboene i originalbildet har en syklet indeks. Kartet leses fra indeksbildet (`_idx.png`), ikke fra skjermen, så en figur som går foran vannet påvirker det ikke. Naboer som ikke sykles, har forhold 1, så endringen går jevnt over til null innen en halv originalpiksel utenfor det syklede området. Pikslene utenfor ringen av naboer blir ikke rørt, så det blir ingen glorie rundt steiner og kanter. Fordi naboene i ringen også går gjennom kartet, blir det heller ingen synlig kant rundt ikke-syklede piksler inne i vannet.
+
+Når hele paletten tones (fade), har alle indekser samme forhold, og resultatet blir det samme som justeringen per piksel.
+
+Valg og begrunnelse. Metodene ble først prøvd i Python på rom 22 (HD-bildet fra ChatGPT og paletten rotert 0 til 7 steg), så ble den valgte bygget inn og kontrollert i dumper fra spillet. To mål, regnet bare i vannet:
+
+- Blokkmål: fargesprang over 4 x 4-blokkgrensene delt på fargesprang inne i blokkene. HD-bildet selv har 1,0.
+- Kantsprang: gjennomsnittlig fargesprang over grensen mellom syklede og ikke-syklede piksler. HD-bildet selv har 29,8.
+
+| Metode | Resultat |
+| --- | --- |
+| Originalpiksler (slik det var) | Blokkmål 5,6 til 6,0 og kantsprang 58 til 66 i dumpene |
+| Forhold per piksel (som toning) | Tydelig rutenett. Blokkmål opptil 4,8 |
+| Bilineær interpolasjon | Blokkmål 1,04, men små stjerne- og rutermønstre der nabofargene er svært ulike, fordi stigningen knekker midt i hver blokk |
+| Kvadratisk B-spline (valgt) | Glatt, ingen synlige blokker. Blokkmål 1,04 til 1,09 i prøven og 1,01 til 1,07 i dumpene, kantsprang 30,6 til 32,3 |
+| Kubisk B-spline | Blokkmål 1,02, men trenger 5 x 5 naboer og gir 10 prosent mindre bevegelse |
+| Uskarphet først, så bilineær | Blokkmål 1,00, men bare 60 prosent av bevegelsen med bilineær |
+| Uten naboringen (bare syklede piksler) | Harde kanter rundt de ikke-syklede pikslene inne i vannet: kantsprang 41 til 44 |
+| Differanse (pluss) i stedet for forhold | Ser likt ut i vannet, men ville latt detaljene i HD-bildet stå igjen ved fade til svart. Forholdet ble valgt |
+
+Bevegelsen er svakere enn i originalen der syklingen består av enkeltpiksler (glitter i fossen i rom 43), fordi kartet jevner ut over 3 x 3 piksler. I vannet i rom 22 synes bølgene tydelig.
+
+Figurer med syklede farger (lys på drakter og maskiner) vises fortsatt med originalpikslene der fargen sykles, som andre effekter. Filmrammer med HD-ramme vises som de ble laget.
+
+Hvilke piksler som bygges på nytt: når paletten endres, bygges bare de pikslene som viser en endret farge, og pikslene som sist gikk gjennom fargekartet (de avhenger av naboene), på nytt. Det skjer i bånd på 8 rader, hvert så bredt som de endrede pikslene i båndet. Ved fade blir det hele skjermen som før. Endres settet av syklede indekser (nytt rom eller skript), bygges hele skjermen.
 
 ## Klassisk grafikk og gult felt
 
@@ -39,14 +77,15 @@ ScummVM viser en kort melding på skjermen når du bytter ("Dig HD: klassisk gra
 
 **Gult felt** blander halvparten gult inn i hver piksel som vises som originalpiksel fordi HD mangler:
 
-- rombakgrunn i rom uten HD-bakgrunn
+- rombakgrunn i rom uten HD-bakgrunn, også fargesyklede piksler (før var de unntatt, fordi syklede piksler alltid var originalpiksler)
 - bakgrunnspiksler som ikke stemmer med HD-bakgrunnen og ikke med noe HD-objekt (objekter uten HD-bilde)
 - figurer der kostymeruten ikke har HD-bilde
 - filmrammer uten HD-ramme (hele bildet unntatt teksten som SmushPlayer tegner over filmen)
 
-Dette farges ikke gult, fordi det er originalt med vilje:
+Dette farges ikke gult, fordi det er originalt med vilje eller har HD:
 
-- fargesyklede palettindekser (vann, lys, energi)
+- fargesyklede områder i HD-bakgrunnen og HD-objekter (de vises med HD, se Fargesykling)
+- syklede farger på figurer (lys og effekter)
 - tekst og undertekster over spillet, så lenge de ikke ligger oppå en figur uten HD
 - undertekster og annen tekst over filmer, også over filmrammer uten HD-ramme
 - skygger og effekter på figurer med HD-bilde
@@ -56,7 +95,7 @@ I klassisk modus farges ingenting gult. Når gult felt slås på mens spillet g�
 
 Valg av taster: SCUMM-motoren bruker Ctrl med tallene, F, G, T, V, K og C (og B, D, J, N og R i andre SCUMM-spill). ScummVM bruker Ctrl+M, Ctrl+R, Ctrl+U, Ctrl+Q, Ctrl+Z, Ctrl+F5, Ctrl+F7, Alt+S, Alt+Enter og Ctrl+Alt med flere taster for grafikkvalg. Sjekket i `engines/scumm/input.cpp`, `engines/scumm/metaengine.cpp`, `engines/metaengine.cpp`, `backends/events/default/default-events.cpp` og `backends/graphics/sdl/sdl-graphics.cpp`. H brukes ikke med Ctrl eller Ctrl+Shift i noen av disse, og ingen av tastaturoppsettene som er aktive i The Dig har H alene, så ScummVM sender tasten videre til motoren. Y og J ble valgt bort fordi bekreftelsesdialogene i ScummVM svarer ja på Y, og på J med norsk språk. Begge funksjonene ligger på samme bokstav, så de er lette å huske.
 
-Ytelse: når begge er av, er bildebyggingen like rask som før. Målt uten skjerm med 300 hele skjermbilder i rom 22 og 28 (beste tid): 8,0 til 8,9 ms per bilde både før og etter endringen, og 0,3 til 0,5 ms for å finne kildene til et helt bilde. Figurer uten HD letes bare etter i en egen runde når gult felt er på. Med gult felt på ble tidene de samme i disse rommene. Klassisk modus er raskere, under 1 ms per bilde.
+Ytelse: når begge er av, er bildebyggingen like rask som før. Målt uten skjerm med 300 hele skjermbilder i rom 22 og 28 (beste tid): 8,0 til 8,9 ms per bilde både før og etter endringen, og 0,3 til 0,5 ms for å finne kildene til et helt bilde. Figurer uten HD letes bare etter i en egen runde når gult felt er på. Med gult felt på ble tidene de samme i disse rommene. Klassisk modus er raskere, under 1 ms per bilde. Tider etter fargesyklingen står under Hva som er testet.
 
 ## Undertekster over filmer
 
@@ -104,14 +143,21 @@ Test og feilsøking (bare miljøvariabler):
 
 | Variabel | Betydning |
 | --- | --- |
-| `DIGHD_VERIFY=1` | Sammenligner HD-bildet med originalen ved hver dump og skriver avviket i loggen. Gult felt er ikke med i sammenligningen |
+| `DIGHD_VERIFY=1` | Ved hver dump: sammenligner HD-bildet med originalen og skriver avviket i loggen (gult felt er ikke med), og sjekker at skjermen er lik hele skjermen bygget på nytt |
 | `DIGHD_DUMP_DIR`, `DIGHD_DUMP_EVERY` | Lagrer skjermbildet som PNG hver N-te bilde: `frame_NNNNNN_roomRRR.png`, eller `frame_NNNNNN_FILM_RRRRR.png` under en film (RRRRR er rammenummeret, som i `san/FILM/`) |
+| `DIGHD_BENCH=N` | Ved hver dump: bygger hele skjermen N ganger og skriver snittid per gang, og i rom med fargesykling tiden for ett steg i syklingen (alle syklede farger endret) |
 | `DIGHD_SKIP_VIDEO=1` | Hopper over filmer |
 | `DIGHD_TEST_ROOM`, `DIGHD_TEST_AT`, `DIGHD_TEST_CAMX` | Hopper rett til et rom etter N bilder |
 | `DIGHD_QUIT_AT` | Avslutter etter N bilder |
 | `DIGHD_TEST_KEYS` | Trykker taster ved gitte bilder, for eksempel `420:ctrl+h,570:ctrl+shift+h`. Tastene går gjennom den vanlige tastehåndteringen i motoren |
 
-Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
+Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
+
+Med `DIGHD_VERIFY=1` skriver hver dump to eller tre linjer:
+
+- `N screen pixels differ from the whole screen built again`: skjermen bygges bit for bit (skitne områder, palettendringer). Er tallet over 0, har en del av skjermen ikke blitt bygget på nytt når den skulle.
+- `N of M HD pixels differ strongly from the original`: avvik mot originalen, for pikslene utenfor fargesyklingen.
+- `colour cycling, N of M HD pixels differ strongly`: avvik i pikslene som gikk gjennom fargekartet. De er jevnet ut mellom originalpikslene med vilje, så med en `nearest`-mod avviker noen av dem. De holdes utenfor hovedtallet.
 
 Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 2845 px original on purpose (text), 0 px original without HD`. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without)`.
 
@@ -120,7 +166,8 @@ Under en film skriver hver dump også en linje for selve rammen, i originalpiksl
 Med en mod laget med `nearest` skal HD-bildet være likt originalen skalert opp. Det er sjekket i spillet uten skjerm (`engine/test.sh`):
 
 - Bakgrunner og uskalerte figurer: 0 avvikende piksler.
-- Skalerte figurer: avvik på indre kanter (under 0,25 prosent av skjermen), fordi HD-sprites skaleres jevnt. Det er ventet. Siste kjøring (2026-10-07, etter rettingene for kodek 5): 0 avvik ved bilde 250, 750, 1500 og 2250 til 3000, og 0,032 til 0,199 prosent ved bilde 500, 1000, 1250, 1750 og 2000. Avvikene i bilde 1250 er sett på: indre kanter i en astronaut.
+- Skalerte figurer: avvik på indre kanter (under 0,25 prosent av skjermen), fordi HD-sprites skaleres jevnt. Det er ventet. Kjøring 2026-10-07 etter rettingene for kodek 5: 0 avvik ved bilde 250, 750, 1500 og 2250 til 3000, og 0,032 til 0,199 prosent ved bilde 500, 1000, 1250, 1750 og 2000. Avvikene i bilde 1250 er sett på: indre kanter i en astronaut.
+- Siste kjøring (2026-10-07, etter fargesyklingen): 0 avvik ved bilde 250, 750, 1000, 1750 og 2500 til 3000, og 0,103 til 0,179 prosent ved bilde 500, 1250, 1500, 2000 og 2250. Hvilke bilder som har en skalert figur, varierer litt fra kjøring til kjøring, fordi animasjonen følger klokka. Avvikene i bilde 1500 er sett på: indre kanter i en astronaut. Skjermen var lik hele skjermen bygget på nytt i alle 12 dumper. Rommene i testen har ingen syklede piksler i bakgrunnen.
 - Objekter: rom 34 og 105 testet med HD-objekter, 0 avvikende piksler.
 - Filmrammer: 198 av 198 rammer i introen er like. Rammenummeret er `_frame - 1` i SmushPlayer. Etter endringen for undertekster: rammene 0 til 527 i introen er like (ingen avvik i stikkprøvene utenom teksten).
 
@@ -131,6 +178,26 @@ Klassisk grafikk og gult felt (testet uten skjerm 2026-10-07, modden `gpt` i rom
 - Film med HD-rammer: HD-rammene brukes i HD-modus, ikke i klassisk modus, og blir ikke gule.
 - Tastene: `DIGHD_TEST_KEYS` trykket Ctrl+H og Ctrl+Shift+H mens spillet gikk, og byttet virket begge veier. Ikke testet med ekte tastatur og skjerm, og meldingen på skjermen er ikke sett.
 - `engine/test.sh` gir fortsatt 0 avvik for bakgrunner og uskalerte figurer.
+
+Fargesykling (testet uten skjerm 2026-10-07). Spillet hoppet med `DIGHD_TEST_ROOM` til rommet ved bilde 240, med dumper hvert 2. bilde:
+
+- Rom 22 med modden `gpt` (HD-bildet fra ChatGPT): vannet er HD og beveger seg mellom rammene, uten rutenett. Blokkmål 1,01 til 1,07 i 8 dumper på rad (HD-bildet 1,01, før 5,6 til 6,0). Kantsprang 30,6 til 32,3 (HD-bildet 29,8, før 58 til 66). Endringen holder seg i vannet og en halv originalpiksel utenfor, ingen glorie ved steinene. 5667 syklede piksler og 3112 naboer går gjennom kartet.
+- Rom 43 og 11 med en `lanczos-sharp`-mod: fossen (bakgrunn og objekt 347) og sjøen beveger seg uten rutenett. I rom 43 går 9736 piksler gjennom kartet, også objektpiksler. De mørke flekkene som kommer og går i fossen, er piksler med en fast mørk indeks (85) i objektet, og de er like i originalen.
+- Rom 2 (modden har ikke bakgrunn her): som før, originalpiksler. Rommets bakgrunn og objekter har ingen syklede indekser. Indeks 198 til 200 sykles, men brukes av figurene.
+- Klassisk grafikk (rom 22): alle 4 x 4-blokker ensfargede, også vannet.
+- Gult felt (rom 22): 0 gule piksler, vannet er HD. I rom 2 er hele bakgrunnen gul.
+- Med `nearest`-mod (`test-nearest`) i rom 22 og 43 og `DIGHD_VERIFY=1`: 0 avvik utenfor syklingen. I syklingen avviker 0 til 6,2 prosent av HD-pikslene kraftig, fordi kartet er jevnt med vilje (andelen avhenger av hvor langt syklingen har kommet).
+- Skjermen lik hele skjermen bygget på nytt (`DIGHD_VERIFY`): 0 avvikende piksler i rom 22, 43, 11 og 2, i introen med modden `test-san` (HD-rammer for SQ1), og i rom 22 med Ctrl+H og Ctrl+Shift+H av og på. Kontrollen ble prøvd med en feil med vilje (naboene i kartet ble ikke bygget på nytt): da fant den 297 til 435 piksler.
+- Ytelse, målt med `DIGHD_BENCH=100` ved hver 25. bilde i 1300 bilder (42 målinger, 25-persentil og median). Før ble hele skjermen bygget ved hver endring av paletten, også ved hvert steg i syklingen:
+
+| Rom | Før: hele skjermen | Etter: ett syklingssteg | Etter: hele skjermen (fade, romskifte) |
+| --- | --- | --- | --- |
+| 22 (`gpt`) | 7,8 / 8,0 til 8,1 ms | 2,0 / 2,1 til 2,2 ms | 9,0 til 9,1 / 9,4 til 9,8 ms |
+| 43 (`lanczos-sharp`) | 7,9 / 8,2 ms | 4,8 / 5,0 ms | 9,3 / 9,9 ms |
+| 28 (`gpt`, ingen sykling) | 8,5 / 8,7 ms | | 8,3 / 8,6 ms |
+
+  Maskinen er en delt virtuell maskin, og tidene varierer med omtrent 1 ms mellom kjøringer. Ikke testet med ekte skjerm.
+- Fade med syklede farger på skjermen er ikke sett i spillet. Formelen gir det samme som justeringen per piksel når alle farger endres likt.
 
 Undertekster over filmer (testet uten skjerm 2026-10-07, introen SQ1 med `--subtitles`):
 
@@ -159,6 +226,9 @@ Kodek 5 (testet uten skjerm 2026-10-07). Modden `test-k5` er laget med `nearest`
 - Kostymer med kodek 16 (5 kostymer) får ikke HD-sprites ennå. Kodek 1 (182 kostymer, blant dem hovedpersonene) og kodek 5 (144 kostymer) er testet i spillet.
 - Kodek 5: når skriptet ikke har satt skuespillerpaletten, tegner ScummVM kodene rett som palettindekser i rommet, uten AKPL (`_useBompPalette` i `akos.cpp`). Uttrekket farger rutene med RGBS, som følger AKPL. Da har HD-bildet andre farger enn spillet for kodene der AKPL ikke er lik koden. Sett i kostyme 210 i rom 78: kode 26 er svart i uttrekket og brun i spillet. Pikslene med for store fargeforskjeller blir originalpiksler, de andre justeres med forholdet mellom fargene. Om uttrekket bør bruke rompaletten for slike kostymer, er ikke avgjort.
 - Objekter som tegnes direkte i bakgrunnsbufferen av skript (sjeldent) blir originalpiksler.
+- Fargesykling: kartet jevner ut over 3 x 3 originalpiksler, så glitter av enkeltpiksler (fossen i rom 43) beveger seg svakere enn i originalen. Bølger over flere piksler (vannet i rom 22) synes godt.
+- Fargesykling: kartet leses fra indeksbildet til rommet eller objektet. Ligger et objekt over syklet vann, får bakgrunnspikselen rett ved siden av objektet litt av syklingen under objektet. Ikke sett i rommene som er prøvd.
+- Fargesykling på figurer (lys på drakter og maskiner) er fortsatt originalpiksler.
 - Tegnsett og tekst er originalpiksler, også undertekster over HD-filmer. HD-fonter er en senere jobb.
 - Undertekster over filmer: merkene for tekst nullstilles når en ny ramme pakkes ut. Pakker en film ut bare en del av bildet (RLE i SMUSH med mindre rektangel, ikke brukt i The Dig), regnes tekst utenfor den delen som borte selv om den står igjen.
 - Gult felt: tekst som ligger oppå en figur uten HD, blir gul, fordi motoren bare vet hvilket rektangel figuren dekker. Det samme gjelder tekst der en figur uten HD sist ble tegnet, til figuren tegnes på nytt eller rommet byttes.
