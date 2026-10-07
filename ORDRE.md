@@ -1,12 +1,12 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 13:31 (norsk tid)
+Oppdatert 2026-10-07 13:40 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
 ## Status
 
-- Jobber: 431. avvist 6, godkjent 181, ny 239, sjekk 5
+- Jobber: 431. avvist 5, godkjent 181, ny 239, sjekk 6
 - Ferdige rom: 101 av 106 (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 78, 80, 81, 82, 83, 84, 85, 87, 89, 90, 91, 92, 94, 95, 96, 97, 98, 99, 100, 101, 102, 105, 106, 107, 108, 109, 110)
 - Ferdige objekter: 27 av 30 (obj097_01, obj117_01, obj137_01, obj141_01, obj160_01, obj191_01, obj241_01, obj317_01, obj343_01, obj347_01, obj355_01, obj404_01, obj405_01, obj406_01, obj554_01, obj563_01, obj580_01, obj698_01, obj701_01, obj841_01, obj844_01, obj884_02, obj884_03, obj886_01, obj886_02, obj915_01, obj983_01)
 - Lagjobber: 0 av 236 godkjent. Ferdige objektbilder fra lag: 0 av 460
@@ -19,11 +19,11 @@ Les denne filen før du starter. Den erstatter tidligere ordre.
 3. `rom088_del7av9` (rom 88, tombot, del 7/9). Avvist: det svarte feltet øverst er malt over med fjell, og resten av bildet er skjøvet nedover. Les retur.md.
 4. `rom088_del8av9` (rom 88, tombot, del 8/9). Avvist: deler av bildet er flyttet eller zoomet (opptil 6.1 px). Les retur.md.
 5. `rom088_del9av9` (rom 88, tombot, del 9/9). Avvist: deler av bildet er flyttet eller zoomet (opptil 22.9 px). Les retur.md.
-6. `rom111` (rom 111, labcu3, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 4.6 px). Les retur.md.
-7. `lag002_01_del1av3` (rom 2, cockpit, lag 01 med 2 objektbilder, del 1/3). Legg ved `jobber/rom002_del1av3/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
-8. `lag002_02_del1av3` (rom 2, cockpit, lag 02 med 1 objektbilde, del 1/3). Legg ved `jobber/rom002_del1av3/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
-9. `lag003_01` (rom 3, klein, lag 01 med 1 objektbilde, del 1/1). Legg ved `jobber/rom003/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
-10. `lag004_01` (rom 4, ast1, lag 01 med 1 objektbilde, del 1/1). Legg ved `jobber/rom004/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+6. `lag002_01_del1av3` (rom 2, cockpit, lag 01 med 2 objektbilder, del 1/3). Legg ved `jobber/rom002_del1av3/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+7. `lag002_02_del1av3` (rom 2, cockpit, lag 02 med 1 objektbilde, del 1/3). Legg ved `jobber/rom002_del1av3/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+8. `lag003_01` (rom 3, klein, lag 01 med 1 objektbilde, del 1/1). Legg ved `jobber/rom003/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+9. `lag004_01` (rom 4, ast1, lag 01 med 1 objektbilde, del 1/1). Legg ved `jobber/rom004/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+10. `lag005_01` (rom 5, ast2, lag 01 med 1 objektbilde, del 1/1). Legg ved `jobber/rom005/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
 
 Når disse er levert, fortsett med bestilling 2 i `GRAFIKKLISTE.md` uten å vente på ny ordre.
 
@@ -49,8 +49,7 @@ Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-ar
 
 ## Beskjeder
 
-- Ny bestilling: de mindre objektbildene som lagjobber (lagNNN_KK, rommet med objektene tegnet på plass) og ikonark (ikonNN, inventaret). Legg ved bilde_to fra jobb.json, som er det godkjente HD-rommet, så objektene får samme stil og lys. Se BESTILLING.md og GRAFIKKLISTE.md.
-- Gjør de avviste romjobbene først (rom050, rom079, obj547, rom088 del 6 til 9), så lagjobbene i GRAFIKKLISTE-rekkefølge.
+- Rom 111: leveransen fra 11:09 er satt tilbake, fordi den fra 12:38 var dårligere. Lever bare en ny hvis den ligger bedre enn 1,4 px. Det gjelder alle jobber: en ny leveranse som er dårligere enn den gamle, erstatter ikke den gamle.
 
 ## Kodeoppgaver
 
