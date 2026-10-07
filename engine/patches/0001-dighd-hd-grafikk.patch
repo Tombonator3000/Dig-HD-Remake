@@ -92,6 +92,60 @@ index d93b33e2..16e08e92 100644
  	_out = vs;
  	if (drawToBackBuf)
  		_out.setPixels(vs.getBackPixels(0, 0));
+diff --git a/engines/scumm/charset.cpp b/engines/scumm/charset.cpp
+index 190e1818..87e45448 100644
+--- a/engines/scumm/charset.cpp
++++ b/engines/scumm/charset.cpp
+@@ -21,6 +21,7 @@
+ 
+ #include "graphics/font.h"
+ #include "scumm/charset.h"
++#include "scumm/dighd.h"
+ #include "scumm/file.h"
+ #include "scumm/scumm.h"
+ #include "scumm/macgui/macgui.h"
+@@ -2043,6 +2044,41 @@ int CharsetRendererV7::drawCharV7(byte *buffer, Common::Rect &clipRect, int x, i
+ 	const byte *src = _charPtr;
+ 	byte *dst = buffer + (y + _offsY) * pitch + x;
+ 	uint8 bpp = *_fontPtr;
++
++	// Dig HD: the glyph is noted right before it is drawn, so it can be shown in HD
++	if (_vm->_digHD && bpp >= 1 && bpp <= 8 && _origWidth <= 63 && _origHeight <= 63) {
++		byte values[63 * 63], map[256];
++		const byte *s = _charPtr;
++		byte b = *s++, nb = 8;
++		for (int i = 0; i < _origWidth * _origHeight; i++) {
++			values[i] = (b >> (8 - bpp)) & 0xFF;
++			b <<= bpp;
++			nb -= bpp;
++			if (nb == 0) {
++				b = *s++;
++				nb = 8;
++			}
++		}
++		memset(map, 0, sizeof(map));
++		memcpy(map, cmap, sizeof(_vm->_charsetColorMap));
++		DigHD::GlyphDraw g;
++		g.buffer = buffer;
++		g.pitch = pitch;
++		g.x = x;
++		g.y = y + _offsY;
++		g.w = _origWidth;
++		g.h = _origHeight;
++		g.values = values;
++		g.transparent = 0;
++		g.map = map;
++		// The loop below draws columns from 0 to width and rows from the top of the buffer to height
++		g.x0 = MAX(0, -x);
++		g.x1 = width;
++		g.y0 = MAX(0, -(y + _offsY));
++		g.y1 = height;
++		_vm->_digHD->noteGlyph(g);
++	}
++
+ 	byte bits = *src++;
+ 	byte numbits = 8;
+ 	pitch -= _origWidth;
 diff --git a/engines/scumm/cursor.cpp b/engines/scumm/cursor.cpp
 index 21938706..3b478c6a 100644
 --- a/engines/scumm/cursor.cpp
@@ -118,10 +172,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..803d4d56
+index 00000000..53a78232
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,1407 @@
+@@ -0,0 +1,2106 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -246,9 +300,27 @@ index 00000000..803d4d56
 +	_verify = envInt("DIGHD_VERIFY", 0) != 0;
 +	_classic = envInt("DIGHD_CLASSIC", confBool("dighd_classic")) != 0;
 +	_showMissing = envInt("DIGHD_SHOW_MISSING", confBool("dighd_show_missing")) != 0;
++	_dumpFlat = envInt("DIGHD_DUMP_FLAT", 0) != 0;
++
++	// How glyphs are scaled: xbr (standard), scale4x, nearest (for tests: the
++	// HD text is then the original text), or off (text as original pixels)
++	Common::String textScaler = ConfMan.get("dighd_text");
++	if (const char *env = getenv("DIGHD_TEXT"))
++		textScaler = env;
++	textScaler.toLowercase();
++	if (textScaler == "off" || textScaler == "0")
++		_textScaler = kTextOff;
++	else if (textScaler == "nearest")
++		_textScaler = kTextNearest;
++	else if (textScaler == "scale4x" || textScaler == "epx")
++		_textScaler = kTextScale4x;
++	else
++		_textScaler = kTextXbr;
++	_glyphStyles.push_back(GlyphStyle());  // style 0 means no glyph
 +
 +	// DIGHD_TEST_KEYS=400:ctrl+h,500:ctrl+shift+h presses keys at the given
-+	// frames, so the hotkeys can be tested without a keyboard.
++	// frames, so the hotkeys can be tested without a keyboard. Keys: a to z,
++	// f1 to f12, space and escape.
 +	if (const char *keys = getenv("DIGHD_TEST_KEYS")) {
 +		Common::String all(keys);
 +		all.toLowercase();
@@ -256,13 +328,28 @@ index 00000000..803d4d56
 +		while (!tok.empty()) {
 +			const Common::String item = tok.nextToken();
 +			const size_t colon = item.findFirstOf(':');
-+			const char key = item.lastChar();
-+			if (colon == Common::String::npos || colon == 0 || key < 'a' || key > 'z')
++			if (colon == Common::String::npos || colon == 0)
 +				continue;
 +			const Common::String combo = item.substr(colon + 1);
++			const size_t plus = combo.findLastOf('+');
++			const Common::String name = plus == Common::String::npos ? combo : combo.substr(plus + 1);
 +			TestKey k;
 +			k.frame = atoi(item.substr(0, colon).c_str());
-+			k.keycode = (Common::KeyCode)(Common::KEYCODE_a + (key - 'a'));
++			if (name.size() == 1 && name[0] >= 'a' && name[0] <= 'z') {
++				k.keycode = (Common::KeyCode)(Common::KEYCODE_a + (name[0] - 'a'));
++				k.ascii = name[0];
++			} else if (name.size() >= 2 && name[0] == 'f' && atoi(name.c_str() + 1) >= 1 && atoi(name.c_str() + 1) <= 12) {
++				k.keycode = (Common::KeyCode)(Common::KEYCODE_F1 + atoi(name.c_str() + 1) - 1);
++				k.ascii = Common::ASCII_F1 + atoi(name.c_str() + 1) - 1;
++			} else if (name == "space") {
++				k.keycode = Common::KEYCODE_SPACE;
++				k.ascii = ' ';
++			} else if (name == "escape" || name == "esc") {
++				k.keycode = Common::KEYCODE_ESCAPE;
++				k.ascii = Common::ASCII_ESCAPE;
++			} else {
++				continue;
++			}
 +			k.flags = (combo.contains("ctrl+") ? Common::KBD_CTRL : 0) |
 +			          (combo.contains("shift+") ? Common::KBD_SHIFT : 0) |
 +			          (combo.contains("alt+") ? Common::KBD_ALT : 0);
@@ -270,7 +357,8 @@ index 00000000..803d4d56
 +		}
 +	}
 +
-+	debug("DigHD: mod '%s', scale %d%s%s", _modPath.toString().c_str(), _scale,
++	static const char *const textNames[] = { "off", "nearest", "scale4x", "xbr" };
++	debug("DigHD: mod '%s', scale %d, text %s%s%s", _modPath.toString().c_str(), _scale, textNames[_textScaler],
 +	      _classic ? ", classic graphics" : "", _showMissing ? ", missing HD in yellow" : "");
 +}
 +
@@ -285,9 +373,13 @@ index 00000000..803d4d56
 +	_shadow.resize(_w * _h);
 +	_source.resize(_w * _h);
 +	_cycleArea.resize(_w * _h);
++	_text.resize(_w * _h);
++	_base.resize(_w * _h);
 +	memset(_shadow.data(), 0, _shadow.size());
 +	memset(_source.data(), 0, _source.size() * sizeof(uint32));
 +	memset(_cycleArea.data(), 0, _cycleArea.size());
++	memset(_text.data(), 0, _text.size() * sizeof(uint32));
++	memset(_base.data(), 0, _base.size());
 +
 +	// Prefer a 32 bit mode, fall back to 16 bit.
 +	Common::List<Graphics::PixelFormat> formats = g_system->getSupportedFormats();
@@ -560,6 +652,16 @@ index 00000000..803d4d56
 +			if (_cels[i].used)
 +				active[numActive++] = i;
 +
++	// Glyphs drawn into this buffer (see noteGlyph()). src points into the
++	// buffer of the virtual screen, so the offset from its start is the key.
++	const byte *vbase = (const byte *)vs->getBasePtr(0, 0);
++	const bool textOn = _textMain.any && vs->number == kMainVirtScreen && vbase == _textMain.base &&
++	                    _textMain.size == (size_t)vs->pitch * (vs->h + 8) &&
++	                    pitch == _textMain.pitch && src >= vbase && (size_t)(src - vbase) < _textMain.size;
++	const size_t textOff = textOn ? (size_t)(src - vbase) : 0;
++	if (textOn && !_textMain.pending.empty())
++		finishText(_textMain);
++
 +	for (int r = 0; r < height; r++) {
 +		const int sy = y + r;
 +		if (sy < 0 || sy >= _h)
@@ -571,7 +673,14 @@ index 00000000..803d4d56
 +			const int sx = x + c;
 +			if (sx < 0 || sx >= _w)
 +				continue;
-+			const byte idx = f[c];
++			// Under a glyph, the HD source is looked up for what the glyph covers
++			byte idx = f[c];
++			uint32 text = 0;
++			if (textOn) {
++				const size_t off = textOff + (size_t)r * pitch + c;
++				if (off < _textMain.size)
++					text = textAt(_textMain, off, f[c], idx);
++			}
 +			uint32 source = kSrcFlat;
 +
 +			if (b && b[c] != idx && numActive) {
@@ -620,7 +729,9 @@ index 00000000..803d4d56
 +					}
 +				}
 +			}
-+			_shadow[sy * _w + sx] = idx;
++			_shadow[sy * _w + sx] = f[c];
++			_base[sy * _w + sx] = idx;
++			_text[sy * _w + sx] = text;
 +			_source[sy * _w + sx] = source;
 +		}
 +	}
@@ -646,12 +757,12 @@ index 00000000..803d4d56
 +		const int sy = y + r;
 +		if (sy < 0 || sy >= _h)
 +			continue;
-+		const byte *f = src + r * pitch;
 +		const byte *b = back + r * vs->pitch;
 +		const int ry = top + r;
 +		for (int c = 0; c < width; c++) {
 +			const int sx = x + c;
-+			if (sx < 0 || sx >= _w || b[c] == f[c] || _source[sy * _w + sx] != kSrcFlat)
++			// Under a glyph, what the glyph covers counts
++			if (sx < 0 || sx >= _w || b[c] == _base[sy * _w + sx] || _source[sy * _w + sx] != kSrcFlat)
 +				continue;
 +			const int rx = vs->xstart + x + c;
 +			for (int k = 0; k < numMissing; k++) {
@@ -675,8 +786,9 @@ index 00000000..803d4d56
 +			const int sx = x + c;
 +			if (sx < 0 || sx >= _w)
 +				continue;
-+			_shadow[sy * _w + sx] = src[r * pitch + c];
++			_shadow[sy * _w + sx] = _base[sy * _w + sx] = src[r * pitch + c];
 +			_source[sy * _w + sx] = kSrcFlat;
++			_text[sy * _w + sx] = 0;
 +		}
 +	}
 +	writeRect(x, y, width, height);
@@ -751,15 +863,30 @@ index 00000000..803d4d56
 +	}
 +
 +	// Keep the 8-bit shadow up to date in any case (palette changes, dumps,
-+	// classic mode). Text stays the original pixel on purpose, also over an
-+	// HD frame. Everything else comes from the HD frame, and a frame without
-+	// an HD version lacks HD as a whole.
++	// classic mode). A text pixel with a known glyph is drawn with the HD glyph
++	// over the picture under it (see noteGlyph()); other text pixels stay
++	// original pixels on purpose, also over an HD frame. Everything else comes
++	// from the HD frame, and a frame without an HD version lacks HD as a whole.
 +	const uint32 picture = _smushLoaded ? kSrcSan : (haveFrame ? kSrcFlat : kSrcFlatMissing);
++	const bool textOn = text && _textSmush.any && _textSmush.base == _smushTextBase && pitch == _textSmush.pitch;
++	const size_t textOff = textOn ? (size_t)(src - _smushTextBase) : 0;
++	if (textOn && !_textSmush.pending.empty())
++		finishText(_textSmush);
 +	for (int r = 0; r < height && r < _h; r++)
 +		for (int c = 0; c < width && c < _w; c++) {
-+			_shadow[r * _w + c] = src[r * pitch + c];
-+			_source[r * _w + c] = (text && text[r * pitch + c]) ? kSrcFlat : picture;
++			const byte shown = src[r * pitch + c];
++			byte idx = shown;
++			uint32 glyph = 0;
++			if (textOn)
++				glyph = textAt(_textSmush, textOff + (size_t)r * pitch + c, shown, idx);
++			_shadow[r * _w + c] = shown;
++			_base[r * _w + c] = idx;
++			_text[r * _w + c] = glyph;
++			_source[r * _w + c] = (!glyph && text && text[r * pitch + c]) ? kSrcFlat : picture;
 +		}
++
++	// The film picture replaces any text drawn into the game screen (banners)
++	_textMain.clear();
 +
 +	writeRect(0, 0, MIN(width, _w), MIN(height, _h));
 +}
@@ -772,16 +899,20 @@ index 00000000..803d4d56
 +		_smushText.resize(size);
 +		memset(_smushText.data(), 0, size);
 +		_smushHasText = false;
++		_textSmush.reset(frame, size, pitch);
 +	}
 +	_smushTextBase = frame;
 +	_smushTextLayer.resize(size);
 +	byte *layer = _smushTextLayer.data();
 +	for (size_t i = 0; i < size; i++)
 +		layer[i] = frame[i] ^ 0xFF;
++	// Glyphs drawn from now on go to _textSmush (the frame) or are left out (the layer)
++	_smushTextOpen = true;
 +	return layer;
 +}
 +
 +void DigHD::smushTextEnd(const byte *frame) {
++	_smushTextOpen = false;
 +	// The text renderer only writes pixels, it never reads them. A pixel it
 +	// wrote has the same value in both buffers, every other pixel differs.
 +	const byte *layer = _smushTextLayer.data();
@@ -798,6 +929,577 @@ index 00000000..803d4d56
 +	if (_smushHasText)
 +		memset(_smushText.data(), 0, _smushText.size());
 +	_smushHasText = false;
++	_textSmush.clear();
++}
++
++// ---------------------------------------------------------------- text
++
++void DigHD::TextLayer::reset(const byte *b, size_t s, int p) {
++	base = b;
++	size = s;
++	pitch = p;
++	own.resize(s);
++	val.resize(s);
++	under.resize(s);
++	memset(own.data(), 0, s * sizeof(uint32));
++	pending.clear();
++	any = false;
++}
++
++void DigHD::TextLayer::clear() {
++	if (any)
++		memset(own.data(), 0, own.size() * sizeof(uint32));
++	pending.clear();
++	any = false;
++}
++
++void DigHD::clearText() {
++	_textMain.clear();
++}
++
++void DigHD::dirtyRect(int left, int right, int top, int bottom) {
++	// Whatever is drawn here (restored background, figures, menu boxes) ends
++	// the glyphs in this rectangle; text drawn again later is noted again.
++	// The text renderer marks its own text dirty right after drawing it.
++	if (_textPass || !_textMain.any)
++		return;
++	const VirtScreen &vs = _vm->_virtscr[kMainVirtScreen];
++	if ((const byte *)vs.getBasePtr(0, 0) != _textMain.base)
++		return;
++	left = MAX(left, 0);
++	right = MIN(right, (int)vs.w - 1);
++	top = MAX(top, 0);
++	bottom = MIN(bottom, (int)vs.h - 1);
++	for (int yy = top; yy <= bottom; yy++) {
++		const size_t off = (size_t)yy * _textMain.pitch + vs.xstart;
++		if (off + right >= _textMain.size)
++			break;
++		if (right >= left)
++			memset(_textMain.own.data() + off + left, 0, (right - left + 1) * sizeof(uint32));
++	}
++}
++
++// Is the glyph pixel at off still there? It must be a pixel the glyph drew,
++// and the buffer must still hold the value it wrote.
++bool DigHD::textLive(const TextLayer &t, size_t off) const {
++	const uint32 own = t.own[off];
++	if (!own)
++		return false;
++	const GlyphShape &sh = _glyphShapes[_glyphStyles[own >> 12].shape];
++	return sh.lev[(own & 63) * sh.w + ((own >> 6) & 63)] && t.base[off] == t.val[off];
++}
++
++uint32 DigHD::textAt(const TextLayer &t, size_t off, byte shown, byte &base) const {
++	// Returns the glyph reference to draw at buffer pixel off, or 0. For a pixel
++	// the glyph drew that still shows its value, base becomes the value that was
++	// under it. A pixel the glyph left transparent gets the edge of the HD glyph
++	// that reaches into it (rounded inner corners), but only while every pixel
++	// around it that the glyph drew is still there.
++	const uint32 own = t.own[off];
++	if (!own)
++		return 0;
++	const GlyphShape &sh = _glyphShapes[_glyphStyles[own >> 12].shape];
++	const int gx = (own >> 6) & 63, gy = own & 63;
++	if (sh.lev[gy * sh.w + gx]) {
++		if (shown != t.val[off])
++			return 0;
++		base = t.under[off];
++		return own;
++	}
++	if (!sh.cover[gy * sh.w + gx])
++		return 0;
++	for (int dy = -1; dy <= 1; dy++) {
++		const int ny = gy + dy;
++		if (ny < 0 || ny >= sh.h)
++			continue;
++		for (int dx = -1; dx <= 1; dx++) {
++			const int nx = gx + dx;
++			if (nx < 0 || nx >= sh.w || !sh.lev[ny * sh.w + nx])
++				continue;
++			const ptrdiff_t noff = (ptrdiff_t)off + (ptrdiff_t)dy * t.pitch + dx;
++			if (noff < 0 || (size_t)noff >= t.size)
++				return 0;
++			if (t.own[noff] != ((own & ~0xFFFu) | ((uint32)nx << 6) | (uint32)ny) || t.base[noff] != t.val[noff])
++				return 0;
++		}
++	}
++	return own;
++}
++
++void DigHD::noteGlyph(const GlyphDraw &g) {
++	if (_textScaler == kTextOff || g.w <= 0 || g.h <= 0 || g.w > 63 || g.h > 63 ||
++	    g.x0 >= g.x1 || g.y0 >= g.y1 || g.x0 < 0 || g.y0 < 0 || g.x1 > g.w || g.y1 > g.h)
++		return;
++
++	// Which buffer: the SMUSH frame while SmushPlayer draws text (its mask layer
++	// is left out), else the game screen
++	TextLayer *t;
++	if (_smushTextOpen) {
++		if (g.buffer != _smushTextBase || _textSmush.base != _smushTextBase)
++			return;
++		t = &_textSmush;
++	} else {
++		const VirtScreen &vs = _vm->_virtscr[kMainVirtScreen];
++		const byte *base = (const byte *)vs.getBasePtr(0, 0);
++		// The main screen buffer has 8 extra rows for scrolling (initVirtScreen())
++		const size_t size = (size_t)vs.pitch * (vs.h + 8);
++		if (!base || !vs.h || g.buffer < base || g.buffer >= base + size)
++			return;
++		if (_textMain.base != base || _textMain.size != size || _textMain.pitch != vs.pitch)
++			_textMain.reset(base, size, vs.pitch);
++		t = &_textMain;
++	}
++	if (g.pitch != t->pitch)
++		return;
++
++	// The shape: which pixels have which level (the distinct raw values in
++	// rising order). The same shape in another font or colour shares the HD
++	// glyph. The style adds the palette index of each level.
++	byte rawOf[kMaxGlyphLevels], levelOf[256], lev[63 * 63], pal[kMaxGlyphLevels];
++	bool seen[256];
++	memset(seen, 0, sizeof(seen));
++	for (int i = 0; i < g.w * g.h; i++)
++		if ((int)g.values[i] != g.transparent)
++			seen[g.values[i]] = true;
++	int levels = 0;
++	for (int v = 0; v < 256; v++) {
++		if (!seen[v])
++			continue;
++		if (levels == kMaxGlyphLevels)
++			return;  // too many colours for one glyph: original pixels
++		rawOf[levels] = v;
++		levelOf[v] = ++levels;
++	}
++	if (!levels)
++		return;  // nothing drawn (space)
++	for (int i = 0; i < g.w * g.h; i++)
++		lev[i] = ((int)g.values[i] == g.transparent) ? 0 : levelOf[g.values[i]];
++	memset(pal, 0, sizeof(pal));
++	for (int l = 0; l < levels; l++)
++		pal[l] = g.map[rawOf[l]];
++	const int shape = glyphShape(g.w, g.h, levels, lev, nullptr);
++	const int style = shape < 0 ? -1 : glyphStyle(shape, pal);
++	if (style <= 0)
++		return;
++
++	// Remember the glyph for every pixel of its drawn part. A transparent glyph
++	// pixel does not take over a pixel that still shows earlier text.
++	const ptrdiff_t origin = (g.buffer - t->base) + (ptrdiff_t)g.y * g.pitch + g.x;
++	for (int gy = g.y0; gy < g.y1; gy++) {
++		for (int gx = g.x0; gx < g.x1; gx++) {
++			const ptrdiff_t off = origin + (ptrdiff_t)gy * g.pitch + gx;
++			if (off < 0 || (size_t)off >= t->size)
++				continue;
++			const byte raw = g.values[gy * g.w + gx];
++			const bool earlier = textLive(*t, off);
++			if ((int)raw == g.transparent) {
++				if (!earlier)
++					t->own[off] = ((uint32)style << 12) | ((uint32)gx << 6) | (uint32)gy;
++				continue;
++			}
++			if (!earlier)
++				t->under[off] = t->base[off];
++			t->own[off] = ((uint32)style << 12) | ((uint32)gx << 6) | (uint32)gy;
++			t->val[off] = g.map[raw];
++		}
++	}
++	t->any = true;
++	if (t->pending.size() < 4096) {
++		GlyphInstance gi = { style, origin, g.x0, g.y0, g.x1, g.y1 };
++		t->pending.push_back(gi);
++	}
++}
++
++void DigHD::finishText(TextLayer &t) {
++	// Right before the text is shown, each glyph drawn since last time looks at
++	// the pixels just around it. Where other glyphs touch it in one of its own
++	// colours (the outlines of letters next to each other, lines made of several
++	// characters such as the sliders in the menus), its HD version is made with
++	// them in place, so the shapes run on without rounded ends between them.
++	if (_textScaler == kTextNearest) {
++		t.pending.clear();  // nearest does not look at the neighbours
++		return;
++	}
++	const int P = kGlyphPad;
++	byte lev[63 * 63], ctx[(63 + 2 * kGlyphPad) * (63 + 2 * kGlyphPad)];
++	for (uint i = 0; i < t.pending.size(); i++) {
++		const GlyphInstance &gi = t.pending[i];
++		const GlyphStyle st = _glyphStyles[gi.style];
++		const GlyphShape &sh = _glyphShapes[st.shape];
++		const int w = sh.w, h = sh.h, levels = sh.levels, pw = w + 2 * P, ph = h + 2 * P;
++		memcpy(lev, sh.lev.data(), w * h);
++		memset(ctx, 0, pw * ph);
++		for (int y = 0; y < h; y++)
++			memcpy(ctx + (y + P) * pw + P, lev + y * w, w);
++		const ptrdiff_t col0 = ((gi.origin % t.pitch) + t.pitch) % t.pitch;
++		bool any = false;
++		for (int py = 0; py < ph; py++) {
++			for (int px = 0; px < pw; px++) {
++				const int bx = px - P, by = py - P;
++				if (bx >= 0 && bx < w && by >= 0 && by < h)
++					continue;
++				if (col0 + bx < 0 || col0 + bx >= t.pitch)
++					continue;
++				const ptrdiff_t off = gi.origin + (ptrdiff_t)by * t.pitch + bx;
++				if (off < 0 || (size_t)off >= t.size || !textLive(t, off))
++					continue;
++				for (int l = 0; l < levels; l++) {
++					if (st.pal[l] == t.val[off]) {
++						ctx[py * pw + px] = l + 1;
++						any = true;
++						break;
++					}
++				}
++			}
++		}
++		if (!any)
++			continue;
++		const int shape = glyphShape(w, h, levels, lev, ctx);
++		const int style = shape < 0 ? -1 : glyphStyle(shape, st.pal);
++		if (style <= 0)
++			continue;
++		for (int gy = gi.y0; gy < gi.y1; gy++) {
++			for (int gx = gi.x0; gx < gi.x1; gx++) {
++				const ptrdiff_t off = gi.origin + (ptrdiff_t)gy * t.pitch + gx;
++				const uint32 coords = ((uint32)gx << 6) | (uint32)gy;
++				if (off >= 0 && (size_t)off < t.size && t.own[off] == (((uint32)gi.style << 12) | coords))
++					t.own[off] = ((uint32)style << 12) | coords;
++			}
++		}
++	}
++	t.pending.clear();
++}
++
++int DigHD::glyphShape(int w, int h, int levels, const byte *lev, const byte *ctx) {
++	const int csize = (w + 2 * kGlyphPad) * (h + 2 * kGlyphPad);
++	uint64 hash = 1469598103934665603ULL;  // FNV-1a
++	hash = (hash ^ (uint64)w) * 1099511628211ULL;
++	hash = (hash ^ (uint64)h) * 1099511628211ULL;
++	for (int i = 0; i < w * h; i++)
++		hash = (hash ^ lev[i]) * 1099511628211ULL;
++	if (ctx) {
++		hash = (hash ^ 0xC7) * 1099511628211ULL;
++		for (int i = 0; i < csize; i++)
++			hash = (hash ^ ctx[i]) * 1099511628211ULL;
++	}
++	int shape = -1;
++	if (_glyphShapeIndex.tryGetVal(hash, shape)) {
++		const GlyphShape &s = _glyphShapes[shape];
++		if (s.w != w || s.h != h || memcmp(s.lev.data(), lev, w * h) || s.ctx.empty() != !ctx ||
++		    (ctx && memcmp(s.ctx.data(), ctx, csize)))
++			return -1;  // hash collision: this glyph stays as it is
++		return shape;
++	}
++	if (_glyphShapes.size() >= kMaxGlyphShapes)
++		return -1;
++	GlyphShape s;
++	s.w = w;
++	s.h = h;
++	s.levels = levels;
++	s.lev.resize(w * h);
++	memcpy(s.lev.data(), lev, w * h);
++	if (ctx) {
++		s.ctx.resize(csize);
++		memcpy(s.ctx.data(), ctx, csize);
++	}
++	makeGlyphHD(s);
++	shape = _glyphShapes.size();
++	_glyphShapes.push_back(s);
++	_glyphShapeIndex[hash] = shape;
++	return shape;
++}
++
++int DigHD::glyphStyle(int shape, const byte *pal) {
++	const uint64 key = ((uint64)shape << 32) | READ_LE_UINT32(pal);
++	int style = -1;
++	if (!_glyphStyleIndex.tryGetVal(key, style)) {
++		if (_glyphStyles.size() >= (1u << 20))
++			return -1;
++		GlyphStyle st;
++		st.shape = shape;
++		memcpy(st.pal, pal, sizeof(st.pal));
++		style = _glyphStyles.size();
++		_glyphStyles.push_back(st);
++		_glyphStyleIndex[key] = style;
++	}
++	return style;
++}
++
++// ---- glyph scalers. All work on a level image (0 = transparent).
++
++// Scale2x (EPX) on levels: every output pixel copies one level, so the edges
++// stay hard, and 45 degree steps become straight.
++static void scale2x(const Common::Array<byte> &in, int w, int h, Common::Array<byte> &out) {
++	out.resize(w * 2 * h * 2);
++	for (int y = 0; y < h; y++) {
++		for (int x = 0; x < w; x++) {
++			const byte p = in[y * w + x];
++			const byte a = in[MAX(y - 1, 0) * w + x];      // above
++			const byte b = in[y * w + MIN(x + 1, w - 1)];  // right
++			const byte c = in[y * w + MAX(x - 1, 0)];      // left
++			const byte d = in[MIN(y + 1, h - 1) * w + x];  // below
++			byte *o = out.data() + (y * 2) * (w * 2) + x * 2;
++			o[0] = (c == a && c != d && a != b) ? a : p;
++			o[1] = (a == b && a != c && b != d) ? b : p;
++			o[w * 2] = (d == c && d != b && c != a) ? c : p;
++			o[w * 2 + 1] = (b == d && b != a && d != c) ? d : p;
++		}
++	}
++}
++
++// xBR 4x (Hyllian), rules for the bottom right quarter of each 4 x 4 block,
++// on a mask (0 or 1). The other corners are done by turning the image.
++//
++//          A1 B1 C1
++//       A0  A  B  C C4
++//       D0  D  E  F F4
++//       G0  G  H  I I4
++//          G5 H5 I5
++static void xbrCorner(const Common::Array<float> &img, int w, int h, Common::Array<float> &out) {
++	const int ow = w * 4;
++	auto at = [&](int x, int y) { return img[CLIP(y, 0, h - 1) * w + CLIP(x, 0, w - 1)]; };
++	auto df = [](float a, float b) { return fabsf(a - b); };
++	for (int y = 0; y < h; y++) {
++		for (int x = 0; x < w; x++) {
++			const float E = at(x, y), F = at(x + 1, y), H = at(x, y + 1);
++			if (E == H || E == F)
++				continue;
++			const float B = at(x, y - 1), C = at(x + 1, y - 1), D = at(x - 1, y);
++			const float G = at(x - 1, y + 1), I = at(x + 1, y + 1);
++			const float F4 = at(x + 2, y), I4 = at(x + 2, y + 1), H5 = at(x, y + 2), I5 = at(x + 1, y + 2);
++			const float e = df(E, C) + df(E, G) + df(I, H5) + df(I, F4) + 4 * df(H, F);
++			const float i = df(H, D) + df(H, I5) + df(F, I4) + df(F, B) + 4 * df(E, I);
++			if (e > i)
++				continue;
++			const float px = df(E, F) <= df(E, H) ? F : H;
++			float *o = out.data() + (y * 4) * ow + x * 4;
++			auto blend = [&](int r, int c, float a) { float &v = o[r * ow + c]; v += (px - v) * a; };
++			auto set = [&](int r, int c, float v) { o[r * ow + c] = v; };
++			auto get = [&](int r, int c) { return o[r * ow + c]; };
++			const bool strong = e < i && ((F != B && H != D) || (E == I && F != I4 && H != I5) || E == G || E == C);
++			if (!strong) {
++				blend(3, 3, 0.5f);
++				continue;
++			}
++			const float ke = df(F, G), ki = df(H, C);
++			const bool left = 2 * ke <= ki && E != G && D != G;
++			const bool up = ke >= 2 * ki && E != C && B != C;
++			if (left && up) {
++				blend(3, 1, 0.75f);
++				blend(3, 0, 0.25f);
++				set(3, 3, px);
++				set(3, 2, px);
++				set(2, 3, px);
++				set(2, 2, get(3, 0));
++				set(0, 3, get(3, 0));
++				set(1, 3, get(3, 1));
++			} else if (left) {
++				blend(2, 3, 0.75f);
++				blend(3, 1, 0.75f);
++				blend(2, 2, 0.25f);
++				blend(3, 0, 0.25f);
++				set(3, 2, px);
++				set(3, 3, px);
++			} else if (up) {
++				blend(3, 2, 0.75f);
++				blend(1, 3, 0.75f);
++				blend(2, 2, 0.25f);
++				blend(0, 3, 0.25f);
++				set(2, 3, px);
++				set(3, 3, px);
++			} else {
++				blend(2, 3, 0.5f);
++				blend(3, 2, 0.5f);
++				set(3, 3, px);
++			}
++		}
++	}
++}
++
++// Turns a w x h image 90 degrees counter-clockwise (the result is h x w)
++template<typename T>
++static void rotate90(const Common::Array<T> &in, int w, int h, Common::Array<T> &out) {
++	out.resize(w * h);
++	for (int i = 0; i < w; i++)
++		for (int j = 0; j < h; j++)
++			out[i * h + j] = in[j * w + (w - 1 - i)];
++}
++
++static void xbr4(const Common::Array<float> &mask, int w, int h, Common::Array<float> &out) {
++	out.resize(w * 4 * h * 4);
++	for (int y = 0; y < h * 4; y++)
++		for (int x = 0; x < w * 4; x++)
++			out[y * w * 4 + x] = mask[(y / 4) * w + x / 4];
++	Common::Array<float> img = mask, tmp;
++	int cw = w, ch = h;
++	for (int rot = 0; rot < 4; rot++) {
++		xbrCorner(img, cw, ch, out);
++		rotate90(img, cw, ch, tmp);
++		img = tmp;
++		rotate90(out, cw * 4, ch * 4, tmp);
++		out = tmp;
++		SWAP(cw, ch);
++	}
++}
++
++void DigHD::makeGlyphHD(GlyphShape &s) {
++	// The glyph is scaled with 2 pixels around it: transparent, or the pixels of
++	// the glyphs next to it that have its colours (ctx, see finishText()).
++	// Weights at 4x per level: 0..1, the rest is background.
++	const int pad = kGlyphPad, pw = s.w + 2 * pad, ph = s.h + 2 * pad, L = s.levels;
++	Common::Array<byte> lev(pw * ph, 0);
++	if (!s.ctx.empty())
++		memcpy(lev.data(), s.ctx.data(), pw * ph);
++	else
++		for (int y = 0; y < s.h; y++)
++			memcpy(lev.data() + (y + pad) * pw + pad, s.lev.data() + y * s.w, s.w);
++	const int W4 = pw * 4, H4 = ph * 4;
++	Common::Array<float> wgt(W4 * H4 * kMaxGlyphLevels, 0.0f);  // [level][y][x]
++	auto plane = [&](int l) { return wgt.data() + l * W4 * H4; };
++
++	if (_textScaler == kTextXbr) {
++		// Each level as a mask on its own. With more than one level, the whole
++		// glyph is scaled as well; the level that lies most along the outside
++		// (the outline) takes what the others leave of it.
++		Common::Array<float> mask(pw * ph), res;
++		if (L == 1) {
++			for (int i = 0; i < pw * ph; i++)
++				mask[i] = lev[i] ? 1.0f : 0.0f;
++			xbr4(mask, pw, ph, res);
++			memcpy(plane(0), res.data(), W4 * H4 * sizeof(float));
++		} else {
++			// Counted on the glyph alone, so it is the same level in every context
++			int outside[kMaxGlyphLevels + 1] = { 0 };
++			auto own = [&](int x, int y) { return (x < 0 || y < 0 || x >= s.w || y >= s.h) ? 0 : s.lev[y * s.w + x]; };
++			for (int y = 0; y < s.h; y++)
++				for (int x = 0; x < s.w; x++) {
++					const byte v = own(x, y);
++					if (v && (!own(x - 1, y) || !own(x + 1, y) || !own(x, y - 1) || !own(x, y + 1)))
++						outside[v]++;
++				}
++			int rest = 1;
++			for (int l = 2; l <= L; l++)
++				if (outside[l] >= outside[rest])
++					rest = l;
++			Common::Array<float> all;
++			for (int i = 0; i < pw * ph; i++)
++				mask[i] = lev[i] ? 1.0f : 0.0f;
++			xbr4(mask, pw, ph, all);
++			for (int l = 1; l <= L; l++) {
++				if (l == rest)
++					continue;
++				for (int i = 0; i < pw * ph; i++)
++					mask[i] = lev[i] == l ? 1.0f : 0.0f;
++				xbr4(mask, pw, ph, res);
++				memcpy(plane(l - 1), res.data(), W4 * H4 * sizeof(float));
++			}
++			for (int i = 0; i < W4 * H4; i++) {
++				float sum = 0.0f;
++				for (int l = 1; l <= L; l++)
++					if (l != rest)
++						sum += plane(l - 1)[i];
++				if (sum > all[i] && sum > 0.0f) {
++					for (int l = 1; l <= L; l++)
++						if (l != rest)
++							plane(l - 1)[i] *= all[i] / sum;
++					sum = all[i];
++				}
++				plane(rest - 1)[i] = all[i] - sum;
++			}
++		}
++	} else {
++		// Scale4x is Scale2x twice; nearest copies each pixel to a 4 x 4 block
++		Common::Array<byte> big;
++		if (_textScaler == kTextScale4x) {
++			Common::Array<byte> two;
++			scale2x(lev, pw, ph, two);
++			scale2x(two, pw * 2, ph * 2, big);
++		} else {
++			big.resize(W4 * H4);
++			for (int y = 0; y < H4; y++)
++				for (int x = 0; x < W4; x++)
++					big[y * W4 + x] = lev[(y / 4) * pw + x / 4];
++		}
++		for (int i = 0; i < W4 * H4; i++)
++			if (big[i])
++				plane(big[i] - 1)[i] = 1.0f;
++	}
++
++	// To the screen scale (area average when it is not 4) and to bytes, for the
++	// glyph's own pixels; nothing of the glyph reaches outside them.
++	const int n = _scale, hw = s.w * n, hh = s.h * n;
++	s.hd.resize(hw * hh * kMaxGlyphLevels);
++	s.cover.resize(s.w * s.h);
++	memset(s.cover.data(), 0, s.cover.size());
++	for (int y = 0; y < hh; y++) {
++		for (int x = 0; x < hw; x++) {
++			float v[kMaxGlyphLevels] = { 0 };
++			if (n == 4) {
++				const int i = (y + pad * 4) * W4 + x + pad * 4;
++				for (int l = 0; l < L; l++)
++					v[l] = plane(l)[i];
++			} else {
++				// The 4x samples whose centres lie in this sub pixel, or the nearest one
++				const float x0 = (float)x * 4 / n, x1 = (float)(x + 1) * 4 / n;
++				const float y0 = (float)y * 4 / n, y1 = (float)(y + 1) * 4 / n;
++				int sx0 = (int)ceilf(x0 - 0.5f), sx1 = (int)ceilf(x1 - 0.5f);
++				int sy0 = (int)ceilf(y0 - 0.5f), sy1 = (int)ceilf(y1 - 0.5f);
++				if (sx1 <= sx0) { sx0 = (int)((x0 + x1) / 2); sx1 = sx0 + 1; }
++				if (sy1 <= sy0) { sy0 = (int)((y0 + y1) / 2); sy1 = sy0 + 1; }
++				const int cnt = (sx1 - sx0) * (sy1 - sy0);
++				for (int sy = sy0; sy < sy1; sy++)
++					for (int sx = sx0; sx < sx1; sx++) {
++						const int i = (sy + pad * 4) * W4 + sx + pad * 4;
++						for (int l = 0; l < L; l++)
++							v[l] += plane(l)[i] / cnt;
++					}
++			}
++			byte *o = s.hd.data() + (y * hw + x) * kMaxGlyphLevels;
++			int sum = 0;
++			for (int l = 0; l < kMaxGlyphLevels; l++) {
++				o[l] = (byte)CLIP((int)(v[l] * 255.0f + 0.5f), 0, 255 - sum);
++				sum += o[l];
++			}
++			if (sum)
++				s.cover[(y / n) * s.w + x / n] = 1;
++		}
++	}
++}
++
++void DigHD::composeText(byte *out, int outPitch, uint32 ref) {
++	// The HD glyph over the block that compose() has just built from what is
++	// under the text. The colours follow the palette (fades).
++	const GlyphStyle &st = _glyphStyles[ref >> 12];
++	const GlyphShape &sh = _glyphShapes[st.shape];
++	const int gx = (ref >> 6) & 63, gy = ref & 63;
++	const int n = _scale, bpp = _fmt.bytesPerPixel, hw = sh.w * n;
++	int col[kMaxGlyphLevels][3];
++	for (int l = 0; l < kMaxGlyphLevels; l++)
++		for (int k = 0; k < 3; k++)
++			col[l][k] = _pal[st.pal[l] * 3 + k];
++	for (int dy = 0; dy < n; dy++) {
++		const byte *wt = sh.hd.data() + ((gy * n + dy) * hw + gx * n) * kMaxGlyphLevels;
++		byte *o = out + dy * outPitch;
++		for (int dx = 0; dx < n; dx++, o += bpp, wt += kMaxGlyphLevels) {
++			const int sum = wt[0] + wt[1] + wt[2] + wt[3];
++			if (!sum)
++				continue;
++			int c[3] = { 0, 0, 0 };
++			for (int l = 0; l < kMaxGlyphLevels; l++)
++				if (wt[l])
++					for (int k = 0; k < 3; k++)
++						c[k] += wt[l] * col[l][k];
++			if (sum < 255) {
++				byte r, g, b;
++				_fmt.colorToRGB(bpp == 4 ? READ_UINT32(o) : READ_UINT16(o), r, g, b);
++				c[0] += (255 - sum) * r;
++				c[1] += (255 - sum) * g;
++				c[2] += (255 - sum) * b;
++			}
++			const uint32 v = _fmt.RGBToColor((c[0] + 127) / 255, (c[1] + 127) / 255, (c[2] + 127) / 255);
++			if (bpp == 4) WRITE_UINT32(o, v); else WRITE_UINT16(o, v);
++		}
++	}
 +}
 +
 +// ---------------------------------------------------------------- composing
@@ -1042,11 +1744,16 @@ index 00000000..803d4d56
 +	const byte *roomNear = (anyCycled && _roomImage.valid()) ? nearCycleMask(_roomImage) : nullptr;
 +	const int roomW = _roomImage.idx.w;
 +
++	bool anyText = false;
 +	for (int r = 0; r < height; r++) {
 +		const int sy = y + r;
 +		for (int c = 0; c < width; c++) {
 +			const int sx = x + c;
-+			const byte idx = _shadow[sy * _w + sx];
++			// Under an HD glyph the picture is built for what the glyph covers;
++			// the glyph is drawn over it below. Classic mode shows the original.
++			const bool glyph = !flatOnly && _text[sy * _w + sx];
++			anyText |= glyph;
++			const byte idx = glyph ? _base[sy * _w + sx] : _shadow[sy * _w + sx];
 +			const uint32 src = _source[sy * _w + sx];
 +			const uint32 kind = src & kSrcMask;
 +			byte *out = _outBuf.data() + (r * n) * outPitch + (c * n) * bpp;
@@ -1173,7 +1880,7 @@ index 00000000..803d4d56
 +			}
 +			if (nearCycle) {
 +				composeCycled(out, outPitch, *img, ix, iy);
-+				_cycleArea[sy * _w + sx] = 1;
++				_cycleArea[sy * _w + sx] = kAreaCycle;
 +				_statCycle++;
 +				continue;
 +			}
@@ -1187,6 +1894,22 @@ index 00000000..803d4d56
 +					const uint32 col = tinted(t[dx], idx, basePal);
 +					if (bpp == 4) WRITE_UINT32(o, col); else WRITE_UINT16(o, col);
 +				}
++			}
++		}
++	}
++
++	// HD glyphs over the blocks built above
++	if (anyText) {
++		for (int r = 0; r < height; r++) {
++			const int sy = y + r;
++			for (int c = 0; c < width; c++) {
++				const int sx = x + c;
++				const uint32 ref = _text[sy * _w + sx];
++				if (!ref)
++					continue;
++				composeText(_outBuf.data() + (r * n) * outPitch + (c * n) * bpp, outPitch, ref);
++				_cycleArea[sy * _w + sx] |= kAreaText;
++				_statText++;
 +			}
 +		}
 +	}
@@ -1264,8 +1987,9 @@ index 00000000..803d4d56
 +		for (int x = 0; x < _w; x++) {
 +			int fx = x - dx, fy = y - dy;
 +			if (fx >= 0 && fx < _w && fy >= 0 && fy < _h) {
-+				_shadow[y * _w + x] = sh[fy * _w + fx];
++				_shadow[y * _w + x] = _base[y * _w + x] = sh[fy * _w + fx];
 +				_source[y * _w + x] = kSrcFlat;
++				_text[y * _w + x] = 0;
 +			}
 +		}
 +	}
@@ -1314,7 +2038,7 @@ index 00000000..803d4d56
 +		// Goes through the engine's normal key handling on the next poll
 +		Common::Event ev;
 +		ev.type = Common::EVENT_KEYDOWN;
-+		ev.kbd = Common::KeyState(_testKeys[i].keycode, _testKeys[i].keycode, _testKeys[i].flags);
++		ev.kbd = Common::KeyState(_testKeys[i].keycode, _testKeys[i].ascii, _testKeys[i].flags);
 +		g_system->getEventManager()->pushEvent(ev);
 +		ev.type = Common::EVENT_KEYUP;
 +		g_system->getEventManager()->pushEvent(ev);
@@ -1372,6 +2096,8 @@ index 00000000..803d4d56
 +		s += Common::String::format(", HD film px %u", _statSan);
 +	if (_statCycle)
 +		s += Common::String::format(", cycled HD px %u", _statCycle);  // part of HD room/object px
++	if (_statText)
++		s += Common::String::format(", HD text px %u", _statText);  // drawn over the pixels counted above
 +	if (_showMissing)
 +		s += Common::String::format(", yellow px %u", _statMissing);
 +	if (_classic)
@@ -1411,13 +2137,14 @@ index 00000000..803d4d56
 +		Common::Array<byte> hdCopy = _outBuf;
 +		// Pixels in and next to cycled colours are interpolated smoothly between
 +		// the original pixels on purpose, so they can differ from a "nearest" mod.
-+		// They are counted on their own and left out of the main count.
++		// So do HD glyphs, which have smooth edges (except with DIGHD_TEXT=nearest).
++		// Both are counted on their own and left out of the main count.
 +		Common::Array<byte> cycleArea = _cycleArea;
 +		_forceFlat = true;
 +		compose(0, 0, _w, _h);
 +		_forceFlat = false;
 +		const int n = _scale, outW = _w * n;
-+		uint32 bad = 0, total = 0, cycBad = 0, cycTotal = 0;
++		uint32 bad = 0, total = 0, cycBad = 0, cycTotal = 0, textBad = 0, textTotal = 0;
 +		const int bpp = _fmt.bytesPerPixel;
 +		for (uint32 i = 0; i < (uint32)(outW * _h * n); i++) {
 +			const uint32 a = bpp == 4 ? READ_UINT32(hdCopy.data() + i * 4) : READ_UINT16(hdCopy.data() + i * 2);
@@ -1426,7 +2153,11 @@ index 00000000..803d4d56
 +			_fmt.colorToRGB(a, r1, g1, b1);
 +			_fmt.colorToRGB(b, r2, g2, b2);
 +			const bool differs = ABS(r1 - r2) > 48 || ABS(g1 - g2) > 48 || ABS(b1 - b2) > 48;
-+			if (cycleArea[(i / outW / n) * _w + (i % outW) / n]) {
++			const byte area = cycleArea[(i / outW / n) * _w + (i % outW) / n];
++			if (area & kAreaText) {
++				textTotal++;
++				textBad += differs;
++			} else if (area & kAreaCycle) {
 +				cycTotal++;
 +				cycBad += differs;
 +			} else {
@@ -1439,6 +2170,9 @@ index 00000000..803d4d56
 +		if (cycTotal)
 +			debug("DigHD: verify frame %u: colour cycling, %u of %u HD pixels differ strongly (smooth colour map, left out above)",
 +			      _frameNo, cycBad, cycTotal);
++		if (textTotal)
++			debug("DigHD: verify frame %u: HD text, %u of %u HD pixels differ strongly (smooth glyph edges, left out above)",
++			      _frameNo, textBad, textTotal);
 +		if (bad) {
 +			Graphics::Surface fs;
 +			fs.init(_w * _scale, _h * _scale, _w * _scale * bpp, _outBuf.data(), _fmt);
@@ -1451,14 +2185,30 @@ index 00000000..803d4d56
 +			}
 +		}
 +	}
-+	// The dump is built the same way as the screen, so it shows what is on screen
-+	compose(0, 0, _w, _h);
-+	Graphics::Surface s;
-+	s.init(_w * _scale, _h * _scale, _w * _scale * _fmt.bytesPerPixel, _outBuf.data(), _fmt);
 +	const bool film = _vm->isSmushActive() && !_smushFile.empty();
 +	const Common::String fname = film
 +		? Common::String::format("frame_%06u_%s_%05d.png", _frameNo, _smushFile.c_str(), _smushFrameNo)
 +		: Common::String::format("frame_%06u_room%03d.png", _frameNo, (int)_vm->_currentRoom);
++	Graphics::Surface s;
++	s.init(_w * _scale, _h * _scale, _w * _scale * _fmt.bytesPerPixel, _outBuf.data(), _fmt);
++	if (_dumpFlat) {
++		// DIGHD_DUMP_FLAT: the original pixels of the same frame next to the
++		// dump (as classic mode shows them), for comparisons
++		_forceFlat = true;
++		compose(0, 0, _w, _h);
++		_forceFlat = false;
++		Common::String flatName = fname;
++		flatName.erase(flatName.size() - 4);
++		flatName += "_flat.png";
++		Common::FSNode fnode(_dumpDir.join(flatName));
++		if (Common::WriteStream *fws = fnode.createWriteStream()) {
++			::Image::writePNG(*fws, s);
++			fws->finalize();
++			delete fws;
++		}
++	}
++	// The dump is built the same way as the screen, so it shows what is on screen
++	compose(0, 0, _w, _h);
 +	Common::FSNode node(_dumpDir.join(fname));
 +	Common::WriteStream *ws = node.createWriteStream();
 +	if (ws) {
@@ -1469,9 +2219,12 @@ index 00000000..803d4d56
 +	debug("DigHD: dumped frame %u (room %d, smush %d) %s",
 +	      _frameNo, (int)_vm->_currentRoom, (int)_vm->isSmushActive(), statText().c_str());
 +	if (film) {
-+		// Where the pixels of this film frame come from, in original pixels
-+		uint32 hd = 0, kept = 0, missing = 0;
++		// Where the pixels of this film frame come from, in original pixels.
++		// Text with an HD glyph is drawn over the picture under it.
++		uint32 hd = 0, kept = 0, missing = 0, text = 0;
 +		for (uint i = 0; i < _source.size(); i++) {
++			if (_text[i])
++				text++;
 +			if (_source[i] == kSrcSan)
 +				hd++;
 +			else if (_source[i] == kSrcFlatMissing)
@@ -1483,8 +2236,8 @@ index 00000000..803d4d56
 +			debug("DigHD: film %s frame %d: classic graphics, all %u px original",
 +			      _smushFile.c_str(), _smushFrameNo, (uint32)_source.size());
 +		else
-+			debug("DigHD: film %s frame %d: %u px from HD frame, %u px original on purpose (text), %u px original without HD",
-+			      _smushFile.c_str(), _smushFrameNo, hd, kept, missing);
++			debug("DigHD: film %s frame %d: %u px from HD frame, %u px original on purpose (text), %u px original without HD, HD text over %u px",
++			      _smushFile.c_str(), _smushFrameNo, hd, kept, missing, text);
 +	} else if (_verify) {
 +		// Which costumes the last drawing pass of each actor used, and how many
 +		// of their cels have an HD image. Helps to test costumes one by one.
@@ -1525,16 +2278,16 @@ index 00000000..803d4d56
 +			debug("DigHD: bench frame %u: colour cycling step %.2f ms (mean of %d)", _frameNo, (double)ms2 / _bench, _bench);
 +		}
 +	}
-+	_statRoom = _statObject = _statCel = _statSan = _statFlat = _statMissing = _statCycle = 0;
++	_statRoom = _statObject = _statCel = _statSan = _statFlat = _statMissing = _statCycle = _statText = 0;
 +}
 +
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..e59ef74c
+index 00000000..693a0aa9
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,246 @@
+@@ -0,0 +1,329 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -1570,7 +2323,9 @@ index 00000000..e59ef74c
 + *  - pixels of a costume cel come from mods/<name>/costumes/costumeCCC_NNN.png,
 + *  - film frames come from mods/<name>/san/<FILE>/NNNNN.png, except the
 + *    pixels of text (subtitles) that SmushPlayer draws over the film,
-+ *  - everything else (text, effects) is the original pixel scaled up.
++ *  - text (dialog, banners, menus, subtitles) is drawn with HD glyphs made
++ *    from the game's own fonts, over the HD picture that is under the text,
++ *  - everything else (effects) is the original pixel scaled up.
 + *
 + * Which pixels are "untouched background" is decided by comparing against
 + * the original 8-bit image shipped next to each HD image (*_idx.png). When
@@ -1630,6 +2385,31 @@ index 00000000..e59ef74c
 +	void smushTextEnd(const byte *frame);
 +	/** A new picture was decoded into the SMUSH frame buffer: no text on it yet. */
 +	void smushClearText();
++
++	/**
++	 * Text in HD (dialog, banners, menus, film subtitles). The glyph renderers
++	 * call noteGlyph() right before a glyph is drawn into an 8-bit buffer. The
++	 * glyph is remembered per buffer pixel; when the buffer is shown, a pixel
++	 * that still holds the value the glyph wrote shows the HD glyph, made once
++	 * per glyph shape from the game's own font image (see makeGlyphHD()).
++	 */
++	struct GlyphDraw {
++		const byte *buffer;  // the buffer the renderer draws into
++		int pitch;
++		int x, y;            // top left of the glyph, relative to buffer
++		int w, h;            // glyph size
++		const byte *values;  // w * h raw glyph values
++		int transparent;     // raw value that is not drawn
++		const byte *map;     // palette index written for each raw value (256 entries)
++		int x0, y0, x1, y1;  // the part that is drawn, in glyph coordinates
++	};
++	void noteGlyph(const GlyphDraw &g);
++	/** The texts of the game screen are removed (start of each frame, removeBlastTexts()). */
++	void clearText();
++	/** Something is drawn into this part of the game screen (markRectAsDirty(), screen x, virtscreen y). */
++	void dirtyRect(int left, int right, int top, int bottom);
++	/** On while the engine draws text and marks it dirty; dirtyRect() then keeps the text. */
++	void setTextPass(bool on) { _textPass = on; }
 +
 +	void setPalette(const byte *colors, uint first, uint num);
 +	void moveScreen(int dx, int dy, int height);
@@ -1696,6 +2476,48 @@ index 00000000..e59ef74c
 +	void composeCycled(byte *out, int outPitch, const Image &img, int ix, int iy);
 +	void writeRect(int x, int y, int width, int height);
 +	void redrawColors(const bool *changed);
++
++	// Text (see noteGlyph())
++	enum TextScaler { kTextOff, kTextNearest, kTextScale4x, kTextXbr };
++	enum { kMaxGlyphLevels = 4, kAreaCycle = 1, kAreaText = 2, kGlyphPad = 2, kMaxGlyphShapes = 20000 };
++	struct GlyphShape {
++		int w = 0, h = 0, levels = 0;
++		Common::Array<byte> lev;    // w * h: 0 = transparent, else level 1..levels
++		Common::Array<byte> ctx;    // (w + 4) x (h + 4): lev with the pixels of the glyphs around it
++		                            // that have one of its colours, empty for the glyph on its own
++		Common::Array<byte> cover;  // w * h: 1 where the HD block holds some of the glyph
++		Common::Array<byte> hd;     // (w * scale) x (h * scale) x 4: weight 0..255 of level 1..4
++	};
++	struct GlyphStyle {
++		int shape = 0;
++		byte pal[kMaxGlyphLevels] = { 0, 0, 0, 0 };  // palette index of each level
++	};
++	// A glyph drawn into a buffer; its surroundings are looked at before it is shown
++	struct GlyphInstance {
++		int style;
++		ptrdiff_t origin;  // buffer offset of the glyph's top left pixel
++		int x0, y0, x1, y1;
++	};
++	// Glyphs drawn into one 8-bit buffer, per buffer pixel
++	struct TextLayer {
++		const byte *base = nullptr;
++		size_t size = 0;
++		int pitch = 0;
++		Common::Array<uint32> own;  // glyph reference: style << 12 | gx << 6 | gy, 0 = none
++		Common::Array<byte> val;    // palette index the glyph wrote
++		Common::Array<byte> under;  // what the buffer held before the glyph
++		Common::Array<GlyphInstance> pending;  // drawn, surroundings not looked at yet
++		bool any = false;
++		void reset(const byte *b, size_t s, int p);
++		void clear();
++	};
++	int glyphShape(int w, int h, int levels, const byte *lev, const byte *ctx);
++	int glyphStyle(int shape, const byte *pal);
++	void makeGlyphHD(GlyphShape &s);
++	void finishText(TextLayer &t);
++	bool textLive(const TextLayer &t, size_t off) const;
++	uint32 textAt(const TextLayer &t, size_t off, byte shown, byte &base) const;
++	void composeText(byte *out, int outPitch, uint32 ref);
 +	void recomputeTint();
 +	uint32 tinted(uint32 rgba, byte idx, const byte *basePal) const;
 +	void dumpFrame();
@@ -1724,8 +2546,9 @@ index 00000000..e59ef74c
 +	bool _anyCycled = false;
 +	uint32 _cycledGen = 1;            // changes with _cycled
 +	float _cycleTap[3][8];            // quadratic B-spline weight of each of 3 taps per HD sub pixel
-+	Common::Array<byte> _cycleArea;   // per screen pixel: 1 if the last compose used the colour map,
-+	                                  // which depends on the colours around it (see redrawColors())
++	Common::Array<byte> _cycleArea;   // per screen pixel: kAreaCycle if the last compose used the colour
++	                                  // map, which depends on the colours around it, kAreaText if it drew
++	                                  // an HD glyph, which has several colours (see redrawColors())
 +	// Per palette index for the image's palette and the current palette: HD * gain + add
 +	enum { kCycleChanged = 1, kCycleAdd = 2 };
 +	float _cycleGain[256][3], _cycleAdd[256][3];
@@ -1757,6 +2580,18 @@ index 00000000..e59ef74c
 +	const byte *_smushTextBase = nullptr;
 +	bool _smushHasText = false;
 +
++	// Text in HD (DIGHD_TEXT / dighd_text)
++	TextScaler _textScaler = kTextXbr;
++	Common::Array<GlyphShape> _glyphShapes;
++	Common::HashMap<uint64, int> _glyphShapeIndex;  // hash of lev and ctx -> shape
++	Common::Array<GlyphStyle> _glyphStyles;          // [0] is unused, 0 means no glyph
++	Common::HashMap<uint64, int> _glyphStyleIndex;  // shape << 32 | colours -> style
++	TextLayer _textMain;    // the game screen (main virtual screen buffer)
++	TextLayer _textSmush;   // the SMUSH frame buffer, between smushTextBegin() and smushTextEnd()
++	bool _textPass = false, _smushTextOpen = false;
++	Common::Array<uint32> _text;  // per screen pixel: glyph reference as in TextLayer::own, or 0
++	Common::Array<byte> _base;    // per screen pixel: the value under the glyph, else the shown value
++
 +	// Display modes (hotkeys, DIGHD_CLASSIC, DIGHD_SHOW_MISSING)
 +	bool _classic = false;      // every pixel is the original pixel scaled up
 +	bool _showMissing = false;  // yellow tint where HD is missing
@@ -1765,6 +2600,7 @@ index 00000000..e59ef74c
 +	struct TestKey {
 +		int frame;
 +		Common::KeyCode keycode;
++		uint16 ascii;
 +		byte flags;
 +	};
 +	Common::Array<TestKey> _testKeys;  // DIGHD_TEST_KEYS
@@ -1773,8 +2609,8 @@ index 00000000..e59ef74c
 +	int _dumpEvery = 0;
 +	int _bench = 0;  // DIGHD_BENCH: build the whole screen this many times at each dump and log the time
 +	int _testRoom = -1, _testAt = -1, _testCamX = -1, _quitAt = -1;
-+	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false;
-+	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statSan = 0, _statFlat = 0, _statMissing = 0, _statCycle = 0;
++	bool _skipVideo = false, _testDone = false, _verify = false, _forceFlat = false, _dumpFlat = false;
++	uint32 _statRoom = 0, _statObject = 0, _statCel = 0, _statSan = 0, _statFlat = 0, _statMissing = 0, _statCycle = 0, _statText = 0;
 +	Common::String statText() const;
 +};
 +
@@ -1782,7 +2618,7 @@ index 00000000..e59ef74c
 +
 +#endif
 diff --git a/engines/scumm/gfx.cpp b/engines/scumm/gfx.cpp
-index bf85f13c..29f747f6 100644
+index bf85f13c..9801ce05 100644
 --- a/engines/scumm/gfx.cpp
 +++ b/engines/scumm/gfx.cpp
 @@ -21,6 +21,7 @@
@@ -1793,7 +2629,18 @@ index bf85f13c..29f747f6 100644
  #include "scumm/charset.h"
  #ifdef ENABLE_HE
  #include "scumm/he/intern_he.h"
-@@ -814,6 +815,8 @@ void ScummEngine::drawStripToScreen(VirtScreen *vs, int x, int width, int top, i
+@@ -481,6 +482,10 @@ void ScummEngine::markRectAsDirty(VirtScreenNumber virt, int left, int right, in
+ 
+ 	if (left > right || top > bottom)
+ 		return;
++
++	// Dig HD: whatever is drawn here ends the glyphs of earlier text in this area
++	if (_digHD && virt == kMainVirtScreen)
++		_digHD->dirtyRect(left, right, top, bottom);
+ 	if (top > vs->h || bottom < 0)
+ 		return;
+ 
+@@ -814,6 +819,8 @@ void ScummEngine::drawStripToScreen(VirtScreen *vs, int x, int width, int top, i
  		// video buffer to screen with the following routine, because for newer games we
  		// need the text overlay to be already stamped on top of the buffer.
  		mac_drawBufferToScreen((const byte *)src, pitch, x, y, width, height);
@@ -1802,7 +2649,7 @@ index bf85f13c..29f747f6 100644
  	} else {
  		// Finally blit the whole thing to the screen
  		_system->copyRectToScreen(src, pitch, x, y, width, height);
-@@ -1729,6 +1732,11 @@ void ScummEngine::moveScreen(int dx, int dy, int height) {
+@@ -1729,6 +1736,11 @@ void ScummEngine::moveScreen(int dx, int dy, int height) {
  	if ((dx == 0 && dy == 0) || height <= 0)
  		return;
  
@@ -1814,7 +2661,7 @@ index bf85f13c..29f747f6 100644
  	Graphics::Surface *screen = _system->lockScreen();
  	if (!screen)
  		return;
-@@ -4749,7 +4757,10 @@ void ScummEngine::dissolveEffect(int width, int height) {
+@@ -4749,7 +4761,10 @@ void ScummEngine::dissolveEffect(int width, int height) {
  				src = ditherVGAtoEGA(pitch, x, y, wd, ht);
  			}
  
@@ -1826,7 +2673,7 @@ index bf85f13c..29f747f6 100644
  		}
  
  		// Test for 1x1 pattern...
-@@ -4840,7 +4851,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4840,7 +4855,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -1835,7 +2682,7 @@ index bf85f13c..29f747f6 100644
  				}
  			}
  
-@@ -4874,7 +4885,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4874,7 +4889,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -1844,7 +2691,7 @@ index bf85f13c..29f747f6 100644
  				}
  			}
  
-@@ -4911,7 +4922,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4911,7 +4926,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -1853,7 +2700,7 @@ index bf85f13c..29f747f6 100644
  				}
  			}
  			waitForTimer(delay, true);
-@@ -4947,7 +4958,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4947,7 +4962,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -1862,7 +2709,7 @@ index bf85f13c..29f747f6 100644
  				}
  			}
  
-@@ -4991,7 +5002,7 @@ void ScummEngine::updateScreenShakeEffect() {
+@@ -4991,7 +5006,7 @@ void ScummEngine::updateScreenShakeEffect() {
  	if (!_shakeNextTick)
  		_shakeNextTick = now;
  
@@ -1918,6 +2765,49 @@ index b0f7e3eb..42985c9e 100644
  	actor.o \
  	akos.o \
  	base-costume.o \
+diff --git a/engines/scumm/nut_renderer.cpp b/engines/scumm/nut_renderer.cpp
+index f8fc7110..e578ba90 100644
+--- a/engines/scumm/nut_renderer.cpp
++++ b/engines/scumm/nut_renderer.cpp
+@@ -23,6 +23,7 @@
+ #include "scumm/scumm.h"
+ #include "scumm/file.h"
+ #include "scumm/nut_renderer.h"
++#include "scumm/dighd.h"
+ #include "scumm/util.h"
+ 
+ namespace Scumm {
+@@ -434,6 +435,30 @@ int NutRenderer::drawCharV7(byte *buffer, Common::Rect &clipRect, int x, int y,
+ 	int clipWdth = (_chars[chr].width - width);
+ 	char color = (col != -1) ? col : 1;
+ 
++	// Dig HD: the glyph is noted right before it is drawn, so it can be shown in
++	// HD. Not when it is clipped on the left: the loops below then do not draw
++	// the glyph as it is, and it stays original pixels.
++	if (_vm->_digHD && _vm->_game.version == 7 && !minX) {
++		byte map[256];
++		for (int v = 0; v < 256; v++)
++			map[v] = hardcodedColors ? (byte)v : (v == 1 ? (byte)color : 0);
++		DigHD::GlyphDraw g;
++		g.buffer = buffer;
++		g.pitch = pitch;
++		g.x = x;
++		g.y = y;
++		g.w = _chars[chr].width;
++		g.h = _chars[chr].height;
++		g.values = _chars[chr].src;
++		g.transparent = _chars[chr].transparency;
++		g.map = map;
++		g.x0 = 0;
++		g.x1 = width;
++		g.y0 = minY;
++		g.y1 = height;
++		_vm->_digHD->noteGlyph(g);
++	}
++
+ 	if (_vm->_game.version == 7) {
+ 		if (hardcodedColors) {
+ 			for (int j = minY; j < height; j++) {
 diff --git a/engines/scumm/object.cpp b/engines/scumm/object.cpp
 index 0e97ae97..55adc85f 100644
 --- a/engines/scumm/object.cpp
@@ -2187,3 +3077,66 @@ index 1c646316..433a8d34 100644
  					_vm->_system->updateScreen();
  					_updateNeeded = false;
  				}
+diff --git a/engines/scumm/string_v7.cpp b/engines/scumm/string_v7.cpp
+index 9088be07..5b950d83 100644
+--- a/engines/scumm/string_v7.cpp
++++ b/engines/scumm/string_v7.cpp
+@@ -25,6 +25,7 @@
+ #include "common/config-manager.h"
+ #include "scumm/actor.h"
+ #include "scumm/charset.h"
++#include "scumm/dighd.h"
+ #include "scumm/scumm_v8.h"
+ #include "scumm/sound.h"
+ #include "scumm/string_v7.h"
+@@ -461,11 +462,18 @@ void ScummEngine_v7::drawTextImmediately(const byte *text, Common::Rect *clipRec
+ 
+ 	_charset->setCurID(charset);
+ 
++	// Dig HD: the text marks itself dirty below, which must not end its glyphs
++	if (_digHD)
++		_digHD->setTextPass(true);
++
+ 	_textV7->drawString((const char *)msg, (byte *)vs->getPixels(0, _screenTop), rect, effX, y, vs->pitch, color, effFlags);
+ 
+ 	rect.top += _screenTop;
+ 	rect.bottom += _screenTop;
+ 	markRectAsDirty(vs->number, rect);
++
++	if (_digHD)
++		_digHD->setTextPass(false);
+ }
+ 
+ void ScummEngine_v7::drawBlastTexts() {
+@@ -475,6 +483,10 @@ void ScummEngine_v7::drawBlastTexts() {
+ 	Common::String ttsMessage;
+ 	Common::String ttsSubtitles;
+ #endif
++	// Dig HD: each text marks itself dirty below, which must not end its glyphs
++	if (_digHD)
++		_digHD->setTextPass(true);
++
+ 	for (int i = 0; i < _blastTextQueuePos; i++) {
+ 		BlastText &bt = _blastTextQueue[i];
+ 
+@@ -533,6 +545,9 @@ void ScummEngine_v7::drawBlastTexts() {
+ 		markRectAsDirty(vs->number, bt.rect);
+ 	}
+ 
++	if (_digHD)
++		_digHD->setTextPass(false);
++
+ #ifdef USE_TTS
+ 	if (!ttsSubtitles.empty()) {
+ 		ttsMessage = ttsSubtitles;
+@@ -553,6 +568,10 @@ void ScummEngine_v7::removeBlastTexts() {
+ 		return;
+ 	}
+ 
++	// Dig HD: the texts drawn last frame are gone
++	if (_digHD)
++		_digHD->clearText();
++
+ 	for (int i = 0; i < _blastTextQueuePos; i++) {
+ 		restoreBackground(_blastTextQueue[i].rect);
+ 	}

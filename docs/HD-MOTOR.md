@@ -12,8 +12,9 @@ Hver gang motoren er ferdig med et område av skjermen, bygger patchen det samme
 | Objekt (dør, maskin, lys) | Lik i begge buffere, men lik et objektbilde motoren nettopp har tegnet | `objects/objNNN_SS.png` |
 | Figur (kostymerute) | Forskjellig fra bakgrunnsbufferen, og innenfor en rute motoren nettopp har tegnet | `costumes/costumeCCC_NNN.png` |
 | Filmramme | Filmen og rammenummeret er kjent, og pikselen er ikke tekst | `san/FILM/NNNNN.png` |
-| Tekst over film (undertekster) | SmushPlayer tegner teksten en gang til i et eget lag | Originalpikselen skalert opp |
-| Alt annet (tekst, effekter, ting uten HD-bilde) | | Originalpikselen skalert opp |
+| Tekst (dialog, bannere, menyer, undertekster i spill og film) | Tegneren meldte glyfen rett før den ble tegnet, og pikselen har fortsatt verdien glyfen skrev | HD-glyf laget av spillets egen font, lagt over HD-pikselen for det som er under teksten (se Tekst i HD) |
+| Tekst uten kjent glyf | SmushPlayer tegner filmteksten en gang til i et eget lag | Originalpikselen skalert opp |
+| Alt annet (effekter, ting uten HD-bilde) | | Originalpikselen skalert opp |
 
 Fordi alt som ikke kan avgjøres sikkert faller tilbake til originalpikselen, kan HD-grafikken legges inn litt etter litt. Spillet virker hele veien.
 
@@ -86,7 +87,8 @@ Dette farges ikke gult, fordi det er originalt med vilje eller har HD:
 
 - fargesyklede områder i HD-bakgrunnen og HD-objekter (de vises med HD, se Fargesykling)
 - syklede farger på figurer (lys og effekter)
-- tekst og undertekster over spillet, så lenge de ikke ligger oppå en figur uten HD
+- tekst med HD-glyf, også over figurer og filmrammer uten HD. Glyfen legges over det gule, så bare de myke kantene blander seg med det gule under
+- tekst uten HD-glyf over spillet, så lenge den ikke ligger oppå en figur uten HD
 - undertekster og annen tekst over filmer, også over filmrammer uten HD-ramme
 - skygger og effekter på figurer med HD-bilde
 - bannere (pause, volum), overgangseffekter og musepekeren
@@ -104,7 +106,7 @@ SmushPlayer tegner undertekster og annen filmtekst rett inn i filmrammen (8 bit)
 1. Før teksten tegnes, lager DigHD et lag med hele filmrammen der hver byte er invertert (XOR 0xFF).
 2. SmushPlayer tegner den samme teksten to ganger: først i laget, så i filmrammen som før.
 3. Etterpå er laget og filmrammen like nøyaktig i de pikslene teksten skrev. Alle andre piksler er ulike, fordi en invertert byte aldri er lik seg selv. Pikslene som er like, merkes som tekst.
-4. Når rammen vises, er tekstpikslene originalpiksler skalert opp med nearest, og resten kommer fra HD-rammen. Teksten ligger derfor på nøyaktig samme sted som i originalen.
+4. Når rammen vises, får tekstpikslene HD-glyfen over HD-rammen (se Tekst i HD). Tekstpiksler uten kjent glyf er originalpiksler skalert opp med nearest. Resten kommer fra HD-rammen. Teksten ligger derfor på nøyaktig samme sted som i originalen.
 5. Merkene nullstilles når en ny ramme pakkes ut og når en ny film starter. Viser filmen samme bilde videre uten å pakke ut noe nytt, står teksten i rammen fortsatt, og da beholdes merkene også.
 
 Hvorfor denne løsningen: teksttegneren i ScummVM skriver bare piksler og leser aldri det som ligger under, så to tegninger gir samme resultat. Det enkleste alternativet, å ta vare på rammen før teksten og se hvilke piksler som endret seg, mister tekstpiksler som har samme farge som filmen under (svart kant på svart bakgrunn). Der ville HD-pikselen blitt vist i stedet. Med laget blir det nøyaktig, uten å endre teksttegneren. Det koster én ekstra tekstutskrift og to gjennomganger av rammen (64 000 byte) per tekst.
@@ -115,13 +117,61 @@ Klassisk grafikk viser hele filmen som originalpiksler. Med gult felt blir filmr
 
 Filmrammene bygges på samme måte som resten av skjermen, med en kilde per piksel. Dumpene (`DIGHD_DUMP_DIR`) og `DIGHD_VERIFY` viser derfor det som faktisk er på skjermen, også HD-rammen og teksten. Ytelse uten skjerm, snitt over 400 rammer av introen: lesing av HD-rammen (PNG i 1280 x 800) tar omtrent 23 ms per ramme, og resten (kilder, bygging av bildet og kopi til skjermen) omtrent 2 ms.
 
+## Tekst i HD
+
+All tekst vises med HD-glyfer: dialog og undertekster i spillet, bannere (pause, volum), hovedmenyen og undertekster og annen tekst i filmene. Glyfene lages av spillets egne fontbilder, så formen er fontens egen, og de tegnes på nøyaktig samme sted og med samme farger som originalen.
+
+### Fontene
+
+The Dig har to slags fonter, tegnet av to forskjellige tegnere i ScummVM:
+
+| Hvor | Font | Tegnes av | Farger |
+| --- | --- | --- | --- |
+| I spillet (dialog, undertekster, bannere, meny) | 4 tegnsett (CHAR i `DIG.LA1`) | `CharsetRendererV7::drawCharV7` | Verdi 1 er tekstfargen, de andre verdiene får farge fra tegnsettets fargetabell (`_charsetColorMap`, kan settes av skript) |
+| I filmene | `FONT0.NUT` til `FONT3.NUT` i `VIDEO` | `SmushFont`, som bruker `NutRenderer::drawCharV7` | Font 0 (undertekster): verdi 1 er tekstfargen, 255 blir svart. Font 1 til 3 har palettindeksene i fonten |
+
+Av de fire tegnsettene har ett 1 bit per piksel og tynne streker, ett tekstfarge med 1 piksel svart kant rundt (samme form som NUT-font 0), ett tre nivåer og ett tekstfarge med skygge. Bannere og menyer bruker et av de tynne. Ingen glyf er større enn 39 x 16 piksler eller har mer enn 3 farger. CJK-tegn (`draw2byte`) brukes ikke i den engelske utgaven og er ikke med.
+
+### Slik virker det
+
+1. Rett før en glyf tegnes, melder tegneren den til DigHD (`noteGlyph`): bufferen den tegnes i, posisjonen, glyfbildet, hvilken palettindeks hver verdi blir, og hvilken del som tegnes (klipping som i tegneloopen).
+2. DigHD finner formen (hvilke piksler som har hvilket nivå) og lager HD-glyfen første gang formen sees. Samme form i en annen farge bruker samme HD-glyf. Fargen legges på når bildet bygges, så teksten følger paletten (fade).
+3. For hver bufferpiksel glyfen dekker, husker DigHD glyfen, verdien glyfen skrev og verdien som lå der før, altså det som er under teksten. Det gjøres for spillskjermen (hovedbufferen) og for filmrammen mellom `smushTextBegin` og `smushTextEnd`. Laget for tekstmasken i filmene (se Undertekster over filmer) telles ikke.
+4. Rett før teksten vises, ser hver nye glyf på de to pikslene rundt seg. Der en annen glyf berører den med en av dens egne farger (svarte kanter på bokstaver ved siden av hverandre, linjer satt sammen av flere tegn som skyveknappene i menyen), lages HD-glyfen med de pikslene på plass. Da går formene i ett, uten avrundede ender der tegnene møtes. Også disse variantene lages en gang og huskes.
+5. Når bufferen sendes til skjermen, viser en piksel tekst bare hvis den har en glyf og fortsatt har verdien glyfen skrev. Da letes HD-kilden opp for verdien under teksten (bakgrunn, objekt, figur eller filmramme) som for alle andre piksler, og HD-glyfen legges oppå. En piksel glyfen lot være (gjennomsiktig) får den delen av HD-glyfen som når inn i den (avrundede indre hjørner), men bare så lenge alle pikslene rundt den som glyfen tegnet, fortsatt står.
+
+Teksten fjernes riktig fordi glyfene nullstilles når teksten går bort, og fordi verdien må stemme:
+
+- Teksten i spillet (blast-tekster) fjernes og tegnes på nytt hvert bilde. `removeBlastTexts` nullstiller alle glyfene i spillskjermen først.
+- Alt annet som tegnes i spillskjermen, går gjennom `markRectAsDirty`: gjenopprettet bakgrunn, figurer, menybokser og banner som tas bort. Det nullstiller glyfene i det området. Teksttegningen merker sin egen tekst rett etter at den er tegnet; det nullstiller ingenting.
+- I filmene nullstilles glyfene når en ny ramme pakkes ut og når filmen starter. Et nytt filmbilde nullstiller også tekst som ble tegnet i spillskjermen (bannere over filmen).
+- En piksel som er tegnet over av noe annet, har ikke lenger verdien glyfen skrev, og viser aldri glyfen.
+
+Klassisk grafikk (Ctrl+H) viser originalpikslene som før. Med gult felt (Ctrl+Shift+H) blir tekst med HD-glyf aldri gul. Glyfen legges over, så bare de myke kantene blander seg med det gule under, der det som er under teksten mangler HD.
+
+### Valg av skalerer
+
+Skalererne ble først prøvd i Python på alle 8 fontene, så i spillet og i introfilmen. HD-glyfene lages i 4x. Med en annen skala (`DIGHD_SCALE`) regnes de i 4x og skaleres til skjermen med område-snitt.
+
+| Metode | Resultat |
+| --- | --- |
+| Nearest | Som originalen, grove 4 x 4-blokker. Brukes til test (`DIGHD_TEXT=nearest`): da skal HD-teksten være lik originalen |
+| Scale4x (Scale2x to ganger, EPX) | Rette 45-graders kanter og harde kanter uten mellomtoner. Små trappetrinn i rundingene (o, b, g, R) |
+| xBR 4x (valgt) | Jevne rundinger og skrå kanter med myke kanter, og formen er fontens egen. Hver farge skaleres som maske for seg. Nivået som ligger mest langs utsiden (den svarte kanten), får det som er igjen av hele glyfen, så kant og tekstfarge passer sammen |
+| Hver glyf for seg, uten nabotegn | Avrundede ender der tegnene møtes: hakk i den svarte kanten mellom bokstavene og stiplede skyveknapper i menyen og volumbanneret. Derfor steg 4 over |
+
+Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `xbr` (standard), `scale4x`, `nearest` eller `off` (tekst som originalpiksler, som før).
+
 ## Stedene i ScummVM som er endret
 
 | Fil | Endring |
 | --- | --- |
 | `engines/scumm/dighd.cpp`, `dighd.h` | All HD-logikk (ny fil) |
 | `scumm.cpp` | Lager DigHD, setter opp HD-skjermen, motoren holder seg i 8 bit, hook før hver skjermoppdatering |
-| `gfx.cpp` | Siste blit (`drawStripToScreen`), overgangseffekter, `moveScreen`, risting av skjermen |
+| `gfx.cpp` | Siste blit (`drawStripToScreen`), overgangseffekter, `moveScreen`, risting av skjermen. `markRectAsDirty` nullstiller glyfene i området |
+| `charset.cpp` | Melder hver glyf fra tegnsettene i spillet (`CharsetRendererV7::drawCharV7`) |
+| `nut_renderer.cpp` | Melder hver glyf fra NUT-fontene i filmene (`NutRenderer::drawCharV7`) |
+| `string_v7.cpp` | Teksten som tegnes og merkes, nullstiller ikke seg selv. `removeBlastTexts` nullstiller glyfene i spillskjermen |
 | `palette.cpp` | Palett sendes til DigHD i stedet for til skjermen |
 | `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand |
 | `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes, hvor og om de er speilvendt |
@@ -136,6 +186,7 @@ Filmrammene bygges på samme måte som resten av skjermen, med en kilde per piks
 | `DIGHD_SCALE` / `dighd_scale` | Skala, standard 4 |
 | `DIGHD_CLASSIC=1` / `dighd_classic=true` | Starter i klassisk grafikk (Ctrl+H bytter) |
 | `DIGHD_SHOW_MISSING=1` / `dighd_show_missing=true` | Starter med gult felt der HD mangler (Ctrl+Shift+H slår av og på) |
+| `DIGHD_TEXT` / `dighd_text` | Skalerer for teksten: `xbr` (standard), `scale4x`, `nearest` eller `off` (tekst som originalpiksler) |
 
 Miljøvariabelen går foran nøkkelen i scummvm.ini. `DIGHD_CLASSIC=0` gir HD selv om `dighd_classic=true` står i filen.
 
@@ -145,21 +196,23 @@ Test og feilsøking (bare miljøvariabler):
 | --- | --- |
 | `DIGHD_VERIFY=1` | Ved hver dump: sammenligner HD-bildet med originalen og skriver avviket i loggen (gult felt er ikke med), og sjekker at skjermen er lik hele skjermen bygget på nytt |
 | `DIGHD_DUMP_DIR`, `DIGHD_DUMP_EVERY` | Lagrer skjermbildet som PNG hver N-te bilde: `frame_NNNNNN_roomRRR.png`, eller `frame_NNNNNN_FILM_RRRRR.png` under en film (RRRRR er rammenummeret, som i `san/FILM/`) |
+| `DIGHD_DUMP_FLAT=1` | Lagrer også originalpikslene for det samme bildet ved siden av hver dump (`..._flat.png`, som klassisk grafikk), til sammenligninger |
 | `DIGHD_BENCH=N` | Ved hver dump: bygger hele skjermen N ganger og skriver snittid per gang, og i rom med fargesykling tiden for ett steg i syklingen (alle syklede farger endret) |
 | `DIGHD_SKIP_VIDEO=1` | Hopper over filmer |
 | `DIGHD_TEST_ROOM`, `DIGHD_TEST_AT`, `DIGHD_TEST_CAMX` | Hopper rett til et rom etter N bilder |
 | `DIGHD_QUIT_AT` | Avslutter etter N bilder |
-| `DIGHD_TEST_KEYS` | Trykker taster ved gitte bilder, for eksempel `420:ctrl+h,570:ctrl+shift+h`. Tastene går gjennom den vanlige tastehåndteringen i motoren |
+| `DIGHD_TEST_KEYS` | Trykker taster ved gitte bilder, for eksempel `420:ctrl+h,570:ctrl+shift+h,600:f5`. Tastene a til z, f1 til f12, `space` og `escape`, med `ctrl+`, `shift+` og `alt+`. Tastene går gjennom den vanlige tastehåndteringen i motoren |
 
-Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
+Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). `HD text px` er pikslene som fikk en HD-glyf over seg (de er også med i tallet for det som er under teksten). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
 
-Med `DIGHD_VERIFY=1` skriver hver dump to eller tre linjer:
+Med `DIGHD_VERIFY=1` skriver hver dump to til fire linjer:
 
 - `N screen pixels differ from the whole screen built again`: skjermen bygges bit for bit (skitne områder, palettendringer). Er tallet over 0, har en del av skjermen ikke blitt bygget på nytt når den skulle.
-- `N of M HD pixels differ strongly from the original`: avvik mot originalen, for pikslene utenfor fargesyklingen.
+- `N of M HD pixels differ strongly from the original`: avvik mot originalen, for pikslene utenfor fargesyklingen og utenfor HD-teksten.
 - `colour cycling, N of M HD pixels differ strongly`: avvik i pikslene som gikk gjennom fargekartet. De er jevnet ut mellom originalpikslene med vilje, så med en `nearest`-mod avviker noen av dem. De holdes utenfor hovedtallet.
+- `HD text, N of M HD pixels differ strongly`: avvik i pikslene med HD-glyf. Kantene på glyfene er glatte med vilje, så med xBR avviker omtrent 10 prosent av dem. Med `DIGHD_TEXT=nearest` skal tallet være 0. De holdes utenfor hovedtallet.
 
-Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 2845 px original on purpose (text), 0 px original without HD`. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without)`.
+Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 0 px original on purpose (text), 0 px original without HD, HD text over 2845 px`. Tekstpiksler med HD-glyf telles under det som er under dem (her HD-rammen), og i tillegg i det siste tallet. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without)`.
 
 ## Hva som er testet
 
@@ -199,7 +252,7 @@ Fargesykling (testet uten skjerm 2026-10-07). Spillet hoppet med `DIGHD_TEST_ROO
   Maskinen er en delt virtuell maskin, og tidene varierer med omtrent 1 ms mellom kjøringer. Ikke testet med ekte skjerm.
 - Fade med syklede farger på skjermen er ikke sett i spillet. Formelen gir det samme som justeringen per piksel når alle farger endres likt.
 
-Undertekster over filmer (testet uten skjerm 2026-10-07, introen SQ1 med `--subtitles`):
+Undertekster over filmer (testet uten skjerm 2026-10-07, introen SQ1 med `--subtitles`, før HD-teksten kom, så tekstpikslene var originalpiksler. Testen med HD-tekst står under Tekst i HD):
 
 - Moddene: `test-sub` (alle 3772 rammer i SQ1 laget med `nearest`) og `test-sub-merket` (bare rammene 340 til 560, der grønt i piksel (3, 3) i hver 4 x 4-blokk er byttet med XOR 0x20). Merket viser i dumpen om en blokk kom fra HD-rammen eller er en originalpiksel skalert opp.
 - `test-sub` med `DIGHD_VERIFY=1`: 0 sterkt avvikende piksler i alle 28 dumper, og ingen avvik i stikkprøvene mellom HD-rammen og originalen for 528 rammer. Rammer med tekst har 1213 til 2845 tekstpiksler som originalpiksler, resten fra HD-rammen.
@@ -221,6 +274,30 @@ Kodek 5 (testet uten skjerm 2026-10-07). Modden `test-k5` er laget med `nearest`
 - Andel av figurpikslene som kom fra HD-bildet (resten er originalpiksler som skygger, effekter eller farger som ikke stemmer): 91 prosent i rom 13, 69 prosent i rom 40, 60 til 85 prosent i rom 78.
 - Ikke testet: inventaret (rom 93) og rom 107 i spillet, og ekte HD-bilder for kodek 5.
 
+Tekst i HD (testet uten skjerm 2026-10-07, med `--subtitles`, `DIGHD_VERIFY=1` og `DIGHD_DUMP_FLAT=1`):
+
+- Spillet: rom 2 med modden `test-nearest`, 2500 bilder, dump hvert 50. bilde. 25 dumper med tekst (replikkene «Low here. Come on out, kids.», «The water's fine.», «Robbins here. Going independent.», «Welcome to the wonderful world of space.» og «Don't bump into anything.»). Skjermen var lik hele skjermen bygget på nytt i alle 50 dumper. Hovedtallet var som før (0 utenom skalerte astronauter). I pikslene med HD-glyf avvek 9,2 prosent av HD-pikslene kraftig fra originalen, fordi kantene er glatte.
+- Filmen: introen SQ1 med en mod med HD-rammer laget med nearest for rammene 0 til 650, 700 bilder, dump hvert 10. bilde. 22 dumper med tekst («Borneo Deep Space Observatory» og undertekstene). 0 avvik i hovedtallet og skjermen lik hele skjermen bygget på nytt i alle 70. I pikslene med HD-glyf avvek 10,2 prosent kraftig.
+- `DIGHD_TEXT=nearest`: 0 avvikende piksler i teksten i alle 24 dumper med tekst i spillet og alle 21 i filmen. Glyfene står på riktig sted med riktige farger, og det som er under teksten, er riktig.
+- Plassering: HD-dumpen skalert ned med område-snitt (4 x 4) og sammenlignet med originalpikslene for det samme bildet, i området der de skiller seg pluss én piksel rundt. HD-bildet ble også forskjøvet fra minus 4 til 4 HD-piksler i begge retninger. Minst feil uten forskyvning i alle 25 dumper med tekst i spillet og alle 22 i filmen. Snittfeil per farge uten forskyvning 4,3 til 11,4 i spillet og 13,1 til 18,3 i filmen (glatte kanter), med en fjerdedels originalpiksel forskyvning 9,7 til 26,0 og med én originalpiksel 32,6 til 74,5.
+- Ingen spøkelsestekst: i dumpene etter at en replikk er borte, er det ingen piksler med HD-glyf, og der replikken sto, er bildet nøyaktig likt originalen (bilde 1600 og 1650 i rom 2).
+- Bannere og menyer: Shift+P (volumbanneret) og F5 (hovedmenyen) med `DIGHD_TEST_KEYS` i rom 2. Teksten er HD, skyveknappene er sammenhengende linjer, og banneret er borte uten rester når det tas bort.
+- Klassisk grafikk: Ctrl+H i rom 2 og midt i filmen ga ensfargede 4 x 4-blokker, likt originalen, også teksten.
+- Gult felt: i rom 2 med modden `gpt` (rommet har ikke HD-bakgrunn) og i filmrammer uten HD-ramme er bakgrunnen gul og teksten ikke. I rom 2 hadde 85 prosent av de indre delpikslene i den svarte kanten og den gule teksten nøyaktig originalfargen. Resten er glatte kanter.
+- `engine/test.sh`: 0 avvik ved bilde 250, 750, 1000, 1750 og 2500 til 3000, og 0,08 til 0,21 prosent ved 500, 1250, 1500, 2000 og 2250 (skalerte figurer, sett på i bilde 2250: en astronaut). Skjermen lik hele skjermen bygget på nytt i alle 12 dumper.
+- Ytelse, `DIGHD_BENCH` (hele skjermen bygget, median over dumpene med tekst på skjermen). Maskinen er delt, og tidene varierer med omtrent 0,5 ms mellom kjøringer:
+
+| Hva | Før | Med HD-tekst |
+| --- | --- | --- |
+| Rom 2, 28 dumper med tekst, to kjøringer | 9,0 og 9,3 ms | 8,9 og 9,2 ms |
+| Rom 2, uten tekst (6 dumper) | 9,0 og 8,8 ms | 8,9 og 8,9 ms |
+| Filmen SQ1 med HD-rammer, 15 dumper med tekst | 1,25 ms | 1,74 ms |
+| Filmen uten tekst (14 dumper) | 1,25 ms | 1,35 ms |
+
+  I rommet forsvinner kostnaden for glyfene (omtrent 1500 til 3000 tekstpiksler) i støyen. I filmen, der resten av bildet bare kopieres fra HD-rammen, koster de omtrent 0,5 ms. Lesingen av HD-rammen (omtrent 23 ms) er fortsatt det som koster mest. Med `DIGHD_TEXT=off` er tiden som før.
+- Skala 2 og 3 (`DIGHD_SCALE`), rom 2 i 1500 bilder: ingen feil, skjermen lik hele skjermen bygget på nytt i alle 30 dumper, teksten glatt (sett på ved skala 3).
+- Ikke testet med ekte skjerm. Ikke testet i andre rom enn rom 2 eller i andre filmer enn SQ1.
+
 ## Kjente begrensninger
 
 - Kostymer med kodek 16 (5 kostymer) får ikke HD-sprites ennå. Kodek 1 (182 kostymer, blant dem hovedpersonene) og kodek 5 (144 kostymer) er testet i spillet.
@@ -229,6 +306,9 @@ Kodek 5 (testet uten skjerm 2026-10-07). Modden `test-k5` er laget med `nearest`
 - Fargesykling: kartet jevner ut over 3 x 3 originalpiksler, så glitter av enkeltpiksler (fossen i rom 43) beveger seg svakere enn i originalen. Bølger over flere piksler (vannet i rom 22) synes godt.
 - Fargesykling: kartet leses fra indeksbildet til rommet eller objektet. Ligger et objekt over syklet vann, får bakgrunnspikselen rett ved siden av objektet litt av syklingen under objektet. Ikke sett i rommene som er prøvd.
 - Fargesykling på figurer (lys på drakter og maskiner) er fortsatt originalpiksler.
-- Tegnsett og tekst er originalpiksler, også undertekster over HD-filmer. HD-fonter er en senere jobb.
+- Tekst: glyfer som klippes i venstre kant i filmene, blir originalpiksler, fordi tegneloopen i ScummVM da tegner dem forskjøvet. Det samme gjelder CJK-tegn (`draw2byte`) og glyfer over 63 x 63 piksler eller med mer enn 4 farger (ingen i The Dig).
+- Tekst: sammenhengen med nabotegnene tar bare med piksler i glyfens egne farger. Møtes to tekster i ulike farger, rundes kantene der de møtes.
+- Tekst: tegnes noe annet over en tekst uten `markRectAsDirty`, og de nye pikslene tilfeldigvis har samme verdi som glyfen skrev, vises glyfen der til teksten tegnes på nytt. Ikke sett. Blast-tekstene nullstilles uansett hvert bilde.
 - Undertekster over filmer: merkene for tekst nullstilles når en ny ramme pakkes ut. Pakker en film ut bare en del av bildet (RLE i SMUSH med mindre rektangel, ikke brukt i The Dig), regnes tekst utenfor den delen som borte selv om den står igjen.
-- Gult felt: tekst som ligger oppå en figur uten HD, blir gul, fordi motoren bare vet hvilket rektangel figuren dekker. Det samme gjelder tekst der en figur uten HD sist ble tegnet, til figuren tegnes på nytt eller rommet byttes.
+- Gult felt: tekst med HD-glyf blir ikke gul. Tekst uten HD-glyf som ligger oppå en figur uten HD, blir gul, fordi motoren bare vet hvilket rektangel figuren dekker. Det samme gjelder tekst uten HD-glyf der en figur uten HD sist ble tegnet, til figuren tegnes på nytt eller rommet byttes.
+- Bannere og hovedmenyen som tegnes over en figur: pikslene i boksen som ligger innenfor ruten til figuren, vises med HD-bildet av figuren når fargene ikke er altfor ulike, så figuren skinner svakt gjennom boksen. Sett i rom 2 med volumbanneret og hovedmenyen, også med `DIGHD_TEXT=off`, så det er ikke nytt med HD-teksten.
