@@ -24,7 +24,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Kostyme-ID = DCOS-katalogens ID, ikke rekkefølgen i LA1.
 - Kostymefarger: RGBS-blokken i AKOS har de ekte fargene. thedig-textures sin egen PNG-eksport av kostymer har svart palett og brukes ikke.
 - SAN-rammenummer: filnavn = SmushPlayer `_frame - 1`.
-- Fargesyklede palettindekser vises som originalpiksler.
+- Fargesyklede områder i HD-bakgrunner og HD-objekter: forholdet mellom nåværende og opprinnelig farge interpoleres med kvadratisk B-spline fra 3 x 3 originalpiksler og ganges inn i HD-pikselen. På figurer er syklede farger originalpiksler.
 - Motor: Ctrl+H bytter HD og klassisk, Ctrl+Shift+H viser gult felt der HD mangler. `DIGHD_CLASSIC=1`, `DIGHD_SHOW_MISSING=1`, `DIGHD_TEST_KEYS=ramme:tast,...` for test uten skjerm. Binær her: /home/claude/scummvm.
 - Pipeline: `dighd` (Python 3.12+, Pillow, NumPy, thedig-textures låst til commit 1cf355e). CI kjører `pytest -m "not game"` på hver push og PR.
 

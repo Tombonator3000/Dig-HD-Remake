@@ -125,3 +125,11 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Så på dumpene (undertekst over filmramme i introen, kodek 5-figurer i rom 40) og flettet PR 7 (0a49408) etter grønn CI. Slettet testmoddene (470 MB) og agentens arbeidskopi.
 - Runde 02:20: fortsatt ingen nye leveranser.
 - Åpent: farger i uttrekket for kodek 5 når skuespillerpaletten ikke er satt. Lagt i todo.
+
+## 2026-10-07 02:52 til 04:50 (Claude)
+- Planlagt runde 02:52: ingen nye leveranser fra ChatGPT (siste 23:43). Tok neste punkt i motorlista med en agent i egen arbeidskopi.
+- PR 8: fargesyklede områder i HD-bakgrunner og HD-objekter vises nå med HD-bildet og følger syklingen. Forholdet mellom nåværende og opprinnelig farge per indeks interpoleres med en kvadratisk B-spline fra 3 x 3 originalpiksler, også for naboene til syklede piksler. Metodene ble prøvd i Python på rom 22 først: forhold per piksel ga rutenett, bilineær ga stjernemønstre, kubisk og uskarphet ga mindre bevegelse, uten naboring ble det harde kanter.
+- Ved palettendring bygges nå bare piksler med endret farge på nytt. Ett syklingssteg i rom 22 tar 2,0 ms mot 7,8 ms før. Hele skjermen tar 9,0 ms mot 7,8 ms.
+- `DIGHD_VERIFY` sjekker også at skjermen er lik hele skjermen bygget på nytt, og teller syklede piksler for seg. Ny `DIGHD_BENCH`. `engine/test.sh`: 0 avvik. Patchen gjelder rent på c9091321. Ikke testet med ekte skjerm.
+- Så på vannet i rom 22 i seks rammer før og etter: før grove 4x4-blokker, nå HD med bevegelse. Flettet PR 8 (ec978cb) etter grønn CI.
+- Runde 04:47: fortsatt ingen nye leveranser.

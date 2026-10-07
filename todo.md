@@ -33,7 +33,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Farger i uttrekket for kodek 5 når skuespillerpaletten ikke er satt (kostyme 210: kode 26 svart i uttrekket, brun i spillet)
 - [ ] HD-sprites for kodek 16 (5 kostymer)
 - [ ] HD-fonter for tekst
-- [ ] Fargesyklede områder i HD (eget animert lag)
+- [x] Fargesyklede områder i HD (fargekart med kvadratisk B-spline, PR 8)
 - [ ] Spille av rene filmer som MP4/WebM i stedet for tusenvis av PNG-er
 - [ ] Prøv en nyere ScummVM-commit og oppdater patchen
 
