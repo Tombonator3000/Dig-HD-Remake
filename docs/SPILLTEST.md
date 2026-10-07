@@ -51,7 +51,7 @@ Andre valg sendes videre til ScummVM.
 
 ## Hva du bør se etter
 
-HD fra ChatGPT finnes foreløpig i rom 9 (core), 22 (beach) og 28 (shardcu). Resten vises som originalen skalert opp, eller med automatisk oppskalering med `--auto`.
+HD fra ChatGPT finnes i over halvparten av rommene (se `STATUS.md`). Resten vises som originalen skalert opp, eller med automatisk oppskalering med `--auto`.
 
 1. Rom 22 (`./spill.sh --rom 22`): stranden i HD. Vannet skal bevege seg jevnt, uten ruter eller blokker. Bytt med Ctrl+H og se at alt står på samme sted.
 2. Rom 9 (`./spill.sh --rom 9`): kjernen. Se at figurer går bak ting i forgrunnen der de skal, og at kanter og dører ligger der de lå.

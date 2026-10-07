@@ -160,3 +160,10 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Funnet: obj097 (kartet i rom 11) har gjort de små grønne merkene om til krøllete tegn i en ny rund skive. Rom 11 under har gjort de samme merkene om til grønne steiner i en skive (originalen har en svak bue der). Godtok rom 11, avviste obj097 og ba om at den lages lik rom 11 der.
 - Ny manuell avvisning i pipelinen: `docs/gpt-avvisninger.csv` (jobb, sjekksum for resultatet, grunn, forslag til ny prompt). Gjelder bare den leveransen, så en ny blir kontrollert vanlig. Bilder som ikke lenger er ferdige, fjernes fra `work/gpt-ferdig` og provenance, så de ikke kommer med i modden. Ny test, 13 bestått.
 - Ny runde: modden med 37 rom publisert i `hd-mod` (81 MB). Ny ORDRE.md med obj097 og rom111 først, så rom 25 til 27.
+
+## 2026-10-07 10:53 til 11:05 (Claude)
+- Planlagt runde 10:53: tre nye leveranser fra ChatGPT (10:43, 10:50 og 10:56). 98 jobber godkjent, 53 av 106 rom og 10 av 30 store objekter ferdige. Leveransen 10:56 (rom 39 til 44) kom etter hentingen og tas neste runde.
+- Så gjennom alle 20 nye eller endrede HD-bilder mot originalen. Nærbilder: inngraveringene i rom 35 er trofaste. Ny obj097 stemmer nå med rom 11 (grønne steiner i skiven), godkjent.
+- rom111 er levert på nytt og fortsatt avvist av kontrollen (blokker opptil 6,8 px). rom101 står fortsatt til sjekk.
+- Modden med 54 rom publisert i `hd-mod` (127 MB).
+- Tom spurte om å spille fra repoet i nettleseren. Svarte at det går lokalt (ScummVM i WebAssembly på localhost), men ikke på en åpen adresse, fordi spillfilene og grafikken tilhører Disney/Lucasfilm. Satte en agent på nettleserversjonen.
