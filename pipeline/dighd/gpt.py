@@ -922,7 +922,10 @@ def _find_result(d: Path) -> Path | None:
 
 
 def read_rejections(path: Path | None) -> dict[str, dict]:
-    """Manuelle avvisninger etter at Claude har sett på bildet: jobb, sha256_resultat, grunn, forslag.
+    """Manuelle avvisninger etter at Claude har sett på bildet: jobb, sha256_resultat, grunn, forslag, status.
+
+    status er avvist (standard) eller sjekk. Sjekk betyr at bildet brukes til et bedre kommer, men at
+    ChatGPT skal gjøre det om etter forslaget (for eksempel en søm mot HD-rommet).
 
     Avvisningen gjelder bare resultatet med den sjekksummen (eller alle med "*"), så en ny
     leveranse blir kontrollert på vanlig måte.
@@ -972,7 +975,10 @@ def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, 
             r["forslag"] = PIECE_RETRY
     rej = manual.get(job.id)
     if rej and rej.get("sha256_resultat", "").strip() in ("*", r["sha256_resultat"]):
-        status, why = "avvist", rej.get("grunn", "").strip() or "avvist ved gjennomsyn"
+        status = (rej.get("status") or "").strip()
+        if status not in ("avvist", "sjekk"):
+            status = "avvist"
+        why = rej.get("grunn", "").strip() or f"{status} ved gjennomsyn"
         r["forslag"] = rej.get("forslag", "").strip()
     r.update(m, status=status, kommentar=why)
     orig4 = np.asarray(original.resize((w * SCALE, h * SCALE), Image.LANCZOS), dtype=np.float64)

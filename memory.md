@@ -44,7 +44,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Kodeoppgaver til Codex står i `docs/gpt-kodeoppgaver.md` og kommer med i ORDRE.md. Rapporter i `rapporter/` i `gpt-arbeid`.
 - Rom 22 i modden er piloten fra Codex. En senere leveranse ligger som `alternativ_forsok2.png` (bakken ble til vann).
 - `gpt-inn` tar vare på beste godtatte leveranse per jobb i `work/gpt/beste/`. En ny leveranse som er dårligere, erstatter den ikke.
-- Manuell avvisning etter gjennomsyn: `docs/gpt-avvisninger.csv` (jobb, sha256 for resultatet, grunn, forslag). Avviste bilder fjernes fra `work/gpt-ferdig`.
+- Manuell avvisning etter gjennomsyn: `docs/gpt-avvisninger.csv` (jobb, sha256 for resultatet, grunn, forslag, status avvist eller sjekk). Sjekk beholder bildet i modden til et bedre kommer.
+- Romtest i motoren: `tools/romtest.sh` (alle rom uten skjerm, rapport og kontaktark i work/romtest). Avviste bilder fjernes fra `work/gpt-ferdig`.
 - Leveranse godtas som hele lerretet (1536 x 1024 med grå kant) eller bare bildet i utsnittets sideforhold (`detect_layout`).
 - Godkjenning: forskyvning 0,75 px, blokker 1,0 px, kantlikhet 0,55 (sjekk: 1,5 / 2,0 / 0,40). Fargelås sigma 6, styrke 1.
 - Erfaring fra Jones: ChatGPT bommer på tekst og plassering, og stilen ble skiftet flere ganger. Derfor pilot, stilankere, automatisk kontroll og sporing.

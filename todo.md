@@ -7,7 +7,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 192 jobber (162 rom, 30 store objekter) er godkjent
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres (avvis med `docs/gpt-avvisninger.csv`)
 - [ ] Juster grensene i `gpt.py` etter de første 20 ekte leveransene
-- [ ] Kontroller de nye rommene i motoren med forgrunnsmasker og objektbytte (`engine/test.sh` og manuelt)
+- [x] Kontroller de nye rommene i motoren (`tools/romtest.sh`, alle 111 rom, PR 18)
+- [ ] Objektbytte og rom 10 og 104 i romtesten (hoppet setter ikke spillet i en tilstand der de vises)
 - [x] `./spill.sh` og `docs/SPILLTEST.md`: spille og teste rett fra repoet
 - [ ] Tom tester med `./spill.sh` etter `docs/SPILLTEST.md` (eller Codex med kodeoppgave 1): masker, objektbytte, Ctrl+H og Ctrl+Shift+H
 
@@ -17,7 +18,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Pilot: rom 9 og 22 levert av Codex, kontrollert og godkjent, lagt i `stil/` som stilankere
 - [x] Fast ordre i `ORDRE.md` og runde-skript (`tools/gpt_runde.sh`), mod publiseres i `hd-mod`
 - [x] `GRAFIKKLISTE.md` med alt som skal lages, i 19 bestillinger, så ChatGPT kan jobbe videre uten å vente
-- [ ] Resten av romjobbene (rom 50 og 88)
+- [ ] Resten av romjobbene (rom 32 på nytt, rom 50 og 88)
+- [ ] Sømmer mot HD-rommet for obj343, obj347, obj355, obj547 og obj886 (sjekk, gjøres om med HD-rommet som bilde to)
 - [x] Objektjobber for de 30 største objektbildene, med egne notater og like tilstander
 - [x] De 30 objektjobbene
 - [ ] Tom ser over stilen når 10 til 15 rom er ferdige
