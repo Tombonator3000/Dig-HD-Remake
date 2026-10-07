@@ -1,0 +1,137 @@
+<!doctype html>
+<!--
+  The Dig HD i nettleseren, bare lokalt.
+
+  Siden startes av engine/run-web.sh (eller ./spill.sh --nettleser) og skal bare åpnes på
+  http://localhost:8000 på maskinen der spillet ligger. Spillet og HD-grafikken tilhører
+  Disney/Lucasfilm og skal aldri ligge på en åpen adresse (ingen GitHub Pages, ingen publisering,
+  ingen opplasting). Siden nekter å starte hvis den ikke er åpnet fra localhost.
+
+  Valg i adressen:
+    ?rom=22        hopper til rom 22 like etter starten (filmene hoppes over)
+    ?klassisk      starter med originalgrafikken (Ctrl+H bytter)
+    ?gult          gult felt der HD mangler (Ctrl+Shift+H slår av og på)
+    ?mod=auto      en annen mod i data/mods (standard gpt)
+    ?args=...      flere valg til ScummVM, skilt med mellomrom
+    ?DIGHD_...=... setter en DIGHD-variabel (test og feilsøking, se docs/HD-MOTOR.md)
+-->
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Dig HD (lokalt)</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+    canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; border: 0; outline: none; }
+    #status {
+      position: absolute; left: 50%; bottom: 2em; transform: translateX(-50%); z-index: 2;
+      max-width: 90%; padding: .6em 1em; border-radius: 4px; text-align: center;
+      color: #ddd; background: rgba(0, 0, 0, .75); font: 15px/1.4 system-ui, sans-serif;
+    }
+    #status.feil { color: #fff; background: #a00; }
+    #status[hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" tabindex="-1" oncontextmenu="event.preventDefault()"></canvas>
+  <div id="status">Laster ScummVM ...</div>
+  <script>
+  (function () {
+    'use strict';
+    var statusEl = document.getElementById('status');
+    function status(text, feil) {
+      statusEl.textContent = text;
+      statusEl.className = feil ? 'feil' : '';
+      statusEl.hidden = !text;
+    }
+
+    // Bare på denne maskinen
+    var lokal = ['localhost', '127.0.0.1', '[::1]', '::1'];
+    if (lokal.indexOf(location.hostname) < 0) {
+      status('Denne siden kjøres bare lokalt, på http://localhost:8000. Spillet og HD-grafikken tilhører Disney/Lucasfilm og skal ikke ligge på en åpen adresse.', true);
+      return;
+    }
+
+    var q = new URLSearchParams(location.search);
+    var mod = q.get('mod') || 'gpt';
+    if (!/^[A-Za-z0-9_-]+$/.test(mod)) {
+      status('Ugyldig modnavn: ' + mod, true);
+      return;
+    }
+
+    // DigHD leser innstillingene fra miljøvariabler, som i engine/run.sh og spill.sh
+    var env = { DIGHD_MOD: '/data/mods/' + mod };
+    if (q.has('rom')) {
+      env.DIGHD_TEST_ROOM = q.get('rom');
+      env.DIGHD_TEST_AT = '240';
+      env.DIGHD_SKIP_VIDEO = '1';
+    }
+    if (q.has('klassisk')) env.DIGHD_CLASSIC = '1';
+    if (q.has('gult')) env.DIGHD_SHOW_MISSING = '1';
+    q.forEach(function (v, k) {
+      if (/^DIGHD_[A-Z0-9_]+$/.test(k)) env[k] = v;
+    });
+
+    // Valgene til ScummVM leses fra delen etter # (dists/emscripten/custom_shell-pre.js)
+    var args = ['--path=/data/games/dig', '--aspect-ratio', '--subtitles'];
+    if (q.get('args')) args = args.concat(q.get('args').split(' ').filter(Boolean));
+    args.push('dig');
+    history.replaceState(null, '', location.pathname + location.search + '#' + args.join(' '));
+
+    // Tastene spillet og ScummVM bruker, skal ikke gå til nettleseren
+    // (F5 er spillmenyen, ikke last på nytt; Ctrl+H er HD eller klassisk, ikke historikk).
+    window.addEventListener('keydown', function (e) {
+      if (/^F([1-9]|10)$/.test(e.key) || e.key === 'Tab' || e.key === 'Backspace' ||
+          ((e.ctrlKey || e.altKey) && !e.metaKey && e.key.length === 1)) {
+        e.preventDefault();
+      }
+    }, true);
+
+    // ScummVM ber om MIDI-tilgang når den lastes (dists/emscripten/custom_shell-pre.js), og da
+    // spør nettleseren brukeren om tillatelse. The Dig bruker ikke MIDI, så spørsmålet blir aldri stilt.
+    try {
+      Object.defineProperty(navigator, 'requestMIDIAccess', {
+        configurable: true,
+        value: function () { return new Promise(function () {}); }
+      });
+    } catch (e) { /* eldre nettleser: da spør den */ }
+
+    var canvas = document.getElementById('canvas');
+    canvas.addEventListener('webglcontextlost', function (e) {
+      status('Grafikken i nettleseren ble borte (WebGL). Last siden på nytt.', true);
+      e.preventDefault();
+    }, false);
+
+    window.onerror = function () {
+      status('Noe gikk galt. Se konsollen i nettleseren (F12).', true);
+    };
+
+    window.Module = {
+      canvas: canvas,
+      preRun: [function () {
+        for (var k in env) ENV[k] = env[k];
+      }],
+      onRuntimeInitialized: function () {
+        status('Starter The Dig (mod: ' + mod + '). Kjører bare lokalt.');
+        setTimeout(function () { if (!statusEl.className) status(''); }, 6000);
+      },
+      print: function (text) {
+        console.log(text);
+        // Lerretet får riktig størrelse først etter en resize (se Known Issues i
+        // dists/emscripten/README.md i ScummVM). Uten dette strekkes bildet litt skjevt.
+        if (/^DigHD: screen /.test(text)) {
+          setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 300);
+        }
+      },
+      printErr: function (text) { console.error(text); },
+      setStatus: function (text) { if (text) console.log(text); }
+    };
+
+    var s = document.createElement('script');
+    s.src = 'scummvm.js';
+    s.onerror = function () { status('Fant ikke scummvm.js. Start med ./spill.sh --nettleser.', true); };
+    document.body.appendChild(s);
+  })();
+  </script>
+</body>
+</html>
