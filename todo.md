@@ -8,7 +8,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres (avvis med `docs/gpt-avvisninger.csv`)
 - [ ] Juster grensene i `gpt.py` etter de første 20 ekte leveransene
 - [x] Kontroller de nye rommene i motoren (`tools/romtest.sh`, alle 111 rom, PR 18)
-- [ ] Objektbytte og rom 10 og 104 i romtesten (hoppet setter ikke spillet i en tilstand der de vises)
+- [x] Objektbytte i romtesten (`DIGHD_TEST_OBJSTATE`, `tools/romtest.sh --objekter`, PR 21)
+- [ ] Rom 10 og 104 i romtesten (spillet forlater rommet like etter hoppet)
+- [x] Lys ytterrad i ChatGPT-bildene (grå kant som blør inn) rettes i `gpt-inn` med `repair_edges`
 - [x] `./spill.sh` og `docs/SPILLTEST.md`: spille og teste rett fra repoet
 - [ ] Tom tester med `./spill.sh` etter `docs/SPILLTEST.md` (eller Codex med kodeoppgave 1): masker, objektbytte, Ctrl+H og Ctrl+Shift+H
 

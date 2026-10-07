@@ -1059,3 +1059,22 @@ def test_figure_rejections_and_orders(tmp_path):
     assert "| Figurer: pilot med figurark for kostyme 14 (`figCCC_KK`, kostymeruter) | 0 | 9 |" in lst
     # Bestilling 1: de avviste romjobbene og piloten
     assert "Rom 5. Figurark for kostyme 14." in lst
+
+
+def test_gpt_repair_edges():
+    import numpy as np
+    from dighd import gpt
+
+    rng = np.random.default_rng(5)
+    base = 40 + gpt.blur(rng.random((64, 80, 3)) * 255, 2.0) * 0.3   # mørkt motiv, som de fleste rom
+    bled = base.copy()
+    bled[-3:] = 128 + 0.3 * (bled[-3:] - 128)        # grå kant blødd 3 rader inn nederst
+    img = Image.fromarray(np.clip(bled, 0, 255).astype(np.uint8))
+    out, fixed = gpt.repair_edges(img, {"bunn", "topp"})
+    assert fixed == {"bunn": 3}
+    o = np.asarray(out, dtype=float)
+    assert np.abs(o[-1] - o[-4]).mean() < np.abs(bled[-1] - bled[-4]).mean() / 3
+    # Et rent bilde endres ikke
+    clean = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8))
+    same, none = gpt.repair_edges(clean, {"bunn", "topp", "venstre", "hoyre"})
+    assert none == {} and same is clean

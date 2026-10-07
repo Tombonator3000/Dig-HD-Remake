@@ -983,6 +983,50 @@ def read_rejections(path: Path | None) -> dict[str, dict]:
 RANK = {"avvist": 0, "sjekk": 1, "godkjent": 2}
 
 
+def repair_edges(part: Image.Image, sides: set[str], max_px: int = 8, factor: float = 3.0,
+                 floor: float = 6.0) -> tuple[Image.Image, dict[str, int]]:
+    """Retter ytterrader som er farget av den grå kanten på lerretet.
+
+    For hver side som grenser mot kanten sammenlignes radene (eller kolonnene) ytterst med raden
+    `max_px` piksler inn. Rader nær kanten som skiller seg mye mer fra den enn radene lenger inn gjør
+    fra hverandre, byttes med den nærmeste gode raden. Gir bildet og hvor mange rader som ble byttet per side.
+    """
+    a = np.asarray(part, dtype=np.float64).copy()
+    fixed: dict[str, int] = {}
+    H, W = a.shape[:2]
+    for side in sides:
+        if side in ("topp", "bunn"):
+            n = H
+            line = (lambda i: a[i]) if side == "topp" else (lambda i: a[H - 1 - i])
+        else:
+            n = W
+            line = (lambda i: a[:, i]) if side == "venstre" else (lambda i: a[:, W - 1 - i])
+        if n < 3 * max_px:
+            continue
+        ref = line(max_px)
+        noise = max(floor, float(np.abs(line(max_px) - line(max_px + 3)).mean()))
+        bad = 0
+        for i in range(max_px):
+            if float(np.abs(line(i) - ref).mean()) > factor * noise:
+                bad = i + 1
+        if not bad:
+            continue
+        good = line(bad).copy()
+        for i in range(bad):
+            if side == "topp":
+                a[i] = good
+            elif side == "bunn":
+                a[H - 1 - i] = good
+            elif side == "venstre":
+                a[:, i] = good
+            else:
+                a[:, W - 1 - i] = good
+        fixed[side] = bad
+    if not fixed:
+        return part, fixed
+    return Image.fromarray(np.clip(np.rint(a), 0, 255).astype(np.uint8)), fixed
+
+
 def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, sigma: float, strength: float,
               preview_dir: Path) -> tuple[dict, np.ndarray | None]:
     """Kontrollerer én leveranse for en jobb. Gir resultatraden og det fargelåste bildet (None hvis avvist på format)."""
@@ -1000,6 +1044,12 @@ def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, 
         sx, sy = res.width / CANVAS[0], res.height / CANVAS[1]
         box = (ox * SCALE * sx, oy * SCALE * sy, (ox + w) * SCALE * sx, (oy + h) * SCALE * sy)
         part = res.crop(tuple(round(v) for v in box)).resize((w * SCALE, h * SCALE), Image.LANCZOS)
+        # Sider som grenser mot den grå kanten: ChatGPT lar ofte kanten blø noen piksler inn
+        sides = {s for s, touch in (("venstre", ox > 0), ("hoyre", ox + w < TILE[0]),
+                                     ("topp", oy > 0), ("bunn", oy + h < TILE[1])) if touch}
+        part, fixed = repair_edges(part, sides)
+        if fixed:
+            r["kantreparasjon"] = fixed
     else:
         part = res.resize((w * SCALE, h * SCALE), Image.LANCZOS)
     if min(res.width / (w * SCALE), res.height / (h * SCALE)) < 0.6:
