@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 12:20 (norsk tid)
+Oppdatert 2026-10-07 12:27 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -12,11 +12,11 @@ Les denne filen før du starter. Den erstatter tidligere ordre.
 
 ## Gjør disse nå
 
-1. `rom050` (rom 50, cuengrav, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 28.2 px). Les retur.md.
+1. `rom050` (rom 50, cuengrav, del 1/1). Avvist: hånden og staven er flyttet opp og til høyre. Les retur.md.
 2. `rom079` (rom 79, newton, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 7.0 px). Les retur.md.
 3. `obj547_01` (rom 79, newton, objekt 547 tilstand 01, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 6.7 px). Les retur.md.
 4. `rom088_del6av9` (rom 88, tombot, del 6/9). Avvist: deler av bildet er flyttet eller zoomet (opptil 17.9 px); formene ligner for lite på originalen (kantlikhet 0.54). Les retur.md.
-5. `rom088_del7av9` (rom 88, tombot, del 7/9). Avvist: forskjøvet +3.1, -31.1 originalpiksler; deler av bildet er flyttet eller zoomet (opptil 37.7 px); formene ligner for lite på originalen (kantlikhet 0.08). Les retur.md.
+5. `rom088_del7av9` (rom 88, tombot, del 7/9). Avvist: det svarte feltet øverst er malt over med fjell, og resten av bildet er skjøvet nedover. Les retur.md.
 6. `rom088_del8av9` (rom 88, tombot, del 8/9). Avvist: deler av bildet er flyttet eller zoomet (opptil 6.1 px). Les retur.md.
 7. `rom088_del9av9` (rom 88, tombot, del 9/9). Avvist: deler av bildet er flyttet eller zoomet (opptil 22.9 px). Les retur.md.
 8. `obj886_01` (rom 46, cusarc, objekt 886 tilstand 01, del 1/1). Godtatt foreløpig, men kan bli bedre: deler av bildet er flyttet eller zoomet (opptil 1.4 px).
@@ -42,6 +42,10 @@ Begge formatene godtas av kontrollen:
 Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, paneler). De lages og leveres på samme måte. Utsnittet er da objektbildet, så leverer du bare bildet, skal det ha objektets sideforhold (se `bilde_i_lerret` i `jobb.json`).
 
 Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.
+
+## Beskjeder
+
+- Rom 88 del 7: det svarte feltet øverst hører til bildet og skal være helt svart. Rom 50: hånden og staven skal stå nøyaktig der de står. Les retur.md, forslaget der er skrevet for akkurat den jobben.
 
 ## Kodeoppgaver
 

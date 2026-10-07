@@ -1,6 +1,6 @@
 # Rapport fra gpt-inn
 
-Laget 2026-10-07 12:20
+Laget 2026-10-07 12:27
 
 | Status | Romjobber | Objektjobber |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ Må sees på (se `retur.md` i jobbmappen):
 | Jobb | Status | Grunn |
 | --- | --- | --- |
 | obj886_01 | sjekk | deler av bildet er flyttet eller zoomet (opptil 1.4 px) |
-| rom050 | avvist | deler av bildet er flyttet eller zoomet (opptil 28.2 px) |
+| rom050 | avvist | hånden og staven er flyttet opp og til høyre |
 | obj884_01 | sjekk | deler av bildet er flyttet eller zoomet (opptil 1.7 px) |
 | obj884_02 | sjekk | deler av bildet er flyttet eller zoomet (opptil 1.9 px) |
 | obj884_03 | sjekk | deler av bildet er flyttet eller zoomet (opptil 1.9 px) |
@@ -30,7 +30,7 @@ Må sees på (se `retur.md` i jobbmappen):
 | obj547_01 | avvist | deler av bildet er flyttet eller zoomet (opptil 6.7 px) |
 | obj557_01 | sjekk | deler av bildet er flyttet eller zoomet (opptil 1.1 px) |
 | rom088_del6av9 | avvist | deler av bildet er flyttet eller zoomet (opptil 17.9 px); formene ligner for lite på originalen (kantlikhet 0.54) |
-| rom088_del7av9 | avvist | forskjøvet +3.1, -31.1 originalpiksler; deler av bildet er flyttet eller zoomet (opptil 37.7 px); formene ligner for lite på originalen (kantlikhet 0.08) |
+| rom088_del7av9 | avvist | det svarte feltet øverst er malt over med fjell, og resten av bildet er skjøvet nedover |
 | rom088_del8av9 | avvist | deler av bildet er flyttet eller zoomet (opptil 6.1 px) |
 | rom088_del9av9 | avvist | deler av bildet er flyttet eller zoomet (opptil 22.9 px) |
 | rom090 | sjekk | forskjøvet +0.2, -0.9 originalpiksler |
