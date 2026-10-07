@@ -1,6 +1,6 @@
 Disse er for Codex eller ChatGPT med tilgang til laptopen og repoet. Ta én om gangen, og skriv i `rapporter/` i denne grenen hva du gjorde og fant.
 
-1. **Test HD-modden på laptopen med skjerm og tastatur.** Hent og bygg: `git checkout main && git pull`, `tools/hent_spilldata.sh`, `tools/mod_gren.sh hent`, `engine/build.sh` (patchen er ny, så bygg på nytt), `engine/run.sh gpt`. Gå til rom 9, 22 og 28 (start med `DIGHD_TEST_ROOM=22 DIGHD_TEST_AT=240 engine/run.sh gpt` hvis det er lettere). Sjekk:
+1. **Test HD-modden på laptopen med skjerm og tastatur.** `git checkout main && git pull && ./spill.sh` henter, bygger og starter alt. Gå til rom 9, 22 og 28 med `./spill.sh --rom 22` og så videre. Følg `docs/SPILLTEST.md`. Sjekk:
    - at figurer går bak ting i forgrunnen der de skal,
    - at objekter bytter bilde riktig,
    - at Ctrl+H bytter mellom HD og klassisk, og at Ctrl+Shift+H viser gult felt der HD mangler, med melding på skjermen.

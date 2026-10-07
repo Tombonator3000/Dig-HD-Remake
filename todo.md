@@ -8,7 +8,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres
 - [ ] Juster grensene i `gpt.py` etter de første 20 ekte leveransene
 - [ ] Kontroller de nye rommene i motoren med forgrunnsmasker og objektbytte (`engine/test.sh` og manuelt)
-- [ ] Laptoptest med skjerm og tastatur (kodeoppgave 1 i ORDRE.md for Codex): masker, objektbytte, Ctrl+H og Ctrl+Shift+H
+- [x] `./spill.sh` og `docs/SPILLTEST.md`: spille og teste rett fra repoet
+- [ ] Tom tester med `./spill.sh` etter `docs/SPILLTEST.md` (eller Codex med kodeoppgave 1): masker, objektbytte, Ctrl+H og Ctrl+Shift+H
 
 ## ChatGPT-grafikk
 
@@ -31,8 +32,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Tekst over figurer uten HD ble gul med gult felt på (rettet i PR 10)
 - [x] Undertekster over HD-filmrammer: teksten ligger over HD-rammen som originalpiksler
 - [x] Kontroll av kodek 5 i spillet (fant og rettet at ingen ruter med kodek 5 fikk HD, og en krasj ved romskifte)
-- [ ] Farger i uttrekket for kodek 5 når skuespillerpaletten ikke er satt (kostyme 210: kode 26 svart i uttrekket, brun i spillet)
-- [ ] HD-sprites for kodek 16 (5 kostymer)
+- [x] Farger i uttrekket for kodek 5 og 16: rompaletten der kostymet vises (PR 12)
+- [x] HD-sprites for kodek 16 (5 kostymer, PR 12)
 - [x] HD-tekst (xBR per glyf fra spillets egne fonter, PR 9)
 - [x] HD-figur skinte svakt gjennom bannere og hovedmenyen (rettet i PR 10, merker per piksel)
 - [ ] Tekst over et banner som tas bort, vises trolig som originalpiksler i én skjermoppdatering (ikke testet)
