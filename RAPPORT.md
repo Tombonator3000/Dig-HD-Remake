@@ -1,6 +1,6 @@
 # Rapport fra gpt-inn
 
-Laget 2026-10-07 00:40
+Laget 2026-10-07 06:53
 
 | Status | Romjobber | Objektjobber |
 | --- | --- | --- |

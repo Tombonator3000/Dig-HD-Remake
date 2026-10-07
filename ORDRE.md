@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 00:41 (norsk tid)
+Oppdatert 2026-10-07 06:54 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -46,6 +46,7 @@ Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-ar
 - Nytt: 30 objektjobber (objNNN_SS). Det er store bilder spillet tegner over rommet, som nærbilder, kart og den blå trikken. De lages akkurat som romjobbene. obj241_01 (tavla i rom 28) står først fordi rom 28 er ferdig.
 - Objekter med flere tilstander (obj884 og obj886): lag tilstand 01 først. For de andre tilstandene legger du ved resultat.png fra tilstand 01 som bilde to i stedet for stilankeret. Claude gjør resten likt automatisk.
 - Kjør git pull før hver økt og les ORDRE.md. Ikke legg til stjerner, lyspunkter eller vann som ikke finnes i originalen.
+- Motoren har fått HD-tekst, fargesykling i HD og undertekster over HD-filmrammer. Bygg motoren på nytt før laptoptesten (kodeoppgave 1).
 
 ## Kodeoppgaver
 
@@ -55,6 +56,9 @@ Disse er for Codex eller ChatGPT med tilgang til laptopen og repoet. Ta én om g
    - at figurer går bak ting i forgrunnen der de skal,
    - at objekter bytter bilde riktig,
    - at Ctrl+H bytter mellom HD og klassisk, og at Ctrl+Shift+H viser gult felt der HD mangler, med melding på skjermen.
+   - at vannet i rom 22 er HD og beveger seg jevnt, uten rutenett,
+   - at teksten (replikker, menyer og undertekstene i introfilmen) er glatt og står der den skal,
+   - at ingenting krasjer når du går mellom rom med og uten HD.
    Ta skjermbilder i `rapporter/laptop-test/` og skriv `rapporter/laptop-test.md`: hva du testet, hva som var feil, med rom og omtrentlig sted. Ikke rett i motoren selv. Beskriv feilen, så retter Claude den.
 2. **Mål fart og lyd.** Kjør rom 22 i ett minutt med og uten modden, og noter bilder per sekund hvis ScummVM viser det, og om lyd eller tale hakker. Skriv det i `rapporter/laptop-test.md`.
 
