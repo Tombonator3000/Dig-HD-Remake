@@ -286,13 +286,15 @@ Test og feilsøking (bare miljøvariabler):
 | `DIGHD_DUMP_FLAT=1` | Lagrer også originalpikslene for det samme bildet ved siden av hver dump (`..._flat.png`, som klassisk grafikk), til sammenligninger |
 | `DIGHD_BENCH=N` | Ved hver dump: bygger hele skjermen N ganger og skriver snittid per gang, og i rom med fargesykling tiden for ett steg i syklingen (alle syklede farger endret). Utenom film også tiden for spillskjermen sendt gjennom motoren med oppslag av kilden for hver piksel (`sources and whole screen`) og tiden for å merke pikslene til rutene som ble tegnet sist (`marking`, snitt over 10 x N ganger) |
 | `DIGHD_SKIP_VIDEO=1` | Hopper over filmer |
-| `DIGHD_TEST_ROOM`, `DIGHD_TEST_AT`, `DIGHD_TEST_CAMX` | Hopper rett til et rom etter N bilder |
+| `DIGHD_TEST_ROOM`, `DIGHD_TEST_AT`, `DIGHD_TEST_CAMX`, `DIGHD_TEST_CAMY` | Hopper rett til et rom etter N bilder. Et rom som er mindre enn skjermen (rom 93 med ikonene i inventaret, 40 x 200), hoppes ikke til: spillet viser det aldri, og ScummVM stopper med en assert når kameraet skal plasseres. Med `CAMX` eller `CAMY` settes kameraet dit (midten av skjermen i rommet), og det følger ikke lenger en skuespiller. Flytter et skript kameraet, settes det tilbake etter neste bilde. Et skript som setter kameraet hver gang spillet går et steg (rom 27), vinner likevel |
 | `DIGHD_QUIT_AT` | Avslutter etter N bilder |
 | `DIGHD_TEST_KEYS` | Trykker taster ved gitte bilder, for eksempel `420:ctrl+h,570:ctrl+shift+h,600:f5`. Tastene a til z, f1 til f12, `space` og `escape`, med `ctrl+`, `shift+` og `alt+`. Tastene går gjennom den vanlige tastehåndteringen i motoren |
 | `DIGHD_TEST_COSTUME` | Testkroken: 30 bilder etter hoppet med `DIGHD_TEST_ROOM` settes en skuespiller inn i rommet med dette kostymet, og den spiller alle animasjonene i AKCH (alle retninger) etter hverandre. For kostymer skriptene først viser senere i historien |
 | `DIGHD_TEST_ACTOR`, `DIGHD_TEST_POS`, `DIGHD_TEST_PALETTE`, `DIGHD_TEST_CHORE_EVERY` | Skuespilleren testkroken bruker (standard 29), plassen i rommet (`x,y`, standard midt på skjermen og 180), rompaletten som settes (`setCurrentPalette`, standard ingen) og hvor mange bilder hver animasjon vises (standard 60) |
 
 Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). `HD text px` er pikslene som fikk en HD-glyf over seg (de er også med i tallet for det som er under teksten). `tinted sprite px` er figurpikslene som ble justert med forholdet mellom fargene (de er også med i `HD sprite px`), og `figure px kept original` figurpikslene med HD-bilde som ble originalpiksler med vilje: skygger, effekter, syklede farger og farger som er helt forskjellige (de er også med i `original px`). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
+
+Utenom film skriver hver dump også en linje for bildet i dumpen alene, hele skjermen i originalpiksler (64 000 i alt): `whole screen frame 840 (room 27, screen at 91,490): HD room px 42358, HD object px 0, HD sprite px 0, original px 21642 (background without HD 0, figure without HD 21642), HD text px 0, cycled HD px 7697`. `screen at` er stedet i rommet som vises øverst til venstre på skjermen (`xstart` og `_screenTop`, satt da kameraet sist ble flyttet før skjermen ble tegnet). Originalpikslene uten HD er delt i bakgrunn (rom uten HD-bakgrunn, eller objekter uten HD-bilde: pikselen er lik bakgrunnsbufferen) og det som er tegnet over (figurer uten HD-bilde). Resten av originalpikslene er originale med vilje (skygger, effekter, syklede farger på figurer). `tools/romtest.sh` bruker denne linjen.
 
 Med `DIGHD_VERIFY=1` skriver hver dump to til fire linjer:
 
@@ -433,6 +435,15 @@ Figurkilden (testet uten skjerm 2026-10-07, rom 2, med `DIGHD_DUMP_FLAT=1`). Sam
 - `engine/test.sh`: 0 avvik ved bilde 250, 750, 1000, 1750 og 2500 til 3000, og 0,081 til 0,210 prosent ved 500, 1250, 1500, 2000 og 2250 (skalerte figurer, sett på i bilde 2250: indre kanter i en astronaut). Skjermen lik hele skjermen bygget på nytt i alle 12 dumper.
 - Ytelse, `DIGHD_BENCH=100` ved hver 25. bilde i 1300 bilder med `test-nearest` (50 dumper i rom 2, median): hele skjermen 9,63 ms før og 9,66 ms etter. Spillskjermen sendt gjennom motoren med oppslag av kildene: 9,4 til 10,0 ms med den nye regelen og 9,6 til 9,7 ms med den gamle (den gamle med en midlertidig bryter i samme program, to kjøringer hver). Forskjellen ligger i støyen. Merking av 3 ruter: 0,006 ms per bilde.
 - Ikke testet: ekte skjerm, andre rom enn rom 2, blast-objekter over figurer, figurer bak en maske, og tekst der en figur uten HD sist ble tegnet (ikke fanget i en dump, men det er samme regel).
+
+Alle rom (testet uten skjerm 2026-10-07 med `tools/romtest.sh`, modden `gpt` med 104 HD-rom, 226 kjøringer med kameraet over hele bredden og høyden av store rom):
+
+- 110 av 111 rom ble lastet. Ingen krasj eller heng etter rettingen under. HD-bakgrunnen ble lastet og brukt i alle 104 rom som har den. Skjermen var lik hele skjermen bygget på nytt i alle dumper, og ingen HD-bilder var forskjøvet.
+- Funnet og rettet: hoppet til rom 93 (ikonene i inventaret, 40 x 200) stoppet ScummVM med en assert i `clampCameraPos`. Testhoppet hopper nå ikke til rom som er mindre enn skjermen. Gjelder bare testkroken; spillet viser aldri rommet.
+- Funnet og rettet: `DIGHD_TEST_CAMX` ble overstyrt når kameraet fulgte en skuespiller eller et skript flyttet det. Rom 27 og 105 setter kameraet hele tiden og vinner fortsatt for noen plasser.
+- Figurene gikk bak det samme i HD som i originalen i alle rom med figurer i bildet.
+- `engine/test.sh` etter endringene: 0 avvik ved bilde 250, 750, 1000, 1500, 1750 og 2500 til 3000, og 0,077 til 0,172 prosent ved 500, 1250, 2000 og 2250 (skalerte figurer, som før). Skjermen lik hele skjermen bygget på nytt i alle 12 dumper.
+- Ikke kontrollert: rom 10 og 104 (spillet tonet ned og forlot rommet straks etter hoppet).
 
 ## Kjente begrensninger
 
