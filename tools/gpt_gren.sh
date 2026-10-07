@@ -37,7 +37,7 @@ copy_jobs_out() {
 		done
 		if [ -f "$d/retur.md" ]; then cp "$d/retur.md" "$TREE/jobber/$id/retur.md"; else rm -f "$TREE/jobber/$id/retur.md"; fi
 	done
-	for f in JOBBER.md status.csv RAPPORT.md ORDRE.md; do
+	for f in JOBBER.md status.csv RAPPORT.md ORDRE.md GRAFIKKLISTE.md; do
 		[ -f "$WORK/$f" ] && cp "$WORK/$f" "$TREE/$f"
 	done
 	# Forhåndsvisning bare for jobber som må gjøres om (de andre tar for mye plass)

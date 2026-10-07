@@ -171,6 +171,10 @@ def test_gpt_layout_and_orders(tmp_path):
     tasks.write_text("1. Test på laptopen.\n", encoding="utf-8")
     text = gpt.write_orders(tmp_path, tasks=tasks).read_text()
     assert "## Kodeoppgaver" in text and "1. Test på laptopen." in text
+    lst = gpt.write_list(tmp_path, batch=2).read_text()
+    # Samme rekkefølge som ordren, delt i bestillinger, og ferdige jobber krysset av
+    assert lst.index("## Bestilling 1") < lst.index("rom010") < lst.index("rom002_del1av3") < lst.index("## Bestilling 2")
+    assert "- [x] `rom009`" in lst and "rom011" in lst.split("## Bestilling 2")[1]
 
 
 def _texture(rng, w, h, sigma=2.0):

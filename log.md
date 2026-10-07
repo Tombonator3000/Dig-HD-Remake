@@ -142,3 +142,8 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Så på nærbilder av dialogen i rom 2 og en filmundertekst før og etter, og flettet PR 9 (804cb3c) etter grønn CI.
 - Funnet av agenten: når et banner eller hovedmenyen ligger over en figur, skinner HD-figuren svakt gjennom boksen. Feilen fantes fra før. Lagt i todo.
 - Runde 06:53: fortsatt ingen nye leveranser.
+
+## 2026-10-07 07:25 til 08:25 (Claude)
+- Planlagt runde 07:25: ingen nye leveranser fra ChatGPT. Tok feilen der figurer skinte gjennom bannere og menyer med en agent i egen arbeidskopi.
+- PR 10: en piksel får HD-figur bare når den faktisk viser figuren. Hver piksel en kostymerute tegner, merkes med tegningen og verdien ruten skrev, og merket gjelder bare så lenge verdien står der. `markRectAsDirty` tar bort merkene (unntatt skuespillerens eget rektangel, tekst og blast-objekter), og merkene lagres og legges tilbake med bannere. Volumbanneret og hovedmenyen over en astronaut er nå like originalen (før 241 og 691 avvikende piksler). Gult felt gir 0 gule piksler i banneret og i tekst over figurer uten HD (før 1082 og 303). `engine/test.sh`: 0 avvik, samme tid. Så på før- og etterbildene og flettet PR 10 (725fb24).
+- Tom spurte etter liste og ordre over grafikken ChatGPT skal lage. Ny `GRAFIKKLISTE.md` (`dighd gpt-ordre` skriver den sammen med ORDRE.md): oversikt over alt som skal lages og alle 188 gjenstående jobber i prioritert rekkefølge, delt i 19 bestillinger på 10. Bestilling 1 er det samme som ORDRE.md. ChatGPT skal ta neste bestilling uten å vente på ny ordre. Sendt til `gpt-arbeid` sammen med ny ORDRE.md og oppdatert AGENTS.md for grenen.

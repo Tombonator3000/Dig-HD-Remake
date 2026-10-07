@@ -1,6 +1,6 @@
 # Status
 
-Oppdatert 7. oktober 2026, 06:55. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 7. oktober 2026, 08:25. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
@@ -41,8 +41,6 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 
 - Kostymer med kodek 16 (5 stykker) får ikke HD-sprites.
 - Kodek 5: når skriptet ikke har satt skuespillerpaletten, tegner ScummVM kodene rett som palettindekser. Uttrekket fargelegger med RGBS, så noen farger i HD-rutene stemmer ikke med spillet (sett i kostyme 210). Der blir det originalpiksler.
-- Tekst over figurer uten HD blir gul med gult felt på.
-- Når et banner eller hovedmenyen ligger over en figur, skinner HD-figuren svakt gjennom boksen (feil fra før HD-teksten).
 - Fargesyklede farger på figurer er originalpiksler. Glitter av enkeltpiksler (fossen i rom 43) beveger seg svakere enn i originalen.
 - Fargelåsen gjør ChatGPT-bildene litt mindre mettet enn generatoren laget dem, fordi fargene trekkes mot originalen. Styrken kan justeres (`dighd gpt-inn --styrke`).
 - Ingen full gjennomspilling med HD-grafikk ennå. Forgrunnsmasker og objektbytte i de nye rommene er ikke kontrollert manuelt.
