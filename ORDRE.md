@@ -1,27 +1,27 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 08:19 (norsk tid)
+Oppdatert 2026-10-07 10:14 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
 ## Status
 
-- Jobber: 192. godkjent 4, ny 188
-- Ferdige rom: 3 av 106 (9, 22, 28)
-- Ferdige objekter: 0 av 30
+- Jobber: 192. avvist 1, godkjent 60, ny 130, sjekk 1
+- Ferdige rom: 36 av 106 (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 28, 96, 97, 98, 99, 100, 102, 105, 106, 107, 108, 109, 110)
+- Ferdige objekter: 8 av 30 (obj097_01, obj117_01, obj137_01, obj141_01, obj160_01, obj191_01, obj241_01, obj701_01)
 
 ## Gjør disse nå
 
-1. `obj241_01` (rom 28, shardcu, objekt 241 tilstand 01, del 1/1).
-2. `rom002_del2av3` (rom 2, cockpit, del 2/3).
-3. `rom002_del3av3` (rom 2, cockpit, del 3/3).
-4. `rom003` (rom 3, klein, del 1/1).
-5. `rom004` (rom 4, ast1, del 1/1).
-6. `rom005` (rom 5, ast2, del 1/1).
-7. `rom006` (rom 6, ast3, del 1/1).
-8. `rom007` (rom 7, ast4, del 1/1).
-9. `rom008` (rom 8, ast5, del 1/1).
-10. `rom010_del1av2` (rom 10, tun1, del 1/2).
+1. `rom111` (rom 111, labcu3, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 4.4 px). Les retur.md.
+2. `rom025_del3av3` (rom 25, airlock, del 3/3).
+3. `rom026_del1av3` (rom 26, cntlroom, del 1/3).
+4. `rom026_del2av3` (rom 26, cntlroom, del 2/3).
+5. `rom026_del3av3` (rom 26, cntlroom, del 3/3).
+6. `rom027_del1av8` (rom 27, powerrm, del 1/8).
+7. `rom027_del2av8` (rom 27, powerrm, del 2/8).
+8. `rom027_del3av8` (rom 27, powerrm, del 3/8).
+9. `rom027_del4av8` (rom 27, powerrm, del 4/8).
+10. `rom027_del5av8` (rom 27, powerrm, del 5/8).
 
 Når disse er levert, fortsett med bestilling 2 i `GRAFIKKLISTE.md` uten å vente på ny ordre.
 
@@ -43,18 +43,11 @@ Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nær
 
 Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.
 
-## Beskjeder
-
-- Nytt: GRAFIKKLISTE.md har alt som skal lages, delt i bestillinger på 10. Ta bestilling 1 (denne ordren), og fortsett med neste bestilling uten å vente på meg. Commit og push etter hver bestilling.
-- 30 objektjobber (objNNN_SS) er store bilder spillet tegner over rommet, som nærbilder, kart og den blå trikken. De lages akkurat som romjobbene. obj241_01 (tavla i rom 28) står først fordi rom 28 er ferdig.
-- Objekter med flere tilstander (obj884 og obj886): lag tilstand 01 først. For de andre tilstandene legger du ved resultat.png fra tilstand 01 som bilde to i stedet for stilankeret.
-- Kjør git pull før hver økt. Ikke legg til stjerner, lyspunkter eller vann som ikke finnes i originalen.
-
 ## Kodeoppgaver
 
 Disse er for Codex eller ChatGPT med tilgang til laptopen og repoet. Ta én om gangen, og skriv i `rapporter/` i denne grenen hva du gjorde og fant.
 
-1. **Test HD-modden på laptopen med skjerm og tastatur.** Hent og bygg: `git checkout main && git pull`, `tools/hent_spilldata.sh`, `tools/mod_gren.sh hent`, `engine/build.sh` (patchen er ny, så bygg på nytt), `engine/run.sh gpt`. Gå til rom 9, 22 og 28 (start med `DIGHD_TEST_ROOM=22 DIGHD_TEST_AT=240 engine/run.sh gpt` hvis det er lettere). Sjekk:
+1. **Test HD-modden på laptopen med skjerm og tastatur.** `git checkout main && git pull && ./spill.sh` henter, bygger og starter alt. Gå til rom 9, 22 og 28 med `./spill.sh --rom 22` og så videre. Følg `docs/SPILLTEST.md`. Sjekk:
    - at figurer går bak ting i forgrunnen der de skal,
    - at objekter bytter bilde riktig,
    - at Ctrl+H bytter mellom HD og klassisk, og at Ctrl+Shift+H viser gult felt der HD mangler, med melding på skjermen.
