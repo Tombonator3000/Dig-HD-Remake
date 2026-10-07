@@ -9,16 +9,18 @@
 #   ./spill.sh --fort          ingen henting eller bygging, bare start
 #   ./spill.sh --fullskjerm    fullskjerm
 #   ./spill.sh --programvare   uten OpenGL (hvis spillet ikke starter og sier "Could not load any graphics mode")
+#   ./spill.sh --nettleser     i nettleseren på http://localhost:8000, bare på denne maskinen (--port N for en annen port)
 #
 # Valg som ikke står over, sendes videre til ScummVM.
 # Tastene i spillet: Ctrl+H (HD eller klassisk), Ctrl+Shift+H (gult felt), F5 (meny), Alt+S (skjermbilde).
 # Hva du bør se etter: docs/SPILLTEST.md.
+# Nettleseren: spillet og HD-grafikken tilhører Disney/Lucasfilm og skal aldri legges på en åpen adresse.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
 
-ROM="" KLASSISK=0 GULT=0 AUTO=0 FORT=0
+ROM="" KLASSISK=0 GULT=0 AUTO=0 FORT=0 NETTLESER=0 PORT=8000 FULLSKJERM=0 PROGRAMVARE=0
 EKSTRA=()
 while [ $# -gt 0 ]; do
 	case "$1" in
@@ -27,23 +29,36 @@ while [ $# -gt 0 ]; do
 	--gult) GULT=1; shift ;;
 	--auto) AUTO=1; shift ;;
 	--fort) FORT=1; shift ;;
-	--fullskjerm) EKSTRA+=(--fullscreen); shift ;;
-	--programvare) EKSTRA+=(--gfx-mode=surfacesdl); shift ;;
+	--fullskjerm) FULLSKJERM=1; shift ;;
+	--programvare) PROGRAMVARE=1; shift ;;
+	--nettleser) NETTLESER=1; shift ;;
+	--port) PORT="$2"; shift 2 ;;
 	-h|--help) sed -n '2,17p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
 	*) EKSTRA+=("$1"); shift ;;
 	esac
 done
 
 mangler=()
-for cmd in git make sha256sum tar; do command -v "$cmd" >/dev/null 2>&1 || mangler+=("$cmd"); done
-command -v c++ >/dev/null 2>&1 || command -v g++ >/dev/null 2>&1 || mangler+=("g++")
-command -v sdl2-config >/dev/null 2>&1 || mangler+=("SDL2 (libsdl2-dev)")
-pkg-config --exists libpng 2>/dev/null || [ -f /usr/include/png.h ] || mangler+=("libpng (libpng-dev)")
-if [ ${#mangler[@]} -gt 0 ]; then
-	echo "Mangler: ${mangler[*]}"
-	echo "Ubuntu/Debian: sudo apt install build-essential git pkg-config libsdl2-dev libpng-dev zlib1g-dev"
-	echo "Fedora: sudo dnf install gcc-c++ make git pkgconf SDL2-devel libpng-devel zlib-devel"
-	exit 1
+if [ "$NETTLESER" = 1 ]; then
+	# Emscripten har sin egen kompilator og hentes av engine/build-web.sh
+	for cmd in git make sha256sum tar xz python3 pkg-config zip; do command -v "$cmd" >/dev/null 2>&1 || mangler+=("$cmd"); done
+	if [ ${#mangler[@]} -gt 0 ]; then
+		echo "Mangler: ${mangler[*]}"
+		echo "Ubuntu/Debian: sudo apt install git make python3 pkg-config xz-utils zip"
+		echo "Fedora: sudo dnf install git make python3 pkgconf xz zip"
+		exit 1
+	fi
+else
+	for cmd in git make sha256sum tar; do command -v "$cmd" >/dev/null 2>&1 || mangler+=("$cmd"); done
+	command -v c++ >/dev/null 2>&1 || command -v g++ >/dev/null 2>&1 || mangler+=("g++")
+	command -v sdl2-config >/dev/null 2>&1 || mangler+=("SDL2 (libsdl2-dev)")
+	pkg-config --exists libpng 2>/dev/null || [ -f /usr/include/png.h ] || mangler+=("libpng (libpng-dev)")
+	if [ ${#mangler[@]} -gt 0 ]; then
+		echo "Mangler: ${mangler[*]}"
+		echo "Ubuntu/Debian: sudo apt install build-essential git pkg-config libsdl2-dev libpng-dev zlib1g-dev"
+		echo "Fedora: sudo dnf install gcc-c++ make git pkgconf SDL2-devel libpng-devel zlib-devel"
+		exit 1
+	fi
 fi
 
 steg() { printf '\n== %s\n' "$*"; }
@@ -61,12 +76,23 @@ if [ "$FORT" = 0 ] || [ ! -f mods/gpt/mod.json ]; then
 fi
 
 # 3. Motoren: bygges første gang og når patchen eller ScummVM-versjonen er endret
-STEMPEL="$(cat engine/SCUMMVM_COMMIT engine/patches/*.patch | sha256sum | cut -c1-16)"
-BYGD="$(cat engine/scummvm/.dighd-stempel 2>/dev/null || true)"
-if [ ! -x engine/scummvm/scummvm ] || { [ "$FORT" = 0 ] && [ "$STEMPEL" != "$BYGD" ]; }; then
-	steg "Bygger motoren (første gang tar det noen minutter)"
-	engine/build.sh
-	echo "$STEMPEL" > engine/scummvm/.dighd-stempel
+if [ "$NETTLESER" = 1 ]; then
+	# Nettleserversjonen har sitt eget stempel. Byggeskriptet er med, fordi valgene til configure står der.
+	STEMPEL="$(cat engine/SCUMMVM_COMMIT engine/patches/*.patch engine/build-web.sh | sha256sum | cut -c1-16)"
+	BYGD="$(cat engine/scummvm-web/.dighd-stempel 2>/dev/null || true)"
+	if [ ! -f engine/scummvm-web/build-emscripten/scummvm.wasm ] || { [ "$FORT" = 0 ] && [ "$STEMPEL" != "$BYGD" ]; }; then
+		steg "Bygger motoren for nettleseren (første gang laster den ned Emscripten og tar noen minutter)"
+		engine/build-web.sh
+		echo "$STEMPEL" > engine/scummvm-web/.dighd-stempel
+	fi
+else
+	STEMPEL="$(cat engine/SCUMMVM_COMMIT engine/patches/*.patch | sha256sum | cut -c1-16)"
+	BYGD="$(cat engine/scummvm/.dighd-stempel 2>/dev/null || true)"
+	if [ ! -x engine/scummvm/scummvm ] || { [ "$FORT" = 0 ] && [ "$STEMPEL" != "$BYGD" ]; }; then
+		steg "Bygger motoren (første gang tar det noen minutter)"
+		engine/build.sh
+		echo "$STEMPEL" > engine/scummvm/.dighd-stempel
+	fi
 fi
 
 # 4. Automatisk oppskalering der ChatGPT ikke har levert ennå (valgfritt)
@@ -89,6 +115,20 @@ if [ "$AUTO" = 1 ]; then
 fi
 
 # 5. Start
+if [ "$NETTLESER" = 1 ]; then
+	# Bare lokalt: webserveren lytter på 127.0.0.1 og siden nekter å starte fra en annen adresse.
+	steg "Starter The Dig i nettleseren (mod: $MOD)"
+	[ "$FULLSKJERM" = 1 ] && echo "--fullskjerm gjelder ikke i nettleseren. Bruk F11 i nettleseren."
+	[ "$PROGRAMVARE" = 1 ] && echo "--programvare gjelder ikke i nettleseren."
+	VALG=(--port "$PORT")
+	[ -n "$ROM" ] && VALG+=(--rom "$ROM")
+	[ "$KLASSISK" = 1 ] && VALG+=(--klassisk)
+	[ "$GULT" = 1 ] && VALG+=(--gult)
+	exec engine/run-web.sh "$MOD" "${VALG[@]}" "${EKSTRA[@]}"
+fi
+
+[ "$FULLSKJERM" = 1 ] && EKSTRA+=(--fullscreen)
+[ "$PROGRAMVARE" = 1 ] && EKSTRA+=(--gfx-mode=surfacesdl)
 steg "Starter The Dig (mod: $MOD)"
 [ -n "$ROM" ] && export DIGHD_TEST_ROOM="$ROM" DIGHD_TEST_AT="${DIGHD_TEST_AT:-240}" DIGHD_SKIP_VIDEO=1 && echo "Hopper til rom $ROM (filmer hoppes over)."
 [ "$KLASSISK" = 1 ] && export DIGHD_CLASSIC=1

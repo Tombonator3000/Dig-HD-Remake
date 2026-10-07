@@ -19,8 +19,12 @@ dig-out/
 *.nut
 *.trs
 
-# ScummVM-kildekoden som engine/build.sh henter
+# ScummVM-kildekoden som engine/build.sh og engine/build-web.sh henter, og Emscripten
 engine/scummvm/
+engine/scummvm-web/
+engine/emsdk/
+# game og mods kan være lenker til en annen arbeidskopi
+/mods
 
 # Python
 __pycache__/

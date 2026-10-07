@@ -61,6 +61,64 @@ HD fra ChatGPT finnes i over halvparten av rommene (se `STATUS.md`). Resten vise
 6. Gå mellom rom med og uten HD, og se at spillet ikke krasjer eller blinker.
 7. Ctrl+Shift+H: det gule skal vise nøyaktig det som mangler HD. Tekst og pekeren skal ikke bli gul.
 
+## I nettleseren
+
+```sh
+./spill.sh --nettleser
+```
+
+Skriptet henter spillfilene og siste HD-mod som før, bygger ScummVM med HD-patchen for nettleseren (WebAssembly med Emscripten) og starter en webserver på maskinen. Åpne adressen det skriver ut, vanligvis http://localhost:8000. Ctrl+C i terminalen stopper serveren.
+
+**Bare lokalt.** Spillet og HD-grafikken tilhører Disney/Lucasfilm. Nettleserversjonen skal bare kjøres på din egen maskin, og ingenting fra den skal legges på GitHub Pages eller en annen åpen adresse eller lastes opp noe sted. Derfor:
+
+- webserveren (`engine/web/server.py`) lytter bare på 127.0.0.1 og svarer bare på forespørsler til localhost,
+- siden (`engine/web/index.html`) nekter å starte hvis den er åpnet fra en annen adresse enn localhost,
+- alt som serveres, ligger i `work/nettleser`, og byggefilene i `engine/emsdk` og `engine/scummvm-web`. Alle tre er ignorert av git.
+
+Krav: git, make, python3, pkg-config, xz og zip, og en nyere Chrome, Edge eller Firefox.
+
+```sh
+sudo apt install git make python3 pkg-config xz-utils zip     # Ubuntu/Debian
+sudo dnf install git make python3 pkgconf xz zip              # Fedora
+```
+
+Første gang installeres Emscripten 4.0.10 i `engine/emsdk` (omtrent 350 MB), og ScummVM hentes til `engine/scummvm-web`. Det er den versjonen ScummVM sin egen byggeoppskrift (`dists/emscripten/build.sh`) bruker på den låste commiten. Bygget tok omtrent 5 minutter på en maskin med 2 kjerner. Motoren bygges på nytt når patchen, ScummVM-versjonen eller `engine/build-web.sh` er endret (stempel i `engine/scummvm-web/.dighd-stempel`).
+
+| Kommando | Adresse | Hva |
+| --- | --- | --- |
+| `./spill.sh --nettleser` | http://localhost:8000/ | Vanlig start med HD-modden |
+| `./spill.sh --nettleser --rom 22` | http://localhost:8000/?rom=22 | Hopper til rom 22, filmene hoppes over |
+| `./spill.sh --nettleser --klassisk` | http://localhost:8000/?klassisk=1 | Starter med originalgrafikken |
+| `./spill.sh --nettleser --gult` | http://localhost:8000/?gult=1 | Gult felt der HD mangler |
+| `./spill.sh --nettleser --auto` | http://localhost:8000/?mod=auto | Med automatisk oppskalering for resten |
+| `./spill.sh --nettleser --fort` | | Starter uten å hente eller bygge noe |
+| `./spill.sh --nettleser --port 8001` | http://localhost:8001/ | En annen port, hvis 8000 er i bruk |
+
+Valgene kan også skrives rett i adressen mens serveren går, for eksempel http://localhost:8000/?rom=9, og siden lastes på nytt. For test og feilsøking kan variablene i `docs/HD-MOTOR.md` settes på samme måte, for eksempel `?DIGHD_VERIFY=1`.
+
+Tastene er de samme som ellers. Siden stopper nettleserens egne snarveier for F1 til F10 og for Ctrl og Alt med en bokstav, så F5 skal åpne spillmenyen i stedet for å laste siden på nytt, og Ctrl+H skal gå til spillet i stedet for historikken. F11 gir fullskjerm.
+
+Lagring: lagrede spill og innstillingene ligger i nettleseren (IndexedDB for localhost og porten), ikke i repoet. De blir borte hvis du sletter nettstedsdataene for localhost, og port 8000 og 8001 har hver sine.
+
+Slik virker det: `engine/run-web.sh` legger nettleserversjonen, spillfilene og modden i `work/nettleser`. Spillfilene og modden legges inn som lenker under `data/`, og det lages en `index.json` i hver mappe. Nettleserversjonen av ScummVM henter filene under `/data` over HTTP når de trengs (`backends/fs/emscripten/http-fs.cpp`). DigHD leser modden gjennom ScummVM sitt filsystem og innstillingene fra miljøvariabler, som siden setter fra adressen før spillet starter. Patchen er derfor ikke endret for nettleseren.
+
+Testet 2026-10-07 her, i Chromium uten skjerm (Playwright, programvaregrafikk), med modden fra grenen `hd-mod` (54 rom):
+
+- `./spill.sh --nettleser --rom 22` fra en arbeidskopi uten modden og uten motoren: modden ble hentet, motoren bygget, serveren startet og rom 22 vist med HD-bakgrunnen. Ny kjøring bygget ikke på nytt.
+- Introen går, og undertekstene er HD-tekst. Rom 22 og 9 vises med HD-bakgrunn, og vannet i rom 22 beveger seg.
+- Ctrl+H (klassisk og tilbake), Ctrl+Shift+H (gult felt) og F5 (spillmenyen) gjennom nettleserens tastehendelser. Tastene må holdes slik et menneske gjør: ScummVM leser Ctrl og Shift når spillet henter tasten, så et trykk der alt slippes i samme øyeblikk, mister Ctrl.
+- Lagring med Alt+1 og lasting med Ctrl+1, også etter at siden var lastet på nytt.
+- Kontrollen fra `engine/test.sh` i nettleseren (modden `test-nearest`, 3000 bilder, `DIGHD_VERIFY=1`): skjermen var lik hele skjermen bygget på nytt i alle 12 dumper, og avvik fra originalen bare i skalerte figurer (0,005 til 0,174 prosent), som i den vanlige motoren. Bilde 500 hadde 1753 avvikende piksler begge steder, indre kanter i en astronaut.
+- Fart: spillet holdt samme tempo som den vanlige motoren. 1200 bilder etter hoppet til rom 22 tok 12,0 sekunder i nettleseren og 11,5 sekunder i den vanlige motoren uten skjerm. Skjermen ble tegnet omtrent 12 ganger i sekundet, like ofte som spillet endrer bildet. Å bygge hele HD-skjermen (`DIGHD_BENCH`) tok 13 til 25 ms i nettleseren mot 8,5 til 12 ms i den vanlige motoren, og ett steg i fargesyklingen 1 til 6 ms mot 0 til 4 ms. Den vanlige motoren uten skjerm bruker 16 bit per piksel, nettleseren 32.
+
+Ikke testet: en vanlig nettleser med skjermkort, ekte tastatur og mus, at F5 og Ctrl+H ikke når nettleseren (nettleseren uten skjerm har ikke disse snarveiene), lyd (musikk og tale mangler her), Firefox, Safari og Edge, fullskjerm og lange økter.
+
+Kjente begrensninger:
+
+- Alt spillet leser (DIG.LA1 på 88 MB, filmene og HD-bildene), hentes første gang det trengs og blir liggende i minnet til siden lukkes. En lang økt kan derfor bruke flere hundre MB.
+- Som i den vanlige motoren vises HD-skjermen i 16:10 (1280 x 800) med svarte felt. ScummVM retter bildeforholdet bare for 200 og 400 linjer.
+- Innstillingene i `engine/web/scummvm.ini` brukes bare første gang. Etterpå er det nettleserens kopi som gjelder.
+
 ## Si fra
 
 Skriv hva du så, i hvilket rom og omtrent hvor, og legg ved skjermbilde (Alt+S) hvis du kan. Gi det til Claude i chatten, eller legg det i `rapporter/` i grenen `gpt-arbeid`.

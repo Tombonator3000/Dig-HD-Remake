@@ -33,6 +33,8 @@ git clone https://github.com/Tombonator3000/Dig-HD-Remake.git && cd Dig-HD-Remak
 
 Mens du spiller: Ctrl+H bytter mellom HD og klassisk grafikk, og Ctrl+Shift+H farger gult der HD mangler. Hva du bør se etter, og alle valgene: [docs/SPILLTEST.md](docs/SPILLTEST.md).
 
+I nettleseren: `./spill.sh --nettleser` bygger motoren for WebAssembly og starter en webserver på http://localhost:8000. Bare på maskinen selv, aldri på en åpen adresse, fordi spillet og grafikken tilhører Disney/Lucasfilm ([docs/SPILLTEST.md](docs/SPILLTEST.md#i-nettleseren)).
+
 Det samme steg for steg: `tools/hent_spilldata.sh`, `tools/mod_gren.sh hent`, `engine/build.sh`, `engine/run.sh gpt`.
 
 ## Lage HD-grafikk selv
@@ -93,7 +95,8 @@ engine/test.sh                        # spillet uten skjerm: HD-pikslene skal li
 ```
 pipeline/dighd/   gamedata (LA0/LA1), export, upscale, modpack, gpt (jobber og kontroll), cli
 pipeline/tests/   tester for pipelinen
-engine/           patches/ (ScummVM-patchen), SCUMMVM_COMMIT, build.sh, run.sh, test.sh
+engine/           patches/ (ScummVM-patchen), SCUMMVM_COMMIT, build.sh, run.sh, test.sh,
+                  build-web.sh, run-web.sh og web/ (nettleseren, bare lokalt)
 tools/            hent_spilldata.sh, gpt_runde.sh, gpt_gren.sh, mod_gren.sh, la0_info.py,
                   check_hd_art.py, hent_grafikkpilot.sh
 docs/             ANALYSE, HD-MOTOR, BESTILLING-CHATGPT, GRAFIKKPILOT, rom-oversikt.csv,
