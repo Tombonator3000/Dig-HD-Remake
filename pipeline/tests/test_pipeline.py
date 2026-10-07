@@ -709,3 +709,25 @@ def test_gpt_keeps_better_earlier_delivery(tmp_path):
     s = gpt.import_results(work, ex, done, rejections=rej)
     assert s["ferdige_objekter"] == [] and not (done / "objects" / "obj241_01.png").exists()
     assert not (work / "beste" / "obj241_01.png").exists()
+
+
+def test_gpt_manual_check_status(tmp_path):
+    import hashlib
+    from PIL import ImageFilter
+    from dighd import gpt
+
+    ex, room, big = _fake_extract(tmp_path)
+    work, done = tmp_path / "gpt", tmp_path / "gpt-ferdig"
+    gpt.make_jobs(ex, work)
+    d = work / "jobber" / "obj241_01"
+    Image.open(d / "referanse.png").filter(ImageFilter.GaussianBlur(1.5)).save(d / "resultat.png")
+    sha = hashlib.sha256((d / "resultat.png").read_bytes()).hexdigest()
+    rej = tmp_path / "avvisninger.csv"
+    rej.write_text(f'jobb,sha256_resultat,grunn,forslag,status\nobj241_01,{sha},"søm mot rommet","Redo with room.",sjekk\n',
+                   encoding="utf-8")
+    s = gpt.import_results(work, ex, done, rejections=rej)
+    row = {r["jobb"]: r for r in gpt.read_status(work)}["obj241_01"]
+    # Sjekk: bildet brukes fortsatt, men skal gjøres om
+    assert row["status"] == "sjekk" and row["kommentar"] == "søm mot rommet"
+    assert s["ferdige_objekter"] == ["obj241_01"] and (done / "objects" / "obj241_01.png").exists()
+    assert "Redo with room." in (d / "retur.md").read_text()

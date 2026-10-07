@@ -1,16 +1,16 @@
 # Status
 
-Oppdatert 7. oktober 2026, 13:40. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 7. oktober 2026, 16:30. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
-Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 104 av 106 rom (rom 50 og 88 gjenstår) og alle 30 store objekter. Neste bestilling er de mindre objektene i lagjobber og ikonark.
+Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 103 av 106 godkjente rom (rom 32 gjøres om, rom 50 og 88 gjenstår) og alle 30 store objekter. Neste bestilling er de mindre objektene i lagjobber og ikonark.
 
 ## HD-grafikk
 
 | Del | Ferdig | Totalt | Kilde | Merknad |
 | --- | --- | --- | --- | --- |
-| Rombakgrunner | 104 | 106 | ChatGPT | Alle unntatt rom 50 og 88. Noen står til sjekk og kan bli bedre. Se `GRAFIKKLISTE.md` i `gpt-arbeid`. 5 nesten tomme rom tegnes av filmer og er tatt ut. |
+| Rombakgrunner | 103 | 106 | ChatGPT | Alle unntatt rom 32 (vannet ble stein, gjøres om), 50 og 88. Noen står til sjekk og kan bli bedre. Kontrollert i motoren med `tools/romtest.sh`. 5 nesten tomme rom tegnes av filmer og er tatt ut. |
 | ChatGPT-jobber | 187 | 431 | ChatGPT | 162 for rom, 30 for store objekter, 236 lagjobber og 3 ikonark. Se `work/gpt/status.csv` eller grenen `gpt-arbeid`. |
 | Store objektbilder | 30 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
 | Mindre objektbilder | 0 | 609 | ChatGPT | 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå) og 149 ikoner i ikonark. Til de er levert: automatisk oppskalering. |
@@ -33,6 +33,7 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Motor: farger | Fade og palettbytte følger med. Fargesyklede områder (vann, fosser) vises med HD-bildet og følger syklingen | Rom 22 med ChatGPT-bakgrunn og rom 11 og 43 med lanczos-sharp: vannet beveger seg uten rutenett eller glorie. Ett syklingssteg i rom 22 tar 2,0 ms (før 7,8 ms) |
 | Motor: brytere | Ctrl+H bytter mellom HD og klassisk, Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`) | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Ikke prøvd med ekte tastatur |
 | Motor: store objekter | HD-objektbilder fra ChatGPT også i rom uten HD-bakgrunn | Rom 28 kjørt uten skjerm: tavla obj241 dekker nesten hele skjermen (69 492 objektpiksler mot 185 rompiksler) |
+| Romtest | Alle rom kjørt uten skjerm med `tools/romtest.sh` | 111 rom, 226 kjøringer: ingen krasj, HD-bakgrunnen brukt i alle rom som har den, ingen forskjøvne bilder, figurene går bak det samme som i originalen |
 | Motor på laptopen | SDL2, Wayland, OpenGL, 1280 x 800, 32 bit | Codex sin pilotkjøring, logger i `grafikkdata/pilot-20261006` |
 | Bygg | `engine/build.sh` fra ren checkout av låst ScummVM-commit | Kjørt fra tom mappe her og av Codex på laptopen |
 | ChatGPT-kontroll | Sideforhold, forskyvning, zoom, kantlikhet, fargelås, sammensying, objektjobber, like tilstander | Kunstige svar: 3 px forskyvning og 3 prosent zoom avvises, riktig plassert godkjennes; pilotbildene godkjent (forskyvning 0,73 og 0,25 px) |
