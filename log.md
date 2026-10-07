@@ -167,3 +167,10 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - rom111 er levert på nytt og fortsatt avvist av kontrollen (blokker opptil 6,8 px). rom101 står fortsatt til sjekk.
 - Modden med 54 rom publisert i `hd-mod` (127 MB).
 - Tom spurte om å spille fra repoet i nettleseren. Svarte at det går lokalt (ScummVM i WebAssembly på localhost), men ikke på en åpen adresse, fordi spillfilene og grafikken tilhører Disney/Lucasfilm. Satte en agent på nettleserversjonen.
+
+## 2026-10-07 11:05 til 12:25 (Claude)
+- Agent laget nettleserversjonen (PR 15): `./spill.sh --nettleser` bygger ScummVM med HD-patchen for WebAssembly etter ScummVM sin egen oppskrift (Emscripten 4.0.10 i `engine/emsdk`, kilde i `engine/scummvm-web`) og serverer den fra `work/nettleser` på http://localhost:8000. Serveren lytter bare på 127.0.0.1, og siden nekter å starte utenfor localhost. Patchen er uendret. Valg i adressen: `?rom=22`, `?klassisk=1`, `?gult=1`, `?mod=auto`.
+- Testet av agenten i Chromium uten skjerm: hele flyten fra en kopi uten mod og motor, intro med HD-tekst, rom 22 og 9 i HD, Ctrl+H, Ctrl+Shift+H, F5, lagring og lasting etter omlasting. Nearest-kontrollen ga samme avvik som den vanlige motoren. 1200 bilder i rom 22 tok 12,0 s mot 11,5 s. Så på skjermbildet av rom 22 og flettet PR 15 (b998343).
+- Runde 12:05: seks nye leveranser fra ChatGPT (11:36 til 12:10). 172 jobber godkjent, 103 av 106 rom og 29 av 30 store objekter ferdige. Avvist av kontrollen: rom050 (28 px), rom079 og obj547 (7 px). Rom 88 venter på del 2 til 9, som kom etter hentingen. Modden med 104 rom publisert i `hd-mod` (235 MB).
+- Så gjennom alle 69 nye HD-bilder side om side med originalen. Nærbilder: symbolpanelene i rom 69 og 76 er trofaste, spirene på verdenskartet (rom 77) står der de skal, og hånden i obj884 er lik i alle tre tilstandene. Ingenting avvist ved gjennomsyn.
+- Ny ORDRE.md med beskjed om det som gjenstår (rom 50, 79, obj547, rom 88) og om at jobbene med status sjekk kan bli bedre.
