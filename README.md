@@ -16,7 +16,8 @@ Repoet er privat. Spillfilene og alt som lages fra dem ligger i egne grener og s
 | Uttrekk | Alle 111 rom, 642 objektbilder, 28 490 kostymeruter (med fargene spillet viser, også for kodek 5 og 16) og 12 638 filmrammer ut som PNG. |
 | HD-motor | ScummVM-patch med HD-bakgrunner, HD-objekter, HD-sprites (alle tre kostymekodekene) og HD-filmrammer, fargejustering ved palettbytte, mus og peker i HD. Testet uten skjerm (0 avvik med nearest-mod) og kjørt på laptopen med OpenGL og 32-bits farger. |
 | HD-grafikk | 103 av 106 rom ferdige fra ChatGPT, og 29 av 30 store objektbilder. 20 av 192 jobber igjen. Oppdateres hver runde i `work/gpt/RAPPORT.md` og grenen `gpt-arbeid`. |
-| Objekter og figurer | Bare automatisk oppskalering så langt. Egne runder med ChatGPT kommer etter rommene. |
+| Små objekter og ikoner | Jobbene til ChatGPT er klare: 236 lagjobber med 460 små objektbilder tegnet på plass i rommet, og 3 ikonark med de 149 ikonene i inventaret. Ingen laget ennå, så modden bruker automatisk oppskalering for dem. |
+| Figurer | Bare automatisk oppskalering så langt. Egen runde med ChatGPT kommer senere. |
 | Filmer | Utskifting av rammer virker og er testet. Ingen HD-filmer laget ennå. |
 
 Detaljer, tester og kjente begrensninger: [STATUS.md](STATUS.md). Hva som gjenstår: [todo.md](todo.md).
@@ -61,7 +62,8 @@ tools/gpt_runde.sh               # henter, kontrollerer, bygger og publiserer mo
 Det samme steg for steg:
 
 ```sh
-dighd gpt-pakke                  # 162 jobber for 106 rom og 30 for store objektbilder i work/gpt
+dighd gpt-pakke                  # 431 jobber i work/gpt: 162 for 106 rom, 30 for store objektbilder,
+                                 # 236 lagjobber (460 små objektbilder) og 3 ikonark (149 ikoner)
 tools/gpt_gren.sh send           # jobbene, status og ordre til grenen gpt-arbeid
 tools/gpt_gren.sh hent           # resultatene fra ChatGPT tilbake
 dighd gpt-inn                    # plassering, fargelås, sammensying, RAPPORT.md og retur.md
@@ -70,7 +72,7 @@ dighd build-mod --name gpt --egne work/gpt-ferdig
 tools/mod_gren.sh send           # modden til grenen hd-mod
 ```
 
-ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. `GRAFIKKLISTE.md` i samme gren har alt som skal lages, i prioritert rekkefølge og delt i bestillinger. Regler og format: [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md).
+ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. `GRAFIKKLISTE.md` i samme gren har alt som skal lages, i prioritert rekkefølge og delt i bestillinger. Lagjobbene (`lagNNN_KK`) er rommet med små objekter tegnet på plass, med det godkjente HD-rommet som bilde to. `gpt-inn` kontrollerer laget og hvert objekt for seg og klipper objektene ut til `objects/objNNN_SS.png`. Regler og format: [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md).
 
 ## Test
 

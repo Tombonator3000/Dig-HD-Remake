@@ -311,9 +311,9 @@ def test_gpt_object_jobs_and_import(tmp_path):
     ex, room, big = _fake_extract(tmp_path)
     work, done = tmp_path / "gpt", tmp_path / "gpt-ferdig"
     jobs = gpt.make_jobs(ex, work, notes={5: "Test note."})
-    # Romjobben først, så det store objektbildet. Det lille blir ikke egen jobb.
-    assert [j.id for j in jobs] == ["rom005", "obj241_01"]
-    assert [r["type"] for r in gpt.read_status(work)] == ["rom", "objekt"]
+    # Romjobben først, så det store objektbildet. Det lille kommer i en lagjobb til slutt.
+    assert [j.id for j in jobs] == ["rom005", "obj241_01", "lag005_01"]
+    assert [r["type"] for r in gpt.read_status(work)] == ["rom", "objekt", "lag"]
 
     d = work / "jobber" / "obj241_01"
     data = json.loads((d / "jobb.json").read_text())
@@ -448,3 +448,233 @@ def test_gpt_manual_rejection(tmp_path):
     gpt._write_return(d, {"status": "avvist", "kommentar": "feil merker", "forslag": "Redo it."})
     text = (d / "retur.md").read_text()
     assert "feil merker" in text and "Redo it." in text and "Precise correction" not in text
+
+
+def _layer_extract(tmp_path, small=True):
+    """Uttrekk med rom 6 (320 x 200) og objekter til lagjobbene.
+
+    Rekkefølgen i listen er tegnerekkefølgen baklengs: obj020 (indeks 0) tegnes oppå det store obj024.
+      obj020  20 x 16 på (60, 120), ligger oppå det store obj024 (underlag)
+      obj021  30 x 20 på (20, 20), to tilstander, gjennomsiktig hjørne
+      obj022  24 x 24 på (100, 10)
+      obj023  20 x 20 på (110, 20), overlapper obj022 og må i et annet lag
+      obj024  320 x 150 på (0, 50), stort objektbilde (egen objektjobb)
+      obj025  16 x 16 på (0, 0), ikon
+      obj026  helt gjennomsiktig, står igjen
+    Med small=False er bare det store objektbildet med, som før lagjobbene fantes.
+    """
+    import json
+    import numpy as np
+
+    rng = np.random.default_rng(7)
+    ex = tmp_path / "extract"
+    (ex / "rooms").mkdir(parents=True)
+    (ex / "objects").mkdir()
+    room = _texture(rng, 320, 200, 3.0)
+    room.save(ex / "rooms" / "room006.png")
+    Image.new("P", (320, 200)).save(ex / "rooms" / "room006_idx.png")
+    specs = [(20, 60, 120, 20, 16, ["01"]), (21, 20, 20, 30, 20, ["01", "02"]), (22, 100, 10, 24, 24, ["01"]),
+             (23, 110, 20, 20, 20, ["01"]), (24, 0, 50, 320, 150, ["01"]), (25, 0, 0, 16, 16, ["01"]),
+             (26, 200, 20, 16, 16, ["01"])]
+    objects = []
+    for oid, x, y, w, h, states in specs:
+        images = [_texture(rng, w, h, 1.0).convert("RGBA") for _ in states]
+        if not small and oid != 24:
+            continue
+        for k, (s, im) in enumerate(zip(states, images)):
+            if oid == 21:
+                for yy in range(5):
+                    for xx in range(5):
+                        im.putpixel((xx, yy), (255, 0, 255, 0))
+            if oid == 26:
+                im = Image.new("RGBA", (w, h), (255, 0, 255, 0))
+            im.save(ex / "objects" / f"obj{oid:03d}_{s}.png")
+            idx = np.zeros((h, w), np.uint8)
+            idx[h // 2:, :] = 1 + k              # nedre halvdel skiller tilstandene, øvre er lik
+            Image.fromarray(idx, "L").convert("P").save(ex / "objects" / f"obj{oid:03d}_{s}_idx.png")
+        objects.append({"id": oid, "x": x, "y": y, "w": w, "h": h, "states": states})
+    meta = {"game_md5_la0": "x", "rooms": {"6": {"name": "lagrom", "width": 320, "height": 200, "palettes": 1,
+                                                 "zplane": False, "cycles": [], "objects": objects}}}
+    (ex / "rooms.json").write_text(json.dumps(meta))
+    return ex, room
+
+
+def _blurred_reference(d, radius=1.2):
+    from PIL import ImageFilter
+    Image.open(d / "referanse.png").convert("RGB").filter(ImageFilter.GaussianBlur(radius)).save(d / "resultat.png")
+
+
+def test_gpt_layer_jobs(tmp_path):
+    import json
+    from dighd import gpt
+
+    ex, room = _layer_extract(tmp_path)
+    notes = {6: "Keep the panel empty.", "lag006": "Small things on the panel."}
+    work = tmp_path / "gpt"
+    jobs = gpt.make_jobs(ex, work, notes=notes)
+    # Rom- og objektjobbene først, så lagene i rommet, og ikonarket til slutt
+    assert [j.id for j in jobs] == ["rom006", "obj024_01", "lag006_01", "lag006_02", "lag006_03", "ikon01"]
+    assert [r["type"] for r in gpt.read_status(work)] == ["rom", "objekt", "lag", "lag", "lag", "ikon"]
+    pieces = {j.id: [p["bilde"] for p in j.objekter] for j in jobs if j.objekter}
+    # Lag 1 tar første tilstand av hvert objekt; obj023 overlapper obj022 og flyttes til lag 2.
+    # obj020 ligger oppå det store bildet og får sitt eget lag med det som underlag.
+    assert pieces == {"lag006_01": ["obj021_01", "obj022_01"], "lag006_02": ["obj021_02", "obj023_01"],
+                      "lag006_03": ["obj020_01"], "ikon01": ["obj025_01"]}
+    overview = (work / "JOBBER.md").read_text()
+    assert "obj026_01 (rom 6): helt gjennomsiktig" in overview and "3 lagjobber med 5 små objektbilder" in overview
+
+    d = work / "jobber" / "lag006_01"
+    data = json.loads((d / "jobb.json").read_text())
+    assert data["type"] == "lag" and data["lag"] == 1 and data["underlag"] == []
+    assert data["bilde_to"] == "jobber/rom006/resultat.png"
+    assert data["objekter"][0] == {"bilde": "obj021_01", "objekt": 21, "tilstand": "01", "rom": 6, "rekt": [20, 20, 30, 20]}
+    under = json.loads((work / "jobber" / "lag006_03" / "jobb.json").read_text())
+    assert under["underlag"] == ["obj024_01"] and under["bilde_to"] == "jobber/obj024_01/resultat.png"
+    # Romjobber skriver ikke feltene for lag
+    assert "objekter" not in json.loads((work / "jobber" / "rom006" / "jobb.json").read_text())
+
+    # Referansen: rommet med lagets objekter på plass, 4x på samme lerret som rommet
+    ref = Image.open(d / "referanse.png")
+    ox, oy = data["plassering"]
+
+    def at(x, y):
+        return ref.getpixel(((ox + x) * 4 + 1, (oy + y) * 4 + 1))
+
+    obj21 = Image.open(ex / "objects" / "obj021_01.png")
+    assert at(30, 30) == obj21.getpixel((10, 10))[:3]
+    assert at(21, 21) == room.getpixel((21, 21))          # gjennomsiktig hjørne viser rommet
+    assert at(115, 30) == Image.open(ex / "objects" / "obj022_01.png").getpixel((15, 20))[:3]
+    assert at(60 + 5, 120 + 5) == room.getpixel((65, 125))  # obj020 er i et annet lag
+    ref3 = Image.open(work / "jobber" / "lag006_03" / "referanse.png")
+    big = Image.open(ex / "objects" / "obj024_01.png")
+    assert ref3.getpixel(((ox + 200) * 4, (oy + 100) * 4)) == big.getpixel((200, 50))[:3]
+
+    prompt = (d / "prompt.txt").read_text()
+    assert prompt.startswith(gpt.PROMPT_BASE) and gpt.PROMPT_LAYER in prompt
+    assert prompt.rstrip().endswith(gpt.PROMPT_LAYER_STYLE)
+    assert "Small things on the panel." in prompt and "Keep the panel empty." not in prompt
+    icon_prompt = (work / "jobber" / "ikon01" / "prompt.txt").read_text()
+    assert gpt.PROMPT_ICONS in icon_prompt and icon_prompt.rstrip().endswith(gpt.PROMPT_STYLE)
+    sheet = Image.open(work / "jobber" / "ikon01" / "original_1x.png")
+    assert sheet.size == gpt.ICON_SHEET and sheet.getpixel((1, 1)) == gpt.ICON_BG
+
+    # Rom- og objektjobbene er de samme som uten de små objektene
+    plain = tmp_path / "uten"
+    ex2, _ = _layer_extract(plain, small=False)
+    jobs2 = gpt.make_jobs(ex2, plain / "gpt", notes=notes)
+    assert [j.id for j in jobs2] == ["rom006", "obj024_01"]
+    for jid in ("rom006", "obj024_01"):
+        for f in ("referanse.png", "prompt.txt", "original_1x.png"):
+            assert (work / "jobber" / jid / f).read_bytes() == (plain / "gpt" / "jobber" / jid / f).read_bytes()
+
+
+def test_gpt_layer_import_and_mod(tmp_path):
+    import json
+    import numpy as np
+    from dighd import gpt, upscale
+
+    ex, room = _layer_extract(tmp_path)
+    work, done = tmp_path / "gpt", tmp_path / "gpt-ferdig"
+    gpt.make_jobs(ex, work)
+    jd = work / "jobber"
+    # Lag 1 riktig. Lag 2 er bare rommet: objektene mangler, og laget avvises.
+    _blurred_reference(jd / "lag006_01")
+    Image.open(jd / "rom006" / "referanse.png").save(jd / "lag006_02" / "resultat.png")
+    _blurred_reference(jd / "ikon01")
+    s = gpt.import_results(work, ex, done)
+    status = {r["jobb"]: r for r in gpt.read_status(work)}
+    assert status["lag006_01"]["status"] == "godkjent" and status["ikon01"]["status"] == "godkjent"
+    assert status["lag006_02"]["status"] == "avvist"
+    assert "obj021_02 mangler" in status["lag006_02"]["kommentar"]
+    assert "small objects did not match" in (jd / "lag006_02" / "retur.md").read_text()
+    assert s["ferdige_lagobjekter"] == ["obj021_01", "obj022_01"] and s["lagobjekter_totalt"] == 5
+    assert s["ferdige_ikoner"] == ["obj025_01"] and s["ikoner_totalt"] == 1
+
+    # Utklippet: nøyaktig 4x, alfa fra originalen, innholdet fra laget der objektet ligger
+    hd = Image.open(done / "objects" / "obj021_01.png")
+    orig = Image.open(ex / "objects" / "obj021_01.png")
+    assert hd.size == (120, 80) and hd.mode == "RGBA"
+    assert hd.tobytes("raw", "A") == upscale.upscale_alpha(orig.getchannel("A"), 4).tobytes()
+    assert hd.getpixel((2, 2))[3] == 0 and hd.getpixel((60, 40))[3] == 255
+    res = Image.open(jd / "lag006_01" / "resultat.png").convert("RGB")
+    ox, oy = json.loads((jd / "lag006_01" / "jobb.json").read_text())["plassering"]
+    crop = res.crop(((ox + 20) * 4, (oy + 20) * 4, (ox + 50) * 4, (oy + 40) * 4))
+    diff = np.abs(np.asarray(hd.convert("RGB"), float) - np.asarray(crop, float))[np.asarray(hd)[..., 3] > 0]
+    assert diff.mean() < 6
+    assert Image.open(done / "objects" / "obj025_01.png").size == (64, 64)
+    prov = json.loads((done / "provenance.json").read_text())
+    p = prov["obj021_01"]
+    assert p["type"] == "lag" and p["lag"] == "lag006_01" and p["rekt_i_lag"] == [20, 20, 30, 20]
+    assert p["fil"] == "objects/obj021_01.png" and p["jobber"][0]["jobb"] == "lag006_01"
+    assert p["jobber"][0]["kantlikhet_objekt"]["objekt"] > 0.9
+    assert prov["obj025_01"]["type"] == "ikon" and prov["obj025_01"]["lag"] == "ikon01"
+    assert "obj021_02" not in prov and not (done / "objects" / "obj021_02.png").exists()
+    report = (work / "RAPPORT.md").read_text()
+    assert "| Status | Romjobber | Objektjobber | Lagjobber | Ikonark |" in report
+    assert "Ferdige objektbilder fra lag: 2 av 5" in report and "Ferdige ikoner fra ikonark: 1 av 1" in report
+
+    # Ordre og grafikkliste: lagjobbene etter rom- og objektjobbene, med bilde to
+    orders = gpt.write_orders(work, batch=10).read_text()
+    assert "Lagjobber: 1 av 3 godkjent. Ferdige objektbilder fra lag: 2 av 5" in orders
+    assert orders.index("`lag006_02`") < orders.index("`rom006`") < orders.index("`lag006_03`")
+    assert ("`lag006_03` (rom 6, lagrom, lag 03 med 1 objektbilde, del 1/1). Legg ved "
+            "`jobber/obj024_01/resultat.png` som bilde to") in orders
+    assert "Lag denne etter at obj024_01 er godkjent." in orders
+    lst = gpt.write_list(work).read_text()
+    assert "| Små objektbilder i lag (`lagNNN_KK`: dører, brytere, lys, ting) | 2 | 5 |" in lst
+    assert "bilde to `jobber/rom006/resultat.png`" in lst
+
+    # Ny leveranse av lag 2: senere tilstand gjøres lik den første der originalene er like
+    _blurred_reference(jd / "lag006_02")
+    gpt.import_results(work, ex, done)
+    prov = json.loads((done / "provenance.json").read_text())
+    assert prov["obj021_02"]["likt_med"] == "obj021_01" and "obj023_01" in prov
+    first = np.asarray(Image.open(done / "objects" / "obj021_01.png"))
+    later = np.asarray(Image.open(done / "objects" / "obj021_02.png"))
+    assert np.array_equal(first[8, 60], later[8, 60])  # øvre halvdel er lik i originalene
+
+    # Modden: godkjente ChatGPT-objekter brukes som de er, resten skaleres automatisk
+    m = modpack.build_mod(ex, tmp_path / "mod", scale=4, method="nearest", rooms={6}, own=done)
+    for name in ("obj021_01", "obj021_02", "obj022_01", "obj023_01", "obj025_01"):
+        assert name in m["objects"]
+        assert Image.open(tmp_path / "mod" / "objects" / f"{name}.png").tobytes() == \
+            Image.open(done / "objects" / f"{name}.png").tobytes()
+    assert "obj020_01" in m["objects"]                       # ikke ferdig: automatisk oppskalert
+    m = modpack.build_mod(ex, tmp_path / "mod2", scale=4, method="nearest", rooms=set(), own=done)
+    assert m["objects"] == ["obj021_01", "obj021_02", "obj022_01", "obj023_01", "obj025_01"]
+
+    # Lag 1 er ikke ferdig lenger: objektene fjernes, og senere tilstander som bygger på dem venter
+    (jd / "lag006_01" / "resultat.png").rename(jd / "lag006_01" / "forrige.png")
+    s = gpt.import_results(work, ex, done)
+    prov = json.loads((done / "provenance.json").read_text())
+    assert sorted(n for n in prov if prov[n]["type"] == "lag") == ["obj023_01"]
+    assert not (done / "objects" / "obj021_01.png").exists() and not (done / "objects" / "obj021_02.png").exists()
+    assert any("venter på første tilstand" in v for v in s["venter"])
+
+
+def test_gpt_layer_parts_and_stitch():
+    from dighd import gpt
+    import numpy as np
+
+    # Bredt rom med tre deler (0, 296 og 592, overlapp 88)
+    tiles = gpt.plan_tiles(976, 200)
+    assert [t[0] for t in tiles] == [0, 296, 592]
+
+    def piece(name, x0, x1):
+        return gpt.Piece(name, 1, "01", 2, (x0, 50, x1 - x0, 20), (x0, 50, x1, 70))
+
+    a = piece("objA", 300, 340)    # helt inne i del 1 og del 2, trenger bare én
+    b = piece("objB", 600, 640)    # helt inne i del 2 og del 3
+    c = piece("objC", 560, 700)    # ikke helt inne i noen del: sys sammen av del 2 og 3
+    d = piece("objD", 10, 40)      # bare del 1
+    names = {i: [p.bilde for p in ps] for i, ps in gpt.assign_parts([a, b, c, d], tiles).items()}
+    # C trenger del 2 og 3, så A og B legges i del 2 i stedet for i egne deler (B ligger mest midt i del 2)
+    assert names == {0: ["objD"], 1: ["objA", "objB", "objC"], 2: ["objC"]}
+    assert len(gpt.assign_parts([a], tiles)) == 1
+
+    # Sammensying av et utsnitt gir det samme som det tilsvarende stedet i hele bildet
+    rng = np.random.default_rng(2)
+    parts = [((x, y, w, h), rng.random((h * 4, w * 4, 3)) * 255) for x, y, w, h, _, _ in tiles]
+    full = gpt._stitch(976, 200, parts)
+    box = gpt._stitch(976, 200, parts, (350, 40, 300, 30))
+    assert np.array_equal(box, full[40 * 4:70 * 4, 350 * 4:650 * 4])

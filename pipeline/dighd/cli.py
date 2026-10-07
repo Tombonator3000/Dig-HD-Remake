@@ -5,7 +5,7 @@
   dighd build-mod --name test        Lager en mod-mappe for HD-motoren
   dighd compare --room 22            Lager et sammenligningsbilde av oppskaleringsmetoder
   dighd san                          Trekker ut filmrammer (via thedig-textures)
-  dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt (rom og store objektbilder)
+  dighd gpt-pakke                    Lager jobber for ChatGPT i work/gpt (rom, store objektbilder, lag og ikonark)
   dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom og HD-objekter
   dighd gpt-ordre                    Skriver ORDRE.md med neste jobber til ChatGPT
 """
@@ -119,8 +119,10 @@ def cmd_san(a) -> int:
 def cmd_gpt_pakke(a) -> int:
     notes = gpt.read_notes(Path(a.notater)) if a.notater else {}
     jobs = gpt.make_jobs(Path(a.extract), Path(a.ut), _rooms(a.rooms), notes)
-    n_obj = sum(j.type == "objekt" for j in jobs)
-    print(f"{len(jobs)} jobber ({len(jobs) - n_obj} for rom, {n_obj} for store objektbilder) -> "
+    n = {t: sum(j.type == t for j in jobs) for t in ("rom", "objekt", "lag", "ikon")}
+    pieces = {t: len({p["bilde"] for j in jobs if j.type == t for p in j.objekter or []}) for t in ("lag", "ikon")}
+    print(f"{len(jobs)} jobber ({n['rom']} for rom, {n['objekt']} for store objektbilder, {n['lag']} lagjobber med "
+          f"{pieces['lag']} små objektbilder, {n['ikon']} ikonark med {pieces['ikon']} ikoner) -> "
           f"{Path(a.ut) / 'jobber'} (oversikt i JOBBER.md, status i status.csv)")
     return 0
 
@@ -134,6 +136,10 @@ def cmd_gpt_inn(a) -> int:
           ", ".join(map(str, s["ferdige_rom"])) or "ingen")
     print(f"Ferdige objekter ({len(s['ferdige_objekter'])} av {s['objekter_totalt']}):",
           ", ".join(s["ferdige_objekter"]) or "ingen")
+    if s["lagobjekter_totalt"]:
+        print(f"Ferdige objektbilder fra lag: {len(s['ferdige_lagobjekter'])} av {s['lagobjekter_totalt']}")
+    if s["ikoner_totalt"]:
+        print(f"Ferdige ikoner fra ikonark: {len(s['ferdige_ikoner'])} av {s['ikoner_totalt']}")
     for line in s["venter"]:
         print("  venter:", line)
     print(f"Rapport: {Path(a.fra) / 'RAPPORT.md'}. Bruk resultatet med: dighd build-mod --egne {a.ut}")
