@@ -32,7 +32,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Kontroll av kodek 5 i spillet (fant og rettet at ingen ruter med kodek 5 fikk HD, og en krasj ved romskifte)
 - [ ] Farger i uttrekket for kodek 5 når skuespillerpaletten ikke er satt (kostyme 210: kode 26 svart i uttrekket, brun i spillet)
 - [ ] HD-sprites for kodek 16 (5 kostymer)
-- [ ] HD-fonter for tekst
+- [x] HD-tekst (xBR per glyf fra spillets egne fonter, PR 9)
+- [ ] HD-figur skinner svakt gjennom bannere og hovedmenyen når de ligger over en figur
 - [x] Fargesyklede områder i HD (fargekart med kvadratisk B-spline, PR 8)
 - [ ] Spille av rene filmer som MP4/WebM i stedet for tusenvis av PNG-er
 - [ ] Prøv en nyere ScummVM-commit og oppdater patchen

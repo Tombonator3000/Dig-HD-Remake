@@ -133,3 +133,12 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - `DIGHD_VERIFY` sjekker også at skjermen er lik hele skjermen bygget på nytt, og teller syklede piksler for seg. Ny `DIGHD_BENCH`. `engine/test.sh`: 0 avvik. Patchen gjelder rent på c9091321. Ikke testet med ekte skjerm.
 - Så på vannet i rom 22 i seks rammer før og etter: før grove 4x4-blokker, nå HD med bevegelse. Flettet PR 8 (ec978cb) etter grønn CI.
 - Runde 04:47: fortsatt ingen nye leveranser.
+
+## 2026-10-07 05:19 til 06:55 (Claude)
+- Planlagt runde 05:19: ingen nye leveranser fra ChatGPT (siste 23:43). Tok HD-tekst fra motorlista med en agent i egen arbeidskopi.
+- PR 9: all tekst vises i HD. Dialogen og menyene bruker fire tegnsett i DIG.LA1 (`CharsetRendererV7`), ikke NUT-fonter; filmene bruker FONT0 til FONT3.NUT. Begge tegnerne melder hver glyf til DigHD, som husker den per bufferpiksel og legger HD-glyfen over bildet som er under teksten. Bare piksler som fortsatt har verdien glyfen skrev, får glyf, så ingen tekst står igjen.
+- Skalerer: nearest, Scale4x og xBR 4x prøvd på alle 8 fontene. xBR valgt (jevne rundinger, myke kanter). Glyfene lages med pikslene fra nabotegn i samme farge, ellers fikk kanten hakk mellom bokstavene. `DIGHD_TEXT` velger skalerer.
+- Testet uten skjerm i rom 2 og introen: med `nearest` 0 avvik i teksten i 45 dumper, plasseringen stemmer i 47 av 47, klassisk modus og gult felt riktige. `engine/test.sh`: 0 avvik. Ingen målbar tidsøkning i rom 2, omtrent 0,5 ms mer per filmbilde med tekst.
+- Så på nærbilder av dialogen i rom 2 og en filmundertekst før og etter, og flettet PR 9 (804cb3c) etter grønn CI.
+- Funnet av agenten: når et banner eller hovedmenyen ligger over en figur, skinner HD-figuren svakt gjennom boksen. Feilen fantes fra før. Lagt i todo.
+- Runde 06:53: fortsatt ingen nye leveranser.
