@@ -67,7 +67,7 @@ dighd build-mod --name gpt --egne work/gpt-ferdig
 tools/mod_gren.sh send           # modden til grenen hd-mod
 ```
 
-ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. Regler og format: [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md).
+ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. `GRAFIKKLISTE.md` i samme gren har alt som skal lages, i prioritert rekkefølge og delt i bestillinger. Regler og format: [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md).
 
 ## Test
 

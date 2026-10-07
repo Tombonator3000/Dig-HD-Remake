@@ -142,6 +142,7 @@ def cmd_gpt_ordre(a) -> int:
     anchors = sorted(p.name for p in Path(a.stil).glob("*.png")) if a.stil and Path(a.stil).is_dir() else []
     path = gpt.write_orders(Path(a.fra), batch=a.antall, anchors=anchors, messages=a.beskjed or None,
                            tasks=Path(a.oppgaver) if a.oppgaver else None)
+    gpt.write_list(Path(a.fra), batch=a.antall)
     print(f"Ordre skrevet: {path}")
     return 0
 

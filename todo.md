@@ -15,6 +15,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Bestilling, jobbverktøy, kontroll og arbeidsgren `gpt-arbeid`
 - [x] Pilot: rom 9 og 22 levert av Codex, kontrollert og godkjent, lagt i `stil/` som stilankere
 - [x] Fast ordre i `ORDRE.md` og runde-skript (`tools/gpt_runde.sh`), mod publiseres i `hd-mod`
+- [x] `GRAFIKKLISTE.md` med alt som skal lages, i 19 bestillinger, så ChatGPT kan jobbe videre uten å vente
 - [ ] Resten av romjobbene (159 igjen)
 - [x] Objektjobber for de 30 største objektbildene, med egne notater og like tilstander
 - [ ] De 30 objektjobbene
@@ -27,13 +28,14 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 - [x] Hurtigtast for å bytte mellom klassisk og HD (Ctrl+H)
 - [x] Vis et gult felt der HD mangler (Ctrl+Shift+H)
-- [ ] Tekst over figurer uten HD blir gul med gult felt på (motoren kjenner bare rektangelet til figuren)
+- [x] Tekst over figurer uten HD ble gul med gult felt på (rettet i PR 10)
 - [x] Undertekster over HD-filmrammer: teksten ligger over HD-rammen som originalpiksler
 - [x] Kontroll av kodek 5 i spillet (fant og rettet at ingen ruter med kodek 5 fikk HD, og en krasj ved romskifte)
 - [ ] Farger i uttrekket for kodek 5 når skuespillerpaletten ikke er satt (kostyme 210: kode 26 svart i uttrekket, brun i spillet)
 - [ ] HD-sprites for kodek 16 (5 kostymer)
 - [x] HD-tekst (xBR per glyf fra spillets egne fonter, PR 9)
-- [ ] HD-figur skinner svakt gjennom bannere og hovedmenyen når de ligger over en figur
+- [x] HD-figur skinte svakt gjennom bannere og hovedmenyen (rettet i PR 10, merker per piksel)
+- [ ] Tekst over et banner som tas bort, vises trolig som originalpiksler i én skjermoppdatering (ikke testet)
 - [x] Fargesyklede områder i HD (fargekart med kvadratisk B-spline, PR 8)
 - [ ] Spille av rene filmer som MP4/WebM i stedet for tusenvis av PNG-er
 - [ ] Prøv en nyere ScummVM-commit og oppdater patchen

@@ -730,6 +730,77 @@ def _image_of(row: dict) -> str:
     return row["jobb"] if row["type"] == "objekt" else f"room{int(row['rom']):03d}"
 
 
+def work_queue(rows: list[dict]) -> list[dict]:
+    """Alle jobber som ikke er godkjent, i den rekkefølgen ChatGPT skal ta dem.
+
+    Avviste først. Så nye etter romnummer, romjobbene før objektjobbene i samme rom; objektjobber
+    i rom som allerede er ferdige, kommer først blant de nye, så rommet blir helt ferdig. Til slutt
+    de som er godtatt foreløpig, men kan bli bedre (sjekk).
+    """
+    room_rows = [r for r in rows if r["type"] == "rom"]
+    rooms_done = {int(r["rom"]) for r in room_rows} - {int(r["rom"]) for r in room_rows if r["status"] != "godkjent"}
+    retry = [r for r in rows if r["status"] == "avvist"]
+    fresh = sorted((r for r in rows if r["status"] == "ny"),
+                   key=lambda r: (not (r["type"] == "objekt" and int(r["rom"]) in rooms_done),
+                                  int(r["rom"]), r["type"] != "rom"))
+    better = [r for r in rows if r["status"] == "sjekk"]
+    return retry + fresh + better
+
+
+def write_list(work: Path, batch: int = 10) -> Path:
+    """Skriver GRAFIKKLISTE.md: alt ChatGPT skal lage, i rekkefølge og delt i bestillinger.
+
+    Bestilling 1 er det samme som står i ORDRE.md. Når den er levert, tar ChatGPT neste
+    bestilling uten å vente på ny ordre.
+    """
+    rows = read_status(work)
+    queue = work_queue(rows)
+    done = [r for r in rows if r["status"] == "godkjent"]
+    room_rows = [r for r in rows if r["type"] == "rom"]
+    obj_rows = [r for r in rows if r["type"] == "objekt"]
+    rooms_all = {int(r["rom"]) for r in room_rows}
+    rooms_done = rooms_all - {int(r["rom"]) for r in room_rows if r["status"] != "godkjent"}
+    objects_all = {_image_of(r) for r in obj_rows}
+    objects_done = objects_all - {_image_of(r) for r in obj_rows if r["status"] != "godkjent"}
+
+    def label(r: dict) -> str:
+        what = f"rom {r['rom']} {r['navn']}"
+        m = _OBJ_ID.match(r["jobb"]) if r["type"] == "objekt" else None
+        if m:
+            what += f", objekt {int(m.group(1))} tilstand {m.group(2)}"
+        if r["del"] not in ("1/1", ""):
+            what += f", del {r['del']}"
+        note = {"avvist": " (avvist, les retur.md)", "sjekk": " (kan bli bedre)"}.get(r["status"], "")
+        return f"`{r['jobb']}` ({what}){note}"
+
+    lines = ["# Grafikkliste", "", time.strftime("Oppdatert %Y-%m-%d %H:%M (norsk tid)"), "",
+             "Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. "
+             "Bestilling 1 er det samme som står i `ORDRE.md`. Når en bestilling er levert, tar du neste "
+             "uten å vente på ny ordre. Hopp over jobber som er krysset av.", "",
+             "## Oversikt", "",
+             "| Del | Ferdig | Totalt | Når |", "| --- | --- | --- | --- |",
+             f"| Rombakgrunner | {len(rooms_done)} | {len(rooms_all)} | Nå, bestillingene under ({len(room_rows)} jobber, brede og høye rom er delt) |",
+             f"| Store objektbilder (nærbilder, kart, trikken) | {len(objects_done)} | {len(objects_all)} | Nå, sammen med rommene |",
+             "| Andre objektbilder (610) | 0 | 610 | Senere, egen bestilling når rommene er ferdige |",
+             "| Figurer (modellark for Boston, Maggie og Brink) | 0 | 3 | Senere, egen bestilling |",
+             "| Filmrammer (12 638) | 0 | 12 638 | Senere, egen bestilling |", ""]
+    for i in range(0, len(queue), batch):
+        part = queue[i:i + batch]
+        n = i // batch + 1
+        rooms = sorted({int(r["rom"]) for r in part})
+        lines += [f"## Bestilling {n}" + (" (nå, samme som ORDRE.md)" if n == 1 else ""), "",
+                  f"Rom {', '.join(map(str, rooms))}.", ""]
+        lines += [f"- [ ] {label(r)}" for r in part]
+        lines.append("")
+    if not queue:
+        lines += ["## Bestillinger", "", "Alle jobber er levert og godkjent.", ""]
+    lines += ["## Ferdig", ""]
+    lines += [f"- [x] `{r['jobb']}` (rom {r['rom']} {r['navn']})" for r in done] or ["Ingen ennå."]
+    path = work / "GRAFIKKLISTE.md"
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path
+
+
 def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
                  messages: list[str] | None = None, tasks: Path | None = None) -> Path:
     """Skriver ORDRE.md: status, neste jobber og beskjeder. ChatGPT leser denne først."""
@@ -745,14 +816,7 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
     objects_all = {_image_of(r) for r in obj_rows}
     objects_done = sorted(objects_all - {_image_of(r) for r in obj_rows if r["status"] != "godkjent"})
 
-    retry = [r for r in rows if r["status"] == "avvist"]
-    # Nye jobber etter romnummer, romjobbene før objektjobbene i samme rom. Objektjobber i rom
-    # som allerede er ferdige, kommer først, så rommet blir helt ferdig.
-    fresh = sorted((r for r in rows if r["status"] == "ny"),
-                   key=lambda r: (not (r["type"] == "objekt" and int(r["rom"]) in rooms_done),
-                                  int(r["rom"]), r["type"] != "rom"))
-    better = [r for r in rows if r["status"] == "sjekk"]
-    queue = (retry + fresh + better)[:batch]
+    queue = work_queue(rows)[:batch]
 
     lines = ["# Ordre fra Claude", "", time.strftime("Oppdatert %Y-%m-%d %H:%M (norsk tid)"), "",
              "Les denne filen før du starter. Den erstatter tidligere ordre.", "",
@@ -781,6 +845,8 @@ def write_orders(work: Path, batch: int = 10, anchors: list[str] | None = None,
                 why += (f" Legg ved `jobber/{first}/resultat.png` som bilde to (ikke stilankeret), så tilstandene "
                         f"blir like. Lag denne etter {first}.")
         lines.append(f"{i}. `{r['jobb']}` ({what}, del {r['del']}).{why}")
+    if queue:
+        lines += ["", "Når disse er levert, fortsett med bestilling 2 i `GRAFIKKLISTE.md` uten å vente på ny ordre."]
     lines += ["", "## Stilankere", ""]
     if anchors:
         lines += [f"- `stil/{a}`" for a in anchors]
