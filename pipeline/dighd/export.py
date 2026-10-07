@@ -241,6 +241,7 @@ def export_costumes(game: Path, out: Path, costume_filter: set[int] | None = Non
             # for kodek 5 og 16 brukes rompaletten (se costume_palette).
             rgbs_off = gamedata.find_child(data, c, size, b"RGBS")
             rgbs = data[rgbs_off + 8:rgbs_off + gamedata.be32(data, rgbs_off + 4)] if rgbs_off else b""
+            anims = gamedata.akos_animations(data, c, size)
             cels = list(akos._process_costume(data, c, cid, errors, "AKOS"))
             arrays = [(np.frombuffer(cel.index, np.uint8).reshape(cel.height, cel.width), cel.transparent)
                       for cel in cels]
@@ -261,6 +262,39 @@ def export_costumes(game: Path, out: Path, costume_filter: set[int] | None = Non
                 idx_im.save(dest / f"costume{cid:03d}_{cel.cel:03d}_idx.png", transparency=cel.transparent)
                 info.append({"cel": cel.cel, "w": cel.width, "h": cel.height})
                 written += 1
-            meta[str(cid)] = {"room": room_num, "codec": codec, "colours": how, "cels": info}
+            meta[str(cid)] = {"room": room_num, "codec": codec, "colours": how, "cels": info, **anims}
     (out / "costumes.json").write_text(json.dumps(meta, indent=1))
     return written
+
+
+def costume_animations(game: Path) -> dict[int, dict]:
+    """Animasjonene i hvert kostyme (gamedata.akos_animations), lest rett fra DIG.LA1.
+
+    Det samme som `dighd extract` skriver i costumes.json (retninger, animasjoner). Brukes når
+    uttrekket er laget før animasjonene kom med.
+    """
+    data = (game / "DIG.LA1").read_bytes()
+    index = gamedata.read_index(game / "DIG.LA0")
+    rooms = gamedata.read_rooms(game / "DIG.LA1")
+    return {cid: gamedata.akos_animations(data, off, size)
+            for cid, _, off, size in gamedata.iter_akos(data, index, rooms) if cid >= 0}
+
+
+def load_costumes(extract: Path, game: Path | None = None) -> dict[int, dict]:
+    """costumes.json med animasjonene. Mangler de i uttrekket, leses de fra spillfilene når de finnes.
+
+    Uten animasjoner (og uten spillfiler) har kostymet "animasjoner": [] og 4 retninger.
+    """
+    path = extract / "costumes.json"
+    if not path.exists():
+        return {}
+    meta = {int(k): v for k, v in json.loads(path.read_text()).items()}
+    if any("animasjoner" not in v for v in meta.values()) and game and (game / "DIG.LA1").exists():
+        anims = costume_animations(game)
+        for cid, v in meta.items():
+            if "animasjoner" not in v and cid in anims:
+                v.update(anims[cid])
+    for v in meta.values():
+        v.setdefault("retninger", 4)
+        v.setdefault("animasjoner", [])
+    return meta

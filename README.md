@@ -15,9 +15,9 @@ Repoet er privat. Spillfilene og alt som lages fra dem ligger i egne grener og s
 | Spillfiler | Engelsk standardutgave (DIG.LA0 MD5 `d8323015...`). LA0, LA1 og VIDEO i grenen `spilldata`. Musikk og tale bare på Drive. |
 | Uttrekk | Alle 111 rom, 642 objektbilder, 28 490 kostymeruter (med fargene spillet viser, også for kodek 5 og 16) og 12 638 filmrammer ut som PNG. |
 | HD-motor | ScummVM-patch med HD-bakgrunner, HD-objekter, HD-sprites (alle tre kostymekodekene) og HD-filmrammer, fargejustering ved palettbytte, mus og peker i HD. Testet uten skjerm (0 avvik med nearest-mod) og kjørt på laptopen med OpenGL og 32-bits farger. |
-| HD-grafikk | 103 av 106 rom og alle 30 store objektbilder ferdige fra ChatGPT. Nå: de 609 mindre objektbildene i lagjobber og ikonark (244 av 431 jobber igjen). |
+| HD-grafikk | 103 av 106 rom og alle 30 store objektbilder ferdige fra ChatGPT. Nå: de 609 mindre objektbildene i lagjobber og ikonark, og piloten med figurark. 435 jobber i alt med piloten. |
 | Små objekter og ikoner | Jobbene til ChatGPT er klare: 236 lagjobber med 460 små objektbilder tegnet på plass i rommet, og 3 ikonark med de 149 ikonene i inventaret. Ingen laget ennå, så modden bruker automatisk oppskalering for dem. |
-| Figurer | Bare automatisk oppskalering så langt. Egen runde med ChatGPT kommer senere. |
+| Figurer | Pilot med figurark: 4 ark med 229 animasjonsruter av Boston Low (`figCCC_KK`), der alle rutene i en animasjon males på samme ark så figuren ikke flimrer. Kostymene, hvem de viser og hvor mange ark de gir, står i [docs/figurer.csv](docs/figurer.csv) (4031 ark for alle 331 kostymer). Ellers automatisk oppskalering med `--kostymer`. |
 | Filmer | Utskifting av rammer virker og er testet. Ingen HD-filmer laget ennå. |
 
 Detaljer, tester og kjente begrensninger: [STATUS.md](STATUS.md). Hva som gjenstår: [todo.md](todo.md).
@@ -62,8 +62,9 @@ tools/gpt_runde.sh               # henter, kontrollerer, bygger og publiserer mo
 Det samme steg for steg:
 
 ```sh
-dighd gpt-pakke                  # 431 jobber i work/gpt: 162 for 106 rom, 30 for store objektbilder,
-                                 # 236 lagjobber (460 små objektbilder) og 3 ikonark (149 ikoner)
+dighd gpt-pakke                  # 435 jobber i work/gpt: 162 for 106 rom, 30 for store objektbilder,
+                                 # 236 lagjobber (460 små objektbilder), 3 ikonark (149 ikoner) og
+                                 # 4 figurark i piloten (229 ruter av Boston Low); --figurer alle for alle
 tools/gpt_gren.sh send           # jobbene, status og ordre til grenen gpt-arbeid
 tools/gpt_gren.sh hent           # resultatene fra ChatGPT tilbake
 dighd gpt-inn                    # plassering, fargelås, sammensying, RAPPORT.md og retur.md
@@ -72,7 +73,7 @@ dighd build-mod --name gpt --egne work/gpt-ferdig
 tools/mod_gren.sh send           # modden til grenen hd-mod
 ```
 
-ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. `GRAFIKKLISTE.md` i samme gren har alt som skal lages, i prioritert rekkefølge og delt i bestillinger. Lagjobbene (`lagNNN_KK`) er rommet med små objekter tegnet på plass, med det godkjente HD-rommet som bilde to. `gpt-inn` kontrollerer laget og hvert objekt for seg og klipper objektene ut til `objects/objNNN_SS.png`. Regler og format: [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md).
+ChatGPT jobber i grenen `gpt-arbeid` og leser `ORDRE.md` først. `GRAFIKKLISTE.md` i samme gren har alt som skal lages, i prioritert rekkefølge og delt i bestillinger. Lagjobbene (`lagNNN_KK`) er rommet med små objekter tegnet på plass, med det godkjente HD-rommet som bilde to. `gpt-inn` kontrollerer laget og hvert objekt for seg og klipper objektene ut til `objects/objNNN_SS.png`. Figurarkene (`figCCC_KK`) er rutene i en animasjon på en flat bakgrunnsfarge; `gpt-inn` kontrollerer hver rute og flimmer mellom nabo-rutene og klipper rutene ut til `costumes/costumeCCC_NNN.png`, som `build-mod --egne` tar med. Regler og format: [docs/BESTILLING-CHATGPT.md](docs/BESTILLING-CHATGPT.md).
 
 ## Test
 
@@ -98,7 +99,8 @@ tools/romtest.sh                      # hvert rom uten skjerm med mods/gpt: kras
 ## Mappene
 
 ```
-pipeline/dighd/   gamedata (LA0/LA1), export, upscale, modpack, gpt (jobber og kontroll), cli
+pipeline/dighd/   gamedata (LA0/LA1 og AKOS-animasjoner), export, upscale, modpack, gpt (jobber og kontroll),
+                  figur (figurark), cli
 pipeline/tests/   tester for pipelinen
 engine/           patches/ (ScummVM-patchen), SCUMMVM_COMMIT, build.sh, run.sh, test.sh,
                   build-web.sh, run-web.sh og web/ (nettleseren, bare lokalt)
@@ -106,7 +108,8 @@ tools/            hent_spilldata.sh, gpt_runde.sh, gpt_gren.sh, mod_gren.sh, la0
                   check_hd_art.py, hent_grafikkpilot.sh, romtest.sh og romtest.py (alle rom uten skjerm)
 docs/             ANALYSE, HD-MOTOR, BESTILLING-CHATGPT, GRAFIKKPILOT, rom-oversikt.csv,
                   gpt-romnotater.csv, gpt-arbeid-AGENTS.md, kostymefarger.csv (rom og palett
-                  for kostymer med kodek 5 og 16), konsept/ (stilreferanser)
+                  for kostymer med kodek 5 og 16), figurer.csv (kostymene etter hvor mye de
+                  vises, med figur, ruter og ark), konsept/ (stilreferanser)
 game/             spillfilene (lokalt, fra spilldata)
 work/             uttrekk, jobber og mellomresultater (lokalt)
 mods/             ferdige mod-mapper (lokalt)

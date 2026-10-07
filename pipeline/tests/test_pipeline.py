@@ -731,3 +731,331 @@ def test_gpt_manual_check_status(tmp_path):
     assert row["status"] == "sjekk" and row["kommentar"] == "søm mot rommet"
     assert s["ferdige_objekter"] == ["obj241_01"] and (done / "objects" / "obj241_01.png").exists()
     assert "Redo with room." in (d / "retur.md").read_text()
+
+
+# ---------------------------------------------------------------- figurark
+
+def _figure_extract(tmp_path, with_room=True):
+    """Uttrekk med kostyme 14: gange mot høyre (ruter 0 til 5), stående mot høyre og venstre (6 og 7),
+    én rute som er bredere enn lerretet (8, 400 x 60) og én helt gjennomsiktig (9).
+
+    Gangrutene er laget av den samme figuren (samme tekstur), med et bein som flytter seg, slik
+    rutene i en ekte animasjon er like bortsett fra posen. Med with_room er rom 5 fra _fake_extract med.
+    """
+    import json
+    import numpy as np
+
+    if with_room:
+        ex, _, _ = _fake_extract(tmp_path)
+    else:
+        ex = tmp_path / "extract"
+        (ex / "rooms").mkdir(parents=True)
+        (ex / "rooms.json").write_text(json.dumps({"game_md5_la0": "x", "rooms": {}}))
+    (ex / "costumes").mkdir()
+    rng = np.random.default_rng(11)
+    tex = np.asarray(_texture(rng, 400, 60, 1.5), dtype=np.float64) / 255
+    # Brune farger, langt fra alle bakgrunnsfargene
+    lo, hi = np.array([110, 60, 30]), np.array([220, 140, 90])
+    colours = (lo + tex * (hi - lo)).astype(np.uint8)
+
+    def cel(n, w, h, mask):
+        rgba = np.zeros((h, w, 4), np.uint8)
+        rgba[..., :3] = colours[:h, :w]
+        rgba[..., 3] = np.where(mask, 255, 0)
+        rgba[~mask, :3] = 0
+        Image.fromarray(rgba).save(ex / "costumes" / f"costume014_{n:03d}.png")
+        idx = Image.fromarray(np.where(mask, 1 + (np.arange(w)[None, :] % 7), 0).astype(np.uint8), "L").convert("P")
+        idx.save(ex / "costumes" / f"costume014_{n:03d}_idx.png", transparency=0)
+
+    yy, xx = np.mgrid[0:48, 0:24]
+    body = ((xx - 12) / 10.0) ** 2 + ((yy - 18) / 17.0) ** 2 <= 1
+    for k in range(6):
+        cel(k, 24, 48, body | ((yy >= 30) & (abs(xx - (9 + k)) <= 2)))
+    cel(6, 24, 48, body)
+    cel(7, 24, 48, body | ((yy >= 30) & (abs(xx - 15) <= 2)))
+    by, bx = np.mgrid[0:60, 0:400]
+    cel(8, 400, 60, ((bx - 200) / 195.0) ** 2 + ((by - 30) / 28.0) ** 2 <= 1)
+    cel(9, 10, 10, np.zeros((10, 10), bool))
+    anims = [{"valg": 26, "animasjon": 3, "retning": 2, "lag": 0, "ruter": [6]},
+             {"valg": 30, "animasjon": 3, "retning": 6, "lag": 0, "ruter": [7]},
+             {"valg": 18, "animasjon": 2, "retning": 2, "lag": 0, "ruter": [0, 1, 2, 3, 4, 5]},
+             {"valg": 72, "animasjon": 9, "retning": 0, "lag": 0, "ruter": [8]}]
+    sizes = [(24, 48)] * 8 + [(400, 60), (10, 10)]
+    meta = {"14": {"room": 5, "codec": 1, "colours": {"kind": "rgbs"}, "retninger": 8, "animasjoner": anims,
+                   "cels": [{"cel": n, "w": w, "h": h} for n, (w, h) in enumerate(sizes)]}}
+    (ex / "costumes.json").write_text(json.dumps(meta))
+    return ex
+
+
+def test_akos_sequence_and_animations():
+    # AKSQ: rute 3, DrawMany med rutene 4 og 0x105 (to byte), betinget hopp til 30, GoToState tilbake
+    # til 0 (animasjonen går i ring). Ved 30: rute 7 og slutt.
+    seq = bytes([3]) + bytes([0xC0, 0x20, 2]) + struct.pack("<hh", 0, 0) + bytes([4]) + struct.pack("<hh", 1, 1) \
+        + bytes([0x81, 0x05]) + bytes([0xC0, 0x70]) + struct.pack("<H", 30) + bytes([0, 1, 0]) \
+        + bytes([0xC0, 0x30]) + struct.pack("<H", 0)
+    seq = seq.ljust(30, b"\0") + bytes([7]) + bytes([0xC0, 0xFF])
+    assert gamedata.akos_sequence(seq, 0) == [[3], [4, 0x105], [7]]
+
+    # En AKOS-blokk med AKHD (8 retninger), AKCH (bare valg 18 = gange mot høyre, lag 0) og AKSQ
+    akhd = struct.pack("<6H", 1, 2, 24, 10, 1, 2)
+    chores = [0] * 24
+    chores[18] = 48
+    akch = struct.pack("<24H", *chores) + struct.pack("<H", 0x8000) + bytes([6]) + struct.pack("<HH", 0, 0)
+    akos = _block(b"AKOS", _block(b"AKHD", akhd) + _block(b"AKCH", akch) + _block(b"AKSQ", seq))
+    out = gamedata.akos_animations(akos, 0, len(akos))
+    assert out == {"retninger": 8,
+                   "animasjoner": [{"valg": 18, "animasjon": 2, "retning": 2, "lag": 0, "ruter": [3, 4, 0x105, 7]}]}
+
+
+def test_figure_sheets_plan_and_jobs(tmp_path, monkeypatch):
+    import json
+    import numpy as np
+    from dighd import export, figur, gpt
+
+    ex = _figure_extract(tmp_path)
+    meta = export.load_costumes(ex)
+    info = meta[14]
+    groups = figur.groups_of(info, figur.cel_boxes(ex, 14, info))
+    # Stående i begge retninger først, så gange mot høyre i rekkefølge, så den store ruten. Den
+    # gjennomsiktige ruten er ikke med.
+    assert [[c.rute for c in g] for g in groups] == [[6], [7], [0, 1, 2, 3, 4, 5], [8]]
+    sheets = figur.plan_sheets(groups)
+    assert [len(s.cels) for s in sheets] == [8, 1] and not sheets[0].stor and sheets[1].stor
+    # Rutene ligger inne på arket med minst FIG_PAD mellom de synlige pikslene, gangen på én rad i rekkefølge
+    boxes = [(x + c.box[0], y + c.box[1], x + c.box[2], y + c.box[3]) for c, x, y in sheets[0].cels]
+    for b in boxes:
+        assert b[0] >= figur.FIG_MARGIN and b[1] >= figur.FIG_MARGIN
+        assert b[2] <= figur.FIG_SHEET[0] - figur.FIG_MARGIN and b[3] <= figur.FIG_SHEET[1] - figur.FIG_MARGIN
+    for i, a in enumerate(boxes):
+        for b in boxes[i + 1:]:
+            assert not gpt._overlaps((a[0] - figur.FIG_PAD + 1, a[1] - figur.FIG_PAD + 1,
+                                      a[2] + figur.FIG_PAD - 1, a[3] + figur.FIG_PAD - 1), b)
+    walk = [(x, y) for c, x, y in sheets[0].cels if c.animasjon == 2]
+    assert len({y for _, y in walk}) == 1 and [x for x, _ in walk] == sorted(x for x, _ in walk)
+    # Den store ruten får et eget ark som er bredere enn lerretet (deles i to jobber)
+    c8 = sheets[1].cels[0][0]
+    assert sheets[1].size == (c8.vw + 2 * figur.FIG_MARGIN, c8.vh + 2 * figur.FIG_MARGIN)
+    assert sheets[1].size[0] > gpt.TILE[0]
+
+    # Bakgrunnen er en farge som ikke finnes i kostymet
+    bg, name, dist = figur.background_for(ex, 14, info)
+    assert dist > 100
+
+    work, plain = tmp_path / "gpt", tmp_path / "uten"
+    jobs = gpt.make_jobs(ex, work, notes={5: "Test note."}, figures={14})
+    gpt.make_jobs(ex, plain, notes={5: "Test note."})
+    assert [j.id for j in jobs] == ["rom005", "obj241_01", "lag005_01", "fig014_01", "fig014_02_del1av2",
+                                    "fig014_02_del2av2"]
+    # De andre jobbene er byte for byte de samme som uten figurark
+    for jid in ("rom005", "obj241_01", "lag005_01"):
+        for f in ("referanse.png", "prompt.txt", "original_1x.png"):
+            assert (work / "jobber" / jid / f).read_bytes() == (plain / "jobber" / jid / f).read_bytes()
+    assert "kostyme" not in json.loads((work / "jobber" / "lag005_01" / "jobb.json").read_text())
+
+    d = work / "jobber" / "fig014_01"
+    data = json.loads((d / "jobb.json").read_text())
+    assert data["type"] == "figur" and data["kostyme"] == 14 and data["lag"] == 1 and data["rom"] == 5
+    # Arkene i FIG_PILOT er merket som pilot også når alle arkene for kostymet lages
+    assert data["bakgrunn"] == list(bg) and "bilde_to" not in data and data["pilot"] is True
+    assert [c["rute"] for c in data["ruter"]] == [6, 7, 0, 1, 2, 3, 4, 5]
+    assert "gange mot høyre (6 ruter)" in data["innhold"]
+    second = json.loads((work / "jobber" / "fig014_02_del2av2" / "jobb.json").read_text())
+    assert second["bilde_to"] == "jobber/fig014_01/resultat.png" and second["deler"] == 2
+    # Referansen: 4x på lerretet med grå kant, rutene på den flate bakgrunnen
+    ref = Image.open(d / "referanse.png")
+    ox, oy = data["plassering"]
+    assert ref.size == (1536, 1024) and ref.getpixel((0, 0)) == gpt.BORDER
+    assert ref.getpixel(((ox + 1) * 4, (oy + 1) * 4)) == tuple(bg)
+    c = data["ruter"][2]
+    cel0 = Image.open(ex / "costumes" / "costume014_000.png")
+    assert ref.getpixel(((ox + c["rekt"][0] + 12) * 4 + 1, (oy + c["rekt"][1] + 18) * 4 + 1)) == \
+        cel0.getpixel((12, 18))[:3]
+    prompt = (d / "prompt.txt").read_text()
+    assert "the same face, hair, clothes, colors and light in every frame" in prompt
+    assert "#%02X%02X%02X" % bg in prompt and "outline of every frame exactly" in prompt
+    assert "walking, facing right (6 frames)" in prompt and prompt.rstrip().endswith(figur.PROMPT_FIGURE_STYLE)
+    assert "part 2 of 2" in (work / "jobber" / "fig014_02_del2av2" / "prompt.txt").read_text()
+    # Linjen om magenta skyggemerker er bare med når kostymet har slike
+    assert "shadow markers" not in prompt
+    assert figur.has_markers(np.array([[255.0, 87, 255], [20, 20, 20]])) and not figur.has_markers(np.zeros((1, 3)))
+    assert not figur.has_markers(np.array([[220.0, 120, 90]]))
+    assert "2 figurark (3 jobber) med 9 kostymeruter" in (work / "JOBBER.md").read_text()
+
+    # Piloten: bare de første arkene, merket som pilot
+    monkeypatch.setattr(figur, "FIG_PILOT", {14: 1})
+    jobs = gpt.make_jobs(ex, tmp_path / "pilot", figures="pilot")
+    figs = [j for j in jobs if j.type == "figur"]
+    assert [j.id for j in figs] == ["fig014_01"] and figs[0].pilot
+    assert [j.id for j in gpt.make_jobs(ex, tmp_path / "ingen", figures="ingen")] == ["rom005", "obj241_01",
+                                                                                       "lag005_01"]
+
+
+def _figure_result(d, change=None):
+    """Kunstig resultat for et figurark: referansen litt uskarp, eventuelt med noe endret."""
+    from PIL import ImageFilter
+    im = Image.open(d / "referanse.png").convert("RGB").filter(ImageFilter.GaussianBlur(1.2))
+    if change:
+        im = change(im)
+    im.save(d / "resultat.png")
+
+
+def test_figure_import_cut_and_mod(tmp_path):
+    import json
+    import numpy as np
+    from PIL import ImageFilter
+    from dighd import figur, gpt, upscale
+
+    ex = _figure_extract(tmp_path)
+    work, done = tmp_path / "gpt", tmp_path / "gpt-ferdig"
+    jobs = gpt.make_jobs(ex, work, figures="pilot")
+    jd = work / "jobber"
+    figs = ["fig014_01", "fig014_02_del1av2", "fig014_02_del2av2"]
+    assert [j.id for j in jobs if j.type == "figur"] == figs and all(j.pilot for j in jobs if j.type == "figur")
+    for jid in figs:
+        _figure_result(jd / jid)
+    s = gpt.import_results(work, ex, done)
+    status = {r["jobb"]: r for r in gpt.read_status(work)}
+    # Et jevnt ark godkjennes
+    assert all(status[j]["status"] == "godkjent" for j in figs)
+    assert s["ferdige_figurruter"] == [f"costume014_{n:03d}" for n in range(9)] and s["figurruter_totalt"] == 9
+
+    # Utklippet: nøyaktig 4x, samme alfa som build-mod lager, innholdet fra arket
+    for n in range(9):
+        hd = Image.open(done / "costumes" / f"costume014_{n:03d}.png")
+        orig = Image.open(ex / "costumes" / f"costume014_{n:03d}.png")
+        assert hd.size == (orig.width * 4, orig.height * 4) and hd.mode == "RGBA"
+        assert hd.tobytes("raw", "A") == upscale.upscale_alpha(orig.getchannel("A"), 4).tobytes()
+    data = json.loads((jd / "fig014_01" / "jobb.json").read_text())
+    c = next(c for c in data["ruter"] if c["rute"] == 3)
+    ox, oy = data["plassering"]
+    x, y, w, h = c["rekt"]
+    res = Image.open(jd / "fig014_01" / "resultat.png").convert("RGB")
+    crop = np.asarray(res.crop(((ox + x) * 4, (oy + y) * 4, (ox + x + w) * 4, (oy + y + h) * 4)), float)
+    hd = np.asarray(Image.open(done / "costumes" / "costume014_003.png"))
+    alpha = Image.open(ex / "costumes" / "costume014_003.png").getchannel("A").resize((w * 4, h * 4), Image.NEAREST)
+    inner = np.asarray(alpha.filter(ImageFilter.MinFilter(9))) > 0
+    assert np.abs(hd[..., :3].astype(float) - crop)[inner].mean() < 8
+    # Ingen glorie i arkets bakgrunnsfarge langs omrisset: i resultatet er kantpikslene blandet med
+    # bakgrunnen, i utklippet er de fylt innenfra
+    o4 = np.asarray(Image.open(ex / "costumes" / "costume014_003.png").convert("RGB").resize((w * 4, h * 4),
+                                                                                             Image.NEAREST), float)
+    d = np.array(data["bakgrunn"], float) - o4
+
+    def toward_bg(a):
+        return ((a - o4) * d).sum(axis=2) / np.maximum((d * d).sum(axis=2), 1)
+    mask = np.asarray(alpha) > 0
+    assert toward_bg(crop)[mask].max() > 0.4
+    assert toward_bg(hd[..., :3].astype(float))[mask].max() <= figur.FIG_BLEED + 0.01
+    # Den store ruten er sydd sammen av to deler
+    big = np.asarray(Image.open(done / "costumes" / "costume014_008.png"))
+    orig_big = np.asarray(Image.open(ex / "costumes" / "costume014_008.png").resize((1600, 240), Image.NEAREST))
+    assert np.abs(big[..., :3].astype(float) - orig_big[..., :3])[big[..., 3] > 0].mean() < 12
+
+    prov = json.loads((done / "provenance.json").read_text())
+    p = prov["costume014_003"]
+    assert p["type"] == "figur" and p["fil"] == "costumes/costume014_003.png" and p["ark"] == "fig014_01"
+    assert p["kostyme"] == 14 and p["rute"] == 3 and p["animasjon"] == 2 and p["rekt_i_ark"] == c["rekt"]
+    assert p["jobber"][0]["rutekontroll"]["omriss"] > 0.85 and len(p["jobber"][0]["flimmer"]) == 2
+    assert all(q["flimmer"] < figur.FIG_FLICKER for q in p["jobber"][0]["flimmer"])
+    assert [j["jobb"] for j in prov["costume014_008"]["jobber"]] == ["fig014_02_del1av2", "fig014_02_del2av2"]
+    report = (work / "RAPPORT.md").read_text()
+    assert "| Status | Romjobber | Objektjobber | Lagjobber | Ikonark | Figurark |" in report
+    assert "Figurark: 2 av 2 godtatt. Ferdige figurruter: 9 av 9" in report
+
+    # Modden: figurrutene kommer med uten --kostymer, og ingenting annet fra kostymene
+    m = modpack.build_mod(ex, tmp_path / "mod", scale=4, method="nearest", rooms=set(), own=done)
+    assert m["costume_cels"] == 9 and m["costumes"] == ["costume014"]
+    for n in range(9):
+        name = f"costume014_{n:03d}"
+        assert Image.open(tmp_path / "mod" / "costumes" / f"{name}.png").tobytes() == \
+            Image.open(done / "costumes" / f"{name}.png").tobytes()
+        assert (tmp_path / "mod" / "costumes" / f"{name}_idx.png").exists()
+    assert not (tmp_path / "mod" / "costumes" / "costume014_009.png").exists()
+    # Med --kostymer 14 skaleres resten (den gjennomsiktige ruten) automatisk, de egne er de samme
+    m = modpack.build_mod(ex, tmp_path / "mod2", scale=4, method="nearest", rooms=set(), own=done, costumes={14})
+    assert m["costume_cels"] == 10
+    assert Image.open(tmp_path / "mod2" / "costumes" / "costume014_003.png").tobytes() == \
+        Image.open(done / "costumes" / "costume014_003.png").tobytes()
+    # Uten egne bilder og uten --kostymer: ingen kostymer
+    assert modpack.build_mod(ex, tmp_path / "mod3", scale=4, method="nearest", rooms=set())["costume_cels"] == 0
+
+
+def test_figure_rejections_and_orders(tmp_path):
+    import json
+    import numpy as np
+    from dighd import figur, gpt
+
+    ex = _figure_extract(tmp_path)
+
+    def setup(name):
+        work = tmp_path / name
+        gpt.make_jobs(ex, work, figures="pilot")
+        data = json.loads((work / "jobber" / "fig014_01" / "jobb.json").read_text())
+        ox, oy = data["plassering"]
+        rekt = {c["rute"]: c["rekt"] for c in data["ruter"]}
+
+        def box(n):
+            x, y, w, h = rekt[n]
+            return ((ox + x) * 4, (oy + y) * 4, (ox + x + w) * 4, (oy + y + h) * 4)
+        return work, tuple(data["bakgrunn"]), box
+
+    # En rute som mangler, avviser arket
+    work, bg, box = setup("mangler")
+
+    def missing(im):
+        im.paste(bg, box(7))                   # stående mot venstre er borte
+        return im
+    _figure_result(work / "jobber" / "fig014_01", missing)
+    gpt.import_results(work, ex, tmp_path / "ferdig-mangler")
+    row = {r["jobb"]: r for r in gpt.read_status(work)}["fig014_01"]
+    assert row["status"] == "avvist" and "costume014_007 mangler" in row["kommentar"]
+    assert "frames did not match" in (work / "jobber" / "fig014_01" / "retur.md").read_text()
+    assert not (tmp_path / "ferdig-mangler" / "costumes" / "costume014_006.png").exists()
+
+    # Flimmer: en rute med andre detaljer enn naborutene avvises, selv om omrisset stemmer
+    work, bg, box = setup("flimmer")
+
+    def flicker(im):
+        a = np.asarray(im, dtype=np.float64).copy()
+        x0, y0, x1, y1 = box(2)
+        noise = np.random.default_rng(4).normal(0, 60, ((y1 - y0) // 4, (x1 - x0) // 4, 3)).repeat(4, 0).repeat(4, 1)
+        mask = np.asarray(Image.open(ex / "costumes" / "costume014_002.png").getchannel("A").resize(
+            (x1 - x0, y1 - y0), Image.NEAREST)) > 0
+        a[y0:y1, x0:x1][mask] = np.clip(a[y0:y1, x0:x1][mask] + noise[mask], 0, 255)
+        return Image.fromarray(a.astype(np.uint8))
+    _figure_result(work / "jobber" / "fig014_01", flicker)
+    done = tmp_path / "ferdig-flimmer"
+    gpt.import_results(work, ex, done)
+    row = {r["jobb"]: r for r in gpt.read_status(work)}["fig014_01"]
+    assert row["status"] == "avvist" and "flimmer mellom nabo-ruter" in row["kommentar"]
+    assert "costume014_002" in row["kommentar"] and "ruter er feil" not in row["kommentar"]
+    assert "animation flickers" in (work / "jobber" / "fig014_01" / "retur.md").read_text()
+    assert not (done / "costumes" / "costume014_002.png").exists()
+    # Bare parene med den endrede ruten er over grensen
+    job = gpt._load_job(json.loads((work / "jobber" / "fig014_01" / "jobb.json").read_text()))
+    ox, oy = job.plassering
+    x, y, w, h = job.region
+    res = Image.open(work / "jobber" / "fig014_01" / "resultat.png").convert("RGB")
+    part = res.crop((ox * 4, oy * 4, (ox + w) * 4, (oy + h) * 4))
+    pairs = figur.check_flicker(np.asarray(part, dtype=np.float64), job, ex)
+    assert len(pairs) == 5
+    assert {tuple(p["ruter"]) for p in pairs if p["flimmer"] > figur.FIG_FLICKER} == \
+        {("costume014_001", "costume014_002"), ("costume014_002", "costume014_003")}
+
+    # Ordren: avviste romjobber først, så piloten, så resten av rom- og objektjobbene og lagjobbene
+    rd = work / "jobber" / "rom005"
+    ref = Image.open(rd / "referanse.png")
+    ref.transform(ref.size, Image.AFFINE, (1, 0, -24, 0, 1, -16)).save(rd / "resultat.png")
+    gpt.import_results(work, ex, done)
+    orders = gpt.write_orders(work, batch=10).read_text()
+    pos = [orders.index(f"`{j}`") for j in ("rom005", "fig014_01", "fig014_02_del1av2", "obj241_01", "lag005_01")]
+    assert pos == sorted(pos)
+    assert "Pilot for figurarkene" in orders and "Figurark: 0 av 3 godkjent. Ferdige figurruter: 0 av 9" in orders
+    assert "Legg ved `jobber/fig014_01/resultat.png` som bilde to" in orders
+    assert "Lag denne etter at fig014_01 er godkjent." in orders
+    lst = gpt.write_list(work, batch=10).read_text()
+    assert "`fig014_01` (figurark 1 for kostyme 14, 8 ruter: stående" in lst
+    assert "(avvist, les retur.md) (pilot)" in lst and "De er en pilot" in lst
+    assert "| Figurer: pilot med figurark for kostyme 14 (`figCCC_KK`, kostymeruter) | 0 | 9 |" in lst
+    # Bestilling 1: de avviste romjobbene og piloten
+    assert "Rom 5. Figurark for kostyme 14." in lst
