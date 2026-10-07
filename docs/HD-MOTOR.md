@@ -10,7 +10,7 @@ Hver gang motoren er ferdig med et område av skjermen, bygger patchen det samme
 | --- | --- | --- |
 | Uendret rombakgrunn | Pikselen er lik i forgrunns- og bakgrunnsbufferen, og lik originalbildet `roomNNN_idx.png` | `rooms/roomNNN.png` |
 | Objekt (dør, maskin, lys) | Lik i begge buffere, men lik et objektbilde motoren nettopp har tegnet | `objects/objNNN_SS.png` |
-| Figur (kostymerute) | Forskjellig fra bakgrunnsbufferen, og innenfor en rute motoren nettopp har tegnet | `costumes/costumeCCC_NNN.png` |
+| Figur (kostymerute) | Forskjellig fra bakgrunnsbufferen, tegnet av ruten sist den ble tegnet, og har fortsatt verdien ruten skrev (se Hvilke piksler som viser en figur) | `costumes/costumeCCC_NNN.png` |
 | Filmramme | Filmen og rammenummeret er kjent, og pikselen er ikke tekst | `san/FILM/NNNNN.png` |
 | Tekst (dialog, bannere, menyer, undertekster i spill og film) | Tegneren meldte glyfen rett før den ble tegnet, og pikselen har fortsatt verdien glyfen skrev | HD-glyf laget av spillets egen font, lagt over HD-pikselen for det som er under teksten (se Tekst i HD) |
 | Tekst uten kjent glyf | SmushPlayer tegner filmteksten en gang til i et eget lag | Originalpikselen skalert opp |
@@ -63,6 +63,34 @@ Figurer med syklede farger (lys på drakter og maskiner) vises fortsatt med orig
 
 Hvilke piksler som bygges på nytt: når paletten endres, bygges bare de pikslene som viser en endret farge, og pikslene som sist gikk gjennom fargekartet (de avhenger av naboene), på nytt. Det skjer i bånd på 8 rader, hvert så bredt som de endrede pikslene i båndet. Ved fade blir det hele skjermen som før. Endres settet av syklede indekser (nytt rom eller skript), bygges hele skjermen.
 
+## Hvilke piksler som viser en figur
+
+Motoren tegner figurene rute for rute (kostymeruter) i spillskjermen. Rett etter at en rute er tegnet, merker DigHD hver piksel i ruten der indeksbildet til ruten har farge: hvilken tegning av ruten pikselen kom fra, og hvilken verdi ruten etterlot der. Merkene ligger per piksel i bufferen, som merkene for teksten. En piksel viser HD-figuren bare når
+
+- den er forskjellig fra bakgrunnsbufferen,
+- merket hører til den siste tegningen av ruten (tegnes skuespilleren på nytt eller byttes rommet, gjelder ikke de gamle merkene lenger),
+- den fortsatt har verdien ruten skrev. Under en tekst med HD-glyf gjelder verdien under glyfen, så figuren ligger under teksten.
+
+Merkene tas bort der noe annet tegnes over figuren:
+
+- Alt som går gjennom `markRectAsDirty` i spillskjermen: bokser og linjer (bannere, hovedmenyen, `drawBox` fra skriptene) og bakgrunn som legges tilbake. Da får heller ikke en piksel i boksen som tilfeldigvis har samme verdi som figuren, HD-figuren. Der bakgrunnen legges tilbake, tegner motoren skuespillerne der på nytt, og de merkes igjen.
+- Glyfer uten HD-versjon (for eksempel med `DIGHD_TEXT=off`), i pikslene glyfen tegner.
+
+Unntak: når en skuespiller merker rektangelet den skal tegne, beholder de andre figurene i rektangelet merkene sine. Blast-objekter har gjennomsiktige piksler, så figurene under dem beholder merkene. Der objektet tegnet, skiller verdien det fra figuren. Tekst merker sitt eget område uten å ta bort noe, fordi figuren ligger under glyfene.
+
+Bannere: motoren lagrer pikslene under et banner og legger dem tilbake når banneret går (`showBannerAndPause`, `clearBanner`), og merker da hele skjermen. DigHD lagrer merkene samtidig og legger dem tilbake etter merkingen, så figurene er HD med en gang banneret er borte. Hovedmenyen tegner hele skjermen på nytt når den lukkes.
+
+Figurer uten HD-bilde har ikke noe indeksbilde som viser hvilke piksler ruten tegnet. For dem merkes pikslene i rektangelet som er forskjellig fra bakgrunnen og ikke viser en HD-figur tegnet før. Det er disse pikslene som blir gule med gult felt.
+
+Valg og begrunnelse. Før kjente figurkilden bare rektangelet til hver rute og om indeksbildet hadde farge der. Alt som ble tegnet innenfor rektangelet etter figuren (banner, meny, tekst), ble tatt for figuren. Der fargene ikke var altfor ulike, ble HD-pikselen brukt, så figuren skinte svakt gjennom boksen. Med gult felt ble tekst og bokser over en figur uten HD gule. Rektangelet sto også igjen etter at figuren var borte, til skuespilleren ble tegnet på nytt eller rommet byttet. To veier ble vurdert:
+
+| Vei | Vurdering |
+| --- | --- |
+| Nullstille figurene når bannere og menyer tegnes | Retter bannere og menyer, men ikke tekst over figurer, gamle rektangler eller bokser fra skriptene |
+| Merke per piksel med verdien ruten skrev (valgt) | Følger det som faktisk står i bufferen, uansett hva som har tegnet over. Verdien alene skiller ikke en boks med samme farge som figuren, derfor tar `markRectAsDirty` også bort merkene |
+
+Merkingen koster lite: 0,006 ms per bilde i rom 2 (3 ruter). Oppslaget er en sammenligning per piksel i stedet for en løkke over alle rutene, og tidene for hele skjermen er de samme som før innenfor målestøyen. Se Hva som er testet.
+
 ## Klassisk grafikk og gult felt
 
 To hurtigtaster virker mens spillet går, så lenge en HD-mod er lastet:
@@ -88,16 +116,16 @@ Dette farges ikke gult, fordi det er originalt med vilje eller har HD:
 - fargesyklede områder i HD-bakgrunnen og HD-objekter (de vises med HD, se Fargesykling)
 - syklede farger på figurer (lys og effekter)
 - tekst med HD-glyf, også over figurer og filmrammer uten HD. Glyfen legges over det gule, så bare de myke kantene blander seg med det gule under
-- tekst uten HD-glyf over spillet, så lenge den ikke ligger oppå en figur uten HD
+- tekst uten HD-glyf over spillet, også oppå figurer uten HD
 - undertekster og annen tekst over filmer, også over filmrammer uten HD-ramme
 - skygger og effekter på figurer med HD-bilde
-- bannere (pause, volum), overgangseffekter og musepekeren
+- bannere (pause, volum) og hovedmenyen, også over figurer uten HD, overgangseffekter og musepekeren
 
-I klassisk modus farges ingenting gult. Når gult felt slås på mens spillet går, sendes skjermen gjennom motoren på nytt, så figurer uten HD blir gule fra neste bilde. Bakgrunn og objekter blir gule med en gang.
+I klassisk modus farges ingenting gult. Når gult felt slås på mens spillet går, bygges skjermen på nytt med en gang, og alt som mangler HD, også figurene, blir gult.
 
 Valg av taster: SCUMM-motoren bruker Ctrl med tallene, F, G, T, V, K og C (og B, D, J, N og R i andre SCUMM-spill). ScummVM bruker Ctrl+M, Ctrl+R, Ctrl+U, Ctrl+Q, Ctrl+Z, Ctrl+F5, Ctrl+F7, Alt+S, Alt+Enter og Ctrl+Alt med flere taster for grafikkvalg. Sjekket i `engines/scumm/input.cpp`, `engines/scumm/metaengine.cpp`, `engines/metaengine.cpp`, `backends/events/default/default-events.cpp` og `backends/graphics/sdl/sdl-graphics.cpp`. H brukes ikke med Ctrl eller Ctrl+Shift i noen av disse, og ingen av tastaturoppsettene som er aktive i The Dig har H alene, så ScummVM sender tasten videre til motoren. Y og J ble valgt bort fordi bekreftelsesdialogene i ScummVM svarer ja på Y, og på J med norsk språk. Begge funksjonene ligger på samme bokstav, så de er lette å huske.
 
-Ytelse: når begge er av, er bildebyggingen like rask som før. Målt uten skjerm med 300 hele skjermbilder i rom 22 og 28 (beste tid): 8,0 til 8,9 ms per bilde både før og etter endringen, og 0,3 til 0,5 ms for å finne kildene til et helt bilde. Figurer uten HD letes bare etter i en egen runde når gult felt er på. Med gult felt på ble tidene de samme i disse rommene. Klassisk modus er raskere, under 1 ms per bilde. Tider etter fargesyklingen står under Hva som er testet.
+Ytelse: når begge er av, er bildebyggingen like rask som før. Målt uten skjerm med 300 hele skjermbilder i rom 22 og 28 (beste tid): 8,0 til 8,9 ms per bilde både før og etter endringen, og 0,3 til 0,5 ms for å finne kildene til et helt bilde. Med gult felt på ble tidene de samme i disse rommene. Figurer uten HD finnes nå med de samme merkene som figurer med HD (se Hvilke piksler som viser en figur), så det er ingen egen runde for dem lenger. Klassisk modus er raskere, under 1 ms per bilde. Tider etter fargesyklingen står under Hva som er testet.
 
 ## Undertekster over filmer
 
@@ -168,13 +196,14 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `
 | --- | --- |
 | `engines/scumm/dighd.cpp`, `dighd.h` | All HD-logikk (ny fil) |
 | `scumm.cpp` | Lager DigHD, setter opp HD-skjermen, motoren holder seg i 8 bit, hook før hver skjermoppdatering |
-| `gfx.cpp` | Siste blit (`drawStripToScreen`), overgangseffekter, `moveScreen`, risting av skjermen. `markRectAsDirty` nullstiller glyfene i området |
+| `gfx.cpp` | Siste blit (`drawStripToScreen`), overgangseffekter, `moveScreen`, risting av skjermen. `markRectAsDirty` nullstiller glyfene og figurmerkene i området (figurmerkene ikke når en skuespiller merker sitt eget rektangel) |
+| `gfx_gui.cpp` | DigHD får beskjed når skjermen lagres før et banner og legges tilbake etterpå (`showBannerAndPause`, `clearBanner`) |
 | `charset.cpp` | Melder hver glyf fra tegnsettene i spillet (`CharsetRendererV7::drawCharV7`) |
 | `nut_renderer.cpp` | Melder hver glyf fra NUT-fontene i filmene (`NutRenderer::drawCharV7`) |
 | `string_v7.cpp` | Teksten som tegnes og merkes, nullstiller ikke seg selv. `removeBlastTexts` nullstiller glyfene i spillskjermen |
 | `palette.cpp` | Palett sendes til DigHD i stedet for til skjermen |
-| `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand |
-| `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes, hvor og om de er speilvendt |
+| `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand. Blast-objekter beholder figurmerkene under seg |
+| `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes, hvor, om de er speilvendt og om de tegnes i skjermbufferen eller i bakgrunnsbufferen |
 | `cursor.cpp`, `input.cpp`, `saveload.cpp` | Musepeker i HD, museposisjon delt på skala, hurtigtastene Ctrl+H og Ctrl+Shift+H |
 | `smush/smush_player.cpp` | Filmrammer og filmpalett via DigHD. Filmteksten tegnes også i laget til DigHD, og DigHD får beskjed når en ny ramme er pakket ut |
 
@@ -197,7 +226,7 @@ Test og feilsøking (bare miljøvariabler):
 | `DIGHD_VERIFY=1` | Ved hver dump: sammenligner HD-bildet med originalen og skriver avviket i loggen (gult felt er ikke med), og sjekker at skjermen er lik hele skjermen bygget på nytt |
 | `DIGHD_DUMP_DIR`, `DIGHD_DUMP_EVERY` | Lagrer skjermbildet som PNG hver N-te bilde: `frame_NNNNNN_roomRRR.png`, eller `frame_NNNNNN_FILM_RRRRR.png` under en film (RRRRR er rammenummeret, som i `san/FILM/`) |
 | `DIGHD_DUMP_FLAT=1` | Lagrer også originalpikslene for det samme bildet ved siden av hver dump (`..._flat.png`, som klassisk grafikk), til sammenligninger |
-| `DIGHD_BENCH=N` | Ved hver dump: bygger hele skjermen N ganger og skriver snittid per gang, og i rom med fargesykling tiden for ett steg i syklingen (alle syklede farger endret) |
+| `DIGHD_BENCH=N` | Ved hver dump: bygger hele skjermen N ganger og skriver snittid per gang, og i rom med fargesykling tiden for ett steg i syklingen (alle syklede farger endret). Utenom film også tiden for spillskjermen sendt gjennom motoren med oppslag av kilden for hver piksel (`sources and whole screen`) og tiden for å merke pikslene til rutene som ble tegnet sist (`marking`, snitt over 10 x N ganger) |
 | `DIGHD_SKIP_VIDEO=1` | Hopper over filmer |
 | `DIGHD_TEST_ROOM`, `DIGHD_TEST_AT`, `DIGHD_TEST_CAMX` | Hopper rett til et rom etter N bilder |
 | `DIGHD_QUIT_AT` | Avslutter etter N bilder |
@@ -298,6 +327,17 @@ Tekst i HD (testet uten skjerm 2026-10-07, med `--subtitles`, `DIGHD_VERIFY=1` o
 - Skala 2 og 3 (`DIGHD_SCALE`), rom 2 i 1500 bilder: ingen feil, skjermen lik hele skjermen bygget på nytt i alle 30 dumper, teksten glatt (sett på ved skala 3).
 - Ikke testet med ekte skjerm. Ikke testet i andre rom enn rom 2 eller i andre filmer enn SQ1.
 
+Figurkilden (testet uten skjerm 2026-10-07, rom 2, med `DIGHD_DUMP_FLAT=1`). Samme kjøring med motoren før og etter endringen. Avvik er telt piksel for piksel mot originalpikslene for det samme bildet, uten terskel:
+
+- Volumbanneret (Shift+P med `DIGHD_TEST_KEYS`) over en skalert astronaut, modden `test-nearest` og `DIGHD_TEXT=nearest`: før avvek 241 originalpiksler inne i boksen (56, 90 til 264, 103), etter 0.
+- Hovedmenyen (F5) over en uskalert astronaut: før avvek 691 originalpiksler inne i boksen (16, 40 til 304, 161), og `DIGHD_VERIFY` fant 308 sterkt avvikende HD-piksler. Etter: 0 og 0.
+- Gult felt med en mod uten kostymer (rom og objekter fra `test-nearest`) og `DIGHD_TEXT=off`: volumbanneret over en figur hadde 1082 gule piksler i boksen før, 0 etter. Replikken «A professor once told me, ...» over en astronaut (samme replikk i to kjøringer): før var 303 av 1374 piksler i tekstfargen gule, etter 0. Astronauten under er fortsatt gul.
+- Gammel og ny regel i samme kjøring (midlertidig måling, tatt ut igjen): i 3000 bilder i rom 2 med `test-nearest` fikk alle piksler som den gamle regelen ga en figurkilde, nøyaktig samme kilde med den nye, og ingen andre. Med volumbanneret, hovedmenyen og `DIGHD_TEXT=off` var de eneste forskjellene pikslene i boksene (360 og 5817). Første bilde etter at banneret var borte, hadde 4691 figurpiksler med HD. Uten at merkene ble lagt tilbake, ville 4820 figurpiksler vært originalpiksler i det bildet.
+- Gult felt slått på midt i rom 2 (Ctrl+Shift+H): figurene var gule i første dump etterpå.
+- `engine/test.sh`: 0 avvik ved bilde 250, 750, 1000, 1750 og 2500 til 3000, og 0,081 til 0,210 prosent ved 500, 1250, 1500, 2000 og 2250 (skalerte figurer, sett på i bilde 2250: indre kanter i en astronaut). Skjermen lik hele skjermen bygget på nytt i alle 12 dumper.
+- Ytelse, `DIGHD_BENCH=100` ved hver 25. bilde i 1300 bilder med `test-nearest` (50 dumper i rom 2, median): hele skjermen 9,63 ms før og 9,66 ms etter. Spillskjermen sendt gjennom motoren med oppslag av kildene: 9,4 til 10,0 ms med den nye regelen og 9,6 til 9,7 ms med den gamle (den gamle med en midlertidig bryter i samme program, to kjøringer hver). Forskjellen ligger i støyen. Merking av 3 ruter: 0,006 ms per bilde.
+- Ikke testet: ekte skjerm, andre rom enn rom 2, blast-objekter over figurer, figurer bak en maske, og tekst der en figur uten HD sist ble tegnet (ikke fanget i en dump, men det er samme regel).
+
 ## Kjente begrensninger
 
 - Kostymer med kodek 16 (5 kostymer) får ikke HD-sprites ennå. Kodek 1 (182 kostymer, blant dem hovedpersonene) og kodek 5 (144 kostymer) er testet i spillet.
@@ -310,5 +350,7 @@ Tekst i HD (testet uten skjerm 2026-10-07, med `--subtitles`, `DIGHD_VERIFY=1` o
 - Tekst: sammenhengen med nabotegnene tar bare med piksler i glyfens egne farger. Møtes to tekster i ulike farger, rundes kantene der de møtes.
 - Tekst: tegnes noe annet over en tekst uten `markRectAsDirty`, og de nye pikslene tilfeldigvis har samme verdi som glyfen skrev, vises glyfen der til teksten tegnes på nytt. Ikke sett. Blast-tekstene nullstilles uansett hvert bilde.
 - Undertekster over filmer: merkene for tekst nullstilles når en ny ramme pakkes ut. Pakker en film ut bare en del av bildet (RLE i SMUSH med mindre rektangel, ikke brukt i The Dig), regnes tekst utenfor den delen som borte selv om den står igjen.
-- Gult felt: tekst med HD-glyf blir ikke gul. Tekst uten HD-glyf som ligger oppå en figur uten HD, blir gul, fordi motoren bare vet hvilket rektangel figuren dekker. Det samme gjelder tekst uten HD-glyf der en figur uten HD sist ble tegnet, til figuren tegnes på nytt eller rommet byttes.
-- Bannere og hovedmenyen som tegnes over en figur: pikslene i boksen som ligger innenfor ruten til figuren, vises med HD-bildet av figuren når fargene ikke er altfor ulike, så figuren skinner svakt gjennom boksen. Sett i rom 2 med volumbanneret og hovedmenyen, også med `DIGHD_TEXT=off`, så det er ikke nytt med HD-teksten.
+- Figurer: hvilke piksler en rute tegnet, leses fra indeksbildet til ruten, ikke fra tegningen. En rute bak et forgrunnsobjekt (maske) merkes også der den ikke ble tegnet. Viser pikselen da en annen figur, hentes HD-bildet fra feil rute. Slik var det før også. Ikke sett.
+- Figurer uten HD-bilde: hvilke piksler ruten tegnet, er ikke kjent. Pikslene i rektangelet som er forskjellig fra bakgrunnen og ikke viser en HD-figur, regnes som figuren (gult felt).
+- Blast-objekter over en figur: en piksel objektet tegner med nøyaktig samme verdi som figuren, viser HD-figuren. Ikke sett i The Dig.
+- Bannere: merkene legges tilbake bare når banneret tas bort med `clearBanner`. Andre steder som lagrer og legger tilbake skjermen i ScummVM, gjelder andre spill.
