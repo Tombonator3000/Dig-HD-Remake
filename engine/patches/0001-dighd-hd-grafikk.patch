@@ -69,7 +69,7 @@ index dcfe41db..bd1264b6 100644
  	// pointer to various parts of the costume resource
  	const AkosHeader *_akhd; // Header
 diff --git a/engines/scumm/base-costume.cpp b/engines/scumm/base-costume.cpp
-index d93b33e2..16e08e92 100644
+index d93b33e2..03d031cc 100644
 --- a/engines/scumm/base-costume.cpp
 +++ b/engines/scumm/base-costume.cpp
 @@ -24,6 +24,9 @@
@@ -87,7 +87,7 @@ index d93b33e2..16e08e92 100644
  	byte result = 0;
  
 +	if (_vm->_digHD && _akosRendering)
-+		_vm->_digHD->beginActor(a->_number, a->_costume);
++		_vm->_digHD->beginActor(a->_number, a->_costume, !drawToBackBuf);
 +
  	_out = vs;
  	if (drawToBackBuf)
@@ -172,10 +172,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..53a78232
+index 00000000..70c8bdbf
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,2106 @@
+@@ -0,0 +1,2276 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -218,6 +218,7 @@ index 00000000..53a78232
 +#include "scumm/gfx.h"
 +#include "scumm/scumm.h"
 +#include "scumm/scumm_v7.h"
++#include "scumm/usage_bits.h"
 +
 +namespace Scumm {
 +
@@ -527,6 +528,9 @@ index 00000000..53a78232
 +	_celImages.clear();
 +	for (int i = 0; i < kMaxCelSlots; i++)
 +		_cels[i] = CelSlot();
++	_celMain.clear();
++	_celMain.saved.clear();
++	_celMain.savedAny = false;
 +	_room = -1;
 +}
 +
@@ -594,9 +598,10 @@ index 00000000..53a78232
 +	return img;
 +}
 +
-+void DigHD::beginActor(int actor, int costume) {
++void DigHD::beginActor(int actor, int costume, bool front) {
 +	_curActor = actor;
 +	_curCostume = costume;
++	_curFront = front;
 +	_passStarted = false;
 +}
 +
@@ -631,6 +636,107 @@ index 00000000..53a78232
 +	c.rh = height;
 +	c.mirror = mirror;
 +	c.seq = ++_seq;
++	// A cel drawn into the back buffer becomes part of the background
++	if (_curFront)
++		markCel(&c - _cels, left, top, xstart);
++}
++
++void DigHD::CelLayer::clear() {
++	if (any)
++		memset(mark.data(), 0, mark.size() * sizeof(CelMark));
++	any = false;
++}
++
++DigHD::CelLayer *DigHD::celLayer(bool create) {
++	// The marks are kept per pixel of the main virtual screen buffer, like the
++	// glyphs. The buffer has 8 extra rows for scrolling (initVirtScreen()).
++	const VirtScreen &vs = _vm->_virtscr[kMainVirtScreen];
++	const byte *base = (const byte *)vs.getBasePtr(0, 0);
++	const size_t size = (size_t)vs.pitch * (vs.h + 8);
++	if (!base || !vs.h)
++		return nullptr;
++	if (_celMain.base != base || _celMain.size != size || _celMain.pitch != vs.pitch) {
++		if (!create)
++			return nullptr;
++		_celMain.base = base;
++		_celMain.size = size;
++		_celMain.pitch = vs.pitch;
++		_celMain.mark.resize(size);
++		memset(_celMain.mark.data(), 0, size * sizeof(CelMark));
++		_celMain.saved.clear();
++		_celMain.any = _celMain.savedAny = false;
++	}
++	return &_celMain;
++}
++
++void DigHD::markCel(int slot, int left, int top, int xstart) {
++	// Remember for each pixel of the cel which drawing it came from and the value
++	// it left there. Only such a pixel can show the HD figure later, and only
++	// while it still holds that value (see blitVirtScreen()). Text, banners and
++	// menus drawn over the figure change the value or end the marks (dirtyRect()).
++	//
++	// The renderer draws into the buffer from column xstart - (xstart & 7), and
++	// its own coordinates run from 0 to the pitch and the height of the screen
++	// (BaseCostumeRenderer::drawCostume(), paintCelByleRLECommon()).
++	CelLayer *L = celLayer(true);
++	if (!L)
++		return;
++	const VirtScreen &vs = _vm->_virtscr[kMainVirtScreen];
++	const CelSlot &c = _cels[slot];
++	const size_t shift = xstart - (xstart & 7);
++	const int x0 = MAX(left, 0), x1 = MIN(MIN(left + c.rw, L->pitch), left + 1024);
++	const int y0 = MAX(top, 0), y1 = MIN(top + c.rh, (int)vs.h);
++	if (x0 >= x1 || y0 >= y1)
++		return;
++	const byte *buf = L->base;
++	CelMark *marks = L->mark.data();
++
++	if (c.image) {
++		// The pixels where the cel's image has a colour, mapped as in compose()
++		const Graphics::Surface &idx = c.image->idx;
++		int col[1024];
++		for (int x = x0; x < x1; x++) {
++			const int cx = (x - left) * idx.w / c.rw;
++			col[x - x0] = c.mirror ? idx.w - 1 - cx : cx;
++		}
++		for (int y = y0; y < y1; y++) {
++			const byte *row = (const byte *)idx.getBasePtr(0, (y - top) * idx.h / c.rh);
++			const size_t rowOff = (size_t)y * L->pitch + shift;
++			for (int x = x0; x < x1; x++) {
++				const size_t off = rowOff + x;
++				if (off >= L->size)
++					break;
++				if ((int)row[col[x - x0]] == c.image->transparent)
++					continue;
++				CelMark &m = marks[off];
++				m.seq = c.seq;
++				m.slot = slot;
++				m.val = buf[off];
++			}
++		}
++	} else if (vs.backBuf) {
++		// No HD image (yellow with Ctrl+Shift+H), and so no image that says which
++		// pixels the cel drew. The pixels in its rectangle that differ from the
++		// background count, except those still showing an HD cel drawn before.
++		const byte *back = vs.backBuf;
++		for (int y = y0; y < y1; y++) {
++			const size_t rowOff = (size_t)y * L->pitch + shift;
++			for (int x = x0; x < x1; x++) {
++				const size_t off = rowOff + x;
++				if (off >= L->size)
++					break;
++				if (buf[off] == back[off])
++					continue;
++				CelMark &m = marks[off];
++				if (m.seq && m.val == buf[off] && _cels[m.slot].seq == m.seq && _cels[m.slot].used)
++					continue;
++				m.seq = c.seq;
++				m.slot = slot;
++				m.val = buf[off];
++			}
++		}
++	}
++	L->any = true;
 +}
 +
 +// ---------------------------------------------------------------- blits
@@ -645,22 +751,19 @@ index 00000000..53a78232
 +	const int roomW = haveRoom ? _roomImage.idx.w : 0;
 +	const int roomH = haveRoom ? _roomImage.idx.h : 0;
 +
-+	int active[kMaxCelSlots];
-+	int numActive = 0;
-+	if (mapping)
-+		for (int i = 0; i < kMaxCelSlots; i++)
-+			if (_cels[i].used)
-+				active[numActive++] = i;
-+
-+	// Glyphs drawn into this buffer (see noteGlyph()). src points into the
-+	// buffer of the virtual screen, so the offset from its start is the key.
++	// Glyphs and figures drawn into this buffer (see noteGlyph() and markCel()).
++	// src points into the buffer of the virtual screen, so the offset from its
++	// start is the key.
 +	const byte *vbase = (const byte *)vs->getBasePtr(0, 0);
++	const size_t vsize = (size_t)vs->pitch * (vs->h + 8);
++	const size_t textOff = (src >= vbase) ? (size_t)(src - vbase) : 0;
 +	const bool textOn = _textMain.any && vs->number == kMainVirtScreen && vbase == _textMain.base &&
-+	                    _textMain.size == (size_t)vs->pitch * (vs->h + 8) &&
-+	                    pitch == _textMain.pitch && src >= vbase && (size_t)(src - vbase) < _textMain.size;
-+	const size_t textOff = textOn ? (size_t)(src - vbase) : 0;
++	                    _textMain.size == vsize && pitch == _textMain.pitch && src >= vbase && textOff < _textMain.size;
 +	if (textOn && !_textMain.pending.empty())
 +		finishText(_textMain);
++	const bool celOn = mapping && _celMain.any && vbase == _celMain.base && _celMain.size == vsize &&
++	                   pitch == _celMain.pitch && src >= vbase && textOff < _celMain.size;
++	const CelMark *celMarks = celOn ? _celMain.mark.data() : nullptr;
 +
 +	for (int r = 0; r < height; r++) {
 +		const int sy = y + r;
@@ -683,25 +786,22 @@ index 00000000..53a78232
 +			}
 +			uint32 source = kSrcFlat;
 +
-+			if (b && b[c] != idx && numActive) {
-+				// Something was drawn over the background: is it a costume cel?
-+				const int rx = vs->xstart + x + c;
-+				uint32 bestSeq = 0;
-+				for (int k = 0; k < numActive; k++) {
-+					const CelSlot &cs = _cels[active[k]];
-+					if (cs.seq < bestSeq)
-+						continue;
-+					const int lx = rx - cs.rx, ly = ry - cs.ry;
-+					if (lx < 0 || ly < 0 || lx >= cs.rw || ly >= cs.rh || lx >= 1024 || ly >= 1024)
-+						continue;
-+					int cx = lx * cs.image->idx.w / cs.rw;
-+					const int cy = ly * cs.image->idx.h / cs.rh;
-+					if (cs.mirror)
-+						cx = cs.image->idx.w - 1 - cx;
-+					const byte code = *((const byte *)cs.image->idx.getBasePtr(cx, cy));
-+					if ((int)code != cs.image->transparent) {
-+						source = packCel(active[k], lx, ly);
-+						bestSeq = cs.seq;
++					if (b && b[c] != idx) {
++				// Something was drawn over the background. It is a figure if a cel
++				// drew this pixel in its last drawing and the value is still the
++				// cel's (under a glyph: the value under the glyph).
++				const size_t off = textOff + (size_t)r * pitch + c;
++				if (celMarks && off < _celMain.size) {
++					const CelMark &m = celMarks[off];
++					if (m.seq && m.val == idx && _cels[m.slot].seq == m.seq) {
++						const CelSlot &cs = _cels[m.slot];
++						const int lx = vs->xstart + x + c - cs.rx, ly = ry - cs.ry;
++						if (cs.used) {
++							if (lx >= 0 && ly >= 0 && lx < cs.rw && ly < cs.rh && lx < 1024 && ly < 1024)
++								source = packCel(m.slot, lx, ly);
++						} else if (cs.missing) {
++							source = kSrcFlatMissing;  // a figure without HD image
++						}
 +					}
 +				}
 +			} else if (b && b[c] == idx) {
@@ -736,45 +836,7 @@ index 00000000..53a78232
 +		}
 +	}
 +
-+	if (mapping && _showMissing)
-+		markMissingCels(vs, src, pitch, back, x, y, top, width, height);
 +	writeRect(x, y, width, height);
-+}
-+
-+void DigHD::markMissingCels(VirtScreen *vs, const byte *src, int pitch, const byte *back, int x, int y, int top, int width, int height) {
-+	// Only while the yellow marking is on. An original pixel drawn over the
-+	// background inside a cel that has no HD image is a figure pixel without HD.
-+	// Outside such cels it is text or an effect, original on purpose.
-+	int missing[kMaxCelSlots];
-+	int numMissing = 0;
-+	for (int i = 0; i < kMaxCelSlots; i++)
-+		if (_cels[i].missing)
-+			missing[numMissing++] = i;
-+	if (!numMissing)
-+		return;
-+
-+	for (int r = 0; r < height; r++) {
-+		const int sy = y + r;
-+		if (sy < 0 || sy >= _h)
-+			continue;
-+		const byte *b = back + r * vs->pitch;
-+		const int ry = top + r;
-+		for (int c = 0; c < width; c++) {
-+			const int sx = x + c;
-+			// Under a glyph, what the glyph covers counts
-+			if (sx < 0 || sx >= _w || b[c] == _base[sy * _w + sx] || _source[sy * _w + sx] != kSrcFlat)
-+				continue;
-+			const int rx = vs->xstart + x + c;
-+			for (int k = 0; k < numMissing; k++) {
-+				const CelSlot &cs = _cels[missing[k]];
-+				const int lx = rx - cs.rx, ly = ry - cs.ry;
-+				if (lx >= 0 && ly >= 0 && lx < cs.rw && ly < cs.rh) {
-+					_source[sy * _w + sx] = kSrcFlatMissing;
-+					break;
-+				}
-+			}
-+		}
-+	}
 +}
 +
 +void DigHD::blit8(const byte *src, int pitch, int x, int y, int width, int height) {
@@ -885,8 +947,12 @@ index 00000000..53a78232
 +			_source[r * _w + c] = (!glyph && text && text[r * pitch + c]) ? kSrcFlat : picture;
 +		}
 +
-+	// The film picture replaces any text drawn into the game screen (banners)
++	// The film picture replaces any text drawn into the game screen (banners).
++	// SmushPlayer may draw into the game screen buffer, so the figures are gone too.
 +	_textMain.clear();
++	_celMain.clear();
++	_celMain.saved.clear();
++	_celMain.savedAny = false;
 +
 +	writeRect(0, 0, MIN(width, _w), MIN(height, _h));
 +}
@@ -957,26 +1023,72 @@ index 00000000..53a78232
 +	_textMain.clear();
 +}
 +
-+void DigHD::dirtyRect(int left, int right, int top, int bottom) {
-+	// Whatever is drawn here (restored background, figures, menu boxes) ends
-+	// the glyphs in this rectangle; text drawn again later is noted again.
-+	// The text renderer marks its own text dirty right after drawing it.
-+	if (_textPass || !_textMain.any)
++void DigHD::dirtyRect(int left, int right, int top, int bottom, int dirtybit) {
++	// The text renderer marks its own text dirty right after drawing it; that
++	// ends nothing (a glyph over a figure keeps the figure under it).
++	if (_textPass)
 +		return;
 +	const VirtScreen &vs = _vm->_virtscr[kMainVirtScreen];
-+	if ((const byte *)vs.getBasePtr(0, 0) != _textMain.base)
-+		return;
-+	left = MAX(left, 0);
-+	right = MIN(right, (int)vs.w - 1);
-+	top = MAX(top, 0);
-+	bottom = MIN(bottom, (int)vs.h - 1);
-+	for (int yy = top; yy <= bottom; yy++) {
-+		const size_t off = (size_t)yy * _textMain.pitch + vs.xstart;
-+		if (off + right >= _textMain.size)
-+			break;
-+		if (right >= left)
-+			memset(_textMain.own.data() + off + left, 0, (right - left + 1) * sizeof(uint32));
++	const byte *base = (const byte *)vs.getBasePtr(0, 0);
++
++	// Whatever is drawn here (restored background, figures, menu boxes) ends
++	// the glyphs in this rectangle; text drawn again later is noted again.
++	if (_textMain.any && base == _textMain.base) {
++		const int l = MAX(left, 0), r = MIN(right, (int)vs.w - 1);
++		const int t = MAX(top, 0), b = MIN(bottom, (int)vs.h - 1);
++		for (int yy = t; yy <= b && r >= l; yy++) {
++			const size_t off = (size_t)yy * _textMain.pitch + vs.xstart;
++			if (off + r >= _textMain.size)
++				break;
++			memset(_textMain.own.data() + off + l, 0, (r - l + 1) * sizeof(uint32));
++		}
 +	}
++
++	// Anything else drawn here (restored background, boxes, lines, banners,
++	// menus) ends the figures in this rectangle, also where it happens to draw
++	// the same value as the figure. Where SCUMM puts the background back, it
++	// redraws the actors there (setActorRedrawFlags()), and they are noted again.
++	// An actor marks the rectangle it draws over other actors, which keep theirs,
++	// and a blast object has transparent pixels (setOverlayPass()).
++	if ((dirtybit > 0 && dirtybit < USAGE_BIT_RESTORED) || _overlayPass)
++		return;
++	if (_celMain.any && base == _celMain.base) {
++		const int l = MAX(left, 0), r = MIN(right, (int)vs.w);
++		const int t = MAX(top, 0), b = MIN(bottom, (int)vs.h);
++		for (int yy = t; yy < b && r > l; yy++) {
++			const size_t off = (size_t)yy * _celMain.pitch + vs.xstart;
++			if (off + r > _celMain.size)
++				break;
++			CelMark *m = _celMain.mark.data() + off;
++			for (int xx = l; xx < r; xx++)
++				m[xx].seq = 0;
++		}
++	}
++}
++
++void DigHD::screenSaved() {
++	// The engine copies the screen buffer before a banner and back after it
++	// (clearBanner()). The marks are kept the same way: the whole layer, as the
++	// engine marks the whole screen dirty when it puts the pixels back.
++	CelLayer *L = celLayer(false);
++	if (!L)
++		return;
++	L->saved = L->mark;
++	L->savedAny = L->any;
++}
++
++void DigHD::screenRestored() {
++	// Called after the pixels are back and the screen is marked dirty, before it
++	// is drawn. A mark only counts while its cel drawing is the last one of its
++	// slot and the pixel holds its value, so marks of figures that have changed
++	// in the meantime are not used.
++	CelLayer *L = celLayer(false);
++	if (!L || L->saved.size() != L->mark.size())
++		return;
++	L->mark = L->saved;
++	L->any = L->savedAny;
++	L->saved.clear();
++	L->savedAny = false;
 +}
 +
 +// Is the glyph pixel at off still there? It must be a pixel the glyph drew,
@@ -1027,16 +1139,43 @@ index 00000000..53a78232
 +}
 +
 +void DigHD::noteGlyph(const GlyphDraw &g) {
++	if (!noteGlyphHD(g))
++		glyphOverCels(g);
++}
++
++void DigHD::glyphOverCels(const GlyphDraw &g) {
++	// A glyph without HD version is shown as original pixels. Where it is drawn
++	// over a figure, the figure is not shown, also where the glyph happens to
++	// have the figure's value. (A glyph with HD version keeps the figure under it.)
++	if (_smushTextOpen || !_celMain.any || g.w <= 0 || g.h <= 0 || g.pitch != _celMain.pitch ||
++	    g.x0 < 0 || g.y0 < 0 || g.x1 > g.w || g.y1 > g.h)
++		return;
++	if (g.buffer < _celMain.base || g.buffer >= _celMain.base + _celMain.size)
++		return;
++	const ptrdiff_t origin = (g.buffer - _celMain.base) + (ptrdiff_t)g.y * g.pitch + g.x;
++	for (int gy = g.y0; gy < g.y1; gy++) {
++		for (int gx = g.x0; gx < g.x1; gx++) {
++			if ((int)g.values[gy * g.w + gx] == g.transparent)
++				continue;
++			const ptrdiff_t off = origin + (ptrdiff_t)gy * g.pitch + gx;
++			if (off >= 0 && (size_t)off < _celMain.size)
++				_celMain.mark[off].seq = 0;
++		}
++	}
++}
++
++bool DigHD::noteGlyphHD(const GlyphDraw &g) {
++	// Returns true when the glyph is remembered and shown with an HD glyph
 +	if (_textScaler == kTextOff || g.w <= 0 || g.h <= 0 || g.w > 63 || g.h > 63 ||
 +	    g.x0 >= g.x1 || g.y0 >= g.y1 || g.x0 < 0 || g.y0 < 0 || g.x1 > g.w || g.y1 > g.h)
-+		return;
++		return false;
 +
 +	// Which buffer: the SMUSH frame while SmushPlayer draws text (its mask layer
 +	// is left out), else the game screen
 +	TextLayer *t;
 +	if (_smushTextOpen) {
 +		if (g.buffer != _smushTextBase || _textSmush.base != _smushTextBase)
-+			return;
++			return false;
 +		t = &_textSmush;
 +	} else {
 +		const VirtScreen &vs = _vm->_virtscr[kMainVirtScreen];
@@ -1044,13 +1183,13 @@ index 00000000..53a78232
 +		// The main screen buffer has 8 extra rows for scrolling (initVirtScreen())
 +		const size_t size = (size_t)vs.pitch * (vs.h + 8);
 +		if (!base || !vs.h || g.buffer < base || g.buffer >= base + size)
-+			return;
++			return false;
 +		if (_textMain.base != base || _textMain.size != size || _textMain.pitch != vs.pitch)
 +			_textMain.reset(base, size, vs.pitch);
 +		t = &_textMain;
 +	}
 +	if (g.pitch != t->pitch)
-+		return;
++		return false;
 +
 +	// The shape: which pixels have which level (the distinct raw values in
 +	// rising order). The same shape in another font or colour shares the HD
@@ -1066,12 +1205,12 @@ index 00000000..53a78232
 +		if (!seen[v])
 +			continue;
 +		if (levels == kMaxGlyphLevels)
-+			return;  // too many colours for one glyph: original pixels
++			return false;  // too many colours for one glyph: original pixels
 +		rawOf[levels] = v;
 +		levelOf[v] = ++levels;
 +	}
 +	if (!levels)
-+		return;  // nothing drawn (space)
++		return false;  // nothing drawn (space)
 +	for (int i = 0; i < g.w * g.h; i++)
 +		lev[i] = ((int)g.values[i] == g.transparent) ? 0 : levelOf[g.values[i]];
 +	memset(pal, 0, sizeof(pal));
@@ -1080,7 +1219,7 @@ index 00000000..53a78232
 +	const int shape = glyphShape(g.w, g.h, levels, lev, nullptr);
 +	const int style = shape < 0 ? -1 : glyphStyle(shape, pal);
 +	if (style <= 0)
-+		return;
++		return false;
 +
 +	// Remember the glyph for every pixel of its drawn part. A transparent glyph
 +	// pixel does not take over a pixel that still shows earlier text.
@@ -1108,6 +1247,7 @@ index 00000000..53a78232
 +		GlyphInstance gi = { style, origin, g.x0, g.y0, g.x1, g.y1 };
 +		t->pending.push_back(gi);
 +	}
++	return true;
 +}
 +
 +void DigHD::finishText(TextLayer &t) {
@@ -2082,10 +2222,7 @@ index 00000000..53a78232
 +	_showMissing = on;
 +	debug("DigHD: missing HD in yellow %s", on ? "on" : "off");
 +	g_system->displayMessageOnOSD(Common::U32String(on ? "Dig HD: gult der HD mangler" : "Dig HD: gult felt av"));
-+	// Figures without HD are only looked for while the marking is on, so the
-+	// game screen is sent through blitVirtScreen() again on the next frame.
-+	if (on)
-+		_vm->_virtscr[kMainVirtScreen].setDirtyRange(0, _vm->_virtscr[kMainVirtScreen].h);
++	// Figures without HD are known in any case (markCel()): build the screen again
 +	writeRect(0, 0, _w, _h);
 +}
 +
@@ -2277,6 +2414,39 @@ index 00000000..53a78232
 +			const uint32 ms2 = g_system->getMillis() - start2;
 +			debug("DigHD: bench frame %u: colour cycling step %.2f ms (mean of %d)", _frameNo, (double)ms2 / _bench, _bench);
 +		}
++		if (!film) {
++			// The game screen sent through blitVirtScreen() as the engine does:
++			// the source of every pixel looked up, then the same as above
++			VirtScreen *vs = &_vm->_virtscr[kMainVirtScreen];
++			const int top = _vm->_screenTop, bottom = MIN<int>(vs->h, top + _vm->_screenHeight);
++			const uint32 start3 = g_system->getMillis();
++			for (int i = 0; i < _bench; i++)
++				_vm->drawStripToScreen(vs, 0, vs->w, top, bottom);
++			const uint32 ms3 = g_system->getMillis() - start3;
++			debug("DigHD: bench frame %u: sources and whole screen %.2f ms (mean of %d)", _frameNo, (double)ms3 / _bench, _bench);
++			// Marking the pixels of the cels drawn last, in the order they were
++			// drawn (markCel(), called for every cel the engine draws)
++			const int xs = vs->xstart, shift = xs - (xs & 7);
++			Common::Array<int> order;
++			for (int i = 0; i < kMaxCelSlots; i++)
++				if (_cels[i].used || _cels[i].missing)
++					order.push_back(i);
++			Common::sort(order.begin(), order.end(), [this](int a, int b) { return _cels[a].seq < _cels[b].seq; });
++			// Text drawn over the figures since then would be taken for them: the
++			// marks are put back afterwards
++			const Common::Array<CelMark> keep = _celMain.mark;
++			const bool keepAny = _celMain.any;
++			const uint32 start4 = g_system->getMillis();
++			for (int i = 0; i < _bench * 10; i++)
++				for (uint k = 0; k < order.size(); k++)
++					markCel(order[k], _cels[order[k]].rx - shift, _cels[order[k]].ry, xs);
++			const uint32 ms4 = g_system->getMillis() - start4;
++			if (keep.size() == _celMain.mark.size()) {
++				_celMain.mark = keep;
++				_celMain.any = keepAny;
++			}
++			debug("DigHD: bench frame %u: marking %u cels %.3f ms (mean of %d)", _frameNo, order.size(), (double)ms4 / (_bench * 10), _bench * 10);
++		}
 +	}
 +	_statRoom = _statObject = _statCel = _statSan = _statFlat = _statMissing = _statCycle = _statText = 0;
 +}
@@ -2284,10 +2454,10 @@ index 00000000..53a78232
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..693a0aa9
+index 00000000..bdf1c2bf
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,329 @@
+@@ -0,0 +1,373 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -2321,6 +2491,8 @@ index 00000000..693a0aa9
 + *  - pixels that show an object image (doors, machines) are taken from an
 + *    HD object image (mods/<name>/objects/objNNN_SS.png),
 + *  - pixels of a costume cel come from mods/<name>/costumes/costumeCCC_NNN.png,
++ *    as long as the pixel still holds the value the cel drew and nothing else
++ *    (a banner, a menu, a box) has been drawn there since,
 + *  - film frames come from mods/<name>/san/<FILE>/NNNNN.png, except the
 + *    pixels of text (subtitles) that SmushPlayer draws over the film,
 + *  - text (dialog, banners, menus, subtitles) is drawn with HD glyphs made
@@ -2406,18 +2578,35 @@ index 00000000..693a0aa9
 +	void noteGlyph(const GlyphDraw &g);
 +	/** The texts of the game screen are removed (start of each frame, removeBlastTexts()). */
 +	void clearText();
-+	/** Something is drawn into this part of the game screen (markRectAsDirty(), screen x, virtscreen y). */
-+	void dirtyRect(int left, int right, int top, int bottom);
++	/**
++	 * Something is drawn into this part of the game screen (markRectAsDirty(),
++	 * screen x, virtscreen y, right and bottom exclusive for the figures).
++	 * dirtybit is the actor number when an actor marks the rectangle it draws.
++	 */
++	void dirtyRect(int left, int right, int top, int bottom, int dirtybit);
++	/**
++	 * The engine saves the game screen before it draws a banner over it, and
++	 * puts it back when the banner goes (showBannerAndPause(), clearBanner()).
++	 * The figures under the banner are then the figures that were there.
++	 */
++	void screenSaved();
++	void screenRestored();
 +	/** On while the engine draws text and marks it dirty; dirtyRect() then keeps the text. */
 +	void setTextPass(bool on) { _textPass = on; }
++	/**
++	 * On while the engine marks a blast object it has drawn. Its transparent
++	 * pixels leave the figures under it, so dirtyRect() keeps the figures there;
++	 * the pixels it drew are told apart by their value (see markCel()).
++	 */
++	void setOverlayPass(bool on) { _overlayPass = on; }
 +
 +	void setPalette(const byte *colors, uint first, uint num);
 +	void moveScreen(int dx, int dy, int height);
 +	void updateCursor(const byte *cursor, int width, int height, int hotspotX, int hotspotY, int transColor);
 +	void noteObject(int obj, int state, int x, int y, int width, int height);
 +
-+	/** An actor is about to be drawn (costume renderer). */
-+	void beginActor(int actor, int costume);
++	/** An actor is about to be drawn (costume renderer), into the front buffer or the back buffer. */
++	void beginActor(int actor, int costume, bool front);
 +	/** A costume cel was painted. Coordinates are in costume renderer space. */
 +	void noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart);
 +
@@ -2458,6 +2647,26 @@ index 00000000..693a0aa9
 +	};
 +	enum { kCelSlotsPerActor = 32, kMaxCelSlots = 1024 };
 +
++	// Which costume cel drew a pixel of the game screen buffer, and the value it
++	// wrote. A pixel shows the figure only while the cel's drawing is the last one
++	// of its slot (seq) and the pixel still holds the value (see markCel()).
++	struct CelMark {
++		uint32 seq;   // CelSlot::seq of the drawing, 0 = none
++		uint16 slot;  // index in _cels
++		byte val;     // palette index the cel left in the pixel
++		byte pad;
++	};
++	struct CelLayer {
++		const byte *base = nullptr;  // the main virtual screen buffer
++		size_t size = 0;
++		int pitch = 0;
++		Common::Array<CelMark> mark;   // per buffer pixel
++		Common::Array<CelMark> saved;  // while a banner covers the screen (screenSaved())
++		bool any = false;
++		bool savedAny = false;
++		void clear();
++	};
++
 +	struct DrawnObject {
 +		int obj, state, x, y;
 +		Image *image;
@@ -2467,7 +2676,9 @@ index 00000000..693a0aa9
 +	bool loadImage(const Common::Path &hdFile, const Common::Path &idxFile, int origW, int origH, Image &out);
 +	void loadRoom(int room);
 +	void clearRoom();
-+	void markMissingCels(VirtScreen *vs, const byte *src, int pitch, const byte *back, int x, int y, int top, int width, int height);
++	CelLayer *celLayer(bool create);
++	void markCel(int slot, int left, int top, int xstart);
++	void glyphOverCels(const GlyphDraw &g);
 +	void compose(int x, int y, int width, int height);
 +	void kindFlat(byte *out, int outPitch, byte idx, bool missing);
 +	void updateCycled();
@@ -2511,6 +2722,7 @@ index 00000000..693a0aa9
 +		void reset(const byte *b, size_t s, int p);
 +		void clear();
 +	};
++	bool noteGlyphHD(const GlyphDraw &g);
 +	int glyphShape(int w, int h, int levels, const byte *lev, const byte *ctx);
 +	int glyphStyle(int shape, const byte *pal);
 +	void makeGlyphHD(GlyphShape &s);
@@ -2566,8 +2778,10 @@ index 00000000..693a0aa9
 +	Image *celImage(int costume, int cel, int width, int height);
 +	Common::HashMap<uint32, Image *> _celImages;  // key: costume << 12 | cel
 +	CelSlot _cels[kMaxCelSlots];
++	CelLayer _celMain;
 +	int _curActor = -1, _curCostume = -1, _curCelCount = 0;
 +	bool _passStarted = false;
++	bool _curFront = true;  // the actor is drawn into the front buffer (the screen)
 +	uint32 _seq = 0;
 +
 +	// Smush frame replacement
@@ -2588,7 +2802,7 @@ index 00000000..693a0aa9
 +	Common::HashMap<uint64, int> _glyphStyleIndex;  // shape << 32 | colours -> style
 +	TextLayer _textMain;    // the game screen (main virtual screen buffer)
 +	TextLayer _textSmush;   // the SMUSH frame buffer, between smushTextBegin() and smushTextEnd()
-+	bool _textPass = false, _smushTextOpen = false;
++	bool _textPass = false, _smushTextOpen = false, _overlayPass = false;
 +	Common::Array<uint32> _text;  // per screen pixel: glyph reference as in TextLayer::own, or 0
 +	Common::Array<byte> _base;    // per screen pixel: the value under the glyph, else the shown value
 +
@@ -2618,7 +2832,7 @@ index 00000000..693a0aa9
 +
 +#endif
 diff --git a/engines/scumm/gfx.cpp b/engines/scumm/gfx.cpp
-index bf85f13c..9801ce05 100644
+index bf85f13c..17899805 100644
 --- a/engines/scumm/gfx.cpp
 +++ b/engines/scumm/gfx.cpp
 @@ -21,6 +21,7 @@
@@ -2629,18 +2843,19 @@ index bf85f13c..9801ce05 100644
  #include "scumm/charset.h"
  #ifdef ENABLE_HE
  #include "scumm/he/intern_he.h"
-@@ -481,6 +482,10 @@ void ScummEngine::markRectAsDirty(VirtScreenNumber virt, int left, int right, in
+@@ -481,6 +482,11 @@ void ScummEngine::markRectAsDirty(VirtScreenNumber virt, int left, int right, in
  
  	if (left > right || top > bottom)
  		return;
 +
-+	// Dig HD: whatever is drawn here ends the glyphs of earlier text in this area
++	// Dig HD: whatever is drawn here ends the glyphs of earlier text in this area,
++	// and the figures, unless an actor marks itself
 +	if (_digHD && virt == kMainVirtScreen)
-+		_digHD->dirtyRect(left, right, top, bottom);
++		_digHD->dirtyRect(left, right, top, bottom, dirtybit);
  	if (top > vs->h || bottom < 0)
  		return;
  
-@@ -814,6 +819,8 @@ void ScummEngine::drawStripToScreen(VirtScreen *vs, int x, int width, int top, i
+@@ -814,6 +820,8 @@ void ScummEngine::drawStripToScreen(VirtScreen *vs, int x, int width, int top, i
  		// video buffer to screen with the following routine, because for newer games we
  		// need the text overlay to be already stamped on top of the buffer.
  		mac_drawBufferToScreen((const byte *)src, pitch, x, y, width, height);
@@ -2649,7 +2864,7 @@ index bf85f13c..9801ce05 100644
  	} else {
  		// Finally blit the whole thing to the screen
  		_system->copyRectToScreen(src, pitch, x, y, width, height);
-@@ -1729,6 +1736,11 @@ void ScummEngine::moveScreen(int dx, int dy, int height) {
+@@ -1729,6 +1737,11 @@ void ScummEngine::moveScreen(int dx, int dy, int height) {
  	if ((dx == 0 && dy == 0) || height <= 0)
  		return;
  
@@ -2661,7 +2876,7 @@ index bf85f13c..9801ce05 100644
  	Graphics::Surface *screen = _system->lockScreen();
  	if (!screen)
  		return;
-@@ -4749,7 +4761,10 @@ void ScummEngine::dissolveEffect(int width, int height) {
+@@ -4749,7 +4762,10 @@ void ScummEngine::dissolveEffect(int width, int height) {
  				src = ditherVGAtoEGA(pitch, x, y, wd, ht);
  			}
  
@@ -2673,7 +2888,7 @@ index bf85f13c..9801ce05 100644
  		}
  
  		// Test for 1x1 pattern...
-@@ -4840,7 +4855,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4840,7 +4856,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -2682,7 +2897,7 @@ index bf85f13c..9801ce05 100644
  				}
  			}
  
-@@ -4874,7 +4889,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4874,7 +4890,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -2691,7 +2906,7 @@ index bf85f13c..9801ce05 100644
  				}
  			}
  
-@@ -4911,7 +4926,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4911,7 +4927,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -2700,7 +2915,7 @@ index bf85f13c..9801ce05 100644
  				}
  			}
  			waitForTimer(delay, true);
-@@ -4947,7 +4962,7 @@ void ScummEngine::scrollEffect(int dir) {
+@@ -4947,7 +4963,7 @@ void ScummEngine::scrollEffect(int dir) {
  						src = ditherVGAtoEGA(vsPitch, tx, ty, wd, ht);
  					}
  
@@ -2709,7 +2924,7 @@ index bf85f13c..9801ce05 100644
  				}
  			}
  
-@@ -4991,7 +5006,7 @@ void ScummEngine::updateScreenShakeEffect() {
+@@ -4991,7 +5007,7 @@ void ScummEngine::updateScreenShakeEffect() {
  	if (!_shakeNextTick)
  		_shakeNextTick = now;
  
@@ -2718,6 +2933,38 @@ index bf85f13c..9801ce05 100644
  
  	while (now >= _shakeNextTick) {
  		_shakeFrame = (_shakeFrame + 1) % NUM_SHAKE_POSITIONS;
+diff --git a/engines/scumm/gfx_gui.cpp b/engines/scumm/gfx_gui.cpp
+index 133f6ec0..730bde3c 100644
+--- a/engines/scumm/gfx_gui.cpp
++++ b/engines/scumm/gfx_gui.cpp
+@@ -20,6 +20,7 @@
+  */
+ 
+ #include "scumm/scumm.h"
++#include "scumm/dighd.h"
+ #include "scumm/scumm_v2.h"
+ #include "scumm/scumm_v4.h"
+ #include "scumm/scumm_v6.h"
+@@ -260,6 +261,10 @@ Common::KeyState ScummEngine::showBannerAndPause(int bannerId, int32 waitTime, c
+ 				_bannerMem,
+ 				&_virtscr[kMainVirtScreen].getPixels(0, _screenTop)[rowSize * _bannerSaveYStart],
+ 				_bannerMemSize);
++
++			// Dig HD: the figures under the banner come back with the pixels
++			if (_digHD)
++				_digHD->screenSaved();
+ 		}
+ 	}
+ 
+@@ -641,6 +646,8 @@ void ScummEngine::clearBanner() {
+ 				_bannerMemSize);
+ 
+ 			markRectAsDirty(_virtscr[kMainVirtScreen].number, 0, rowSize, _screenTop, _screenHeight + _screenTop);
++			if (_digHD)
++				_digHD->screenRestored();
+ 			ScummEngine::drawDirtyScreenParts();
+ 			_system->updateScreen();
+ 		}
 diff --git a/engines/scumm/input.cpp b/engines/scumm/input.cpp
 index 3525910f..3e0fa77b 100644
 --- a/engines/scumm/input.cpp
@@ -2809,7 +3056,7 @@ index f8fc7110..e578ba90 100644
  		if (hardcodedColors) {
  			for (int j = minY; j < height; j++) {
 diff --git a/engines/scumm/object.cpp b/engines/scumm/object.cpp
-index 0e97ae97..55adc85f 100644
+index 0e97ae97..eb0f5cb7 100644
 --- a/engines/scumm/object.cpp
 +++ b/engines/scumm/object.cpp
 @@ -20,6 +20,7 @@
@@ -2830,6 +3077,19 @@ index 0e97ae97..55adc85f 100644
  	x = 0xFFFF;
  
  	for (a = numstrip = 0; a < width; a++) {
+@@ -1865,7 +1869,12 @@ void ScummEngine_v6::drawBlastObject(BlastObject *eo) {
+ 
+ 	drawBomp(bdd);
+ 
++	// Dig HD: the figures under the transparent pixels of the object stay
++	if (_digHD)
++		_digHD->setOverlayPass(true);
+ 	markRectAsDirty(vs->number, bdd.x, bdd.x + bdd.srcwidth, bdd.y, bdd.y + bdd.srcheight);
++	if (_digHD)
++		_digHD->setOverlayPass(false);
+ }
+ 
+ void ScummEngine_v6::removeBlastObjects() {
 diff --git a/engines/scumm/palette.cpp b/engines/scumm/palette.cpp
 index a3758d7f..a95fd624 100644
 --- a/engines/scumm/palette.cpp
