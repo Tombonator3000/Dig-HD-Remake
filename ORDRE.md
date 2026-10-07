@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 06:54 (norsk tid)
+Oppdatert 2026-10-07 08:19 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -23,6 +23,8 @@ Les denne filen før du starter. Den erstatter tidligere ordre.
 9. `rom008` (rom 8, ast5, del 1/1).
 10. `rom010_del1av2` (rom 10, tun1, del 1/2).
 
+Når disse er levert, fortsett med bestilling 2 i `GRAFIKKLISTE.md` uten å vente på ny ordre.
+
 ## Stilankere
 
 - `stil/room009_core.png`
@@ -43,10 +45,10 @@ Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-ar
 
 ## Beskjeder
 
-- Nytt: 30 objektjobber (objNNN_SS). Det er store bilder spillet tegner over rommet, som nærbilder, kart og den blå trikken. De lages akkurat som romjobbene. obj241_01 (tavla i rom 28) står først fordi rom 28 er ferdig.
-- Objekter med flere tilstander (obj884 og obj886): lag tilstand 01 først. For de andre tilstandene legger du ved resultat.png fra tilstand 01 som bilde to i stedet for stilankeret. Claude gjør resten likt automatisk.
-- Kjør git pull før hver økt og les ORDRE.md. Ikke legg til stjerner, lyspunkter eller vann som ikke finnes i originalen.
-- Motoren har fått HD-tekst, fargesykling i HD og undertekster over HD-filmrammer. Bygg motoren på nytt før laptoptesten (kodeoppgave 1).
+- Nytt: GRAFIKKLISTE.md har alt som skal lages, delt i bestillinger på 10. Ta bestilling 1 (denne ordren), og fortsett med neste bestilling uten å vente på meg. Commit og push etter hver bestilling.
+- 30 objektjobber (objNNN_SS) er store bilder spillet tegner over rommet, som nærbilder, kart og den blå trikken. De lages akkurat som romjobbene. obj241_01 (tavla i rom 28) står først fordi rom 28 er ferdig.
+- Objekter med flere tilstander (obj884 og obj886): lag tilstand 01 først. For de andre tilstandene legger du ved resultat.png fra tilstand 01 som bilde to i stedet for stilankeret.
+- Kjør git pull før hver økt. Ikke legg til stjerner, lyspunkter eller vann som ikke finnes i originalen.
 
 ## Kodeoppgaver
 

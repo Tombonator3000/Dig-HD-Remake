@@ -18,7 +18,7 @@ Les `ORDRE.md` først. Den er siste beskjed fra Claude, med jobbene du skal gjø
 
 ## Slik jobber du
 
-1. Kjør `git pull` i grenen `gpt-arbeid` før hver økt. Ta jobbene i `ORDRE.md`, i den rekkefølgen de står.
+1. Kjør `git pull` i grenen `gpt-arbeid` før hver økt. Ta jobbene i `ORDRE.md`, i den rekkefølgen de står. Når de er levert, fortsett med neste bestilling i `GRAFIKKLISTE.md` uten å vente på ny ordre. Hopp over jobber som er krysset av.
 2. Lag bildet med bildeverktøyet: `referanse.png` er bildet som redigeres, `prompt.txt` er prompten, størrelse 1536 x 1024.
 3. Sammenlign med `referanse.png` før du lagrer. Ligger noe feil, prøv igjen.
 4. Lagre `resultat.png`. Skriv `notat.md` med verktøy og modell (hvis det vises), dato, antall forsøk og hva som var usikkert.
