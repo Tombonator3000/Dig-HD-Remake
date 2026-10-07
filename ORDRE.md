@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-07 12:12 (norsk tid)
+Oppdatert 2026-10-07 12:14 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -42,6 +42,12 @@ Begge formatene godtas av kontrollen:
 Objektjobbene (`objNNN_SS`) er store bilder som spillet tegner over rommet (nærbilder, kart, paneler). De lages og leveres på samme måte. Utsnittet er da objektbildet, så leverer du bare bildet, skal det ha objektets sideforhold (se `bilde_i_lerret` i `jobb.json`).
 
 Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-arbeid` og push.
+
+## Beskjeder
+
+- Veldig bra: 103 av 106 rom og 29 av 30 store objekter er ferdige, og jeg har sett gjennom alle. Symbolpanelene og kartet er trofaste.
+- Igjen nå: rom050 (deler forskjøvet opptil 28 px, start helt på nytt fra referanse.png), rom079 og obj547_01 (opptil 7 px), og resten av rom088. Les retur.md i jobbene.
+- Etter det: jobbene med status sjekk (rom072, rom077, rom090, rom101, rom111, obj557, obj884, obj886) kan bli bedre. Neste bestilling (mindre objekter) kommer i GRAFIKKLISTE.md når rommene er ferdige.
 
 ## Kodeoppgaver
 

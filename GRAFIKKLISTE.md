@@ -1,6 +1,6 @@
 # Grafikkliste
 
-Oppdatert 2026-10-07 12:12 (norsk tid)
+Oppdatert 2026-10-07 12:14 (norsk tid)
 
 Alt som skal lages til The Dig HD Remake, i den rekkefølgen det skal lages. Bestilling 1 er det samme som står i `ORDRE.md`. Når en bestilling er levert, tar du neste uten å vente på ny ordre. Hopp over jobber som er krysset av.
 
