@@ -433,3 +433,18 @@ def test_gpt_object_notes_and_states(tmp_path):
     assert out[60, 60, 0] == 200          # midt i det som er forskjellig
     assert out[150, 150, 0] == 100        # langt unna: som første tilstand
     assert out[5, 5, 0] == 100
+
+
+def test_gpt_manual_rejection(tmp_path):
+    from dighd import gpt
+
+    rej = tmp_path / "avvisninger.csv"
+    rej.write_text('jobb,sha256_resultat,grunn,forslag\nrom011,abc,"feil merker","Redo it."\nrom012,*,"alt",""\n',
+                   encoding="utf-8")
+    m = gpt.read_rejections(rej)
+    assert m["rom011"]["grunn"] == "feil merker" and m["rom012"]["sha256_resultat"] == "*"
+    d = tmp_path / "rom011"
+    d.mkdir()
+    gpt._write_return(d, {"status": "avvist", "kommentar": "feil merker", "forslag": "Redo it."})
+    text = (d / "retur.md").read_text()
+    assert "feil merker" in text and "Redo it." in text and "Precise correction" not in text

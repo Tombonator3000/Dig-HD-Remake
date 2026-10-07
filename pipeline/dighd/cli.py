@@ -127,6 +127,7 @@ def cmd_gpt_pakke(a) -> int:
 
 def cmd_gpt_inn(a) -> int:
     s = gpt.import_results(Path(a.fra), Path(a.extract), Path(a.ut), sigma=a.sigma, strength=a.styrke,
+                           rejections=Path(a.avvisninger) if a.avvisninger else None,
                            only_approved=a.bare_godkjente)
     print("Status:", ", ".join(f"{k} {v}" for k, v in sorted(s["status"].items())))
     print(f"Ferdige rom ({len(s['ferdige_rom'])} av {s['rom_totalt']}):",
@@ -207,6 +208,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--sigma", type=float, default=6.0, help="hvor grove fargene som låses til originalen er (HD-piksler)")
     p.add_argument("--styrke", type=float, default=1.0, help="fargelås 0 til 1 (0 = av)")
     p.add_argument("--bare-godkjente", action="store_true", help="ikke bruk jobber med status sjekk")
+    p.add_argument("--avvisninger", default=str(root / "docs" / "gpt-avvisninger.csv"),
+                   help="CSV med jobb,sha256_resultat,grunn,forslag for bilder avvist ved gjennomsyn")
 
     p = sub.add_parser("gpt-ordre", help="skriv ORDRE.md med neste jobber til ChatGPT")
     p.add_argument("--fra", default=str(root / "work" / "gpt"))
