@@ -181,3 +181,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Kjørte `dighd gpt-pakke` (431 jobber) og en runde. Ny ORDRE.md med de avviste romjobbene først og så lagjobbene. 25 bestillinger i GRAFIKKLISTE.md.
 - Så gjennom de oppdaterte bildene: obj884 (hånden lik i alle tre tilstandene), obj886, rom 72, 79 (hansken beholdt), 90, obj547 og obj557. Alle trofaste.
 - ChatGPT leverte rom 111 på nytt 12:38, dårligere enn 11:09 (4,6 mot 1,4 px), og rommet falt ut av modden. Satte 11:09-versjonen tilbake og la den nye som `alternativ_1238.png`. Nå 104 av 106 rom (mangler 50 og 88) og 30 av 30 store objekter. Modden publisert (238 MB).
+
+## 2026-10-07 13:41 til 14:05 (Claude)
+- Planlagt runde (satt til 12:58, kom 13:41): ingen nye leveranser.
+- `gpt-inn` tar nå vare på den beste godtatte leveransen per jobb i `work/gpt/beste/`. Kommer det en ny leveranse som er dårligere (avvist mot godtatt, eller sjekk mot godkjent), brukes den forrige, og kommentaren sier at den nye var dårligere. Avvises den forrige ved gjennomsyn, slettes den. Kontrollen per leveranse er flyttet til `_evaluate`. Ny test, 17 bestått. Med ekte data: status og alle HD-bilder byte for byte uendret, 187 godtatte leveranser lagret.

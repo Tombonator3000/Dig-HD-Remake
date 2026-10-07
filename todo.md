@@ -23,7 +23,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Tom ser over stilen når 10 til 15 rom er ferdige
 - [x] Bestilling runde 2 laget: 236 lagjobber og 3 ikonark for de mindre objektbildene (PR 16)
 - [ ] Lagjobbene og ikonarkene fra ChatGPT
-- [ ] La en ny leveranse som er dårligere enn den forrige, ikke erstatte den forrige automatisk (skjedde med rom 111)
+- [x] En dårligere ny leveranse erstatter ikke en godtatt (beste leveranse per jobb i `work/gpt/beste`)
 - [x] Nettleserversjon lokalt: `./spill.sh --nettleser` (PR 15)
 - [ ] Bestilling runde 3: modellark for hovedpersonene, så automatisk oppskalering av rutene
 - [ ] Lag Boston-ruter som består silhuettkontrollen og kontroller hele bevegelsesrekken i motoren
