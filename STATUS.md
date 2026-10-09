@@ -55,8 +55,11 @@ Musikk og tale ikke testet fordi DIGMUSIC.BUN og DIGVOICE.BUN mangler lokalt.
 
 GitHub avviste Pages fra det private repoet med gjeldende abonnement. Derfor
 brukes det separate offentlige motorrepoet `Tombonator3000/Dig-HD-Web`.
-Spillrepoets synlighet er uendret. Den publiserte adressen kontrolleres etter
-første bygg. Full gjennomspilling og mobiltest er ikke utført.
+Spillrepoets synlighet er uendret. [Nettsiden](https://tombonator3000.github.io/Dig-HD-Web/)
+er publisert og kontrollert: HTTP 200, faktisk HD-oppstart fra Pages,
+HD/klassisk-knapp og fullskjerm. Offentlig motorbygg og deploy i GitHub Actions
+bestått. Direkte adresser til spillfiler og HD-bilder gir HTTP 404.
+Full gjennomspilling og mobiltest er ikke utført.
 
 ## Kjente begrensninger
 
