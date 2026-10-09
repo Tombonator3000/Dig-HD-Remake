@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Bygger ScummVM med Dig HD-patchen for nettleseren (WebAssembly med Emscripten).
 #
-# Bare til lokal bruk: resultatet kjøres med engine/run-web.sh på http://localhost:8000.
-# Spillet og HD-grafikken tilhører Disney/Lucasfilm. Ingenting herfra skal legges
-# på en åpen adresse (ingen GitHub Pages, ingen publisering, ingen opplasting).
+# Resultatet kjøres lokalt med engine/run-web.sh på http://localhost:8000.
+# engine/build-pages.py lager en egen offentlig motorpakke som leser private filer
+# fra nettleserens lokale lagring. Spillfilene og HD-grafikken skal aldri publiseres.
 #
 # Følger ScummVM sin egen oppskrift (dists/emscripten/build.sh på den låste commiten):
 # samme Emscripten-versjon, configure med --host=wasm32-unknown-emscripten, make og

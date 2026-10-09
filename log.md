@@ -206,3 +206,11 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 
 ## 2026-10-07 21:14 (Claude)
 - Tom ba om stopp til han sier start igjen. Slettet den planlagte runden 21:20; ingen planlagte runder står igjen. Ingen agenter kjører. Ordren i `gpt-arbeid` står som den er.
+
+## 2026-10-09 04:44 (Codex)
+- Tom ba om å spille direkte fra GitHub Pages med HD-grafikk. Laget ny, separat inngang under engine/pages og en pakker som bare tar motoren, ScummVM-temaene og tilhørende GPL-kildekode. Ingen spill- eller HD-filer i kodegrenen eller nettsidepakken.
+- GitHub avviste Pages for det private spillrepoet (HTTP 422, abonnementet støtter det ikke). Opprettet derfor det offentlige motorrepoet Tombonator3000/Dig-HD-Web. Spillrepoet og alle grafikkgrener beholdes private.
+- Spillmappen og HD-pakken velges én gang i nettsiden og lagres lokalt i IndexedDB. Virtuelle /data-adresser besvares fra lokal lagring, også manglende spillfiler; temaer lastes under riktig Pages-prefiks. Lagring i spillet er separat og beholdes når filpakken fjernes.
+- Bygget den låste ScummVM-commiten med uendret HD-patch og Emscripten 4.0.10. Filtestene: 4 bestått. Chromium uten skjerm: faktisk rom 22 i 1280 x 800 HD, rom 9, mappevalg og filer etter omlasting, HD/klassisk-knapp, spillmeny og et ekte dig.s01-lagret spill som beholdes etter nettleserlukking. Ingen spill- eller HD-HTTP-forespørsler. Musikk og tale ikke testet, BUN-filene mangler lokalt.
+- Nettsiden bygges og publiseres av GitHub Actions. Kontroll av den publiserte adressen gjenstår. Full gjennomspilling og mobiltest ikke utført.
+- Lasting kontrollert etter lukking av nettleseren: startet i rom 9, lastet det navngitte spillet fra F5-menyen og kom tilbake til rom 22 med HD.

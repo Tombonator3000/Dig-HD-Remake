@@ -1,6 +1,6 @@
 # Status
 
-Oppdatert 7. oktober 2026, 20:50. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 9. oktober 2026. Grafikkgrunnlaget er modden fra 7. oktober, 20:48. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
@@ -38,6 +38,25 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Bygg | `engine/build.sh` fra ren checkout av låst ScummVM-commit | Kjørt fra tom mappe her og av Codex på laptopen |
 | ChatGPT-kontroll | Sideforhold, forskyvning, zoom, kantlikhet, fargelås, sammensying, objektjobber, like tilstander | Kunstige svar: 3 px forskyvning og 3 prosent zoom avvises, riktig plassert godkjennes; pilotbildene godkjent (forskyvning 0,73 og 0,25 px) |
 | Pipeline | 10 tester, 9 uten spillfiler | `cd pipeline && pytest`, og `pytest -m "not game"` i CI på hver push |
+
+## Nettleser og GitHub Pages
+
+Egen inngang i `engine/pages`: spillfiler og HD-pakke velges fra maskinen og
+lagres lokalt i IndexedDB. Fire filtester bestått, inkludert at manglende
+private filer ikke gir HTTP-forespørsler og at ScummVM-temaer bruker riktig
+prosjektprefiks. Nettsidepakken har bare motor, temaer og tilhørende GPL-kode.
+
+Bygget med den låste ScummVM-commiten og Emscripten 4.0.10, med uendret HD-patch.
+Testet i Chromium uten skjerm: rom 22 og 9 med 1280 x 800 HD, mappeimport,
+begge filpakkene beholdt etter omlasting, HD/klassisk-knapp og F5-meny. Ekte
+lagring av `dig.s01`, lukking av nettleseren og lasting fra rom 9 tilbake til
+rom 22 bestått. Ingen spill- eller HD-filer sendt som HTTP-forespørsler.
+Musikk og tale ikke testet fordi DIGMUSIC.BUN og DIGVOICE.BUN mangler lokalt.
+
+GitHub avviste Pages fra det private repoet med gjeldende abonnement. Derfor
+brukes det separate offentlige motorrepoet `Tombonator3000/Dig-HD-Web`.
+Spillrepoets synlighet er uendret. Den publiserte adressen kontrolleres etter
+første bygg. Full gjennomspilling og mobiltest er ikke utført.
 
 ## Kjente begrensninger
 
