@@ -157883,13 +157883,14 @@
   "ruter": 22,
   "fragmenter": [
    "costume164_009",
-   "costume164_010"
+   "costume164_010",
+   "costume164_001"
   ],
   "rows": [
    {
     "baseline": 68,
     "count": 2,
-    "main_count": 2,
+    "main_count": 1,
     "english": "start pose, facing right (2 frames)",
     "ruter": [
      {
@@ -158394,7 +158395,13 @@
      }
     ]
    }
-  ]
+  ],
+  "expected_rows": [
+   1,
+   9,
+   9
+  ],
+  "source_fragment_clarification": "costume164_001 is an original6x1 flat ground/registration trace, visually inspected. Preserve original as fallback, never expand into a person."
  },
  "fig164_02": {
   "kostyme": 164,
