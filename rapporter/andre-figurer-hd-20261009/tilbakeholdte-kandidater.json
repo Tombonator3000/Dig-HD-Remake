@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-09T23:47:19.376375+00:00",
+ "oppdatert_utc": "2026-10-09T23:49:50.318557+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 80,
+ "antall": 78,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -938,73 +938,6 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig035_17",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "af1db95ec21f87adbb2a23ff314b4b8c9ca0259a3247d019eba897177841de03",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Restalfa utenfor konturen er for høy.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     1,
-     1
-    ],
-    "native_rader": [
-     4,
-     2,
-     1,
-     3,
-     2,
-     1,
-     3,
-     1,
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 5319,
-     "maks": 123,
-     "piksler_over_16": 350
-    }
-   },
-   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
-  },
-  {
-   "jobb": "fig035_20",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "ee7ea0e6e84fb18e522beb3eb88e3ad620493cb4d52b8456a2986464099b1012",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Restalfa utenfor konturen er for høy.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     1
-    ],
-    "native_rader": [
-     4,
-     1,
-     5,
-     1,
-     3,
-     4,
-     1,
-     4,
-     4,
-     1,
-     2
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 1821,
-     "maks": 113,
-     "piksler_over_16": 15
-    }
-   },
-   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
   },
   {
    "jobb": "fig035_30",
