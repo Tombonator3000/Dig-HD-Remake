@@ -40,6 +40,7 @@ import json
 import math
 import re
 import shutil
+import tempfile
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -1123,6 +1124,7 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
     (out / "rooms").mkdir(parents=True, exist_ok=True)
     (out / "objects").mkdir(parents=True, exist_ok=True)
 
+    spill_dir = tempfile.TemporaryDirectory(prefix="dighd-inn-")
     entries = sorted(((_load_job(json.loads(jf.read_text())), jf.parent) for jf in jobs_dir.glob("*/jobb.json")),
                      key=lambda e: _order(e[0]))
     jobs: list[Job] = []
@@ -1165,6 +1167,12 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         results[job.id] = r
         _write_return(d, r)
         keep = status == "godkjent" or (status == "sjekk" and not only_approved)
+        if keep and locked is not None:
+            # Til disk og lest som minnekart, så alle de godkjente bildene ikke ligger i minnet
+            # samtidig (med tusenvis av jobber ble gpt-inn stoppet for for mye minne)
+            spill = Path(spill_dir.name) / f"{job.id}.npy"
+            np.save(spill, locked)
+            locked = np.load(spill, mmap_mode="c")
         tiles.setdefault(job.bilde, []).append((job, locked if keep else None))
 
     _write_status(work, jobs, results)
