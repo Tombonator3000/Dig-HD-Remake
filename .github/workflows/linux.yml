@@ -60,7 +60,9 @@ jobs:
       - name: Test pakken uten skjerm
         run: |
           T=$(mktemp -d)
-          env HOME=$T SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy APPIMAGE_EXTRACT_AND_RUN=1 \
+          # Runneren har egne XDG-mapper; testen skal bruke sin egen hjemmemappe
+          env HOME=$T XDG_CONFIG_HOME=$T/.config XDG_DATA_HOME=$T/.local/share \
+            SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy APPIMAGE_EXTRACT_AND_RUN=1 \
             DIGHD_TEST_ROOM=22 DIGHD_TEST_AT=240 DIGHD_SKIP_VIDEO=1 \
             DIGHD_TEST_KEYS=400:f5 DIGHD_TEST_CLICKS=450:114/152,550:265/107 DIGHD_QUIT_AT=700 \
             timeout 600 out/linux/TheDigHD-x86_64.AppImage --debuglevel=1 > out/linux/test.log 2>&1 || true
