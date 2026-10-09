@@ -3,9 +3,9 @@
  "kostymer": 54,
  "originalruter_totalt": 7683,
  "ark_totalt": 509,
- "ark_levert": 172,
- "originalruter_levert": 3279,
- "ark_gjenstar": 337,
+ "ark_levert": 180,
+ "originalruter_levert": 3397,
+ "ark_gjenstar": 329,
  "status": "pågår",
  "leveranser": [
   {
@@ -4006,21 +4006,241 @@
     "prompt.txt": "bc984dc899c2f1a57e490aa6c10084c99bdff523b687fd034b5d063a55f2d1f1",
     "jobb.json": "f7d22d0f1b366585444a83a04aa5ebb54d8f5994986a287c544968bf1ee9b81b"
    }
+  },
+  {
+   "jobb": "fig017_07",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_07,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 10,2; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nAll bodies HEADED, walking FRONT-LEFT, noses LEFT.\n\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_07/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    10,
+    2
+   ],
+   "fragments": 0,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cda60429-fcab-4ee3-9ade-f27a7e45e9f4.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cda60429-fcab-4ee3-9ade-f27a7e45e9f4.png",
+   "sha256": "e188b38f3ac6a24168215936deaa50b48b7656dab57c6c09d2a835e253b0d316",
+   "originalruter": 12,
+   "resultat": "jobber/fig017_07/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "b835f6f037b167a55e1b45c5b797bfade51d8cb0979c34b7ec71abcd3550e642",
+    "original_1x.png": "ff76f1829558a02940e28365aa78d1df10c9e84af096189711e1ebd802cb4d43",
+    "prompt.txt": "d2439dab12cb9a28f2d4ad8903129c6a29e6ca5869886022df2aaf5a7a7f0529",
+    "jobb.json": "67fd30a0b13ff53856cf6c1f68052c64ce29f2b09e302f4bb3ccab3339dac0ed"
+   }
+  },
+  {
+   "jobb": "fig017_08",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_08,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 11,1; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nWalking BACK-RIGHT, jacket backs prominent, noses RIGHT wherever a head is present.\nALL TWELVE bodies HEADLESS; do not invent any head.\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_08/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    11,
+    1
+   ],
+   "fragments": 0,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6bf4e7b5-ccf3-4213-b9ef-ea5ba621f662.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6bf4e7b5-ccf3-4213-b9ef-ea5ba621f662.png",
+   "sha256": "42e5c2386200f7d064476c4f02dfd4959d8779d923d8f7e611a541e621594a62",
+   "originalruter": 12,
+   "resultat": "jobber/fig017_08/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "5c8a727cc0ce35d72e7e7d075467ef0232a58c45f340fa2ce6a5c50b83fde1f7",
+    "original_1x.png": "917867ae909654b19a1dbe044bffc378172495cbc2cf78746bbb1330b1b3edd7",
+    "prompt.txt": "b90a414e76f4c85f70416a542915f477ed6763884f859cec95631228a770b93e",
+    "jobb.json": "2ed215888a4a3dbee6e146a989c663267ba00d7bb66af5e3fb808bd9439ca6c8"
+   }
+  },
+  {
+   "jobb": "fig017_10",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_10,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 4,4,3; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nTop FOUR LEFT-facing gesture bodies. Middle FOUR FRONT-facing gesture bodies. Bottom THREE HEADLESS BACK-facing bodies.\nTop all FOUR HEADED LEFT. Middle all FOUR HEADED FRONT. Bottom all THREE HEADLESS BACK.\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_10/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    4,
+    4,
+    3
+   ],
+   "fragments": 0,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-60abb1bb-c1f2-4ee6-95dd-2a1fd7588721.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-60abb1bb-c1f2-4ee6-95dd-2a1fd7588721.png",
+   "sha256": "8e9225ecb18d504c294ef7decbc08914d67ad28378e88b16fe3820ddd0fbbf71",
+   "originalruter": 11,
+   "resultat": "jobber/fig017_10/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "983aa72804c54083fe3e94027bf683e439e4644862504f62d9c95a55ec9526fe",
+    "original_1x.png": "a7ef7af2f6723fe0d722a21280e5c502f747e97f0fe8d4bee21d643077e9ef93",
+    "prompt.txt": "8e86eb5660f685a7bdc28ca2a519b2fee0b4ad9d115132950fccfebdbc20776d",
+    "jobb.json": "07b6414c09715879e0138289df9a567feb24ddf3df5999d434ae9eef247d8e78"
+   }
+  },
+  {
+   "jobb": "fig017_11",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_11,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 6,6,6; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nALL EIGHTEEN HEADED crouching bodies. Top SIX face RIGHT; middle SIX face LEFT; bottom SIX face FRONT. Each row progresses from standing through crouching and reaching down.\n\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_11/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    6,
+    6,
+    6
+   ],
+   "fragments": 0,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-94af9a74-83b2-45ee-9459-694155188cff.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-94af9a74-83b2-45ee-9459-694155188cff.png",
+   "sha256": "021031d5518769cf4b6752164f410ff734197c21fa9891123a907fd7cdfd9185",
+   "originalruter": 18,
+   "resultat": "jobber/fig017_11/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "db718b8234ff14bc823682b6de23f919ccbed9170db0c04a5e9caa93fce83f46",
+    "original_1x.png": "ecc5ac9021e46ebc3723ae27b145491b5feba65fac396e9584e27965902337cc",
+    "prompt.txt": "7f8125b803438a49b1d58f01b27299314f4f6870c45b2830cb2251141a5aac0f",
+    "jobb.json": "7b14d02053a0c07e6d336ae760ef3cea64aa22898ca4c7df0d9e75b00a2f0bbf"
+   }
+  },
+  {
+   "jobb": "fig017_13",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_13,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 5,5; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nTop FIVE HEADED FRONT-facing bodies progressively raising arm overhead. Bottom FIVE BACK-facing bodies raising arm, FIRST HEADLESS and next FOUR HEADED.\n\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_13/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    5,
+    5
+   ],
+   "fragments": 0,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e9f1a775-4f09-43b1-a6c2-e1ce9b03f45c.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e9f1a775-4f09-43b1-a6c2-e1ce9b03f45c.png",
+   "sha256": "20bc122b26d4d661fbe554c7fb78600d72d7df2b1278a26cd25d41ed5e5d3c34",
+   "originalruter": 10,
+   "resultat": "jobber/fig017_13/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "ac214b1fa5477ebe7f222f6654a33052f2bd6f71967989a6ca7084918c4b3418",
+    "original_1x.png": "8f15a5fe8a0326bb17357d3557e52c2a915331b4c7463d7fc85ed0bb70f05f4f",
+    "prompt.txt": "16a5a1869d10316b55f176f0d6bf065cf6c6854b8bac068cf89f1c8045657737",
+    "jobb.json": "0eb5cd89ca9edfd64200e8e854ade502ad31a3c69e7f8f7276d3379806e02117"
+   }
+  },
+  {
+   "jobb": "fig017_14",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_14,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 3,3; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nTurning and walking bodies, preserve every source orientation and headless state.\nTop THREE HEADED RIGHT bodies. Bottom THREE BACK bodies: FIRST HEADLESS, SECOND HEADED, THIRD HEADLESS.\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_14/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    3,
+    3
+   ],
+   "fragments": 0,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0677783f-ff1f-40ad-aa3e-cc54fe7aa60b.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0677783f-ff1f-40ad-aa3e-cc54fe7aa60b.png",
+   "sha256": "d0f36a0e31f4fa0841d912f688296c0c44103bbeb06589fe3f25b6b2acfdd62d",
+   "originalruter": 6,
+   "resultat": "jobber/fig017_14/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "bcb649fbab5bf30e2e72551661d205986de4679eda687d76855f0b8fad0bf7b4",
+    "original_1x.png": "639d42f873371f12a87f7621c1c29670f9f51dd64f8df9e961878a8831b5e0f1",
+    "prompt.txt": "72fe890a242431376c7fa73018d827ba99a00c692f62877195cd7906b46b048f",
+    "jobb.json": "7b828e63e74450758ad0625279d6dbd67fa15963ab1d4738734223087450171d"
+   }
+  },
+  {
+   "jobb": "fig017_15",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_15,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 11,6,3; 1 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nTop ELEVEN bodies turning RIGHT/BACK-RIGHT to FRONT. Middle FRONT-walking bodies. Bottom THREE BACK-walking bodies.\nBottom FIRST body HEADLESS BACK, second and third HEADED BACK. Top and middle all HEADED.\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_15/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    11,
+    6,
+    3
+   ],
+   "fragments": 1,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0f3247c3-25fe-4896-8c7e-9950b0f9d4ce.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0f3247c3-25fe-4896-8c7e-9950b0f9d4ce.png",
+   "sha256": "52b44cc0193c190565455234999462d7e7ecc509fa7ff51d6ab3fc8468b51027",
+   "originalruter": 21,
+   "resultat": "jobber/fig017_15/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "4d33ef01a80ec616b5a4ed9d0afbdc35b5620aa22e35a1c7ae75927050e664aa",
+    "original_1x.png": "8b6dfef41b7af85855be50a83c462d7d2ecae4c39f16d8675551535f88794d3c",
+    "prompt.txt": "ca27b04c65411476ac2f4f902001f7d39a2add6fcaa7411c2f2d0e217a308019",
+    "jobb.json": "0158d59a7880542a6c75be9ec72d74fe2bd198dd06b7a536aace006fd7c0a283"
+   }
+  },
+  {
+   "jobb": "fig017_16",
+   "attempt": 1,
+   "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig017_16,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style, character identity and costume condition.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 11,11,6; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nALL bodies HEADED. Top ELEVEN turn BACK-RIGHT through RIGHT and FRONT toward FRONT-LEFT/LEFT. Middle ELEVEN turn BACK-RIGHT through RIGHT/FRONT to FRONT-LEFT. Bottom SIX continue FRONT-LEFT through LEFT. Exact source pose and nose direction take priority.\n\nDIRTY Brink costume17: DARK charcoal-gray full-sleeve jacket, dark tee, muted burnt-orange trousers, black calf boots, swept blond hair, GRAYER pallid weathered angular long-nosed face and stubble/grime. Preserve this darker dirty variant, not healthy pristine Brink.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.\n\nPreserve the source body width and height proportions, including broad shoulders and loose trousers. Do not slim or elongate the character. Both knees remain covered with intact burnt-orange fabric: no skin holes, ripped knees or pale knee patches. Keep the flatter small original ochre thigh pocket tab. Use the exact poses and expressions from image1, not poses copied from the style sheet.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_16/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/resultat.png"
+   ],
+   "rows": [
+    11,
+    11,
+    6
+   ],
+   "fragments": 0,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0681b763-52e9-41eb-a4aa-e82fbf5cafea.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0681b763-52e9-41eb-a4aa-e82fbf5cafea.png",
+   "sha256": "6467fa678b98d5c0739f628e2257a8bc93091ff56548f4cba8d20e9d9c4355a9",
+   "originalruter": 28,
+   "resultat": "jobber/fig017_16/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "5944bbe2be04fddb3f9627799320a4b7274067fa832b6d6348bbb82a48f06c53",
+    "original_1x.png": "79853d1b0d40a27b9e149587890bd8e7263ba33d8183779afffd20279de95bb0",
+    "prompt.txt": "54db0379ba008cc6ac656c3af4dce14d69ff2a7c0c9f95b2cab014dde5f5f2b5",
+    "jobb.json": "3feca5f95e2af9d60397948f9b3ad2cfd4f729a79b2f4983340dd3fa7ca3d9df"
+   }
   }
  ],
  "neste": [
   "fig017_02",
-  "fig017_07",
-  "fig017_08",
   "fig017_09",
-  "fig017_10",
-  "fig017_11",
   "fig017_12",
-  "fig017_13",
-  "fig017_14",
-  "fig017_15",
-  "fig017_16",
-  "fig017_17"
+  "fig017_17",
+  "fig017_18",
+  "fig017_19",
+  "fig017_20",
+  "fig017_23",
+  "fig017_26",
+  "fig017_31",
+  "fig016_03",
+  "fig016_12"
  ],
  "integrert_i_spillet": false,
  "retning_til_korrigering": []
