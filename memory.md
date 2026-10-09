@@ -23,6 +23,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Mod-mappe: `rooms/roomNNN(.png|_idx.png)`, `objects/objNNN_SS(.png|_idx.png)` (SS heksadesimalt), `costumes/costumeCCC_NNN(.png|_idx.png)`, `san/FILM/NNNNN.png`. Skala 4.
 - Kostyme-ID = DCOS-katalogens ID, ikke rekkefølgen i LA1.
 - Kostymefarger: kodek 1 fargelegges med RGBS-blokken i AKOS. Kodek 5 og 16 tegnes av ScummVM med kodene rett som palettindekser og fargelegges med rompaletten der kostymet vises (`docs/kostymefarger.csv`, ellers jevneste palett i hjemmerommet). thedig-textures sin egen PNG-eksport av kostymer har svart palett og brukes ikke.
+- GitHub Pages: egen motor/nettside i det offentlige repoet Tombonator3000/Dig-HD-Web. Spillrepoet beholdes privat. Spillfilene og HD-pakken velges fra brukerens maskin og lagres i IndexedDB, aldri på nettsiden. `engine/build-pages.py` pakker bare motor, temaer og GPL-kildekode; `docs/PAGES.md` beskriver bygging og bruk. Codex laget dette etter Toms uttrykkelige Pages-oppdrag 9. oktober.
 - Nettleser: `./spill.sh --nettleser` bygger WebAssembly-versjonen (Emscripten 4.0.10 i `engine/emsdk`, kilde i `engine/scummvm-web`) og serverer den bare på 127.0.0.1:8000. Aldri på en åpen adresse (Disney/Lucasfilm).
 - Spille fra repoet: `./spill.sh` (valg `--rom N`, `--klassisk`, `--gult`, `--auto`, `--fort`, `--programvare`). Testliste i `docs/SPILLTEST.md`.
 - SAN-rammenummer: filnavn = SmushPlayer `_frame - 1`.
