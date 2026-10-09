@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-09T23:14:04.386930+00:00",
+ "oppdatert_utc": "2026-10-09T23:17:39.403557+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 32,
+ "antall": 30,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -696,58 +696,6 @@
      "piksler_over_0": 16749,
      "maks": 71,
      "piksler_over_16": 1326
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig027_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "d84178b85026ac85f5aebbe0de9bf002513a9fd2e724a868829d821aef4bab6f",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Den siste lille originalstreken er blitt to native deler.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     3,
-     6,
-     7
-    ],
-    "native_rader": [
-     3,
-     6,
-     8
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 1302,
-     "maks": 2,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig028_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "ad70b1fc8f019dab3ab766720076219859ae87b4474b206d472f75fe2609501c",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Synlige røde rektangelkanter rundt de fire motivene i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     3
-    ],
-    "native_rader": [
-     1,
-     3
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 26367,
-     "maks": 6,
-     "piksler_over_16": 0
     }
    },
    "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
