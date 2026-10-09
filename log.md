@@ -282,3 +282,8 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Tom spurte om ett repo per spill eller samlet. Anbefalte ett felles kode-repo og ett datarepo per spill (koden er lik for alle spillene, dataene er store). Svarte at alt kan gjøres via GitHub herfra, men at oppretting av nye repoer ikke er prøvd (token uten OAuth-scopes, admin på de to repoene vi har).
 - Tom: Zak og Sam & Max tas når The Dig er ferdig. Planen er lagret i memory.md og i Toms minne (lucasarts-hd-remakes).
 
+## 2026-10-09 21:15 til 21:35 (Claude)
+- Tom: hva gjenstår for skikkelig HD, kan shadere forbedre effektene, og teksten er for grøtete med effekten som ligger over nå.
+- Så på teksten i motoren uten skjerm (hovedmenyen i rom 22 og dialogen i rom 2 med `--subtitles`, `DIGHD_TEXT` xbr, scale4x og nearest). xBR runder formene i de små pikselfontene: i menyen ser D ut som O og t som en pil.
+- Prøvde HD-skrift i Python på dialoglinjen i rom 2: hver bokstav fra en moderne skrift (OFL, fra npm/fontsource og systemet), samme høyde og plass som originalbokstaven, strukket til originalens bredde, med samme farge og svart kant. Inter, Atkinson Hyperlegible og Exo 2 strukket gir skarp og lesbar tekst med originalens oppsett. Encode Sans Expanded og Michroma vist uten strekk. Bare en prøve; ingenting er endret i motoren. Tom velger skrift.
+
