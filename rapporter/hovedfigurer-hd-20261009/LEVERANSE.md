@@ -46,6 +46,8 @@ Sjuende leveransegruppe har sju ark med 116 originalruter. Seks er nytegnet: fig
 
 Åttende leveransegruppe har ti ark med 117 originalruter. Åtte er nytegnet: fig018_11, fig019_03, fig019_04, fig019_05, fig019_07, fig019_08, fig019_11 og fig014_18. fig047_03 og fig047_04 gjenbruker identiske 19-ark etter verifisert identisk originalreferanse, med kostyme 47-ID-er i rutekartet. Riktig antall, hodeløs oppdeling og retninger er visuelt kontrollert. De speilvendte kandidatene fig019_06, fig019_09 og fig019_10 er holdt utenfor leveransen og korrigeres. fig019_02 og fig047_02 fikk et retningsavvik etter levering og korrigeres også.
 
-Med pilotene er 59 av 509 ark levert, tilsvarende 1328 av 7 683 originalruter. 450 ark gjenstår. fremdrift.json er den løpende oversikten.
+Med pilotene er 79 av 509 ark levert  tilsvarende 1 753 av 7 683 originalruter. 430 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
+
+Niende delleveranse: fig014_19, fig014_20, fig014_21, fig014_22, fig014_24, fig015_14, fig015_16, fig015_17, fig018_14, fig018_15, fig019_06, fig019_09, fig019_10, fig047_05, fig047_06, fig047_07, fig047_08, fig047_09, fig047_10, fig047_11. 20 nye ark og 425 originalruter. Tre Maggie-ark har korrigerte hoderetninger. Sju ark i kostyme 47 er kontrollert byteidentisk gjenbruk fra kostyme 19 med identiske originalreferanser. Antall, radfordeling, retninger og native alfa er kontrollert; tre bakgrunnsprøver finnes i visuell-del9-1.png til visuell-del9-3.png.
