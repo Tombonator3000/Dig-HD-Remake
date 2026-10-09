@@ -36,7 +36,7 @@ Mens du spiller: Ctrl+H bytter mellom HD og klassisk grafikk, og Ctrl+Shift+H fa
 
 I nettleseren: `./spill.sh --nettleser` bygger motoren for WebAssembly og starter en webserver på http://localhost:8000. Bare på maskinen selv, aldri på en åpen adresse, fordi spillet og grafikken tilhører Disney/Lucasfilm ([docs/SPILLTEST.md](docs/SPILLTEST.md#i-nettleseren)).
 
-Direkte på GitHub Pages: [The Dig HD Web](https://tombonator3000.github.io/Dig-HD-Web/). Velg spillmappen og HD-mappen én gang; de lagres lokalt i nettleseren og lastes ikke opp. Nettsiden har bare motoren, uten spillfiler eller HD-bilder. Mappene kan lastes ned som zip fra grenene `spilldata` og `hd-mod` uten git ([docs/SPILLTEST.md](docs/SPILLTEST.md#fra-github-pages-uten-å-bygge-noe)). [Oppsett og byggeoppskrift](docs/PAGES.md).
+Direkte på GitHub Pages: [The Dig HD Web](https://tombonator3000.github.io/Dig-HD-Web/) går rett inn i spillet, også på mobil. Første gang ber siden om en lesenøkkel til dette repoet; spillet og HD-grafikken hentes så fra grenene `spilldata` og `hd-mod` og lagres i nettleseren. HD eller originalgrafikk velges i spillets egen meny (F5, HD Graphics). Nettsiden har bare motoren, uten spillfiler eller HD-bilder ([docs/SPILLTEST.md](docs/SPILLTEST.md#fra-github-pages-uten-å-bygge-noe), [oppsett og byggeoppskrift](docs/PAGES.md)).
 
 Det samme steg for steg: `tools/hent_spilldata.sh`, `tools/mod_gren.sh hent`, `engine/build.sh`, `engine/run.sh gpt`.
 
