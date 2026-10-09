@@ -14,6 +14,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Berøring på mobil og nettbrett, ny henting ved nettfeil, ingen snuing av skjermen
 - [ ] Mindre minne i nettleseren: `http-fs.cpp` legger hele filen i WebAssembly-minnet før den skrives til MEMFS; skriv rett til MEMFS (må bygges i Actions, SDL3-porten kan ikke hentes her)
 - [x] Komplett nedlastingsfil for Linux: AppImage i releasen `linux`, bygget og testet av arbeidsflyten Linux-pakke, ny hver natt når `hd-mod` endres
+- [x] PC-nettleseren: nedlastingsbilde første gang, fullskjerm ved første klikk, programvaretegning uten WebGL
+- [ ] Tom tester nettsiden på Kubuntu igjen (første start tar tid: 530 MB)
+- [ ] thedig-textures (dekoderne for `dighd extract`) er borte fra GitHub; Tom avgjør om en kopi skal legges i repoet (GPL-3.0, verifisert lokal kopi finnes)
 - [ ] Tom tester Linux-pakken på laptopen (skjerm, lyd, fullskjerm, menyvalget)
 - [ ] Nedlastingsfil for Windows og Android (etter Linux)
 

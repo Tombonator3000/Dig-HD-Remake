@@ -88,6 +88,16 @@ Ikke testet: en ekte nøkkel (i testmiljøet gir proxyen selv tilgang til
 GitHub), ekte telefon, hvordan telefonen tåler minnet med lyd, full
 gjennomspilling.
 
+PC (endret 9. oktober etter Toms test på Kubuntu: ingen musepeker, ingen
+knapper): første start laster ned talen, musikken, spillet og introfilmen
+(omtrent 530 MB) før noe vises, og det viser siden nå i et eget bilde.
+Fullskjerm kommer ved første klikk eller tast. Uten WebGL tegner ScummVM med
+programvare. Testet i Firefox 157 mot den publiserte siden uten WebGL
+(introen, Esc, rom 2, F5, klikk på HD Graphics, musepekeren vises) og med
+WebGL under Xvfb (nedlastingsbildet, introen). Fullskjerm testet i Chromium.
+Ikke testet: tastene i fullskjerm (testriggen sender ingen taster i
+fullskjerm) og Toms egen maskin.
+
 ## Linux-pakken
 
 Én fil med alt: `TheDigHD-x86_64.AppImage` (765 MB) i den private releasen
