@@ -1,0 +1,15 @@
+Use case: style-transfer.
+Asset type: Boston Low HD animation sprite sheet, a new concept-faithful art test.
+
+Input 1 is a low-resolution pose and layout guide. It contains exactly 28 sprites: first row 8 HEADLESS standing bodies in eight directions, second row 8 detached heads in matching directions, then 12 complete walking poses facing right (9 on the third row and 3 on the last row). Keep these same 28 entries, directions, action phases and relative layout. Keep bodies headless where the guide is headless. Do not copy the cyan or magenta backgrounds or the gray border.
+
+Input 2, the Boston Low concept model sheet, is the definitive visual authority. Match the hand-drawn adult character and the head studies on the left, NOT the tiny pixel sprite inset on the right.
+Input 3 is a newly drawn large walking sprite that demonstrates the smooth contours and graphic drawing finish needed. Keep the character identity consistent with input 2.
+
+Repaint every entry as polished hand-drawn 2D animation artwork matching the concept: mature lean athletic Boston Low in his fifties, strongly angular long face and square chin, prominent angular nose, dark expressive eyebrows, swept brown hair with silver-gray temples, muscular forearms, dark teal short-sleeved shirt, burnt-orange trousers and black calf-high boots. Use precise dark ink contours, clear flat color regions and economical two-tone cel shadows. The clothing and face should look drawn, not airbrushed or 3D-rendered. Avoid a generic young man's face, tiny lace-up shoes, cargo pockets, dense wrinkles, glossy textures and painterly softness.
+
+Crucial correction: redraw the silhouettes as continuous clean antialiased contours. The original pixel silhouette is NOT an exact clipping mask. Smooth the pixel staircase along the jaw, hair, hands, elbows, trousers and boots into intentional drawn lines. Preserve the general pose, scale, center, foot baseline and spacing of each entry, while allowing the contour to follow the smooth drawing between the coarse guide pixels. Do not render large square pixels, jaggies, checkerboard dithering or repetitive 4-pixel steps. Do not blur the art.
+
+All 28 sprites must be the same man, with identical costume design, hair, facial proportions and lighting. Only direction and animation pose differ. Do not add, omit, duplicate, merge or reorganize entries. No text, labels, grid, logos, border, signature or watermark. No shadows or magenta strips under the feet. No cyan matte or gray padding. Everything around and between sprites must be genuinely transparent, with clean antialiased alpha at the figure edges, no glow or fringe.
+
+Output: one PNG sprite sheet at exactly 3072 x 2048 pixels, the same 3:2 overall composition as input 1 but twice its pixel dimensions. Treat this as a high-resolution style master, not a nearest-neighbor enlargement. Retain genuine PNG transparency.

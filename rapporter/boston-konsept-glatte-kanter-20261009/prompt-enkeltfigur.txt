@@ -1,0 +1,12 @@
+Use case: style-transfer.
+Asset type: one high-definition Boston Low walking sprite for a private The Dig HD art-quality test.
+
+Input image 1 is the rejected, low-quality sprite. Replace its drawing. Use it only for the overall right-facing walking pose, step direction and body orientation. Do not copy its pixel-stepped outline, blocky face, chunky hair contour, low-resolution hands, shading artifacts, cyan background or magenta shadow strip.
+Input image 2 is the visual authority for Boston Low's character design and drawing style. Match the DRAWN character on the left and the drawn head studies, not the tiny original pixel sprite inset on the right.
+
+Redraw Boston as the same mature, athletic man seen in the concept: long angular face, strong square chin, prominent straight angular nose, expressive dark eyebrows, brown swept hair with broad silver-gray temples, a slightly weathered face in his fifties, broad shoulders and muscular forearms. Match the concept's dark teal short-sleeved shirt, warm burnt-orange trousers, simple dark belt and tall black calf-high boots. Do not turn the boots into small lace-up sneakers. Keep his design adult and distinctive, not a generic young handsome man.
+
+Draw a clean hand-inked 2D animation sprite in the concept's style: deliberate thin dark contours with smooth continuous curves, sharp intentional jaw angles, simple coherent solid color areas and two-tone cel shadows. Draw the face, hands, clothing folds and silhouette as finished animation artwork. Avoid excessive fabric wrinkles, airbrushed rendering, plastic 3D shading and painterly mush. The original low-resolution alpha mask MUST NOT govern the new contour. There must be no repeating stair-step or 4-pixel blocks along the face, arms, trousers or boots. Use natural antialiasing on the transparent silhouette; do not solve jaggies with blur or a glow.
+
+One complete full-body figure only, walking to the right in the same stride as image 1, head held upright, both boots fully visible and enough transparent space around the outline. No props, no floor, no cast shadow, no magenta markers, no cyan matte, no labels, no border, no logos, no text, no signature and no watermark.
+Output: PNG, exactly 1024 x 1536 pixels, genuinely transparent background, crisp finished linework. This is a new high-resolution character-style proof, not a nearest-neighbor enlargement of the old sprite.
