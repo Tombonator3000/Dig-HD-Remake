@@ -1,0 +1,487 @@
+[
+ {
+  "jobb": "fig222_01",
+  "attempt": 0,
+  "rows": [
+   1,
+   3
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_01. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [1, 3]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_01/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_01/resultat.png",
+  "known_native_frame_groups": [
+   [
+    [
+     47,
+     40,
+     345,
+     445
+    ],
+    [
+     436,
+     205,
+     109,
+     291
+    ]
+   ],
+   [
+    [
+     46,
+     555,
+     323,
+     406
+    ],
+    [
+     357,
+     700,
+     146,
+     264
+    ]
+   ],
+   [
+    [
+     536,
+     555,
+     321,
+     406
+    ],
+    [
+     848,
+     696,
+     136,
+     267
+    ]
+   ],
+   [
+    [
+     1032,
+     555,
+     322,
+     406
+    ],
+    [
+     1358,
+     700,
+     143,
+     263
+    ]
+   ]
+  ],
+  "source_group_basis": "Visually compared original group entries and native separate alien/Boston bodies. Every native body belongs exactly once to its corresponding original composite; no extra or missing subject.",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_01/resultat.png",
+  "sha256": "75eaf5cd3d9d4180bcf9ebc089e79644f214bb100e8f5a8d98b30bf36baf61b6",
+  "originalruter": 4,
+  "resultat": "jobber/fig222_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "783a81d0ede148686bf55a59763261203879e5f523c4a6780311bc98bb2d0786",
+   "original_1x.png": "d358e80c358038a33c471229be81a603156127102fb3333a2a40a2f6bffe9a4c",
+   "prompt.txt": "378a174c4d82841fa3ec64fab4f77fd7d319b441a566ade859f025e0f3be33fc",
+   "jobb.json": "4f2f8fa57827af0deedb21f7104367558cf96130b63e489cef4b943c00fda62e"
+  },
+  "reuse_of": "fig214_01",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "d358e80c358038a33c471229be81a603156127102fb3333a2a40a2f6bffe9a4c",
+   "resultat_sha256": "75eaf5cd3d9d4180bcf9ebc089e79644f214bb100e8f5a8d98b30bf36baf61b6",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_02",
+  "attempt": 0,
+  "rows": [
+   4,
+   3
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_02. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [4, 3]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_02/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_02/resultat.png",
+  "known_native_frame_groups": [
+   [
+    [
+     27,
+     78,
+     292,
+     386
+    ],
+    [
+     326,
+     220,
+     71,
+     253
+    ]
+   ],
+   [
+    [
+     404,
+     78,
+     289,
+     386
+    ],
+    [
+     689,
+     220,
+     101,
+     258
+    ]
+   ],
+   [
+    [
+     39,
+     549,
+     302,
+     390
+    ],
+    [
+     338,
+     690,
+     98,
+     264
+    ]
+   ],
+   [
+    [
+     536,
+     550,
+     306,
+     389
+    ],
+    [
+     839,
+     692,
+     111,
+     263
+    ]
+   ],
+   [
+    [
+     1021,
+     549,
+     310,
+     392
+    ],
+    [
+     1361,
+     696,
+     101,
+     262
+    ]
+   ]
+  ],
+  "source_group_basis": "Visually compared original group entries and native separate alien/Boston bodies. Every native body belongs exactly once to its corresponding original composite; no extra or missing subject.",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_02/resultat.png",
+  "sha256": "4234937fff407e3e9ed3451b0bea38eb1bb4008fbf228013caf05d1251aea518",
+  "originalruter": 7,
+  "resultat": "jobber/fig222_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "9cc416202f44b1ddfc68de62110f07dc03d5da370f02665d86da2f05a8af62fa",
+   "original_1x.png": "47918ba15bc3b3927b8e487fdbe3b871b1fdd1fa337cc89fcfda21cd9ec6bebf",
+   "prompt.txt": "d95b4da38fa7bc87c3fdb831e8b7d60e2d890fd4750bb94446178a56e1558fa6",
+   "jobb.json": "43426192bf4e703ee26d24b1acbe83e1b7ccdb02825a2f4dac28d65a750b9df8"
+  },
+  "reuse_of": "fig214_02",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "47918ba15bc3b3927b8e487fdbe3b871b1fdd1fa337cc89fcfda21cd9ec6bebf",
+   "resultat_sha256": "4234937fff407e3e9ed3451b0bea38eb1bb4008fbf228013caf05d1251aea518",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_03",
+  "attempt": 0,
+  "rows": [
+   3,
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_03. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [3, 4]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_03/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_03/resultat.png",
+  "known_native_frame_groups": [
+   [
+    [
+     50,
+     30,
+     306,
+     411
+    ],
+    [
+     323,
+     209,
+     132,
+     292
+    ]
+   ],
+   [
+    [
+     983,
+     31,
+     306,
+     412
+    ],
+    [
+     1266,
+     209,
+     128,
+     291
+    ]
+   ],
+   [
+    [
+     770,
+     542,
+     299,
+     391
+    ],
+    [
+     1058,
+     718,
+     80,
+     269
+    ]
+   ]
+  ],
+  "source_group_basis": "Visually compared original group entries and native separate alien/Boston bodies. Every native body belongs exactly once to its corresponding original composite; no extra or missing subject.",
+  "known_native_rows": [
+   [
+    [
+     50,
+     30,
+     405,
+     471
+    ],
+    [
+     522,
+     31,
+     416,
+     469
+    ],
+    [
+     983,
+     31,
+     411,
+     469
+    ]
+   ],
+   [
+    [
+     20,
+     541,
+     384,
+     439
+    ],
+    [
+     403,
+     542,
+     370,
+     442
+    ],
+    [
+     770,
+     542,
+     368,
+     445
+    ],
+    [
+     1157,
+     542,
+     363,
+     441
+    ]
+   ]
+  ],
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_03/resultat.png",
+  "sha256": "3efd4c65176b3a496b4f84e258eb4858f5b04e2fb2268bc3a8cfdcc558b46aa2",
+  "originalruter": 7,
+  "resultat": "jobber/fig222_03/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "264af2d80ec23ff55fbf123f67bed1869b9ab6a3750537f8a0521271e2f52726",
+   "original_1x.png": "708dfa635f313fbec449d8371ee9bff1136990539e7a811a0b1e4bd19ab43009",
+   "prompt.txt": "d95b4da38fa7bc87c3fdb831e8b7d60e2d890fd4750bb94446178a56e1558fa6",
+   "jobb.json": "e3a872b14f3ff1c4aa0e99572e1c4fbc06085928c7d9b8adeb41c14e9660d9f6"
+  },
+  "reuse_of": "fig214_03",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "708dfa635f313fbec449d8371ee9bff1136990539e7a811a0b1e4bd19ab43009",
+   "resultat_sha256": "3efd4c65176b3a496b4f84e258eb4858f5b04e2fb2268bc3a8cfdcc558b46aa2",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_04",
+  "attempt": 0,
+  "rows": [
+   4,
+   1
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_04. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [4, 1]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_04/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_04/resultat.png",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_04/resultat.png",
+  "sha256": "50b0df2f57b1543e97e37692bac6b428802016aaca94f9b04e543c10c8993cfc",
+  "originalruter": 5,
+  "resultat": "jobber/fig222_04/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "6ba743725eae42175266dea8fa228f06aa79646c3eac63d9655a7307c3ef9e11",
+   "original_1x.png": "be80d9f151ccd8df8c31ec1d5c780b8b84492d633f2854dd27c9b6f2ad7c417c",
+   "prompt.txt": "3a3cb62fee552abe111d5ab04566371b67c26c484e7e906c86035a8fdad056c3",
+   "jobb.json": "4c616a6e23a814a715d836abafbb7787e0e8f4e1a6a1e411fe008ea0d02a43c2"
+  },
+  "reuse_of": "fig214_04",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "be80d9f151ccd8df8c31ec1d5c780b8b84492d633f2854dd27c9b6f2ad7c417c",
+   "resultat_sha256": "50b0df2f57b1543e97e37692bac6b428802016aaca94f9b04e543c10c8993cfc",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_05",
+  "attempt": 0,
+  "rows": [
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_05. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [4]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_05/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_05/resultat.png",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_05/resultat.png",
+  "sha256": "70c1340f08a87535b47b1ef5c89b993a4688d6cc744c8cb8b638d695cb746fbc",
+  "originalruter": 4,
+  "resultat": "jobber/fig222_05/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "4bc884fd9b7efbfbd31a0091530a2076ad61382e04bed81ec2c8d5f33056e77d",
+   "original_1x.png": "c0fe5673a463fe3c080bb379521aaa6631dc832ab97b302aca167e67ea60e5e2",
+   "prompt.txt": "89b183f7f6a89b68974b896356cd31025b02daba1e1f9a9ba2ec35e1a373fa01",
+   "jobb.json": "ebe32ee25e8cc85672a386d7413fca7664bdfabfbeb792cafa2c663d8850f7bf"
+  },
+  "reuse_of": "fig214_05",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "c0fe5673a463fe3c080bb379521aaa6631dc832ab97b302aca167e67ea60e5e2",
+   "resultat_sha256": "70c1340f08a87535b47b1ef5c89b993a4688d6cc744c8cb8b638d695cb746fbc",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_06",
+  "attempt": 0,
+  "rows": [
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_06. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [4]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_06/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_06/resultat.png",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_06/resultat.png",
+  "sha256": "15bc7c0e0590e590238eb107dc030583d9fdd0da59e9206de29c13005786b258",
+  "originalruter": 4,
+  "resultat": "jobber/fig222_06/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "8dd236bb559c27cbf34dce450da797925b50b1d660b86140338b087b358da3ce",
+   "original_1x.png": "f41505c6d9a3d7e51871709f7b4fbe287913d796008494022d2a10e1d82b0541",
+   "prompt.txt": "89b183f7f6a89b68974b896356cd31025b02daba1e1f9a9ba2ec35e1a373fa01",
+   "jobb.json": "6d99aeead549ea70f9e7d4d26e7085821ecc6aa0ae152b2ce1081439c0d2a937"
+  },
+  "reuse_of": "fig214_06",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "f41505c6d9a3d7e51871709f7b4fbe287913d796008494022d2a10e1d82b0541",
+   "resultat_sha256": "15bc7c0e0590e590238eb107dc030583d9fdd0da59e9206de29c13005786b258",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_07",
+  "attempt": 0,
+  "rows": [
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_07. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [4]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_07/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_07/resultat.png",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_07/resultat.png",
+  "sha256": "1bde432e727b042479161df884d76529d5c1541ab591420bc51a26d99ecd1671",
+  "originalruter": 4,
+  "resultat": "jobber/fig222_07/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "ce76f2672dad047ff52fce45d5f90b7c572e6052cf92cb93f79155e52274c23c",
+   "original_1x.png": "b482bb78c818000fa7ea317c16f2bebc88e466d7b353208028abd2c36f24e886",
+   "prompt.txt": "89b183f7f6a89b68974b896356cd31025b02daba1e1f9a9ba2ec35e1a373fa01",
+   "jobb.json": "377276ae249f4d5d7ab5c3a4165dc4bbabc1f4c4e0904614ca0c1b9acfcd3eb9"
+  },
+  "reuse_of": "fig214_07",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "b482bb78c818000fa7ea317c16f2bebc88e466d7b353208028abd2c36f24e886",
+   "resultat_sha256": "1bde432e727b042479161df884d76529d5c1541ab591420bc51a26d99ecd1671",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_08",
+  "attempt": 0,
+  "rows": [
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig214_08. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Every original composite contains a large cream/tan muscular alien with broad spiky fin horns, bearded-looking muzzle and clawed feet on LEFT and smaller Boston in navy shirt/orange pants on RIGHT or in front, walking toward and around it. Keep alien anatomy/face from ORIGINAL, not a new monster. Preserve both alien AND Boston in each composite and exact overlapping order. Composite is one animation entry, not two new cells.\nOriginal frame groups per row exactly [4]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig222_08/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_08/resultat.png",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_08/resultat.png",
+  "sha256": "c4ca309c665caffc8f36f0f9213430c82ec216df4f42983b6ab26bfba5995c71",
+  "originalruter": 4,
+  "resultat": "jobber/fig222_08/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "5b843fdf35d332f2239ab03cb4469368e2232f708e80b04c7a5d69481ab9802c",
+   "original_1x.png": "98b5efe4f70cb6c2baa288280e97319b57b5da724929f3ba9519f7061d634907",
+   "prompt.txt": "89b183f7f6a89b68974b896356cd31025b02daba1e1f9a9ba2ec35e1a373fa01",
+   "jobb.json": "69ca70a79718d550ddc59164b6533cb82786b7d416d30d9a427a432c045917ea"
+  },
+  "reuse_of": "fig214_08",
+  "source_generation_attempts": 1,
+  "source_equality_proof": {
+   "original_1x_sha256": "98b5efe4f70cb6c2baa288280e97319b57b5da724929f3ba9519f7061d634907",
+   "resultat_sha256": "c4ca309c665caffc8f36f0f9213430c82ec216df4f42983b6ab26bfba5995c71",
+   "byteidentical": true
+  }
+ }
+]
