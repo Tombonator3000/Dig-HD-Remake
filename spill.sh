@@ -106,7 +106,7 @@ if [ "$AUTO" = 1 ]; then
 		if [ ! -x .venv/bin/dighd ]; then
 			python3 -c 'import sys; sys.exit(sys.version_info < (3, 12))' || { echo "--auto krever Python 3.12 eller nyere."; exit 1; }
 			python3 -m venv .venv
-			.venv/bin/pip install -q -e "pipeline"
+			.venv/bin/pip install -q -e "pipeline[uttrekk]"
 		fi
 		[ -f work/extract/rooms.json ] || .venv/bin/dighd extract --only la1
 		rm -rf mods/auto

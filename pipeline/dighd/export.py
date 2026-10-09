@@ -43,7 +43,7 @@ def _require_digart():
     try:
         from digart import akos, la1  # noqa: F401
     except ImportError as exc:  # pragma: no cover
-        raise SystemExit("Mangler thedig-textures (digart). Installer med: pip install -e pipeline") from exc
+        raise SystemExit("Mangler thedig-textures (digart), som `dighd extract` trenger. Installer med: pip install -e \"pipeline[uttrekk]\" (se memory.md om repoet er borte)") from exc
     return la1, akos
 
 
