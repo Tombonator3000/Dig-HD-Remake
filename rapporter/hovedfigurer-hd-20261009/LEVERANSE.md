@@ -77,3 +77,5 @@ Leveransegruppe 21: fig017_22, fig017_25, fig017_27, fig017_28, fig017_29, fig01
 Kostymerevisjon 22, hele bukseknær: fig016_01, fig016_02, fig016_04, fig016_05, fig016_06, fig016_07, fig016_08, fig016_09. 175 tegnede figurområder, 178 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
 
 Leveransegruppe 23: fig017_07, fig017_08, fig017_10, fig017_11, fig017_13, fig017_14, fig017_15, fig017_16. 117 tegnede figurområder, 118 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
+
+Kostymerevisjon 24, hele bukseknær: fig016_13, fig016_14, fig016_15, fig016_21, fig016_26, fig016_28, fig016_30, fig016_33, fig016_34, fig016_35. 126 tegnede figurområder, 131 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
