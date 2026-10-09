@@ -56,6 +56,7 @@ cp "$SRC/COPYRIGHT" "$DATA/COPYRIGHT-ScummVM.txt"
 	echo "Bygget: $(date -u '+%Y-%m-%d %H:%M UTC')"
 	echo "ScummVM: $(cat "$ROOT/engine/SCUMMVM_COMMIT") med engine/patches/"
 	echo "Dig-HD-Remake: $(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || echo ukjent)"
+	echo "hd-mod: $(git -C "$ROOT" rev-parse refs/remotes/origin/hd-mod 2>/dev/null || echo ukjent)"
 	echo "HD-mod laget: $(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("created", "ukjent"))' "$ROOT/mods/gpt/mod.json")"
 } > "$DATA/BYGG.txt"
 

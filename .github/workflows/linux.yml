@@ -6,6 +6,9 @@ name: Linux-pakke
 
 on:
   workflow_dispatch:
+  # Hver natt: ny pakke hvis HD-modden i grenen hd-mod er endret siden sist
+  schedule:
+    - cron: '17 2 * * *'
   push:
     branches: [main]
     paths:
@@ -24,7 +27,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  sjekk:
+    runs-on: ubuntu-latest
+    outputs:
+      bygg: ${{ steps.mod.outputs.bygg }}
+    steps:
+      - id: mod
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          MOD=$(gh api repos/${{ github.repository }}/git/ref/heads/hd-mod --jq .object.sha)
+          SIST=$(gh api repos/${{ github.repository }}/releases/tags/linux --jq .body 2>/dev/null || true)
+          if [ "${{ github.event_name }}" = schedule ] && echo "$SIST" | grep -q "hd-mod: $MOD"; then
+            echo "HD-modden er den samme som i pakken ($MOD). Ingen ny pakke."
+            echo "bygg=nei" >> "$GITHUB_OUTPUT"
+          else
+            echo "bygg=ja" >> "$GITHUB_OUTPUT"
+          fi
+
   pakke:
+    needs: sjekk
+    if: needs.sjekk.outputs.bygg == 'ja'
     runs-on: ubuntu-22.04
     timeout-minutes: 90
     steps:
