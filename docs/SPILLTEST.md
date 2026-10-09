@@ -186,6 +186,21 @@ Uten nøkkel går det også med mapper på maskinen (lenken under nøkkelfeltet)
 
 Testet 2026-10-09 i Chromium uten skjerm (Playwright): nøkkelfeltet første gang, så rett inn i introen med fillisten og filene hentet fra api.github.com, og rett inn i spillet uten nøkkelfelt etter omlasting, uten at noen fil ble hentet på nytt. Ingen forespørsler med spill- eller HD-stier mot nettsiden. I testmiljøet legger proxyen til egen tilgang mot GitHub, så en ekte nøkkel er ikke prøvd; at GitHub avviser en feil nøkkel, er bare testet med filtester. Menyvalget er testet i motoren uten skjerm (se `docs/HD-MOTOR.md`). Ikke testet: mobil, berøring og fullskjerm på ekte telefon.
 
+## Linux: én fil med alt
+
+Den komplette pakken er én AppImage med ScummVM med HD-patchen, spillet, musikk, tale og HD-grafikken (omtrent 950 MB). Den ligger under Releases i dette repoet, release `linux`: https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux. Repoet er privat, så filen kan bare lastes ned innlogget.
+
+```sh
+chmod +x TheDigHD-x86_64.AppImage
+./TheDigHD-x86_64.AppImage
+```
+
+Spillet starter rett, i fullskjerm, med introen som originalen. Alt+Enter bytter mellom vindu og fullskjerm. F5 åpner menyen; der velger HD Graphics HD eller originalgrafikk, og valget huskes. Innstillingene ligger i `~/.config/the-dig-hd/scummvm.ini`, lagrede spill i `~/.local/share/the-dig-hd/saves`. Mangler FUSE på maskinen (noen nyere Ubuntu-versjoner), start med `./TheDigHD-x86_64.AppImage --appimage-extract-and-run`.
+
+Pakken lages av arbeidsflyten Linux-pakke (`.github/workflows/linux.yml`) på Ubuntu 22.04, så den går på distroer med glibc 2.35 eller nyere. Den henter spillet og lyden fra `spilldata` og HD-modden fra `hd-mod`, bygger motoren, lager AppImage med `tools/pakke_linux.sh` (linuxdeploy tar med SDL2 og libpng), tester den uten skjerm (rom 22, menyvalget, at musikk og tale finnes) og på Debian 12 uten byggepakker, og legger den i releasen. Den går av seg selv når motoren eller pakkeskriptet endres i `main`, og kan startes for hånd under Actions (for eksempel etter ny HD-grafikk). `BYGG.txt` i pakken og notatene i releasen sier hvilken motor og hvilken HD-mod den er laget av.
+
+`tools/pakke_linux.sh` kan også kjøres her. Uten `LINUXDEPLOY` og `APPIMAGETOOL` lager den bare mappen `out/linux/AppDir`, som startes med `out/linux/AppDir/AppRun`.
+
 ## Si fra
 
 Skriv hva du så, i hvilket rom og omtrent hvor, og legg ved skjermbilde (Alt+S) hvis du kan. Gi det til Claude i chatten, eller legg det i `rapporter/` i grenen `gpt-arbeid`.
