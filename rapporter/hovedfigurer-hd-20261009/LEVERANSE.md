@@ -46,7 +46,7 @@ Sjuende leveransegruppe har sju ark med 116 originalruter. Seks er nytegnet: fig
 
 Åttende leveransegruppe har ti ark med 117 originalruter. Åtte er nytegnet: fig018_11, fig019_03, fig019_04, fig019_05, fig019_07, fig019_08, fig019_11 og fig014_18. fig047_03 og fig047_04 gjenbruker identiske 19-ark etter verifisert identisk originalreferanse, med kostyme 47-ID-er i rutekartet. Riktig antall, hodeløs oppdeling og retninger er visuelt kontrollert. De speilvendte kandidatene fig019_06, fig019_09 og fig019_10 ble holdt utenfor denne gruppen og er rettet i gruppe 9. fig019_02 og fig047_02 fikk et retningsavvik etter levering og er erstattet i gruppe 10.
 
-Med pilotene er 107 av 509 ark levert, tilsvarende 2 214 av 7 683 originalruter. 402 ark gjenstår. fremdrift.json er den løpende oversikten.
+Med pilotene er 116 av 509 ark levert, tilsvarende 2 382 av 7 683 originalruter. 393 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
 
@@ -57,3 +57,5 @@ Tiende leveransegruppe: fig014_23, fig015_15, fig018_16 og fig018_17, fire nye a
 Ellevte leveransegruppe: fig014_25, fig014_26, fig014_27, fig014_29, fig014_30, fig015_18, fig015_19, fig015_20, fig018_18, fig018_19, fig018_20, fig018_21, fig016_01. 13 nye ark og 239 originalruter. Brinks skadede kostyme fig016_01 bestod etter ti forsøk. Antall, radfordeling, retninger og native alfa er kontrollert. Visuell kontroll på lys, mørk og grønn bakgrunn ligger i visuell-del11-1.png til visuell-del11-3.png. filkontroll-del11.json og rutekart-del11.json gjelder kun de leverte filene. fig014_28 og fig015_21 korrigeres videre separat.
 
 Leveransegruppe 12: fig014_34, fig014_35, fig014_36, fig015_22, fig015_23, fig015_25, fig018_24, fig018_25, fig014_28, fig015_21, fig014_32. 11 ark, 157 originalruter. Antall, radfordeling, retninger og native alfa er kontrollert. Se filkontroll-del12.json, rutekart-del12.json og visuell-del12-*.png.
+
+Leveransegruppe 13: fig014_31, fig014_33, fig014_37, fig014_38, fig014_39, fig014_40, fig014_42, fig014_43, fig014_44. 9 ark, 168 originalruter. Antall, radfordeling, retninger og native alfa er kontrollert. Se filkontroll-del13.json, rutekart-del13.json og visuell-del13-*.png.

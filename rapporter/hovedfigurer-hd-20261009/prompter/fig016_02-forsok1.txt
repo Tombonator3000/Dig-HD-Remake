@@ -1,0 +1,11 @@
+Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig016_02: preserve exact piece counts, source pose sequence, directions and broad positions. Image2 defines smooth detailed style, image3 identity only.
+Row1: exactly 8 walking, facing left (8 frames).
+Row2: exactly 4 walking, facing left (4 frames).
+Row3: exactly 20 talking (a separate part the game draws on top of the body, such as the head), facing right (20 frames).
+Row4: exactly 20 talking (a separate part the game draws on top of the body, such as the head), facing left (20 frames).
+Row5: exactly 16 talking (a separate part the game draws on top of the body, such as the head), facing toward the viewer (16 frames).
+Row6: exactly 3 talking (a separate part the game draws on top of the body, such as the head), facing away from the viewer (4 frames).
+Exact row counts 8,4,20,20,16,3 excluding 1 tiny flat non-anatomical diagnostic fragment(s). Tiny fragments must not become full heads or bodies.
+Healthy Ludger Brink: short swept blond hair, angular lean long-nosed face, strong jaw, light-gray open jacket with FULL sleeves over a dark petrol tee, purple LEFT chest patch, orange trousers, black calf-high boots. Do not copy Boston's face or gray temples.
+DAMAGED Brink costume16: preserve tears and marks on his anatomical RIGHT trouser knee and worn clothing visible in source. Gray jacket and orange trousers, blond angular mature face. Do not replace with pristine healthy trousers.
+Source directions and costume CONDITION override portrait. Keep headless bodies headless, detached heads detached. Detail adult face, hair, hands, folds and boots with thin smooth inked contours and controlled crisp cel shading. Consistent identity and lighting. Native1536x1024 RGBA: opaque interiors, narrow native antialiased edges, true alpha0 empty canvas/gaps. Remove cyan background and magenta floors. No extra pieces, text, grid, glow, gradient background, floor shadow, blur, pixel stairs, fuzzy paint or3D.
