@@ -11,3 +11,5 @@ Bevar de nye PNG-filenes native alfa. Gammelt gpt-inn erstatter alfa med origina
 Nytegnet størrelse, hoder, nakkekutt, fotbaselinjer og ruteplassering må tilpasses før import. rutekart-del1.json til rutekart-del10.json er bare diagnostiske radkoblinger. Svak restalfa kan ligge utenfor boksene. Hold originale indeksbilder, animasjonssekvenser og ankerinformasjon ved mottaket. Kontroller deretter retninger, gange, hodekobling, okklusjon og HD/klassisk-bytte i motoren før noe omtales som spillklart.
 
 fig019_02 og den identiske fig047_02 er erstattet i gruppe 10 med venstrevendte hoder. Bruk disse nyeste resultatfilene, SHA-er og rutekart-del10.json. Tidligere kontrollbilder og rutekart er leveransehistorikk.
+
+Gruppe 11 er lagt til: se sporing-del11.json, filkontroll-del11.json og rutekart-del11.json. Nytegnet fig016_01 har åtte hodeløse ståretninger, åtte løse hoder og tolv høyrevendte gangruter. Native alfa må bevares. Små diagnostiske fragmenter i originalene er ikke tilstrekkelig dokumentasjon på pixelnøyaktig fragmentgjengivelse; bruk originalindeksene ved mottak.
