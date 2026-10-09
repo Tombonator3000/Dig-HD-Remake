@@ -24,6 +24,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Kostyme-ID = DCOS-katalogens ID, ikke rekkefølgen i LA1.
 - Kostymefarger: kodek 1 fargelegges med RGBS-blokken i AKOS. Kodek 5 og 16 tegnes av ScummVM med kodene rett som palettindekser og fargelegges med rompaletten der kostymet vises (`docs/kostymefarger.csv`, ellers jevneste palett i hjemmerommet). thedig-textures sin egen PNG-eksport av kostymer har svart palett og brukes ikke.
 - GitHub Pages: egen motor/nettside i det offentlige repoet Tombonator3000/Dig-HD-Web. Spillrepoet beholdes privat. Spillfilene og HD-pakken velges fra brukerens maskin og lagres i IndexedDB, aldri på nettsiden. `engine/build-pages.py` pakker bare motor, temaer og GPL-kildekode; `docs/PAGES.md` beskriver bygging og bruk. Codex laget dette etter Toms uttrykkelige Pages-oppdrag 9. oktober.
+- Dig-HD-Web skal ha de samme filene som `main` for `engine/pages`, patchen, `engine/SCUMMVM_COMMIT`, byggeskriptene og `docs/PAGES.md`. Endres noe av dette, kopieres det dit og pushes; Actions bygger motoren og publiserer. Spillfilene og HD-pakken kan Tom laste ned som zip fra grenene `spilldata` og `hd-mod`. En ny HD-pakke må velges på nytt i siden.
 - Nettleser: `./spill.sh --nettleser` bygger WebAssembly-versjonen (Emscripten 4.0.10 i `engine/emsdk`, kilde i `engine/scummvm-web`) og serverer den bare på 127.0.0.1:8000. Aldri på en åpen adresse (Disney/Lucasfilm).
 - Spille fra repoet: `./spill.sh` (valg `--rom N`, `--klassisk`, `--gult`, `--auto`, `--fort`, `--programvare`). Testliste i `docs/SPILLTEST.md`.
 - SAN-rammenummer: filnavn = SmushPlayer `_frame - 1`.
@@ -43,6 +44,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Store objektbilder (w*h >= 16000, w >= 200 eller h >= 150) er egne jobber `objNNN_SS`, 30 stykker. Rutenettene obj618 og obj627 (rom 93) er tatt ut. Objektnotater i `docs/gpt-romnotater.csv` med `objNNN` i kolonnen rom. Senere tilstander gjøres like den første der originalene er like (`match_state`).
 - Mindre objektbilder: lagjobber `lagNNN_KK` (rommet med et sett objekttilstander på plass, klippes ut etterpå, godkjent HD-rom som bilde to) og ikonark `ikonNN` for inventaret. Kontroll per objekt i `gpt-inn` (mangler eller tegnet om).
 - Figurer: figurark `figCCC_KK` (rutene i en animasjon på ett ark, klippes ut med originalens alfa). Hovedpersonene: Boston Low kostyme 14, Maggie Robbins 18, Ludger Brink 15 (varianter 16 og 17). `dighd gpt-pakke --figurer alle` eller en liste; standard er bare piloten.
+- fig014_01 (Boston stående og gående, 28 ruter) godkjent av Tom 9. oktober og satt inn i modden, selv om ansiktet er litt yngre og mangler grått hår ved tinningene. Rutene klippes med originalens alfa, så kantene er trappete i 4x.
 - Kodeoppgaver til Codex står i `docs/gpt-kodeoppgaver.md` og kommer med i ORDRE.md. Rapporter i `rapporter/` i `gpt-arbeid`.
 - Rom 22 i modden er piloten fra Codex. En senere leveranse ligger som `alternativ_forsok2.png` (bakken ble til vann).
 - `gpt-inn` retter ytterrader der den grå lerretskanten har blødd inn (`repair_edges`, bare sider som grenser mot kanten).
