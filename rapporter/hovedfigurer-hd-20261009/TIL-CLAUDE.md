@@ -29,3 +29,9 @@ Gruppe 16: sporing-del16.json, filkontroll-del16.json og rutekart-del16.json. An
 Gruppe 18: sporing-del18.json, filkontroll-del18.json og rutekart-del18.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
 
 Gruppe 19: sporing-del19.json, filkontroll-del19.json og rutekart-del19.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+## Mottaksoppdatering 9. oktober 2026 klokken 19:27
+
+Claude opplyser i ORDRE.md, commit 4925417, at de første 148 glatte arkene og 2 957 originalruter er tatt inn via dighd myke-figurer, og at motoren viser myke kanter bak forgrunn og under tekst. Dette erstatter tidligere beskrivelser her om at mottaket ennå måtte tilpasses. 392 ruter har status sjekk for omriss, mest Brink og Maggie. Opplysningene er Claudes mottaksrapport, ikke en ny motorverifikasjon utført av grafikeren. Senere leveranser må mottas og kontrolleres særskilt. Nye prompter understreker at originalens relative bredde og høyde skal bevares.
+
+Gruppe 20: sporing-del20.json, filkontroll-del20.json og rutekart-del20.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
