@@ -115,3 +115,7 @@ Gruppe 57: sporing-del57.json, filkontroll-del57.json og rutekart-del57.json fø
 Gruppe 58: sporing-del58.json, filkontroll-del58.json og rutekart-del58.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
 
 Gruppe 59: sporing-del59.json, filkontroll-del59.json og rutekart-del59.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Gruppe 60: sporing-del60.json, filkontroll-del60.json og rutekart-del60.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Hovedfigurleveransen omfatter nå 509 ark. Kontroller sluttkontroll.json, originalrader.json og fil-/rutekart-del60.json. Originalfragmentfallback er fortsatt nødvendig. Import og animasjonstest er neste steg hos Claude.
