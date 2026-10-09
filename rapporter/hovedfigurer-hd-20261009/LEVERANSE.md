@@ -46,7 +46,7 @@ Sjuende leveransegruppe har sju ark med 116 originalruter. Seks er nytegnet: fig
 
 Åttende leveransegruppe har ti ark med 117 originalruter. Åtte er nytegnet: fig018_11, fig019_03, fig019_04, fig019_05, fig019_07, fig019_08, fig019_11 og fig014_18. fig047_03 og fig047_04 gjenbruker identiske 19-ark etter verifisert identisk originalreferanse, med kostyme 47-ID-er i rutekartet. Riktig antall, hodeløs oppdeling og retninger er visuelt kontrollert. De speilvendte kandidatene fig019_06, fig019_09 og fig019_10 ble holdt utenfor denne gruppen og er rettet i gruppe 9. fig019_02 og fig047_02 fikk et retningsavvik etter levering og er erstattet i gruppe 10.
 
-Med pilotene er 459 av 509 ark levert, tilsvarende 7152 av 7 683 originalruter. 50 ark gjenstår. fremdrift.json er den løpende oversikten.
+Med pilotene er 468 av 509 ark levert, tilsvarende 7277 av 7 683 originalruter. 41 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
 
@@ -139,3 +139,5 @@ Leveransegruppe 51: fig222_09, fig222_10, fig222_11, fig222_12, fig222_13, fig22
 Leveransegruppe 52: fig229_01, fig229_02, fig229_03, fig229_05, fig229_06, fig229_07, fig229_08, fig229_09, fig229_10, fig229_11. 42 tegnede figurområder, 42 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
 
 Leveransegruppe 53: fig229_13, fig229_14, fig229_15, fig229_16, fig229_17, fig229_18, fig229_19, fig229_20, fig229_21. 50 tegnede figurområder, 52 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
+
+Leveransegruppe 54: fig214_17, fig214_18, fig214_19, fig071_07, fig071_08, fig229_12, fig199_02, fig199_03, fig199_04. 112 tegnede figurområder, 125 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
