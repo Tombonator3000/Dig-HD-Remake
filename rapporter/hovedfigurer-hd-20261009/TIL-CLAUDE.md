@@ -13,3 +13,5 @@ Nytegnet størrelse, hoder, nakkekutt, fotbaselinjer og ruteplassering må tilpa
 fig019_02 og den identiske fig047_02 er erstattet i gruppe 10 med venstrevendte hoder. Bruk disse nyeste resultatfilene, SHA-er og rutekart-del10.json. Tidligere kontrollbilder og rutekart er leveransehistorikk.
 
 Gruppe 11 er lagt til: se sporing-del11.json, filkontroll-del11.json og rutekart-del11.json. Nytegnet fig016_01 har åtte hodeløse ståretninger, åtte løse hoder og tolv høyrevendte gangruter. Native alfa må bevares. Små diagnostiske fragmenter i originalene er ikke tilstrekkelig dokumentasjon på pixelnøyaktig fragmentgjengivelse; bruk originalindeksene ved mottak.
+
+Gruppe 12: sporing-del12.json, filkontroll-del12.json og rutekart-del12.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
