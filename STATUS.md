@@ -88,6 +88,22 @@ Ikke testet: en ekte nøkkel (i testmiljøet gir proxyen selv tilgang til
 GitHub), ekte telefon, hvordan telefonen tåler minnet med lyd, full
 gjennomspilling.
 
+## Linux-pakken
+
+Én fil med alt: `TheDigHD-x86_64.AppImage` (765 MB) i den private releasen
+[linux](https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux):
+ScummVM med HD-patchen, spillet, musikk, tale og HD-modden. Starter rett i
+spillet i fullskjerm. Innstillinger i `~/.config/the-dig-hd`, lagrede spill i
+`~/.local/share/the-dig-hd/saves`.
+
+Lages av arbeidsflyten Linux-pakke på Ubuntu 22.04 (glibc 2.35) når motoren
+eller pakkeskriptet endres, og hver natt hvis `hd-mod` er endret. Testet i
+arbeidsflyten 9. oktober: pakken uten skjerm (rom 22, F5 og klikk på HD
+Graphics ga klassisk, valget lagret, ingen "Can't open bundle file") og på
+Debian 12 med bare skrivebordsbibliotekene (ingen manglende biblioteker, rom 22
+lastet). AppDir og oppstarten også testet her. Ikke testet: en ekte
+Linux-maskin med skjerm og lyd, FUSE på Toms maskin, Wayland.
+
 ## Kjente begrensninger
 
 - Kodek 5 og 16: 110 av kostymene ble ikke tegnet da testen hoppet gjennom rommene, så fargene deres er valgt etter hvilken palett som gir jevnest bilde. Et kostyme som vises med to helt ulike paletter, får riktige HD-farger bare i den ene (sett for 266 i rom 79).

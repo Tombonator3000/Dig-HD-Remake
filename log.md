@@ -242,3 +242,9 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Filtester: 15 bestått. PR 26 flettet (23b6258), samme filer til Dig-HD-Web (cc21674), deploy bestått.
 - Testet den publiserte siden som telefon i Chromium uten skjerm: tre fingre hoppet over introen, trykk, hold, to fingre ga menyen, HD Graphics byttet, Play, lyd lastet, ingen feil. Minne med lyd: 0,9 GB JavaScript og 0,37 GB WebAssembly. En assert i skriptene kom én gang etter et testhopp (`?rom=22`), ikke fra vanlig start.
 
+## 2026-10-09 14:26 til 15:12 (Claude)
+- Tom: "Linux først. Klargjør den" (den komplette nedlastingsfilen).
+- `tools/pakke_linux.sh`: AppDir med ScummVM (HD-patchen), spillet, musikk, tale, HD-modden og ScummVM-temaene (samme liste som Pages), `BYGG.txt` med motor, commit og hd-mod. `AppRun` starter rett i spillet i fullskjerm med target `dig` og egne mapper for innstillinger og lagrede spill. Med linuxdeploy og appimagetool blir det én AppImage. Testet AppDir her uten skjerm to ganger: rom 22, menyvalget lagret, innstillinger i `[dig]`, ny start i klassisk med introen, ingen "Can't open bundle file".
+- `.github/workflows/linux.yml` (PR 27 til 31): bygger på Ubuntu 22.04, tester pakken uten skjerm og på Debian 12 med skrivebordsbibliotekene, og legger den i den private releasen `linux`. Rettet underveis: testen fant ikke scummvm.ini fordi runneren setter `XDG_CONFIG_HOME`; Debian-testen manglet ALSA, FreeType, GBM og Wayland (de står på AppImage sin liste over biblioteker som skal komme fra systemet). Hver natt bygges en ny pakke hvis `hd-mod` er endret.
+- Releasen `linux`: `TheDigHD-x86_64.AppImage` 765 MB, bygget 13:08 UTC av hd-mod c232bcb. Ikke testet på en ekte Linux-maskin med skjerm og lyd.
+

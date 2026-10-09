@@ -13,7 +13,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Musikk og tale i nettleseren: delene i `spilldata` settes sammen, `?uten-lyd`
 - [x] Berøring på mobil og nettbrett, ny henting ved nettfeil, ingen snuing av skjermen
 - [ ] Mindre minne i nettleseren: `http-fs.cpp` legger hele filen i WebAssembly-minnet før den skrives til MEMFS; skriv rett til MEMFS (må bygges i Actions, SDL3-porten kan ikke hentes her)
-- [ ] Komplett nedlastingsfil (motor, spill, musikk, tale, HD) for plattformen Tom velger
+- [x] Komplett nedlastingsfil for Linux: AppImage i releasen `linux`, bygget og testet av arbeidsflyten Linux-pakke, ny hver natt når `hd-mod` endres
+- [ ] Tom tester Linux-pakken på laptopen (skjerm, lyd, fullskjerm, menyvalget)
+- [ ] Nedlastingsfil for Windows og Android (etter Linux)
 
 - [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 192 jobber (162 rom, 30 store objekter) er godkjent
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres (avvis med `docs/gpt-avvisninger.csv`)
