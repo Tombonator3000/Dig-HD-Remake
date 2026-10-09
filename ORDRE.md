@@ -1,17 +1,17 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-09 19:27 (norsk tid)
+Oppdatert 2026-10-09 22:33 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
 ## Status
 
-- Jobber: 435. avvist 7, godkjent 183, levert 3, ny 230, sjekk 12
+- Jobber: 4463. avvist 7, godkjent 273, levert 306, ny 3865, sjekk 12
 - Ferdige rom: 100 av 106 (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 78, 80, 81, 82, 83, 84, 85, 87, 89, 90, 91, 92, 94, 95, 96, 97, 98, 99, 100, 101, 102, 105, 106, 107, 108, 109, 110)
 - Ferdige objekter: 22 av 30 (obj097_01, obj117_01, obj137_01, obj141_01, obj160_01, obj191_01, obj241_01, obj317_01, obj404_01, obj405_01, obj406_01, obj554_01, obj563_01, obj580_01, obj698_01, obj701_01, obj841_01, obj844_01, obj884_02, obj884_03, obj915_01, obj983_01)
-- Lagjobber: 4 av 236 godkjent. Ferdige objektbilder fra lag: 15 av 460
+- Lagjobber: 94 av 236 godkjent. Ferdige objektbilder fra lag: 150 av 460
 - Ikonark: 3 av 3 godkjent. Ferdige ikoner fra ikonark: 149 av 149
-- Figurark: 1 av 4 godkjent. Ferdige figurruter: 28 av 229
+- Figurark: 1 av 4032 godkjent. Ferdige figurruter: 28 av 28481
 
 ## Gjør disse nå
 
@@ -22,9 +22,9 @@ Les denne filen før du starter. Den erstatter tidligere ordre.
 5. `rom088_del8av9` (rom 88, tombot, del 8/9). Avvist: deler av bildet er flyttet eller zoomet (opptil 6.1 px). Les retur.md.
 6. `rom088_del9av9` (rom 88, tombot, del 9/9). Avvist: deler av bildet er flyttet eller zoomet (opptil 22.9 px). Les retur.md.
 7. `lag079_06` (rom 79, newton, lag 06 med 2 objektbilder, del 1/1). Avvist: deler av bildet er flyttet eller zoomet (opptil 2.9 px). Les retur.md. Legg ved `jobber/obj547_01/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet. Lag denne etter at obj547_01 er godkjent.
-8. `lag002_01_del1av3` (rom 2, cockpit, lag 01 med 2 objektbilder, del 1/3). Legg ved `jobber/rom002_del1av3/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
-9. `lag002_02_del1av3` (rom 2, cockpit, lag 02 med 1 objektbilde, del 1/3). Legg ved `jobber/rom002_del1av3/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
-10. `lag003_01` (rom 3, klein, lag 01 med 1 objektbilde, del 1/1). Legg ved `jobber/rom003/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+8. `lag002_02_del1av3` (rom 2, cockpit, lag 02 med 1 objektbilde, del 1/3). Legg ved `jobber/rom002_del1av3/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+9. `lag019_04` (rom 19, wreck, lag 04 med 1 objektbilde, del 1/1). Legg ved `jobber/rom019/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
+10. `lag020_01` (rom 20, grave, lag 01 med 2 objektbilder, del 1/1). Legg ved `jobber/rom020/resultat.png` som bilde to (ikke stilankeret), så objektene får samme stil og lys som HD-bildet.
 
 Når disse er levert, fortsett med bestilling 2 i `GRAFIKKLISTE.md` uten å vente på ny ordre.
 
@@ -52,7 +52,7 @@ Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-ar
 
 ## Beskjeder
 
-- Claude har tatt inn de 148 leverte arkene i glatt stil som myke figurruter (dighd myke-figurer, 2957 ruter), og motoren viser dem med myke kanter, bak forgrunnen og under tekst. Hodene skaleres for seg, så de kan gjerne være tegnet større enn kroppene. 392 ruter har et omriss som er ganske ulikt originalen (status sjekk i work/gpt-ferdig/myke.json, mest Brink og Maggie, som er tegnet smalere enn originalen). Fortsett med resten av hovedfigurene, med rutekart og leveranser i fremdrift.json som før.
+- Ny bestilling fra Tom: alle de andre figurene er nå bestilt, 4031 figurark i glatt stil (samme stil som de godkjente myke figurene). Prompten står i hver jobb (jobber/figNNN_MM/PROMPT.md). Lever som før: bildet i leveranser/, oppført med sha256 i rapporter/<runde>/fremdrift.json, og et rutekart per ark. Fortsett med hovedfigurene først (Boston, Brink, Maggie, Low, Robbins), så rom 32, 50 og 88 og lagjobbene med objektbilder, så resten av figurene i rekkefølgen i ORDRE.md. Filmene (SAN) venter vi med til senere, de skal ikke lages nå.
 
 ## Kodeoppgaver
 

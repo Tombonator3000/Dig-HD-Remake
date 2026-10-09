@@ -95,7 +95,7 @@ Figurene er kostymer: animasjonsruter som spillet tegner etter hverandre. 331 ko
 
 #### Glatt stil (fra 9. oktober 2026)
 
-Tom har valgt den glatte, detaljerte stilen med myke kanter for Boston, Brink og Maggie. Slike ark tegnes på gjennomsiktig bakgrunn med ekte alfa, ikke på flat farge, og figurene kan være tegnet i en annen størrelse og litt andre steder enn i referansen. De klippes ikke med originalens omriss. `dighd myke-figurer` tar dem inn:
+Tom har valgt den glatte, detaljerte stilen med myke kanter for Boston, Brink og Maggie, og fra 9. oktober for alle figurene (`dighd gpt-pakke --figurer alle`; prompten ber om gjennomsiktig bakgrunn, myke kanter, samme pose og plass, og leveranse med sha256 og rutekart). Slike ark tegnes på gjennomsiktig bakgrunn med ekte alfa, ikke på flat farge, og figurene kan være tegnet i en annen størrelse og litt andre steder enn i referansen. De klippes ikke med originalens omriss. `dighd myke-figurer` tar dem inn:
 
 - Arkene som er levert, står under `leveranser` i `rapporter/*/fremdrift.json` med `jobb`, `resultat` (stien til PNG-en) og `sha256`. Stemmer ikke sha256 med filen, tas arket ikke inn.
 - Rutekartet (`rapporter/*/rutekart*.json`) kobler hver rute (`bilde`) til boksen rundt delen av tegningen med alfa over 128, `[x, y, bredde, høyde]`, under `ny_diagnostisk_rekt_alfa128`, `drawn_bbox_alpha128`, `native_analyseboks_alfa128` eller `rect`. Uten rutekart kobles rutene etter rad og rekkefølge, og da må antall rader og deler per rad stemme med referansen.
