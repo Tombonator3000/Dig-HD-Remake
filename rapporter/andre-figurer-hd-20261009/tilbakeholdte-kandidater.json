@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-09T22:59:53.551788+00:00",
+ "oppdatert_utc": "2026-10-09T23:01:43.114184+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 37,
+ "antall": 32,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -592,119 +592,6 @@
    "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
   },
   {
-   "jobb": "fig022_02",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "8262b62ece8d9b705937c569672058b4d1eb9310c298c525a8997aec11fac58e",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Synlige blå rutekanter i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     7,
-     7,
-     4
-    ],
-    "native_rader": [
-     3,
-     9,
-     3,
-     2,
-     1,
-     15,
-     2,
-     6
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 133728,
-     "maks": 127,
-     "piksler_over_16": 12524
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig022_03",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "412aa1dec47f4dd40bd819639afd6e9a0d21c11f5d7015506b4fba5d39920418",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Restalfa over lokal grense i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     7,
-     7,
-     7
-    ],
-    "native_rader": [
-     7,
-     7,
-     7
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 58186,
-     "maks": 123,
-     "piksler_over_16": 604
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig022_04",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "74f60ce82297fdef7ffa255bbad6d782e0c2925969fbf18530a055f8ab25ff19",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Restalfa over lokal grense i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     2,
-     6
-    ],
-    "native_rader": [
-     1,
-     2,
-     6
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 15158,
-     "maks": 49,
-     "piksler_over_16": 2
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig022_05",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "8fbe3ca62121721b421b9eacd602b34dc231bb89c6cb874ae41287707a9e59a4",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Ekstra hoder og figurrader i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     4,
-     5
-    ],
-    "native_rader": [
-     4,
-     3,
-     5,
-     5
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 51735,
-     "maks": 29,
-     "piksler_over_16": 10
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
    "jobb": "fig022_06",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "e44b5e323a06fb4ea1e3a2d899d3b9f28c4132faa3e177a0b3c60f4b3b22c75a",
@@ -727,31 +614,6 @@
      "piksler_over_0": 17353,
      "maks": 110,
      "piksler_over_16": 17
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig022_07",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "dba0149d1dd4a6ce2dcb501425fb42d8379fdf054f572ec41edfc6169a66da4f",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Restalfa over lokal grense i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     2,
-     4
-    ],
-    "native_rader": [
-     2,
-     4
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 5599,
-     "maks": 26,
-     "piksler_over_16": 43
     }
    },
    "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
