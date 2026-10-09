@@ -1,9 +1,13 @@
-# fig016_02
+# Leveransenotat
 
-Levert 9. oktober 2026. Innebygd ChatGPT-bildegenerator, 2 bildeforsøk. Verktøyet bekrefter ikke eksakt modellversjon. Native PNG i 1536 x 1024 RGBA. Generatorens glatte konturer og native alfa er bevart uten etterbehandling.
+Revidert 9. oktober 2026: hele oransje bukseknær som i originalkostymet. Tidligere generert versjon hadde feilaktige rifter. Den er bevart som alternativ_rifter_d2a1bcc67e07.png med tidligere notat. Denne revisjonen erstatter SHA256 d2a1bcc67e07a581de032307f7e76ce1e4a600400de421be5564d04cfcd8084c og skal brukes ved neste import.
 
-Bestilt av Tom: Boston, Brink og Maggie med alle kostymevarianter, i den godkjente detaljerte stilen. Originalreferansen definerer animasjonsruter og retninger. Eget stilanker og faktisk prompt ligger i rapporter/hovedfigurer-hd-20261009/. Original prompt.txt, referanse.png, original_1x.png og jobb.json er bevart.
+Innebygd ChatGPT-bildegenerator, 3 bildeforsøk i valgt forsøksspor. Verktøyet oppgir ikke et bekreftet modellnavn. Tidligere uvalgte forsøk er bevart lokalt.
 
-Kontrollert antall og radfordeling: 8, 4, 20, 20, 16, 3 større figurdeler. 72 originalruter totalt. Originalen har 1 svært liten fragmentrute i tillegg til de 71 større delene. Små fragmenter er ikke fullstendige hoder. Visuell kontroll omfatter detaljer, retninger og at separate hoder og kropper fortsatt er separate.
+Ludger Brink, kostyme 16, i Toms godkjente glatte og detaljerte stil. Egen stilprompt og eventuelle avgrensede korreksjoner er dokumentert i rapporter/hovedfigurer-hd-20261009/prompter/. Original prompt.txt og øvrige inputfiler er uendret og hashkontrollert mot HEAD.
 
-Dette er grafikkleveransen. Nytegnet størrelse og plassering trenger tilpasning av mottak, ruterektangler og hode-/fotankre hos Claude. Ingen gpt-inn-kontroll eller animasjonskontroll i motoren er utført. Ikke legg den gamle nærmeste-nabo-alfamasken over den nye tegningen.
+Generatorens originale 1536 x 1024 RGBA er kopiert byteidentisk, uten ny pikselmaske eller kreativ etterbehandling. Radantall 8, 4, 20, 20, 16, 3 er kontrollert ved alfa 128 og visuelt sammenlignet med kildens retninger, hodeløs oppdeling, bevegelser og kostyme. 71 tegnede figurområder, 72 originaloppføringer og 1 svært små originalfragmenter. Små fragmenter må bevares fra originalmaterialet; de er ikke oppblåst til anatomi.
+
+Native alfa er bevart. Restalfa utenfor fem piksler fra alfa-128-konturen har maksimum 4/255, med 0 piksler over 16/255. Native fragmentstreker er diagnostikk, og originalfragmentene skal hentes fra originalmaterialet. Rutekartet er diagnostikk og er ikke en verifisert importmaske, skalering eller ankerplassering. Claude må tilpasse mottaket og kontrollere animasjon, retninger, fotpunkter og flimmer i spillet. Dette arket er ikke integrert, spilltestet eller separat visuelt godkjent av Tom.
+
+SHA256: b77089a3d651b3c65be6fc3c37daf451157528c899c949accaebfc20bc57ccaf

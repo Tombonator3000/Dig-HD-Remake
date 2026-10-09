@@ -1,0 +1,201 @@
+[
+ {
+  "jobb": "fig016_01",
+  "attempt": 10,
+  "rows": [
+   8,
+   8,
+   8,
+   4
+  ],
+  "expected": 28,
+  "fragments": 1,
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f2961809-04b8-4e2f-89f8-2ef785f93cdf.png"
+  ],
+  "prompt": "Use case: precise local image edit. Erase ONLY the isolated blond head centered at x980,y355, inside rectangle x920..1040,y300..410. Make that one rectangle empty transparent. Do not remove the blond head centered x835 or the back-facing head centered x1080. All other artwork must stay completely unchanged. Do not add anything in the erased rectangle.\nRetain original dimensions1536x1024, smooth inked cel shading, identity and native RGBA. Empty canvas/gaps alpha0; opaque figure interiors alpha near255; smooth narrow antialias only at contours. No haze, glow, background or text.",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-28277cf7-faa9-4967-af87-a3494a47b346.png",
+  "attempts": 10,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-28277cf7-faa9-4967-af87-a3494a47b346.png",
+  "sha256": "770fff8745154b2f0c201b37a4a3e58ada9adf7b4c977eb44532d1ef478f0192",
+  "originalruter": 29,
+  "resultat": "jobber/fig016_01/resultat.png"
+ },
+ {
+  "jobb": "fig016_02",
+  "figure": "Ludger Brink",
+  "rows": [
+   8,
+   4,
+   20,
+   20,
+   16,
+   3
+  ],
+  "expected": 71,
+  "fragments": 1,
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-40ae7149-7009-4ed4-8a8a-75074be0c5ec.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_02/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "prompt": "Use case: precise image edit. Image1 is the HD EDIT TARGET. Image2 is original pose/count authority. Image3 is approved identity reference.\nCorrect only these errors: head row3 currently21 RIGHT heads; reduce to EXACTLY20, preserving ordered distinct mouths. Head row4 currently21 LEFT heads; reduce to EXACTLY20. Body rows8and4 and remaining head rows16and3 unchanged. Remove erroneous holes on the anatomical LEFT trouser knee in all twelve walking bodies. Only the anatomical RIGHT front knee may have the original tear; never tears on both knees. Keep the existing tiny flat diagnostic fragment tiny. Final main rows8,4,20,20,16,3 total71.\nPreserve the approved detailed smooth drawn style, hair, costume colors and native1536x1024 RGBA. True alpha0 transparent background and empty gaps, opaque character interiors and narrow antialiased native contours. No glow, smoke, backdrop, floor, text, shadow or new elements.",
+  "attempt": 2,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e9f87339-c484-43f3-9713-5c9c13d9cf4e.png",
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e9f87339-c484-43f3-9713-5c9c13d9cf4e.png",
+  "attempts": 2,
+  "sha256": "d2a1bcc67e07a581de032307f7e76ce1e4a600400de421be5564d04cfcd8084c",
+  "originalruter": 72,
+  "resultat": "jobber/fig016_02/resultat.png"
+ },
+ {
+  "jobb": "fig016_04",
+  "figure": "Ludger Brink",
+  "rows": [
+   10,
+   2
+  ],
+  "expected": 12,
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_04/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "prompt": "Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig016_04: preserve exact piece counts, source pose sequence, directions and broad positions. Image2 defines smooth detailed style, image3 identity only.\nRow1: exactly 10 walking, facing toward the viewer (10 frames).\nRow2: exactly 2 walking, facing toward the viewer (2 frames).\nExact row counts 10,2 excluding 0 tiny flat non-anatomical diagnostic fragment(s). Tiny fragments must not become full heads or bodies.\nHealthy Ludger Brink: short swept blond hair, angular lean long-nosed face, strong jaw, light-gray open jacket with FULL sleeves over a dark petrol tee, purple LEFT chest patch, orange trousers, black calf-high boots. Do not copy Boston's face or gray temples.\nDAMAGED Brink costume16: preserve tears and marks on his anatomical RIGHT trouser knee and worn clothing visible in source. Gray jacket and orange trousers, blond angular mature face. Do not replace with pristine healthy trousers.\nSource directions and costume CONDITION override portrait. Keep headless bodies headless, detached heads detached. Detail adult face, hair, hands, folds and boots with thin smooth inked contours and controlled crisp cel shading. Consistent identity and lighting. Native1536x1024 RGBA: opaque interiors, narrow native antialiased edges, true alpha0 empty canvas/gaps. Remove cyan background and magenta floors. No extra pieces, text, grid, glow, gradient background, floor shadow, blur, pixel stairs, fuzzy paint or3D.",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b3f2dde4-27ba-400e-a738-3f73ea2f7879.png",
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b3f2dde4-27ba-400e-a738-3f73ea2f7879.png",
+  "attempts": 1,
+  "sha256": "90b35aa576487de2bbef365ecc5da20bdac6b769bfb00a4cee607ea84c3ee7a9",
+  "originalruter": 12,
+  "resultat": "jobber/fig016_04/resultat.png"
+ },
+ {
+  "jobb": "fig016_05",
+  "figure": "Ludger Brink",
+  "rows": [
+   10,
+   2
+  ],
+  "expected": 12,
+  "fragments": 1,
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6dd9d9f7-5159-496d-b234-e3a89f62499f.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_05/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "prompt": "Use case: precise image edit. Image1 is the HD EDIT TARGET. Image2 is original pose/count authority. Image3 is approved identity reference.\nThe twelve bodies are viewed directly from BEHIND. Remove ALL incorrect skin-colored holes on the BACKS of both knees; fill those erroneous tears with opaque orange trouser fabric, smooth folds and consistent shading. The costume's single original FRONT right-knee tear is not visible from behind. Keep all12 back-facing walking poses and exact rows10,2, positions, boots and gray jackets. Do not add front-facing faces or any extra figures.\nPreserve the approved detailed smooth drawn style, hair, costume colors and native1536x1024 RGBA. True alpha0 transparent background and empty gaps, opaque character interiors and narrow antialiased native contours. No glow, smoke, backdrop, floor, text, shadow or new elements.",
+  "attempt": 2,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6633b716-37a3-4d95-95a6-0b36e4340112.png",
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6633b716-37a3-4d95-95a6-0b36e4340112.png",
+  "attempts": 2,
+  "sha256": "85dbeb3182083efda8a12edb821952d980922e8fa2594178ef68a452d3564946",
+  "originalruter": 13,
+  "resultat": "jobber/fig016_05/resultat.png"
+ },
+ {
+  "jobb": "fig016_06",
+  "figure": "Ludger Brink",
+  "rows": [
+   11,
+   1
+  ],
+  "expected": 12,
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_06/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "prompt": "Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig016_06: preserve exact piece counts, source pose sequence, directions and broad positions. Image2 defines smooth detailed style, image3 identity only.\nRow1: exactly 11 walking, facing toward the viewer to the right (11 frames).\nRow2: exactly 1 walking, facing toward the viewer to the right (1 frame).\nExact row counts 11,1 excluding 0 tiny flat non-anatomical diagnostic fragment(s). Tiny fragments must not become full heads or bodies.\nHealthy Ludger Brink: short swept blond hair, angular lean long-nosed face, strong jaw, light-gray open jacket with FULL sleeves over a dark petrol tee, purple LEFT chest patch, orange trousers, black calf-high boots. Do not copy Boston's face or gray temples.\nDAMAGED Brink costume16: preserve tears and marks on his anatomical RIGHT trouser knee and worn clothing visible in source. Gray jacket and orange trousers, blond angular mature face. Do not replace with pristine healthy trousers.\nSource directions and costume CONDITION override portrait. Keep headless bodies headless, detached heads detached. Detail adult face, hair, hands, folds and boots with thin smooth inked contours and controlled crisp cel shading. Consistent identity and lighting. Native1536x1024 RGBA: opaque interiors, narrow native antialiased edges, true alpha0 empty canvas/gaps. Remove cyan background and magenta floors. No extra pieces, text, grid, glow, gradient background, floor shadow, blur, pixel stairs, fuzzy paint or3D.",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1bdca598-c396-47c0-8a5d-903ea9d0e5ad.png",
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1bdca598-c396-47c0-8a5d-903ea9d0e5ad.png",
+  "attempts": 1,
+  "sha256": "8bf89c1c878d9b8ccbe7d12a81e64132cb79ad836fab77c2e0f880bac1a25cb3",
+  "originalruter": 12,
+  "resultat": "jobber/fig016_06/resultat.png"
+ },
+ {
+  "jobb": "fig016_07",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-ab668f99-5e86-4c92-9694-804081282ccb.png",
+  "rows": [
+   11,
+   1
+  ],
+  "fragments": 0,
+  "prompt": "Use case: style-transfer.\nAsset type: detailed HD animation sheet fig016_07,1536x1024 RGBA.\nInput images: Image1 ORIGINAL EDIT TARGET for exact piece count/pose order/directions; image2 smooth art style and costume condition; image3 character identity only.\nPrimary request: Redraw every source piece in the approved detailed smooth inked cel-shaded style. Exact larger-piece row counts 11,1; 0 tiny original fragment(s) remain very small separate pieces, never full extra heads or figures.\nAll bodies HEADED, walking FRONT-LEFT, noses LEFT.\n\nDAMAGED Brink costume16: light-gray FULL-sleeve jacket over dark petrol tee, purple LEFT chest patch, orange trousers with the source's tears and marks at anatomical RIGHT knee, black calf boots. Mature angular long-nosed face, swept blond hair. Match damage placement to image1 and image2.\nConstraints: source directions, poses and headless states override style portrait. Keep each loose head/hand separate. Consistent adult proportions and lighting, detailed face/hair/fingers/folds/boots. Thin smooth contours. Opaque subject interiors and narrow native antialiased edges. Empty canvas and gaps TRUE alpha0 transparency. Remove cyan background and magenta floors. No extra/omitted pieces, text, grid, glow, haze, gradient background, floor/shadow, blur, fuzzy paint, pixel stairs or3D.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_07/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "attempt": 1,
+  "figure": "Ludger Brink",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-ab668f99-5e86-4c92-9694-804081282ccb.png",
+  "sha256": "e1cbe331eda14ebd871e6be20d6a1302e9a53818e2ec0811a9bbd931d38bcfad",
+  "originalruter": 12,
+  "resultat": "jobber/fig016_07/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "c2fdbda525fe17fbc18241b4016f8a60e23cf741c1fba11c9640271769971ec5",
+   "original_1x.png": "0f481b6ec7001be3a332dce0cb66b8d794758274237e85dede4f3f87bac575a3",
+   "prompt.txt": "d2439dab12cb9a28f2d4ad8903129c6a29e6ca5869886022df2aaf5a7a7f0529",
+   "jobb.json": "6c4cb5a9263566cf64cdd43fe6e5eafa4a0db298f5f074d834996ccc602f799f"
+  }
+ },
+ {
+  "jobb": "fig016_08",
+  "rows": [
+   11,
+   1
+  ],
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-214c6839-e05f-4b83-95fc-a08b094c8c80.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_08/referanse.png"
+  ],
+  "attempt": 3,
+  "prompt": "Use case: localized edit of a production sprite sheet. Image1 is the HD EDIT TARGET. Image2 is original pose reference only. Keep the smooth detailed style, native1536x1024 RGBA, true alpha0 background and antialiased thin outlines. No new background or glow. All 12 figures show his BACK or BACK-RIGHT. Erase EVERY white, cream or skin-colored mark on ALL trousers in the whole sheet, including cargo pocket flaps and knees. Replace with unbroken orange fabric and natural folds. No knee wounds are visible from the back. Keep exact 11+1 figures, positions, directions and animation poses. Do not change the upper bodies.",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9305eb10-d25a-4e08-befb-f7b2e647278c.png",
+  "figure": "Ludger Brink",
+  "attempts": 3,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9305eb10-d25a-4e08-befb-f7b2e647278c.png",
+  "sha256": "6d8ff623d1894f4e9fb67edb5d91d2b1ca126e0e65b0c506bc89932553d5debe",
+  "originalruter": 12,
+  "resultat": "jobber/fig016_08/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "a0946777e4d2bcad84806aa7bbae4a74d35dc2bf51e70ab7d586063e1efa6f80",
+   "original_1x.png": "b889bb8fe065661c3b7d1ffcfb30d466bac0eaa900aabc380e93e6673ca26bb1",
+   "prompt.txt": "b90a414e76f4c85f70416a542915f477ed6763884f859cec95631228a770b93e",
+   "jobb.json": "120eb10317d0724fe374d588fbef13b21cb5321913b0c0a7c0dfebc0e65ea4a6"
+  }
+ },
+ {
+  "jobb": "fig016_09",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1d8d32af-8937-4c80-9b6e-87111e16b3b5.png",
+  "rows": [
+   11,
+   1,
+   4
+  ],
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-2d42ecc0-4e80-496d-8b06-b7c4dee4b39c.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_09/referanse.png"
+  ],
+  "attempt": 2,
+  "prompt": "Use case: precise image edit. Image1 is the smooth HD EDIT TARGET fig016_09. Image2 is the original pose authority. Change ONLY incorrect trouser damage. Brink has ONE small tear on the FRONT of his anatomical RIGHT knee, only when that surface is visible. Repair EVERY extra tear on anatomical LEFT knee using intact matching orange fabric and folds. In ALL BACK, BACK-LEFT and BACK-RIGHT views, repair ALL visible white or skin-colored holes so the back of the trousers is fully intact orange. Do not confuse intact stitched cargo pockets with holes. Keep the single right FRONT knee tear in front-facing poses. Preserve all existing row counts 11,1,4, exact poses, gestures, facial identity, headless bodies, detached heads, color and native smooth drawn contours. No additions or movement. 1536x1024 native RGBA, true transparent empty background, no glow, haze, shadows, text or floor.",
+  "figure": "Ludger Brink",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1d8d32af-8937-4c80-9b6e-87111e16b3b5.png",
+  "sha256": "41f6e16fd29aff724f151c8d78031c287e3bfaece49f9f477cb6933746de718d",
+  "originalruter": 16,
+  "resultat": "jobber/fig016_09/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "20b994e9b93aa750b793b79e8799190f8dc2f1b9532a16401072861d2f36cd39",
+   "original_1x.png": "2c74808c2037a4f6a427bf2899f73df3d61b6e145aed079d9bfc00dbfccd0dc7",
+   "prompt.txt": "a1b11482b58ec77fc46879476002e6d5fd6409a5769f8a0ee70966e8f4c9a371",
+   "jobb.json": "4fa3c372a7e36d548342630c2383d9eee67b6bd3012bdb55801ec5d42e4db67f"
+  }
+ }
+]
