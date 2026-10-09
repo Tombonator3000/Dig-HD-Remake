@@ -234,7 +234,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Testet den publiserte siden i Chromium uten skjerm: nøkkelfeltet, rett inn i introen, rom 22, F5 med HD Graphics, klikk ga klassisk, Play, omlasting gikk rett inn i spillet i klassisk grafikk uten nøkkelfelt og uten nye nedlastinger. Ingen spill- eller HD-stier mot nettsiden. En ekte nøkkel og ekte telefon er ikke testet.
 - Dokumentasjon: PAGES.md, SPILLTEST.md (hvordan nøkkelen lages), HD-MOTOR.md, README, STATUS, todo, memory, spill.sh.
 
-## 2026-10-09 12:44 til 13:25 (Claude)
+## 2026-10-09 12:44 til 13:17 (Claude)
 - Tom på mobil: "Failed to fetch" og ScummVMs feilsøkingskonsoll (FONT1.NUT, 27 kB, ble ikke hentet ferdig), skjermen snudde seg til liggende ved trykk. Han ba om berøringskontroll og spurte om en komplett nedlastingsfil med HD, musikk og tale. Spurte hvilken plattform filen skal være for; ikke svart ennå.
 - `RemoteSource` prøver igjen ved nettfeil, 5xx, 429, grensen for forespørsler og filer som kommer ufullstendig, til filen kommer (1, 2, 4, 8, så hvert 15. sekund), med melding på skjermen. Bare en avvist nøkkel stopper.
 - Ny `engine/pages/touch.mjs`: siden tar over berøringen (fanger hendelsene på window før ScummVM). Trykk er klikk, dra flytter pekeren, hold 0,5 s er høyreklikk, to fingre F5, tre Esc. Ingen `orientation.lock` lenger. Rettet "Illegal invocation" (setTimeout kalt som metode).
