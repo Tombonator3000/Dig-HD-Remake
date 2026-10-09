@@ -1534,5 +1534,95 @@
       "jobb.json": "f42518e87452feb44065ab5442425cea5f2fe2ea828a45d471e96c1cd51df4ac"
     },
     "resultat": "jobber/lag065_02/resultat.png"
+  },
+  {
+    "jobb": "lag065_04",
+    "attempt": 1,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag065_04/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom065/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-3dceec75-d1d9-4ac6-bf0a-50456a62d089.png",
+    "sha256": "3a9be9afe469137cc2ef4bdc915f40ff770ab6d81a03c2ea8c2708b7809dc42d",
+    "beskyttede_filer": {
+      "referanse.png": "591190911c2d508d80a0c8ea103273f309b452b2eb229be58398481e47b8b878",
+      "original_1x.png": "6a16ca0fddeda53e509382bbd129db2a8a0f423782700c4f2b7ce16d62870a67",
+      "prompt.txt": "c38e2847e8ec6ba25ab2894e00e63752784c153d12e2760bc5a1dc815eddcb01",
+      "jobb.json": "21ad544e815ffcf95e186e4069c5094ac34fc8b74ee427e5eaadb49a386c13bc"
+    },
+    "resultat": "jobber/lag065_04/resultat.png"
+  },
+  {
+    "jobb": "lag068_01_del2av2",
+    "attempt": 1,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 2 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag068_01_del2av2/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom068_del2av2/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-dc6dd657-9c52-4c26-8db1-67ba3ce547b4.png",
+    "sha256": "9132fb53db97ed6a93bd374d419676ed033036e3364e0af3409e839616aeeee5",
+    "beskyttede_filer": {
+      "referanse.png": "f9318c777a5b136e271b0d1c96ffab8c1d9caab16cde9eba082d0c876b413ddb",
+      "original_1x.png": "848cb4e7cdd10ea953b3b63149a8dda85c6d61cb88145c8639ce1c44d24bd23d",
+      "prompt.txt": "fb5313984fed3b942742b3ec739ed35a497e55f35a8392753dab255f18e659b7",
+      "jobb.json": "b993144267a70496c8e576dd9a3d14c2f9fb2f59407dbef0cef393d598578aca"
+    },
+    "resultat": "jobber/lag068_01_del2av2/resultat.png"
+  },
+  {
+    "jobb": "lag068_05_del2av2",
+    "attempt": 1,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 2 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag068_05_del2av2/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom068_del2av2/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-2d02bbde-3ceb-458a-b0a0-bc3b465ea0a7.png",
+    "sha256": "e9892c3a08a99a7f542fd4f6934a9a864fd15d7a782cd70ed5d3381e92d29e05",
+    "beskyttede_filer": {
+      "referanse.png": "8366091f734f818494b4bd19af1c5bd70208d9b79a7993ec0872d31a002d0ce8",
+      "original_1x.png": "d8cf903c3bd9e3546ae607ec92590f68054261827d186a8de36a8c75267ea066",
+      "prompt.txt": "fb5313984fed3b942742b3ec739ed35a497e55f35a8392753dab255f18e659b7",
+      "jobb.json": "c4b3508d70c09342671a53b1499f0411910b98f2a5587088ef405d204f799eb8"
+    },
+    "resultat": "jobber/lag068_05_del2av2/resultat.png"
+  },
+  {
+    "jobb": "lag068_06_del2av2",
+    "attempt": 1,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 2 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag068_06_del2av2/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom068_del2av2/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b64b0441-8fba-431f-89e1-75e3eb753ef5.png",
+    "sha256": "e0238f9033d600507a88a03aa302afca07721cfbf4e8b3cff0ed8e7ca6ed7715",
+    "beskyttede_filer": {
+      "referanse.png": "4c1ce7e97677230ed2d8547c1db7971febf318ff56664b899d9365ec59781cd4",
+      "original_1x.png": "303de34c2c428d65b9388d0fc19e9f003fc3a004c6d20c8f71fbd1a5ad319c5a",
+      "prompt.txt": "fb5313984fed3b942742b3ec739ed35a497e55f35a8392753dab255f18e659b7",
+      "jobb.json": "0757143468718cd8ec02fd285b3ffc4d6cad96b266d8e611394f3da4af90acb3"
+    },
+    "resultat": "jobber/lag068_06_del2av2/resultat.png"
+  },
+  {
+    "jobb": "lag069_02",
+    "attempt": 1,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag069_02/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom069/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a6a65f19-6710-4f94-97a7-e2e59ed88dae.png",
+    "sha256": "521ab9528e843e5e5d7e91c55cb69f288f09d573b1d821181390c2c40497a0ba",
+    "beskyttede_filer": {
+      "referanse.png": "584db5456a32854e034863a42761181fd2dba7b8832c26442a82114ad3cc04b8",
+      "original_1x.png": "1a733c73ed6178fc0fe8f9c3204bd69fd7fa622a4adb0fa0edff183290482011",
+      "prompt.txt": "c38e2847e8ec6ba25ab2894e00e63752784c153d12e2760bc5a1dc815eddcb01",
+      "jobb.json": "7bf3edb59e814d7d3549f4abcc6a68a4e67783c3993a66629230c7019022ed2f"
+    },
+    "resultat": "jobber/lag069_02/resultat.png"
   }
 ]
