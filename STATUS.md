@@ -31,7 +31,7 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Motor: filmer | HD-rammer per SAN-fil, med undertekstene oppå som originalpiksler | 198 av 198 rammer i introen like med nearest-rammer etter rettingen til `_frame - 1`. Undertekster: hele SQ1 med nearest-rammer og merkede rammer, all synlig tekst på samme sted som i originalen og resten HD |
 | Motor: tekst | All tekst i spillet (tegnsettene i DIG.LA1) og i filmene (NUT-fontene) tegnes med glatte HD-bokstaver laget med xBR fra spillets egne fonter, på samme sted og med samme farger. `DIGHD_TEXT` velger skalerer | Rom 2 og introen med undertekster: med `nearest` 0 avvik i 45 dumper med tekst, plasseringen stemmer i 47 av 47, ingen tekst står igjen, ingen målbar tidsøkning i rommet |
 | Motor: farger | Fade og palettbytte følger med. Fargesyklede områder (vann, fosser) vises med HD-bildet og følger syklingen | Rom 22 med ChatGPT-bakgrunn og rom 11 og 43 med lanczos-sharp: vannet beveger seg uten rutenett eller glorie. Ett syklingssteg i rom 22 tar 2,0 ms (før 7,8 ms) |
-| Motor: brytere | Ctrl+H bytter mellom HD og klassisk, Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`) | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Ikke prøvd med ekte tastatur |
+| Motor: brytere | HD Graphics i spillets meny (F5) og Ctrl+H bytter mellom HD og originalgrafikk, og valget huskes (`dighd_classic`). Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`) | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Menyen uten skjerm med `DIGHD_TEST_CLICKS` og i nettleseren med musklikk: byttet virker og huskes ved neste start. Ikke prøvd med ekte tastatur |
 | Motor: store objekter | HD-objektbilder fra ChatGPT også i rom uten HD-bakgrunn | Rom 28 kjørt uten skjerm: tavla obj241 dekker nesten hele skjermen (69 492 objektpiksler mot 185 rompiksler) |
 | Motor: ChatGPT-figur | De 28 rutene fra fig014_01 (Boston Low) vises i spillet | Rom 22 uten skjerm med `DIGHD_TEST_COSTUME=14` og `DIGHD_VERIFY=1`, 1400 bilder: når Boston står eller går mot siden, kommer 699 til 1088 figurpiksler fra HD-rutene og 0 fra originalen. Animasjoner som ikke er malt ennå, vises som originalen. Skjermen lik hele skjermen bygget på nytt i alle dumper |
 | Romtest | Alle rom kjørt uten skjerm med `tools/romtest.sh` | 111 rom, 226 kjøringer: ingen krasj, HD-bakgrunnen brukt i alle rom som har den, ingen forskjøvne bilder, figurene går bak det samme som i originalen |
@@ -42,36 +42,32 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 
 ## Nettleser og GitHub Pages
 
-Egen inngang i `engine/pages`: spillfiler og HD-pakke velges fra maskinen og
-lagres lokalt i IndexedDB. Fire filtester bestått, inkludert at manglende
-private filer ikke gir HTTP-forespørsler og at ScummVM-temaer bruker riktig
-prosjektprefiks. Nettsidepakken har bare motor, temaer og tilhørende GPL-kode.
+[Nettsiden](https://tombonator3000.github.io/Dig-HD-Web/) går rett inn i
+spillet, som originalen, uten oppsettside eller knapper (endret 9. oktober
+etter beskjed fra Tom). Første gang ber den om en lesenøkkel til dette repoet.
+Spillet og HD-pakken hentes så fra grenene `spilldata` og `hd-mod` via
+api.github.com når spillet trenger dem, og lagres i nettleseren etter
+git-blob-ID. Ny HD-grafikk kommer med av seg selv ved neste start. Mapper på
+maskinen virker fortsatt som reserve. HD eller originalgrafikk velges i
+spillets egen meny (F5, HD Graphics), og valget huskes. Mobil: fullskjerm ved
+første trykk, to fingre åpner menyen, tre hopper over en scene.
 
-Bygget med den låste ScummVM-commiten og Emscripten 4.0.10, med uendret HD-patch.
-Testet i Chromium uten skjerm: rom 22 og 9 med 1280 x 800 HD, mappeimport,
-begge filpakkene beholdt etter omlasting, HD/klassisk-knapp og F5-meny. Ekte
-lagring av `dig.s01`, lukking av nettleseren og lasting fra rom 9 tilbake til
-rom 22 bestått. Ingen spill- eller HD-filer sendt som HTTP-forespørsler.
-Musikk og tale ikke testet fordi DIGMUSIC.BUN og DIGVOICE.BUN mangler lokalt.
+Nettsiden ligger i det offentlige motorrepoet `Tombonator3000/Dig-HD-Web`
+(GitHub avviste Pages fra det private repoet med gjeldende abonnement). Den har
+bare motor, temaer og tilhørende GPL-kode, med samme patch og sidefiler som
+`main`. Actions bygger og publiserer (siste bygg 9. oktober bestått).
 
-GitHub avviste Pages fra det private repoet med gjeldende abonnement. Derfor
-brukes det separate offentlige motorrepoet `Tombonator3000/Dig-HD-Web`.
-Spillrepoets synlighet er uendret. [Nettsiden](https://tombonator3000.github.io/Dig-HD-Web/)
-er publisert og kontrollert: HTTP 200, faktisk HD-oppstart fra Pages,
-HD/klassisk-knapp og fullskjerm. Offentlig motorbygg og deploy i GitHub Actions
-bestått. Direkte adresser til spillfiler og HD-bilder gir HTTP 404.
-Full gjennomspilling og mobiltest er ikke utført.
+Testet 9. oktober i Chromium uten skjerm mot den publiserte siden: nøkkelfeltet
+første gang, rett inn i introen og videre til rom 22, F5 med raden HD Graphics,
+klikk på boksen ga klassisk grafikk, Play, og etter omlasting rett inn i spillet
+i klassisk grafikk uten nøkkelfelt og uten at noen fil ble hentet på nytt.
+Ingen forespørsler med spill- eller HD-stier mot nettsiden. Filtester: 9
+bestått. Tidligere tester (Codex) med mapper: lagring og lasting av spill,
+HD-figurene fra fig014_01.
 
-HD-figurer fra Pages (testet 9. oktober i Chromium uten skjerm, mot den
-publiserte siden): spillmappen og `mods/gpt` med de 28 figurrutene valgt,
-`?rom=22&DIGHD_TEST_COSTUME=14`. Boston ble vist med HD-rutene i rom 22, og
-rutene som ikke er malt ennå (gange mot kameraet), som originalen. HD/klassisk-
-knappen byttet til klassisk. Ingen forespørsler mot spill- eller HD-stier.
-Den publiserte motoren er bygget fra samme patch som `main` (filene i
-Dig-HD-Web er like). Siden viser nå hvor mange HD-rom, objektbilder og
-figurruter pakken har, og når den ble laget, så det er lett å se om en
-nyere HD-pakke må velges på nytt. Publisert i Dig-HD-Web 9. oktober (deploy
-bestått) og testet på nytt mot den publiserte siden.
+Ikke testet: en ekte nøkkel (i testmiljøet gir proxyen selv tilgang til
+GitHub), ekte telefon med berøring og fullskjerm, musikk og tale (BUN-filene
+ligger ikke i repoet), full gjennomspilling.
 
 ## Kjente begrensninger
 
