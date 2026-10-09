@@ -255,7 +255,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - CI-jobben pipeline feilet på alle grener: repoet felipe-dos-santos81/thedig-textures er borte. PR 33 gjør dekoderne valgfrie (ekstraen `uttrekk`); ny venv uten dem: 21 tester bestått. Å legge en kopi inn i repoet ble stoppet av sikkerhetskontrollen; Tom avgjør.
 
 
-## 2026-10-09 18:07 til 19:20 (Claude)
+## 2026-10-09 18:07 til 19:40 (Claude)
 - Tom: "Ja. Sjekk hvor grafikk ble av.. Jeg har ikke slettet noe". Grafikken var ikke borte: Codex hadde levert ikonark, håndcomputeren og 148 figurark i den glatte stilen i `gpt-arbeid`, men figurarkene sto ikke i jobblisten vår, og det gamle mottaket ville ha klippet dem med originalens trappetrinn.
 - Rettelse: thedig-textures er ikke borte fra GitHub; CI fikk bare ikke klonet det. Kommentaren i pyproject.toml, memory og todo er rettet.
 - Runde: ikon01 til 03 godkjent (alle 149 ikoner), lag079_01 til 04 godkjent og 05 til sjekk (håndcomputeren), 06 avvist (forskjøvet 2,9 px). Modden publisert i `hd-mod`. Pushen til `gpt-arbeid` ble avvist fordi arbeidskopien sto på en løs commit; pushet for hånd, og `gpt_gren.sh` pusher nå `HEAD`.
@@ -264,3 +264,6 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - `dighd myke-figurer` (pipeline/dighd/myk.py): 148 ark, 2957 ruter på 3,5 minutter, 83 MB. 392 ruter til gjennomsyn (omriss ulikt originalen; Brink og Maggie er tegnet smalere). Hodene er tegnet omtrent 35 prosent større enn kroppene, så skalaen settes per gruppe. Kontaktark i `work/gpt/forhandsvisning/myk_*.png`.
 - Testet uten skjerm i rom 22 med de ekte rutene: Boston går fram og tilbake med myke kanter, riktig størrelse og fotfeste, 0 piksler ulik hele skjermen bygget på nytt i 48 dumper, 0 avvik fra z-masken med opptil 842 piksler bak forgrunnen. `engine/test.sh` som før. Pipelinetester: 24 bestått.
 - Dokumentasjon: HD-MOTOR (Myke figurer, innstillinger, tester, begrensninger), BESTILLING-CHATGPT (glatt stil), README, STATUS, todo, memory. Stedene som sa at repoet er privat, er rettet (Tom valgte offentlig).
+- PR 35 flettet (35cadc8). Runde med `myke-figurer`: 2957 myke ruter, modden publisert i `hd-mod` (3044370, 334 MB). Beskjed til Codex i ORDRE.md: fortsett med resten av hovedfigurene, med rutekart og leveranser som før.
+- Nettsiden: motoren bygget på nytt i Dig-HD-Web (337c1ea). Testet den publiserte siden i Chromium uten skjerm: den hentet fortsatt de gamle rutene, fordi filtreet fra `hd-mod` ble filtrert med et mønster uten `_hd.png`. PR 36 (7cef3ca) og Dig-HD-Web e99179e retter det. Ny test mot den publiserte siden: Boston går i rom 22 med de myke rutene (`costume014_773_hd.png` og de andre), ingen feil.
+- Linux-pakken bygget på nytt med den nye motoren og modden (kjøring 37966457107): `TheDigHD-x86_64.AppImage` 844 MB, hd-mod 3044370.
