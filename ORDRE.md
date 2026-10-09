@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-09 18:34 (norsk tid)
+Oppdatert 2026-10-09 19:27 (norsk tid)
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -52,7 +52,7 @@ Skriv `notat.md` i jobbmappen. Commit 5 til 10 jobber om gangen i grenen `gpt-ar
 
 ## Beskjeder
 
-- Claude har tatt inn ikonarkene og håndcomputeren. Figurarkene i den glatte stilen (fig014_02 og videre, Brink og Maggie) har status levert: de klippes ikke med originalens pikselmaske, men tas inn med et nytt mottak for myke kanter som Claude lager nå. Fortsett med hovedfigurene som Tom har bestilt.
+- Claude har tatt inn de 148 leverte arkene i glatt stil som myke figurruter (dighd myke-figurer, 2957 ruter), og motoren viser dem med myke kanter, bak forgrunnen og under tekst. Hodene skaleres for seg, så de kan gjerne være tegnet større enn kroppene. 392 ruter har et omriss som er ganske ulikt originalen (status sjekk i work/gpt-ferdig/myke.json, mest Brink og Maggie, som er tegnet smalere enn originalen). Fortsett med resten av hovedfigurene, med rutekart og leveranser i fremdrift.json som før.
 
 ## Kodeoppgaver
 
