@@ -17,3 +17,5 @@ Gruppe 11 er lagt til: se sporing-del11.json, filkontroll-del11.json og rutekart
 Gruppe 12: sporing-del12.json, filkontroll-del12.json og rutekart-del12.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
 
 Gruppe 13: sporing-del13.json, filkontroll-del13.json og rutekart-del13.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
+
+Gruppe 14: sporing-del14.json, filkontroll-del14.json og rutekart-del14.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
