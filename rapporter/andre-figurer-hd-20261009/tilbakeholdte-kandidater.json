@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-09T23:41:48.395333+00:00",
+ "oppdatert_utc": "2026-10-09T23:46:26.057448+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 85,
+ "antall": 80,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -1853,33 +1853,6 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
   },
   {
-   "jobb": "fig131_01",
-   "siste_kontrollerte_forsok": 2,
-   "kandidat_sha256": "e5d1fcc9fb196e979c9a1770090fad91a70afb4207d619c579c131f9f45e4ac0",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Fire sammensatte originalbilder med løse biter krever manuell kildekobling før levering.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     2,
-     1
-    ],
-    "native_rader": [
-     2,
-     4,
-     2
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 21608,
-     "maks": 8,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
    "jobb": "fig146_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "0dd743ecef04eb197c00e57d4ec4a46c2ef4b80f825995452a0408afc7b98846",
@@ -2265,114 +2238,6 @@
      "piksler_over_0": 9535,
      "maks": 5,
      "piksler_over_16": 0
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig168_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "0bfe41745bbba32ec6b204eadc14d318ad9a84f3a2d5ca30052e6489feb2e662",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Antall stemmer, men myk effektalfa må kildeavgrenses rundt de faktiske lyse effektområdene før levering.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     7,
-     5,
-     7
-    ],
-    "native_rader": [
-     1,
-     7,
-     5,
-     7
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 25783,
-     "maks": 87,
-     "piksler_over_16": 368
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig169_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "21a940d6fe589b8f25e4dfa3b756a563a429dbca01ce8a3322ae4c5134122165",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Originalens fire sammensatte effektbilder trenger manuell kobling og kildeavgrensning av den myke gløden.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     4
-    ],
-    "native_rader": [
-     1,
-     4
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 28899,
-     "maks": 124,
-     "piksler_over_16": 9481
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig170_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "07353293a650c2e0a4e62cae58d77672dac9fda1c0d0d1581498fadeb05072fc",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Den største originalruten består av både en hoppende figur og en klippe. Disse delene må kobles manuelt i rutekartet.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     10,
-     5
-    ],
-    "native_rader": [
-     10,
-     1,
-     5
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 15299,
-     "maks": 7,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig175_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "301e9fe8be33fa2eb53b9df7bdcc3c046e022245144764df24255276679c06fe",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Antall stemmer, men de små blå glødefasene trenger avgrenset kildekontroll av myk alfa.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     6,
-     1,
-     1
-    ],
-    "native_rader": [
-     1,
-     6,
-     1,
-     1
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 4393,
-     "maks": 67,
-     "piksler_over_16": 101
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
