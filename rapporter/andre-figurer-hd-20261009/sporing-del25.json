@@ -1,0 +1,1060 @@
+[
+ {
+  "jobb": "fig078_01",
+  "attempt": 1,
+  "rows": [
+   8,
+   1,
+   8
+  ],
+  "fragments": 0,
+  "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat magenta background (#FF00FF). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: standing, in all 8 directions (8 frames, in this order: right, left, toward the viewer, away from the viewer, toward the viewer to the right, toward the viewer to the left, away to the right, away to the left); start pose, facing right (1 frame); animation 6, in all 8 directions (8 frames, in this order: right, left, toward the viewer, away from the viewer, toward the viewer to the right, toward the viewer to the left, away to the right, away to the left).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig078_01/referanse.png"
+  ],
+  "source_prompt_verbatim": true,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c093cc9d-516e-43c4-89d4-91c213bc61c8.png",
+  "figure": "kostyme 78",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c093cc9d-516e-43c4-89d4-91c213bc61c8.png",
+  "sha256": "157e8328e4db4315103b75f2f997162af05d71b3d5f9dad22ae3987afae00a05",
+  "originalruter": 17,
+  "resultat": "jobber/fig078_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "bdcd86b281dbe150c02bc474f7ab1dabd260eb72fa0655b909ce2877c8cf6abb",
+   "original_1x.png": "02df9ab787412096456a7ca91a71bc11081b71230697ba9878aa825181585344",
+   "prompt.txt": "6523b14b7f36501616afb476a9f1872558ee413dcabd08689586e1f421459d58",
+   "jobb.json": "e7ad4c5e87370b67f907af7709bc50e97612d4fdb5672d8a90c3515425919550"
+  }
+ },
+ {
+  "jobb": "fig080_01",
+  "attempt": 1,
+  "rows": [
+   1,
+   6,
+   12,
+   3
+  ],
+  "fragments": 0,
+  "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat magenta background (#FF00FF). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: start pose, facing right (1 frame); animation 6, facing right (21 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig080_01/referanse.png"
+  ],
+  "source_prompt_verbatim": true,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1a053632-5bc3-4eee-9173-71b3c6b8fc8a.png",
+  "figure": "kostyme 80",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1a053632-5bc3-4eee-9173-71b3c6b8fc8a.png",
+  "sha256": "dc95c819a8d3c52ee96d852ca72598c101795b2b2c6e5430959e4519bba110a8",
+  "originalruter": 22,
+  "resultat": "jobber/fig080_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "cfe872a83513a280ffa27ad95680b967f2ba2c15f4f0fbae75c0a5f4b9114d39",
+   "original_1x.png": "fb6a0d6914dba9fb73d18dd9ce81b2d12a8c4cb1734d6c6b601eb26448103096",
+   "prompt.txt": "395f3f69339ace2cae0c904ef66ef9f525097037535561fb20831f329692fdf4",
+   "jobb.json": "306ac6e9a205e8d363964ade8a7d0ddc2c1057be537c53eb88e81ffe47687990"
+  }
+ },
+ {
+  "jobb": "fig034_07",
+  "attempt": 1,
+  "rows": [
+   5,
+   4,
+   4,
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 9, facing right (17 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig034_07/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig034_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig034_07/original_1x.png"
+  ],
+  "source_prompt_verbatim": true,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-bacc2981-050d-45e9-b2a1-0fa80cbe7d6c.png",
+  "figure": "kostyme 34",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-bacc2981-050d-45e9-b2a1-0fa80cbe7d6c.png",
+  "sha256": "47d664935b7a72b0c2e272a8e35c15db8405955c0d489cdc0c8be8931dd6a074",
+  "originalruter": 17,
+  "resultat": "jobber/fig034_07/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "468cacedc389c026a79b6fcf964a3f9a60320c2c63daf3804350ae375dca50a8",
+   "original_1x.png": "5192a98e42dfee0351ced2f2ca2d3bb659eb611e81ae66e464467d9d1666deb5",
+   "prompt.txt": "cdd5f9434fc7c103688e3123ee3146372a55983ef06d65fc0814adc858c6bc95",
+   "jobb.json": "c2f0d8eec8123fbbf233414d5faef732fe12b0eff8c1d69c2abb0ce0c96feffd"
+  }
+ },
+ {
+  "jobb": "fig034_08",
+  "attempt": 1,
+  "rows": [
+   5,
+   2
+  ],
+  "fragments": 0,
+  "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 9, facing right (7 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig034_08/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig034_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig034_08/original_1x.png"
+  ],
+  "source_prompt_verbatim": true,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9165699c-4dab-43fe-acb8-12dce13d0e9e.png",
+  "source_group_basis": "Hver av originalens sju ruter viser Brink og Boston sammen. Native arkets to rader har henholdsvis fem og to figurpar. Delene er koblet parvis fra venstre mot høyre, og retning og poseskift er visuelt kontrollert mot originalen. Nærmeste-komponent-forslaget var upresist ved costume034_060/061 og er ikke brukt.",
+  "known_native_frame_groups": [
+   [
+    [
+     64,
+     35,
+     111,
+     289
+    ],
+    [
+     208,
+     55,
+     131,
+     286
+    ]
+   ],
+   [
+    [
+     382,
+     36,
+     100,
+     286
+    ],
+    [
+     533,
+     59,
+     107,
+     281
+    ]
+   ],
+   [
+    [
+     675,
+     36,
+     100,
+     288
+    ],
+    [
+     813,
+     68,
+     103,
+     261
+    ]
+   ],
+   [
+    [
+     944,
+     36,
+     99,
+     289
+    ],
+    [
+     1091,
+     53,
+     69,
+     283
+    ]
+   ],
+   [
+    [
+     1207,
+     36,
+     101,
+     289
+    ],
+    [
+     1339,
+     39,
+     96,
+     299
+    ]
+   ],
+   [
+    [
+     57,
+     386,
+     103,
+     294
+    ],
+    [
+     182,
+     388,
+     105,
+     301
+    ]
+   ],
+   [
+    [
+     304,
+     386,
+     102,
+     292
+    ],
+    [
+     431,
+     389,
+     104,
+     300
+    ]
+   ]
+  ],
+  "known_native_ordered_rows": [
+   [
+    [
+     64,
+     35,
+     275,
+     306
+    ],
+    [
+     382,
+     36,
+     258,
+     304
+    ],
+    [
+     675,
+     36,
+     241,
+     293
+    ],
+    [
+     944,
+     36,
+     216,
+     300
+    ],
+    [
+     1207,
+     36,
+     228,
+     302
+    ]
+   ],
+   [
+    [
+     57,
+     386,
+     230,
+     303
+    ],
+    [
+     304,
+     386,
+     231,
+     303
+    ]
+   ]
+  ],
+  "figure": "kostyme 34",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9165699c-4dab-43fe-acb8-12dce13d0e9e.png",
+  "sha256": "3011d2e71ab04fc6220f9cbb99bdf10963619754706d1869bee9d76db2901c1c",
+  "originalruter": 7,
+  "resultat": "jobber/fig034_08/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "060bea458d6331d14895853e62705baeea4ab302e9d430bb3686efc37d0249cc",
+   "original_1x.png": "8fc2bc314cb6e406f5bf4612449738a59189d5c27368c6c8d33e574312c6b0a7",
+   "prompt.txt": "91cba3982b9cb12724a6488f7793d1c1968eacd04005243001e056f1cd0856aa",
+   "jobb.json": "d5597381f0b6d8c7da450345e25e9c0f2d0d69c561338e81fd20818e80a7aaec"
+  }
+ },
+ {
+  "jobb": "fig035_02",
+  "attempt": 1,
+  "rows": [
+   14,
+   6,
+   2
+  ],
+  "fragments": 0,
+  "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat magenta background (#FF00FF). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 10, facing right (20 frames); animation 11, facing right (2 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig035_02/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig035_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig035_02/original_1x.png"
+  ],
+  "source_prompt_verbatim": true,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-2b065943-ddc0-4440-b836-68fe042588fb.png",
+  "source_group_basis": "Originalruter costume035_100/101 eller costume035_102/103 viser to diagonale strenger av separate mørke deler. De enkelte delene utgjør hver sin lange originalrute, ikke nye animasjonsruter. Strengenes orientering og separate deler er visuelt sammenlignet. Alle native hoveddeler er med én gang.",
+  "known_native_frame_groups": [
+   [
+    [
+     669,
+     251,
+     36,
+     19
+    ],
+    [
+     655,
+     275,
+     12,
+     11
+    ],
+    [
+     632,
+     290,
+     37,
+     20
+    ],
+    [
+     608,
+     319,
+     37,
+     21
+    ],
+    [
+     592,
+     342,
+     10,
+     10
+    ],
+    [
+     607,
+     345,
+     11,
+     7
+    ],
+    [
+     584,
+     365,
+     19,
+     11
+    ],
+    [
+     570,
+     366,
+     8,
+     6
+    ],
+    [
+     528,
+     381,
+     56,
+     43
+    ],
+    [
+     492,
+     433,
+     49,
+     34
+    ],
+    [
+     400,
+     496,
+     64,
+     58
+    ],
+    [
+     371,
+     569,
+     26,
+     35
+    ],
+    [
+     293,
+     622,
+     62,
+     49
+    ],
+    [
+     292,
+     673,
+     25,
+     16
+    ],
+    [
+     268,
+     708,
+     15,
+     8
+    ],
+    [
+     209,
+     724,
+     41,
+     39
+    ],
+    [
+     169,
+     768,
+     42,
+     48
+    ],
+    [
+     108,
+     848,
+     42,
+     24
+    ],
+    [
+     92,
+     876,
+     15,
+     16
+    ],
+    [
+     112,
+     886,
+     9,
+     8
+    ],
+    [
+     79,
+     902,
+     22,
+     22
+    ]
+   ],
+   [
+    [
+     1323,
+     250,
+     29,
+     20
+    ],
+    [
+     1281,
+     293,
+     36,
+     21
+    ],
+    [
+     1263,
+     324,
+     31,
+     19
+    ],
+    [
+     1246,
+     348,
+     12,
+     8
+    ],
+    [
+     1222,
+     368,
+     12,
+     11
+    ],
+    [
+     1242,
+     368,
+     12,
+     11
+    ],
+    [
+     1175,
+     385,
+     59,
+     43
+    ],
+    [
+     1152,
+     437,
+     42,
+     31
+    ],
+    [
+     1135,
+     461,
+     9,
+     9
+    ],
+    [
+     1102,
+     512,
+     18,
+     18
+    ],
+    [
+     1080,
+     521,
+     21,
+     16
+    ],
+    [
+     1053,
+     537,
+     33,
+     20
+    ],
+    [
+     1022,
+     570,
+     31,
+     39
+    ],
+    [
+     950,
+     628,
+     55,
+     41
+    ],
+    [
+     946,
+     677,
+     23,
+     15
+    ],
+    [
+     922,
+     712,
+     19,
+     11
+    ],
+    [
+     862,
+     741,
+     38,
+     28
+    ],
+    [
+     824,
+     771,
+     43,
+     50
+    ],
+    [
+     746,
+     857,
+     54,
+     40
+    ],
+    [
+     735,
+     907,
+     19,
+     18
+    ]
+   ]
+  ],
+  "known_native_ordered_rows": [
+   [
+    [
+     79,
+     55,
+     64,
+     63
+    ],
+    [
+     176,
+     55,
+     63,
+     61
+    ],
+    [
+     268,
+     58,
+     61,
+     60
+    ],
+    [
+     359,
+     54,
+     63,
+     62
+    ],
+    [
+     454,
+     53,
+     65,
+     63
+    ],
+    [
+     552,
+     53,
+     63,
+     62
+    ],
+    [
+     647,
+     53,
+     64,
+     62
+    ],
+    [
+     743,
+     52,
+     64,
+     64
+    ],
+    [
+     840,
+     52,
+     65,
+     65
+    ],
+    [
+     935,
+     52,
+     66,
+     65
+    ],
+    [
+     1033,
+     54,
+     64,
+     63
+    ],
+    [
+     1128,
+     52,
+     66,
+     65
+    ],
+    [
+     1225,
+     48,
+     67,
+     66
+    ],
+    [
+     1324,
+     51,
+     67,
+     66
+    ]
+   ],
+   [
+    [
+     79,
+     153,
+     66,
+     65
+    ],
+    [
+     175,
+     157,
+     64,
+     59
+    ],
+    [
+     269,
+     153,
+     67,
+     63
+    ],
+    [
+     366,
+     150,
+     67,
+     64
+    ],
+    [
+     466,
+     153,
+     67,
+     65
+    ],
+    [
+     569,
+     153,
+     67,
+     64
+    ]
+   ],
+   [
+    [
+     79,
+     251,
+     626,
+     673
+    ],
+    [
+     735,
+     250,
+     617,
+     675
+    ]
+   ]
+  ],
+  "figure": "kostyme 35",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-2b065943-ddc0-4440-b836-68fe042588fb.png",
+  "sha256": "054833e7adb2c83a9a71fc2b4c75a4a0bf9111a4116f7a7bdd70b7e41afe36b5",
+  "originalruter": 22,
+  "resultat": "jobber/fig035_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "8ccd6fc0ab1643ddd4fee0f6c08d12a115f50e59c67e199ce693117dfe45313a",
+   "original_1x.png": "26792dc6e4f2ba8a90343e035638fa81d04237d09fff5117968dd862b861d0eb",
+   "prompt.txt": "3745edf3abeae0b2865fd8be3523dc4a1df1e11112676e28192858b2e92c8940",
+   "jobb.json": "ef01194ce49de32a541d3936538a61746c6716e6cab1766cae7a6bb721ea42bb"
+  }
+ },
+ {
+  "jobb": "fig035_03",
+  "attempt": 1,
+  "rows": [
+   2
+  ],
+  "fragments": 0,
+  "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat magenta background (#FF00FF). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 11, facing right (2 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig035_03/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig035_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig035_03/original_1x.png"
+  ],
+  "source_prompt_verbatim": true,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-64a94114-428c-4bd2-9d48-46c0c546e32c.png",
+  "source_group_basis": "Originalruter costume035_100/101 eller costume035_102/103 viser to diagonale strenger av separate mørke deler. De enkelte delene utgjør hver sin lange originalrute, ikke nye animasjonsruter. Strengenes orientering og separate deler er visuelt sammenlignet. Alle native hoveddeler er med én gang.",
+  "known_native_frame_groups": [
+   [
+    [
+     719,
+     102,
+     45,
+     31
+    ],
+    [
+     718,
+     145,
+     13,
+     11
+    ],
+    [
+     671,
+     159,
+     28,
+     22
+    ],
+    [
+     704,
+     160,
+     7,
+     8
+    ],
+    [
+     649,
+     192,
+     29,
+     22
+    ],
+    [
+     626,
+     198,
+     14,
+     19
+    ],
+    [
+     646,
+     215,
+     8,
+     8
+    ],
+    [
+     624,
+     220,
+     9,
+     9
+    ],
+    [
+     591,
+     234,
+     31,
+     57
+    ],
+    [
+     629,
+     236,
+     9,
+     11
+    ],
+    [
+     535,
+     261,
+     51,
+     48
+    ],
+    [
+     516,
+     317,
+     47,
+     35
+    ],
+    [
+     493,
+     341,
+     17,
+     28
+    ],
+    [
+     468,
+     403,
+     17,
+     17
+    ],
+    [
+     433,
+     408,
+     32,
+     32
+    ],
+    [
+     399,
+     433,
+     35,
+     21
+    ],
+    [
+     413,
+     455,
+     18,
+     15
+    ],
+    [
+     399,
+     472,
+     7,
+     6
+    ],
+    [
+     337,
+     482,
+     64,
+     40
+    ],
+    [
+     274,
+     537,
+     66,
+     46
+    ],
+    [
+     277,
+     590,
+     22,
+     26
+    ],
+    [
+     255,
+     630,
+     16,
+     19
+    ],
+    [
+     224,
+     632,
+     18,
+     21
+    ],
+    [
+     180,
+     666,
+     45,
+     34
+    ],
+    [
+     232,
+     666,
+     6,
+     7
+    ],
+    [
+     133,
+     700,
+     60,
+     62
+    ],
+    [
+     55,
+     788,
+     44,
+     56
+    ],
+    [
+     105,
+     797,
+     12,
+     12
+    ],
+    [
+     52,
+     853,
+     12,
+     16
+    ]
+   ],
+   [
+    [
+     1444,
+     123,
+     46,
+     33
+    ],
+    [
+     1448,
+     166,
+     12,
+     13
+    ],
+    [
+     1403,
+     179,
+     29,
+     26
+    ],
+    [
+     1362,
+     215,
+     20,
+     25
+    ],
+    [
+     1388,
+     217,
+     15,
+     17
+    ],
+    [
+     1354,
+     239,
+     9,
+     10
+    ],
+    [
+     1323,
+     256,
+     31,
+     50
+    ],
+    [
+     1260,
+     283,
+     59,
+     50
+    ],
+    [
+     1230,
+     339,
+     58,
+     35
+    ],
+    [
+     1209,
+     362,
+     23,
+     34
+    ],
+    [
+     1190,
+     424,
+     18,
+     16
+    ],
+    [
+     1153,
+     426,
+     29,
+     36
+    ],
+    [
+     1112,
+     458,
+     31,
+     24
+    ],
+    [
+     1131,
+     480,
+     19,
+     15
+    ],
+    [
+     1048,
+     508,
+     65,
+     46
+    ],
+    [
+     1117,
+     512,
+     11,
+     11
+    ],
+    [
+     990,
+     565,
+     66,
+     50
+    ],
+    [
+     991,
+     618,
+     24,
+     24
+    ],
+    [
+     944,
+     653,
+     26,
+     22
+    ],
+    [
+     903,
+     684,
+     41,
+     38
+    ],
+    [
+     849,
+     718,
+     69,
+     60
+    ],
+    [
+     833,
+     771,
+     18,
+     15
+    ],
+    [
+     769,
+     806,
+     50,
+     66
+    ],
+    [
+     827,
+     808,
+     10,
+     11
+    ]
+   ]
+  ],
+  "known_native_ordered_rows": [
+   [
+    [
+     52,
+     102,
+     712,
+     767
+    ],
+    [
+     769,
+     123,
+     721,
+     749
+    ]
+   ]
+  ],
+  "figure": "kostyme 35",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-64a94114-428c-4bd2-9d48-46c0c546e32c.png",
+  "sha256": "fdd783cf1ad455ac8595ec6e5bc834bef3d90eac198e56aced7880341c061f99",
+  "originalruter": 2,
+  "resultat": "jobber/fig035_03/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "eb4e2c45f68bf6bbb012fa114db0581416835229face163b09772d2f638bf36d",
+   "original_1x.png": "5d9e64f0d11a1380d335654b5f80fd5e32fbf65fd80d30d6a47f466f8da65bda",
+   "prompt.txt": "e3d89d046852b92f68699b6abf95c17cc91fcc146ce56428567c43e058b2ca8d",
+   "jobb.json": "e2d16fbfb6bb920c3e41270fcb35ceb73f970849c93c6450105e32ee91e2123b"
+  }
+ }
+]
