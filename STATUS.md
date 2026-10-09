@@ -70,7 +70,8 @@ knappen byttet til klassisk. Ingen forespørsler mot spill- eller HD-stier.
 Den publiserte motoren er bygget fra samme patch som `main` (filene i
 Dig-HD-Web er like). Siden viser nå hvor mange HD-rom, objektbilder og
 figurruter pakken har, og når den ble laget, så det er lett å se om en
-nyere HD-pakke må velges på nytt.
+nyere HD-pakke må velges på nytt. Publisert i Dig-HD-Web 9. oktober (deploy
+bestått) og testet på nytt mot den publiserte siden.
 
 ## Kjente begrensninger
 
