@@ -1,0 +1,869 @@
+[
+ {
+  "jobb": "fig053_03",
+  "attempt": 5,
+  "rows": [
+   4,
+   4,
+   4,
+   4
+  ],
+  "fragments": 3,
+  "prompt": "Make one very small correction to the SECOND image, output exactly 1536 x 1024 RGBA on true transparent background. Keep all 16 groups in exactly the existing four rows of four, same people, pose, colors, fine detail and native smooth alpha. Add the small WHITE electrical spark splash on the LEFT cable loop beneath Boston in row TWO column ONE; it is clearly present in the original source (first, third and enlarged fourth images), but missing in the second HD image. Do not add sparks elsewhere: row1 columns1,3 and row2 column3 and row3 column1 already have source sparks; row3 column3 and both Boston groups in row4 correctly lack large sparks. Preserve those phases unchanged. All cables stay very dark navy/black, not purple or red. No pink foot registration, no colored patches, no background or shadows. Preserve every other pixel shape as closely as possible, no new figures or poses.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_03/referanse.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-455b9c52-da65-4fad-bdd2-9b7c5ce24ddb.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_03/original_1x.png",
+   "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/05303-source-large.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e5a148b4-097d-45c6-9c67-2587a18a9970.png",
+  "source_proven_effect_regions": [
+   [
+    0,
+    125,
+    220,
+    125
+   ],
+   [
+    740,
+    125,
+    270,
+    125
+   ],
+   [
+    0,
+    385,
+    220,
+    125
+   ],
+   [
+    740,
+    385,
+    270,
+    125
+   ],
+   [
+    0,
+    640,
+    260,
+    130
+   ]
+  ],
+  "source_effect_basis": "Originalarket viser hvite elektriske faser på venstre kabelløkke i rad1 kolonne1/3, rad2 kolonne1/3 og rad3 kolonne1. Disse fem lokale områdene inneholder tegnet hvit myk effektalfa, kontrollert mot originalen på lys, mørk og grønn bakgrunn. Øvrige kabelsløyfer er mørke og beholdes.",
+  "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+  "attempts": 5,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e5a148b4-097d-45c6-9c67-2587a18a9970.png",
+  "sha256": "d5102eae9c6c2b99e71575a6d96f217866ad74c2bfa9a7b167b58a3928568d1f",
+  "originalruter": 19,
+  "resultat": "jobber/fig053_03/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "2ff5d4b4b9ba890780b790f8b453f96a1f9e59d464b866a79bed755afb1ca13c",
+   "original_1x.png": "0aadd66ebe717f800c737e756b494a5b6dbfb63686631b4f0086e36ee2c7ad56",
+   "prompt.txt": "e82468e0cbe7ff7fe61d1e4489c11394084d354f174491ff14aabb9e34ba7dad",
+   "jobb.json": "6505cdeeda9e03e17223f522ec188fd8a9de8237efb893ae49b78896f0ca000c"
+  }
+ },
+ {
+  "jobb": "fig053_06",
+  "attempt": 3,
+  "rows": [
+   5,
+   5,
+   5
+  ],
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_06/referanse.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-de5dfbae-3173-4af1-9723-c9d31888d9b5.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_06/original_1x.png"
+  ],
+  "prompt": "Output exactly 1536 x 1024 RGBA on true transparent background. This is a surgical source-faithfulness correction to an HD sprite sheet. First and third images are authoritative source layout/poses; second image supplies only the approved smooth detailed painted style and character identity. Keep fine cloth seams, hair, fabric folds, natural anatomy, anti-aliased native alpha. No background or glow outside actual source effects, no contact shadows or registration pink. Preserve every real disconnected source element in its original animation frame; no added parts, poses or people. Preserve the sheet's existing complete poses, count, white spark/effect shapes and entry layout. Correct only the cable and foot registration colors: all cables/ropes are DARK NAVY/BLACK, not vivid purple, magenta, orange or red. Orange/red isolated effect rods in fig053_10 are genuine source effects and must remain orange/red. Remove flat magenta or purple patches immediately beneath boots; preserve dark boots and the actual dark cable underneath. Preserve all separate effect-only entries as drawn, including small sparks. No new decorative sparks. Exactly three rows of 5 composite Boston+cable entries each.",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-45c98f82-48af-49c1-a564-f53bc40c9585.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     310,
+     330
+    ],
+    [
+     310,
+     0,
+     300,
+     330
+    ],
+    [
+     610,
+     0,
+     295,
+     330
+    ],
+    [
+     905,
+     0,
+     310,
+     330
+    ],
+    [
+     1215,
+     0,
+     321,
+     330
+    ]
+   ],
+   [
+    [
+     0,
+     330,
+     310,
+     320
+    ],
+    [
+     310,
+     330,
+     305,
+     320
+    ],
+    [
+     615,
+     330,
+     310,
+     320
+    ],
+    [
+     925,
+     330,
+     315,
+     320
+    ],
+    [
+     1240,
+     330,
+     296,
+     320
+    ]
+   ],
+   [
+    [
+     0,
+     650,
+     310,
+     374
+    ],
+    [
+     310,
+     650,
+     300,
+     374
+    ],
+    [
+     610,
+     650,
+     320,
+     374
+    ],
+    [
+     930,
+     650,
+     310,
+     374
+    ],
+    [
+     1240,
+     650,
+     296,
+     374
+    ]
+   ]
+  ],
+  "source_region_basis": "Kilden har15 originale Boston-med-kabel-ruter, fem i hver rad. Løse hvite gnister og kabeldeler hører til samme kildeframe som Boston over dem; alle15 er visuelt sammenlignet med originalen.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    200,
+    310,
+    125
+   ],
+   [
+    310,
+    200,
+    300,
+    125
+   ],
+   [
+    610,
+    200,
+    320,
+    125
+   ],
+   [
+    930,
+    200,
+    310,
+    125
+   ],
+   [
+    1240,
+    200,
+    296,
+    125
+   ],
+   [
+    0,
+    540,
+    310,
+    100
+   ],
+   [
+    310,
+    540,
+    300,
+    100
+   ],
+   [
+    610,
+    540,
+    320,
+    100
+   ],
+   [
+    930,
+    540,
+    310,
+    100
+   ],
+   [
+    1240,
+    540,
+    296,
+    100
+   ],
+   [
+    0,
+    875,
+    310,
+    140
+   ],
+   [
+    310,
+    875,
+    300,
+    140
+   ],
+   [
+    610,
+    875,
+    320,
+    140
+   ],
+   [
+    930,
+    875,
+    310,
+    140
+   ],
+   [
+    1240,
+    875,
+    296,
+    140
+   ]
+  ],
+  "source_effect_basis": "Originalens elektriske faser ved kabelen under føttene. Bare de lave kabel- og gnistområdene unntas fra bakgrunnsprøven; mennesker og mellomrom over dem er fortsatt kontrollert.",
+  "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+  "attempts": 3,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-45c98f82-48af-49c1-a564-f53bc40c9585.png",
+  "sha256": "54a3ffd1366930ad09588672a26a42806f3f17ceecc310ee2b37eb2e38d7a212",
+  "originalruter": 15,
+  "resultat": "jobber/fig053_06/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "7fe9b85f244ce3c3830dbe46af55dd93294a1b4691ea19c98dd78603f913bad6",
+   "original_1x.png": "054d3f05c71b1570d7121d1842c73682d34f05b0de9e49dae8286cb83fcc5e26",
+   "prompt.txt": "8167f461643d3cf59370a510b093dd8325341b49d85075f61187b8ab2527c0ce",
+   "jobb.json": "2f40958eb53251d971d5a410d988beb5dbd76e212acaa61afb17076e7e9eceee"
+  }
+ },
+ {
+  "jobb": "fig053_07",
+  "attempt": 4,
+  "rows": [
+   5,
+   5,
+   5
+  ],
+  "fragments": 18,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_07/referanse.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-bd894aee-9cce-4928-ae24-0726fb860b41.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_07/original_1x.png"
+  ],
+  "prompt": "Output exactly 1536 x 1024 RGBA on true transparent background. This is a surgical source-faithfulness correction to an HD sprite sheet. First and third images are authoritative source layout/poses; second image supplies only the approved smooth detailed painted style and character identity. Keep fine cloth seams, hair, fabric folds, natural anatomy, anti-aliased native alpha. No background or glow outside actual source effects, no contact shadows or registration pink. Preserve every real disconnected source element in its original animation frame; no added parts, poses or people. Preserve the sheet's existing complete poses, count, white spark/effect shapes and entry layout. Correct only the cable and foot registration colors: all cables/ropes are DARK NAVY/BLACK, not vivid purple, magenta, orange or red. Orange/red isolated effect rods in fig053_10 are genuine source effects and must remain orange/red. Remove flat magenta or purple patches immediately beneath boots; preserve dark boots and the actual dark cable underneath. Preserve all separate effect-only entries as drawn, including small sparks. No new decorative sparks. Exactly three rows of 5 source groups each: row2 groups3 and5 and row3 group1 are sparse effect-only groups, not missing figures.",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-96b62a66-bdde-49c5-8be8-ca881e13c7cd.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     310,
+     330
+    ],
+    [
+     310,
+     0,
+     275,
+     330
+    ],
+    [
+     585,
+     0,
+     260,
+     330
+    ],
+    [
+     845,
+     0,
+     275,
+     330
+    ],
+    [
+     1120,
+     0,
+     416,
+     330
+    ]
+   ],
+   [
+    [
+     0,
+     330,
+     310,
+     330
+    ],
+    [
+     620,
+     330,
+     380,
+     330
+    ],
+    [
+     310,
+     330,
+     310,
+     330
+    ],
+    [
+     1000,
+     330,
+     300,
+     330
+    ],
+    [
+     1300,
+     330,
+     236,
+     330
+    ]
+   ],
+   [
+    [
+     0,
+     660,
+     315,
+     364
+    ],
+    [
+     315,
+     660,
+     300,
+     364
+    ],
+    [
+     615,
+     660,
+     305,
+     364
+    ],
+    [
+     920,
+     660,
+     310,
+     364
+    ],
+    [
+     1230,
+     660,
+     306,
+     364
+    ]
+   ]
+  ],
+  "source_region_basis": "Kildekontroll viser15ruter: rad1 fem personer; rad2 Boston, Boston med løs oransje effekt, sparsomme gnister uten person, Boston, gnister uten person; rad3 gnister uten person og fire personer. Native rad2 har byttet plass på andre person og første rene gnistgruppe; rutekartet gjenoppretter kilderekkefølgen. Ingen ekstra personer opprettes for effektfasene.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    205,
+    1536,
+    120
+   ],
+   [
+    0,
+    515,
+    310,
+    135
+   ],
+   [
+    310,
+    515,
+    310,
+    135
+   ],
+   [
+    620,
+    510,
+    380,
+    140
+   ],
+   [
+    1000,
+    535,
+    300,
+    115
+   ],
+   [
+    1300,
+    535,
+    236,
+    115
+   ],
+   [
+    0,
+    865,
+    315,
+    150
+   ],
+   [
+    315,
+    865,
+    300,
+    150
+   ],
+   [
+    615,
+    865,
+    305,
+    150
+   ],
+   [
+    920,
+    865,
+    310,
+    150
+   ],
+   [
+    1230,
+    865,
+    306,
+    150
+   ]
+  ],
+  "source_effect_basis": "Originalen viser elektriske prikker, myke hvite gnister og en kort oransje skråeffekt nederst i de respektive ruteområdene. Bare disse lokale effektstrimlene kontrolleres separat; all restalfa ellers må bestå.",
+  "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+  "attempts": 4,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-96b62a66-bdde-49c5-8be8-ca881e13c7cd.png",
+  "sha256": "8578d5915ce6906a97b3180a907b8e018377a75c3724f82ffe570016becc7ca2",
+  "originalruter": 33,
+  "resultat": "jobber/fig053_07/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "400b85a92a409840169a35300875b98315d9ef16afebe90bbc7779c54a77d68f",
+   "original_1x.png": "244dc0395c766cce605787815a6fe75bb7d98e3aedc7b6b6d97e86a6ad2b9f3b",
+   "prompt.txt": "cfa6a81d593d41d699645e4d7dab246772052382263fdaac5e95fd9457a3aca4",
+   "jobb.json": "2921b0cb90bc414f70c59864d7c292bf5dd3e49374de35bc9f609876b28e552b"
+  }
+ },
+ {
+  "jobb": "fig053_10",
+  "attempt": 4,
+  "rows": [
+   7,
+   7,
+   11
+  ],
+  "fragments": 17,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_10/referanse.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-22ef7e5d-f488-4050-8e9e-fb391e8280a1.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_10/original_1x.png"
+  ],
+  "prompt": "Output exactly 1536 x 1024 RGBA on true transparent background. This is a surgical source-faithfulness correction to an HD sprite sheet. First and third images are authoritative source layout/poses; second image supplies only the approved smooth detailed painted style and character identity. Keep fine cloth seams, hair, fabric folds, natural anatomy, anti-aliased native alpha. No background or glow outside actual source effects, no contact shadows or registration pink. Preserve every real disconnected source element in its original animation frame; no added parts, poses or people. Preserve the sheet's existing complete poses, count, white spark/effect shapes and entry layout. Correct only the cable and foot registration colors: all cables/ropes are DARK NAVY/BLACK, not vivid purple, magenta, orange or red. Orange/red isolated effect rods in fig053_10 are genuine source effects and must remain orange/red. Remove flat magenta or purple patches immediately beneath boots; preserve dark boots and the actual dark cable underneath. Preserve all separate effect-only entries as drawn, including small sparks. No new decorative sparks. Exactly source rows 7,7,11 real groups, with small detached flashes counted as source groups, not fabricated people.",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cc925c76-6780-4f7e-a851-fe2cd948555a.png",
+  "known_native_main_parts": [
+   [
+    432,
+    932,
+    12,
+    12
+   ],
+   [
+    462,
+    933,
+    13,
+    11
+   ],
+   [
+    678,
+    924,
+    14,
+    13
+   ],
+   [
+    719,
+    921,
+    10,
+    11
+   ]
+  ],
+  "source_group_basis": "Originalrutenes to svært små men reelle effektfaser costume053_237 og costume053_010 svarer til to native prikkpar mellom de større røde stavfasene. De er kildekontrollert, og holdes atskilt fra de17 originalfragmentene som fortsatt krever originalmaterialet.",
+  "known_native_frame_groups": [
+   [
+    [
+     432,
+     932,
+     12,
+     12
+    ],
+    [
+     462,
+     933,
+     13,
+     11
+    ]
+   ],
+   [
+    [
+     678,
+     924,
+     14,
+     13
+    ],
+    [
+     719,
+     921,
+     10,
+     11
+    ]
+   ]
+  ],
+  "known_native_ordered_rows": [
+   [
+    [
+     24,
+     75,
+     247,
+     272
+    ],
+    [
+     278,
+     74,
+     266,
+     272
+    ],
+    [
+     686,
+     78,
+     98,
+     263
+    ],
+    [
+     810,
+     75,
+     254,
+     271
+    ],
+    [
+     1362,
+     319,
+     60,
+     20
+    ],
+    [
+     1083,
+     75,
+     250,
+     274
+    ],
+    [
+     1451,
+     321,
+     53,
+     17
+    ]
+   ],
+   [
+    [
+     23,
+     400,
+     254,
+     276
+    ],
+    [
+     324,
+     628,
+     87,
+     43
+    ],
+    [
+     493,
+     607,
+     80,
+     66
+    ],
+    [
+     628,
+     400,
+     258,
+     276
+    ],
+    [
+     989,
+     622,
+     87,
+     47
+    ],
+    [
+     1107,
+     400,
+     254,
+     276
+    ],
+    [
+     1387,
+     576,
+     126,
+     92
+    ]
+   ],
+   [
+    [
+     31,
+     884,
+     79,
+     70
+    ],
+    [
+     147,
+     871,
+     78,
+     87
+    ],
+    [
+     314,
+     895,
+     75,
+     59
+    ],
+    [
+     432,
+     932,
+     43,
+     12
+    ],
+    [
+     501,
+     894,
+     78,
+     49
+    ],
+    [
+     601,
+     922,
+     50,
+     19
+    ],
+    [
+     678,
+     921,
+     51,
+     16
+    ],
+    [
+     755,
+     918,
+     76,
+     25
+    ],
+    [
+     868,
+     922,
+     68,
+     20
+    ],
+    [
+     1034,
+     916,
+     49,
+     26
+    ],
+    [
+     1289,
+     692,
+     230,
+     271
+    ]
+   ]
+  ],
+  "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+  "attempts": 4,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cc925c76-6780-4f7e-a851-fe2cd948555a.png",
+  "sha256": "42d3fcd1abad59e56bbc860ccbceb13ef9de520714c953d8870d74abf46d5ce4",
+  "originalruter": 42,
+  "resultat": "jobber/fig053_10/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "8e1929a0254b9478b23ac1e73340dbfc761e06e4fdc786f01ddc1a927764dfc4",
+   "original_1x.png": "6a10e05023b5a07c38d0ff042e4fa5612056b9827b4a330bede6a9b43f1803a3",
+   "prompt.txt": "8a55f26ebccc5259cf05c61aa0a5c450d0f9646c941674c5123a5540f2cb8c0f",
+   "jobb.json": "b2e1e72d36be23f4f040f85aca0581418d6a9dbf5bbe886ba2638aef9f97b882"
+  }
+ },
+ {
+  "jobb": "fig201_05",
+  "attempt": 2,
+  "rows": [
+   1
+  ],
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig201_05/referanse.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-323da147-c10b-483e-9da3-adb3f4be4574.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig201_05/original_1x.png"
+  ],
+  "prompt": "Edit FIRST attached reference.png on its exact1536 x1024 three-to-two LANDSCAPE CANVAS. SECOND image is the latest correct smooth native HD art but has the wrong1519x1036 canvas; faithfully redraw that second art onto the FIRST canvas. THIRD image is original pose/content authority. Preserve every figure, detached part, cropped body and isolated original effect, direction and phase; do not introduce people into effect-only cells or turn partial figures into whole people. Count ORIGINAL FRAMES, not disconnected parts. Source row frame counts [1]. Use the second image drawing, not its wrong canvas dimensions. Use the first image exact3:2 output aspect. OUTPUT EXACTLY1536 wide x1024 high RGBA PNG, not1519x1036 or another near ratio. Detailed smooth hand-painted rendering, naturally antialiased alpha. Flat source magenta/cyan/yellow marks and gray letterbox are not art; all empty output alpha0, no matte, no grid, text, ground shadows or ambient halo. Original sparks/dissolving spirals remain soft native alpha. Keep source order and relative group separation. Do not infer a conventional walkcycle. Entire sheet is ONE composite source frame: Boston nearTOPLEFT and sparse small orange/white effects FARBELOWRIGHT. Keep separation; do not cluster at his feet. ",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8756c2f7-318e-4273-bc99-077ad6c89d29.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     1536,
+     1024
+    ]
+   ]
+  ],
+  "source_region_basis": "Kilden har én originalrute som inneholder Boston og de atskilte oransje effektfasene lenger nede og mot høyre. Native deler er visuelt sammenlignet med den ene originale ruten. En samlet analyseboks er ikke en importmaske.",
+  "source_proven_effect_regions": [
+   [
+    190,
+    430,
+    1310,
+    570
+   ]
+  ],
+  "source_effect_basis": "Originalruten viser oransje partikler atskilt fra Boston i nederste/høyre del. Kun dette effektområdet kontrolleres separat; tom bakgrunn rundt personen kontrolleres normalt.",
+  "figure": "Boston Low",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8756c2f7-318e-4273-bc99-077ad6c89d29.png",
+  "sha256": "ea1b5be0135ff6136168a3be358069a6311f5ad34799395976ffe73b48c009d3",
+  "originalruter": 1,
+  "resultat": "jobber/fig201_05/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "8cd3a82bf5de66af70cc73d183de697bcf1935ee6b290991b79c4c9d8626b437",
+   "original_1x.png": "fd42e40ee7eea14c48621c9ef775d9a222a0de69f8184c72e4411c08feeaa1a1",
+   "prompt.txt": "47450077c89a5d559aa89d0553a2f9d7b29acd210f28ee8af9afcd2bdbf6350b",
+   "jobb.json": "07482eaf3c6ea7eae5486a55424564a8766357d8b266ba8b8ad8bdc96eecffa3"
+  }
+ },
+ {
+  "jobb": "fig201_06",
+  "attempt": 2,
+  "rows": [
+   1
+  ],
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig201_06/referanse.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4e8a1bbc-30d9-4a24-9c60-23671fcf3f77.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig201_06/original_1x.png"
+  ],
+  "prompt": "Edit FIRST attached reference.png on its exact1536 x1024 three-to-two LANDSCAPE CANVAS. SECOND image is the latest correct smooth native HD art but has the wrong1519x1036 canvas; faithfully redraw that second art onto the FIRST canvas. THIRD image is original pose/content authority. Preserve every figure, detached part, cropped body and isolated original effect, direction and phase; do not introduce people into effect-only cells or turn partial figures into whole people. Count ORIGINAL FRAMES, not disconnected parts. Source row frame counts [1]. Use the second image drawing, not its wrong canvas dimensions. Use the first image exact3:2 output aspect. OUTPUT EXACTLY1536 wide x1024 high RGBA PNG, not1519x1036 or another near ratio. Detailed smooth hand-painted rendering, naturally antialiased alpha. Flat source magenta/cyan/yellow marks and gray letterbox are not art; all empty output alpha0, no matte, no grid, text, ground shadows or ambient halo. Original sparks/dissolving spirals remain soft native alpha. Keep source order and relative group separation. Do not infer a conventional walkcycle. Entire sheet is ONE composite source frame: Boston nearTOPLEFT and sparse small orange/white effects FARBELOWRIGHT. Keep separation; do not cluster at his feet. ",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-503e573a-b460-4a14-b154-81fdf9eacca4.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     1536,
+     1024
+    ]
+   ]
+  ],
+  "source_region_basis": "Kilden har én originalrute som inneholder Boston og de atskilte oransje effektfasene lenger nede og mot høyre. Native deler er visuelt sammenlignet med den ene originale ruten. En samlet analyseboks er ikke en importmaske.",
+  "source_proven_effect_regions": [
+   [
+    190,
+    430,
+    1310,
+    570
+   ]
+  ],
+  "source_effect_basis": "Originalruten viser oransje partikler atskilt fra Boston i nederste/høyre del. Kun dette effektområdet kontrolleres separat; tom bakgrunn rundt personen kontrolleres normalt.",
+  "figure": "Boston Low",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-503e573a-b460-4a14-b154-81fdf9eacca4.png",
+  "sha256": "f68320727306a82bd86ac770c372e74d408038be0ba9299ed6dfd2cbb9afac77",
+  "originalruter": 1,
+  "resultat": "jobber/fig201_06/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "b95647be0e062e09fd2ba7a479955b6024e698c6331c54093c9e9a6a8e3e2158",
+   "original_1x.png": "e21752d192593d72854a7c553cd753c7410f656dfe51c577d1b21ec4c9ce47e7",
+   "prompt.txt": "47450077c89a5d559aa89d0553a2f9d7b29acd210f28ee8af9afcd2bdbf6350b",
+   "jobb.json": "d8659f9501e61fb09f96da0e75df1baefcb379ff0e00391d8083d053ad6966d8"
+  }
+ },
+ {
+  "jobb": "fig201_07",
+  "attempt": 2,
+  "rows": [
+   1
+  ],
+  "fragments": 0,
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig201_07/referanse.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-eceef00b-96ad-428f-97d8-5844d653b766.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig201_07/original_1x.png"
+  ],
+  "prompt": "Edit FIRST attached reference.png on its exact1536 x1024 three-to-two LANDSCAPE CANVAS. SECOND image is the latest correct smooth native HD art but has the wrong1519x1036 canvas; faithfully redraw that second art onto the FIRST canvas. THIRD image is original pose/content authority. Preserve every figure, detached part, cropped body and isolated original effect, direction and phase; do not introduce people into effect-only cells or turn partial figures into whole people. Count ORIGINAL FRAMES, not disconnected parts. Source row frame counts [1]. Use the second image drawing, not its wrong canvas dimensions. Use the first image exact3:2 output aspect. OUTPUT EXACTLY1536 wide x1024 high RGBA PNG, not1519x1036 or another near ratio. Detailed smooth hand-painted rendering, naturally antialiased alpha. Flat source magenta/cyan/yellow marks and gray letterbox are not art; all empty output alpha0, no matte, no grid, text, ground shadows or ambient halo. Original sparks/dissolving spirals remain soft native alpha. Keep source order and relative group separation. Do not infer a conventional walkcycle. Entire sheet is ONE composite source frame: Boston nearTOPLEFT and sparse small orange/white effects FARBELOWRIGHT. Keep separation; do not cluster at his feet. ",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a5a00078-be5b-45f7-9c30-d338b0fb7f17.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     1536,
+     1024
+    ]
+   ]
+  ],
+  "source_region_basis": "Kilden har én originalrute som inneholder Boston og de atskilte oransje effektfasene lenger nede og mot høyre. Native deler er visuelt sammenlignet med den ene originale ruten. En samlet analyseboks er ikke en importmaske.",
+  "source_proven_effect_regions": [
+   [
+    190,
+    430,
+    1310,
+    570
+   ]
+  ],
+  "source_effect_basis": "Originalruten viser oransje partikler atskilt fra Boston i nederste/høyre del. Kun dette effektområdet kontrolleres separat; tom bakgrunn rundt personen kontrolleres normalt.",
+  "figure": "Boston Low",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a5a00078-be5b-45f7-9c30-d338b0fb7f17.png",
+  "sha256": "ac7cebe32cfe1b19df4ec3215f20cb6f4a6a1f4a140dfc7be48172bb28f2ffe9",
+  "originalruter": 1,
+  "resultat": "jobber/fig201_07/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "20b85cac8e08c81615141eda6230db346bd6d6c40bd20c1a69b96fecfc5f2043",
+   "original_1x.png": "a778cfce50c08ab518f8bae361e3ca588cc79841cb9a13c49dd96386074bf36b",
+   "prompt.txt": "47450077c89a5d559aa89d0553a2f9d7b29acd210f28ee8af9afcd2bdbf6350b",
+   "jobb.json": "e91eb17b4bd306e0f97b9d9e978f7415ccd389a833dd67cd35ecc40792e113d5"
+  }
+ }
+]
