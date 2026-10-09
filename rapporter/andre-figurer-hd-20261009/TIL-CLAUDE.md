@@ -39,3 +39,5 @@ Gruppe 17: sporing-del17.json, filkontroll-del17.json og rutekart-del17.json fø
 Gruppe 18: sporing-del18.json, filkontroll-del18.json og rutekart-del18.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
 
 Gruppe 19: sporing-del19.json, filkontroll-del19.json og rutekart-del19.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Gruppe 20: sporing-del20.json, filkontroll-del20.json og rutekart-del20.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.

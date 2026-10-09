@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-09T22:55:59.125431+00:00",
+ "oppdatert_utc": "2026-10-09T22:58:47.023082+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 41,
+ "antall": 37,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -839,33 +839,6 @@
    "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
   },
   {
-   "jobb": "fig025_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "7d8189baabaaa33403c2d5519c40fa197db1b6c4e17ab42993f2d5f03c28458c",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Synlige rosa rutekanter og uklar antallskobling i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     7,
-     8
-    ],
-    "native_rader": [
-     1,
-     13,
-     17
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 20741,
-     "maks": 125,
-     "piksler_over_16": 20
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
    "jobb": "fig027_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "d84178b85026ac85f5aebbe0de9bf002513a9fd2e724a868829d821aef4bab6f",
@@ -997,76 +970,6 @@
    "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
   },
   {
-   "jobb": "fig034_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "395d639b9877b7cb377d17ec2150b42f1b6c8087b6d009a055495042f065fbcb",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Tre restalfapiksler over lokal grense i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     8,
-     8,
-     6,
-     7
-    ],
-    "native_rader": [
-     1,
-     8,
-     8,
-     6,
-     7
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 29904,
-     "maks": 22,
-     "piksler_over_16": 3
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig035_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "d756095a2b8be3e0525847c0ee9145c3c58a4274d4f64e7d8db9e38acca1655b",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Ekstra kuler i flere rader i første forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     14,
-     5,
-     14,
-     6,
-     14,
-     6,
-     14,
-     6
-    ],
-    "native_rader": [
-     1,
-     16,
-     6,
-     16,
-     7,
-     16,
-     7,
-     16,
-     7
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 24997,
-     "maks": 7,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
    "jobb": "fig039_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "b43122fa83f4b7625f133286cfaf34b6384fd0083244b5dce54370b79ca496f8",
@@ -1111,33 +1014,6 @@
     "restalfa": {
      "piksler_over_0": 14907,
      "maks": 4,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
-  },
-  {
-   "jobb": "fig043_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "263fed5e9890a9bda3f8152d925cca011237026648f638720b198e5c7ab4dd04",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Native figurantall stemmer, men enkelte håndstillinger i snakkeraden avviker fra originalen.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     7,
-     5
-    ],
-    "native_rader": [
-     1,
-     7,
-     5
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 34337,
-     "maks": 7,
      "piksler_over_16": 0
     }
    },
