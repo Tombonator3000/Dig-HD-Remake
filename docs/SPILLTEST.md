@@ -180,6 +180,9 @@ Etterpå går lenken rett inn i spillet. Ny HD-grafikk i `hd-mod` kommer med av 
 - **Mobil og nettbrett:** trykk er klikk, dra flytter pekeren, hold fingeren i ro et halvt sekund for høyreklikk, to fingre åpner menyen, tre fingre hopper over en filmscene. Første trykk gir fullskjerm, og skjermen snus ikke.
 - **Lyd:** musikk og tale hentes første gang spillet spiller musikk (391 MB, siden viser hvor langt den har kommet). `?uten-lyd` bak adressen starter uten, og på enheter med under 4 GB minne er lyden av.
 - **Nett:** mistes kontakten, venter spillet og siden prøver igjen til filen kommer.
+- **Første start:** et svart bilde viser at talen, musikken, spillet og introfilmen lastes ned (omtrent 530 MB). Bare første gang.
+- **Fullskjerm:** kommer ved første klikk eller tast. Firefox går ut av fullskjerm på Esc; neste klikk gir den igjen.
+- **Uten WebGL:** siden tegner med programvare av seg selv; `?programvare` velger det.
 - **Testvalg i adressen:** `?rom=22`, `?klassisk`, `?gult` og testkrokene, for eksempel `?rom=22&DIGHD_TEST_COSTUME=14` for å se Boston i alle retninger.
 
 Uten nøkkel går det også med mapper på maskinen (lenken under nøkkelfeltet): spillmappen `game` og HD-mappen `mods/gpt`. Mappene kan lastes ned som zip uten git: https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/spilldata.zip og https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/hd-mod.zip.
