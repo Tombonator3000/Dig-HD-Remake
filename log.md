@@ -248,7 +248,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - `.github/workflows/linux.yml` (PR 27 til 31): bygger på Ubuntu 22.04, tester pakken uten skjerm og på Debian 12 med skrivebordsbibliotekene, og legger den i den private releasen `linux`. Rettet underveis: testen fant ikke scummvm.ini fordi runneren setter `XDG_CONFIG_HOME`; Debian-testen manglet ALSA, FreeType, GBM og Wayland (de står på AppImage sin liste over biblioteker som skal komme fra systemet). Hver natt bygges en ny pakke hvis `hd-mod` er endret.
 - Releasen `linux`: `TheDigHD-x86_64.AppImage` 765 MB, bygget 13:08 UTC av hd-mod c232bcb. Ikke testet på en ekte Linux-maskin med skjerm og lyd.
 
-## 2026-10-09 17:11 til 17:58 (Claude)
+## 2026-10-09 17:11 til 17:45 (Claude)
 - Tom på Kubuntu: på nettsiden ingen musepeker og ingen knapper som virker; spillet skal gå i fullskjerm.
 - Hentet Firefox 157 fra ftp.mozilla.org og styrte den med puppeteer-core (WebDriver BiDi), med sandkassens CA lagt inn i profilen. Funn: første start laster ned talen (130 MB) og musikken (261 MB) før noe vises, fordi ScummVM åpner lydfilene når motoren starter; siden viste bare en liten linje nederst. Uten WebGL stoppet motoren ("Could not load any graphics mode") og siden ble stående på "Starter The Dig". Med WebGL (Xvfb) virket mus, Esc, F5 og menyvalget i Firefox.
 - PR 32: nedlastingsbilde med hva som lastes ned og hvor langt det har kommet; uten WebGL (eller `?programvare`) `--gfx-mode=surfacesdl`; feil i motoren vises; fullskjerm ved første klikk eller tast, med Keyboard Lock for Esc der det finnes. Publisert i Dig-HD-Web (879eb43). Testet mot den publiserte siden i Firefox uten WebGL: introen, Esc, rom 2, F5, klikk på HD Graphics.
