@@ -1,0 +1,972 @@
+[
+ {
+  "jobb": "fig072_01",
+  "attempt": 1,
+  "rows": [
+   5,
+   5,
+   5
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig072_01. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nTHREE rows of FIVE original FRAME GROUPS each. Every frame consists of a BACK-RIGHT Boston full body AND a separate rust-orange perforated stone/metal plate to his RIGHT at chest height. The plate is one disconnected part of the SAME original frame, not an extra figure. Preserve all15 bodies and15 plates, exact source-relative placement, several irregular holes in each plate. Hands progress from low sides toward plate. No connecting line added.\nExact original frame rows 5,5,5, total 15 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig072_01/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d24ea924-6119-450d-b3b7-aac603281736.png",
+  "known_native_frame_groups": [
+   [
+    [
+     68,
+     24,
+     106,
+     306
+    ],
+    [
+     191,
+     55,
+     114,
+     75
+    ]
+   ],
+   [
+    [
+     351,
+     25,
+     105,
+     305
+    ],
+    [
+     475,
+     55,
+     115,
+     75
+    ]
+   ],
+   [
+    [
+     621,
+     25,
+     117,
+     305
+    ],
+    [
+     760,
+     55,
+     115,
+     75
+    ]
+   ],
+   [
+    [
+     916,
+     27,
+     120,
+     303
+    ],
+    [
+     1067,
+     55,
+     115,
+     75
+    ]
+   ],
+   [
+    [
+     1215,
+     28,
+     122,
+     302
+    ],
+    [
+     1360,
+     55,
+     116,
+     75
+    ]
+   ],
+   [
+    [
+     44,
+     360,
+     122,
+     295
+    ],
+    [
+     195,
+     383,
+     118,
+     76
+    ]
+   ],
+   [
+    [
+     341,
+     360,
+     122,
+     295
+    ],
+    [
+     487,
+     383,
+     115,
+     76
+    ]
+   ],
+   [
+    [
+     629,
+     360,
+     122,
+     295
+    ],
+    [
+     777,
+     383,
+     117,
+     76
+    ]
+   ],
+   [
+    [
+     923,
+     360,
+     122,
+     295
+    ],
+    [
+     1071,
+     383,
+     118,
+     76
+    ]
+   ],
+   [
+    [
+     1218,
+     360,
+     124,
+     295
+    ],
+    [
+     1369,
+     383,
+     118,
+     76
+    ]
+   ],
+   [
+    [
+     43,
+     681,
+     123,
+     298
+    ],
+    [
+     194,
+     706,
+     119,
+     77
+    ]
+   ],
+   [
+    [
+     337,
+     681,
+     118,
+     298
+    ],
+    [
+     477,
+     706,
+     117,
+     77
+    ]
+   ],
+   [
+    [
+     625,
+     681,
+     126,
+     298
+    ],
+    [
+     768,
+     706,
+     119,
+     77
+    ]
+   ],
+   [
+    [
+     919,
+     681,
+     132,
+     298
+    ],
+    [
+     1070,
+     706,
+     119,
+     77
+    ]
+   ],
+   [
+    [
+     1223,
+     681,
+     159,
+     298
+    ],
+    [
+     1384,
+     706,
+     121,
+     77
+    ]
+   ]
+  ],
+  "source_group_basis": "Original source frame contains Boston and disconnected plate or rope parts; visual column and row membership checked in review48 source comparison.",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d24ea924-6119-450d-b3b7-aac603281736.png",
+  "sha256": "d94b0027fe1b1ad7f364df2bac2d72f62b0614978eda53111d5dc250b11a5465",
+  "originalruter": 15,
+  "resultat": "jobber/fig072_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "2236b8940ae33f15008ca100691564bc0fc5cce6c3d6d05cae3f3ecf61c71caa",
+   "original_1x.png": "981c1e9e590983f1e07c3e26998dc36a3d2e974e2b419499a8d6acb225749f1c",
+   "prompt.txt": "715bd20f233caee695b12be1502371dc4040dc8e5fd5b4e782a1352c56c0390a",
+   "jobb.json": "482f202ef1c594676dd22298919d36efce06972b876083bd2b8f23f851082583"
+  }
+ },
+ {
+  "jobb": "fig072_02",
+  "attempt": 1,
+  "rows": [
+   5,
+   5
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig072_02. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nTWO rows of FIVE original FRAME GROUPS each. Each group is a BACK-RIGHT Boston full body with arms rising above head AND the separate rust-orange perforated plate to his RIGHT at shoulder height. Preserve10 bodies+10 plates in same relative placements and source order. Do not connect parts or add figures.\nExact original frame rows 5,5, total 10 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig072_02/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-5109220f-6397-45f6-9089-231fc8c6fe35.png",
+  "known_native_frame_groups": [
+   [
+    [
+     26,
+     46,
+     164,
+     410
+    ],
+    [
+     178,
+     94,
+     119,
+     87
+    ]
+   ],
+   [
+    [
+     306,
+     46,
+     165,
+     411
+    ],
+    [
+     463,
+     94,
+     120,
+     88
+    ]
+   ],
+   [
+    [
+     613,
+     46,
+     157,
+     411
+    ],
+    [
+     774,
+     94,
+     121,
+     88
+    ]
+   ],
+   [
+    [
+     915,
+     46,
+     172,
+     411
+    ],
+    [
+     1087,
+     94,
+     122,
+     87
+    ]
+   ],
+   [
+    [
+     1243,
+     26,
+     160,
+     431
+    ],
+    [
+     1402,
+     94,
+     120,
+     87
+    ]
+   ],
+   [
+    [
+     22,
+     521,
+     160,
+     453
+    ],
+    [
+     178,
+     609,
+     119,
+     88
+    ]
+   ],
+   [
+    [
+     315,
+     508,
+     155,
+     466
+    ],
+    [
+     465,
+     609,
+     121,
+     88
+    ]
+   ],
+   [
+    [
+     617,
+     510,
+     153,
+     463
+    ],
+    [
+     774,
+     609,
+     121,
+     88
+    ]
+   ],
+   [
+    [
+     925,
+     509,
+     159,
+     465
+    ],
+    [
+     1087,
+     609,
+     121,
+     88
+    ]
+   ],
+   [
+    [
+     1238,
+     498,
+     158,
+     476
+    ],
+    [
+     1402,
+     609,
+     120,
+     88
+    ]
+   ]
+  ],
+  "source_group_basis": "Original source frame contains Boston and disconnected plate or rope parts; visual column and row membership checked in review48 source comparison.",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-5109220f-6397-45f6-9089-231fc8c6fe35.png",
+  "sha256": "42985ddc9adc9cb3874753000156f35f70b66f086fb787156c3692291fdeea5a",
+  "originalruter": 10,
+  "resultat": "jobber/fig072_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "c8e2af9b67cb70a15ea791dca90ad1f3b2d776e48ca25e36cb59b0d3d106a14c",
+   "original_1x.png": "a0c7bf4e77480f722c432d839abc60444fd76379cbc67a9bcdf8943839b0f958",
+   "prompt.txt": "014408303ef4df5c8336b5af20c847c5b6573eb0ddc723ebbf1c040c0e6ed294",
+   "jobb.json": "afd7f59d078f5b59963f718a98f675250bdc1bac5ab07927aaff13d65ecfb5dd"
+  }
+ },
+ {
+  "jobb": "fig072_03",
+  "attempt": 1,
+  "rows": [
+   5,
+   4,
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig072_03. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nTHREE rows FIVE, FOUR, FOUR original FRAME GROUPS. Each frame contains a BACK-RIGHT Boston body AND its separate orange perforated plate. First row the hands lower from overhead and the plate tilts from upright to a brown thin horizontal slab on the ground. Next rows the plate lies flat to the RIGHT of each crouching then rising body. Preserve the meaningful plate even when very thin, same pose sequence and relative placement.\nExact original frame rows 5,4,4, total 13 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig072_03/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f337a358-b740-4972-8120-e0c2c138d958.png",
+  "known_native_frame_groups": [
+   [
+    [
+     187,
+     91,
+     120,
+     74
+    ],
+    [
+     65,
+     17,
+     119,
+     336
+    ]
+   ],
+   [
+    [
+     453,
+     94,
+     123,
+     76
+    ],
+    [
+     325,
+     26,
+     122,
+     329
+    ]
+   ],
+   [
+    [
+     730,
+     129,
+     149,
+     74
+    ],
+    [
+     601,
+     56,
+     156,
+     300
+    ]
+   ],
+   [
+    [
+     1058,
+     241,
+     133,
+     42
+    ],
+    [
+     906,
+     90,
+     160,
+     266
+    ]
+   ],
+   [
+    [
+     1234,
+     94,
+     145,
+     255
+    ],
+    [
+     1360,
+     311,
+     142,
+     49
+    ]
+   ],
+   [
+    [
+     52,
+     395,
+     120,
+     239
+    ],
+    [
+     195,
+     586,
+     143,
+     52
+    ]
+   ],
+   [
+    [
+     387,
+     393,
+     123,
+     241
+    ],
+    [
+     541,
+     584,
+     147,
+     52
+    ]
+   ],
+   [
+    [
+     745,
+     390,
+     120,
+     244
+    ],
+    [
+     895,
+     583,
+     144,
+     52
+    ]
+   ],
+   [
+    [
+     1096,
+     389,
+     120,
+     245
+    ],
+    [
+     1256,
+     582,
+     150,
+     54
+    ]
+   ],
+   [
+    [
+     59,
+     680,
+     111,
+     285
+    ],
+    [
+     214,
+     921,
+     149,
+     54
+    ]
+   ],
+   [
+    [
+     404,
+     680,
+     107,
+     285
+    ],
+    [
+     560,
+     921,
+     153,
+     54
+    ]
+   ],
+   [
+    [
+     766,
+     674,
+     103,
+     291
+    ],
+    [
+     924,
+     921,
+     150,
+     54
+    ]
+   ],
+   [
+    [
+     1120,
+     662,
+     105,
+     303
+    ],
+    [
+     1277,
+     921,
+     152,
+     54
+    ]
+   ]
+  ],
+  "source_group_basis": "Original source frame contains Boston and disconnected plate or rope parts; visual column and row membership checked in review48 source comparison.",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f337a358-b740-4972-8120-e0c2c138d958.png",
+  "sha256": "b56b0b87eddbdecac082f9e3c07d3b252d533deda01c2d06cc82c8a2da5d989c",
+  "originalruter": 13,
+  "resultat": "jobber/fig072_03/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "9f11cc843def5ae9745b2b2ac7a225d2befd8863601979d43f74a9419f0eedff",
+   "original_1x.png": "ca78b237f113e081f9b4819c982c1c2cbae0fcbccb9b67807d1f6a6aca30dc41",
+   "prompt.txt": "82b8cc21dc4064cc8603979732c77fb7b00af7aa2c3946053d7f8821fb7f7aad",
+   "jobb.json": "64f2291e7e68272bcb6d8caec741a5652ab3bfdc29736035f826b59ea94a25b3"
+  }
+ },
+ {
+  "jobb": "fig050_03",
+  "attempt": 1,
+  "rows": [
+   5,
+   4,
+   4
+  ],
+  "fragments": 6,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig050_03. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nRows FIVE, FOUR, FOUR complete Boston bodies moving from deep crouch to upright while releasing a purple rope that drops into a loose coil on floor to LEFT of body. Each body and its associated rope form one source-frame group even when disconnected. Keep rope as a thin natural opaque line, not a shadow. Tiny magenta flecks omitted.\nExact original frame rows 5,4,4, total 13 source entries. 6 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig050_03/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-fd8c1cf2-f780-4d29-b7a3-1b0de9ca4f6a.png",
+  "known_native_frame_groups": [
+   [
+    [
+     1043,
+     619,
+     212,
+     53
+    ],
+    [
+     1242,
+     451,
+     88,
+     221
+    ]
+   ],
+   [
+    [
+     684,
+     892,
+     221,
+     45
+    ],
+    [
+     893,
+     701,
+     89,
+     242
+    ]
+   ],
+   [
+    [
+     1017,
+     892,
+     226,
+     48
+    ],
+    [
+     1232,
+     701,
+     90,
+     242
+    ]
+   ]
+  ],
+  "source_group_basis": "Original source frame contains Boston and disconnected plate or rope parts; visual column and row membership checked in review48 source comparison.",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-fd8c1cf2-f780-4d29-b7a3-1b0de9ca4f6a.png",
+  "sha256": "8060b272f299ae9d3a9236cdaba83ecd3bb51a1029214be414c36ec43f3b4b16",
+  "originalruter": 19,
+  "resultat": "jobber/fig050_03/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "c5ca0215497b0c66b1afa2f229434cc4e6a0021c0f2fb374a32b62a60f7b800c",
+   "original_1x.png": "24f03bde504e1e7cf855e54ac3fac4881924e630606350db393c909af290e28b",
+   "prompt.txt": "0d6591341b7761deee0e6dd4478710332b4871e2a8c757e914939e79752329b5",
+   "jobb.json": "e11532befca94d83b43cda2b5f462c86e1d3a0f85b8b5c258d9e719588ed8389"
+  }
+ },
+ {
+  "jobb": "fig050_04",
+  "attempt": 1,
+  "rows": [
+   4,
+   3
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig050_04. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nRows FOUR, THREE source-frame groups, each a standing LEFT-facing Boston body with a long purple rope lying in a loose coil to his LEFT at ground level. Keep seven bodies, seven separate ropes if disconnected, same relative layout. Do not mistake rope for a footprint.\nExact original frame rows 4,3, total 7 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig050_04/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-ddb5cb42-93e5-469e-9e3a-9f7e111c1d3c.png",
+  "known_native_frame_groups": [
+   [
+    [
+     184,
+     219,
+     16,
+     12
+    ],
+    [
+     186,
+     242,
+     24,
+     7
+    ],
+    [
+     37,
+     51,
+     321,
+     276
+    ]
+   ],
+   [
+    [
+     543,
+     234,
+     19,
+     8
+    ],
+    [
+     388,
+     51,
+     314,
+     276
+    ]
+   ],
+   [
+    [
+     920,
+     238,
+     21,
+     9
+    ],
+    [
+     742,
+     51,
+     326,
+     276
+    ]
+   ],
+   [
+    [
+     1297,
+     234,
+     17,
+     19
+    ],
+    [
+     1104,
+     51,
+     327,
+     276
+    ]
+   ],
+   [
+    [
+     213,
+     557,
+     16,
+     17
+    ],
+    [
+     34,
+     373,
+     325,
+     277
+    ]
+   ],
+   [
+    [
+     576,
+     560,
+     20,
+     12
+    ],
+    [
+     387,
+     373,
+     317,
+     278
+    ]
+   ],
+   [
+    [
+     932,
+     562,
+     22,
+     7
+    ],
+    [
+     742,
+     373,
+     328,
+     278
+    ]
+   ]
+  ],
+  "source_group_basis": "Original source frame contains Boston and disconnected plate or rope parts; visual column and row membership checked in review48 source comparison.",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-ddb5cb42-93e5-469e-9e3a-9f7e111c1d3c.png",
+  "sha256": "be3250ac1c05991cdd6c68e7628aea9722e5b6e8d3f187821c6ab933a6528bb9",
+  "originalruter": 7,
+  "resultat": "jobber/fig050_04/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "dd7f5844056f3b82d08290766f66f5ceeada4a3ababf473636402f5c833f7d52",
+   "original_1x.png": "5cd253de1ec59d117f93e9643004289c67e56a226a0f2f4e1cdbecee7236b36f",
+   "prompt.txt": "cdc6cdeede4c1e767ae2be760a9eaae2c1bd60df09948af4296aafdeedef6d1d",
+   "jobb.json": "acd57ca31676950b6c5e403164bfd8f5b71c6f179cc1b7409d9009eab0f3e57a"
+  }
+ },
+ {
+  "jobb": "fig050_02",
+  "attempt": 1,
+  "rows": [
+   7,
+   6
+  ],
+  "fragments": 1,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig050_02. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nRow1 SEVEN entries: TWO Boston bodies pulling a long hanging purple rope, ONE rope-only curved segment, then FOUR more pulling bodies. Row2 SIX bodies leaning deeply backward pulling the long rope. Preserve thin rope path, each hand grasp and knee phase. The rope-only entry stays rope, not a person.\nExact original frame rows 7,6, total 13 source entries. 1 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig050_02/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-62745af8-f54a-41d9-b9ee-f6f69eeb053c.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-62745af8-f54a-41d9-b9ee-f6f69eeb053c.png",
+  "sha256": "b4d06a98bb3e09587a1b370ccaec28e7b2901f52de318b7fdcfc2db8369b5ca1",
+  "originalruter": 14,
+  "resultat": "jobber/fig050_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "923f843cb4778fc967c4f940c0d79f8c3b6642e6179843981073b58641fdf78e",
+   "original_1x.png": "ac3ac5a09f9773357c2c32eb7bb66d3e10c8835d1f7b947c67de03e5091c6b8e",
+   "prompt.txt": "c81e09870cb3e1e8c094d718a8b31ba5315e2db39e912a90e59cf94f4cedbcc4",
+   "jobb.json": "3aa4a05f16b75678da47677ca9ea6899ab0773af61695d2b5c8ee1e2ba88df61"
+  }
+ },
+ {
+  "jobb": "fig203_02",
+  "attempt": 1,
+  "rows": [
+   9,
+   2
+  ],
+  "fragments": 2,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig203_02. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nRow1 NINE front-facing Boston partial bodies rising progressively from chest-only over a horizontal boundary toward waist. Row2 TWO waist-up frontal bodies. Preserve partial contours, no invented legs or feet. Tiny dangling original pixel traces are not new limbs.\nExact original frame rows 9,2, total 11 source entries. 2 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig203_02/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-23e8185a-749c-4262-94ca-117e2c2dad8b.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-23e8185a-749c-4262-94ca-117e2c2dad8b.png",
+  "sha256": "5460c86ac8475e7cd836dfe4627a0bd25c4f2a04f92c917cb0f278fc0cb8d5ff",
+  "originalruter": 13,
+  "resultat": "jobber/fig203_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "0975f7dbf38c69ca37ae7e22382abc9b08675fad1779edaae175df000d51b37b",
+   "original_1x.png": "75e9101b0add26198bca4d81ad63df439eed02fe92e4d7f1618b8d47fb1a0561",
+   "prompt.txt": "561a6af141371d088e81e90ee784def547210d8da56d4c4296b526a2c2470825",
+   "jobb.json": "c4a7df2c83d506b4a15c672eb484d923a75b13ef1e776b78956c1b313a7d7214"
+  }
+ },
+ {
+  "jobb": "fig099_01",
+  "attempt": 1,
+  "rows": [
+   1
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig099_01. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nONE upright FRONT-RIGHT Boston full body, arms near sides.\nExact original frame rows 1, total 1 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig099_01/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-70748648-6c9c-4b9f-bab7-f822c1b668c9.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-70748648-6c9c-4b9f-bab7-f822c1b668c9.png",
+  "sha256": "61026ed82b62b2ef6b0cd976b4a7255bffaef72449d33e0b94c3735f29260827",
+  "originalruter": 1,
+  "resultat": "jobber/fig099_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "477c9d19be6429a617319e6ec194bd6311c79fe71c7124a319447efc4a2861ab",
+   "original_1x.png": "f3e0d4c5a6c09f5c9bf56264231b5e0c380b72b305d6d38cf622d11b24db6362",
+   "prompt.txt": "5dc10cf45fa188f88a7a655299ad08dee5c1edf80c1ec0b687f4583eb19597b2",
+   "jobb.json": "50c8649f1f106a522ecd4f317c408ddbbd38ce22a71f3af66a00ca5c0bfaa210"
+  }
+ },
+ {
+  "jobb": "fig099_02",
+  "attempt": 1,
+  "rows": [
+   9,
+   3,
+   1,
+   2,
+   1
+  ],
+  "fragments": 7,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig099_02. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nRow1 NINE Boston bodies FRONT-RIGHT progressively leaning forward and extending arms behind. Row2 THREE complete bodies diving diagonally RIGHT, increasingly horizontal. Row3 ONE fully horizontal flying body reaching RIGHT. Row4 TWO long diving bodies, one horizontal and one angled down-right. Row5 ONE down-right diagonal diving body. The separate long flat MAGENTA lines are original floor guides, do not redraw them or inflate them into people. Preserve all16 anatomical poses.\nExact original frame rows 9,3,1,2,1, total 16 source entries. 7 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig099_02/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-17a9b6b3-bade-4c0f-bdc0-d9baf0a56984.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-17a9b6b3-bade-4c0f-bdc0-d9baf0a56984.png",
+  "sha256": "446db246e75336a1f1f903e6fbeecec64bbfdcb864231875f5ec5d975652c269",
+  "originalruter": 23,
+  "resultat": "jobber/fig099_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "9fda19b1c81f0262aa9eb22008026a8d62700ef6bbf6470cbff7147bfe4ba245",
+   "original_1x.png": "28d9ab5ad636dfb85d7edf7288ff818877e7182003b179fa3a2606b6e9af1ef5",
+   "prompt.txt": "6ccbbd343f479af171ed6ab73308434f15891dee718893dce0c9c5f7fb71179e",
+   "jobb.json": "c288935acb7efd49e80395d46314bae4d534be3d52978a8c4077bd87c823d466"
+  }
+ },
+ {
+  "jobb": "fig069_02",
+  "attempt": 2,
+  "rows": [
+   9,
+   10,
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: surgical sprite-sheet count correction. FIRST image is the existing detailed HD sheet to EDIT. SECOND is original source for pose and sequence. THIRD is the approved smooth detailed style only. Output exactly1536 x1024 native RGBA transparent. Keep THREE visual rows. First stays NINE headed bodies. Second currently ELEVEN headed bodies: DELETE its rightmost body so TEN remain. Third stays FOUR bodies. Final counts NINE,TEN,FOUR. Keep pale green light and gray jacket on this variant. Do only these explicit deletions in the native image. Do not repack, resize, add, duplicate, redraw retained sprites or add backgrounds, shadows, ground, glow or labels. Each removed area becomes fully transparent. Antialiasing and native soft alpha on retained figures must stay intact. Do not fill any vacant slots with replacements. Return the edited PNG.",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9c0c58e1-4d0b-4602-823e-e41ac960d4d2.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig069_02/original_1x.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-94c9d740-9ebd-455e-97ec-4033221b6654.png",
+  "figure": "Ludger Brink",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-94c9d740-9ebd-455e-97ec-4033221b6654.png",
+  "sha256": "48896924cc02244ef4b0012efaec6045ab40affdf4d74d7c522d2daf636fce9c",
+  "originalruter": 23,
+  "resultat": "jobber/fig069_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "6aeff58e5700d5ec58fd8de4f6292a9cd6dd3eb04a2b7f4ab43c80f85494adf5",
+   "original_1x.png": "e4aac33901e4c2179a45e6acfaff7016feef757997b4b3e5547a46ccbf049f30",
+   "prompt.txt": "11f597686a38e5491059dc62d213cbbbab37752b568c77ce6a828913b78f9430",
+   "jobb.json": "2586e396309a9609e1e12d18d52b78f801e8e1f9b31fc30c6ca71bb97c3d8aaf"
+  }
+ }
+]
