@@ -72,10 +72,12 @@ jobs:
           grep -q "dighd_classic=true" $T/.config/the-dig-hd/scummvm.ini
           if grep -i "can't open bundle" out/linux/test.log; then echo "Musikk eller tale mangler"; exit 1; fi
 
+      # Et skrivebord har lyd- og grafikkbibliotekene AppImage forventer å finne (ALSA,
+      # FreeType, GBM, Wayland, OpenGL); de tas ikke med i pakken. Resten skal pakken ha med seg.
       - name: Test pakken på Debian 12 uten byggepakker
         run: |
           docker run --rm -v "$PWD/out/linux:/pakke:ro" debian:12-slim sh -c '
-            apt-get update -qq && apt-get install -y -qq libgl1 > /dev/null
+            apt-get update -qq && apt-get install -y -qq libgl1 libasound2 libfreetype6 libgbm1 libwayland-client0 libwayland-cursor0 libwayland-egl1 libxkbcommon0 > /dev/null
             cd /tmp && /pakke/TheDigHD-x86_64.AppImage --appimage-extract > /dev/null
             echo "Biblioteker som mangler:"; LD_LIBRARY_PATH=squashfs-root/usr/lib ldd squashfs-root/usr/bin/scummvm | grep "not found" || echo "ingen"
             HOME=/tmp/hjem SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy DIGHD_TEST_ROOM=22 DIGHD_TEST_AT=240 \
