@@ -6,7 +6,7 @@
 #        engine/run.sh test-lanczos --fullscreen
 #
 # Modmappen er mods/<modnavn>. Spillfilene ligger i game/ (tools/hent_spilldata.sh).
-# Musikk og tale: legg DIGMUSIC.BUN og DIGVOICE.BUN fra Drive i game/.
+# Musikk og tale: tools/hent_spilldata.sh setter sammen DIGMUSIC.BUN og DIGVOICE.BUN i game/.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
