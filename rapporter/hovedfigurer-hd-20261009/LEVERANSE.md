@@ -40,6 +40,8 @@ Fjerde leveransegruppe har fem nye ark og 92 originalruter: fig014_09, fig017_01
 
 Femte leveransegruppe har sju ark med 105 originalruter. Seks er nytegnet: fig014_11 til fig014_13, fig015_10, fig018_09 og fig018_10. fig047_01 gjenbruker fig019_01 byteidentisk etter bekreftet identisk originalreferanse; original-ID-ene er koblet til kostyme 47. Visuell kontroll for duplikatet ligger i del4, øvrige i del5. filkontroll-del5.json og rutekart-del5.json gjelder alle sju.
 
-Med pilotene er 36 av 509 ark levert, tilsvarende 870 av 7 683 originalruter. 473 ark gjenstår. fremdrift.json er den løpende oversikten.
+Sjette leveransegruppe har seks nytegnede ark med 225 originalruter: fig014_14 til fig014_17, fig018_04 og fig018_08. De to siste er korrigert for riktig antall, retning og native gjennomsiktighet. Visuell kontroll på tre bakgrunner, filkontroll-del6.json og rutekart-del6.json følger leveransen.
+
+Med pilotene er 42 av 509 ark levert, tilsvarende 1095 av 7 683 originalruter. 467 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
