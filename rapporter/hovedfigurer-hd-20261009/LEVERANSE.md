@@ -21,6 +21,19 @@ Antall og radfordeling er kontrollert fra faktisk alfa, med særskilt kontroll a
 
 Promptene som faktisk ble brukt, ligger her, inkludert avgrensede korreksjoner. Original prompt.txt og andre beskyttede jobbfiler er urørt. filkontroll-del1.json dokumenterer filene og rutekart-del1.json kobler de større delene diagnostisk til original-ID-er. Boksene ved alfa 128 er analysebokser, ikke ferdige utklipp eller sikre importrektangler.
 
-Med pilotene er 10 av 509 ark levert, tilsvarende 375 av 7 683 originalruter. 499 ark gjenstår. fremdrift.json er den løpende oversikten. fig015_02 er fortsatt under arbeid og er ikke del av denne leveransen.
+Andre leveransegruppe inneholder seks nye ark med 199 originalruter:
+
+| Jobb | Innhold | Originalruter | Bildeforsøk |
+| --- | --- | ---: | ---: |
+| fig014_07 | Boston, gange mot oss til venstre | 12 | 2 |
+| fig014_08 | Boston, gange bort til høyre | 12 | 1 |
+| fig015_02 | Brink, venstregange og snakkehoder | 72 | 4 |
+| fig015_03 | Brink, snakkehoder i skrå retninger | 67 | 1 |
+| fig015_04 | Brink, gange mot oss | 12 | 1 |
+| fig018_05 | Maggie, gange bort og mot oss til høyre | 24 | 1 |
+
+Antall og radfordeling er kontrollert, med små hudfragmenter skilt fra fullstendige hoder. fig015_02 har 70 større deler og to prikker; fig015_03 har 64 større deler og tre små fragmenter. filkontroll-del2.json, rutekart-del2.json og visuell-del2.png gjelder bare de seks valgte filene. Et tidligere Brink-forsøk med gjennomsiktige hoder er forkastet. Maggie-arket fig018_04 korrigeres fortsatt og er ikke levert.
+
+Med pilotene er 16 av 509 ark levert, tilsvarende 574 av 7 683 originalruter. 493 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
