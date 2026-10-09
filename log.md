@@ -278,3 +278,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
   - Mappen `samnmax`: `SAMNMAX.000` (9080 byte), `SAMNMAX.001` (13,8 MB), `MONSTER.SOU` (183 MB, tale) og MT-32-ROM. CD-utgaven. Språket står bare i MD5 (engelsk, tysk, fransk, italiensk, spansk og hebraisk har samme størrelse); ikke sjekket.
 - Filene kan ikke hentes hit med curl: mappene er ikke delt med lenke (Drive svarer med innloggingssiden). Koblingen gir innholdet bare som tekst i samtalen; å skrive av SAMNMAX.000 for å få MD5 ga feil lengde og ble forkastet.
 
+## 2026-10-09 21:08 til 21:15 (Claude)
+- Tom spurte om ett repo per spill eller samlet. Anbefalte ett felles kode-repo og ett datarepo per spill (koden er lik for alle spillene, dataene er store). Svarte at alt kan gjøres via GitHub herfra, men at oppretting av nye repoer ikke er prøvd (token uten OAuth-scopes, admin på de to repoene vi har).
+- Tom: Zak og Sam & Max tas når The Dig er ferdig. Planen er lagret i memory.md og i Toms minne (lucasarts-hd-remakes).
+

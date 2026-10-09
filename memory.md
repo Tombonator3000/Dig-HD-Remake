@@ -68,6 +68,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 ## Neste spill
 - Fremgangsmåten for HD-utgaver av andre SCUMM-spill er samlet i skillen `scumm-hd-remake` (foreslått 9. oktober). Tom planlegger Zak McKracken og Sam & Max. Dette repoet er referansen skillen peker til.
 - På Toms Drive: Zak McKracken FM-Towns i mappen `Zak-fm` (id 1C4-aa3j3Jgso3Z2J00UYS3lfvNcxl4-Z, LFL-filer og CD-lyd som FLAC, engelsk etter størrelsen på 00.LFL) og Sam & Max CD i mappen `samnmax` (id 1ZWXP2NLg9FzADXZ5G37HlkYGtoSKvHih, med MONSTER.SOU). Ikke delt med lenke 9. oktober.
+- Beslutning 9. oktober (Tom): Zak og Sam & Max tas når The Dig er ferdig. Planen da: ett felles offentlig kode-repo (Dig-HD-Remake med nytt navn, for eksempel LucasArts-HD) med patchen, pipelinen, verktøyene, én nettside med spillvalg og Linux-pakken, og ett datarepo per spill (spillfiler, hd-mod, arbeidsbordet til Codex), helst privat. Om Claude kan opprette nye repoer herfra, er ikke prøvd (Dig-HD-Web ble laget av Codex); ellers lager Tom tomme repoer. Mappene på Drive må deles med lenke først.
 
 ## Åpne valg
 - Ingen for figurstilen: den glatte stilen er valgt for hovedpersonene. Resten av kostymene er ikke bestilt.
