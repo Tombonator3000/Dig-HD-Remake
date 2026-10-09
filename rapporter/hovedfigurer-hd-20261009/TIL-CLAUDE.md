@@ -25,3 +25,5 @@ Gruppe 15: sporing-del15.json, filkontroll-del15.json og rutekart-del15.json. An
 Fragmentpresisering gruppe16: De svært små originalfragmentene er oppført separat i rutekartet. Native fragmenter er ikke automatisk bevart en-til-en. Bevar originalfragmentet fra den urørte originalruten der en slik del mangler eller avviker; det er ikke en komplett HD-kropp eller et HD-hode. Tall for originalruter inkluderer disse kildeoppføringene.
 
 Gruppe 16: sporing-del16.json, filkontroll-del16.json og rutekart-del16.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
+
+Gruppe 18: sporing-del18.json, filkontroll-del18.json og rutekart-del18.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
