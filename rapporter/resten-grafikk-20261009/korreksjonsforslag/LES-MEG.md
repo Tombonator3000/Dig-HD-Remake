@@ -6,7 +6,7 @@ Forslagene gjelder samme bestilte grafikk, samme motiv, mål, farger og plasseri
 
 Romlag: 184 av 230 er levert. 31 ark har fortsatt lokalt kontrollavvik etter ordrette forsøk. 15 lag venter på godkjent romanker. I tillegg foreligger seks romreturer og UI-returen lag079_06.
 
-Romdrakter: fig001_05 til 09 er holdt tilbake etter visuell sammenligning. Prompten kaller rene magenta merker separate deler, for eksempel hoder. Bildene viser bakfra-poser, mens generisk tekst sier mot høyre. Kildepikslene og de avviste kandidatene er registrert i forslag.json.
+Romdrakter: fig001_05, fig001_06, fig001_07 og fig001_09 er senere rettet med nye forsøk der prompt.txt fortsatt ble brukt ordrett, og er levert. Deres særskilte forslag er derfor ikke lenger nødvendige og er ikke brukt. fig001_08 er fortsatt holdt tilbake. Generisk tekst kaller rene magenta merker separate deler, for eksempel hoder, og bakfra-poser beskrives som mot høyre. Kildepikslene og feilforsøkene er registrert i forslag.json. Av 43 opprinnelige forslag er 39 fortsatt uløst.
 
 | Jobb | Dokumentert avvik | Neste handling |
 |---|---|---|
@@ -48,10 +48,10 @@ Romdrakter: fig001_05 til 09 er holdt tilbake etter visuell sammenligning. Promp
 | lag100_06 | objekter er feil: obj779_06 mangler (kantlikhet 0.89, med bakgrunnen 0.94) | Avgrenset nytt bildeforsøk etter tillatelse |
 | lag107_03 | forskjøvet -0.1, -0.9 originalpiksler; deler av bildet er flyttet eller zoomet (opptil 1.7 px) | Avgrenset nytt bildeforsøk etter tillatelse |
 | lag109_01 | deler av bildet er flyttet eller zoomet (opptil 1.2 px) | Avgrenset nytt bildeforsøk etter tillatelse |
-| fig001_05 | Visuell kontroll: native kandidater viser feil retning eller ekstra hoder/personer. Generic prompttekst motsier kildebildet. | Avgrenset nytt bildeforsøk etter tillatelse |
-| fig001_06 | Visuell kontroll: native kandidater viser feil retning eller ekstra hoder/personer. Generic prompttekst motsier kildebildet. | Avgrenset nytt bildeforsøk etter tillatelse |
-| fig001_07 | Visuell kontroll: native kandidater viser feil retning eller ekstra hoder/personer. Generic prompttekst motsier kildebildet. | Avgrenset nytt bildeforsøk etter tillatelse |
+| fig001_05 | Tidligere feil retning eller ekstra deler, nå rettet med prompt.txt ordrett | Levert i d209ae32; særskilt forslag ikke brukt |
+| fig001_06 | Tidligere feil retning eller ekstra deler, nå rettet med prompt.txt ordrett | Levert i 751a721f; særskilt forslag ikke brukt |
+| fig001_07 | Tidligere feil retning eller ekstra deler, nå rettet med prompt.txt ordrett | Levert i 39239879; særskilt forslag ikke brukt |
 | fig001_08 | Visuell kontroll: native kandidater viser feil retning eller ekstra hoder/personer. Generic prompttekst motsier kildebildet. | Avgrenset nytt bildeforsøk etter tillatelse |
-| fig001_09 | Visuell kontroll: native kandidater viser feil retning eller ekstra hoder/personer. Generic prompttekst motsier kildebildet. | Avgrenset nytt bildeforsøk etter tillatelse |
+| fig001_09 | Tidligere feil retning eller ekstra deler, nå rettet med prompt.txt ordrett | Levert i d209ae32; særskilt forslag ikke brukt |
 
 Det må fortsatt kjøres vanlig objekt- og geometrikontroll etter et nytt forsøk. Et forslag er ikke en godkjenning av fremtidig resultat. Originalfiler og feilforsøk beholdes.
