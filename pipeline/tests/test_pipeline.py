@@ -1107,3 +1107,127 @@ def test_gpt_repair_edges():
     clean = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8))
     same, none = gpt.repair_edges(clean, {"bunn", "topp", "venstre", "hoyre"})
     assert none == {} and same is clean
+
+
+def _smooth_sheet(ex, job, scale=5.2, head_shift=(0, 0)):
+    """Et ark i glatt stil for jobben: hver rute tegnet på nytt i større skala (scale i stedet for 4),
+    med myk alfakant og litt annen plassering enn i referansen. Gir arket og boksene (x, y, b, h)
+    rundt hver tegnet rute med alfa over 128."""
+    import numpy as np
+    from PIL import ImageFilter
+
+    sheet = Image.new("RGBA", tuple(job["lerret"]), (0, 0, 0, 0))
+    boxes = {}
+    ox, oy = job["bilde_i_lerret"][:2]
+    for c in job["ruter"]:
+        with Image.open(ex / "costumes" / f"{c['bilde']}.png") as im:
+            o = im.convert("RGBA")
+        bbox = o.getchannel("A").getbbox()
+        if not bbox:
+            continue
+        o = o.crop(bbox)
+        w, h = round(o.width * scale), round(o.height * scale)
+        a = o.getchannel("A").resize((w, h), Image.BILINEAR).filter(ImageFilter.GaussianBlur(1.5))
+        rgb = o.convert("RGB").resize((w, h), Image.BICUBIC)
+        part = rgb.convert("RGBA")
+        part.putalpha(a)
+        # Arket er tegnet i større skala, med samme rekkefølge og rader som referansen
+        cx = ox + (c["synlig"][0] + c["synlig"][2]) / 2 * scale + 6
+        by = oy + c["synlig"][3] * scale + 10
+        x, y = round(cx - w / 2), round(by - h)
+        sheet.alpha_composite(part, (x, y))
+        core = np.asarray(a) >= 128
+        ys, xs = np.nonzero(core)
+        boxes[c["bilde"]] = [x + int(xs.min()), y + int(ys.min()), int(xs.max() - xs.min() + 1),
+                             int(ys.max() - ys.min() + 1)]
+    return sheet, boxes
+
+
+def test_smooth_figure_sheet_import(tmp_path):
+    # Mottaket for figurark i glatt stil: tegningen skaleres til originalens høyde, legges over
+    # originalruten og beholder sin egen myke alfa, med marg rundt ruten
+    import hashlib
+    import json
+    import numpy as np
+    from dighd import gpt, myk
+
+    ex = _figure_extract(tmp_path)
+    work = tmp_path / "gpt"
+    gpt.make_jobs(ex, work, figures="pilot")
+    job = json.loads((work / "jobber" / "fig014_01" / "jobb.json").read_text())
+    sheet, boxes = _smooth_sheet(ex, job)
+    res = work / "jobber" / "fig014_01" / "resultat.png"
+    sheet.save(res)
+    rep_dir = work / "rapporter" / "figurer"
+    rep_dir.mkdir(parents=True)
+    (rep_dir / "fremdrift.json").write_text(json.dumps({"leveranser": [
+        {"jobb": "fig014_01", "resultat": "jobber/fig014_01/resultat.png",
+         "sha256": hashlib.sha256(res.read_bytes()).hexdigest()}]}))
+
+    for with_map in (False, True):
+        out = tmp_path / ("med-kart" if with_map else "uten-kart")
+        if with_map:
+            (rep_dir / "rutekart-del1.json").write_text(json.dumps({"fig014_01": {"koblinger": [
+                {"bilde": b, "native_analyseboks_alfa128": box} for b, box in boxes.items()]}}))
+        r = myk.import_all(work, ex, out)
+        sheet_rep = r["ark"]["fig014_01"]
+        assert sheet_rep["metode"] == ("rutekart" if with_map else "rader"), sheet_rep
+        cels = sheet_rep["ruter"]
+        drawn = [b for b in cels if cels[b]["status"] != "tom"]
+        assert drawn and all(cels[b]["status"] == "ok" for b in drawn), cels
+        for b in drawn:
+            with Image.open(ex / "costumes" / f"{b}.png") as im:
+                o = np.asarray(im.convert("RGBA"))[..., 3] > 0
+            with Image.open(out / "costumes" / f"{b}_hd.png") as im:
+                n = np.asarray(im.convert("RGBA"))[..., 3]
+            mx, my = cels[b]["marg"]
+            assert modpack.soft_size_ok((n.shape[1], n.shape[0]), (o.shape[1], o.shape[0]), 4)
+            assert n.shape == ((o.shape[0] + 2 * my) * 4, (o.shape[1] + 2 * mx) * 4)
+            # Egen myk kant, ikke originalens trappetrinn
+            assert ((n > 20) & (n < 235)).sum() > 50
+            # Samme høyde og samme sted som originalen i 4x
+            core = n[my * 4:my * 4 + o.shape[0] * 4, mx * 4:mx * 4 + o.shape[1] * 4] >= 128
+            o4 = np.repeat(np.repeat(o, 4, 0), 4, 1)
+            iou = (core & o4).sum() / (core | o4).sum()
+            assert iou > 0.85, (b, iou)
+        assert (out / "myke.json").exists()
+
+    # build-mod tar med de myke rutene og indeksbildene
+    mod = tmp_path / "mod"
+    modpack.build_mod(ex, mod, scale=4, method="nearest", rooms=set(), own=tmp_path / "med-kart")
+    for b in drawn:
+        assert (mod / "costumes" / f"{b}_hd.png").exists() and (mod / "costumes" / f"{b}_idx.png").exists()
+    assert not modpack.soft_size_ok((100, 100), (24, 48), 4)
+
+
+def test_smooth_figure_import_is_cached(tmp_path):
+    # Et ark som er tatt inn før, med samme bilde, jobb og rutekart, tas ikke inn på nytt
+    import hashlib
+    import json
+    from dighd import gpt, myk
+
+    ex = _figure_extract(tmp_path)
+    work = tmp_path / "gpt"
+    gpt.make_jobs(ex, work, figures="pilot")
+    job = json.loads((work / "jobber" / "fig014_01" / "jobb.json").read_text())
+    sheet, _ = _smooth_sheet(ex, job)
+    res = work / "jobber" / "fig014_01" / "resultat.png"
+    sheet.save(res)
+    (work / "rapporter" / "x").mkdir(parents=True)
+    (work / "rapporter" / "x" / "fremdrift.json").write_text(json.dumps({"leveranser": [
+        {"jobb": "fig014_01", "resultat": "jobber/fig014_01/resultat.png",
+         "sha256": hashlib.sha256(res.read_bytes()).hexdigest()}]}))
+    out = tmp_path / "ut"
+    first = myk.import_all(work, ex, out)
+    calls = []
+    real = myk.import_sheet
+    myk.import_sheet = lambda *a, **k: calls.append(1) or real(*a, **k)
+    try:
+        again = myk.import_all(work, ex, out)
+        assert not calls and again["ark"]["fig014_01"]["ruter"] == first["ark"]["fig014_01"]["ruter"]
+        # En rute som mangler i ut-mappen, gir nytt mottak
+        next(iter((out / "costumes").glob("*_hd.png"))).unlink()
+        myk.import_all(work, ex, out)
+        assert calls
+    finally:
+        myk.import_sheet = real

@@ -191,7 +191,7 @@ Testet 2026-10-09 i Chromium uten skjerm (Playwright): nøkkelfeltet første gan
 
 ## Linux: én fil med alt
 
-Den komplette pakken er én AppImage med ScummVM med HD-patchen, spillet, musikk, tale og HD-grafikken (omtrent 950 MB). Den ligger under Releases i dette repoet, release `linux`: https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux. Repoet er privat, så filen kan bare lastes ned innlogget.
+Den komplette pakken er én AppImage med ScummVM med HD-patchen, spillet, musikk, tale og HD-grafikken (omtrent 950 MB). Den ligger under Releases i dette repoet, release `linux`: https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux. Repoet er offentlig, så filen kan lastes ned uten å logge inn.
 
 ```sh
 chmod +x TheDigHD-x86_64.AppImage

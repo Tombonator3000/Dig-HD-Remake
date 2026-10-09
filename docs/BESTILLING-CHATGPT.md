@@ -93,6 +93,15 @@ Figurene er kostymer: animasjonsruter som spillet tegner etter hverandre. 331 ko
 - Ruter som ikke får plass på et ark i 4x, skaleres ikke ned. De blir egne jobber, og er de bredere eller høyere enn lerretet, deles de som rommene. Det gjelder bare én rute i hele spillet (kostyme 119, 468 x 122).
 - Leveres som rommene.
 
+#### Glatt stil (fra 9. oktober 2026)
+
+Tom har valgt den glatte, detaljerte stilen med myke kanter for Boston, Brink og Maggie. Slike ark tegnes på gjennomsiktig bakgrunn med ekte alfa, ikke på flat farge, og figurene kan være tegnet i en annen størrelse og litt andre steder enn i referansen. De klippes ikke med originalens omriss. `dighd myke-figurer` tar dem inn:
+
+- Arkene som er levert, står under `leveranser` i `rapporter/*/fremdrift.json` med `jobb`, `resultat` (stien til PNG-en) og `sha256`. Stemmer ikke sha256 med filen, tas arket ikke inn.
+- Rutekartet (`rapporter/*/rutekart*.json`) kobler hver rute (`bilde`) til boksen rundt delen av tegningen med alfa over 128, `[x, y, bredde, høyde]`, under `ny_diagnostisk_rekt_alfa128`, `drawn_bbox_alpha128`, `native_analyseboks_alfa128` eller `rect`. Uten rutekart kobles rutene etter rad og rekkefølge, og da må antall rader og deler per rad stemme med referansen.
+- Hver gruppe av ruter (samme animasjon og lag, samme rad på arket) skaleres til originalens høyde, og hver rute legges over originalruten der omrisset dekker best. Hoder kan derfor gjerne være tegnet større enn kroppene; de skaleres for seg.
+- Ruter der omrisset er svært ulikt originalen (dekker under 80 prosent av originalens piksler, eller snitt over union under 0,6), får status sjekk i `myke.json` og kontaktark `forhandsvisning/myk_<jobb>.png`. De brukes likevel.
+
 Alle kostymene med navn, antall ruter og antall ark står i `docs/figurer.csv` i grenen `main`, sortert etter hvor mye de vises: hovedpersonene først (Boston Low 14, Maggie Robbins 18, Ludger Brink 15 med variantene 17 og 16), så de andre kostymene deres, så resten. Alle kostymene ville gitt 4031 ark. De tre hovedkostymene gir 114 ark, og alle de 54 kostymene der hovedpersonene er med, 509 ark.
 
 Kolonnene i `docs/figurer.csv`: `figur` og `hva` er satt ved gjennomsyn av rutene (tom: ikke kartlagt). `rom` er rommet kostymet ligger i (hovedkostymene ligger i rom 7, men brukes på hele planeten). `retninger` og `animasjoner` er lest fra AKOS (AKHD, AKCH og AKSQ). `ark` er antall figurark med pakkingen over, `jobber` antall jobber (store ruter kan bli flere), `store_ruter` ruter som ikke får plass på et ark. `skript_ganger` og `skript_rom` er hvor mange ganger og i hvilke rom skriptene gir en skuespiller kostymet med et fast nummer (`actorOps` med `SO_COSTUME`). `tegnet_i_romtest` er rommene der motoren tegnet kostymet da den hoppet til hvert rom fra starten av spillet; der har mannskapet fortsatt romdrakt, så hovedkostymene vises lite. Rekkefølgen: de tre hovedkostymene, så de andre kostymene med hovedpersonene, så resten, hver gruppe etter `skript_rom`, `skript_ganger` og antall ruter. Navnet i `figur` brukes i prompten når det er en av hovedpersonene, og `rekkefolge` avgjør rekkefølgen på figurarkene med `--figurer alle`.
