@@ -65,6 +65,9 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Godkjenning: forskyvning 0,75 px, blokker 1,0 px, kantlikhet 0,55 (sjekk: 1,5 / 2,0 / 0,40). Fargelås sigma 6, styrke 1.
 - Erfaring fra Jones: ChatGPT bommer på tekst og plassering, og stilen ble skiftet flere ganger. Derfor pilot, stilankere, automatisk kontroll og sporing.
 
+## Neste spill
+- Fremgangsmåten for HD-utgaver av andre SCUMM-spill er samlet i skillen `scumm-hd-remake` (foreslått 9. oktober). Tom planlegger Zak McKracken og Sam & Max. Dette repoet er referansen skillen peker til.
+
 ## Åpne valg
 - Ingen for figurstilen: den glatte stilen er valgt for hovedpersonene. Resten av kostymene er ikke bestilt.
 

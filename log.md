@@ -267,3 +267,8 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - PR 35 flettet (35cadc8). Runde med `myke-figurer`: 2957 myke ruter, modden publisert i `hd-mod` (3044370, 334 MB). Beskjed til Codex i ORDRE.md: fortsett med resten av hovedfigurene, med rutekart og leveranser som før.
 - Nettsiden: motoren bygget på nytt i Dig-HD-Web (337c1ea). Testet den publiserte siden i Chromium uten skjerm: den hentet fortsatt de gamle rutene, fordi filtreet fra `hd-mod` ble filtrert med et mønster uten `_hd.png`. PR 36 (7cef3ca) og Dig-HD-Web e99179e retter det. Ny test mot den publiserte siden: Boston går i rom 22 med de myke rutene (`costume014_773_hd.png` og de andre), ingen feil.
 - Linux-pakken bygget på nytt med den nye motoren og modden (kjøring 37966457107): `TheDigHD-x86_64.AppImage` 844 MB, hd-mod 3044370.
+
+## 2026-10-09 20:56 til 21:10 (Claude)
+- Tom vil lagre fremgangsmåten for HD-utgaver av andre LucasArts-spill (Zak McKracken, Sam & Max). Foreslo skillen `scumm-hd-remake`: hvor referansen ligger i dette repoet, grunnideen i motoren, fasene fra oppsett til nettside og Linux-pakke, lærdom og fallgruver (motor, grafikk fra ChatGPT/Codex, uttrekk, test, distribusjon, sandkassen), tilpasning per SCUMM-versjon og arbeidsformen. Tom lagrer den fra kortet.
+- Sjekket i ScummVM-kilden (c9091321): Sam & Max er v6 (`samnmax`, `GF_USE_KEY`, `ClassicCostumeRenderer`, `CharsetRendererClassic`); Zak er v1, v2 og FM-Towns v3 (`GF_OLD256`, `CharsetRendererTownsV3`). Tilpasningene for andre spill er ikke testet.
+
