@@ -27,3 +27,5 @@ Fragmentpresisering gruppe16: De svært små originalfragmentene er oppført sep
 Gruppe 16: sporing-del16.json, filkontroll-del16.json og rutekart-del16.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
 
 Gruppe 18: sporing-del18.json, filkontroll-del18.json og rutekart-del18.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Gruppe 19: sporing-del19.json, filkontroll-del19.json og rutekart-del19.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
