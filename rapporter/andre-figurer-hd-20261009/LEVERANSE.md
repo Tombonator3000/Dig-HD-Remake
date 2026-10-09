@@ -2,7 +2,7 @@
 
 Bestilt av Tom 9. oktober 2026 som resten av grafikk og sprites. Denne runden omfatter 3 523 figurark utenfor de 509 hovedfigurarkene. Filmene (SAN) er ikke med. Native bildefiler leveres byteidentisk med ekte alfa, i glatt detaljert stil. Originale inputfiler og prompt.txt bevares.
 
-Foreløpig er 164 av 3523 ark levert, tilsvarende 1511 av 20799 originaloppføringer. 3359 ark gjenstår. fremdrift.json er den løpende oversikten.
+Foreløpig er 169 av 3523 ark levert, tilsvarende 1600 av 20799 originaloppføringer. 3354 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Ruterekstangler er kildekontrollert diagnostikk, ikke ferdig importgeometri eller ankere. Rene magenta skygge- og registreringsmerker utelates som uttrykkelig bestilt i prompt.txt; kildepikselbevis står i originalrader.json. Alle andre små deler skal vurderes mot originalen. Ingen spilltest er utført.
 
@@ -51,3 +51,5 @@ Leveransegruppe 21: fig005_53, fig032_08, fig032_10, fig032_12, fig032_14, fig03
 Leveransegruppe 22: fig033_03, fig026_02, fig022_02, fig022_03, fig022_04, fig022_05, fig022_07. 92 tegnede figurområder, 112 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
 
 Leveransegruppe 23: fig023_02, fig023_03, fig023_05, fig023_06, fig023_07, fig023_08, fig066_01. 67 tegnede figurområder, 93 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
+
+Leveransegruppe 24: fig067_01, fig074_01, fig034_02, fig034_03, fig034_05. 89 tegnede figurområder, 89 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
