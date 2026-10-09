@@ -1,0 +1,61 @@
+[
+ {
+  "jobb": "fig016_10",
+  "attempt": 4,
+  "prompt": "Remove ALL background from this attached sprite sheet. This is a strict transparent cutout edit. Preserve every existing drawn character, detached head, hand and tiny fragment, pose, direction, clothing detail, order, size, position and spacing EXACTLY unchanged. Keep all approved smooth inked cel-shaded character artwork and fine details.\n\nThe brown/orange smoky haze, gray wash, black fill, colored glow and shadows between and behind the sprites are unwanted BACKGROUND, not part of the character. Completely erase them to TRUE ALPHA ZERO across ALL empty canvas, including every gap between legs, arms, head, hands and adjacent characters. Only actual drawn character pixels and a narrow smooth antialiased edge remain. No haze, halo, dark film, ambient colors, floor or cast shadow anywhere. No new content. Do NOT fill transparency with black or any other color. Do not cut holes in opaque orange pants, skin, clothing or boots. Preserve native antialiased silhouettes; do not use blocky source masks.\n\nReturn the complete uncropped sheet, exactly1536x1024 RGBA, true transparent background. Keep exact rows 4,4,3 and ALL original parts. This edit only removes the residual backdrop, with no creative change to the sprites. The canvas must be entirely transparent outside the artwork and its narrow smooth antialias edge.",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cb02ebda-73a7-4976-a164-f05323ab7760.png"
+  ],
+  "rows": [
+   4,
+   4,
+   3
+  ],
+  "fragments": 0,
+  "correction": "frilegging av synlig restbakgrunn, med alle figurdeler bevart",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7b3cabda-4f68-462f-8ef3-b634986967b7.png",
+  "erstatter_sha256": "6bc2d726d5d7e6dea2cf69624d9a5af80bbcf50a0962d186e45f36e6ada7ebd5",
+  "figure": "Ludger Brink",
+  "attempts": 4,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7b3cabda-4f68-462f-8ef3-b634986967b7.png",
+  "sha256": "74aa84a85e2fef7e58f45a07d2acf4e0319e943e4dfec663a0d210f54746ca45",
+  "originalruter": 11,
+  "resultat": "jobber/fig016_10/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "ef89fe0e1f251150789a483e8feb9d28f78f57e7a6e8e9a3b2a9a684119cc5f5",
+   "original_1x.png": "f1c9b1f02c1e127353da6c75308349183a416e6b9b533ac7e5596e20366dfdf8",
+   "prompt.txt": "8e86eb5660f685a7bdc28ca2a519b2fee0b4ad9d115132950fccfebdbc20776d",
+   "jobb.json": "3910d82fe8233b1f1ce1d21da872c566a0b97756d4a4b2115feb86153dfa623e"
+  }
+ },
+ {
+  "jobb": "fig016_11",
+  "attempt": 2,
+  "prompt": "Edit the FIRST attached finished sprite sheet with ONE costume correction throughout. The SECOND image is the original source for the correct clothing. Keep every character, head, headless torso, face, pose, gesture, direction, silhouette, scale, position, spacing and row count unchanged. Keep the same smooth detailed hand-drawn HD quality and native antialiased RGBA alpha.\n\nThe orange trousers have INTACT FABRIC in this costume. Remove ALL torn holes, exposed skin, ripped knees, pale/white/gray patches on the knees and torn edges in EVERY body on the sheet. Paint those regions as unbroken orange trouser fabric with the existing natural folds and shading. Both knees must be covered by continuous orange cloth, on every body and in every view. Do not leave a single white spot or exposed skin patch on any knee. The small original flat ochre cargo-pocket tab at the upper right thigh may remain flat ochre, and is NOT a skin hole. Do not introduce new marks.\n\nDo not change any other clothing, heads, hands, boots or details. Preserve headless bodies as headless and detached heads as detached. Preserve all counts and their exact order: 6,6,6. Transparent background, no glow, shadows, grid, text or background. Exactly 1536 x 1024 RGBA, full uncropped original layout.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_11/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_11/referanse.png"
+  ],
+  "rows": [
+   6,
+   6,
+   6
+  ],
+  "fragments": 0,
+  "correction": "hele bukseknær, original kostymedetalj",
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8d197a85-c16c-4419-96d6-cd91d1d1c4da.png",
+  "erstatter_sha256": "3874ab8bb3dc2b032ff671c4c509f91bce61fbdcb2237c21d9b89c46f4f2a51a",
+  "figure": "Ludger Brink",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8d197a85-c16c-4419-96d6-cd91d1d1c4da.png",
+  "sha256": "c69eb4c991ff0c5a82fcfe40d4702c70c0c01d2759af1de14958fd363cff4dd2",
+  "originalruter": 18,
+  "resultat": "jobber/fig016_11/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "37a37230ebea2d04827430c6c6964f7354cb2e6e75013ca9a5e8e2efa159279c",
+   "original_1x.png": "c418992d12c091ed01a293569698471d37fd8863e89fdcee70c962299c3c8cc0",
+   "prompt.txt": "7f8125b803438a49b1d58f01b27299314f4f6870c45b2830cb2251141a5aac0f",
+   "jobb.json": "57624ef5dff4d899cf09a2d0aeda030d7b2635f45fa2d928ba2a0b6667331908"
+  }
+ }
+]
