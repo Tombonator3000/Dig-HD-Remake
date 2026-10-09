@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-09T23:21:11.609799+00:00",
+ "oppdatert_utc": "2026-10-09T23:25:13.910886+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 30,
+ "antall": 51,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -780,6 +780,171 @@
    "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
   },
   {
+   "jobb": "fig032_16",
+   "siste_kontrollerte_forsok": 3,
+   "kandidat_sha256": "cf502317ce106caaf9f079f5ee51e3ee25e1173b8837a83cdc0b503f19dae824",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Tredje forsøk har grønne rektangulære rammer, som ikke tilhører originalmotivet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4
+    ],
+    "native_rader": [
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 14982,
+     "maks": 127,
+     "piksler_over_16": 3728
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig035_04",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "d5fcc2d0e892033eda6a273ef7e76d5f2934e299d43c35de1cc74eaed2ecacb4",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Andre forsøk følger de to diagonale former, men har restalfa op til 110/255 med 35 piksler over 16 utenfor konturen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     4,
+     9,
+     5,
+     11,
+     2,
+     8,
+     5,
+     7,
+     6,
+     6,
+     8,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 3608,
+     "maks": 110,
+     "piksler_over_16": 35
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig035_12",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "50fb3b0754e1daab8a5022611f3bfcbbdf0a7a9a94ff86c249b97238d7fab110",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Andre forsøk finner opp liggende personer og magenta rektangler; originalen viser tynde adskilte former. Forkert motiv og synlige rammer.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "native_rader": [
+     4,
+     3,
+     9,
+     13,
+     11,
+     18,
+     12,
+     16,
+     14,
+     9
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 178225,
+     "maks": 127,
+     "piksler_over_16": 7022
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig035_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "af1db95ec21f87adbb2a23ff314b4b8c9ca0259a3247d019eba897177841de03",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Restalfa op til 123/255 med 350 piksler over 16 utenfor konturen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1,
+     1
+    ],
+    "native_rader": [
+     4,
+     2,
+     1,
+     3,
+     2,
+     1,
+     3,
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 5319,
+     "maks": 123,
+     "piksler_over_16": 350
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig035_20",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ee7ea0e6e84fb18e522beb3eb88e3ad620493cb4d52b8456a2986464099b1012",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Restalfa op til 113/255 med 15 piksler over 16 utenfor konturen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1
+    ],
+    "native_rader": [
+     4,
+     1,
+     5,
+     1,
+     3,
+     4,
+     1,
+     4,
+     4,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 1821,
+     "maks": 113,
+     "piksler_over_16": 15
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
    "jobb": "fig039_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "b43122fa83f4b7625f133286cfaf34b6384fd0083244b5dce54370b79ca496f8",
@@ -828,6 +993,442 @@
     }
    },
    "neste": "Kildebundet nytt forsøk eller særskilt korrigeringsprompt etter tillatelse. Originaler og eksisterende leveranser bevares."
+  },
+  {
+   "jobb": "fig042_01",
+   "siste_kontrollerte_forsok": 3,
+   "kandidat_sha256": "fd608b2bf42a06987a51b542d4e0534381c2a4279607f53d48be7bd30e729346",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Tredje forsøk har fem figurer men finner opp udstrakte talehåndbevægelser; originalens arme er senket.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     4
+    ],
+    "native_rader": [
+     1,
+     4
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 5306,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig043_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "6e029c8cd43e80ea7019dc28ec961a9503cee16b5ee20a6e0c86a9d5260316d5",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Første rad har 10 astronauter; originalen har 9. Ekstra animationsrute.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     9,
+     1,
+     4
+    ],
+    "native_rader": [
+     10,
+     1,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 19574,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig076_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "118bc55673575882c13c766337215ef5d41286c6f6e720cff8aca7479287e9b0",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Andre forsøk finner opp postkasselignende former; de to originale ruter er tynde sorte konturer.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 462,
+     "maks": 1,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig079_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "fe2fbcc941bba64567e80b9abc1cf3bb763d25362e0ad088553f93f195054292",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Andre forsøk har 52 ruter mod 38 i originalen. En ekstra rad på 14 er lagt til.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     14,
+     14,
+     8
+    ],
+    "native_rader": [
+     2,
+     14,
+     14,
+     20,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 41518,
+     "maks": 17,
+     "piksler_over_16": 2
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig087_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "c539e831ef4157b347a6d71ab8c531a3daaf587172cf801e7b2809e716bf3685",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Den venstre smalle originaldel mangler, og originalens centrale trekantede hul er fylt.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2875,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig090_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "b5a518f8085f98d9ad266c2bf6f5046310c08c53267181378aec73472309b32f",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Den venstre smalle originaldel mangler, og originalens centrale trekantede hul er fylt.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     1,
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4451,
+     "maks": 7,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig093_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "fc164cee602080e69980ca1b9aee5fb2dcdab346488f0d8d96a7f3e1a09c264e",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Første forsøk har røde rammer og to ekstra ruter i første rad. Nytt ordret forsøk er under behandling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     10,
+     4
+    ],
+    "native_rader": [
+     29,
+     12
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 44835,
+     "maks": 127,
+     "piksler_over_16": 4770
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig105_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e80bf8470f59f75cadec79040ca094fcc530f2047e691e769904af4168aad156",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Fem af elleve vesentlige originaldele mangler.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     4,
+     4,
+     2
+    ],
+    "native_rader": [
+     1,
+     1,
+     4,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 18359,
+     "maks": 127,
+     "piksler_over_16": 742
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig115_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7cf2d41aae2d8518e154809cf5ec3f74e5a8fc7dbc7057ad82cf202a5338c621",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Seks tynde originaldele over de to terrænpaneler mangler. Nytt ordret forsøk er under behandling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6,
+     1,
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2768,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig116_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "711c9c8a9c495ca6bf33ac11a51a608a6d0a4cf47d8410f6918c8bd82667b3a2",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "85 hele figurer og grønne rammer er lagt til mod seks vesentlige originalruter. Nytt ordret forsøk er under behandling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     2,
+     3
+    ],
+    "native_rader": [
+     31,
+     30,
+     24
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 126797,
+     "maks": 114,
+     "piksler_over_16": 18991
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig117_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "21b7014d0e25dbff69768b671012a5a5f12a069aa31c22216d1b8f69025d7481",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "29 tegnede ruter mod 35 vesentlige originalruter; blandt andet de sidste bølgefaser mangler. Nytt ordret forsøk er under behandling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     10,
+     5,
+     4,
+     5,
+     8,
+     3
+    ],
+    "native_rader": [
+     10,
+     4,
+     4,
+     4,
+     7
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 142439,
+     "maks": 120,
+     "piksler_over_16": 2788
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig118_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "dc793f7ecac8b9c3bf4aee3fda5874b219bec66e6c596939f11dc2873cadfa35",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Kun 13 hvirvelfaser er tegnet mod 22 originale faser.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     6,
+     4,
+     5,
+     6
+    ],
+    "native_rader": [
+     1,
+     12,
+     9,
+     3,
+     9,
+     3,
+     14,
+     17
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 69761,
+     "maks": 124,
+     "piksler_over_16": 2852
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig124_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "72b65ff58466072c7e71c3e186dd2ec4a8a7bd6388e3f29aee754af7b76e3816",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Blå strømningsfaser er ændret til orange lava. Nytt ordret forsøk er under behandling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3
+    ],
+    "native_rader": [
+     7,
+     1,
+     9,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 2091,
+     "maks": 67,
+     "piksler_over_16": 3
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig125_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2605d3d050abdcaa4b1fd9e6fc35d51f5161f53bac2bb518187c1e7227c174e4",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Tre store former mod fem vesentlige originalruter; små originaldele mangler. Nytt ordret forsøk er under behandling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     4
+    ],
+    "native_rader": [
+     3,
+     2,
+     6,
+     1,
+     1,
+     3,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 19523,
+     "maks": 121,
+     "piksler_over_16": 2412
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig127_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cf11ac0c37f9c7e0a0b87ce1f3902388de81f6e15f1926a61298401382838ad2",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Fire former er til stede, men fire restalfapiksler over 16 består ikke den lokale prøve. Nytt ordret forsøk er under behandling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 41189,
+     "maks": 17,
+     "piksler_over_16": 4
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig131_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "bcfcc7963d37e0b8080e8840b69c3e394dd3029b42e4ad57ea878e57e755d7fc",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Cyan rektangulære rammer er tegnet rundt ruterne. Originalens baggrund er ikke en del af motivet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     2,
+     1
+    ],
+    "native_rader": [
+     1,
+     2,
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 31501,
+     "maks": 8,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
   }
  ]
 }
