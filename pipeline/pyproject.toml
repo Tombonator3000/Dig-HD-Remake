@@ -28,5 +28,8 @@ dighd = "dighd.cli:main"
 [tool.setuptools]
 packages = ["dighd"]
 
+[tool.setuptools.package-data]
+dighd = ["skrifter/*/*"]
+
 [tool.pytest.ini_options]
 markers = ["game: trenger spillfilene i game/ (hentes med tools/hent_spilldata.sh)"]

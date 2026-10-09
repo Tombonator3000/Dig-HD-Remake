@@ -273,7 +273,33 @@ Skalererne ble først prøvd i Python på alle 8 fontene, så i spillet og i int
 | xBR 4x (valgt) | Jevne rundinger og skrå kanter med myke kanter, og formen er fontens egen. Hver farge skaleres som maske for seg. Nivået som ligger mest langs utsiden (den svarte kanten), får det som er igjen av hele glyfen, så kant og tekstfarge passer sammen |
 | Hver glyf for seg, uten nabotegn | Avrundede ender der tegnene møtes: hakk i den svarte kanten mellom bokstavene og stiplede skyveknapper i menyen og volumbanneret. Derfor steg 4 over |
 
-Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `xbr` (standard), `scale4x`, `nearest` eller `off` (tekst som originalpiksler, som før).
+### HD-skrift (Exo 2)
+
+Pikselfontene er små (bokstavene er 5 til 9 piksler høye), og xBR kan ikke gjette formen når en strek er én piksel: i menyen ble D nesten O og t en pil. Derfor tegnes bokstavene nå med en ekte skrift, Exo 2 (SIL Open Font License 1.1), når modden har den. `dighd build-mod` legger den med i alle modder (uten `--uten-skrift`).
+
+Modden har:
+
+- `fonts/map.txt`: én linje `<spillskrift> <mappe>` per font. Spillskriftene er tegnsettnumrene (`_curId`, 0 til 9) og 100 + n for `FONTn.NUT`. Fonter som ikke står der, tegnes med xBR som før.
+- `fonts/<mappe>/NNN.png`: en bokstav per tegnkode 33 til 126, hvit RGBA med dekningen i alfa, beskåret til blekket. Laget av `pipeline/dighd/skrift.py` fra skriftfilene i `pipeline/dighd/skrifter/exo2/` (vekt 700).
+
+Slik lages en bokstav (`makeFaceGlyph`):
+
+1. Tegneren melder fontnummeret og tegnkoden sammen med glyfen (`GlyphDraw::font` og `chr`). `NutRenderer` får fontnummeret fra filnavnet.
+2. Nivået som ligger mest langs utsiden er kanten eller skyggen, det andre er bokstaven. Har glyfen mer enn to nivåer, brukes xBR.
+3. Bokstaven fra Exo 2 får høyden til boksen rundt originalbokstavens piksler, og bredden den har i skriften (skjermen vises 1,2 ganger høyere enn pikslene, så bredden ganges med 1,2). Den sentreres i boksen og blir aldri bredere enn den. Uten dette ble smale bokstaver som i like brede som pikselfontens føtter. Dekningen regnes med 4 x 4 prøver per HD-piksel.
+4. Kanten lages som originalen har den: en ring på én originalpiksel rundt bokstaven, eller bokstaven flyttet én piksel (skygge). Det som passer best med originalens kant velges, og overlappet må være minst 0,6, ellers brukes xBR.
+
+Fargene, plasseringen, linjebruddene og hvordan teksten fjernes er som for de andre HD-glyfene over.
+
+Testet uten skjerm 2026-10-09 med modden `gpt` pluss skriften:
+
+- Rom 2 med `--subtitles`: replikkene bruker tegnsett 2, og alle bokstavene fikk Exo 2 (21 former fram til bilde 1400, alle med ring rundt). Leselig, i har prikk, og avstanden mellom ordene er som før.
+- Hovedmenyen (F5 i rom 22): tegnsett 1. «Display Text», «Text Speed», «Voice» og knappene leses riktig, der xBR ga O for D og en pil for t.
+- Introfilmen: undertekstene bruker `FONT0.NUT` (100) og fikk Exo 2 («Borneo Deep Space Observatory», «This is the loneliest place on earth.»). Bokstavene står litt luftig, fordi de er smalere enn boksene i pikselfonten.
+- `engine/test.sh` (modden `test-nearest` har ingen skrift): 0 avvik i bakgrunner og uskalerte figurer, skjermen lik hele skjermen bygget på nytt i alle 12 dumper. Avvik bare i bilder med skalerte figurer (500, 1750 og 2000).
+- Ikke testet: tegnsett 0 og 3 og NUT-font 1 til 3 i spill, ekte skjerm.
+
+Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger hvordan glyfene lages: `font` (standard: HD-skriften der modden har den, ellers xBR), `xbr`, `scale4x`, `nearest` eller `off` (tekst som originalpiksler, som før).
 
 ## Stedene i ScummVM som er endret
 
@@ -283,8 +309,8 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `
 | `scumm.cpp` | Lager DigHD, setter opp HD-skjermen, motoren holder seg i 8 bit, hook før hver skjermoppdatering |
 | `gfx.cpp` | Siste blit (`drawStripToScreen`), overgangseffekter, `moveScreen`, risting av skjermen. `markRectAsDirty` nullstiller glyfene og figurmerkene i området (figurmerkene ikke når en skuespiller merker sitt eget rektangel) |
 | `gfx_gui.cpp` | DigHD får beskjed når skjermen lagres før et banner og legges tilbake etterpå (`showBannerAndPause`, `clearBanner`). Raden HD Graphics i hovedmenyen til The Dig (`setUpMainMenuControls`, `updateMainMenuControls`, `executeMainMenuOperation`, `drawMainMenuTitle`) |
-| `charset.cpp` | Melder hver glyf fra tegnsettene i spillet (`CharsetRendererV7::drawCharV7`) |
-| `nut_renderer.cpp` | Melder hver glyf fra NUT-fontene i filmene (`NutRenderer::drawCharV7`) |
+| `charset.cpp` | Melder hver glyf fra tegnsettene i spillet (`CharsetRendererV7::drawCharV7`), med tegnsettnummer og tegnkode |
+| `nut_renderer.cpp`, `nut_renderer.h` | Melder hver glyf fra NUT-fontene i filmene (`NutRenderer::drawCharV7`), med fontnummer (100 + n fra `fontN.nut`) og tegnkode |
 | `string_v7.cpp` | Teksten som tegnes og merkes, nullstiller ikke seg selv. `removeBlastTexts` nullstiller glyfene i spillskjermen |
 | `palette.cpp` | Palett sendes til DigHD i stedet for til skjermen |
 | `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand. Blast-objekter beholder figurmerkene under seg |
@@ -300,7 +326,7 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `
 | `DIGHD_SCALE` / `dighd_scale` | Skala, standard 4 |
 | `DIGHD_CLASSIC=1` / `dighd_classic=true` | Starter i klassisk grafikk. HD Graphics i menyen og Ctrl+H bytter og skriver `dighd_classic` i `[scummvm]` |
 | `DIGHD_SHOW_MISSING=1` / `dighd_show_missing=true` | Starter med gult felt der HD mangler (Ctrl+Shift+H slår av og på) |
-| `DIGHD_TEXT` / `dighd_text` | Skalerer for teksten: `xbr` (standard), `scale4x`, `nearest` eller `off` (tekst som originalpiksler) |
+| `DIGHD_TEXT` / `dighd_text` | Teksten: `font` (standard, HD-skriften fra `fonts/` i modden, ellers xBR), `xbr`, `scale4x`, `nearest` eller `off` (tekst som originalpiksler) |
 
 Miljøvariabelen går foran nøkkelen i scummvm.ini. `DIGHD_CLASSIC=0` gir HD selv om `dighd_classic=true` står i filen.
 
