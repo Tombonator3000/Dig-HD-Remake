@@ -8,8 +8,11 @@ lager motoren selv ut fra originalen.
 Modden får:
   fonts/map.txt            "<spillskrift> <mappe>" per linje. Spillskriftene er
                            tegnsettnumrene (CHAR-ressursene) og 100 + n for FONTn.NUT.
-  fonts/<mappe>/NNN.png    hvit RGBA med dekning i alfa, beskåret til blekket,
-                           ett bilde per tegnkode 33..126.
+  fonts/<mappe>.png        alle bokstavene i ett bilde, hvit RGBA med dekning i alfa,
+                           hver beskåret til blekket.
+  fonts/<mappe>.txt        "<tegnkode> <x> <y> <b> <h>" per bokstav (33..126).
+
+Ett bilde per skrift, så nettsiden henter to filer og ikke én per bokstav.
 
 Skriften er Exo 2 (SIL Open Font License 1.1, se skrifter/exo2/OFL.txt).
 """
@@ -58,15 +61,25 @@ def lag_skrift(out: Path, kart: dict[int, str] | None = None) -> dict:
     antall = {}
     for mappe in sorted(set(kart.values())):
         font = ImageFont.truetype(str(SKRIFTER / VARIANTER[mappe]), STR)
-        d = fonts / mappe
-        d.mkdir(exist_ok=True)
-        n = 0
-        for c in TEGN:
-            g = tegn_bokstav(font, chr(c))
-            if g is not None:
-                g.save(d / f"{c:03d}.png", optimize=True)
-                n += 1
-        antall[mappe] = n
+        bokstaver = [(c, g) for c in TEGN if (g := tegn_bokstav(font, chr(c))) is not None]
+        # Rader på inntil 1024 piksler, 2 piksler luft mellom bokstavene
+        bredde, luft = 1024, 2
+        x = y = rad = 0
+        plass = []
+        for c, g in bokstaver:
+            if x + g.width > bredde:
+                x, y, rad = 0, y + rad + luft, 0
+            plass.append((c, x, y, g))
+            x += g.width + luft
+            rad = max(rad, g.height)
+        atlas = Image.new("RGBA", (bredde, y + rad), (255, 255, 255, 0))
+        for c, x, y, g in plass:
+            atlas.paste(g, (x, y))
+        atlas.save(fonts / f"{mappe}.png", optimize=True)
+        linjer = [f"# {mappe}: <tegnkode> <x> <y> <bredde> <høyde>"]
+        linjer += [f"{c} {x} {y} {g.width} {g.height}" for c, x, y, g in plass]
+        (fonts / f"{mappe}.txt").write_text("\n".join(linjer) + "\n")
+        antall[mappe] = len(plass)
     linjer = ["# HD-skrift: <spillskrift> <mappe>. 0-9 er tegnsettene, 100 + n er FONTn.NUT.",
               "# Skriften er Exo 2, SIL Open Font License 1.1."]
     linjer += [f"{k} {v}" for k, v in sorted(kart.items())]

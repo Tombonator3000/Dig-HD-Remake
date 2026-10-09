@@ -1245,12 +1245,16 @@ def test_text_font_letters(tmp_path):
                                    if l and not l.startswith("#"))}
     assert kart[2] == "exo2" and kart[100] == "exo2"
     assert (fonts / "OFL.txt").read_text().startswith("Copyright")
-    # hvit RGBA, beskåret til blekket: alfa når alle fire kanter, og "i" har prikken over staven
-    i = Image.open(fonts / "exo2" / "105.png")
-    assert i.mode == "RGBA"
-    a = np.asarray(i)[..., 3]
-    assert (np.asarray(i)[..., :3] == 255).all()
+    # ett bilde for skriften, og en linje per bokstav med plassen i bildet
+    atlas = Image.open(fonts / "exo2.png")
+    assert atlas.mode == "RGBA" and (np.asarray(atlas)[..., :3] == 255).all()
+    plass = {int(c): tuple(map(int, r)) for c, *r in (l.split() for l in (fonts / "exo2.txt").read_text().splitlines()
+                                                     if l and not l.startswith("#"))}
+    assert sorted(plass) == list(range(33, 127)) and 32 not in plass
+    x, y, w, h = plass[105]  # "i": beskåret til blekket, prikken over staven
+    a = np.asarray(atlas)[y:y + h, x:x + w, 3]
     assert a[0].max() > 128 and a[-1].max() > 128 and a[:, 0].max() > 128 and a[:, -1].max() > 128
     rows = a.max(axis=1) > 128
     assert rows[0] and rows[-1] and not rows.all()  # et mellomrom mellom prikk og stav
-    assert not (fonts / "exo2" / "032.png").exists()  # mellomrom tegnes ikke
+    for c, (x, y, w, h) in plass.items():
+        assert x + w <= atlas.width and y + h <= atlas.height

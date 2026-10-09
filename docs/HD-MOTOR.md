@@ -280,7 +280,7 @@ Pikselfontene er små (bokstavene er 5 til 9 piksler høye), og xBR kan ikke gje
 Modden har:
 
 - `fonts/map.txt`: én linje `<spillskrift> <mappe>` per font. Spillskriftene er tegnsettnumrene (`_curId`, 0 til 9) og 100 + n for `FONTn.NUT`. Fonter som ikke står der, tegnes med xBR som før.
-- `fonts/<mappe>/NNN.png`: en bokstav per tegnkode 33 til 126, hvit RGBA med dekningen i alfa, beskåret til blekket. Laget av `pipeline/dighd/skrift.py` fra skriftfilene i `pipeline/dighd/skrifter/exo2/` (vekt 700).
+- `fonts/<mappe>.png` og `fonts/<mappe>.txt`: alle bokstavene (tegnkode 33 til 126) i ett bilde, hvit RGBA med dekningen i alfa, hver beskåret til blekket, og en linje `<tegnkode> <x> <y> <bredde> <høyde>` per bokstav. Ett bilde per skrift, så nettsiden henter to filer og ikke én per bokstav (med én fil per bokstav brukte den opp grensen for forespørsler mot GitHub uten nøkkel). Laget av `pipeline/dighd/skrift.py` fra skriftfilene i `pipeline/dighd/skrifter/exo2/` (vekt 700).
 
 Slik lages en bokstav (`makeFaceGlyph`):
 
