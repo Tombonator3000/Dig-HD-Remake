@@ -52,6 +52,16 @@ maskinen virker fortsatt som reserve. HD eller originalgrafikk velges i
 spillets egen meny (F5, HD Graphics), og valget huskes. Mobil: fullskjerm ved
 første trykk, to fingre åpner menyen, tre hopper over en scene.
 
+Berøring (endret 9. oktober etter Toms første test på mobil): siden tar over
+berøringen selv (`engine/pages/touch.mjs`). Trykk er klikk, dra flytter
+pekeren, hold er høyreklikk, to fingre gir menyen, tre hopper over en scene.
+Skjermen snus ikke lenger. Filer som ikke kommer fram (Tom fikk "Failed to
+fetch" for FONT1.NUT og ScummVMs feilsøkingskonsoll), prøves igjen til de
+kommer. Musikk og tale ligger i deler på 90 MB i `spilldata` og settes sammen i
+nettleseren; uten lyd med `?uten-lyd` og på enheter med under 4 GB minne. Med
+lyd brukte Chromium omtrent 0,9 GB JavaScript-minne og 0,37 GB
+WebAssembly-minne.
+
 Nettsiden ligger i det offentlige motorrepoet `Tombonator3000/Dig-HD-Web`
 (GitHub avviste Pages fra det private repoet med gjeldende abonnement). Den har
 bare motor, temaer og tilhørende GPL-kode, med samme patch og sidefiler som
@@ -65,9 +75,18 @@ Ingen forespørsler med spill- eller HD-stier mot nettsiden. Filtester: 9
 bestått. Tidligere tester (Codex) med mapper: lagring og lasting av spill,
 HD-figurene fra fig014_01.
 
+Testet 9. oktober mot den publiserte siden i Chromium uten skjerm som telefon
+(liggende og stående, ekte berøringshendelser): tre fingre hoppet over introen,
+trykk, hold, to fingre ga menyen, trykk på HD Graphics byttet grafikk, Play.
+Musikk og tale lastet (ingen "Can't open bundle file"). Ingen feil.
+I et hopp med testkroken (`?rom=22`) stoppet motoren én gang på en assert i
+skriptene etter hold og tre fingre; testhoppet etterlater skriptene i en
+tilstand spillet aldri er i (loggen sier "Script 2000 stopped with active
+cutscene"), og det skjedde ikke fra vanlig start.
+
 Ikke testet: en ekte nøkkel (i testmiljøet gir proxyen selv tilgang til
-GitHub), ekte telefon med berøring og fullskjerm, musikk og tale (BUN-filene
-ligger ikke i repoet), full gjennomspilling.
+GitHub), ekte telefon, hvordan telefonen tåler minnet med lyd, full
+gjennomspilling.
 
 ## Kjente begrensninger
 

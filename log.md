@@ -234,3 +234,11 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Testet den publiserte siden i Chromium uten skjerm: nøkkelfeltet, rett inn i introen, rom 22, F5 med HD Graphics, klikk ga klassisk, Play, omlasting gikk rett inn i spillet i klassisk grafikk uten nøkkelfelt og uten nye nedlastinger. Ingen spill- eller HD-stier mot nettsiden. En ekte nøkkel og ekte telefon er ikke testet.
 - Dokumentasjon: PAGES.md, SPILLTEST.md (hvordan nøkkelen lages), HD-MOTOR.md, README, STATUS, todo, memory, spill.sh.
 
+## 2026-10-09 12:44 til 13:25 (Claude)
+- Tom på mobil: "Failed to fetch" og ScummVMs feilsøkingskonsoll (FONT1.NUT, 27 kB, ble ikke hentet ferdig), skjermen snudde seg til liggende ved trykk. Han ba om berøringskontroll og spurte om en komplett nedlastingsfil med HD, musikk og tale. Spurte hvilken plattform filen skal være for; ikke svart ennå.
+- `RemoteSource` prøver igjen ved nettfeil, 5xx, 429, grensen for forespørsler og filer som kommer ufullstendig, til filen kommer (1, 2, 4, 8, så hvert 15. sekund), med melding på skjermen. Bare en avvist nøkkel stopper.
+- Ny `engine/pages/touch.mjs`: siden tar over berøringen (fanger hendelsene på window før ScummVM). Trykk er klikk, dra flytter pekeren, hold 0,5 s er høyreklikk, to fingre F5, tre Esc. Ingen `orientation.lock` lenger. Rettet "Illegal invocation" (setTimeout kalt som metode).
+- Musikk og tale: hentet DIGMUSIC.BUN (261 MB) og DIGVOICE.BUN (130 MB) fra Drive-mappen (fortsatt delt med lenke), delt i deler på 90 MB og pushet til `spilldata` (8863daa), én del per push. `hent_spilldata.sh` setter dem sammen og sjekker `SHA256SUMS.lyd` (testet fra grenen: sjekksummene stemmer). Siden setter delene sammen; `?uten-lyd`, og av ved under 4 GB minne. Den vanlige motoren her: ingen "Can't open bundle file" lenger.
+- Filtester: 15 bestått. PR 26 flettet (23b6258), samme filer til Dig-HD-Web (cc21674), deploy bestått.
+- Testet den publiserte siden som telefon i Chromium uten skjerm: tre fingre hoppet over introen, trykk, hold, to fingre ga menyen, HD Graphics byttet, Play, lyd lastet, ingen feil. Minne med lyd: 0,9 GB JavaScript og 0,37 GB WebAssembly. En assert i skriptene kom én gang etter et testhopp (`?rom=22`), ikke fra vanlig start.
+

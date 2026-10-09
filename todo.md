@@ -10,7 +10,10 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Rett inn i spillet fra Pages: ingen oppsettside eller knapper, lesenøkkel første gang, filene fra grenene ved behov
 - [x] HD eller originalgrafikk i spillets egen meny (F5, HD Graphics), valget huskes
 - [ ] Tom lager lesenøkkelen og spiller fra Pages på mobil og PC (`docs/SPILLTEST.md`, Fra GitHub Pages) og sier fra
-- [ ] Musikk og tale i nettleseren: DIGMUSIC.BUN og DIGVOICE.BUN er for store for GitHub (finn en privat kilde)
+- [x] Musikk og tale i nettleseren: delene i `spilldata` settes sammen, `?uten-lyd`
+- [x] Berøring på mobil og nettbrett, ny henting ved nettfeil, ingen snuing av skjermen
+- [ ] Mindre minne i nettleseren: `http-fs.cpp` legger hele filen i WebAssembly-minnet før den skrives til MEMFS; skriv rett til MEMFS (må bygges i Actions, SDL3-porten kan ikke hentes her)
+- [ ] Komplett nedlastingsfil (motor, spill, musikk, tale, HD) for plattformen Tom velger
 
 - [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 192 jobber (162 rom, 30 store objekter) er godkjent
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres (avvis med `docs/gpt-avvisninger.csv`)
