@@ -272,3 +272,9 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Tom vil lagre fremgangsmåten for HD-utgaver av andre LucasArts-spill (Zak McKracken, Sam & Max). Foreslo skillen `scumm-hd-remake`: hvor referansen ligger i dette repoet, grunnideen i motoren, fasene fra oppsett til nettside og Linux-pakke, lærdom og fallgruver (motor, grafikk fra ChatGPT/Codex, uttrekk, test, distribusjon, sandkassen), tilpasning per SCUMM-versjon og arbeidsformen. Tom lagrer den fra kortet.
 - Sjekket i ScummVM-kilden (c9091321): Sam & Max er v6 (`samnmax`, `GF_USE_KEY`, `ClassicCostumeRenderer`, `CharsetRendererClassic`); Zak er v1, v2 og FM-Towns v3 (`GF_OLD256`, `CharsetRendererTownsV3`). Tilpasningene for andre spill er ikke testet.
 
+## 2026-10-09 21:04 til 21:15 (Claude)
+- Tom har Zak McKracken (FM-Towns) og Sam & Max på Google Drive. Fant dem med Drive-koblingen:
+  - Mappen `Zak-fm`: `00.LFL` til `59.LFL`, `98.LFL`, `99.LFL` og CD-lyden som `Track1.fla` til `Track21.fla` (FLAC, ScummVM leser `.fla`). `00.LFL` er 7520 byte, som den engelske FM-Towns-utgaven i ScummVMs liste (`2d4536a5...`). MD5 ikke sjekket. Også mappene `Zak (DOS)` og `ZakEnh`.
+  - Mappen `samnmax`: `SAMNMAX.000` (9080 byte), `SAMNMAX.001` (13,8 MB), `MONSTER.SOU` (183 MB, tale) og MT-32-ROM. CD-utgaven. Språket står bare i MD5 (engelsk, tysk, fransk, italiensk, spansk og hebraisk har samme størrelse); ikke sjekket.
+- Filene kan ikke hentes hit med curl: mappene er ikke delt med lenke (Drive svarer med innloggingssiden). Koblingen gir innholdet bare som tekst i samtalen; å skrive av SAMNMAX.000 for å få MD5 ga feil lengde og ble forkastet.
+
