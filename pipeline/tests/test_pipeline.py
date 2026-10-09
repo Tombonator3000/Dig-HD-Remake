@@ -872,7 +872,9 @@ def test_figure_sheets_plan_and_jobs(tmp_path, monkeypatch):
         cel0.getpixel((12, 18))[:3]
     prompt = (d / "prompt.txt").read_text()
     assert "the same face, hair, clothes, colors and light in every frame" in prompt
-    assert "#%02X%02X%02X" % bg in prompt and "outline of every frame exactly" in prompt
+    # Glatt stil: gjennomsiktig bakgrunn med ekte alfa, ikke originalens omriss piksel for piksel
+    assert "#%02X%02X%02X" % bg in prompt and "fully transparent background" in prompt
+    assert "outline of every frame exactly" not in prompt
     assert "walking, facing right (6 frames)" in prompt and prompt.rstrip().endswith(figur.PROMPT_FIGURE_STYLE)
     assert "part 2 of 2" in (work / "jobber" / "fig014_02_del2av2" / "prompt.txt").read_text()
     # Linjen om magenta skyggemerker er bare med når kostymet har slike
