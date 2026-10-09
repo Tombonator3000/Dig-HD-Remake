@@ -1,7 +1,7 @@
 # Den komplette Linux-pakken: ScummVM med HD-patchen, spillet, musikk, tale og HD-modden i
 # én AppImage. Bygges på Ubuntu 22.04 (glibc 2.35), så den går på de fleste nyere distroer.
-# Publiseres som release "linux" i dette private repoet; filen kan bare lastes ned av den som
-# har tilgang til repoet. Spillet tilhører Disney/Lucasfilm og skal aldri ut av repoet.
+# Publiseres som release "linux" i dette repoet. Spillet tilhører Disney/Lucasfilm og skal ikke
+# deles utenfor repoet.
 name: Linux-pakke
 
 on:
@@ -109,7 +109,7 @@ jobs:
             if ! grep -q "DigHD: room 22 loaded" /tmp/test.log; then tail -40 /tmp/test.log; exit 1; fi
             grep -E "DigHD: (mod|room 22)" /tmp/test.log'
 
-      - name: Publiser som privat release
+      - name: Publiser som release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -124,7 +124,7 @@ jobs:
             echo "Spillet starter rett, i fullskjerm. Alt+Enter bytter vindu og fullskjerm. F5 i spillet åpner menyen, der HD Graphics velger HD eller originalgrafikk."
             echo "Mangler FUSE på maskinen: ./TheDigHD-x86_64.AppImage --appimage-extract-and-run"
             echo
-            echo "Privat: spillet tilhører Disney/Lucasfilm. Filen skal ikke deles."
+            echo "Spillet tilhører Disney/Lucasfilm. Filen skal ikke deles utenfor repoet."
             echo
             echo '```'
             cat out/linux/AppDir/usr/share/the-dig-hd/BYGG.txt

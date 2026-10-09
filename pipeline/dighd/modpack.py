@@ -22,6 +22,11 @@ bruker objektbildene også når rommet ikke har HD-bakgrunn.
 Egne kostymeruter (costumes/costumeCCC_NNN.png, for eksempel figurruter fra ChatGPT) tas
 med på samme måte for alle kostymer, også uten --kostymer. --kostymer velger kostymene
 der resten av rutene skaleres automatisk. Ruter uten HD-bilde vises som originalen.
+
+Myke kostymeruter (costumes/costumeCCC_NNN_hd.png, fra mottaket for figurark i glatt stil,
+myk.py) har en marg rundt ruten og egen alfa. De tas med når størrelsen er
+(bredde + 2 * marg) * N x (høyde + 2 * marg) * N med hele marger, og motoren bruker dem
+før den vanlige ruten.
 """
 from __future__ import annotations
 
@@ -35,6 +40,17 @@ from PIL import Image
 from .upscale import upscale, upscale_alpha
 
 MARGIN = 8  # piksler med bakgrunn rundt et objekt når det skaleres
+
+
+def soft_size_ok(size: tuple[int, int], cel: tuple[int, int], scale: int) -> bool:
+    """Om en myk rute (_hd.png) har en størrelse motoren godtar: hele originalpiksler med like stor
+    marg på begge sider av ruten."""
+    W, H = size
+    w, h = cel
+    if W % scale or H % scale:
+        return False
+    px, py = W // scale - w, H // scale - h
+    return px >= 0 and py >= 0 and px % 2 == 0 and py % 2 == 0
 
 
 def _check_size(im: Image.Image, want: tuple[int, int], name: str) -> bool:
@@ -103,7 +119,7 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
                 shutil.copyfile(extract / "objects" / f"{name}_idx.png", out / "objects" / f"{name}_idx.png")
                 done_objects.append(name)
 
-    has_own_cels = bool(own and (own / "costumes").is_dir() and any((own / "costumes").glob("costume*.png")))
+    has_own_cels = bool(own and (own / "costumes").is_dir() and any((own / "costumes").glob("costume*.png")))  # også _hd.png
     done_costumes = _build_costumes(extract, out, scale, method, costumes or set(), own, **upscale_kw) \
         if costumes or has_own_cels else []
     done_films = _build_films(san, out, scale, method, films, own, **upscale_kw) if films and san else []
@@ -210,11 +226,24 @@ def _build_costumes(extract: Path, out: Path, scale: int, method: str, costumes:
     for key, info in sorted(meta.items(), key=lambda kv: int(kv[0])):
         cid = int(key)
         auto = costumes == {-1} or cid in costumes
-        n_own = n_auto = 0
+        n_own = n_auto = n_soft = 0
         for cel in info["cels"]:
             name = f"costume{cid:03d}_{cel['cel']:03d}"
             src = extract / "costumes" / f"{name}.png"
             custom = own / "costumes" / f"{name}.png" if own else None
+            soft = own / "costumes" / f"{name}_hd.png" if own else None
+            if soft and soft.exists() and src.exists():
+                with Image.open(soft) as sim, Image.open(src) as oim:
+                    ok = soft_size_ok(sim.size, oim.size, scale)
+                if ok:
+                    shutil.copyfile(soft, dest / f"{name}_hd.png")
+                    shutil.copyfile(extract / "costumes" / f"{name}_idx.png", dest / f"{name}_idx.png")
+                    n_soft += 1
+                    if not (auto or (custom and custom.exists())):
+                        done.append(name)
+                        continue
+                else:
+                    print(f"  Hopper over {soft.name}: størrelsen gir ikke hele og like marger")
             if not src.exists() or not (auto or (custom and custom.exists())):
                 continue
             im = Image.open(src).convert("RGBA")
@@ -235,8 +264,9 @@ def _build_costumes(extract: Path, out: Path, scale: int, method: str, costumes:
             hd.save(dest / f"{name}.png")
             shutil.copyfile(extract / "costumes" / f"{name}_idx.png", dest / f"{name}_idx.png")
             done.append(name)
-        if n_own or n_auto:
-            print(f"  kostyme {cid:3d}: {len(info['cels'])} ruter, {n_own} egne og {n_auto} skalert automatisk")
+        if n_own or n_auto or n_soft:
+            print(f"  kostyme {cid:3d}: {len(info['cels'])} ruter, {n_own} egne, {n_soft} myke og "
+                  f"{n_auto} skalert automatisk")
     return done
 
 

@@ -91,6 +91,29 @@ Valg og begrunnelse. Før kjente figurkilden bare rektangelet til hver rute og o
 
 Merkingen koster lite: 0,006 ms per bilde i rom 2 (3 ruter). Oppslaget er en sammenligning per piksel i stedet for en løkke over alle rutene, og tidene for hele skjermen er de samme som før innenfor målestøyen. Se Hva som er testet.
 
+## Myke figurer
+
+Figurene ChatGPT/Codex tegner nå, har et eget omriss og ekte alfa med myke kanter. Klippet med originalens piksler, slik figurene over blir, får de trappetrinnene tilbake, og en hard alfagrense (`ha < 128`) gir ingen myke kanter. De tegnes derfor på en annen måte.
+
+Filen er `costumes/costumeCCC_NNN_hd.png` ved siden av `costumeCCC_NNN_idx.png`. Bildet er ruten i 4x med en marg rundt, like stor på begge sider og i hele originalpiksler: (bredde + 2 x margx) x 4 ganger (høyde + 2 x margy) x 4. Motoren regner margen ut av størrelsen. Finnes `_hd.png`, brukes den før `costumeCCC_NNN.png`. Filene lages av `dighd myke-figurer` (se README).
+
+Slik tegnes en myk rute:
+
+- Pikslene ruten tegnet, merkes som før. Under dem bygges HD-bildet av bakgrunnen ruten står foran (verdien i bakgrunnsbufferen, med HD-rommet eller HD-objektet der den stemmer). Pikslene der ruten tegnet en skygge eller en effekt (fargen er helt forskjellig fra kostymets farge, samme regel som for de andre rutene), blir originalpiksler som før.
+- Når blokkene er bygget og før teksten, legges bildet over med sin egen alfa: plassert etter rektangelet til ruten, speilvendt og skalert som ruten (bilineært når figuren er skalert), og farget med forholdet mellom fargene tegningen viser og fargene i kostymets palett (lys, skygge, nedtoning). Er forholdet nær 1, brukes bildet som det er.
+- Rutene legges over i den rekkefølgen de ble tegnet, så hodet ligger over kroppen og en skuespiller foran ligger over en bak.
+- Bildet legges ikke der z-masken til skuespilleren skjuler den (det samme bitkartet som tegnerutinen bruker), der noe annet enn en figur er tegnet over bakgrunnen (bannere, menyer, effekter), eller der en rute uten myk tegning er tegnet senere. Teksten tegnes over.
+- Bildet vises bare mens tegningen av ruten står på skjermen: når den siste pikselen ruten tegnet er borte (skuespilleren er borte eller tegnet et annet sted), bygges området med margen på nytt. Det samme skjer når skuespilleren tegnes på nytt, og når paletten endres. Områdene bygges rett før skjermen oppdateres, etter at hele bildet er sendt.
+- Klassisk grafikk viser originalpikslene som før.
+
+Valg og begrunnelse. Den myke kanten må blandes med det som er bak figuren, også der det nye omrisset er utenfor originalens piksler. Motoren bygger hver originalpiksel for seg og vet bare hva som er der nå. Tre veier ble vurdert:
+
+| Vei | Vurdering |
+| --- | --- |
+| Blande kantpikslene innenfor originalens omriss | Enkelt, men omrisset blir originalens, med trappetrinn |
+| Myk alfa i 4x innenfor en utvidet maske | Bedre kanter, men et omriss som stikker utenfor originalen kuttes |
+| Legge bildet over etter blokkene, med bakgrunnen under ruten (valgt) | Fritt omriss og ekte blanding. Krever bakgrunnen under rutens egne piksler, rekkefølgen mellom rutene, z-masken og at margen bygges på nytt når figuren flytter seg |
+
 ## Kostymer med kodek 5 og 16
 
 Kodeken står i AKHD-blokken i hvert kostyme. Av de 331 kostymene har 182 kodek 1 (Byle RLE), 144 kodek 5 (BOMP) og 5 kodek 16 (MajMin). Alle tre får HD-sprites på samme måte: tegneren melder hver rute til DigHD (`noteCel`) etter at den er tegnet, med rektangelet før klipping og om den er speilvendt.
@@ -265,7 +288,7 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `
 | `string_v7.cpp` | Teksten som tegnes og merkes, nullstiller ikke seg selv. `removeBlastTexts` nullstiller glyfene i spillskjermen |
 | `palette.cpp` | Palett sendes til DigHD i stedet for til skjermen |
 | `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand. Blast-objekter beholder figurmerkene under seg |
-| `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes (kodek 1, 5 og 16), hvor, om de er speilvendt, om kodene er tegnet rett som palettindekser, og om de tegnes i skjermbufferen eller i bakgrunnsbufferen |
+| `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes (kodek 1, 5 og 16), hvor, om de er speilvendt, om kodene er tegnet rett som palettindekser, om de tegnes i skjermbufferen eller i bakgrunnsbufferen, og hvilken z-maske skuespilleren har |
 | `cursor.cpp`, `input.cpp`, `saveload.cpp` | Musepeker i HD, museposisjon delt på skala, hurtigtastene Ctrl+H og Ctrl+Shift+H |
 | `smush/smush_player.cpp` | Filmrammer og filmpalett via DigHD. Filmteksten tegnes også i laget til DigHD, og DigHD får beskjed når en ny ramme er pakket ut |
 
@@ -296,10 +319,13 @@ Test og feilsøking (bare miljøvariabler):
 | `DIGHD_TEST_CLICKS` | Klikker med venstre museknapp ved gitte bilder, for eksempel `450:114/152,550:265/107` (x/y i originalpiksler). Knappen går ned ved bildet og opp 3 bilder senere. For menyene uten mus |
 | `DIGHD_TEST_COSTUME` | Testkroken: 30 bilder etter hoppet med `DIGHD_TEST_ROOM` settes en skuespiller inn i rommet med dette kostymet, og den spiller alle animasjonene i AKCH (alle retninger) etter hverandre. For kostymer skriptene først viser senere i historien |
 | `DIGHD_TEST_ACTOR`, `DIGHD_TEST_POS`, `DIGHD_TEST_PALETTE`, `DIGHD_TEST_CHORE_EVERY` | Skuespilleren testkroken bruker (standard 29), plassen i rommet (`x,y`, standard midt på skjermen og 180), rompaletten som settes (`setCurrentPalette`, standard ingen) og hvor mange bilder hver animasjon vises (standard 60) |
+| `DIGHD_TEST_WALK` | Skuespilleren fra testkroken går til `x,y` og tilbake til plassen, om og om igjen (rett linje, uten gangboksene), i stedet for å spille animasjonene |
+| `DIGHD_TEST_CLIP` | Z-masken til skuespilleren fra testkroken (`_forceClip`, standard 0 = ingen, 100 = etter gangboksen). Med 1 til 3 går den bak forgrunnen i rom med z-plan |
+| `DIGHD_DEBUG_SOFT=1` | Logger hver myk rute som tegnes (rute, plass, størrelse) og hvert område som bygges på nytt for dem |
 | `DIGHD_TEST_OBJSTATE` | Testkroken for objekttilstander. `884:2,886:1` setter objektene i disse tilstandene etter hoppet og holder dem der. `alle` viser hver tilstand av hvert objekt i rommet etter hverandre og lagrer skjermen etter hver tilstand. Se Objekttilstander i testen |
 | `DIGHD_TEST_OBJSTATE_AT`, `DIGHD_TEST_OBJSTATE_EVERY` | Bilder etter at spillet er i testrommet før den første tilstanden settes (standard 30), og hvor mange bilder hver tilstand vises med `alle` (standard 40) |
 
-Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). `HD text px` er pikslene som fikk en HD-glyf over seg (de er også med i tallet for det som er under teksten). `tinted sprite px` er figurpikslene som ble justert med forholdet mellom fargene (de er også med i `HD sprite px`), og `figure px kept original` figurpikslene med HD-bilde som ble originalpiksler med vilje: skygger, effekter, syklede farger og farger som er helt forskjellige (de er også med i `original px`). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
+Loggen teller pikslene per kilde: `HD room px`, `HD object px`, `HD sprite px` og `original px`, og `HD film px` når en HD-filmramme er vist. `cycled HD px` er pikslene som gikk gjennom fargekartet for fargesykling (de er også med i `HD room px` eller `HD object px`). `HD text px` er pikslene som fikk en HD-glyf over seg (de er også med i tallet for det som er under teksten). `tinted sprite px` er figurpikslene som ble justert med forholdet mellom fargene (de er også med i `HD sprite px`), og `figure px kept original` figurpikslene med HD-bilde som ble originalpiksler med vilje: skygger, effekter, syklede farger og farger som er helt forskjellige (de er også med i `original px`). `soft figure px` er originalpikslene som fikk en myk rute lagt over seg (de er også med i tallet for det som er under). Med gult felt på kommer `yellow px` i tillegg (de gule er også med i `original px`), og i klassisk modus står det `classic` til slutt. Tallene er originalpiksler, summert over alt som er bygget siden forrige dump.
 
 Utenom film skriver hver dump også en linje for bildet i dumpen alene, hele skjermen i originalpiksler (64 000 i alt): `whole screen frame 840 (room 27, screen at 91,490): HD room px 42358, HD object px 0, HD sprite px 0, original px 21642 (background without HD 0, figure without HD 21642), HD text px 0, cycled HD px 7697`. `screen at` er stedet i rommet som vises øverst til venstre på skjermen (`xstart` og `_screenTop`, satt da kameraet sist ble flyttet før skjermen ble tegnet). Originalpikslene uten HD er delt i bakgrunn (rom uten HD-bakgrunn, eller objekter uten HD-bilde: pikselen er lik bakgrunnsbufferen) og det som er tegnet over (figurer uten HD-bilde). Resten av originalpikslene er originale med vilje (skygger, effekter, syklede farger på figurer). `tools/romtest.sh` bruker denne linjen.
 
@@ -309,6 +335,7 @@ Med `DIGHD_VERIFY=1` skriver hver dump to til fire linjer:
 - `N of M HD pixels differ strongly from the original`: avvik mot originalen, for pikslene utenfor fargesyklingen og utenfor HD-teksten.
 - `colour cycling, N of M HD pixels differ strongly`: avvik i pikslene som gikk gjennom fargekartet. De er jevnet ut mellom originalpikslene med vilje, så med en `nearest`-mod avviker noen av dem. De holdes utenfor hovedtallet.
 - `HD text, N of M HD pixels differ strongly`: avvik i pikslene med HD-glyf. Kantene på glyfene er glatte med vilje, så med xBR avviker omtrent 10 prosent av dem. Med `DIGHD_TEXT=nearest` skal tallet være 0. De holdes utenfor hovedtallet.
+- `soft cels, N of M pixels disagree with the z-plane (K behind it)`: bare med myke ruter bak en z-maske. For hver piksel der indeksbildet til en myk rute har farge og ingenting annet ligger over: om motoren skjuler den myke tegningen nøyaktig der tegnerutinen lot være å tegne ruten. N skal være 0. K er pikslene bak forgrunnen.
 
 Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 0 px original on purpose (text), 0 px original without HD, HD text over 2845 px`. Tekstpiksler med HD-glyf telles under det som er under dem (her HD-rammen), og i tillegg i det siste tallet. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without, raw codes)`. `raw codes` betyr at kodene ble tegnet rett som palettindekser. Første gang et kostyme tegnes i et rom med en palett, kommer også en linje som `costume 210 in room 78 with palette 0: codes as palette indices` (eller `codes through AKPL and the actor palette`).
 
@@ -505,6 +532,16 @@ Objekttilstander (testet uten skjerm 2026-10-07 med `tools/romtest.sh --objekter
 - Ikke testet: at testkroken setter en forelder, og at den setter tilstanden tilbake når spillet endrer den. Ingen av objektene i kjøringene trengte det.
 - `engine/test.sh` etter endringen, to kjøringer: 0 avvik ved bilde 250, 750, 1000, 1750 og 2500 til 3000, og 0,103 til 0,236 prosent ved 500, 1250, 1500, 2000 og 2250 (skalerte figurer, sett på i bilde 1500: en astronaut). Skjermen lik hele skjermen bygget på nytt i alle dumpene. Ingen linjer fra testkroken i loggen; den gjør ingenting uten variabelen.
 
+Myke figurer (testet uten skjerm 2026-10-09, rom 22, modden `gpt` med de myke rutene fra `dighd myke-figurer` og testmodder med glorie rundt figuren for å se margen):
+
+- Boston (kostyme 14) går fram og tilbake over stranden med `DIGHD_TEST_WALK`: alle rutene i gangen har myke ruter (970 til 1270 originalpiksler med myk figur per bilde, 0 figurpiksler uten HD), og skjermen var lik hele skjermen bygget på nytt i alle 48 dumpene. Ingen rester av margen etter figuren. Størrelse, fotfeste og omriss stemmer med originalen.
+- Bak forgrunnen med `DIGHD_TEST_CLIP` 1, 2 og 3: 0 av 700 til 960 piksler per dump avvek fra z-masken, med opptil 842 piksler bak forgrunnen. Sett på et bilde der Boston går bak en stein: den myke figuren og glorien er skjult der originalen er skjult.
+- Funnet og rettet under testen: en palettendring mellom tegningen av skuespillerne og sendingen til skjermen bygget områdene for myke ruter før pikslene var sendt, så margen manglet (2000 til 3900 piksler ulik hele skjermen). Områdene bygges nå rett før skjermen oppdateres.
+- Funnet og rettet: kanalrekkefølgen i HD-bildet (RGBA i minnet) ble lest feil, så figuren ble rosa og gjennomsiktig.
+- `DIGHD_BENCH=10`: hele skjermen 8,2 til 8,3 ms med de harde rutene og 9,6 til 10,3 ms med myke ruter (en skuespiller). Ved vanlig spill bygges bare rektanglene rundt figurene på nytt.
+- `engine/test.sh` etter endringen (3000 bilder, ingen myke ruter i `test-nearest`): 0 avvik ved bilde 250, 750 til 1750 og 2250 til 3000, og 0,171 og 0,172 prosent ved 500 og 2000 (skalerte figurer, som før). Skjermen lik hele skjermen bygget på nytt i alle 12 dumpene.
+- Ikke testet: ekte skjerm, flere myke figurer over hverandre, skalerte figurer (bilineær), banner og meny over en myk figur, nedtoning, og figurene i rommene der skriptene viser dem.
+
 ## Kjente begrensninger
 
 - Kostymer med kodek 16: 96 (spøkelset) og 118 (Low som svømmer) er bare testet med testkroken, ikke der skriptene viser dem. Paletten for 96 er valgt etter jevnhet.
@@ -523,3 +560,7 @@ Objekttilstander (testet uten skjerm 2026-10-07 med `tools/romtest.sh --objekter
 - Figurer uten HD-bilde: hvilke piksler ruten tegnet, er ikke kjent. Pikslene i rektangelet som er forskjellig fra bakgrunnen og ikke viser en HD-figur, regnes som figuren (gult felt).
 - Blast-objekter over en figur: en piksel objektet tegner med nøyaktig samme verdi som figuren, viser HD-figuren. Ikke sett i The Dig.
 - Bannere: merkene legges tilbake bare når banneret tas bort med `clearBanner`. Andre steder som lagrer og legger tilbake skjermen i ScummVM, gjelder andre spill.
+- Myke figurer: z-masken er i originalpiksler, så der figuren går bak forgrunnen, er kanten mot forgrunnen blokker på 4 x 4 HD-piksler.
+- Myke figurer: under rutens egne piksler vises bakgrunnen fra bakgrunnsbufferen. Står en annen figur uten myk tegning bak, og den nye tegningen er smalere enn originalen der, vises bakgrunnen i stedet for figuren bak.
+- Myke figurer: skygger og effekter i ruten blir originalpiksler under den myke tegningen. Tegnet i testkroken uten skriptenes palett, er skyggemerket til Boston (lys magenta) ikke en skygge, og forsvinner under den myke figuren.
+- Myke figurer: en myk rute tegnet i bakgrunnsbufferen vises som originalpiksler, som de andre figurene der.

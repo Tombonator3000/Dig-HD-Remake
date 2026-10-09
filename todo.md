@@ -16,7 +16,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Komplett nedlastingsfil for Linux: AppImage i releasen `linux`, bygget og testet av arbeidsflyten Linux-pakke, ny hver natt når `hd-mod` endres
 - [x] PC-nettleseren: nedlastingsbilde første gang, fullskjerm ved første klikk, programvaretegning uten WebGL
 - [ ] Tom tester nettsiden på Kubuntu igjen (første start tar tid: 530 MB)
-- [ ] thedig-textures (dekoderne for `dighd extract`) er borte fra GitHub; Tom avgjør om en kopi skal legges i repoet (GPL-3.0, verifisert lokal kopi finnes)
+- [ ] thedig-textures (dekoderne for `dighd extract`): CI fikk ikke klonet repoet, men det finnes. Tom sa ja til en kopi i repoet; sikkerhetskontrollen stoppet det. Ikke nødvendig så lenge dekoderne er valgfrie
 - [ ] Tom tester Linux-pakken på laptopen (skjerm, lyd, fullskjerm, menyvalget)
 - [ ] Nedlastingsfil for Windows og Android (etter Linux)
 
@@ -47,7 +47,14 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Nettleserversjon lokalt: `./spill.sh --nettleser` (PR 15)
 - [x] Figurark for kostymene og pilot for Boston Low (PR 20)
 - [x] fig014_01 (Boston står og går, 28 ruter) godkjent av Tom og satt inn i modden
-- [ ] Pilotarkene fig014_02 til 04 fra ChatGPT: se om figurene blir like fra rute til rute, juster flimmergrensen, og bestill så hovedpersonene (114 ark)
+- [x] Pilotarkene fig014_02 til 04 fra ChatGPT (levert i glatt stil)
+- [x] Glatt stil: `gpt-inn` klipper ikke ark med ekte alfa (PR 34)
+- [x] Myke figurer i motoren og `dighd myke-figurer`: 148 ark, 2957 ruter
+- [ ] Tom ser Boston, Brink og Maggie i spillet (nettsiden eller Linux-pakken) og sier om størrelse, fotfeste og stil stemmer
+- [ ] Gå gjennom de 392 rutene med status sjekk i `myke.json` (omriss ulikt originalen, mest Brink og Maggie med smalere figur)
+- [ ] Resten av hovedfigurene fra Codex (361 ark), tas inn av runden av seg selv
+- [ ] Myke figurer: kant mot forgrunnen i 4 x 4-blokker; prøv å følge den myke kanten i HD-rommet
+- [ ] Myke figurer på ekte skjerm: flere figurer over hverandre, skalerte figurer, banner og meny over, nedtoning
 - [ ] Ansiktet til Boston nærmere originalen i de neste arkene (eldre, grått hår ved tinningene)
 - [ ] Mykere kanter på HD-figurrutene: alfa jevnet ut innenfor originalens silhuett, i stedet for trappetrinn i 4x
 - [ ] Lag Boston-ruter som består silhuettkontrollen og kontroller hele bevegelsesrekken i motoren

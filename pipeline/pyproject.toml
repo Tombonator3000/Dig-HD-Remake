@@ -10,12 +10,13 @@ requires-python = ">=3.12"
 dependencies = [
   "pillow>=10",
   "numpy>=1.26",
+  "scipy>=1.11",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
 # Dekoderne for LA1/AKOS/SAN (digart), verifisert mot ScummVM, låst til en kjent versjon.
-# Bare `dighd extract` trenger dem. Repoet var borte fra GitHub 9. oktober 2026
+# Bare `dighd extract` trenger dem. CI fikk ikke klonet repoet 9. oktober 2026
 # ("could not read Username"); derfor er de valgfrie, så resten installeres og testes uten.
 uttrekk = [
   "thedig-textures @ git+https://github.com/felipe-dos-santos81/thedig-textures@1cf355ed1aa32326fc1b3097ba1d1df692b51501",

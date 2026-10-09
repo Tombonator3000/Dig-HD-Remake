@@ -1,10 +1,10 @@
 # Status
 
-Oppdatert 9. oktober 2026. Grafikkgrunnlaget er modden fra 9. oktober, 09:49. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
+Oppdatert 9. oktober 2026, kveld. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
 
-Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 103 av 106 godkjente rom (rom 32 gjøres om, rom 50 og 88 gjenstår) og alle 30 store objekter. Det første figurarket er satt inn: Boston Low står og går i HD (28 ruter). Neste bestilling er resten av Boston-piloten og de mindre objektene i lagjobber og ikonark.
+Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og spilles med en gang. ChatGPT har levert 103 av 106 godkjente rom (rom 32 gjøres om, rom 50 og 88 gjenstår), alle 30 store objekter og alle 149 ikonene i inventaret. Figurene tegnes nå i den glatte stilen Tom valgte: 148 av 509 ark for Boston, Brink og Maggie er levert, og 2957 ruter er tatt inn som myke ruter som motoren legger over bildet med myke kanter.
 
 ## HD-grafikk
 
@@ -13,8 +13,8 @@ Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og 
 | Rombakgrunner | 103 | 106 | ChatGPT | Alle unntatt rom 32 (vannet ble stein, gjøres om), 50 og 88. Noen står til sjekk og kan bli bedre. Kontrollert i motoren med `tools/romtest.sh`. 5 nesten tomme rom tegnes av filmer og er tatt ut. |
 | ChatGPT-jobber | 187 | 435 | ChatGPT | 162 for rom, 30 for store objekter, 236 lagjobber, 3 ikonark og 4 figurark i Boston-piloten. Se `work/gpt/status.csv` eller grenen `gpt-arbeid`. |
 | Store objektbilder | 30 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
-| Mindre objektbilder | 0 | 609 | ChatGPT | 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå) og 149 ikoner i ikonark. Til de er levert: automatisk oppskalering. |
-| Kostymeruter | 28 | 28 490 | ChatGPT | Figurark: rutene i en animasjon males samlet og klippes ut. Pilot med 4 ark (229 ruter) for Boston Low. Ark 1 (fig014_01, stående og gående, 28 ruter) er godkjent av Tom 9. oktober og ligger i modden. Ansiktet er litt yngre enn originalen og mangler det grå håret ved tinningene. Alle kostymer gir 4031 ark, hovedpersonene 114. |
+| Mindre objektbilder | 167 | 609 | ChatGPT | 149 ikoner i ikonark (alle) og 18 av 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå), blant dem håndcomputeren i rom 79. Resten: automatisk oppskalering. |
+| Kostymeruter | 2957 | 28 490 | ChatGPT/Codex | Glatt stil med myke kanter for Boston, Brink og Maggie (54 kostymer, 509 ark, 7683 ruter): 148 ark levert, 2957 ruter tatt inn med `dighd myke-figurer` (392 av dem har et omriss som er ganske ulikt originalen og står til gjennomsyn i `myke.json`). Den gamle fig014_01 er erstattet av det glatte ark 1. Alle kostymer gir 4031 ark. |
 | Filmrammer | 0 | 12 638 | | Utskifting virker. Videooppskalering senere. |
 
 Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 (i `gpt-arbeid/stil/`).
@@ -33,6 +33,7 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Motor: farger | Fade og palettbytte følger med. Fargesyklede områder (vann, fosser) vises med HD-bildet og følger syklingen | Rom 22 med ChatGPT-bakgrunn og rom 11 og 43 med lanczos-sharp: vannet beveger seg uten rutenett eller glorie. Ett syklingssteg i rom 22 tar 2,0 ms (før 7,8 ms) |
 | Motor: brytere | HD Graphics i spillets meny (F5) og Ctrl+H bytter mellom HD og originalgrafikk, og valget huskes (`dighd_classic`). Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`) | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Menyen uten skjerm med `DIGHD_TEST_CLICKS` og i nettleseren med musklikk: byttet virker og huskes ved neste start. Ikke prøvd med ekte tastatur |
 | Motor: store objekter | HD-objektbilder fra ChatGPT også i rom uten HD-bakgrunn | Rom 28 kjørt uten skjerm: tavla obj241 dekker nesten hele skjermen (69 492 objektpiksler mot 185 rompiksler) |
+| Motor: myke figurer | Figurer i den glatte stilen legges over HD-bakgrunnen med egen alfa: myke kanter, eget omriss, bak forgrunnen (z-masken), under tekst og menyer, og borte når figuren er borte | Rom 22 uten skjerm: Boston går fram og tilbake med de ekte myke rutene, skjermen lik hele skjermen bygget på nytt i alle 48 dumper, ingen rester av margen. Bak forgrunnen med tre z-plan: 0 avvik fra z-masken. `engine/test.sh` som før. Ikke testet på ekte skjerm |
 | Motor: ChatGPT-figur | De 28 rutene fra fig014_01 (Boston Low) vises i spillet | Rom 22 uten skjerm med `DIGHD_TEST_COSTUME=14` og `DIGHD_VERIFY=1`, 1400 bilder: når Boston står eller går mot siden, kommer 699 til 1088 figurpiksler fra HD-rutene og 0 fra originalen. Animasjoner som ikke er malt ennå, vises som originalen. Skjermen lik hele skjermen bygget på nytt i alle dumper |
 | Romtest | Alle rom kjørt uten skjerm med `tools/romtest.sh` | 111 rom, 226 kjøringer: ingen krasj, HD-bakgrunnen brukt i alle rom som har den, ingen forskjøvne bilder, figurene går bak det samme som i originalen |
 | Motor på laptopen | SDL2, Wayland, OpenGL, 1280 x 800, 32 bit | Codex sin pilotkjøring, logger i `grafikkdata/pilot-20261006` |

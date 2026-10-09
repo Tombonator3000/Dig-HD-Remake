@@ -9,6 +9,7 @@
                                      og figurark; --figurer alle for alle kostymene)
   dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom og HD-objekter
   dighd gpt-ordre                    Skriver ORDRE.md med neste jobber til ChatGPT
+  dighd myke-figurer                 Tar inn figurarkene i glatt stil (ekte alfa) som myke kostymeruter
 """
 from __future__ import annotations
 
@@ -17,7 +18,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import export, gamedata, gpt, modpack
+from . import export, gamedata, gpt, modpack, myk
 from .upscale import METHODS
 
 KNOWN_LA0_MD5 = "d8323015ecb8b10bf53474f6e6b0ae33"
@@ -167,6 +168,18 @@ def cmd_gpt_ordre(a) -> int:
     return 0
 
 
+def cmd_myke_figurer(a) -> int:
+    only = {j.strip() for j in a.jobb.split(",") if j.strip()} if a.jobb else None
+    r = myk.import_all(Path(a.gren), Path(a.extract), Path(a.ut), only=only,
+                       previews=Path(a.forhandsvisning) if a.forhandsvisning else None)
+    bad = {j: x["feil"] for j, x in r["ark"].items() if x.get("feil")}
+    print(f"Myke figurer: {len(r['ark']) - len(bad)} ark, {r['ruter_ok']} ruter ok, {r['ruter_sjekk']} til "
+          f"gjennomsyn, {r['ruter_mangler']} uten del på arket -> {Path(a.ut) / 'costumes'} (rapport i myke.json)")
+    for j, why in sorted(bad.items()):
+        print(f"  {j}: {why}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     root = _repo_root()
     ap = argparse.ArgumentParser(prog="dighd", description="HD-pipeline for The Dig")
@@ -244,10 +257,18 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--oppgaver", default=str(root / "docs" / "gpt-kodeoppgaver.md"),
                    help="kodeoppgaver som tas med i ORDRE.md (tom streng for ingen)")
 
+    p = sub.add_parser("myke-figurer", help="ta inn figurarkene i glatt stil som myke kostymeruter (_hd.png)")
+    p.add_argument("--gren", default=str(root / "work" / ".gpt-gren"), help="arbeidsgrenen gpt-arbeid (sjekket ut)")
+    p.add_argument("--extract", default=str(root / "work" / "extract"))
+    p.add_argument("--ut", default=str(root / "work" / "gpt-ferdig"))
+    p.add_argument("--jobb", help="bare disse arkene, for eksempel fig014_01,fig014_05")
+    p.add_argument("--forhandsvisning", default=str(root / "work" / "gpt" / "forhandsvisning"),
+                   help="mappe for kontaktark myk_<jobb>.png (tom streng for ingen)")
+
     a = ap.parse_args(argv)
     return {"info": cmd_info, "extract": cmd_extract, "build-mod": cmd_build_mod,
             "compare": cmd_compare, "san": cmd_san, "gpt-pakke": cmd_gpt_pakke,
-            "gpt-inn": cmd_gpt_inn, "gpt-ordre": cmd_gpt_ordre}[a.command](a)
+            "gpt-inn": cmd_gpt_inn, "gpt-ordre": cmd_gpt_ordre, "myke-figurer": cmd_myke_figurer}[a.command](a)
 
 
 if __name__ == "__main__":

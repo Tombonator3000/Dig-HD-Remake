@@ -91,7 +91,8 @@ send)
 		echo "Ingen endringer å sende."
 	else
 		git -C "$TREE" commit -q -m "Claude: jobber og status $(date '+%Y-%m-%d %H:%M')"
-		git -C "$TREE" push -q -u origin "$BRANCH"
+		# HEAD og ikke grennavnet: arbeidskopien kan stå på en løs commit etter en manuell utsjekk
+		git -C "$TREE" push -q origin "HEAD:refs/heads/$BRANCH"
 		echo "Sendt til grenen $BRANCH."
 	fi
 	;;

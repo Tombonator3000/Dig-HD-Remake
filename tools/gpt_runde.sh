@@ -3,7 +3,8 @@
 #
 #   1. Setter opp det som mangler (spillfiler, pipeline, uttrekk, jobber)
 #   2. Henter nye bilder fra grenen gpt-arbeid
-#   3. Kontrollerer dem (dighd gpt-inn) og lager HD-rom, HD-objekter og HD-figurruter
+#   3. Kontrollerer dem (dighd gpt-inn) og lager HD-rom, HD-objekter og HD-figurruter, og tar inn
+#      figurarkene i glatt stil som myke figurruter (dighd myke-figurer)
 #   4. Bygger modden mods/gpt av de godkjente rommene, objektbildene og figurrutene og publiserer den i grenen hd-mod
 #   5. Skriver ny ORDRE.md og sender status, rapport og retur tilbake til grenen
 #
@@ -29,13 +30,15 @@ fi
 [ -f work/extract/rooms.json ] || dighd extract --only la1
 
 # 2. Hent
-before="$(sha256sum work/gpt-ferdig/provenance.json 2>/dev/null || true)"
+before="$(cat work/gpt-ferdig/provenance.json work/gpt-ferdig/myke.json 2>/dev/null | sha256sum || true)"
 status_before="$(sha256sum work/gpt/status.csv 2>/dev/null || true)"
 tools/gpt_gren.sh hent
 
-# 3. Kontroller
+# 3. Kontroller. Figurarkene i glatt stil (ekte alfa) får status levert i gpt-inn og tas inn her,
+#    med egen alfa og marg rundt rutene (costumes/costumeCCC_NNN_hd.png).
 dighd gpt-inn
-after="$(sha256sum work/gpt-ferdig/provenance.json 2>/dev/null || true)"
+dighd myke-figurer
+after="$(cat work/gpt-ferdig/provenance.json work/gpt-ferdig/myke.json 2>/dev/null | sha256sum || true)"
 
 # 4. Mod, bare når noe nytt er godkjent. Rommene med HD-bakgrunn velges med --rooms.
 #    Godkjente objektbilder i work/gpt-ferdig/objects kommer med uansett, også i rom
@@ -45,7 +48,7 @@ after="$(sha256sum work/gpt-ferdig/provenance.json 2>/dev/null || true)"
 if [ "$before" != "$after" ] && [ -d work/gpt-ferdig ]; then
 	rooms="$(ls work/gpt-ferdig/rooms 2>/dev/null | sed -n 's/^room0*\([0-9][0-9]*\)\.png$/\1/p' | paste -sd, - || true)"
 	objects="$(ls work/gpt-ferdig/objects 2>/dev/null | grep -c '^obj.*\.png$' || true)"
-	cels="$(ls work/gpt-ferdig/costumes 2>/dev/null | grep -c '^costume[0-9]*_[0-9]*\.png$' || true)"
+	cels="$(ls work/gpt-ferdig/costumes 2>/dev/null | grep -c '^costume[0-9]*_[0-9]*\(_hd\)\?\.png$' || true)"
 	if [ -n "$rooms" ] || [ "${objects:-0}" -gt 0 ] || [ "${cels:-0}" -gt 0 ]; then
 		rm -rf mods/gpt
 		dighd build-mod --name gpt --method lanczos-sharp --rooms "${rooms:-ingen}" --egne work/gpt-ferdig
