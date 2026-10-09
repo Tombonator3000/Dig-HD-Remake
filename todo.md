@@ -6,6 +6,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 - [x] GitHub Pages-inngang med lokal import av spillfiler og HD-pakke, uten lokal webserver
 - [x] Bekreft den publiserte Pages-adressen med faktisk HD-oppstart
+- [x] HD-figurer i Pages-versjonen: testet mot den publiserte siden, og siden teller HD-rom, objektbilder og figurruter
+- [ ] Tom spiller fra Pages med mappene fra zip (`docs/SPILLTEST.md`, Fra GitHub Pages) og sier fra
 
 - [ ] ChatGPT-runder hver halvtime med `tools/gpt_runde.sh` til alle 192 jobber (162 rom, 30 store objekter) er godkjent
 - [ ] Se gjennom hvert nytt godkjent rom i forhåndsvisningen før det rapporteres (avvis med `docs/gpt-avvisninger.csv`)
@@ -33,7 +35,10 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] En dårligere ny leveranse erstatter ikke en godtatt (beste leveranse per jobb i `work/gpt/beste`)
 - [x] Nettleserversjon lokalt: `./spill.sh --nettleser` (PR 15)
 - [x] Figurark for kostymene og pilot for Boston Low (PR 20)
-- [ ] Pilotarkene fra ChatGPT: se om figurene blir like fra rute til rute, juster flimmergrensen, og bestill så hovedpersonene (114 ark)
+- [x] fig014_01 (Boston står og går, 28 ruter) godkjent av Tom og satt inn i modden
+- [ ] Pilotarkene fig014_02 til 04 fra ChatGPT: se om figurene blir like fra rute til rute, juster flimmergrensen, og bestill så hovedpersonene (114 ark)
+- [ ] Ansiktet til Boston nærmere originalen i de neste arkene (eldre, grått hår ved tinningene)
+- [ ] Mykere kanter på HD-figurrutene: alfa jevnet ut innenfor originalens silhuett, i stedet for trappetrinn i 4x
 - [ ] Lag Boston-ruter som består silhuettkontrollen og kontroller hele bevegelsesrekken i motoren
 
 ## Motor

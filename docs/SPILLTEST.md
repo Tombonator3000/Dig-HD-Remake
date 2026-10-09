@@ -163,6 +163,24 @@ Kjente begrensninger:
 - Som i den vanlige motoren vises HD-skjermen i 16:10 (1280 x 800) med svarte felt. ScummVM retter bildeforholdet bare for 200 og 400 linjer.
 - Innstillingene i `engine/web/scummvm.ini` brukes bare første gang. Etterpå er det nettleserens kopi som gjelder.
 
+## Fra GitHub Pages, uten å bygge noe
+
+Nettsiden https://tombonator3000.github.io/Dig-HD-Web/ har bare motoren. Spillfilene og HD-pakken velger du fra din egen maskin, og de lagres i nettleseren. De lastes ikke opp. Oppsett og bygging står i `docs/PAGES.md`.
+
+Slik får du de to mappene uten git og uten terminal (logget inn på GitHub, repoet er privat):
+
+1. Spillfilene: last ned https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/spilldata.zip og pakk ut. Mappen `game` inni har DIG.LA0, DIG.LA1 og VIDEO.
+2. HD-pakken: last ned https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/hd-mod.zip og pakk ut. Mappen `Dig-HD-Remake-hd-mod` har mod.json, rooms, objects og costumes.
+3. Åpne nettsiden, trykk **Velg spillmappe** og velg `game`, trykk **Velg HD-mappe** og velg `Dig-HD-Remake-hd-mod`, og trykk **Spill med HD**.
+
+Har du repoet fra før, er `game` og `mods/gpt` de samme mappene (`./spill.sh` eller `tools/mod_gren.sh hent` oppdaterer `mods/gpt`).
+
+Under HD-mappen viser siden hvor mange HD-rom, objektbilder og figurruter pakken har, og når den ble laget. Nettleseren husker mappene, men bruker kopien den lagret. Når det kommer en ny HD-pakke, laster du ned og velger HD-mappen på nytt.
+
+Adressen kan ha de samme valgene som lokalt: `?rom=22`, `?klassisk=1`, `?gult=1` og testkrokene, for eksempel `?rom=22&DIGHD_TEST_COSTUME=14` for å se Boston i alle retninger.
+
+Testet 2026-10-09 i Chromium uten skjerm mot den publiserte siden, med `game` og `mods/gpt` (103 rom, 485 objektbilder, 28 figurruter): rom 22 i HD, Boston med HD-rutene fra fig014_01, HD/klassisk-knappen virker, ingen forespørsler mot spill- eller HD-stier. Ikke testet: nedlasting av zip-filene fra GitHub (krever innlogging) og en vanlig nettleser med skjermkort.
+
 ## Si fra
 
 Skriv hva du så, i hvilket rom og omtrent hvor, og legg ved skjermbilde (Alt+S) hvis du kan. Gi det til Claude i chatten, eller legg det i `rapporter/` i grenen `gpt-arbeid`.

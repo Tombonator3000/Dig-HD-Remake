@@ -215,3 +215,12 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Nettsiden bygges og publiseres av GitHub Actions. Kontroll av den publiserte adressen gjenstår. Full gjennomspilling og mobiltest ikke utført.
 - Lasting kontrollert etter lukking av nettleseren: startet i rom 9, lastet det navngitte spillet fra F5-menyen og kom tilbake til rom 22 med HD.
 - Offentlig motorbygg og deploy bestått (Dig-HD-Web, kjøring 37875921399). Pages returnerer HTTP 200. Kontrollert selve Pages-adressen i Chromium: privat mappeimport, faktisk rom 22 i 1280 x 800 HD, begge HD-bryterretninger og fullskjerm. Ingen spill- eller HD-HTTP-forespørsler. Spillfiler og HD-bilder på direkte offentlig adresse gir 404.
+
+## 2026-10-09 09:37 til 10:05 (Claude)
+- Tom: sett inn figurarket, sørg for at alt er integrert og kan kjøres med HD-grafikk i nettleseren fra GitHub. Hentet `main` med PR 23 (Pages fra Codex).
+- Runde med `tools/gpt_runde.sh`: fig014_01 fra Codex godkjent av kontrollen (forskyvning 0,11 px, kantlikhet 0,989). 28 ruter av kostyme 14 klippet til `work/gpt-ferdig/costumes`. Modden bygget på nytt (103 rom, 485 objektbilder, 28 figurruter) og publisert i `hd-mod` (c232bcb). Ny ordre til ChatGPT: fortsett med fig014_02 til 04, ansiktet nærmere originalen.
+- Så på alle 28 rutene mot originalen: riktig plassert, samme silhuett, ingen glorie. Kantene følger originalens alfa og er trappete i 4x (lagt i todo).
+- Motoren uten skjerm i rom 22 med `DIGHD_TEST_COSTUME=14`: stående og gående mot siden har 699 til 1088 figurpiksler fra HD og 0 fra originalen. Gange mot kameraet er ikke malt ennå og vises som originalen. Skjermen lik hele skjermen bygget på nytt.
+- Pages: Dig-HD-Web har de samme filene som `main` (motor, patch, side og PAGES.md), så den publiserte motoren er bygget fra gjeldende patch. Siden tok allerede med `objects/` og `costumes/`. Testet den publiserte siden i Chromium uten skjerm med spillmappen og `mods/gpt`: rom 22 i HD, Boston med HD-rutene, HD/klassisk virker, ingen forespørsler mot spill- eller HD-stier.
+- Siden viser nå antall HD-rom, objektbilder og figurruter og når pakken ble laget, så det synes når en nyere HD-pakke må velges på nytt. Ny filtest, 5 bestått. Testet lokalt med den publiserte motoren og de nye sidefilene.
+- `docs/SPILLTEST.md`: slik spiller Tom fra Pages uten git, med zip av grenene `spilldata` og `hd-mod`. `docs/PAGES.md`, README, STATUS, todo og memory oppdatert.
