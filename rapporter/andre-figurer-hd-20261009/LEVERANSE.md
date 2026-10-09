@@ -25,3 +25,5 @@ Leveransegruppe 08: fig003_07, fig004_20, fig004_21, fig004_22, fig004_07, fig00
 Leveransegruppe 09: fig003_10, fig004_23, fig004_24, fig005_02, fig005_03, fig005_04, fig002_04, fig003_02, fig004_15, fig005_08, fig005_09, fig005_10, fig005_11. 49 tegnede figurområder, 55 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
 
 Leveransegruppe 10: fig005_05, fig005_06, fig005_12, fig005_13, fig005_14, fig005_15. 16 tegnede figurområder, 16 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
+
+Leveransegruppe 11: fig004_04, fig004_05, fig004_08, fig004_10, fig004_11. 30 tegnede figurområder, 30 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
