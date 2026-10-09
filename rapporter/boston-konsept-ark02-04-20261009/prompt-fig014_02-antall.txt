@@ -1,0 +1,9 @@
+Use case: precise-object-edit.
+Edit this existing transparent Boston Low sprite sheet with ONE targeted correction only: it currently contains 64 entries instead of 62.
+Remove exactly TWO extra detached heads:
+1. The LAST, RIGHTMOST right-facing head in the first long row of talking heads, at approximately x=1443..1497, y=619..689.
+2. The LAST, RIGHTMOST left-facing head in the second long row of talking heads, at approximately x=1447..1500, y=797..866.
+Fill only those removed head regions with genuine transparency. Leave those spaces empty.
+Preserve every other pixel drawing, pose, mouth expression, face, hair, linework, color, smooth native alpha contour, position and scale. Do not repaint, rearrange, resize, respread, add or duplicate any other sprite.
+Final row counts MUST be 9 walking LEFT, 3 walking LEFT, 19 detached heads RIGHT, 6 detached heads RIGHT, 19 detached heads LEFT, 6 detached heads LEFT = exactly 62 sprites.
+Keep 1536 x 1024 PNG with genuinely transparent background. No floor, shadows, grid, text, cyan, magenta, gray border, glow or fringe. This is a deletion correction, not a new illustration.

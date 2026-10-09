@@ -1,0 +1,25 @@
+Use case: style-transfer.
+Asset type: Boston Low high-definition 2D animation sprite sheet for the private The Dig HD Remake.
+
+Input 1 is the edit target and ORIGINAL POSE, DIRECTION, FRAME ORDER AND LAYOUT GUIDE. Replace all its pixel drawings with finished drawings. Do not copy the cyan matte, magenta strips, gray border, pixel staircase, chunky hands or blocky face.
+Input 2 is the LARGE DRAWING APPROVED BY TOM, the definitive visual authority for face, proportions, clothing, smooth contours and detail.
+Input 3 is the approved 28-frame style sheet. Match this same man across all the new frames. Do not copy the poses or entry count of input 3.
+
+Draw mature lean athletic Boston Low in his fifties: long angular face, square chin, strong straight angular nose, expressive dark eyebrows, swept brown hair with broad silver-gray temples. Dark teal short-sleeved shirt, dark belt, warm burnt-orange trousers and black calf-high boots. Match the approved drawing's distinctive adult face, muscular forearms, hands, clothing construction, folds and boot shape. Keep the same costume, anatomy, color palette and fixed lighting in every frame.
+
+Style: polished hand-inked 2D animation, precise thin dark ink contours, clear flat color areas and controlled two-tone cel shadows. Match the detail and finish of input 2 within each sprite's size. Keep faces, ears, gray temples, fingers and clothing folds clearly drawn. Avoid generic young faces, sneakers, dense random wrinkles, glossy 3D rendering, painterly softness or blur.
+
+Crucial: redraw silhouettes as continuous clean antialiased lines. The original pixel silhouette is NOT an exact alpha clipping mask. Preserve the general pose, scale, center, foot baseline and spacing of each entry, but smooth the jaw, hair, arms, trousers and boots between coarse guide pixels. No square-pixel outlines, repeating four-pixel steps, checkerboard dithering, blur, glow or fringe. Native soft edge alpha must be retained.
+
+This is sheet 2, EXACTLY 62 entries, in six rows matching input 1:
+Row 1: 9 complete full-body walking frames facing LEFT, in the original stride phases.
+Row 2: the remaining 3 complete full-body walking frames facing LEFT, at the left side only.
+Row 3: 19 detached talking heads facing RIGHT.
+Row 4: 6 more detached talking heads facing RIGHT, at the left side only.
+Row 5: 19 detached talking heads facing LEFT.
+Row 6: 6 more detached talking heads facing LEFT, at the left side only.
+Total: 12 walking bodies plus 25 right-facing heads plus 25 left-facing heads = 62 entries.
+The heads are head/neck overlay sprites only, no shoulders or torso. Preserve the changing mouth, jaw, gaze and small head motion of the guide in order; do not replace all heads with a single neutral expression. Keep a stable skull, hair, ear and face construction across speech frames. Do not invent another direction, duplicate, merge, omit or add entries.
+
+No text, labels, grid, logos, border, signature or watermark. No floor, cast shadows or markers. No cyan or magenta. Everything around and between entries is genuinely transparent PNG alpha.
+Output one PNG sprite sheet, exactly 1536 x 1024 pixels. Keep the guide's entire 3:2 canvas and relative frame placement; do not zoom or reorganize. All entries fully visible, separated, uncut and correctly oriented. This is a new drawn style master, not a pixel upscale.
