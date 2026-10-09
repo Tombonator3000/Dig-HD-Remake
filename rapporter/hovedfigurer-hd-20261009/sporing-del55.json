@@ -1,0 +1,721 @@
+[
+ {
+  "jobb": "fig213_18",
+  "attempt": 1,
+  "rows": [
+   4,
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth detailed HD production sprite redraw fig213_18. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Original portal sequence with FOUR distinct subjects where shown: large cream/tan horned muscular alien at center, Boston navy shirt/orange trousers to RIGHT, Maggie short dark bob/orange flight jumpsuit toward LEFT, blond Brink gray-blue jacket/orange trousers farther LEFT. Follow source exact who is present in EACH original entry. Small detached floating Brink fragments and elliptical pale energy rings are meaningful standalone frames, not registration specks, keep them. Later frames show disappearance into spiralling elliptical particles; effect-only original entries remain effect-only, no invented bodies. Preserve occlusion, exact directions, size differences and all original partial cutoffs.\nOriginal frame groups per row exactly [4, 4]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig213_18/original_1x.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d986b88b-66f0-4397-8131-a0513cf9090b.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     480,
+     500
+    ],
+    [
+     480,
+     0,
+     280,
+     500
+    ],
+    [
+     760,
+     0,
+     480,
+     500
+    ],
+    [
+     1240,
+     0,
+     296,
+     500
+    ]
+   ],
+   [
+    [
+     0,
+     500,
+     300,
+     524
+    ],
+    [
+     300,
+     500,
+     490,
+     524
+    ],
+    [
+     790,
+     500,
+     260,
+     524
+    ],
+    [
+     1050,
+     500,
+     486,
+     524
+    ]
+   ]
+  ],
+  "source_region_basis": "Every original composite frame, separate body and isolated dissolving-effect entry visually compared with native art. One source frame may contain several disconnected people or particles. Source order preserved; no parts omitted to force counts. All alpha128 components must be contained exactly once.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    0,
+    480,
+    500
+   ],
+   [
+    480,
+    0,
+    280,
+    500
+   ],
+   [
+    760,
+    0,
+    480,
+    500
+   ],
+   [
+    1240,
+    0,
+    296,
+    500
+   ],
+   [
+    0,
+    500,
+    300,
+    524
+   ],
+   [
+    300,
+    500,
+    490,
+    524
+   ],
+   [
+    790,
+    500,
+    260,
+    524
+   ],
+   [
+    1050,
+    500,
+    486,
+    524
+   ]
+  ],
+  "source_effect_basis": "Original costume213 contains detached gray Brink ghost forms and left-side dissolving particle spirals. Costume229 contains isolated purple/gold energy remnants. Only original effects are accepted; no background matte permitted. White/black/green composites separately inspected.",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d986b88b-66f0-4397-8131-a0513cf9090b.png",
+  "sha256": "276c9d201f5a76df6f5de5a3b93ced93c186957288789ec646f301f9296554cb",
+  "originalruter": 8,
+  "resultat": "jobber/fig213_18/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "24e832805f41c3d9e9e033e81f20519f20f306239a74f9e4c05c8931939f18a5",
+   "original_1x.png": "77aa18b6ca95750f1f52cfaf682ff18235db5b761b72a67d734da36e0a016629",
+   "prompt.txt": "720690ec91e2e8bdc307a38ffb7c94e4d2138383f670d7d544b50c36b26dd863",
+   "jobb.json": "ea09cfc0ee2d4866930db729e1b4545a444a6eef02e23f691b76df6b84b10071"
+  }
+ },
+ {
+  "jobb": "fig213_19",
+  "attempt": 2,
+  "rows": [
+   2
+  ],
+  "fragments": 0,
+  "prompt": "Native1536x1024 RGBA production sprite sheet. First image is the ORIGINAL target and absolute authority for source frames, positions, phases and people. Smooth richly detailed hand-painted game art with antialiased native alpha. Empty background alpha0. Keep every original group exactly once, original sequence, each separated clearly. Preserve partial bodies/headless cutoffs. No added bodies or glow. Remove only flat magenta background and flat magenta ground markers; these markers are not energy. No matte, scenery, shadow, grid or text. EFFECTS ONLY: exactly TWO separate pale gray-white particle ellipses in one row, original different phase/density and ellipse perspective. No people, heads, bodies, lineup or extra rings. Sparse detailed particles, compact fading alpha, no broad halo. Exact original groups per row [2]. All source phase/order authoritative. Draw detailed faces/clothes only in entries that actually have people; never populate an effect-only entry with people.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig213_19/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-29c1764d-911d-43a4-a450-c06abcaa99ff.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     400,
+     1024
+    ],
+    [
+     400,
+     0,
+     1136,
+     1024
+    ]
+   ]
+  ],
+  "source_region_basis": "Every original composite frame, separate body and isolated dissolving-effect entry visually compared with native art. One source frame may contain several disconnected people or particles. Source order preserved; no parts omitted to force counts. All alpha128 components must be contained exactly once.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    0,
+    400,
+    1024
+   ],
+   [
+    400,
+    0,
+    1136,
+    1024
+   ]
+  ],
+  "source_effect_basis": "Original costume213 contains detached gray Brink ghost forms and left-side dissolving particle spirals. Costume229 contains isolated purple/gold energy remnants. Only original effects are accepted; no background matte permitted. White/black/green composites separately inspected.",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-29c1764d-911d-43a4-a450-c06abcaa99ff.png",
+  "sha256": "c8e64dde49a844a828cc881f2dee4e1a95c116f08ef9b786955669b832c53a3a",
+  "originalruter": 2,
+  "resultat": "jobber/fig213_19/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "a7d49ebd99c762484ee643f087677328a5cabace7b745c09e23b93054ec7a66c",
+   "original_1x.png": "711774a2efa820cfc601f9a352d1b47be17002684cc13d896df7145a31283781",
+   "prompt.txt": "53cf144955c09dabc64adb4f3d475063141a114d02e2a4706e7f2013bd3a12e1",
+   "jobb.json": "97c775befc055ac2fe8ae687a4cc03613c4cf8310575061fad832639edb566b1"
+  }
+ },
+ {
+  "jobb": "fig229_22",
+  "attempt": 2,
+  "rows": [
+   5
+  ],
+  "fragments": 1,
+  "prompt": "Native1536x1024 RGBA production sprite sheet. First image is the ORIGINAL target and absolute authority for source frames, positions, phases and people. Smooth richly detailed hand-painted game art with antialiased native alpha. Empty background alpha0. Keep every original group exactly once, original sequence, each separated clearly. Preserve partial bodies/headless cutoffs. No added bodies or glow. Remove only flat magenta background and flat magenta ground markers; these markers are not energy. No matte, scenery, shadow, grid or text. EFFECTS ONLY. Exactly FIVE isolated vertical purple/lilac pale yellow-white vanishing energy-creature remnants. No people or heads or bodies. Preserve original row count[5] and exact original phases, compact smooth alpha; no extra rows.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig229_22/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e8af7e0b-bc28-4472-b487-bb6d0c21b8c3.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     410,
+     1024
+    ],
+    [
+     410,
+     0,
+     390,
+     1024
+    ],
+    [
+     800,
+     0,
+     300,
+     1024
+    ],
+    [
+     1100,
+     0,
+     235,
+     1024
+    ],
+    [
+     1335,
+     0,
+     201,
+     1024
+    ]
+   ]
+  ],
+  "source_region_basis": "Every original composite frame, separate body and isolated dissolving-effect entry visually compared with native art. One source frame may contain several disconnected people or particles. Source order preserved; no parts omitted to force counts. All alpha128 components must be contained exactly once.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    0,
+    410,
+    1024
+   ],
+   [
+    410,
+    0,
+    390,
+    1024
+   ],
+   [
+    800,
+    0,
+    300,
+    1024
+   ],
+   [
+    1100,
+    0,
+    235,
+    1024
+   ],
+   [
+    1335,
+    0,
+    201,
+    1024
+   ]
+  ],
+  "source_effect_basis": "Original costume213 contains detached gray Brink ghost forms and left-side dissolving particle spirals. Costume229 contains isolated purple/gold energy remnants. Only original effects are accepted; no background matte permitted. White/black/green composites separately inspected.",
+  "figure": "Boston Low og Ludger Brink",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e8af7e0b-bc28-4472-b487-bb6d0c21b8c3.png",
+  "sha256": "cf396fe0e14dc2702d5d5b790692a15069349c4b10286bd40004c625c59cad27",
+  "originalruter": 6,
+  "resultat": "jobber/fig229_22/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "d8b32985ffd23f543b32435ba4cf064429ef074146bfd2cdd9a0eeb5d19b5c40",
+   "original_1x.png": "1e6d79119d247b1a646b4c5a3f9af0c4c775f989ba19722f6ef45d91e5356656",
+   "prompt.txt": "5cc9d22ee15b35b63b1abc6302a744f0ca8247773942e3c0b862b682ac1ad199",
+   "jobb.json": "ddaab46bcea82d8e4be807c638c1032e1b7bc090fafa834fd2d3a297054d4b63"
+  }
+ },
+ {
+  "jobb": "fig053_08",
+  "attempt": 2,
+  "rows": [
+   4,
+   5,
+   6
+  ],
+  "fragments": 10,
+  "prompt": "Narrow source-faithful correction of the FIRST native sprite sheet, with the SECOND ORIGINAL source authoritative for content and order. Keep four Boston figures row1, five row2 and five Boston figures row3. Add only the missing SIXTH last-row entry to RIGHT, a tiny separate bent effect remnant from original costume053_178 (6x5 source), not a person or extra rope under a person. Counts4,5,6 grouped entries, with sixth last row effect-only. Preserve all existing original poses. Output exactly1536x1024 RGBA, transparent_background, Tom-approved smooth detailed painted style, no pixel stairs, no text/grid/matte/ground shadow. Native smooth alpha, no creative changes elsewhere.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_08/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-30389644-7e7b-4a23-9517-73e272e3f0fd.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     330,
+     350
+    ],
+    [
+     330,
+     0,
+     280,
+     350
+    ],
+    [
+     610,
+     0,
+     390,
+     350
+    ],
+    [
+     1000,
+     0,
+     536,
+     350
+    ]
+   ],
+   [
+    [
+     0,
+     350,
+     320,
+     325
+    ],
+    [
+     320,
+     350,
+     290,
+     325
+    ],
+    [
+     610,
+     350,
+     280,
+     325
+    ],
+    [
+     890,
+     350,
+     270,
+     325
+    ],
+    [
+     1160,
+     350,
+     376,
+     325
+    ]
+   ],
+   [
+    [
+     0,
+     675,
+     270,
+     349
+    ],
+    [
+     270,
+     675,
+     250,
+     349
+    ],
+    [
+     520,
+     675,
+     260,
+     349
+    ],
+    [
+     780,
+     675,
+     250,
+     349
+    ],
+    [
+     1030,
+     675,
+     275,
+     349
+    ],
+    [
+     1305,
+     675,
+     231,
+     349
+    ]
+   ]
+  ],
+  "source_region_basis": "Original fig053_08 has4,5,6 entries. Last bottom source entry contains only tiny dark cable fragments; native alpha parts are below the minimum connected-component area30 and must not be lost. All14 actual Boston/cable groups and final cable-only source frame compared visually. Every core component accounted for once.",
+  "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-30389644-7e7b-4a23-9517-73e272e3f0fd.png",
+  "sha256": "fe4683bcba88d74016e3dc3fc9e528c891bd282b321931ff8d7ffda599bdfcaa",
+  "originalruter": 25,
+  "resultat": "jobber/fig053_08/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "595e1767aec76671dc24b047d5450dbbbc84728309050e0688538756331ef763",
+   "original_1x.png": "35a3d7303da0a4f2c13568cded42ac1448120fb16f2b2222b3c27e44983d5ed9",
+   "prompt.txt": "1536b02717244505849ef6efb7211cc7a98a3d3c55d3fe34a003cc3280f2a7d4",
+   "jobb.json": "6ea9c1f1985fc9f8e773b9f371606495b980004090f269a8074afb4be529b2eb"
+  }
+ },
+ {
+  "jobb": "fig222_17",
+  "attempt": 0,
+  "rows": [
+   4,
+   3
+  ],
+  "fragments": 0,
+  "prompt": "Source-faithful smooth detailed HD sprite redraw/correction. First image editable target, original source authority. ONLY original7 groups in rows4,3: top group1 Boston together with floating blond Brink gray jacket;group2 Boston behind floating Brink;group3 Brink alone partly dissolving;group4 particle-only elliptical ring. Bottom3 groups particle-only rings. Maggie is ABSENT. Do not add Maggie or extra Boston or split the first source pair into two entries. Preserve original clockwise phase and pale gray/white-yellow particle color, transparent gaps. All characters remain only in the first three groups. Exactly1536x1024 native RGBA. Tom-approved richly detailed smooth hand-painted game sprites, no pixel stair-steps, no hard pixel mask, no extra scenery/text/grid/shadows/matte. Boston short brown hair gray temples, navy T-shirt/orange cargo trousers;Maggie dark bob/orange flight suit;Brink blond gray-blue jacket/orange trousers. These identities apply ONLY where original people exist. Effect-only original entries stay effects only. Source partial bodies remain partial. Native antialiased alpha, all empty canvas alpha0. No new subjects or effect embellishments.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_17/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_17/resultat.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     285,
+     490
+    ],
+    [
+     285,
+     0,
+     305,
+     490
+    ],
+    [
+     590,
+     0,
+     410,
+     490
+    ],
+    [
+     1000,
+     0,
+     536,
+     490
+    ]
+   ],
+   [
+    [
+     0,
+     490,
+     490,
+     534
+    ],
+    [
+     490,
+     490,
+     505,
+     534
+    ],
+    [
+     995,
+     490,
+     541,
+     534
+    ]
+   ]
+  ],
+  "source_region_basis": "Original rows and every isolated effect phase compared with native image. These non-overlapping areas retain the meaningful source particle frames, including soft pieces below alpha128. No people are inserted into effect-only original entries. Every native core part remains accounted for exactly once.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    0,
+    285,
+    490
+   ],
+   [
+    285,
+    0,
+    305,
+    490
+   ],
+   [
+    590,
+    0,
+    410,
+    490
+   ],
+   [
+    1000,
+    0,
+    536,
+    490
+   ],
+   [
+    0,
+    490,
+    490,
+    534
+   ],
+   [
+    490,
+    490,
+    505,
+    534
+   ],
+   [
+    995,
+    490,
+    541,
+    534
+   ]
+  ],
+  "source_effect_basis": "Original source contains isolated dissolving brown/orange or pale particle spirals at these frame positions. Native soft particle alpha is intentional. White, black and green composites are separately inspected, and no surrounding matte is permitted.",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_17/resultat.png",
+  "sha256": "c7510f42504e7377d004afd387e7654a43cb3309c3accdeaa907f0e87522c0a7",
+  "originalruter": 7,
+  "resultat": "jobber/fig222_17/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "8c6797d85c3d0d4dd7686576fdff776af211c6d05925b3c5e1c3e5573191e201",
+   "original_1x.png": "13fec672815c74fb7c57e71512e5f782cf62ed9768db4ff8b077f3d5aef3bfc6",
+   "prompt.txt": "d95b4da38fa7bc87c3fdb831e8b7d60e2d890fd4750bb94446178a56e1558fa6",
+   "jobb.json": "6654d43432ae297b079aad7dad3628a5a2b4d782e7c37557dc06fffd4bdc2e30"
+  },
+  "source_generation_attempts": 2,
+  "reuse_of": "fig214_17",
+  "source_equality_proof": {
+   "original_1x_sha256": "13fec672815c74fb7c57e71512e5f782cf62ed9768db4ff8b077f3d5aef3bfc6",
+   "resultat_sha256": "c7510f42504e7377d004afd387e7654a43cb3309c3accdeaa907f0e87522c0a7",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_18",
+  "attempt": 0,
+  "rows": [
+   3,
+   2
+  ],
+  "fragments": 0,
+  "prompt": "Source-faithful smooth detailed HD sprite redraw/correction. First image editable target, original source authority. EFFECTS ONLY. Original source has FIVE elliptical spiralling particle rings, exactly3 in top row and2 below. NO PEOPLE, no Boston, Maggie, Brink, alien, bodies or heads. These are thin pale gray-white elliptical particle rings, changing original phase/density, original perspective and color, smooth detailed individual light particles fading compactly to alpha0. Do not add style-anchor people. Exactly1536x1024 native RGBA. Tom-approved richly detailed smooth hand-painted game sprites, no pixel stair-steps, no hard pixel mask, no extra scenery/text/grid/shadows/matte. Boston short brown hair gray temples, navy T-shirt/orange cargo trousers;Maggie dark bob/orange flight suit;Brink blond gray-blue jacket/orange trousers. These identities apply ONLY where original people exist. Effect-only original entries stay effects only. Source partial bodies remain partial. Native antialiased alpha, all empty canvas alpha0. No new subjects or effect embellishments.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_18/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_18/resultat.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     500,
+     500
+    ],
+    [
+     500,
+     0,
+     540,
+     500
+    ],
+    [
+     1040,
+     0,
+     496,
+     500
+    ]
+   ],
+   [
+    [
+     0,
+     500,
+     570,
+     524
+    ],
+    [
+     570,
+     500,
+     630,
+     524
+    ]
+   ]
+  ],
+  "source_region_basis": "Original rows and every isolated effect phase compared with native image. These non-overlapping areas retain the meaningful source particle frames, including soft pieces below alpha128. No people are inserted into effect-only original entries. Every native core part remains accounted for exactly once.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    0,
+    500,
+    500
+   ],
+   [
+    500,
+    0,
+    540,
+    500
+   ],
+   [
+    1040,
+    0,
+    496,
+    500
+   ],
+   [
+    0,
+    500,
+    570,
+    524
+   ],
+   [
+    570,
+    500,
+    630,
+    524
+   ]
+  ],
+  "source_effect_basis": "Original source contains isolated dissolving brown/orange or pale particle spirals at these frame positions. Native soft particle alpha is intentional. White, black and green composites are separately inspected, and no surrounding matte is permitted.",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_18/resultat.png",
+  "sha256": "8f5f01b8826d43a79b014283477eb8cec22f7d0791b83865549b92c795f80b1e",
+  "originalruter": 5,
+  "resultat": "jobber/fig222_18/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "bb0e8d6906f5f880aac4634fb37ad6c072c84fcf350e42a336b61a119dc3cfc6",
+   "original_1x.png": "50d5eaa28ce6ab944197ad7fc492927eeaed87d12609fa5f496c54f56a92012f",
+   "prompt.txt": "3a3cb62fee552abe111d5ab04566371b67c26c484e7e906c86035a8fdad056c3",
+   "jobb.json": "235e68714f00ec35460f3f0fb5343d904c8c211f5e11795e73f61e10ddbf3b5c"
+  },
+  "source_generation_attempts": 2,
+  "reuse_of": "fig214_18",
+  "source_equality_proof": {
+   "original_1x_sha256": "50d5eaa28ce6ab944197ad7fc492927eeaed87d12609fa5f496c54f56a92012f",
+   "resultat_sha256": "8f5f01b8826d43a79b014283477eb8cec22f7d0791b83865549b92c795f80b1e",
+   "byteidentical": true
+  }
+ },
+ {
+  "jobb": "fig222_19",
+  "attempt": 0,
+  "rows": [
+   2,
+   1
+  ],
+  "fragments": 0,
+  "prompt": "Source-faithful smooth detailed HD sprite redraw/correction. First image editable target, original source authority. EFFECTS ONLY. Exactly original source rings in its original row count. NO PEOPLE, no Boston, Maggie, Brink, alien, bodies or heads. Preserve each very thin pale gray-white spiralling particle-ring phase, sparse/dense exact original character, ellipse perspective, fading into alpha0. Do not invent extra spiral or style-anchor people. Exactly1536x1024 native RGBA. Tom-approved richly detailed smooth hand-painted game sprites, no pixel stair-steps, no hard pixel mask, no extra scenery/text/grid/shadows/matte. Boston short brown hair gray temples, navy T-shirt/orange cargo trousers;Maggie dark bob/orange flight suit;Brink blond gray-blue jacket/orange trousers. These identities apply ONLY where original people exist. Effect-only original entries stay effects only. Source partial bodies remain partial. Native antialiased alpha, all empty canvas alpha0. No new subjects or effect embellishments.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_19/original_1x.png"
+  ],
+  "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_19/resultat.png",
+  "source_verified_frame_regions": [
+   [
+    [
+     0,
+     0,
+     590,
+     500
+    ],
+    [
+     590,
+     0,
+     610,
+     500
+    ]
+   ],
+   [
+    [
+     0,
+     500,
+     600,
+     524
+    ]
+   ]
+  ],
+  "source_region_basis": "Original rows and every isolated effect phase compared with native image. These non-overlapping areas retain the meaningful source particle frames, including soft pieces below alpha128. No people are inserted into effect-only original entries. Every native core part remains accounted for exactly once.",
+  "source_proven_effect_regions": [
+   [
+    0,
+    0,
+    590,
+    500
+   ],
+   [
+    590,
+    0,
+    610,
+    500
+   ],
+   [
+    0,
+    500,
+    600,
+    524
+   ]
+  ],
+  "source_effect_basis": "Original source contains isolated dissolving brown/orange or pale particle spirals at these frame positions. Native soft particle alpha is intentional. White, black and green composites are separately inspected, and no surrounding matte is permitted.",
+  "figure": "Boston Low og Maggie Robbins",
+  "attempts": 0,
+  "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig214_19/resultat.png",
+  "sha256": "c3c672b4261569a3cb05b7388c9b64c5c8e25f28bb75560e3dfdcb465fd530f0",
+  "originalruter": 3,
+  "resultat": "jobber/fig222_19/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "3d2cdabcd0f1ce06e752e7a84b662133a7cba6bad6425a30a83fc8715ae564f9",
+   "original_1x.png": "1f31c36452480c6f7887c2210f4a84aaf53f69ab756f2785f1ee15064c1770f6",
+   "prompt.txt": "236d23c27af1c5a01407b1978dcdfdf4c37bf2d34679f630fec3e5e74a41ccf1",
+   "jobb.json": "01eaf2fbf75044b271ac4a07e06b0b3c0d1431840c4824683b58fa7d9f68014d"
+  },
+  "source_generation_attempts": 2,
+  "reuse_of": "fig214_19",
+  "source_equality_proof": {
+   "original_1x_sha256": "1f31c36452480c6f7887c2210f4a84aaf53f69ab756f2785f1ee15064c1770f6",
+   "resultat_sha256": "c3c672b4261569a3cb05b7388c9b64c5c8e25f28bb75560e3dfdcb465fd530f0",
+   "byteidentical": true
+  }
+ }
+]
