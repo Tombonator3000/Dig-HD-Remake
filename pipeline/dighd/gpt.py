@@ -958,6 +958,21 @@ def detect_layout(size: tuple[int, int], region: tuple[int, int]) -> str | None:
     return None
 
 
+def has_native_alpha(path: Path) -> bool:
+    """Har bildet sin egen myke alfakant (ny stil), ikke bare en flat bakgrunn?
+
+    Figurark i den gamle stilen leveres på en flat bakgrunnsfarge (RGB). Den glatte stilen leveres
+    som RGBA med gjennomsiktig bakgrunn og mellomnivåer i kantene.
+    """
+    with Image.open(path) as im:
+        if im.mode not in ("RGBA", "LA", "PA") and "transparency" not in im.info:
+            return False
+        a = np.asarray(im.convert("RGBA"))[..., 3]
+    transparent = float((a < 16).mean())
+    soft = float(((a > 16) & (a < 240)).mean())
+    return transparent > 0.2 and soft > 0.0005
+
+
 def _find_result(d: Path) -> Path | None:
     for name in ("resultat.png", "resultat.webp", "resultat.jpg", "resultat.jpeg"):
         if (d / name).exists():
@@ -1118,6 +1133,13 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         jobs.append(job)
         res_path = _find_result(d)
         if not res_path:
+            tiles.setdefault(job.bilde, []).append((job, None))
+            continue
+        if job.type == "figur" and has_native_alpha(res_path):
+            # Ny, glatt stil med egen alfakant: klippes ikke med originalens pikselmaske (Tom avviste
+            # trappekantene). Tas inn med figurmottaket for ekte alfa (dighd glatte-figurer).
+            results[job.id] = {"status": "levert", "sha256_resultat": _sha(res_path),
+                               "kommentar": "glatt stil med ekte alfa, tas inn med figurmottaket for myke kanter"}
             tiles.setdefault(job.bilde, []).append((job, None))
             continue
         r, locked = _evaluate(res_path, job, d, extract, manual, sigma, strength, preview_dir)
