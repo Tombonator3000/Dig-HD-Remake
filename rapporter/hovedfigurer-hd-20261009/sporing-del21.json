@@ -1,0 +1,210 @@
+[
+ {
+  "jobb": "fig017_22",
+  "rows": [
+   5,
+   11,
+   5
+  ],
+  "expected": 21,
+  "fragments": 0,
+  "prompt": "Edit the FIRST attached image with a minimal localized correction. It is already finished smooth detailed production artwork for The Dig HD. The second attachment is the original pose reference only. Preserve the exact fine painted detail, identity, costume, native soft anti-aliased RGBA contours, transparency, sheet positions and all unmentioned parts of the first image. Never add a background, gradient, glow, shadow, frame, labels or grid. Output the full sheet at exactly 1536 x 1024 pixels with genuinely transparent background.\n\nErase only the extra rightmost full-body sprite in the MIDDLE row, inside approximately x=1383..1508,y=333..654, making that vacated area truly transparent. Do not move or redraw any other sprite. Final counts: 5 top, 11 middle, 5 bottom.\n",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e22d54c2-09b2-472b-a06f-126f04502938.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_22/referanse.png"
+  ],
+  "figure": "Ludger Brink",
+  "attempt": 2,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-ba8c76fe-3ccc-4293-96bf-f1e2610d361d.png",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-ba8c76fe-3ccc-4293-96bf-f1e2610d361d.png",
+  "sha256": "7b3f398198844f2992292ef83e644e02c558a46abc480bb9d679766ffeaed3b7",
+  "originalruter": 21,
+  "resultat": "jobber/fig017_22/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "783d876e3522b555239e8e2890261eaf3d86cad102215914ee33ecf4f9b147bb",
+   "original_1x.png": "e2e8f5142c95f324aa6a048c35635560f1b590b6b904c86ef2839a4a403f565d",
+   "prompt.txt": "01757e770020ef14e352e84555168c983e2fa45bc7c8f8c403eec3f8efeef502",
+   "jobb.json": "edde1bf173772c8db8f24376fe03c5e980a406aada09a883f2dc93a9b54d13a9"
+  }
+ },
+ {
+  "jobb": "fig017_25",
+  "rows": [
+   7,
+   8,
+   9
+  ],
+  "expected": 24,
+  "fragments": 5,
+  "prompt": "Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig017_25. Image2 defines ONLY smooth detailed drawing style and character identity, not any pose or direction. Redraw image1's exact pose sequence, facing directions and separate parts in the approved detailed style.\nTop7 BACK-LEFT throughLEFT toFRONT bodies: firstHEADLESS,nextSIX HEADED. Middle8 BACK bodies: firstHEADLESS,nextSEVEN HEADED. Bottom9 BACK-LEFT throughLEFT/FRONT toRIGHT bodies: firstHEADLESS,nextEIGHT HEADED. Five sparse source marks are not bodies or heads.\nExact larger-piece rows 7,8,9 = 24 pieces, excluding 5 tiny original fragments. Keep these fragments tiny and flat; never invent heads/bodies for them. Source PIXELS override generic directional metadata.\nAdult Ludger Brink: swept short blond hair, angular lean long-nosed face, strong jaw; do not copy Boston's face or gray temples. Distressed Brink17: charcoal DARK GRAY full-sleeve open jacket, muted burnt orange trousers, pallid grayish mature face, rough stubble and grime, black calf boots. Preserve source weathered condition; do not clean him into pristine healthy Brink.\nKeep HEADLESS bodies HEADLESS and detached heads DETACHED. Detail face, hair, hands, folds, seams and boots with smooth thin ink contours, controlled crisp cel shading and consistent lighting. Native1536x1024 RGBA: opaque interiors, narrow antialiased native edges, true alpha0 background/gaps. All pieces fully inside canvas with16px margins. No cyan, magenta floor, grid, text, smoke, glow, floor shadows, gradient background, fuzzy paint, blur,3D or pixel stairs.\n\nEvery LEFT view has the nose pointing SCREEN LEFT. On FRONT-LEFT the chest is visible and nose points SCREEN LEFT. On BACK views only the rear of jacket is visible. Preserve every specific pose and missing head from image1. No extra knee tears. True alpha0 background, no glow or fuzzy colored haze.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_25/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "figure": "Ludger Brink",
+  "attempt": 1,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-98fb9f10-f79f-4494-ac48-d14efb5727b6.png",
+  "known_native_fragments": [
+   [
+    1046,
+    263,
+    10,
+    28
+   ],
+   [
+    1344,
+    841,
+    25,
+    143
+   ],
+   [
+    1409,
+    844,
+    19,
+    140
+   ]
+  ],
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-98fb9f10-f79f-4494-ac48-d14efb5727b6.png",
+  "sha256": "dde1548abdc62789e18d0e73e32ece7ae4fd3a1f8bade97dd71fce08ea8f82b1",
+  "originalruter": 29,
+  "resultat": "jobber/fig017_25/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "272d57802cd2fd31d4b4ba23586c811d3f142ae95b8bfa4c84375cc3d9deee17",
+   "original_1x.png": "00a2934bbf2886182349fa79fdd4e2950d88edeeb96f06ebc6227b78ec4a2e4d",
+   "prompt.txt": "fcedda6282e6a9778784d7428f9869a04c7282e022b4f91c97d38c2ae0f75b93",
+   "jobb.json": "49ec94d2233319d82bc6198e69f269a1de6d6898c70b248b374f5bacfeb0a214"
+  }
+ },
+ {
+  "jobb": "fig017_27",
+  "attempt": 1,
+  "prompt": "Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig017_27. Image2 approved smooth detailed costume variant; image3 character identity. Redraw image1's exact pose sequence, facing directions and separate parts in the approved detailed style.\nTop2 ALL HEADLESS BACK-RIGHT. Middle3 BACK bodies: firstTWO HEADED,lastHEADLESS. Bottom3 ALL HEADLESS BACK-RIGHT walking. Tiny flat middle trace is not a fourth body.\nExact larger-piece rows 2,3,3 = 8 pieces, excluding 1 tiny original fragments. Keep these fragments tiny and flat; never invent heads/bodies for them. Source PIXELS override generic directional metadata.\nAdult Ludger Brink: swept short blond hair, angular lean long-nosed face, strong jaw; do not copy Boston's face or gray temples. Distressed Brink17: charcoal DARK GRAY full-sleeve open jacket, muted burnt orange trousers, pallid grayish mature face, rough stubble and grime, black calf boots. Preserve source weathered condition; do not clean him into pristine healthy Brink.\nKeep HEADLESS bodies HEADLESS and detached heads DETACHED. Detail face, hair, hands, folds, seams and boots with smooth thin ink contours, controlled crisp cel shading and consistent lighting. Native1536x1024 RGBA: opaque interiors, narrow antialiased native edges, true alpha0 background/gaps. All pieces fully inside canvas with16px margins. No cyan, magenta floor, grid, text, smoke, glow, floor shadows, gradient background, fuzzy paint, blur,3D or pixel stairs.\n\nMatch the first image’s relative body width and height, limb length, stance and mass in every pose. Do not slim or stretch the original silhouette; preserve its readable shape and action while refining the drawn contours.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_27/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "rows": [
+   2,
+   3,
+   3
+  ],
+  "fragments": 1,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-172c1af6-aa3b-4c4a-8521-006c2288dd54.png",
+  "figure": "Ludger Brink",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-172c1af6-aa3b-4c4a-8521-006c2288dd54.png",
+  "sha256": "db62db7abc39f3fba5c65d137ab862441f2e7e1c427a065a0d7a2163dba4a935",
+  "originalruter": 9,
+  "resultat": "jobber/fig017_27/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "a849f0625fa3c3f79719d600a2bf570a125e98708b0f4fcb36c76245277b71bf",
+   "original_1x.png": "93a66d0cebe2e354f7631d1c0b23aae417e599771df74350421f862826c27df9",
+   "prompt.txt": "8f16655b96673e1732fe617221bd4d805b92a342d6e3d96ca0aec340596ef748",
+   "jobb.json": "062cf3c44188f6fd336187d50952647e5e640df865d45ca15f2339a04d424020"
+  }
+ },
+ {
+  "jobb": "fig017_28",
+  "attempt": 1,
+  "prompt": "Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig017_28. Image2 approved smooth detailed costume variant; image3 character identity. Redraw image1's exact pose sequence, facing directions and separate parts in the approved detailed style.\nTop3 HEADED RIGHT turningFRONT. Middle3 HEADED FRONT turningFRONT-RIGHT. Bottom2 HEADLESS FRONT-RIGHT. Two sparse marks are not extra bodies.\nExact larger-piece rows 3,3,2 = 8 pieces, excluding 2 tiny original fragments. Keep these fragments tiny and flat; never invent heads/bodies for them. Source PIXELS override generic directional metadata.\nAdult Ludger Brink: swept short blond hair, angular lean long-nosed face, strong jaw; do not copy Boston's face or gray temples. Distressed Brink17: charcoal DARK GRAY full-sleeve open jacket, muted burnt orange trousers, pallid grayish mature face, rough stubble and grime, black calf boots. Preserve source weathered condition; do not clean him into pristine healthy Brink.\nKeep HEADLESS bodies HEADLESS and detached heads DETACHED. Detail face, hair, hands, folds, seams and boots with smooth thin ink contours, controlled crisp cel shading and consistent lighting. Native1536x1024 RGBA: opaque interiors, narrow antialiased native edges, true alpha0 background/gaps. All pieces fully inside canvas with16px margins. No cyan, magenta floor, grid, text, smoke, glow, floor shadows, gradient background, fuzzy paint, blur,3D or pixel stairs.\n\nMatch the first image’s relative body width and height, limb length, stance and mass in every pose. Do not slim or stretch the original silhouette; preserve its readable shape and action while refining the drawn contours.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_28/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "rows": [
+   3,
+   3,
+   2
+  ],
+  "fragments": 2,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f2b3bfe2-0ce1-4497-911f-7355d27c2778.png",
+  "figure": "Ludger Brink",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f2b3bfe2-0ce1-4497-911f-7355d27c2778.png",
+  "sha256": "ef10f2bb7924ef0d408c43fdbb3b44522401a5592c6e73445434aeb2b819232b",
+  "originalruter": 10,
+  "resultat": "jobber/fig017_28/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "36b652c0bb8ccade58f4c2bc214c5624167c58e511d00f06e3cb42409442ca1e",
+   "original_1x.png": "7537c0a91c63e68cb5b29c5da36102dfc59be81d91c56bcc8e396a5eaa097cd9",
+   "prompt.txt": "8306ed231f8082e9a00873003d74ec56233ca70179aa21065e27832a03eec1d4",
+   "jobb.json": "c0e961102dd537b23f007cd21aaa135e473d1f85a4279c06ec5c10d7e52cc742"
+  }
+ },
+ {
+  "jobb": "fig017_29",
+  "attempt": 1,
+  "prompt": "Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig017_29. Image2 approved smooth detailed costume variant; image3 character identity. Redraw image1's exact pose sequence, facing directions and separate parts in the approved detailed style.\nTop3 FRONT/FRONT-LEFT bodies: firstTWO HEADED,lastHEADLESS. Middle4 LEFT/FRONT-LEFT: firstHEADED,lastTHREE HEADLESS. Bottom2 ALL HEADLESS FRONT-LEFT.\nExact larger-piece rows 3,4,2 = 9 pieces, excluding 0 tiny original fragments. Keep these fragments tiny and flat; never invent heads/bodies for them. Source PIXELS override generic directional metadata.\nAdult Ludger Brink: swept short blond hair, angular lean long-nosed face, strong jaw; do not copy Boston's face or gray temples. Distressed Brink17: charcoal DARK GRAY full-sleeve open jacket, muted burnt orange trousers, pallid grayish mature face, rough stubble and grime, black calf boots. Preserve source weathered condition; do not clean him into pristine healthy Brink.\nKeep HEADLESS bodies HEADLESS and detached heads DETACHED. Detail face, hair, hands, folds, seams and boots with smooth thin ink contours, controlled crisp cel shading and consistent lighting. Native1536x1024 RGBA: opaque interiors, narrow antialiased native edges, true alpha0 background/gaps. All pieces fully inside canvas with16px margins. No cyan, magenta floor, grid, text, smoke, glow, floor shadows, gradient background, fuzzy paint, blur,3D or pixel stairs.\n\nMatch the first image’s relative body width and height, limb length, stance and mass in every pose. Do not slim or stretch the original silhouette; preserve its readable shape and action while refining the drawn contours.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_29/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "rows": [
+   3,
+   4,
+   2
+  ],
+  "fragments": 0,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-3d9d58bd-6896-4a8b-ab9a-132f1d344db8.png",
+  "figure": "Ludger Brink",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-3d9d58bd-6896-4a8b-ab9a-132f1d344db8.png",
+  "sha256": "d1ecc85a1b9fb43abe9fa92b27e45e3f5e2ebc2df21f67cb212b34254dd8f0d7",
+  "originalruter": 9,
+  "resultat": "jobber/fig017_29/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "98627b724588161bbbfbdbe7d310a8cb2d698ef3d5fbcb053d828c81c3e24459",
+   "original_1x.png": "1c1456679bf71e1d562785c190a88d939a09c654b7f19086ecfc0e2b631b325c",
+   "prompt.txt": "bd05e29c54b14837e0b6377d729634717ec1c3c5a4d6bcec307464c430aeed00",
+   "jobb.json": "88e7e98646033cf1988b6de7b4e87478d82e7342daab929412a4f421f8969e88"
+  }
+ },
+ {
+  "jobb": "fig017_30",
+  "attempt": 1,
+  "prompt": "Use case: style-transfer. Image1 is ORIGINAL EDIT TARGET fig017_30. Image2 approved smooth detailed costume variant; image3 character identity. Redraw image1's exact pose sequence, facing directions and separate parts in the approved detailed style.\nTop3 BACK bodies: firstTWO HEADED,lastHEADLESS. Middle3 LEFT/BACK-LEFT: firstHEADED,lastTWO HEADLESS. Bottom3 ALL HEADLESS BACK-LEFT walking. Tiny flat top trace is not a fourth body.\nExact larger-piece rows 3,3,3 = 9 pieces, excluding 1 tiny original fragments. Keep these fragments tiny and flat; never invent heads/bodies for them. Source PIXELS override generic directional metadata.\nAdult Ludger Brink: swept short blond hair, angular lean long-nosed face, strong jaw; do not copy Boston's face or gray temples. Distressed Brink17: charcoal DARK GRAY full-sleeve open jacket, muted burnt orange trousers, pallid grayish mature face, rough stubble and grime, black calf boots. Preserve source weathered condition; do not clean him into pristine healthy Brink.\nKeep HEADLESS bodies HEADLESS and detached heads DETACHED. Detail face, hair, hands, folds, seams and boots with smooth thin ink contours, controlled crisp cel shading and consistent lighting. Native1536x1024 RGBA: opaque interiors, narrow antialiased native edges, true alpha0 background/gaps. All pieces fully inside canvas with16px margins. No cyan, magenta floor, grid, text, smoke, glow, floor shadows, gradient background, fuzzy paint, blur,3D or pixel stairs.\n\nMatch the first image’s relative body width and height, limb length, stance and mass in every pose. Do not slim or stretch the original silhouette; preserve its readable shape and action while refining the drawn contours.\n",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_30/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig017_01/resultat.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/brink-stilanker.png"
+  ],
+  "rows": [
+   3,
+   3,
+   3
+  ],
+  "fragments": 1,
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8446cf9c-4316-41e8-ad8d-29fd4ba0f9ed.png",
+  "known_native_fragments": [
+   [
+    606,
+    332,
+    27,
+    5
+   ],
+   [
+    661,
+    330,
+    25,
+    7
+   ]
+  ],
+  "figure": "Ludger Brink",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8446cf9c-4316-41e8-ad8d-29fd4ba0f9ed.png",
+  "sha256": "5cbccc0b26ca07cbd9cd48a37194ecbe41ab14cf3ffeec175f062cce7eeec4cd",
+  "originalruter": 10,
+  "resultat": "jobber/fig017_30/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "070157b42086a824f650c7bb8f9989c87f46e0acc37880307a25afad0516a650",
+   "original_1x.png": "2233e72ed414d6d149ad11713eb45b89aefd8796f701d167c9eafa7d3bcf630d",
+   "prompt.txt": "bc984dc899c2f1a57e490aa6c10084c99bdff523b687fd034b5d063a55f2d1f1",
+   "jobb.json": "f7d22d0f1b366585444a83a04aa5ebb54d8f5994986a287c544968bf1ee9b81b"
+  }
+ }
+]
