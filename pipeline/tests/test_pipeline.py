@@ -980,6 +980,35 @@ def test_figure_import_cut_and_mod(tmp_path):
     assert modpack.build_mod(ex, tmp_path / "mod3", scale=4, method="nearest", rooms=set())["costume_cels"] == 0
 
 
+def test_figure_sheet_in_smooth_style_is_not_cut_with_the_old_mask(tmp_path):
+    # Tom avviste trappekantene: et ark med egen alfakant (RGBA, myke kanter) skal ikke klippes med
+    # originalens pikselmaske, men vente på mottaket for myke kanter
+    import numpy as np
+    from PIL import ImageFilter
+    from dighd import gpt
+
+    ex = _figure_extract(tmp_path)
+    work, done = tmp_path / "gpt", tmp_path / "gpt-ferdig"
+    gpt.make_jobs(ex, work, figures="pilot")
+    jd = work / "jobber" / "fig014_01"
+    a = Image.new("L", (1536, 1024), 0)
+    a.paste(255, (200, 200, 600, 800))
+    a = a.filter(ImageFilter.GaussianBlur(6))
+    sheet = Image.new("RGBA", (1536, 1024), (200, 120, 60, 0))
+    sheet.putalpha(a)
+    sheet.save(jd / "resultat.png")
+    assert gpt.has_native_alpha(jd / "resultat.png")
+    s = gpt.import_results(work, ex, done)
+    row = {r["jobb"]: r for r in gpt.read_status(work)}["fig014_01"]
+    assert row["status"] == "levert" and "myke kanter" in row["kommentar"]
+    assert s["ferdige_figurruter"] == [] and not list((done / "costumes").glob("*.png"))
+    # Ikke i arbeidskøen igjen
+    assert "fig014_01" not in [r["jobb"] for r in gpt.work_queue(gpt.read_status(work), work)]
+    # Et ark i gammel stil (flat bakgrunn) har ingen egen alfakant
+    Image.new("RGB", (1536, 1024), (0, 200, 200)).save(tmp_path / "flat.png")
+    assert not gpt.has_native_alpha(tmp_path / "flat.png")
+
+
 def test_figure_rejections_and_orders(tmp_path):
     import json
     import numpy as np
