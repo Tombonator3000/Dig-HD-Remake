@@ -53,6 +53,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Tom ser Boston, Brink og Maggie i spillet (nettsiden eller Linux-pakken) og sier om størrelse, fotfeste og stil stemmer
 - [ ] Gå gjennom de 392 rutene med status sjekk i `myke.json` (omriss ulikt originalen, mest Brink og Maggie med smalere figur)
 - [ ] Resten av hovedfigurene fra Codex (361 ark), tas inn av runden av seg selv
+- [x] Alle de andre figurene bestilt i glatt stil: 4031 figurark (28481 ruter), beskjed i ORDRE.md 9. oktober
+- [ ] Figurarkene fra Codex, tas inn av runden av seg selv
+- [ ] Filmene (SAN) i HD: venter, Tom kan ikke skalere dem opp nå
 - [ ] Myke figurer: kant mot forgrunnen i 4 x 4-blokker; prøv å følge den myke kanten i HD-rommet
 - [ ] Myke figurer på ekte skjerm: flere figurer over hverandre, skalerte figurer, banner og meny over, nedtoning
 - [ ] Ansiktet til Boston nærmere originalen i de neste arkene (eldre, grått hår ved tinningene)
@@ -60,6 +63,10 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Lag Boston-ruter som består silhuettkontrollen og kontroller hele bevegelsesrekken i motoren
 
 ## Motor
+
+- [x] HD-skrift for teksten: Exo 2 i stedet for xBR (PR 38 og 40)
+- [ ] Tom ser teksten på ekte skjerm og sier om Exo 2 passer (vekt, luft mellom bokstavene)
+- [ ] HD-skrift: tegnsett 0 og 3 og NUT-font 1 til 3 er ikke sett i spill ennå
 
 - [x] Hurtigtast for å bytte mellom klassisk og HD (Ctrl+H)
 - [x] Vis et gult felt der HD mangler (Ctrl+Shift+H)
