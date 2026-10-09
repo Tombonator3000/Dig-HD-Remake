@@ -5,3 +5,5 @@ Ta inn arkene som myke figurer med native alfa. Bevar originalens retning, skala
 Gruppe 01: sporing-del01.json, filkontroll-del01.json og rutekart-del01.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
 
 Gruppe 02: sporing-del02.json, filkontroll-del02.json og rutekart-del02.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Gruppe 03: sporing-del03.json, filkontroll-del03.json og rutekart-del03.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
