@@ -41,7 +41,7 @@ Instrukser for alle KI-agenter som jobber i dette repoet (Claude, Codex, ChatGPT
 ```sh
 tools/hent_spilldata.sh          # spillfilene til game/
 python3 -m venv .venv && . .venv/bin/activate
-pip install -e "pipeline[dev]"   # dighd
+pip install -e "pipeline[dev,uttrekk]"   # dighd (uttrekk: dekoderne dighd extract trenger)
 dighd extract                    # originalgrafikk til work/extract
 engine/build.sh                  # ScummVM med patchen til engine/scummvm
 ```

@@ -46,7 +46,7 @@ Det samme steg for steg: `tools/hent_spilldata.sh`, `tools/mod_gren.sh hent`, `e
 
 ```sh
 python3 -m venv .venv && . .venv/bin/activate
-pip install -e "pipeline[dev]"
+pip install -e "pipeline[dev,uttrekk]"
 dighd info                       # sjekker spillfilene
 dighd extract                    # originalgrafikken til work/extract (cirka 3 minutter)
 dighd build-mod --name hd --method lanczos-sharp --kostymer 1-20

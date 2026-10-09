@@ -23,7 +23,7 @@ done
 # 1. Oppsett
 [ -f game/DIG.LA1 ] || tools/hent_spilldata.sh
 if ! command -v dighd >/dev/null 2>&1; then
-	[ -x .venv/bin/dighd ] || { python3 -m venv .venv && .venv/bin/pip install -q -e "pipeline[dev]"; }
+	[ -x .venv/bin/dighd ] || { python3 -m venv .venv && .venv/bin/pip install -q -e "pipeline[dev,uttrekk]"; }
 	export PATH="$ROOT/.venv/bin:$PATH"
 fi
 [ -f work/extract/rooms.json ] || dighd extract --only la1
