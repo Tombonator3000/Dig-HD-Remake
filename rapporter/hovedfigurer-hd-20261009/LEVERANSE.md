@@ -46,7 +46,7 @@ Sjuende leveransegruppe har sju ark med 116 originalruter. Seks er nytegnet: fig
 
 Åttende leveransegruppe har ti ark med 117 originalruter. Åtte er nytegnet: fig018_11, fig019_03, fig019_04, fig019_05, fig019_07, fig019_08, fig019_11 og fig014_18. fig047_03 og fig047_04 gjenbruker identiske 19-ark etter verifisert identisk originalreferanse, med kostyme 47-ID-er i rutekartet. Riktig antall, hodeløs oppdeling og retninger er visuelt kontrollert. De speilvendte kandidatene fig019_06, fig019_09 og fig019_10 ble holdt utenfor denne gruppen og er rettet i gruppe 9. fig019_02 og fig047_02 fikk et retningsavvik etter levering og er erstattet i gruppe 10.
 
-Med pilotene er 245 av 509 ark levert, tilsvarende 4684 av 7 683 originalruter. 264 ark gjenstår. fremdrift.json er den løpende oversikten.
+Med pilotene er 264 av 509 ark levert, tilsvarende 4878 av 7 683 originalruter. 245 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
 
@@ -95,3 +95,5 @@ Leveransegruppe 29: fig068_02, fig068_03, fig068_04, fig068_05, fig068_06, fig07
 Leveransegruppe 30: fig204_04, fig070_01, fig048_03, fig048_04, fig048_06, fig188_03. 61 tegnede figurområder, 62 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
 
 Leveransegruppe 31: fig016_37, fig073_02, fig073_03, fig055_02, fig055_03, fig055_05, fig068_07, fig263_02, fig048_02, fig048_05, fig048_07. 310 tegnede figurområder, 328 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
+
+Leveransegruppe 32: fig048_08, fig048_10, fig048_11, fig048_12, fig068_08, fig068_09, fig068_10, fig068_11, fig068_12, fig068_13, fig068_14, fig068_15, fig068_16, fig068_17, fig068_18, fig068_19, fig068_20, fig071_02, fig052_01. 189 tegnede figurområder, 194 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.

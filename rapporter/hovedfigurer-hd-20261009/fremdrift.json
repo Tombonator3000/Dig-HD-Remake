@@ -3,9 +3,9 @@
  "kostymer": 54,
  "originalruter_totalt": 7683,
  "ark_totalt": 509,
- "ark_levert": 245,
- "originalruter_levert": 4684,
- "ark_gjenstar": 264,
+ "ark_levert": 264,
+ "originalruter_levert": 4878,
+ "ark_gjenstar": 245,
  "status": "pågår",
  "leveranser": [
   {
@@ -6347,21 +6347,596 @@
     "prompt.txt": "b247836f1a0b8492f51c8805048722b2488d560a7c5232f8dec727711189d041",
     "jobb.json": "5bdf27f0361ffc0d0261941421fa34c47c1428f369dd38c1c9a40362383f0e4b"
    }
+  },
+  {
+   "jobb": "fig048_08",
+   "attempt": 1,
+   "rows": [
+    6,
+    9,
+    5
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig048_08. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nHealthy Brink: strong blond middle-aged man, short golden blond hair, broad square mature jaw, robust original wide build. Light cool gray jacket over navy shirt with small blue chest patch, loose orange cargo trousers with INTACT orange knees, no tears/white patches/skin showing on legs; black boots.\nRow1 loose LEFT-facing head FIRST followed by FIVE headed FRONT-LEFT standing bodies. Row2 NINE headed FRONT-LEFT gesture bodies. Row3 THREE headed LEFT-facing bodies, then ONE detached head, then ONE HEADLESS left body. Keep ordering and headlessness.\nExact row counts 6,9,5, total 20 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_08/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d1a5c446-060c-4b8c-8930-e0217541af3e.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d1a5c446-060c-4b8c-8930-e0217541af3e.png",
+   "sha256": "c2e496ba7878db9acda93abfdaa74aee207ee28a09a454793e1ca95e349a1640",
+   "originalruter": 20,
+   "resultat": "jobber/fig048_08/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "dc6f30500fe1bb73352d39ce8a39800b77a9aeedec7ab2b7d57bac0f1ea851a0",
+    "original_1x.png": "1367635868870b69caeab79d136f30ded556edf61d0c4287c2f8a5266401fc8e",
+    "prompt.txt": "89f861a9b54711aab8b4f62b5aa843c17704d9285aa22bc9553599763c337b54",
+    "jobb.json": "9ea4c1022e3da005b07eb7e9df0a7ad1a0598720128525d47eb66ffc2281f9b6"
+   }
+  },
+  {
+   "jobb": "fig048_10",
+   "attempt": 1,
+   "rows": [
+    6,
+    7,
+    10
+   ],
+   "fragments": 3,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig048_10. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nHealthy Brink: strong blond middle-aged man, short golden blond hair, broad square mature jaw, robust original wide build. Light cool gray jacket over navy shirt with small blue chest patch, loose orange cargo trousers with INTACT orange knees, no tears/white patches/skin showing on legs; black boots.\nRow1 FOUR headed FRONT-RIGHT hand-at-mouth bodies, ONE loose head, ONE HEADLESS hand-at-mouth body. Row2 SEVEN headed FRONT-RIGHT bodies lowering hand from mouth to sides. Row3 TEN headed FRONT-LEFT bodies progressively raising hand to mouth and lowering it. Ignore original tiny disconnected vertical stripe/dots; not extra bodies or heads.\nExact row counts 6,7,10, total 23 separately cuttable figure/anatomy entries. 3 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_10/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-781f3a5d-4464-4a3b-b089-a4804d4c5257.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-781f3a5d-4464-4a3b-b089-a4804d4c5257.png",
+   "sha256": "8877d9676026cd21e48dab48f7af5fa56d87b668f0eb30af52ddcf55bde9c6fb",
+   "originalruter": 26,
+   "resultat": "jobber/fig048_10/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "0e1551d731538c0f2769ccce07c6bf87d6023f1a59d96fa53939eab79d7768cb",
+    "original_1x.png": "e853d8bd0624dc3d74039cba4c4f409d4fcba848186d8e8d03def6225994c6d3",
+    "prompt.txt": "6b494afff003ec3ed6d1a2c616ab90f97695bf3e72d7790841f5f61bf1f79672",
+    "jobb.json": "aac6d918ffdfc0e2b647e596b910534f9a64fcc1e00a585dac100d94e51df452"
+   }
+  },
+  {
+   "jobb": "fig048_11",
+   "attempt": 1,
+   "rows": [
+    6,
+    1,
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig048_11. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nHealthy Brink: strong blond middle-aged man, short golden blond hair, broad square mature jaw, robust original wide build. Light cool gray jacket over navy shirt with small blue chest patch, loose orange cargo trousers with INTACT orange knees, no tears/white patches/skin showing on legs; black boots.\nRow1 FOUR headed FRONT-LEFT hand-at-mouth bodies followed by ONE loose head and ONE HEADLESS body, SIX pieces total. Row2 ONE headless body. Row3 ONE headless body. All three headless bodies keep bent forearm up at missing-mouth position, other arm across chest.\nExact row counts 6,1,1, total 8 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_11/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-04662aee-b2db-4da2-b921-e7bf269105c1.png",
+   "known_native_rows": [
+    [
+     [
+      781,
+      100,
+      56,
+      74
+     ],
+     [
+      69,
+      36,
+      138,
+      354
+     ],
+     [
+      241,
+      36,
+      138,
+      354
+     ],
+     [
+      414,
+      36,
+      137,
+      354
+     ],
+     [
+      586,
+      36,
+      139,
+      354
+     ],
+     [
+      901,
+      83,
+      140,
+      307
+     ]
+    ],
+    [
+     [
+      64,
+      407,
+      139,
+      303
+     ]
+    ],
+    [
+     [
+      64,
+      719,
+      139,
+      291
+     ]
+    ]
+   ],
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-04662aee-b2db-4da2-b921-e7bf269105c1.png",
+   "sha256": "e6a6eb9a8be8cf8e35ad4eab3dc4d91845ac27a39881cb66e73ceff34ec0d428",
+   "originalruter": 8,
+   "resultat": "jobber/fig048_11/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "75fbb06199d7ac701eb2d7f723c7ae88f83aa1bf7553504616dd23464b2121aa",
+    "original_1x.png": "0aed43866290dfb46ad22c11f21b2a2032d3a4111dc0cdb09d2a66622ae188c8",
+    "prompt.txt": "5aae9e970d89be6f93ae9a50481b8da1021d5420f48bc1e09174cdb57a443d07",
+    "jobb.json": "ccc5f9940397662e79073d33d44b0562b03eab40ceb55de02d7e24be5d775cf6"
+   }
+  },
+  {
+   "jobb": "fig048_12",
+   "attempt": 1,
+   "rows": [
+    8
+   ],
+   "fragments": 1,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig048_12. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nHealthy Brink: strong blond middle-aged man, short golden blond hair, broad square mature jaw, robust original wide build. Light cool gray jacket over navy shirt with small blue chest patch, loose orange cargo trousers with INTACT orange knees, no tears/white patches/skin showing on legs; black boots.\nONE row of EIGHT headed FRONT-LEFT bodies lowering hand from mouth/chin down toward side. Tiny isolated vertical stripe is a source fragment, not a ninth body.\nExact row counts 8, total 8 separately cuttable figure/anatomy entries. 1 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_12/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8e083264-2947-4baa-8361-5600a0e6fb04.png",
+   "figure": "Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8e083264-2947-4baa-8361-5600a0e6fb04.png",
+   "sha256": "88e8aaa91c3f7ad32c13634aff29bbaef7ff32cfca6367fbaf02624a19384208",
+   "originalruter": 9,
+   "resultat": "jobber/fig048_12/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "69f52c96ab85a96e7fea0d3b088cef0a84d3b8a233134f911111efdad860f3b9",
+    "original_1x.png": "b7bf24274d0e72e20a0b9f904ebf424af08c31b6b13592a3a22f57d72e0104b8",
+    "prompt.txt": "e1a0969cee552770212bbd21b03736a59d41a563cb033f393bab46bbb9b464d4",
+    "jobb.json": "b0d5591d5840fc360904189467ed4f01eb4e5c1fddc68626be33d1cd3b0f5986"
+   }
+  },
+  {
+   "jobb": "fig068_08",
+   "attempt": 1,
+   "rows": [
+    2,
+    3
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_08. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows of headed FRONT-RIGHT Boston bodies holding small green circular device at waist in screen-RIGHT hand: TWO on top, THREE below. Native positions/heights vary. Gray ovals are guide patches, NOT assets and must be transparent.\nExact row counts 2,3, total 5 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_08/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e3b180ce-da8d-4ff9-a03e-58b64e3ab409.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e3b180ce-da8d-4ff9-a03e-58b64e3ab409.png",
+   "sha256": "0fc848d1fe360d0b1619d0c54b3fb32e050e5ee64adfad77a0b5102d93ad7674",
+   "originalruter": 5,
+   "resultat": "jobber/fig068_08/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "9852f65bb044cec0403522dbf28845788de8cea29aada89c2e6fc96605b0c67c",
+    "original_1x.png": "924e0ebf91f648edd5eb2c6e857dbab354cd028d002399ac146a5906e32e2c5c",
+    "prompt.txt": "56ba01eb3cd52c5dd88605939938bb50dbd5a6c9c1609a95d64d9284396b96b5",
+    "jobb.json": "af3b62e001bbf33d7805c6b9dcaebd9454e9a6970b65114fc9ff89815a5165de"
+   }
+  },
+  {
+   "jobb": "fig068_09",
+   "attempt": 1,
+   "rows": [
+    6,
+    4,
+    3
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_09. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTHREE rows of headed FRONT-RIGHT Boston. Top SIX: two holding green device, then four gradually putting it behind hip. Middle FOUR empty-handed stages lowering elbow from back-hip down to side. Bottom THREE draw/aim device at waist. Follow original arms; gray guide ovals removed.\nExact row counts 6,4,3, total 13 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_09/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-55ba6b6a-5e8d-4ec0-b717-3afb117f6bde.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-55ba6b6a-5e8d-4ec0-b717-3afb117f6bde.png",
+   "sha256": "b58e234419bc5e899e74a7b89b54042972af1bfb62dbea24ff8b057568ad14f6",
+   "originalruter": 13,
+   "resultat": "jobber/fig068_09/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "89ae6c846a792c6206563e6bbfb0fb75059855d440bfff04c0a1cb2ade7536fd",
+    "original_1x.png": "27251913d64e963b1d6ff2e5987ce4084781da520489e6423ddfc20eae3e5525",
+    "prompt.txt": "66d7622693cc720cf67c497ae0205fb49be4cd2cd6e482d748276a3a5ac594b1",
+    "jobb.json": "c9e6da19e1a4fe2ecab870d954b023a270fc13e8129a1756748813faa3d47673"
+   }
+  },
+  {
+   "jobb": "fig068_10",
+   "attempt": 1,
+   "rows": [
+    5,
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_10. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows of headed FRONT-RIGHT Boston holding green round device at waist, FIVE top and ONE bottom. Preserve varying raised-body positions. Gray guide rectangles/ovals fully removed.\nExact row counts 5,1, total 6 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_10/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b6edcbcb-6663-4319-87d0-010a8a7724b8.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b6edcbcb-6663-4319-87d0-010a8a7724b8.png",
+   "sha256": "0db6ee050ca99c596211ca4a06f1e07f7e77d1fd9fe4dab84858ee564d7d85bc",
+   "originalruter": 6,
+   "resultat": "jobber/fig068_10/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "a5fe4e66f60893db5bc60e5114ad6b67e40e40695a4de70a5e4dee087eeb3678",
+    "original_1x.png": "bcec2d2d2c2225d5ed3a9ee48ab62f8e503909df34a1a977f388dbd8efda001f",
+    "prompt.txt": "f4ccbb7bb17811404e22cdae2f6e9b83cf252171b34440c3b5769a25dd9aaf8b",
+    "jobb.json": "34ffbbe40836a4e3c45c9b316601065e3b2e6d883efd975cbaae829e408356bb"
+   }
+  },
+  {
+   "jobb": "fig068_11",
+   "attempt": 1,
+   "rows": [
+    4,
+    4
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_11. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows of FOUR headed Boston bodies each. Top first two FRONT-RIGHT then near-front, green device at waist. Bottom FOUR FRONT-facing with green device held LOW at screen-LEFT side. Preserve stepping/elevated heights. Gray guides NOT subjects.\nExact row counts 4,4, total 8 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_11/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1f72f10b-2679-45a6-b3df-b63efe7a8a1a.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1f72f10b-2679-45a6-b3df-b63efe7a8a1a.png",
+   "sha256": "c57e2b276360c94f33a6788d584cbc62a58162a5ce33ed2768490e9fb9c83d81",
+   "originalruter": 8,
+   "resultat": "jobber/fig068_11/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "eeeb9c06106cbae8a11f16149bd9669cd4160f3b91b370f8e0ffc25d8b658479",
+    "original_1x.png": "23ddfb74d4e82a9c6e377d6027bfd2de648051ff4822be85c1d903842775d988",
+    "prompt.txt": "73758300443104de831b3cc901a7546f6771eb30ab81f3f46b9c48ee28bba11c",
+    "jobb.json": "5b72e4e0eaa4dbff78aaa33f4b6bab49df0a76294bc55fcbe4ee4a811cbf9521"
+   }
+  },
+  {
+   "jobb": "fig068_12",
+   "attempt": 1,
+   "rows": [
+    2,
+    4
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_12. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows of headed FRONT-facing Boston bodies with green device held LOW at screen-LEFT side, TWO top and FOUR bottom. Preserve rising height changes. Gray ovals removed.\nExact row counts 2,4, total 6 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_12/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-64ca79ec-0d56-443f-901c-f2e637341d97.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-64ca79ec-0d56-443f-901c-f2e637341d97.png",
+   "sha256": "096ef7732893973c1af8b0876aa4bef989062e0df48e76db12915ccf6e14e7ed",
+   "originalruter": 6,
+   "resultat": "jobber/fig068_12/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "cf2ab9232401de18e37dd8edc931c5723dacb778037aeafb26d7e11fe447edca",
+    "original_1x.png": "6cb42b56c62a346d6aa69bccd8ae67928bb47e3fa2928264390fb59a2b88fd77",
+    "prompt.txt": "5b5971e98ec3f1c738ad5af717351a615777730908bf239a427d3f0a7e5ac3c1",
+    "jobb.json": "e8601d8f9068fbcb826294d8f6c4a375229927e19956c5e9b6cc30fe475c22ce"
+   }
+  },
+  {
+   "jobb": "fig068_13",
+   "attempt": 1,
+   "rows": [
+    4,
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_13. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows headed Boston: FOUR top turn FRONT to FRONT-RIGHT, green orb moves from low screenLEFT to waist screenRIGHT; ONE FRONT-RIGHT below holding orb. Gray guides removed.\nExact row counts 4,1, total 5 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_13/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a9bca1d8-c30b-42d9-897c-40d01a385b56.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a9bca1d8-c30b-42d9-897c-40d01a385b56.png",
+   "sha256": "168e91e580eab979d823103bd5e3ede4d3e072ca5b20707c6c373b35837b0fa1",
+   "originalruter": 5,
+   "resultat": "jobber/fig068_13/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "03781201d298590387944ced0635148c1bce2438db57f2d6e267addeca366d4b",
+    "original_1x.png": "937c8a6f2f3dce8e8fd4a4645b4d6d8087bc6e9d4eeb6011e8d0ee38ef73d68c",
+    "prompt.txt": "b3cdf132743f2770c7e3ee868b630a1c22e130e6b37215f8b00bd3be9902c2ae",
+    "jobb.json": "72ee5328c96abd56b44ff14f7c2a9ed346ec15af704b3f9960c9000c02cff14a"
+   }
+  },
+  {
+   "jobb": "fig068_14",
+   "attempt": 1,
+   "rows": [
+    9,
+    8,
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_14. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTHREE rows headed Boston facing FRONT-LEFT/LEFT. Top NINE idle then progressively moving elbow behind hip; initially device hidden. Middle EIGHT drawing round device from behind hip then holding it at waist toward screenLEFT. Bottom ONE final LEFT-facing holding glowing green orb. Exact changing arms and dark device to green glow.\nExact row counts 9,8,1, total 18 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_14/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a0b9dafa-22dd-463a-bd01-935733b651ec.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a0b9dafa-22dd-463a-bd01-935733b651ec.png",
+   "sha256": "176aad4f3afa595e0232c453915b7701dc64fc6c50077f3a3df61f179125af9b",
+   "originalruter": 18,
+   "resultat": "jobber/fig068_14/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "5fc7b58a86c86553db3b8295fb4c972f95042dea0fd9016134d7d7ac225879c3",
+    "original_1x.png": "d1805035688c223b02e8405e9bc21b70ac295a5bc118054911888a9983d94e03",
+    "prompt.txt": "5a8253a599352bf43b8ebeed31a56bca006fcd93feb8777499d42b54a98612e9",
+    "jobb.json": "fc00f49b3cabc2503dd85eef4784f47e181a946b2a29ce5fdac510123d1abb99"
+   }
+  },
+  {
+   "jobb": "fig068_15",
+   "attempt": 1,
+   "rows": [
+    1,
+    4
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_15. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows LEFT-facing headed Boston with green round device at waist toward screenLEFT. ONE top and FOUR below. Preserve distinct heights. Gray guide patches removed.\nExact row counts 1,4, total 5 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_15/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-351f844b-3ed5-40ed-bc15-3f8e1b8d2fe9.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-351f844b-3ed5-40ed-bc15-3f8e1b8d2fe9.png",
+   "sha256": "99957f714538afdc6742870efcd81d8c6d08293970a9a4749f546b537c48e4bf",
+   "originalruter": 5,
+   "resultat": "jobber/fig068_15/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "98f529e4022bf961e53e3919dd645a65cd7b605882ccd3e3327d1bd5c0c6d7b0",
+    "original_1x.png": "26165e7fcc624660e0e79099ae29364b3afa9ba9743c0c6fa158135f87f5947f",
+    "prompt.txt": "29c363f4731093cee1df594fd832bbd99c0bcad2ed41bb53ed71f55ef5f57e89",
+    "jobb.json": "cbbc72d24f4097337037c62ee1ebc01c7ef5fedb4e3769baa54f3c5cc125ed42"
+   }
+  },
+  {
+   "jobb": "fig068_16",
+   "attempt": 1,
+   "rows": [
+    8,
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_16. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows LEFT-facing headed Boston. Top EIGHT puts round device away behind hip then lowers empty elbow toward side. Bottom ONE LEFT-facing idle empty-handed. No green orb after hidden states. Gray guides removed.\nExact row counts 8,1, total 9 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_16/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-94fabbf9-af3d-4df4-82e4-6d226e48f016.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-94fabbf9-af3d-4df4-82e4-6d226e48f016.png",
+   "sha256": "2de10ad35e24b11fbdf768ca65f65a355c04e64586c0c33359729f51d126dff9",
+   "originalruter": 9,
+   "resultat": "jobber/fig068_16/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "04952f70e3a1ce97d6d387dedfa73207be722e8d14a7ad36e4d09d838e9f10cb",
+    "original_1x.png": "3de660abd631371a83997b4be70d1e8acffc5e7b21a779bb88c05bae1b09f957",
+    "prompt.txt": "396b485440271a744a55d762f7f1403c55f414a37246190856f9a7fdd3bc1b3e",
+    "jobb.json": "858c7a3232d62cf4916d79e0fe799462c0466ac3b7703456408800137a7c3f96"
+   }
+  },
+  {
+   "jobb": "fig068_17",
+   "attempt": 1,
+   "rows": [
+    3,
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_17. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows LEFT-facing headed Boston holding glowing green device at waist toward screenLEFT. THREE top, ONE below. Gray guides removed.\nExact row counts 3,1, total 4 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_17/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b0ba1417-c8f0-42b5-b53b-aa46aa943214.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b0ba1417-c8f0-42b5-b53b-aa46aa943214.png",
+   "sha256": "da2aacbd62d61d447812071dd50288065b9350ea39d1d35554e2c7d6779842b5",
+   "originalruter": 4,
+   "resultat": "jobber/fig068_17/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "5d2b177eeedb19e6ae25ee5581c9953fc0059c425fb78d8329520f4c2f5a98dc",
+    "original_1x.png": "35f3d5b24d5052c19621114cb18d6cc3eee76ea5d469ea9dfe782169481f957a",
+    "prompt.txt": "0e16f9c31cdc95fee0b13deb0e7f725932d310b368af044a6c3e26b10fc6968a",
+    "jobb.json": "5ed5d50466b944e10c19cbe30c6588fb6fd187ee1e72806e9cad3878533afbbb"
+   }
+  },
+  {
+   "jobb": "fig068_18",
+   "attempt": 1,
+   "rows": [
+    3,
+    3
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_18. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows LEFT-facing headed Boston holding glowing green device toward screenLEFT, THREE top and THREE bottom. Source positions vary in height, keep animation poses, no gray guide ovals.\nExact row counts 3,3, total 6 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_18/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b7cf840f-579e-41c0-bb76-7b6b0b3ef09f.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b7cf840f-579e-41c0-bb76-7b6b0b3ef09f.png",
+   "sha256": "ccc4e373a18ee2a284a09ab007592ea5d0584548ad8ec8d13f6672d2d5dd2fdd",
+   "originalruter": 6,
+   "resultat": "jobber/fig068_18/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "4a25d6a47c69fad26532d500082978ded35dd57bdfe53123af152175fcbf7a4f",
+    "original_1x.png": "93b345daa9e62afe024ba07e55ad7b5d53b4f5ed43f9f1373692ace0c65b8ca2",
+    "prompt.txt": "d6f2a7874b23837e695f491b9bfe9d13cb03afe06034645a329eeae604d7fbeb",
+    "jobb.json": "273786a34fa7d622ddb594a851ca3cb0b1d42419c833ea0998f572a88d699ce0"
+   }
+  },
+  {
+   "jobb": "fig068_19",
+   "attempt": 1,
+   "rows": [
+    4,
+    4
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_19. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows FOUR headed Boston each. Top FRONT-facing with green device LOW at screenRIGHT side. Bottom front gradually turns LEFT bringing device to screenLEFT at waist. Keep arm changes and remove gray guides.\nExact row counts 4,4, total 8 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_19/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c1a854b9-9049-468c-ac8c-094c4198dc43.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c1a854b9-9049-468c-ac8c-094c4198dc43.png",
+   "sha256": "84a3bbdcdebb9b29d65d80f1d33ad8f6c7b709d9f9208f51ac44357024df3d8e",
+   "originalruter": 8,
+   "resultat": "jobber/fig068_19/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "56c384ee8ce7c3f67190a742e9e06a10079eae569d48f5240620c25205502424",
+    "original_1x.png": "4e7b19d30b55c03e4142325ff4402b6481f87fdf1375ea724edec79e5ba5b8de",
+    "prompt.txt": "b5e0a57eb60f8f810d8798b636930ad3bb1a7dfee76d8ed386c9806f462f1529",
+    "jobb.json": "bd93f2724a2ac788521d8f5a7c4d72238e98f9541e1669cd680244282ad83c1d"
+   }
+  },
+  {
+   "jobb": "fig068_20",
+   "attempt": 1,
+   "rows": [
+    1,
+    3
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig068_20. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTWO rows headed Boston. ONE LEFT-facing holding green orb at waist top. THREE FRONT-facing green device low at screenRIGHT bottom. All gray guides removed.\nExact row counts 1,3, total 4 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_20/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-00281610-4558-4a6c-b503-001465ee222d.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-00281610-4558-4a6c-b503-001465ee222d.png",
+   "sha256": "eec351c9674977e7cd7f50c1140f22d70c08c42aa21c996b28ce73ef7b1043d9",
+   "originalruter": 4,
+   "resultat": "jobber/fig068_20/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "63788ca5a973f0f133c84ea6edd90f54a394955c156469e9a4e684c57a706758",
+    "original_1x.png": "78e5a97faea46927846c797bbbd38b22d47e77b5f5df6ac3a3e45d4ced5bc01b",
+    "prompt.txt": "70129409df4c81a96671660db3684ebe8b448b45631627a7d9b81d0dd60f076b",
+    "jobb.json": "beee6665886064fe6a873b46db37a65939b304ae296219f330dc1fb81aeddac3"
+   }
+  },
+  {
+   "jobb": "fig071_02",
+   "attempt": 1,
+   "rows": [
+    10,
+    9,
+    9
+   ],
+   "fragments": 1,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig071_02. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTHREE rows of headed FRONT-RIGHT Boston with rope: TEN top progressively draws a dark purple coiled loop beside hip; NINE middle lifts it forward; NINE bottom throws/extends it toward upper right and turns away, ending BACK-RIGHT. Keep coiled rope and trailing line in original frames; not green device.\nExact row counts 10,9,9, total 28 separately cuttable figure/anatomy entries. 1 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig071_02/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/boston-gang-hoyre.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-50ceac03-ae38-4454-91c8-efbf09dadf1e.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-50ceac03-ae38-4454-91c8-efbf09dadf1e.png",
+   "sha256": "74f7a5fde4fbac58bd6ec677056b60034120c21cff5fd6fed8ff8c69cb30d9d5",
+   "originalruter": 29,
+   "resultat": "jobber/fig071_02/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "36bdaaea01ac410eea6c7ffa4cbee351eed3c54f179f7c75d36c9ddffee5a19d",
+    "original_1x.png": "0cbbad2941872ae1ec5b5a3216a3c141eaaed5470269c0e0d71d0ea534d6d7cc",
+    "prompt.txt": "af8955fb4859269b701fb86576fa570cc2b94014ca9616d343ff1b4f5a3778bb",
+    "jobb.json": "22121677e209bcd958c940d50dff93c3ed8535bca64e05047b9a7b743477e4dd"
+   }
+  },
+  {
+   "jobb": "fig052_01",
+   "attempt": 1,
+   "rows": [
+    1,
+    1,
+    3
+   ],
+   "fragments": 0,
+   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig052_01. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nBoston Low: mature angular broad face, short swept brown hair with gray temples, muscular broad source build, navy short-sleeve shirt, black belt, loose orange trousers, dark boots.\nTHREE rows: ONE HEADLESS front-right Boston body holding small PURPLE round vessel/object in front of waist with bent arms. Row2 ONE detached FRONT-RIGHT head. Row3 THREE detached FRONT-RIGHT heads with original distinct mouth expressions. Do not add head to body, do not change purple object to green.\nExact row counts 1,1,3, total 5 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig052_01/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/boston-gang-hoyre.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c9e46c8a-c494-4175-bec2-ebe5a9f1926b.png",
+   "figure": "Boston Low",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c9e46c8a-c494-4175-bec2-ebe5a9f1926b.png",
+   "sha256": "54adecc27f2468b0b121684c55b4bb7f5d3bd7ff6257ae9b03cf801579f18e39",
+   "originalruter": 5,
+   "resultat": "jobber/fig052_01/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "27167bebb6d3c04c6c80d91c0930b40f6b2a3024824ced6dd916bc54b2af9417",
+    "original_1x.png": "77bcd88170c789d469487677fd7d5723f1f0a8e2473bd591992ff1b3b02bd243",
+    "prompt.txt": "df406a661377a1738e7e19fc0b37ae401528a287e4ef230ad7331bb9d441523a",
+    "jobb.json": "ccf06a96b94bbbc5c8f26d9c746fb158934f77c8b182353027bcb4230fdeecfb"
+   }
   }
  ],
  "neste": [
-  "fig048_08",
   "fig048_09",
-  "fig048_10",
-  "fig048_11",
-  "fig048_12",
-  "fig068_08",
-  "fig068_09",
-  "fig068_10",
-  "fig068_11",
-  "fig068_12",
-  "fig068_13",
-  "fig068_14"
+  "fig262_02",
+  "fig262_03",
+  "fig262_04",
+  "fig262_05",
+  "fig071_01",
+  "fig071_03",
+  "fig071_04",
+  "fig071_05",
+  "fig071_06",
+  "fig071_07",
+  "fig071_08"
  ],
  "integrert_i_spillet": false,
  "retning_til_korrigering": []
