@@ -3,9 +3,9 @@
  "kostymer": 54,
  "originalruter_totalt": 7683,
  "ark_totalt": 509,
- "ark_levert": 49,
- "originalruter_levert": 1211,
- "ark_gjenstar": 460,
+ "ark_levert": 59,
+ "originalruter_levert": 1328,
+ "ark_gjenstar": 450,
  "status": "pågår",
  "leveranser": [
   {
@@ -994,21 +994,259 @@
    "sha256": "86615d0cddf584b5a021ec4cc315ada16cd853ab5cc62c6f413a7722d9b1b7fe",
    "originalruter": 24,
    "resultat": "jobber/fig047_02/resultat.png"
+  },
+  {
+   "jobb": "fig018_11",
+   "attempt": 3,
+   "rows": [
+    7,
+    7,
+    5
+   ],
+   "expected": 19,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig018_11/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: fresh HD sprite redraw from ORIGINAL target Image1. Image2 is approved smooth Maggie design; Image3 supports identity. EXACTLY NINETEEN complete headed Maggie figures in THREE rows7,7,5, following every original pose in sequence. Row1 SEVEN FRONT views progressing from standing through hands at hips and squatting to both hands at ground; row2 SEVEN BACK views of the same squat sequence; row3 FIVE RIGHT-profile standing reach-up poses: idle hand down, slight idle forearm low at waist, bent forearm raised toward chest, raised diagonal arm, higher extended diagonal arm with gaze up. The second low-arm pose is essential; draw all FIVE bottom figures. Feet at a common baseline per row; crouches become shorter and wider. Adult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots. High detail face/hair/hands/rolled cloth folds/seams/boots, crisp controlled celshading with smooth thin ink contours. New true native RGBA matte: interiors alpha255, very narrow antialiased outline, empty canvas and gaps alpha0 completely clear. No copied low-alpha/ghost silhouettes, no translucent figures, colored haze, fake transparency checker, floor/shadow, labels or grid. 1536x1024 PNG RGBA.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-aad64b79-923b-4885-bc88-82c7ea34e44f.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-aad64b79-923b-4885-bc88-82c7ea34e44f.png",
+   "attempts": 3,
+   "sha256": "dd701938af11b71ec0eb058a6ccdf664db040ab2940d4427dac669dda30ef150",
+   "originalruter": 19,
+   "resultat": "jobber/fig018_11/resultat.png"
+  },
+  {
+   "jobb": "fig019_03",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    6,
+    4,
+    2
+   ],
+   "expected": 12,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig019_03/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_03. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nEXACTLY12 HEADLESS standing gesture bodies, no full heads anywhere. Row1 SIX FRONT-LEFT three-quarter bodies, forearm progresses from down to extended outward. Row2 FOUR RIGHT-profile bodies retracting forearm toward waist. Row3 TWO FRONT-LEFT bodies with forearm moving down. Copy each original hand/shoulder position; do not attach heads.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7611f2ff-1cb8-49be-89a5-6b797efae650.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7611f2ff-1cb8-49be-89a5-6b797efae650.png",
+   "attempts": 1,
+   "sha256": "449515f83ef5f0bad95756ae4d9a93750d5cf76ce2e0f62367bf9c2d0f6e15e4",
+   "originalruter": 12,
+   "resultat": "jobber/fig019_03/resultat.png"
+  },
+  {
+   "jobb": "fig019_04",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    6,
+    6,
+    2
+   ],
+   "expected": 14,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig019_04/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_04. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nEXACTLY14 HEADLESS bodies in THREE rows6,6,2. Row1 SIX RIGHT-profile/three-quarter bodies progressively placing hands on hips; row2 SIX FRONT-LEFT corresponding bodies; row3 TWO final hands-on-hips bodies, first RIGHT and second FRONT-LEFT. No heads or loose face pieces. Feet and torso stay grounded; elbows and hands move.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1995eda7-5736-404d-ab0b-633612884b89.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1995eda7-5736-404d-ab0b-633612884b89.png",
+   "attempts": 1,
+   "sha256": "b0ac0fcf119aeded547e62a21e7001feccfca895caf049babedac76332fc6c34",
+   "originalruter": 14,
+   "resultat": "jobber/fig019_04/resultat.png"
+  },
+  {
+   "jobb": "fig019_05",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    2,
+    2,
+    4
+   ],
+   "expected": 8,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig019_05/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_05. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nEXACTLY8 parts in THREE rows2,2,4. Top TWO RIGHT-profile HEADLESS bodies, first hands on hips then one arm lowering. Middle TWO FRONT-LEFT HEADLESS corresponding bodies. Bottom FOUR full-headed RIGHT-profile/three-quarter figures going from hands down to hand on hip. Only the bottom four have heads.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f9a7941c-2755-4746-86df-d6f9ceb59064.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f9a7941c-2755-4746-86df-d6f9ceb59064.png",
+   "attempts": 1,
+   "sha256": "7729ee0b389a0208c8812812f217ec729b34b436cbc717100caaf7293445625e",
+   "originalruter": 8,
+   "resultat": "jobber/fig019_05/resultat.png"
+  },
+  {
+   "jobb": "fig019_07",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    2,
+    1,
+    2
+   ],
+   "expected": 5,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig019_07/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_07. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nEXACTLY5 parts in THREE rows2,1,2. Top TWO HEADLESS hands-on-hip and outstretched-arm bodies facing RIGHT then FRONT-LEFT. Middle ONE full-headed RIGHT-profile figure with one hand at hip, chin angled upward. Bottom TWO full-headed FRONT-LEFT idle variants with chin up. Do not give heads to the top two or omit any of the other three heads.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7f4a30cd-5f50-47ec-a279-dd2d80e6680c.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7f4a30cd-5f50-47ec-a279-dd2d80e6680c.png",
+   "attempts": 1,
+   "sha256": "38ed6bd3902dee778746b702f4c1bcb5dd45b22c3e2aea10027bb6285ad717eb",
+   "originalruter": 5,
+   "resultat": "jobber/fig019_07/resultat.png"
+  },
+  {
+   "jobb": "fig019_08",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    9,
+    3
+   ],
+   "expected": 12,
+   "fragments": 1,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig019_08/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_08. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nEXACTLY12 full-headed RIGHT-profile/three-quarter gesture figures plus ONE tiny source skin dot in TWO rows. Top NINE full figures progressing from arms down to one forearm gesturing outward then moving hands toward hips. Bottom THREE full figures finishing hands on hips, then ONE tiny dot at far right. Preserve movement and precise piece count; no extra figure in the dot slot.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8b2e7bca-7658-4ff6-ba2b-803e622dd5d6.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-8b2e7bca-7658-4ff6-ba2b-803e622dd5d6.png",
+   "attempts": 1,
+   "sha256": "b96520aa8cdb946e4699ef2b2242cef0c5019a1092dc4e8ddaa14246e8f9250d",
+   "originalruter": 13,
+   "resultat": "jobber/fig019_08/resultat.png"
+  },
+  {
+   "jobb": "fig019_11",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    2
+   ],
+   "expected": 2,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig019_11/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_11. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nExactly TWO original parts near upper-left, no other images. One full-headed RIGHT-profile/three-quarter standing Maggie at x80..175,y50..300 with one hand on hip; then ONE separate detached LEFT-facing/front-left head at its right near the standing figure's FOOT baseline, as the reference shows. Preserve the isolated head as a separate part; do not attach it or add a second body. Most canvas remains genuinely transparent.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-90a555f2-4c42-43ee-9f9e-a775b5df4928.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-90a555f2-4c42-43ee-9f9e-a775b5df4928.png",
+   "attempts": 1,
+   "sha256": "a261ec2e03ab42d2e39a044ba9faec10a0a7321fff3c42bee8cd5d2f049859a8",
+   "originalruter": 2,
+   "resultat": "jobber/fig019_11/resultat.png"
+  },
+  {
+   "jobb": "fig014_18",
+   "attempt": 1,
+   "name": "Boston Low",
+   "rows": [
+    6,
+    6,
+    6
+   ],
+   "expected": 18,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig014_18/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/boston-gang-hoyre.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/boston-28-ruter.png"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig014_18. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nExactly18 full-headed figures in THREE rows of SIX. Top BACK-LEFT views bending progressively into a deep squat to reach the ground, fixed foot baseline. Middle RIGHT-profile standing reach-up sequence, forearm raises to high diagonal as gaze lifts. Bottom LEFT-profile corresponding reach-up sequence. Preserve all changing body heights/arm positions, not a generic walk.\nBoston Low: angular mature face, swept brown hair with gray temples, muscular adult, dark petrol-blue short-sleeve tee, orange trousers, black calf-high boots. Match the approved precise smooth inked cel shading.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-5fada5aa-5b16-4848-8948-97a88bd5db88.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-5fada5aa-5b16-4848-8948-97a88bd5db88.png",
+   "attempts": 1,
+   "sha256": "333bdb5b1cc187e31e4d81f4a2e74e0bffad4e56001a01a48ae71403d939b582",
+   "originalruter": 18,
+   "resultat": "jobber/fig014_18/resultat.png"
+  },
+  {
+   "jobb": "fig047_03",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    6,
+    4,
+    2
+   ],
+   "expected": 12,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig047_03/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_03. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nEXACTLY12 HEADLESS standing gesture bodies, no full heads anywhere. Row1 SIX FRONT-LEFT three-quarter bodies, forearm progresses from down to extended outward. Row2 FOUR RIGHT-profile bodies retracting forearm toward waist. Row3 TWO FRONT-LEFT bodies with forearm moving down. Copy each original hand/shoulder position; do not attach heads.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7611f2ff-1cb8-49be-89a5-6b797efae650.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7611f2ff-1cb8-49be-89a5-6b797efae650.png",
+   "attempts": 0,
+   "gjenbruk_fra": "fig019_03",
+   "sha256": "449515f83ef5f0bad95756ae4d9a93750d5cf76ce2e0f62367bf9c2d0f6e15e4",
+   "originalruter": 12,
+   "resultat": "jobber/fig047_03/resultat.png"
+  },
+  {
+   "jobb": "fig047_04",
+   "attempt": 1,
+   "name": "Maggie Robbins",
+   "rows": [
+    6,
+    6,
+    2
+   ],
+   "expected": 14,
+   "fragments": 0,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig047_04/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/maggie-stilanker.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/maggie-konsept.webp"
+   ],
+   "prompt": "Use case: style-transfer. HD animation sheet fig019_04. Image1 is the ORIGINAL EDIT TARGET for poses, raw orientation, original piece sequence and row layout. Image2 is the approved detailed smooth style; image3 supports identity.\nEXACTLY14 HEADLESS bodies in THREE rows6,6,2. Row1 SIX RIGHT-profile/three-quarter bodies progressively placing hands on hips; row2 SIX FRONT-LEFT corresponding bodies; row3 TWO final hands-on-hips bodies, first RIGHT and second FRONT-LEFT. No heads or loose face pieces. Feet and torso stay grounded; elbows and hands move.\nAdult Maggie Robbins: angular expressive face, black chin-length bob and side-swept fringe, slim athletic build, orange collared flight suit with sleeves rolled BELOW elbows over a white tee, purple LEFT chest patch, simple belt, short black boots.\nKeep all source pieces and their row baselines; body height changes are part of the animation, so do not normalize crouching poses to standing height. Broad source centers/sizes and clear transparent gaps between every piece including outstretched hands/boots. Native smooth thin inked contours, crisp controlled cel shading and fine face/hair/hand/material/boot detail, consistent light and proportions. Fully opaque interiors alpha near255 and narrow antialiased outline, genuinely transparent alpha0 empty canvas/gaps with no haze. Native1536x1024 RGBA. No new heads, extra poses, text, labels, grid, floor, shadows/glow, fuzzy paint, 3D or enlarged pixel stairs.",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1995eda7-5736-404d-ab0b-633612884b89.png",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1995eda7-5736-404d-ab0b-633612884b89.png",
+   "attempts": 0,
+   "gjenbruk_fra": "fig019_04",
+   "sha256": "b0ac0fcf119aeded547e62a21e7001feccfca895caf049babedac76332fc6c34",
+   "originalruter": 14,
+   "resultat": "jobber/fig047_04/resultat.png"
   }
  ],
  "neste": [
   "fig016_01",
-  "fig018_11",
-  "fig019_03",
-  "fig019_04",
-  "fig019_05",
+  "fig019_02",
   "fig019_06",
-  "fig019_07",
-  "fig019_08",
   "fig019_09",
   "fig019_10",
-  "fig019_11",
-  "fig014_18"
+  "fig014_19",
+  "fig015_14",
+  "fig018_14"
  ],
- "integrert_i_spillet": false
+ "integrert_i_spillet": false,
+ "retning_til_korrigering": [
+  "fig019_02",
+  "fig047_02"
+ ]
 }

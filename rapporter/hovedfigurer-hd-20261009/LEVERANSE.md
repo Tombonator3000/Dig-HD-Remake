@@ -42,10 +42,10 @@ Femte leveransegruppe har sju ark med 105 originalruter. Seks er nytegnet: fig01
 
 Sjette leveransegruppe har seks nytegnede ark med 225 originalruter: fig014_14 til fig014_17, fig018_04 og fig018_08. De to siste er korrigert for riktig antall, retning og native gjennomsiktighet. Visuell kontroll på tre bakgrunner, filkontroll-del6.json og rutekart-del6.json følger leveransen.
 
-Sjuende leveransegruppe har seks nytegnede ark med 92 originalruter: fig015_11 til fig015_13, fig018_12, fig018_13 og fig019_02. Gangretninger, løse hoder, hodeløse kropper og håndbevegelser er visuelt kontrollert. Radene i fig015_11 er gruppert etter tre manuelt verifiserte radbånd fordi det løse bakhodet ligger høyt i nederste rad. filkontroll-del7.json, rutekart-del7.json og visuell-del7.png følger.
-
 Sjuende leveransegruppe har sju ark med 116 originalruter. Seks er nytegnet: fig015_11 til fig015_13, fig018_12, fig018_13 og fig019_02. Gangretninger, løse hoder, hodeløse kropper og håndbevegelser er visuelt kontrollert. Radene i fig015_11 er gruppert etter tre manuelt verifiserte radbånd fordi det løse bakhodet ligger høyt i nederste rad. fig047_02 gjenbruker den byteidentiske leveransen fig019_02 etter bekreftet identisk originalreferanse, med koblinger til kostyme 47. filkontroll-del7.json og rutekart-del7.json gjelder alle sju, visuell-del7.png de seks nye tegningene.
 
-Med pilotene er 49 av 509 ark levert, tilsvarende 1211 av 7 683 originalruter. 460 ark gjenstår. fremdrift.json er den løpende oversikten.
+Åttende leveransegruppe har ti ark med 117 originalruter. Åtte er nytegnet: fig018_11, fig019_03, fig019_04, fig019_05, fig019_07, fig019_08, fig019_11 og fig014_18. fig047_03 og fig047_04 gjenbruker identiske 19-ark etter verifisert identisk originalreferanse, med kostyme 47-ID-er i rutekartet. Riktig antall, hodeløs oppdeling og retninger er visuelt kontrollert. De speilvendte kandidatene fig019_06, fig019_09 og fig019_10 er holdt utenfor leveransen og korrigeres. fig019_02 og fig047_02 fikk et retningsavvik etter levering og korrigeres også.
+
+Med pilotene er 59 av 509 ark levert, tilsvarende 1328 av 7 683 originalruter. 450 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
