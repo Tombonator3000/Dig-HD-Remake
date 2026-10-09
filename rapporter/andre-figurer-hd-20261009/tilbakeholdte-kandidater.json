@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-09T23:25:13.910886+00:00",
+ "oppdatert_utc": "2026-10-09T23:27:48.055616+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 51,
+ "antall": 61,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -784,7 +784,7 @@
    "siste_kontrollerte_forsok": 3,
    "kandidat_sha256": "cf502317ce106caaf9f079f5ee51e3ee25e1173b8837a83cdc0b503f19dae824",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Tredje forsøk har grønne rektangulære rammer, som ikke tilhører originalmotivet.",
+   "grunn": "Tredje forsøk har grønne rektangulære rammer som ikke tilhører originalmotivet.",
    "lokal_kontroll": {
     "forventede_rader": [
      4
@@ -807,7 +807,7 @@
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "d5fcc2d0e892033eda6a273ef7e76d5f2934e299d43c35de1cc74eaed2ecacb4",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Andre forsøk følger de to diagonale former, men har restalfa op til 110/255 med 35 piksler over 16 utenfor konturen.",
+   "grunn": "To diagonale former er til stede, men restalfa utenfor konturen er for høy.",
    "lokal_kontroll": {
     "forventede_rader": [
      2
@@ -841,7 +841,7 @@
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "50fb3b0754e1daab8a5022611f3bfcbbdf0a7a9a94ff86c249b97238d7fab110",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Andre forsøk finner opp liggende personer og magenta rektangler; originalen viser tynde adskilte former. Forkert motiv og synlige rammer.",
+   "grunn": "Andre forsøk finner opp liggende personer og magenta rektangler. Originalen viser tynt, oppdelt motiv. Feil motiv og synlige rammer.",
    "lokal_kontroll": {
     "forventede_rader": [
      2,
@@ -882,7 +882,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "af1db95ec21f87adbb2a23ff314b4b8c9ca0259a3247d019eba897177841de03",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Restalfa op til 123/255 med 350 piksler over 16 utenfor konturen.",
+   "grunn": "Restalfa utenfor konturen er for høy.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -915,7 +915,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "ee7ea0e6e84fb18e522beb3eb88e3ad620493cb4d52b8456a2986464099b1012",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Restalfa op til 113/255 med 15 piksler over 16 utenfor konturen.",
+   "grunn": "Restalfa utenfor konturen er for høy.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -999,7 +999,7 @@
    "siste_kontrollerte_forsok": 3,
    "kandidat_sha256": "fd608b2bf42a06987a51b542d4e0534381c2a4279607f53d48be7bd30e729346",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Tredje forsøk har fem figurer men finner opp udstrakte talehåndbevægelser; originalens arme er senket.",
+   "grunn": "Tredje forsøk har fem figurer, men endrer originalens senkede armer til utstrakte talebevegelser.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1024,7 +1024,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "6e029c8cd43e80ea7019dc28ec961a9503cee16b5ee20a6e0c86a9d5260316d5",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Første rad har 10 astronauter; originalen har 9. Ekstra animationsrute.",
+   "grunn": "Første rad har ti astronauter mot ni i originalen. Ekstra animationsrute.",
    "lokal_kontroll": {
     "forventede_rader": [
      9,
@@ -1047,11 +1047,170 @@
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
   },
   {
+   "jobb": "fig044_03",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "3d5302d21eec3b736132d3d2dfdf998183e50f309418ea8affc280587dd1ceed",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Andre forsøk har cyan rektangulære rammer rundt figurene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6,
+     6,
+     6
+    ],
+    "native_rader": [
+     5,
+     1,
+     2,
+     9,
+     14,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 88435,
+     "maks": 127,
+     "piksler_over_16": 998
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig049_01",
+   "siste_kontrollerte_forsok": 3,
+   "kandidat_sha256": "defc38a1274c0afeb52e3284e5719af4f1c05653b5da0f4cdebf674d92b72d29",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Tredje forsøk finner opp en hel person. Originalen er en smal grønn stripe, ikke en hel figur.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 37,
+     "maks": 1,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig066_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7d6f60c4edcb5aede4473ea080f13ae8847cddbe27c251d0ff8760e0fe83bcd5",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Hull som var gjennomsiktige i originalen, er malt cyan. Fargen blir stående på grønn, hvit og svart prøvebakgrunn.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4
+    ],
+    "native_rader": [
+     4,
+     4
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4199,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig066_06",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "65c85c76e22c1a4ee9e57ce3faae61e0c360d809d521d9e36255a8b9dc77b199",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Hull som var gjennomsiktige i originalen, er malt cyan. Fargen blir stående på grønn, hvit og svart prøvebakgrunn.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     3
+    ],
+    "native_rader": [
+     4,
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 5420,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig067_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "68baa97e1ab449a540952acaa3d70db8339ef7124ad98427f59454d0ddebca87",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Rad fire har fire figurer mot fem i originalen. En fase mangler.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4,
+     4,
+     5,
+     1
+    ],
+    "native_rader": [
+     4,
+     4,
+     4,
+     4,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 16710,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig074_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "5cef58ebfb2cc53809103b35d1d2e78b5ae58984ad4f4dcc158565df4343846e",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Originalens oransje former er endret til blå metallplater.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6
+    ],
+    "native_rader": [
+     10,
+     14,
+     29
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 7997,
+     "maks": 8,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
    "jobb": "fig076_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "118bc55673575882c13c766337215ef5d41286c6f6e720cff8aca7479287e9b0",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Andre forsøk finner opp postkasselignende former; de to originale ruter er tynde sorte konturer.",
+   "grunn": "Andre forsøk finner opp postkasselignende former. De to originalrutene er tynt, svart motiv.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1076,7 +1235,7 @@
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "fe2fbcc941bba64567e80b9abc1cf3bb763d25362e0ad088553f93f195054292",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Andre forsøk har 52 ruter mod 38 i originalen. En ekstra rad på 14 er lagt til.",
+   "grunn": "Andre forsøk har 52 ruter mot 38 i originalen. En ekstra rad med 14 ruter er lagt til.",
    "lokal_kontroll": {
     "forventede_rader": [
      2,
@@ -1102,11 +1261,38 @@
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
   },
   {
+   "jobb": "fig080_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e6c6b94a8b9ac513067cedef758252596c8f0c2abd181eb3d2a58aaa2d32f19a",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "En liten fase mangler i andre rad. Nye harde krysshøylys avviker også fra originalens diffuse lys.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6,
+     12,
+     4
+    ],
+    "native_rader": [
+     6,
+     11,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 14870,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
    "jobb": "fig087_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "c539e831ef4157b347a6d71ab8c531a3daaf587172cf801e7b2809e716bf3685",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Den venstre smalle originaldel mangler, og originalens centrale trekantede hul er fylt.",
+   "grunn": "Den smale venstre originaldelen mangler, og det sentrale trekantede hullet er fylt.",
    "lokal_kontroll": {
     "forventede_rader": [
      2
@@ -1129,7 +1315,7 @@
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "b5a518f8085f98d9ad266c2bf6f5046310c08c53267181378aec73472309b32f",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Den venstre smalle originaldel mangler, og originalens centrale trekantede hul er fylt.",
+   "grunn": "Den smale venstre originaldelen mangler, og det sentrale trekantede hullet er fylt.",
    "lokal_kontroll": {
     "forventede_rader": [
      2
@@ -1154,7 +1340,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "fc164cee602080e69980ca1b9aee5fb2dcdab346488f0d8d96a7f3e1a09c264e",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Første forsøk har røde rammer og to ekstra ruter i første rad. Nytt ordret forsøk er under behandling.",
+   "grunn": "Første forsøk har røde rammer og to ekstra ruter i første rad. Nytt ordrett forsøk er under behandling.",
    "lokal_kontroll": {
     "forventede_rader": [
      10,
@@ -1179,7 +1365,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "e80bf8470f59f75cadec79040ca094fcc530f2047e691e769904af4168aad156",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Fem af elleve vesentlige originaldele mangler.",
+   "grunn": "Fem av elleve vesentlige originaldeler mangler.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1208,7 +1394,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "7cf2d41aae2d8518e154809cf5ec3f74e5a8fc7dbc7057ad82cf202a5338c621",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Seks tynde originaldele over de to terrænpaneler mangler. Nytt ordret forsøk er under behandling.",
+   "grunn": "Seks tynne originaldeler over de to terrengpanelene mangler. Nytt ordrett forsøk er under behandling.",
    "lokal_kontroll": {
     "forventede_rader": [
      6,
@@ -1234,7 +1420,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "711c9c8a9c495ca6bf33ac11a51a608a6d0a4cf47d8410f6918c8bd82667b3a2",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "85 hele figurer og grønne rammer er lagt til mod seks vesentlige originalruter. Nytt ordret forsøk er under behandling.",
+   "grunn": "85 hele figurer og grønne rammer er lagt til mot seks vesentlige originalruter. Nytt ordrett forsøk er under behandling.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1261,7 +1447,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "21b7014d0e25dbff69768b671012a5a5f12a069aa31c22216d1b8f69025d7481",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "29 tegnede ruter mod 35 vesentlige originalruter; blandt andet de sidste bølgefaser mangler. Nytt ordret forsøk er under behandling.",
+   "grunn": "29 tegnede ruter mot 35 vesentlige originalruter. Blant annet de siste bølgefasene mangler. Nytt ordrett forsøk er under behandling.",
    "lokal_kontroll": {
     "forventede_rader": [
      10,
@@ -1293,7 +1479,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "dc793f7ecac8b9c3bf4aee3fda5874b219bec66e6c596939f11dc2873cadfa35",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Kun 13 hvirvelfaser er tegnet mod 22 originale faser.",
+   "grunn": "Kun 13 virvelfaser er tegnet mot 22 originalfaser.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1327,7 +1513,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "72b65ff58466072c7e71c3e186dd2ec4a8a7bd6388e3f29aee754af7b76e3816",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Blå strømningsfaser er ændret til orange lava. Nytt ordret forsøk er under behandling.",
+   "grunn": "Blå strømningsfaser er endret til oransje lava. Nytt ordrett forsøk er under behandling.",
    "lokal_kontroll": {
     "forventede_rader": [
      3
@@ -1353,7 +1539,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "2605d3d050abdcaa4b1fd9e6fc35d51f5161f53bac2bb518187c1e7227c174e4",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Tre store former mod fem vesentlige originalruter; små originaldele mangler. Nytt ordret forsøk er under behandling.",
+   "grunn": "Tre store former mot fem vesentlige originalruter. Små originaldeler mangler. Nytt ordrett forsøk er under behandling.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1383,7 +1569,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "cf11ac0c37f9c7e0a0b87ce1f3902388de81f6e15f1926a61298401382838ad2",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Fire former er til stede, men fire restalfapiksler over 16 består ikke den lokale prøve. Nytt ordret forsøk er under behandling.",
+   "grunn": "Fire former er til stede, men fire restalfapiksler over 16 består ikke den lokale prøven. Nytt ordrett forsøk er under behandling.",
    "lokal_kontroll": {
     "forventede_rader": [
      2,
@@ -1408,7 +1594,7 @@
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "bcfcc7963d37e0b8080e8840b69c3e394dd3029b42e4ad57ea878e57e755d7fc",
    "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Cyan rektangulære rammer er tegnet rundt ruterne. Originalens baggrund er ikke en del af motivet.",
+   "grunn": "Cyan rektangulære rammer er tegnet rundt rutene. Originalens bakgrunn skal være gjennomsiktig.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1429,6 +1615,87 @@
     }
    },
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig146_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4050fdf29ebcf32cf9925b2b6f09cb9ea513fc43474bb351ef758042bf0db4d4",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Originalens cyan bakgrunn i små hull er malt som cyan dekor. Hullene må bevare gjennomsiktigheten.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4,
+     3
+    ],
+    "native_rader": [
+     4,
+     4,
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 5446,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig153_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7148127b7d37a0888e4f289fdcdcf35318ab0039d6d4bc6bf8726a173054771a",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Første originalrute inneholder bare blå deler. Kandidaten legger til brunt hode og overkropp. De delvise fasene må bevares.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6
+    ],
+    "native_rader": [
+     6
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 784,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig154_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "09665032479ce00cd35c84e39e46c34fe5076bdb79da5f3ef6c99767d8d79134",
+   "status": "tilbakeholdt – ikke grafikkleveranse",
+   "grunn": "Flere løse deler og løpefaser er feilfordelt eller mangler. Siste rad viser ni mot elleve originalfaser.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     14,
+     17,
+     11
+    ],
+    "native_rader": [
+     1,
+     3,
+     13,
+     2,
+     16,
+     9
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 64810,
+     "maks": 55,
+     "piksler_over_16": 22
+    }
+   },
+   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
   }
  ]
 }
