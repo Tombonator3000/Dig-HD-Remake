@@ -34,6 +34,8 @@ Andre leveransegruppe inneholder seks nye ark med 199 originalruter:
 
 Antall og radfordeling er kontrollert, med små hudfragmenter skilt fra fullstendige hoder. fig015_02 har 70 større deler og to prikker; fig015_03 har 64 større deler og tre små fragmenter. filkontroll-del2.json, rutekart-del2.json og visuell-del2.png gjelder bare de seks valgte filene. Et tidligere Brink-forsøk med gjennomsiktige hoder er forkastet. Maggie-arket fig018_04 korrigeres fortsatt og er ikke levert.
 
-Med pilotene er 16 av 509 ark levert, tilsvarende 574 av 7 683 originalruter. 493 ark gjenstår. fremdrift.json er den løpende oversikten.
+Tredje leveransegruppe har åtte nye ark og 99 originalruter: fig015_05 til fig015_09 med de øvrige Brink-gangretningene og fire gestposer, fig018_06 og fig018_07 med to Maggie-gangretninger, og fig014_10 med Bostons armgestsekvens. Alle åtte bestod antalls- og radkontrollen på første forsøk. Separate hoder, hele figurer, farger og konturer er inspisert på lys, mørk og grønn bakgrunn. filkontroll-del3.json, rutekart-del3.json og visuell-del3.png dokumenterer denne gruppen.
+
+Med pilotene er 24 av 509 ark levert, tilsvarende 673 av 7 683 originalruter. 485 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
