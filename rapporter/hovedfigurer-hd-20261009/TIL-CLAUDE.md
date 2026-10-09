@@ -21,3 +21,7 @@ Gruppe 13: sporing-del13.json, filkontroll-del13.json og rutekart-del13.json. An
 Gruppe 14: sporing-del14.json, filkontroll-del14.json og rutekart-del14.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
 
 Gruppe 15: sporing-del15.json, filkontroll-del15.json og rutekart-del15.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.
+
+Fragmentpresisering gruppe16: De svært små originalfragmentene er oppført separat i rutekartet. Native fragmenter er ikke automatisk bevart en-til-en. Bevar originalfragmentet fra den urørte originalruten der en slik del mangler eller avviker; det er ikke en komplett HD-kropp eller et HD-hode. Tall for originalruter inkluderer disse kildeoppføringene.
+
+Gruppe 16: sporing-del16.json, filkontroll-del16.json og rutekart-del16.json. Analyseboksene er diagnostiske. Native konturer må bevares; mottak og animasjonstest gjenstår.

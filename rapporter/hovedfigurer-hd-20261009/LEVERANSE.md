@@ -46,7 +46,7 @@ Sjuende leveransegruppe har sju ark med 116 originalruter. Seks er nytegnet: fig
 
 Åttende leveransegruppe har ti ark med 117 originalruter. Åtte er nytegnet: fig018_11, fig019_03, fig019_04, fig019_05, fig019_07, fig019_08, fig019_11 og fig014_18. fig047_03 og fig047_04 gjenbruker identiske 19-ark etter verifisert identisk originalreferanse, med kostyme 47-ID-er i rutekartet. Riktig antall, hodeløs oppdeling og retninger er visuelt kontrollert. De speilvendte kandidatene fig019_06, fig019_09 og fig019_10 ble holdt utenfor denne gruppen og er rettet i gruppe 9. fig019_02 og fig047_02 fikk et retningsavvik etter levering og er erstattet i gruppe 10.
 
-Med pilotene er 133 av 509 ark levert, tilsvarende 2 614 av 7 683 originalruter. 376 ark gjenstår. fremdrift.json er den løpende oversikten.
+Med pilotene er 148 av 509 ark levert, tilsvarende 2 957 av 7 683 originalruter. 361 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
 
@@ -63,3 +63,5 @@ Leveransegruppe 13: fig014_31, fig014_33, fig014_37, fig014_38, fig014_39, fig01
 Leveransegruppe 14: fig015_24, fig015_26, fig015_27, fig015_32, fig015_33, fig018_22, fig015_28, fig015_29, fig015_30, fig015_31. 10 ark, 157 originalruter. Antall, radfordeling, retninger og native alfa er kontrollert. Se filkontroll-del14.json, rutekart-del14.json og visuell-del14-*.png.
 
 Leveransegruppe 15: fig018_23, fig018_26, fig018_27, fig018_29, fig018_31, fig018_28, fig018_30. 7 ark, 75 originalruter. Antall, radfordeling, retninger og native alfa er kontrollert. Se filkontroll-del15.json, rutekart-del15.json og visuell-del15-*.png.
+
+Leveransegruppe 16: fig018_32, fig018_33, fig018_34, fig018_35, fig018_36, fig018_37, fig016_02, fig016_04, fig016_05, fig016_06, fig017_03, fig017_04, fig017_05, fig014_41, fig017_06. 15 ark, 343 originalruter. Antall, radfordeling, retninger og native alfa er kontrollert. Se filkontroll-del16.json, rutekart-del16.json og visuell-del16-*.png.
