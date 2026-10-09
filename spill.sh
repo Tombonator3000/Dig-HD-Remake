@@ -12,7 +12,8 @@
 #   ./spill.sh --nettleser     i nettleseren på http://localhost:8000, bare på denne maskinen (--port N for en annen port)
 #
 # Valg som ikke står over, sendes videre til ScummVM.
-# Tastene i spillet: Ctrl+H (HD eller klassisk), Ctrl+Shift+H (gult felt), F5 (meny), Alt+S (skjermbilde).
+# I spillet: F5 åpner menyen, der HD Graphics velger HD eller originalgrafikk (valget huskes; Ctrl+H bytter også).
+# Ctrl+Shift+H (gult felt der HD mangler), Alt+S (skjermbilde).
 # Hva du bør se etter: docs/SPILLTEST.md.
 # Nettleseren: spillet og HD-grafikken tilhører Disney/Lucasfilm og skal aldri legges på en åpen adresse.
 set -euo pipefail
@@ -33,7 +34,7 @@ while [ $# -gt 0 ]; do
 	--programvare) PROGRAMVARE=1; shift ;;
 	--nettleser) NETTLESER=1; shift ;;
 	--port) PORT="$2"; shift 2 ;;
-	-h|--help) sed -n '2,17p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+	-h|--help) sed -n '2,18p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
 	*) EKSTRA+=("$1"); shift ;;
 	esac
 done
@@ -133,5 +134,5 @@ steg "Starter The Dig (mod: $MOD)"
 [ -n "$ROM" ] && export DIGHD_TEST_ROOM="$ROM" DIGHD_TEST_AT="${DIGHD_TEST_AT:-240}" DIGHD_SKIP_VIDEO=1 && echo "Hopper til rom $ROM (filmer hoppes over)."
 [ "$KLASSISK" = 1 ] && export DIGHD_CLASSIC=1
 [ "$GULT" = 1 ] && export DIGHD_SHOW_MISSING=1
-echo "Ctrl+H: HD eller klassisk. Ctrl+Shift+H: gult felt der HD mangler. Alt+S: skjermbilde."
+echo "Grafikk: F5 i spillet, HD Graphics i menyen (Ctrl+H bytter også). Ctrl+Shift+H: gult felt der HD mangler. Alt+S: skjermbilde."
 exec engine/run.sh "$MOD" --subtitles "${EKSTRA[@]}"

@@ -151,14 +151,18 @@ Valg og begrunnelse:
 
 ## Klassisk grafikk og gult felt
 
-To hurtigtaster virker mens spillet går, så lenge en HD-mod er lastet:
+**I spillets egen meny.** F5 åpner menyen til The Dig (ScummVM sin originalmeny, `original_gui`, som er standard). Når en HD-mod er lastet, har menyen en rad til nederst i venstre del, under Text Speed: **HD Graphics** med en avkrysningsboks. Krysset betyr HD, tom boks betyr originalgrafikken. Et klikk bytter med en gang, og hele skjermen bygges på nytt, så rommet rundt menyen viser valget mens menyen er oppe. Boksen og teksten er tegnet som resten av menyen. Menyen er 14 piksler høyere med denne raden (også sidene for lagring og lasting, så rammen står likt). Uten HD-mod er menyen som før.
+
+Valget lagres i scummvm.ini som `dighd_classic` i `[scummvm]` og gjelder neste gang spillet startes, også i nettleseren (der ligger scummvm.ini i nettleserens lagring). Det ligger i `[scummvm]` fordi et spill som startes fra kommandolinjen uten et lagret mål, ikke har en egen seksjon som skrives til fil. `DIGHD_CLASSIC` går foran.
+
+To hurtigtaster virker også mens spillet går, så lenge en HD-mod er lastet:
 
 | Tast | Virkning |
 | --- | --- |
 | Ctrl+H | Bytter mellom HD-grafikk og klassisk grafikk |
 | Ctrl+Shift+H | Slår gult felt der HD mangler av og på |
 
-ScummVM viser en kort melding på skjermen når du bytter ("Dig HD: klassisk grafikk" og så videre). Tastene går ikke videre til spillet.
+ScummVM viser en kort melding på skjermen når du bytter med tastene ("Dig HD: klassisk grafikk" og så videre). Ctrl+H lagrer valget på samme måte som menyen. Tastene går ikke videre til spillet.
 
 **Klassisk grafikk** er originalpikslene skalert opp med nearest over hele skjermen, også filmer som har HD-rammer. Skjermen er like stor som før, så vinduet og musen endres ikke. Pekeren er den samme i begge modusene. Motoren fortsetter å finne ut hvor HD-pikslene skal hentes fra også i klassisk modus, så byttet tilbake til HD skjer med en gang.
 
@@ -255,7 +259,7 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `
 | `engines/scumm/dighd.cpp`, `dighd.h` | All HD-logikk (ny fil) |
 | `scumm.cpp` | Lager DigHD, setter opp HD-skjermen, motoren holder seg i 8 bit, hook før hver skjermoppdatering |
 | `gfx.cpp` | Siste blit (`drawStripToScreen`), overgangseffekter, `moveScreen`, risting av skjermen. `markRectAsDirty` nullstiller glyfene og figurmerkene i området (figurmerkene ikke når en skuespiller merker sitt eget rektangel) |
-| `gfx_gui.cpp` | DigHD får beskjed når skjermen lagres før et banner og legges tilbake etterpå (`showBannerAndPause`, `clearBanner`) |
+| `gfx_gui.cpp` | DigHD får beskjed når skjermen lagres før et banner og legges tilbake etterpå (`showBannerAndPause`, `clearBanner`). Raden HD Graphics i hovedmenyen til The Dig (`setUpMainMenuControls`, `updateMainMenuControls`, `executeMainMenuOperation`, `drawMainMenuTitle`) |
 | `charset.cpp` | Melder hver glyf fra tegnsettene i spillet (`CharsetRendererV7::drawCharV7`) |
 | `nut_renderer.cpp` | Melder hver glyf fra NUT-fontene i filmene (`NutRenderer::drawCharV7`) |
 | `string_v7.cpp` | Teksten som tegnes og merkes, nullstiller ikke seg selv. `removeBlastTexts` nullstiller glyfene i spillskjermen |
@@ -271,7 +275,7 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger skalerer: `
 | --- | --- |
 | `DIGHD_MOD` / `dighd_mod` | Mappen med HD-grafikk. Uten denne kjører spillet helt som vanlig |
 | `DIGHD_SCALE` / `dighd_scale` | Skala, standard 4 |
-| `DIGHD_CLASSIC=1` / `dighd_classic=true` | Starter i klassisk grafikk (Ctrl+H bytter) |
+| `DIGHD_CLASSIC=1` / `dighd_classic=true` | Starter i klassisk grafikk. HD Graphics i menyen og Ctrl+H bytter og skriver `dighd_classic` i `[scummvm]` |
 | `DIGHD_SHOW_MISSING=1` / `dighd_show_missing=true` | Starter med gult felt der HD mangler (Ctrl+Shift+H slår av og på) |
 | `DIGHD_TEXT` / `dighd_text` | Skalerer for teksten: `xbr` (standard), `scale4x`, `nearest` eller `off` (tekst som originalpiksler) |
 
@@ -289,6 +293,7 @@ Test og feilsøking (bare miljøvariabler):
 | `DIGHD_TEST_ROOM`, `DIGHD_TEST_AT`, `DIGHD_TEST_CAMX`, `DIGHD_TEST_CAMY` | Hopper rett til et rom etter N bilder. Et rom som er mindre enn skjermen (rom 93 med ikonene i inventaret, 40 x 200), hoppes ikke til: spillet viser det aldri, og ScummVM stopper med en assert når kameraet skal plasseres. Med `CAMX` eller `CAMY` settes kameraet dit (midten av skjermen i rommet), og det følger ikke lenger en skuespiller. Flytter et skript kameraet, settes det tilbake etter neste bilde. Et skript som setter kameraet hver gang spillet går et steg (rom 27), vinner likevel |
 | `DIGHD_QUIT_AT` | Avslutter etter N bilder |
 | `DIGHD_TEST_KEYS` | Trykker taster ved gitte bilder, for eksempel `420:ctrl+h,570:ctrl+shift+h,600:f5`. Tastene a til z, f1 til f12, `space` og `escape`, med `ctrl+`, `shift+` og `alt+`. Tastene går gjennom den vanlige tastehåndteringen i motoren |
+| `DIGHD_TEST_CLICKS` | Klikker med venstre museknapp ved gitte bilder, for eksempel `450:114/152,550:265/107` (x/y i originalpiksler). Knappen går ned ved bildet og opp 3 bilder senere. For menyene uten mus |
 | `DIGHD_TEST_COSTUME` | Testkroken: 30 bilder etter hoppet med `DIGHD_TEST_ROOM` settes en skuespiller inn i rommet med dette kostymet, og den spiller alle animasjonene i AKCH (alle retninger) etter hverandre. For kostymer skriptene først viser senere i historien |
 | `DIGHD_TEST_ACTOR`, `DIGHD_TEST_POS`, `DIGHD_TEST_PALETTE`, `DIGHD_TEST_CHORE_EVERY` | Skuespilleren testkroken bruker (standard 29), plassen i rommet (`x,y`, standard midt på skjermen og 180), rompaletten som settes (`setCurrentPalette`, standard ingen) og hvor mange bilder hver animasjon vises (standard 60) |
 | `DIGHD_TEST_OBJSTATE` | Testkroken for objekttilstander. `884:2,886:1` setter objektene i disse tilstandene etter hoppet og holder dem der. `alle` viser hver tilstand av hvert objekt i rommet etter hverandre og lagrer skjermen etter hver tilstand. Se Objekttilstander i testen |
@@ -353,6 +358,14 @@ Klassisk grafikk og gult felt (testet uten skjerm 2026-10-07, modden `gpt` i rom
 - Film med HD-rammer: HD-rammene brukes i HD-modus, ikke i klassisk modus, og blir ikke gule.
 - Tastene: `DIGHD_TEST_KEYS` trykket Ctrl+H og Ctrl+Shift+H mens spillet gikk, og byttet virket begge veier. Ikke testet med ekte tastatur og skjerm, og meldingen på skjermen er ikke sett.
 - `engine/test.sh` gir fortsatt 0 avvik for bakgrunner og uskalerte figurer.
+
+HD Graphics i spillets meny (testet uten skjerm 2026-10-09, modden `gpt` i rom 22, med `DIGHD_TEST_KEYS=400:f5` og `DIGHD_TEST_CLICKS`):
+
+- Menyen viser raden HD Graphics under Text Speed, med kryss når HD er på. Rammen og knappene til høyre står riktig, også på siden for lagring.
+- Klikk på boksen: loggen sier `classic graphics`, rommet rundt menyen blir klassisk med en gang, og boksen blir tom. Play lukker menyen, og spillet fortsetter i klassisk grafikk (64 000 originalpiksler i hele skjermen).
+- Ny start med samme HOME: spillet starter i klassisk grafikk (`dighd_classic=true` i `[scummvm]`), og boksen er tom. Klikk igjen gir HD og `dighd_classic=false`.
+- `engine/test.sh` etter endringen: 0 avvik for bakgrunner og uskalerte figurer, skjermen lik hele skjermen bygget på nytt i alle 12 dumper, og avvik bare i skalerte figurer som før.
+- Ikke testet: ekte mus og skjerm, og menyen under en film.
 
 Fargesykling (testet uten skjerm 2026-10-07). Spillet hoppet med `DIGHD_TEST_ROOM` til rommet ved bilde 240, med dumper hvert 2. bilde:
 

@@ -165,21 +165,25 @@ Kjente begrensninger:
 
 ## Fra GitHub Pages, uten å bygge noe
 
-Nettsiden https://tombonator3000.github.io/Dig-HD-Web/ har bare motoren. Spillfilene og HD-pakken velger du fra din egen maskin, og de lagres i nettleseren. De lastes ikke opp. Oppsett og bygging står i `docs/PAGES.md`.
+https://tombonator3000.github.io/Dig-HD-Web/ går rett inn i spillet, på PC og mobil. Nettsiden har bare motoren. Spillet og HD-grafikken hentes fra grenene `spilldata` og `hd-mod` i dette repoet når spillet trenger dem, og lagres i nettleseren.
 
-Slik får du de to mappene uten git og uten terminal (logget inn på GitHub, repoet er privat):
+Første gang spør siden etter en lesenøkkel til repoet. Lag den på https://github.com/settings/personal-access-tokens/new:
 
-1. Spillfilene: last ned https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/spilldata.zip og pakk ut. Mappen `game` inni har DIG.LA0, DIG.LA1 og VIDEO.
-2. HD-pakken: last ned https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/hd-mod.zip og pakk ut. Mappen `Dig-HD-Remake-hd-mod` har mod.json, rooms, objects og costumes.
-3. Åpne nettsiden, trykk **Velg spillmappe** og velg `game`, trykk **Velg HD-mappe** og velg `Dig-HD-Remake-hd-mod`, og trykk **Spill med HD**.
+1. Token name: for eksempel The Dig HD. Expiration: etter eget valg.
+2. Repository access: Only select repositories, velg Dig-HD-Remake.
+3. Permissions, Repository permissions: Contents, Read-only.
+4. Generate token, kopier nøkkelen, lim den inn på siden og trykk **Spill**.
 
-Har du repoet fra før, er `game` og `mods/gpt` de samme mappene (`./spill.sh` eller `tools/mod_gren.sh hent` oppdaterer `mods/gpt`).
+Etterpå går lenken rett inn i spillet. Ny HD-grafikk i `hd-mod` kommer med av seg selv neste gang siden åpnes. Utløper nøkkelen, spør siden etter en ny. `?ny-nokkel` bak adressen gir feltet med en gang.
 
-Under HD-mappen viser siden hvor mange HD-rom, objektbilder og figurruter pakken har, og når den ble laget. Nettleseren husker mappene, men bruker kopien den lagret. Når det kommer en ny HD-pakke, laster du ned og velger HD-mappen på nytt.
+- **Grafikk:** F5, så **HD Graphics** i menyen (kryss er HD, tom boks er originalgrafikken). Valget huskes.
+- **Mobil:** første trykk gir fullskjerm. To fingre åpner menyen, tre fingre hopper over en filmscene.
+- **Lyd:** musikk og tale ligger ikke i repoet, så spillet er uten lyd herfra.
+- **Testvalg i adressen:** `?rom=22`, `?klassisk`, `?gult` og testkrokene, for eksempel `?rom=22&DIGHD_TEST_COSTUME=14` for å se Boston i alle retninger.
 
-Adressen kan ha de samme valgene som lokalt: `?rom=22`, `?klassisk=1`, `?gult=1` og testkrokene, for eksempel `?rom=22&DIGHD_TEST_COSTUME=14` for å se Boston i alle retninger.
+Uten nøkkel går det også med mapper på maskinen (lenken under nøkkelfeltet): spillmappen `game` og HD-mappen `mods/gpt`. Mappene kan lastes ned som zip uten git: https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/spilldata.zip og https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/hd-mod.zip.
 
-Testet 2026-10-09 i Chromium uten skjerm mot den publiserte siden, med `game` og `mods/gpt` (103 rom, 485 objektbilder, 28 figurruter): rom 22 i HD, Boston med HD-rutene fra fig014_01, HD/klassisk-knappen virker, ingen forespørsler mot spill- eller HD-stier. Ikke testet: nedlasting av zip-filene fra GitHub (krever innlogging) og en vanlig nettleser med skjermkort.
+Testet 2026-10-09 i Chromium uten skjerm (Playwright): nøkkelfeltet første gang, så rett inn i introen med fillisten og filene hentet fra api.github.com, og rett inn i spillet uten nøkkelfelt etter omlasting, uten at noen fil ble hentet på nytt. Ingen forespørsler med spill- eller HD-stier mot nettsiden. I testmiljøet legger proxyen til egen tilgang mot GitHub, så en ekte nøkkel er ikke prøvd; at GitHub avviser en feil nøkkel, er bare testet med filtester. Menyvalget er testet i motoren uten skjerm (se `docs/HD-MOTOR.md`). Ikke testet: mobil, berøring og fullskjerm på ekte telefon.
 
 ## Si fra
 
