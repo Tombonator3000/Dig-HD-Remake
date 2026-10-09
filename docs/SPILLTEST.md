@@ -21,7 +21,7 @@ cd Dig-HD-Remake
 
 Første gang henter skriptet spillfilene (grenen `spilldata`) og siste HD-mod (grenen `hd-mod`), og bygger motoren. Det tar noen minutter. Senere starter det med en gang, og henter bare ny HD-mod og bygger motoren på nytt når den er endret.
 
-Musikk og tale ligger ikke i repoet (filene er for store). Legg `DIGMUSIC.BUN` og `DIGVOICE.BUN` fra Drive i `game/` for å få lyd.
+Musikk og tale ligger i grenen `spilldata` i deler på 90 MB (GitHubs grense er 100 MB per fil). `tools/hent_spilldata.sh` setter dem sammen til `game/DIGMUSIC.BUN` og `game/DIGVOICE.BUN` og sjekker sjekksummene.
 
 ## Valg
 
@@ -177,8 +177,9 @@ Første gang spør siden etter en lesenøkkel til repoet. Lag den på https://gi
 Etterpå går lenken rett inn i spillet. Ny HD-grafikk i `hd-mod` kommer med av seg selv neste gang siden åpnes. Utløper nøkkelen, spør siden etter en ny. `?ny-nokkel` bak adressen gir feltet med en gang.
 
 - **Grafikk:** F5, så **HD Graphics** i menyen (kryss er HD, tom boks er originalgrafikken). Valget huskes.
-- **Mobil:** første trykk gir fullskjerm. To fingre åpner menyen, tre fingre hopper over en filmscene.
-- **Lyd:** musikk og tale ligger ikke i repoet, så spillet er uten lyd herfra.
+- **Mobil og nettbrett:** trykk er klikk, dra flytter pekeren, hold fingeren i ro et halvt sekund for høyreklikk, to fingre åpner menyen, tre fingre hopper over en filmscene. Første trykk gir fullskjerm, og skjermen snus ikke.
+- **Lyd:** musikk og tale hentes første gang spillet spiller musikk (391 MB, siden viser hvor langt den har kommet). `?uten-lyd` bak adressen starter uten, og på enheter med under 4 GB minne er lyden av.
+- **Nett:** mistes kontakten, venter spillet og siden prøver igjen til filen kommer.
 - **Testvalg i adressen:** `?rom=22`, `?klassisk`, `?gult` og testkrokene, for eksempel `?rom=22&DIGHD_TEST_COSTUME=14` for å se Boston i alle retninger.
 
 Uten nøkkel går det også med mapper på maskinen (lenken under nøkkelfeltet): spillmappen `game` og HD-mappen `mods/gpt`. Mappene kan lastes ned som zip uten git: https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/spilldata.zip og https://github.com/Tombonator3000/Dig-HD-Remake/archive/refs/heads/hd-mod.zip.

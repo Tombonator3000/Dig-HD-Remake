@@ -30,7 +30,7 @@ git clone https://github.com/Tombonator3000/Dig-HD-Remake.git && cd Dig-HD-Remak
 ./spill.sh
 ```
 
-`spill.sh` henter spillfilene og siste HD-mod, bygger motoren første gang (noen minutter) og når den er endret, og starter spillet. `./spill.sh --rom 22` hopper til et rom, `--klassisk` starter med originalgrafikken, `--gult` viser hvor HD mangler, og `--auto` fyller resten med automatisk oppskalering. Legg `DIGMUSIC.BUN` og `DIGVOICE.BUN` fra Drive i `game/` for musikk og tale.
+`spill.sh` henter spillfilene og siste HD-mod, bygger motoren første gang (noen minutter) og når den er endret, og starter spillet. `./spill.sh --rom 22` hopper til et rom, `--klassisk` starter med originalgrafikken, `--gult` viser hvor HD mangler, og `--auto` fyller resten med automatisk oppskalering. Musikk og tale hentes også, fra deler i grenen `spilldata`.
 
 Mens du spiller: Ctrl+H bytter mellom HD og klassisk grafikk, og Ctrl+Shift+H farger gult der HD mangler. Hva du bør se etter, og alle valgene: [docs/SPILLTEST.md](docs/SPILLTEST.md).
 
