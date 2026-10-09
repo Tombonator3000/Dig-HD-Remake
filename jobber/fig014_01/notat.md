@@ -2,7 +2,7 @@
 
 Levert av Codex 2026-10-09 09:01 CEST.
 
-Status: Kandidat til Toms visuelle godkjenning og Claudes innlesing. Lokal teknisk kontroll bestod. Ark 2 til 4 avventer godkjenning av dette arket, som angitt i ORDRE.md.
+Status: Kandidat til Toms visuelle godkjenning. Lokal teknisk kontroll bestod, og 28 ruter er integrert i en lokal testpakke på Toms forespørsel 2026-10-09. Ark 2 til 4 avventer godkjenning av dette arket, som angitt i ORDRE.md.
 
 ## Bildearbeid
 
@@ -28,7 +28,7 @@ Prosjektets eksisterende gpt-inn ble kjørt på en separat kopi av bare denne jo
 | Laveste dekning per rute | 0,969 |
 | Flimmerkontroll | 11 nabopar, høyeste ekstra forskjell 27,3, grense 30 |
 
-Første forsøk har svak fargevariasjon i den turkise bakgrunnen og den grå kanten. Det er dokumentert selv om den tekniske kontrollen består. Mottaket bruker originalens gjennomsiktighet og fargelås ved utklipping. Toms vurdering av ansikt, klesdetaljer og malestil gjenstår. Faktisk animasjon i motoren er ikke testet i denne leveransen.
+Første forsøk har svak fargevariasjon i den turkise bakgrunnen og den grå kanten. Det er dokumentert selv om den tekniske kontrollen består. Mottaket bruker originalens gjennomsiktighet og fargelås ved utklipping. Toms vurdering av ansikt, klesdetaljer og malestil gjenstår. Etterfølgende test 2026-10-09 viser pilotgrafikken i nettlesermotoren, med originalens skyggemaske. Full spillbarhet og gange ved klikk er ikke bekreftet. Se rapporten under.
 
 ## Sporing
 
@@ -41,3 +41,7 @@ Første forsøk har svak fargevariasjon i den turkise bakgrunnen og den grå kan
 - SHA256 forkastet forsøk 2: 3ada265bfd26fd061265c69a0746b4a4964896eafb2ec0abc227fd0e58e3a205
 
 Inngangsfilene er kontrollert uendret før og etter bildearbeidet. Leveransen inneholder bare resultat.png og dette notatet.
+
+## Integrasjon for utprøving
+
+Tom ba om integrasjon før godkjenning. De 28 rutene er lagt til i en kopi av den eksisterende HD-pakken og lest inn i Codex-nettleseren. Kildearket er uendret. Se [spilltestrapporten](../../rapporter/fig014_01-spilltest/SPILLTEST.md) med faktiske spillbilder, kontrollresultater og testbegrensninger. Visuell godkjenning av ark 1 gjenstår.
