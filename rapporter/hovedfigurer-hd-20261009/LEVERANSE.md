@@ -46,7 +46,7 @@ Sjuende leveransegruppe har sju ark med 116 originalruter. Seks er nytegnet: fig
 
 Åttende leveransegruppe har ti ark med 117 originalruter. Åtte er nytegnet: fig018_11, fig019_03, fig019_04, fig019_05, fig019_07, fig019_08, fig019_11 og fig014_18. fig047_03 og fig047_04 gjenbruker identiske 19-ark etter verifisert identisk originalreferanse, med kostyme 47-ID-er i rutekartet. Riktig antall, hodeløs oppdeling og retninger er visuelt kontrollert. De speilvendte kandidatene fig019_06, fig019_09 og fig019_10 ble holdt utenfor denne gruppen og er rettet i gruppe 9. fig019_02 og fig047_02 fikk et retningsavvik etter levering og er erstattet i gruppe 10.
 
-Med pilotene er 274 av 509 ark levert, tilsvarende 5039 av 7 683 originalruter. 235 ark gjenstår. fremdrift.json er den løpende oversikten.
+Med pilotene er 282 av 509 ark levert, tilsvarende 5179 av 7 683 originalruter. 227 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
 
@@ -99,3 +99,5 @@ Leveransegruppe 31: fig016_37, fig073_02, fig073_03, fig055_02, fig055_03, fig05
 Leveransegruppe 32: fig048_08, fig048_10, fig048_11, fig048_12, fig068_08, fig068_09, fig068_10, fig068_11, fig068_12, fig068_13, fig068_14, fig068_15, fig068_16, fig068_17, fig068_18, fig068_19, fig068_20, fig071_02, fig052_01. 189 tegnede figurområder, 194 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
 
 Leveransegruppe 33: fig104_01, fig107_01, fig107_02, fig260_01, fig137_01, fig137_03, fig137_04, fig137_05, fig173_01, fig173_02. 148 tegnede figurområder, 161 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
+
+Leveransegruppe 34: fig173_03, fig173_04, fig173_05, fig306_02, fig306_03, fig104_02, fig137_06, fig306_04. 133 tegnede figurområder, 140 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
