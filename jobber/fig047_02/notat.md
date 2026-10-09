@@ -1,6 +1,6 @@
 # fig047_02
 
-Levert 9. oktober 2026. Byteidentisk gjenbruk av fig019_02 etter bekreftet identisk originalreferanse. Ingen nye bildeforsøk. Kildebildet er laget med innebygd ChatGPT-bildegenerator. Verktøyet bekrefter ikke eksakt modellversjon. Native PNG i 1536 x 1024 RGBA. Generatorens glatte konturer og native alfa er bevart uten etterbehandling.
+Levert 9. oktober 2026. Innebygd ChatGPT-bildegenerator, 0 bildeforsøk. Verktøyet bekrefter ikke eksakt modellversjon. Native PNG i 1536 x 1024 RGBA. Generatorens glatte konturer og native alfa er bevart uten etterbehandling.
 
 Bestilt av Tom: Boston, Brink og Maggie med alle kostymevarianter, i den godkjente detaljerte stilen. Originalreferansen definerer animasjonsruter og retninger. Eget stilanker og faktisk prompt ligger i rapporter/hovedfigurer-hd-20261009/. Original prompt.txt, referanse.png, original_1x.png og jobb.json er bevart.
 
@@ -8,4 +8,6 @@ Kontrollert antall og radfordeling: 11, 6, 6 større figurdeler. 24 originalrute
 
 Dette er grafikkleveransen. Nytegnet størrelse og plassering trenger tilpasning av mottak, ruterektangler og hode-/fotankre hos Claude. Ingen gpt-inn-kontroll eller animasjonskontroll i motoren er utført. Ikke legg den gamle nærmeste-nabo-alfamasken over den nye tegningen.
 
-Intern etterkontroll: øverste to rader er speilvendt mot originalreferansen. Ruteantall består, men retningen må korrigeres før import. Ikke godkjent for import.
+Byteidentisk gjenbruk fra korrigert fig019_02. Originalreferansenes SHA256 er identiske; kostyme 47 har egne rute-ID-er i rutekartet.
+
+Erstatter den tidligere leveransen med feilvendte hoder. Alle 17 hoder i øverste og midterste rad vender nå mot venstre, som originalreferansen. Nederste rad er fortsatt hodeløs.

@@ -8,4 +8,6 @@ Stilsettets ark 1 for Boston er fortsatt rapporter/boston-konsept-glatte-kanter-
 
 Bevar de nye PNG-filenes native alfa. Gammelt gpt-inn erstatter alfa med originalens nærmeste-nabo-maske i 4x. Det gjeninnfører de pikselkantene Tom avviste. Motorens harde alfagrense på 128 er også en kjent begrensning. Ingen kode er endret i dette grafikkoppdraget.
 
-Nytegnet størrelse, hoder, nakkekutt, fotbaselinjer og ruteplassering må tilpasses før import. rutekart-del1.json til rutekart-del9.json er bare diagnostiske radkoblinger. Svak restalfa kan ligge utenfor boksene. Hold originale indeksbilder, animasjonssekvenser og ankerinformasjon ved mottaket. Kontroller deretter retninger, gange, hodekobling, okklusjon og HD/klassisk-bytte i motoren før noe omtales som spillklart.
+Nytegnet størrelse, hoder, nakkekutt, fotbaselinjer og ruteplassering må tilpasses før import. rutekart-del1.json til rutekart-del10.json er bare diagnostiske radkoblinger. Svak restalfa kan ligge utenfor boksene. Hold originale indeksbilder, animasjonssekvenser og ankerinformasjon ved mottaket. Kontroller deretter retninger, gange, hodekobling, okklusjon og HD/klassisk-bytte i motoren før noe omtales som spillklart.
+
+fig019_02 og den identiske fig047_02 er erstattet i gruppe 10 med venstrevendte hoder. Bruk disse nyeste resultatfilene, SHA-er og rutekart-del10.json. Tidligere kontrollbilder og rutekart er leveransehistorikk.
