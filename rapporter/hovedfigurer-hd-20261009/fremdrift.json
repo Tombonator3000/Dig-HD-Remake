@@ -3,9 +3,9 @@
  "kostymer": 54,
  "originalruter_totalt": 7683,
  "ark_totalt": 509,
- "ark_levert": 234,
- "originalruter_levert": 4356,
- "ark_gjenstar": 275,
+ "ark_levert": 245,
+ "originalruter_levert": 4684,
+ "ark_gjenstar": 264,
  "status": "pågår",
  "leveranser": [
   {
@@ -6043,21 +6043,325 @@
     "prompt.txt": "84791d0661b678cf1058e1df055fb534767d6269f39f6c7e472ea18f1f7f6d70",
     "jobb.json": "96bed954ff43cd60ce5705092c9684e37a077bad43cf66cbde0af5fcf3470fe3"
    }
+  },
+  {
+   "jobb": "fig016_37",
+   "rows": [
+    14,
+    22,
+    18,
+    4
+   ],
+   "expected": 58,
+   "fragments": 10,
+   "prompt": "Edit attached HD sprite sheet only. Exactly1536x1024 RGBA, true transparent background. Targeted correction:\nThe TOP row has thirteen separate heads, but MUST have FOURTEEN. Add ONE matching blond Brink head at x1080,y85 in the empty gap to the right of the existing thirteen. Keep first13 heads. The other rows22,18,4 are correct and MUST stay unchanged.\nPreserve original smooth detailed illustrated style, faces, costume, poses, directions, palette, all other pieces and placement. No cyan, background, haze, shadow, matte, guide marks, text, blur or new fragments. Native smooth antialiased contour, opaque interiors. No other changes.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9265d546-9662-4c5a-893f-00253b3fbec7.png"
+   ],
+   "figure": "Ludger Brink",
+   "attempt": 6,
+   "correction": "frilegging av synlig restbakgrunn, med alle figurdeler bevart",
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d9d186fc-c0f5-4da3-b50e-c85ec33e49f3.png",
+   "attempts": 6,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d9d186fc-c0f5-4da3-b50e-c85ec33e49f3.png",
+   "sha256": "b939a1df09aa1d0fd8d2c46cd273ea28da7b60f5043c2e40423b5c468e34628f",
+   "originalruter": 68,
+   "resultat": "jobber/fig016_37/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "d972879957e47cd768dbca1e3f9c6f9853f13792c726dbda63f1996a05e69f1b",
+    "original_1x.png": "e16b32f611dc71701586fe588ea4b713072c198bc352c66566d1da5bfc5e9b94",
+    "prompt.txt": "5972f74f6a16196b52df62c995004441615eecfca0aaa346a99f463b40d7ed31",
+    "jobb.json": "39f230d5ab100f35e88f988f97a6ef19f94f6fd45795515dc8493c55cb19c456"
+   }
+  },
+  {
+   "jobb": "fig073_02",
+   "attempt": 2,
+   "rows": [
+    8,
+    21,
+    5,
+    5
+   ],
+   "fragments": 2,
+   "prompt": "Edit attached HD sprite sheet only. Exactly1536x1024 RGBA, true transparent background. Targeted correction:\nThe SECOND row has22 detached heads but MUST have21. Erase ONLY the final rightmost head of that row at center1475,430. Keep the first21. Top row8 (including loose head), next row5heads, bottom5bodies must remain unchanged.\nPreserve original smooth detailed illustrated style, faces, costume, poses, directions, palette, all other pieces and placement. No cyan, background, haze, shadow, matte, guide marks, text, blur or new fragments. Native smooth antialiased contour, opaque interiors. No other changes.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d693e977-77c2-4d31-8770-dfb3ae08627c.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f2204e7e-fd3d-4908-9233-f84cb399da21.png",
+   "figure": "Ludger Brink",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f2204e7e-fd3d-4908-9233-f84cb399da21.png",
+   "sha256": "e6c4a2024f29c8239c5843a78c10ab0b53009eabf2e44bcc4a6c2fe0a42c9a19",
+   "originalruter": 41,
+   "resultat": "jobber/fig073_02/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "678cf60055fbadea5172d7758544084890d8d93bf34e173990021c531e076b7c",
+    "original_1x.png": "1ea60f389d52c83db4c6b0d96b440c2c886a2dcdf978448d0e76f87a8b5f1045",
+    "prompt.txt": "6ae6a61e6760a94d44aae12547f67472905d90b1b8fb0efcf90dcd89f74b4404",
+    "jobb.json": "dc86ab6791ecddc2ba26246751dabbc7d182c74e9217dfa0f81ea0fe2a417058"
+   }
+  },
+  {
+   "jobb": "fig073_03",
+   "attempt": 2,
+   "rows": [
+    7,
+    1,
+    22,
+    4
+   ],
+   "fragments": 0,
+   "prompt": "Edit attached HD sprite sheet only. Exactly1536x1024 RGBA, true transparent background. Targeted correction:\nThe THIRD row has24 detached heads but MUST have22. Erase ONLY the last TWO rightmost heads in that row at approximately1415,760 and1480,760. Keep the first22. Row1 seven bodies, row2 one headless body and row4 four heads stay exactly unchanged.\nPreserve original smooth detailed illustrated style, faces, costume, poses, directions, palette, all other pieces and placement. No cyan, background, haze, shadow, matte, guide marks, text, blur or new fragments. Native smooth antialiased contour, opaque interiors. No other changes.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-de9661cf-de77-4981-8aa0-6c509d74b15c.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e2938b63-8e34-42cd-a5e4-2e5920d55a53.png",
+   "figure": "Ludger Brink",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e2938b63-8e34-42cd-a5e4-2e5920d55a53.png",
+   "sha256": "77a2802807fbac0cc5008db2dad51876dfa3e5bb1828dc318e546122ea228af2",
+   "originalruter": 34,
+   "resultat": "jobber/fig073_03/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "e34aa2aa00cbbe3abddf047aee81c50bb6f711e5c2e23393b24b942c02f329fb",
+    "original_1x.png": "f4938c8543d2fbf40512f7a642ed856d9ed2ae03f143bf2fce8e0c5331b82ebc",
+    "prompt.txt": "744ea48491252fd2607245c41fcca8b227efd486b366dc4df0a75904bec851ce",
+    "jobb.json": "b8d08896e0f571a54e46ccb14b85fed931fa7be1bb353d55dd2688c53e464256"
+   }
+  },
+  {
+   "jobb": "fig055_02",
+   "attempt": 2,
+   "rows": [
+    2,
+    2,
+    7
+   ],
+   "fragments": 0,
+   "prompt": "Edit attached HD sprite sheet only. Exactly1536x1024 RGBA, true transparent background. Targeted correction:\nKeep all eleven people and their shovels EXACTLY unchanged: rows2,2,7. Remove ALL disconnected soil particles, dots, and dust outside people/shovels; these original tiny fragments are handled separately on import. Remove any faint isolated specks. Empty gaps must be fully alpha0.\nPreserve original smooth detailed illustrated style, faces, costume, poses, directions, palette, all other pieces and placement. No cyan, background, haze, shadow, matte, guide marks, text, blur or new fragments. Native smooth antialiased contour, opaque interiors. No other changes.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-bd58b5a1-b8e8-4dc6-b6cc-5b9da0b8580c.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-acb3308a-445f-4728-9fe9-5b48281924aa.png",
+   "figure": "Boston Low",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-acb3308a-445f-4728-9fe9-5b48281924aa.png",
+   "sha256": "2bad9baae2badc015c70ce409fd5532519eca4a632938a35bad0acca2b7f5362",
+   "originalruter": 11,
+   "resultat": "jobber/fig055_02/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "49febb5ab26f0d26420925e548e6e6aff3f03e665af8d6a3169e724d884f321b",
+    "original_1x.png": "d6e90477a1b972650d886e35cb68620c8d42219df83d3dadc8a070041cde773a",
+    "prompt.txt": "c1c7919940c70feb6e8c99e3963061e7252ec04d270762c3715f808cf77da2a0",
+    "jobb.json": "41eba0a331869ab611f25269a9cf4db402cbc0d435a699f5fb367898c3a8dba0"
+   }
+  },
+  {
+   "jobb": "fig055_03",
+   "attempt": 2,
+   "rows": [
+    6,
+    6,
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Edit attached HD sprite sheet only. Exactly1536x1024 RGBA, true transparent background. Targeted correction:\nKeep all thirteen people and their shovel motions EXACTLY unchanged, in rows6,6,1. Remove ALL disconnected soil particles, dots, and dust outside people/shovels; tiny source fragments are handled separately. Remove faint isolated specks. Empty gaps fully alpha0. Do not count baseline of raised shovel as a new row.\nPreserve original smooth detailed illustrated style, faces, costume, poses, directions, palette, all other pieces and placement. No cyan, background, haze, shadow, matte, guide marks, text, blur or new fragments. Native smooth antialiased contour, opaque interiors. No other changes.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-62074bb2-2118-458a-a10a-ba1a2ce26cfa.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-dce23aaf-14e8-4992-ba23-4e1ebbe7487f.png",
+   "figure": "Boston Low",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-dce23aaf-14e8-4992-ba23-4e1ebbe7487f.png",
+   "sha256": "f17f0d6cb5d1b17c06ae388872e17f2a5c9935fd764e6b3426677537ced3b515",
+   "originalruter": 13,
+   "resultat": "jobber/fig055_03/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "de90d546a38cea7710ccb3539ef9a770bce2caf0e08cd14c3b0c8cd587cd7b77",
+    "original_1x.png": "af1874b9cd18a14b473f169d675c2dde0a2d18f986748d4d791c1471be571d1f",
+    "prompt.txt": "8605056709fb9baf9dbe642aef8cc06818cccbcba599be3176bce88d1112df0c",
+    "jobb.json": "aa170cb0ebe55acaf194348c9c8630a678425852ba91024fb8509ce4744f2714"
+   }
+  },
+  {
+   "jobb": "fig055_05",
+   "attempt": 2,
+   "rows": [
+    2,
+    2,
+    6
+   ],
+   "fragments": 2,
+   "prompt": "Edit attached HD sprite sheet only. Exactly1536x1024 RGBA, true transparent background. Targeted correction:\nKeep all ten people and shovels EXACTLY unchanged in rows2,2,6. Remove ALL disconnected soil particles, dots, and dust outside people/shovels; original small fragments handled separately on import. Remove faint isolated specks. Empty gaps fully alpha0.\nPreserve original smooth detailed illustrated style, faces, costume, poses, directions, palette, all other pieces and placement. No cyan, background, haze, shadow, matte, guide marks, text, blur or new fragments. Native smooth antialiased contour, opaque interiors. No other changes.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4b22d876-3ef7-4297-b7db-599898f2ca2a.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-51e21e12-69ba-4c46-8727-7e1b160fbe1f.png",
+   "figure": "Boston Low",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-51e21e12-69ba-4c46-8727-7e1b160fbe1f.png",
+   "sha256": "ab786c2780b9f0dc3a75e505ba5ee84dee6d85db9d85429da3d1b2463209a69b",
+   "originalruter": 12,
+   "resultat": "jobber/fig055_05/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "32350b0c0f94eee611bd5908a2e5e3a2d55928d1386ec2a5cbe3b8980f5fdd85",
+    "original_1x.png": "8750a78f3798e137178dd25546482a84212bd4882d9ec1df8a63beba24448f6e",
+    "prompt.txt": "3667b55dc842fed7ca74533e7afa829b46118b72f9ab808da773d17df1998445",
+    "jobb.json": "1d5e2acf5016aa300dec939a7a3ae1c77f2b56246f118926992a6817b4336486"
+   }
+  },
+  {
+   "jobb": "fig068_07",
+   "attempt": 2,
+   "rows": [
+    9,
+    8,
+    2
+   ],
+   "fragments": 0,
+   "prompt": "Edit attached finished HD character sheet. Exactly1536x1024 RGBA. Make ONLY this targeted correction:\nMIDDLE row has9 bodies, must have8. Remove ONLY the last rightmost ninth MIDDLE-row body at center1410,y510. Keep first8 middle bodies. Top9 and bottom2 must remain unchanged. Total19 bodies.\nPreserve detailed smooth painted character style, original faces, clothes, all other pieces, their layout, size and poses. True transparent empty gaps alpha0, opaque interiors, native smooth antialias. No background, glow, haze, matte, floor, cast shadows, text, blur or added objects.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-bbf46e7a-37d3-48a9-89ed-67c6bdaa20c3.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-464339fc-3383-4641-8317-091ff2d60391.png",
+   "figure": "Boston Low",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-464339fc-3383-4641-8317-091ff2d60391.png",
+   "sha256": "31bc7f1d0628212875afcf90aea79abcbaa5133d4d97b7b2d6a7a93fb9493659",
+   "originalruter": 19,
+   "resultat": "jobber/fig068_07/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "8d21a63c4c6d54f08c54cebe92d97a9c763f18bf72bab76f4c4e91968270054d",
+    "original_1x.png": "3e7e864944bc6ece1b46eda740adb9d0a2e08d1f499c6e89e3419db70c4129aa",
+    "prompt.txt": "25d536fa94116ccc76f859ef3a28d9af3821fa3527a7eb62b6be9d06353490d8",
+    "jobb.json": "2ad21ba502faeec0f54d0fdaaf38f486a4c8071751bcddd6b0c9f7c085be7288"
+   }
+  },
+  {
+   "jobb": "fig263_02",
+   "attempt": 2,
+   "rows": [
+    8,
+    7
+   ],
+   "fragments": 2,
+   "prompt": "Edit attached finished HD character sheet. Exactly1536x1024 RGBA. Make ONLY this targeted correction:\nErase ONLY the TWO disconnected thin MAGENTA/PURPLE guide streaks at far RIGHT, near x1445,y447 andx1425,y846. No magenta guides should remain. Keep all FIFTEEN Boston bodies (EIGHT top, SEVEN bottom), same exact poses and positions. These strips are not anatomy.\nPreserve detailed smooth painted character style, original faces, clothes, all other pieces, their layout, size and poses. True transparent empty gaps alpha0, opaque interiors, native smooth antialias. No background, glow, haze, matte, floor, cast shadows, text, blur or added objects.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e91f305d-c404-4dde-9eb6-cb69fc0fbffb.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d1e1deb6-bc23-44e7-8f38-9c411b738a7b.png",
+   "figure": "Boston Low",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d1e1deb6-bc23-44e7-8f38-9c411b738a7b.png",
+   "sha256": "58022e26701480cc3236448ffc84cfec4b313321e3243461362c9d9f371f881f",
+   "originalruter": 17,
+   "resultat": "jobber/fig263_02/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "fac338b1b1f345fbdf3256ee2bef4a5010971731935ab86b8bc1e3bcc50aa507",
+    "original_1x.png": "331caa8888c54c2b5d21bf86a5c6bdf27ded765284a9f5bbb8aec45dc1eae3ae",
+    "prompt.txt": "88020dec717aa41bbc8322f8518d8b196a3fb95f6d7f401e50bd39fedc02e923",
+    "jobb.json": "c0eb21093eedba505bdf033e97285e4abdb35357d5d8aaa81c2e057e03795ad1"
+   }
+  },
+  {
+   "jobb": "fig048_02",
+   "attempt": 2,
+   "rows": [
+    1,
+    21,
+    6,
+    5
+   ],
+   "fragments": 1,
+   "prompt": "Edit attached finished HD character sheet. Exactly1536x1024 RGBA. Make ONLY this targeted correction:\nSECOND row has23 detached heads, must have21. Erase ONLY its last TWO rightmost heads near centers1420,410 and1480,410. Keep first21. Rows1body,6heads,5bodies unchanged. Also erase isolated colored guide dots outside figures. Native transparency.\nPreserve detailed smooth painted character style, original faces, clothes, all other pieces, their layout, size and poses. True transparent empty gaps alpha0, opaque interiors, native smooth antialias. No background, glow, haze, matte, floor, cast shadows, text, blur or added objects.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-89268755-7e9c-4de9-af63-1410d4d81f7c.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-bf504de7-37c0-4804-b922-9bd9b50ac16d.png",
+   "figure": "Ludger Brink",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-bf504de7-37c0-4804-b922-9bd9b50ac16d.png",
+   "sha256": "d23cb52a28effcf66418c78619ad60b6282b9a21c3c537f272b53bb2e04e00f0",
+   "originalruter": 34,
+   "resultat": "jobber/fig048_02/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "cc3d2b623a3f2bc7bb52e8839102497213d2487c147bc45efe67444470d95c31",
+    "original_1x.png": "de5a2906ac7a86d03b5b09699299e94e98aa0dd28774ac19490d99f9958e1d1b",
+    "prompt.txt": "d8062a1fac1d3ca64847bed39e6edbf41ba2ebdc51e23c6e7a3e53245511c056",
+    "jobb.json": "cf2becb9274cef97b8bd3713b696946a9197d49d9352cc3b8a332bc52d056af0"
+   }
+  },
+  {
+   "jobb": "fig048_05",
+   "attempt": 2,
+   "rows": [
+    21,
+    6,
+    7,
+    1
+   ],
+   "fragments": 1,
+   "prompt": "Edit attached finished HD character sheet. Exactly1536x1024 RGBA. Make ONLY this targeted correction:\nTOP row has22 detached heads, must have21. Erase ONLY its final rightmost head near x1480,y100. Keep first21. Other rows6heads,7bodies,1headless body unchanged. Erase small isolated BLUE guide dot near x767,y120. Native transparency.\nPreserve detailed smooth painted character style, original faces, clothes, all other pieces, their layout, size and poses. True transparent empty gaps alpha0, opaque interiors, native smooth antialias. No background, glow, haze, matte, floor, cast shadows, text, blur or added objects.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1a63aaea-b44d-4c1e-a1ab-2a610b7e4272.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e8da3d5a-e892-4878-83d2-6398bc3c6e0d.png",
+   "figure": "Ludger Brink",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e8da3d5a-e892-4878-83d2-6398bc3c6e0d.png",
+   "sha256": "59f9e6781a409c7758972116a57443a40db62fcd2be13c6e8a47f8163b12fbcd",
+   "originalruter": 36,
+   "resultat": "jobber/fig048_05/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "032a6c1d571c916e1ff846be7a4ab6127e1206484b4ce23fcba46926c8adb779",
+    "original_1x.png": "23904eff7176460068d85aa5300478ddaad0f262b5efff61db841da3c93353fd",
+    "prompt.txt": "32ca24da17f0d63058ea0c44c14b4d9937054c2e0ad8d9c05326c7ac2b9816d3",
+    "jobb.json": "d0b372693f1c84f6a7f8343498bc511f105f842e84696d236d587db20eb82b75"
+   }
+  },
+  {
+   "jobb": "fig048_07",
+   "attempt": 2,
+   "rows": [
+    9,
+    5,
+    22,
+    7
+   ],
+   "fragments": 0,
+   "prompt": "Edit attached finished HD character sheet. Exactly1536x1024 RGBA. Make ONLY this targeted correction:\nTHIRD row has23 detached heads, must have22. Erase ONLY its last rightmost head near x1475,y786. Keep first22. All other rows9,5,7 unchanged, including detached head and headless body in row2. Native transparency.\nPreserve detailed smooth painted character style, original faces, clothes, all other pieces, their layout, size and poses. True transparent empty gaps alpha0, opaque interiors, native smooth antialias. No background, glow, haze, matte, floor, cast shadows, text, blur or added objects.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7603eff0-3513-459d-9688-dd3df0cdd980.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-97eda91a-ac47-43ee-8da1-e52ec50a0a10.png",
+   "figure": "Ludger Brink",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-97eda91a-ac47-43ee-8da1-e52ec50a0a10.png",
+   "sha256": "2c8d2822b075d3cdbcdc32ae910076a63505737d12e1f3f85381a5487dd0f5b1",
+   "originalruter": 43,
+   "resultat": "jobber/fig048_07/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "305c55914b01ef98e511cb8e8abb26bc37f577c934373e4d8c43a84c50f47563",
+    "original_1x.png": "c17fe6bae4f0c5a57930431a238192d4da2595e57dae7eeade9dbc957850c760",
+    "prompt.txt": "b247836f1a0b8492f51c8805048722b2488d560a7c5232f8dec727711189d041",
+    "jobb.json": "5bdf27f0361ffc0d0261941421fa34c47c1428f369dd38c1c9a40362383f0e4b"
+   }
   }
  ],
  "neste": [
-  "fig016_37",
-  "fig055_02",
-  "fig055_03",
-  "fig055_05",
-  "fig073_02",
-  "fig073_03",
-  "fig048_02",
-  "fig048_05",
-  "fig048_07",
   "fig048_08",
   "fig048_09",
-  "fig048_10"
+  "fig048_10",
+  "fig048_11",
+  "fig048_12",
+  "fig068_08",
+  "fig068_09",
+  "fig068_10",
+  "fig068_11",
+  "fig068_12",
+  "fig068_13",
+  "fig068_14"
  ],
  "integrert_i_spillet": false,
  "retning_til_korrigering": []
