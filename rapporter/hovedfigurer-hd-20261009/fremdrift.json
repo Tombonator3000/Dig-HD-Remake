@@ -3,9 +3,9 @@
  "kostymer": 54,
  "originalruter_totalt": 7683,
  "ark_totalt": 509,
- "ark_levert": 387,
- "originalruter_levert": 6437,
- "ark_gjenstar": 122,
+ "ark_levert": 395,
+ "originalruter_levert": 6601,
+ "ark_gjenstar": 114,
  "status": "pågår",
  "leveranser": [
   {
@@ -12778,21 +12778,576 @@
     "prompt.txt": "32a2462d4c94ca3b7b5ed3becddc0b35db1189a77926dd5ff7c809b41631fdad",
     "jobb.json": "b2fec29e32df6d81833ce7db3406efa9372e914b09d0407a16f92adbc3379739"
    }
+  },
+  {
+   "jobb": "fig174_04",
+   "attempt": 2,
+   "rows": [
+    9,
+    5,
+    9
+   ],
+   "fragments": 0,
+   "prompt": "Surgical HD production sprite correction. Image1 actual editable target, image2 exact ORIGINAL sequence authority, image3 ONLY approved smooth detailed style. Exactly1536x1024 RGBA, transparent alpha0 empty background, keep native smooth detailed contours, faces, cloth, hands. Strict original correction, use image2 as sequence authority. Row1 exactly NINE SINGLE people: Boston, Brink seen from back alone, then SEVEN Boston hand/turn/walk phases. Never add Boston beside this lone Brink. Row2 FIVE Boston bodies. Row3 exactly NINE groups: group1 Boston+Brink pair, groups2 through7 SIX single Boston bodies, groups8 and9 Boston+Brink pairs. Keep paired people close like original, each pair one frame, no extra single Boston before the first pair. Preserve exact greenish source light and original hand gestures. No opaque backdrop, cast shadow, matte, grid, labels, scenery or halo.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-60cca1dc-8622-47d2-8e74-164f0b1c2f12.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig174_04/original_1x.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0688797e-a1f8-4d6f-8097-e0c8f0cb8641.png",
+   "known_native_frame_groups": [
+    [
+     [
+      1289,
+      717,
+      101,
+      274
+     ],
+     [
+      1380,
+      710,
+      130,
+      282
+     ]
+    ]
+   ],
+   "source_group_basis": "Original bottom row last entry has Boston at left with Brink at right, their native bodies are disconnected but source is one pair.",
+   "visually_verified_residual_exception": {
+    "max": 17,
+    "pixels": 1,
+    "basis": "Ett isolert alfapiksel på 17/255 utenfor fempikselkonturen er visuelt ubetydelig. Konturene og tom bakgrunn er kontrollert; dette er ikke en bred restmatte."
+   },
+   "figure": "Boston Low og Ludger Brink",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0688797e-a1f8-4d6f-8097-e0c8f0cb8641.png",
+   "sha256": "f465def2475974ec78bd1f3a12d874bea0ecb5c82cb2423b97b3198909683786",
+   "originalruter": 23,
+   "resultat": "jobber/fig174_04/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "a7ff4afe515da07cc659804d04fa62d7e8e04dcec5ca303f426708a74a2b1f85",
+    "original_1x.png": "5cb38c89436e99e92a6159e89f4b6def573c14a9b25af3185e78f07538feb8a0",
+    "prompt.txt": "c4a76704b08aa7f2f3d0f74ab7ad8f555f9a143f891f410937beffdc0be893c3",
+    "jobb.json": "d8dd3a917a125e2e07e2f5ca08d2a4e3a244efa4cdcb577ac749391069369b45"
+   }
+  },
+  {
+   "jobb": "fig058_03",
+   "attempt": 2,
+   "rows": [
+    5,
+    4,
+    3
+   ],
+   "fragments": 0,
+   "prompt": "Surgical smooth detailed HD sprite correction. Image1 actual editable target, image2 original source authority. Exactly1536x1024 RGBA with native smooth alpha contours and zero background alpha. Keep first row5 and second row4 source entries. Last row must have THREE source composites: first Boston kneeling over prone Brink; SECOND and THIRD also include Maggie jumping ABOVE the Boston+Brink pair as clearly seen in image2. Add missing Maggie to second/third bottom composites, align each above its own pair, preserve exact source poses. Do not turn original airborne figures into different rows or discard them. Preserve fine face, hair, clothing, hands, props and all unchanged entries. No scenery, text, grid or broad glow.",
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-894da6d3-325b-4cdb-bd97-66c89ab2bd88.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig058_03/original_1x.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9451975a-265f-43d8-850c-0d830777de35.png",
+   "known_native_frame_groups": [
+    [
+     [
+      640,
+      694,
+      157,
+      204
+     ],
+     [
+      538,
+      806,
+      460,
+      194
+     ]
+    ]
+   ],
+   "source_group_basis": "Original bottom row second entry contains airborne Maggie above Boston with prone Brink. Separate Maggie core belongs to that same original entry.",
+   "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+   "attempts": 2,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9451975a-265f-43d8-850c-0d830777de35.png",
+   "sha256": "79e51ca31a990d7ffff998b2c18889eb0073175f637ecda9e56448dd619f8edc",
+   "originalruter": 12,
+   "resultat": "jobber/fig058_03/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "489c508c10d854c4a473f5b3beed49f230e00ade0976422c19573e48ab973589",
+    "original_1x.png": "3a160005bc1779836f87e0bdc1e6a376811f32a64213b6adad2037cfbbe7a094",
+    "prompt.txt": "a5fb27875525c876fa80b186e83d0cf7b6a085890ab6c983c51eae1d764a2e60",
+    "jobb.json": "4acfc5b0aa43405efacbe8ca5278d1b2020d9c78e0bfbfba1e6b0ab5ab93cf9b"
+   }
+  },
+  {
+   "jobb": "fig053_04",
+   "attempt": 1,
+   "rows": [
+    6,
+    4,
+    4,
+    4
+   ],
+   "fragments": 3,
+   "prompt": "Use case: detailed smooth HD sprite redraw fig053_04. FIRST attached image is original EDIT TARGET and authority for every separate original entry, pose, crop, facing, identity and prop. Other references ONLY show approved smooth hand-painted style, do not copy their extra frames. Return exactly1536x1024 native RGBA with fully transparent background.\nBoston: brown swept short hair with gray temples, navy short-sleeve T-shirt, orange cargo trousers and dark boots. Maggie: short dark bob, orange flight jumpsuit, white undershirt, dark boots. Brink: blond hair, light gray-blue jacket over dark shirt, orange trousers and dark boots. Preserve source light and proportions, including true body width, partial body anatomy and original occlusion. Smooth drawn detailed edges and fine painted cloth/face/hands, not enlarged pixel art, no hard pixel mask.\nSOURCE CONTENT AND ORDER: Rows6,4,4,4. Row1 starts Boston pulling floor rope then FIVE two-person entries Maggie LEFT and Brink RIGHT. Row2 FOUR Boston rope-pulling phases. Row3 THREE Boston rope entries then ONE Maggie-Brink pair. Row4 FOUR Boston crouch/fall phases with floor rope extending LEFT. Keep source order.\nOriginal FRAME GROUPS per row exactly [6, 4, 4, 4]. Count each original separate piece or composite ONCE. A paired or three-person original entry stays one group with all its people; a cropped body or rope-only piece stays cropped or rope-only. Preserve all meaningful anatomy and props, not registration pixels. Keep generous transparent gaps between groups in exact source left-to-right/top-to-bottom order. Do not add, omit or merge entries. Fully transparent empty areas, no background color, no scene, no text, no grid, no shadow plane, no glow beyond source effects, no halo. Production editable PNG.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_04/original_1x.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-2f753668-2741-4eec-9d59-a10eb879aad0.png",
+   "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-2f753668-2741-4eec-9d59-a10eb879aad0.png",
+   "sha256": "04893048f2a4dee7439d64a365a792d56987455637b752cf5911f88ad4233e25",
+   "originalruter": 21,
+   "resultat": "jobber/fig053_04/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "500ec3630e32b46f2bbc46d682e2e7b4c185ef8d83482ba03b2f37bc8a4b677f",
+    "original_1x.png": "eb809f65ddef5b4ce13730cd9d6059936b1ac5606eca7c8f154f53d911cb26f8",
+    "prompt.txt": "b36f26cb4eca0f192dd3879d6f1c3785a78bccc7854cd91cf5eac9f541d16f28",
+    "jobb.json": "b25f1ec13defe99f18f3ae2b123de994559001b3530aec171eca649b85879db7"
+   }
+  },
+  {
+   "jobb": "fig053_09",
+   "attempt": 1,
+   "rows": [
+    5,
+    7,
+    11
+   ],
+   "fragments": 5,
+   "prompt": "Use case: detailed smooth HD sprite redraw fig053_09. FIRST attached image is original EDIT TARGET and authority for every separate original entry, pose, crop, facing, identity and prop. Other references ONLY show approved smooth hand-painted style, do not copy their extra frames. Return exactly1536x1024 native RGBA with fully transparent background.\nBoston: brown swept short hair with gray temples, navy short-sleeve T-shirt, orange cargo trousers and dark boots. Maggie: short dark bob, orange flight jumpsuit, white undershirt, dark boots. Brink: blond hair, light gray-blue jacket over dark shirt, orange trousers and dark boots. Preserve source light and proportions, including true body width, partial body anatomy and original occlusion. Smooth drawn detailed edges and fine painted cloth/face/hands, not enlarged pixel art, no hard pixel mask.\nSOURCE CONTENT AND ORDER: Rows5,7,11. Row1 Maggie-Brink pair, Boston floor-rope, Maggie-Brink pair, Boston floor-rope, Maggie-Brink pair. Row2 Boston rope then SIX Maggie-Brink pairs. Row3 ELEVEN single Maggie/Brink alternating standing people. Keep both people together only where source has paired entry.\nOriginal FRAME GROUPS per row exactly [5, 7, 11]. Count each original separate piece or composite ONCE. A paired or three-person original entry stays one group with all its people; a cropped body or rope-only piece stays cropped or rope-only. Preserve all meaningful anatomy and props, not registration pixels. Keep generous transparent gaps between groups in exact source left-to-right/top-to-bottom order. Do not add, omit or merge entries. Fully transparent empty areas, no background color, no scene, no text, no grid, no shadow plane, no glow beyond source effects, no halo. Production editable PNG.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_09/original_1x.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e5129fb8-58c0-45e0-95b5-23ce3daa76b9.png",
+   "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e5129fb8-58c0-45e0-95b5-23ce3daa76b9.png",
+   "sha256": "8e7af6f93e9c95b7fd6b67c40081985f0da81e84c992939340390a1c6d203fdf",
+   "originalruter": 28,
+   "resultat": "jobber/fig053_09/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "93c1d81d7518f9bc79f9a08b7e7d007920b889ce7b277e041d119bfa78f5dae7",
+    "original_1x.png": "c5a1260a3a92ddc36087ba3e34f8701943472a9c984c6ea5b3a704f940717f37",
+    "prompt.txt": "ce7f38b7fbdc9fc5af4b55adaa7c5f2287363f0a0f57d4206cbc4f447720b94e",
+    "jobb.json": "16c26a679c7fbb2dcebae6603b7a98e1639540077917a40923e1bd828087af94"
+   }
+  },
+  {
+   "jobb": "fig053_11",
+   "attempt": 1,
+   "rows": [
+    10,
+    4
+   ],
+   "fragments": 2,
+   "prompt": "Use case: detailed smooth HD sprite redraw fig053_11. FIRST attached image is original EDIT TARGET and authority for every separate original entry, pose, crop, facing, identity and prop. Other references ONLY show approved smooth hand-painted style, do not copy their extra frames. Return exactly1536x1024 native RGBA with fully transparent background.\nBoston: brown swept short hair with gray temples, navy short-sleeve T-shirt, orange cargo trousers and dark boots. Maggie: short dark bob, orange flight jumpsuit, white undershirt, dark boots. Brink: blond hair, light gray-blue jacket over dark shirt, orange trousers and dark boots. Preserve source light and proportions, including true body width, partial body anatomy and original occlusion. Smooth drawn detailed edges and fine painted cloth/face/hands, not enlarged pixel art, no hard pixel mask.\nSOURCE CONTENT AND ORDER: Rows10,4. Mix Boston with floor rope and Brink gesturing. Preserve actual source person and arm phase. Rope only on original Boston entries; not on Brink. No added bodies.\nOriginal FRAME GROUPS per row exactly [10, 4]. Count each original separate piece or composite ONCE. A paired or three-person original entry stays one group with all its people; a cropped body or rope-only piece stays cropped or rope-only. Preserve all meaningful anatomy and props, not registration pixels. Keep generous transparent gaps between groups in exact source left-to-right/top-to-bottom order. Do not add, omit or merge entries. Fully transparent empty areas, no background color, no scene, no text, no grid, no shadow plane, no glow beyond source effects, no halo. Production editable PNG.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_11/original_1x.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cb69e030-8a19-41bd-b007-25da55944373.png",
+   "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cb69e030-8a19-41bd-b007-25da55944373.png",
+   "sha256": "7e4afd1a6671ed50dd18562773483dd2ce552903abf491147e38f52750651cc7",
+   "originalruter": 16,
+   "resultat": "jobber/fig053_11/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "6cccf41347ffd2a0445b7f1ed562d44d01d0c5da900b05515363f678d34351a9",
+    "original_1x.png": "a484456fb294a3ea6434b7e196b3f877ca457e2fc4f327018d59cced1c1b5b29",
+    "prompt.txt": "7af2af35160fa0086289d41d72c43b31c61c4ddb77ee0faa9741296d210feb66",
+    "jobb.json": "a678648086ad031ed1616d5fe56fa3d63c4e59dc6a1104f557923ae1bd09d552"
+   }
+  },
+  {
+   "jobb": "fig126_02",
+   "attempt": 1,
+   "rows": [
+    6,
+    6,
+    8
+   ],
+   "fragments": 1,
+   "prompt": "Use case: detailed smooth HD sprite redraw fig126_02. FIRST attached image is original EDIT TARGET and authority for every separate original entry, pose, crop, facing, identity and prop. Other references ONLY show approved smooth hand-painted style, do not copy their extra frames. Return exactly1536x1024 native RGBA with fully transparent background.\nBoston: brown swept short hair with gray temples, navy short-sleeve T-shirt, orange cargo trousers and dark boots. Maggie: short dark bob, orange flight jumpsuit, white undershirt, dark boots. Brink: blond hair, light gray-blue jacket over dark shirt, orange trousers and dark boots. Preserve source light and proportions, including true body width, partial body anatomy and original occlusion. Smooth drawn detailed edges and fine painted cloth/face/hands, not enlarged pixel art, no hard pixel mask.\nSOURCE CONTENT AND ORDER: Rows6,6,8. Alternate prone/kneeling blond Brink in gray jacket with standing Maggie in orange jumpsuit and dark bob. First two rows six entries each. Last row eight, final entry is ONLY tiny dark ground/cloth stripe, not a new body. Keep all other single-person poses exactly.\nOriginal FRAME GROUPS per row exactly [6, 6, 8]. Count each original separate piece or composite ONCE. A paired or three-person original entry stays one group with all its people; a cropped body or rope-only piece stays cropped or rope-only. Preserve all meaningful anatomy and props, not registration pixels. Keep generous transparent gaps between groups in exact source left-to-right/top-to-bottom order. Do not add, omit or merge entries. Fully transparent empty areas, no background color, no scene, no text, no grid, no shadow plane, no glow beyond source effects, no halo. Production editable PNG.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig126_02/original_1x.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6158d6cb-58b9-4681-836e-87b986879188.png",
+   "figure": "Boston Low og Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6158d6cb-58b9-4681-836e-87b986879188.png",
+   "sha256": "9212db902efe5c9525a7096a1179190ac794b5726b782bf5d11a70029c80f9ef",
+   "originalruter": 21,
+   "resultat": "jobber/fig126_02/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "c9d413a4953a8d3972459ebc5bcfebf9f27513f598000db3da52712424522616",
+    "original_1x.png": "22eb00b7a5aaddb7b845ce8ecf1785f0bde9430f184008bbe466b26a71e52272",
+    "prompt.txt": "8466cd90e2bb96f0915bd6f7cfe8afc97564159bca9405f5fcbd52585079778f",
+    "jobb.json": "4da70b18c0e3f9f730b8caaef4f80c1a47cf0ff354e9fe59d10d074e7a6b7f3c"
+   }
+  },
+  {
+   "jobb": "fig126_03",
+   "attempt": 1,
+   "rows": [
+    8,
+    2,
+    3,
+    9
+   ],
+   "fragments": 1,
+   "prompt": "Use case: detailed smooth HD sprite redraw fig126_03. FIRST attached image is original EDIT TARGET and authority for every separate original entry, pose, crop, facing, identity and prop. Other references ONLY show approved smooth hand-painted style, do not copy their extra frames. Return exactly1536x1024 native RGBA with fully transparent background.\nBoston: brown swept short hair with gray temples, navy short-sleeve T-shirt, orange cargo trousers and dark boots. Maggie: short dark bob, orange flight jumpsuit, white undershirt, dark boots. Brink: blond hair, light gray-blue jacket over dark shirt, orange trousers and dark boots. Preserve source light and proportions, including true body width, partial body anatomy and original occlusion. Smooth drawn detailed edges and fine painted cloth/face/hands, not enlarged pixel art, no hard pixel mask.\nSOURCE CONTENT AND ORDER: Rows8,2,3,9. Row1 alternates Maggie standing and Brink prone with arm raised. Row2 TWO Maggie standing bodies. Row3 THREE prone Brink partial upper bodies. Row4 first FIVE Maggie, then FOUR Brink rising out of floor from cropped torso. Keep original crops, no invented legs.\nOriginal FRAME GROUPS per row exactly [8, 2, 3, 9]. Count each original separate piece or composite ONCE. A paired or three-person original entry stays one group with all its people; a cropped body or rope-only piece stays cropped or rope-only. Preserve all meaningful anatomy and props, not registration pixels. Keep generous transparent gaps between groups in exact source left-to-right/top-to-bottom order. Do not add, omit or merge entries. Fully transparent empty areas, no background color, no scene, no text, no grid, no shadow plane, no glow beyond source effects, no halo. Production editable PNG.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig126_03/original_1x.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-918f0ec6-8f27-434a-876d-04db17f2e7c3.png",
+   "figure": "Boston Low og Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-918f0ec6-8f27-434a-876d-04db17f2e7c3.png",
+   "sha256": "8b7fd8f2fcb5d3bab93acf94bac61355b491b035b1398763006f9f2e57ec55d0",
+   "originalruter": 23,
+   "resultat": "jobber/fig126_03/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "09d5a823667f8fce32ed701053befb9894d9202f16114f172866d6bfb85346e1",
+    "original_1x.png": "4d9df1247f9f8538b9b29f4913b2d9d0c58aaa647508dd1e73c883cdcc1b73a0",
+    "prompt.txt": "fa7181f6aa58dd8bdadb19fdb1738c6079128c28a220400020ae7727949ef1b2",
+    "jobb.json": "648a7705feaee45753c1b4f349c794c379605165871be54937ccec23941c972a"
+   }
+  },
+  {
+   "jobb": "fig053_05",
+   "attempt": 1,
+   "rows": [
+    5,
+    5,
+    5,
+    5
+   ],
+   "fragments": 0,
+   "prompt": "Use case: detailed smooth HD sprite redraw fig053_05. FIRST attached image is original EDIT TARGET and authority for every separate original entry, pose, crop, facing, identity and prop. Other references ONLY show approved smooth hand-painted style, do not copy their extra frames. Return exactly1536x1024 native RGBA with fully transparent background.\nBoston: brown swept short hair with gray temples, navy short-sleeve T-shirt, orange cargo trousers and dark boots. Maggie: short dark bob, orange flight jumpsuit, white undershirt, dark boots. Brink: blond hair, light gray-blue jacket over dark shirt, orange trousers and dark boots. Preserve source light and proportions, including true body width, partial body anatomy and original occlusion. Smooth drawn detailed edges and fine painted cloth/face/hands, not enlarged pixel art, no hard pixel mask.\nSOURCE CONTENT AND ORDER: Four rows FIVE Boston entries. First row rising from lying/crouching, second row stands and turns, last two rows moving into crouch. Each has loose dark rope on floor extending LEFT. Keep exact pose and rope phase, no ground plane.\nOriginal FRAME GROUPS per row exactly [5, 5, 5, 5]. Count each original separate piece or composite ONCE. A paired or three-person original entry stays one group with all its people; a cropped body or rope-only piece stays cropped or rope-only. Preserve all meaningful anatomy and props, not registration pixels. Keep generous transparent gaps between groups in exact source left-to-right/top-to-bottom order. Do not add, omit or merge entries. Fully transparent empty areas, no background color, no scene, no text, no grid, no shadow plane, no glow beyond source effects, no halo. Production editable PNG.",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_05/original_1x.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+   ],
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cb6a93ec-2afa-49fe-85f0-69dbd62541f9.png",
+   "known_native_frame_groups": [
+    [
+     [
+      23,
+      109,
+      275,
+      114
+     ],
+     [
+      68,
+      176,
+      24,
+      12
+     ]
+    ],
+    [
+     [
+      320,
+      98,
+      254,
+      125
+     ],
+     [
+      367,
+      174,
+      22,
+      12
+     ]
+    ],
+    [
+     [
+      604,
+      77,
+      269,
+      147
+     ],
+     [
+      651,
+      175,
+      23,
+      13
+     ]
+    ],
+    [
+     [
+      884,
+      48,
+      276,
+      176
+     ],
+     [
+      927,
+      175,
+      23,
+      12
+     ]
+    ],
+    [
+     [
+      1183,
+      34,
+      292,
+      191
+     ],
+     [
+      1228,
+      177,
+      23,
+      13
+     ]
+    ],
+    [
+     [
+      22,
+      267,
+      276,
+      214
+     ],
+     [
+      68,
+      431,
+      24,
+      12
+     ]
+    ],
+    [
+     [
+      310,
+      265,
+      280,
+      217
+     ],
+     [
+      354,
+      434,
+      26,
+      12
+     ]
+    ],
+    [
+     [
+      618,
+      261,
+      260,
+      223
+     ],
+     [
+      662,
+      433,
+      25,
+      13
+     ]
+    ],
+    [
+     [
+      907,
+      264,
+      254,
+      219
+     ],
+     [
+      952,
+      432,
+      24,
+      12
+     ]
+    ],
+    [
+     [
+      1219,
+      258,
+      260,
+      224
+     ],
+     [
+      1269,
+      431,
+      25,
+      12
+     ]
+    ],
+    [
+     [
+      23,
+      526,
+      246,
+      203
+     ],
+     [
+      67,
+      678,
+      24,
+      12
+     ]
+    ],
+    [
+     [
+      300,
+      525,
+      251,
+      203
+     ],
+     [
+      344,
+      679,
+      24,
+      12
+     ]
+    ],
+    [
+     [
+      584,
+      527,
+      262,
+      201
+     ],
+     [
+      631,
+      677,
+      24,
+      13
+     ]
+    ],
+    [
+     [
+      875,
+      526,
+      281,
+      202
+     ],
+     [
+      922,
+      677,
+      23,
+      13
+     ]
+    ],
+    [
+     [
+      1185,
+      528,
+      269,
+      200
+     ],
+     [
+      1230,
+      677,
+      24,
+      13
+     ]
+    ],
+    [
+     [
+      23,
+      793,
+      243,
+      168
+     ],
+     [
+      67,
+      911,
+      25,
+      12
+     ]
+    ],
+    [
+     [
+      296,
+      803,
+      247,
+      158
+     ],
+     [
+      339,
+      912,
+      25,
+      12
+     ]
+    ],
+    [
+     [
+      561,
+      806,
+      242,
+      154
+     ],
+     [
+      606,
+      910,
+      24,
+      12
+     ]
+    ],
+    [
+     [
+      839,
+      825,
+      269,
+      138
+     ],
+     [
+      882,
+      908,
+      24,
+      13
+     ]
+    ],
+    [
+     [
+      1158,
+      834,
+      272,
+      125
+     ],
+     [
+      1206,
+      910,
+      24,
+      12
+     ]
+    ]
+   ],
+   "source_group_basis": "Each of20 original Boston frames has a disconnected floor rope immediately to left of the body. Native row has alternating rope and body parts; visual source comparison confirms adjacent parts form one frame.",
+   "figure": "Boston Low, Maggie Robbins og Ludger Brink",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-cb6a93ec-2afa-49fe-85f0-69dbd62541f9.png",
+   "sha256": "0c01c07db5c3739d929b35d4eaf581d585e7f2093d5bace7a71d1c7959655ea3",
+   "originalruter": 20,
+   "resultat": "jobber/fig053_05/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "712cb6a5ea6b99169b23d75a8dde9e729bbbb907479168ea94f3db3ddf2dfdf0",
+    "original_1x.png": "87c64d03fb8b70ba468c9af481700b9fc3f3ecce09216cf345231491509da596",
+    "prompt.txt": "dd4c78c8de48ba3af9abc1b1326824bc903bf9a1ff483d144395efa17ab041b5",
+    "jobb.json": "0dde49e9b538b23fe00a933240db310a15155b1a3206acb1f792836da1860168"
+   }
   }
  ],
  "neste": [
   "fig262_04",
   "fig071_07",
   "fig071_08",
-  "fig174_04",
   "fig058_01",
-  "fig058_03",
   "fig053_01",
   "fig053_02",
   "fig053_03",
-  "fig053_04",
-  "fig053_05",
-  "fig053_06"
+  "fig053_06",
+  "fig053_07",
+  "fig053_08",
+  "fig053_10",
+  "fig126_01"
  ],
  "integrert_i_spillet": false,
  "retning_til_korrigering": []
