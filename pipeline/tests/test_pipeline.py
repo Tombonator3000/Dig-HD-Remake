@@ -1233,3 +1233,24 @@ def test_smooth_figure_import_is_cached(tmp_path):
         assert calls
     finally:
         myk.import_sheet = real
+
+
+def test_text_font_letters(tmp_path):
+    import numpy as np
+    from dighd import skrift
+    n = skrift.lag_skrift(tmp_path)
+    assert n == {"exo2": 94}
+    fonts = tmp_path / "fonts"
+    kart = {int(a): b for a, b in (l.split() for l in (fonts / "map.txt").read_text().splitlines()
+                                   if l and not l.startswith("#"))}
+    assert kart[2] == "exo2" and kart[100] == "exo2"
+    assert (fonts / "OFL.txt").read_text().startswith("Copyright")
+    # hvit RGBA, beskåret til blekket: alfa når alle fire kanter, og "i" har prikken over staven
+    i = Image.open(fonts / "exo2" / "105.png")
+    assert i.mode == "RGBA"
+    a = np.asarray(i)[..., 3]
+    assert (np.asarray(i)[..., :3] == 255).all()
+    assert a[0].max() > 128 and a[-1].max() > 128 and a[:, 0].max() > 128 and a[:, -1].max() > 128
+    rows = a.max(axis=1) > 128
+    assert rows[0] and rows[-1] and not rows.all()  # et mellomrom mellom prikk og stav
+    assert not (fonts / "exo2" / "032.png").exists()  # mellomrom tegnes ikke

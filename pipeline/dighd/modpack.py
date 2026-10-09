@@ -27,6 +27,9 @@ Myke kostymeruter (costumes/costumeCCC_NNN_hd.png, fra mottaket for figurark i g
 myk.py) har en marg rundt ruten og egen alfa. De tas med når størrelsen er
 (bredde + 2 * marg) * N x (høyde + 2 * marg) * N med hele marger, og motoren bruker dem
 før den vanlige ruten.
+
+HD-skriften for teksten (fonts/map.txt og fonts/<mappe>/NNN.png, se skrift.py) legges med
+i alle modder, uten --uten-skrift.
 """
 from __future__ import annotations
 
@@ -37,6 +40,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from . import skrift
 from .upscale import upscale, upscale_alpha
 
 MARGIN = 8  # piksler med bakgrunn rundt et objekt når det skaleres
@@ -62,7 +66,8 @@ def _check_size(im: Image.Image, want: tuple[int, int], name: str) -> bool:
 
 def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[int] | None,
               own: Path | None = None, with_objects: bool = True, costumes: set[int] | None = None,
-              films: list[str] | None = None, san: Path | None = None, **upscale_kw) -> dict:
+              films: list[str] | None = None, san: Path | None = None, text_font: bool = True,
+              **upscale_kw) -> dict:
     meta = json.loads((extract / "rooms.json").read_text())
     (out / "rooms").mkdir(parents=True, exist_ok=True)
     (out / "objects").mkdir(parents=True, exist_ok=True)
@@ -123,6 +128,7 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
     done_costumes = _build_costumes(extract, out, scale, method, costumes or set(), own, **upscale_kw) \
         if costumes or has_own_cels else []
     done_films = _build_films(san, out, scale, method, films, own, **upscale_kw) if films and san else []
+    letters = skrift.lag_skrift(out) if text_font else {}
 
     manifest = {
         "format": 1,
@@ -135,6 +141,7 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
         "costumes": sorted(set(c.split("_")[0] for c in done_costumes)),
         "costume_cels": len(done_costumes),
         "films": done_films,
+        "fonts": letters,
     }
     (out / "mod.json").write_text(json.dumps(manifest, indent=1))
     print(f"Ferdig: {len(done_rooms)} rom, {len(done_objects)} objektbilder og {len(done_costumes)} kostymeruter "

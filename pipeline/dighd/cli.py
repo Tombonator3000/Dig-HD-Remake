@@ -92,7 +92,7 @@ def cmd_build_mod(a) -> int:
     modpack.build_mod(Path(a.extract), out, scale=a.scale, method=a.method, rooms=_rooms(a.rooms),
                       own=Path(a.egne) if a.egne else None, with_objects=not a.uten_objekter,
                       costumes=costumes, films=a.filmer.split(",") if a.filmer else None,
-                      san=Path(a.san), **_upscale_kw(a))
+                      san=Path(a.san), text_font=not a.uten_skrift, **_upscale_kw(a))
     return 0
 
 
@@ -218,6 +218,7 @@ def main(argv: list[str] | None = None) -> int:
                    "14-18, eller 'alle'")
     p.add_argument("--filmer", help="filmer som skal skaleres, for eksempel SQ1,TRAM1, eller 'alle' (tar mye plass)")
     p.add_argument("--san", default=str(root / "work" / "san"), help="utdata fra dighd san")
+    p.add_argument("--uten-skrift", action="store_true", help="uten HD-skriften (Exo 2) for teksten")
 
     p = sub.add_parser("compare", help="sammenlign oppskaleringsmetoder på ett rom")
     up(p)
