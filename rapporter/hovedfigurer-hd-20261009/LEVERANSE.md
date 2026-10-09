@@ -38,6 +38,8 @@ Tredje leveransegruppe har åtte nye ark og 99 originalruter: fig015_05 til fig0
 
 Fjerde leveransegruppe har fem nye ark og 92 originalruter: fig014_09, fig017_01, fig019_01, fig038_01 og fig038_02. De dekker Boston-gange og gester, Brinks skitne kostyme og Maggie-gester. Antall, radfordeling og native alfa er kontrollert. filkontroll-del4.json, rutekart-del4.json og visuell-del4.png dokumenterer gruppen. Den smale hudstripen costume019_003 er eksplisitt klassifisert som fragment etter visuell originalkontroll.
 
-Med pilotene er 29 av 509 ark levert, tilsvarende 765 av 7 683 originalruter. 480 ark gjenstår. fremdrift.json er den løpende oversikten.
+Femte leveransegruppe har sju ark med 105 originalruter. Seks er nytegnet: fig014_11 til fig014_13, fig015_10, fig018_09 og fig018_10. fig047_01 gjenbruker fig019_01 byteidentisk etter bekreftet identisk originalreferanse; original-ID-ene er koblet til kostyme 47. Visuell kontroll for duplikatet ligger i del4, øvrige i del5. filkontroll-del5.json og rutekart-del5.json gjelder alle sju.
+
+Med pilotene er 36 av 509 ark levert, tilsvarende 870 av 7 683 originalruter. 473 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Dette er grafikkfiler for Claudes mottak. Arkene er ikke integrert i spillet, importert med gpt-inn eller kontrollert for animasjonsflimmer i motoren. Den tidligere testpakken viser fortsatt den gamle Boston-piloten.
