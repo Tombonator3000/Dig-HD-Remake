@@ -1,0 +1,757 @@
+[
+ {
+  "jobb": "fig071_01",
+  "attempt": 7,
+  "prompt": "Use case: surgical sprite-sheet count correction. FIRST image is the existing detailed HD sheet to EDIT. SECOND is original source for pose and sequence. THIRD is the approved smooth detailed style only. Output exactly1536 x1024 native RGBA transparent. Keep FIVE visual rows. Row 1 stays one full body. Row 2 currently has ELEVEN heads: DELETE only its rightmost head so TEN remain. Row 3 stays NINE heads. Row 4 currently has TWELVE heads: DELETE only the two rightmost heads so TEN remain. Row 5 stays one body holding purple rope. Final visible row counts ONE,TEN,NINE,TEN,ONE. Preserve retained expressions and order. Do only these explicit deletions in the native image. Do not repack, resize, add, duplicate, redraw retained sprites or add backgrounds, shadows, ground, glow or labels. Each removed area becomes fully transparent. Antialiasing and native soft alpha on retained figures must stay intact. Do not fill any vacant slots with replacements. Return the edited PNG.",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9e6e6944-8a65-4f50-8c6a-39d100128373.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig071_01/original_1x.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6f6cabd6-93fe-475f-b1aa-cede3d0be4e0.png"
+  ],
+  "rows": [
+   1,
+   19,
+   10,
+   1
+  ],
+  "fragments": 0,
+  "generation_rows": [
+   1,
+   10,
+   9,
+   10,
+   1
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c42a1dec-becd-4a18-b7cb-b041deaef89c.png",
+  "known_native_ordered_rows": [
+   [
+    [
+     71,
+     20,
+     122,
+     313
+    ]
+   ],
+   [
+    [
+     71,
+     347,
+     85,
+     107
+    ],
+    [
+     194,
+     345,
+     85,
+     109
+    ],
+    [
+     311,
+     343,
+     87,
+     112
+    ],
+    [
+     428,
+     342,
+     88,
+     112
+    ],
+    [
+     551,
+     343,
+     89,
+     112
+    ],
+    [
+     675,
+     343,
+     89,
+     112
+    ],
+    [
+     815,
+     343,
+     88,
+     112
+    ],
+    [
+     942,
+     343,
+     88,
+     112
+    ],
+    [
+     1073,
+     342,
+     89,
+     113
+    ],
+    [
+     1199,
+     343,
+     88,
+     112
+    ],
+    [
+     71,
+     481,
+     86,
+     109
+    ],
+    [
+     198,
+     481,
+     85,
+     109
+    ],
+    [
+     323,
+     481,
+     87,
+     109
+    ],
+    [
+     458,
+     482,
+     86,
+     108
+    ],
+    [
+     577,
+     482,
+     86,
+     108
+    ],
+    [
+     703,
+     482,
+     87,
+     108
+    ],
+    [
+     823,
+     482,
+     85,
+     108
+    ],
+    [
+     949,
+     482,
+     86,
+     108
+    ],
+    [
+     1076,
+     482,
+     86,
+     108
+    ]
+   ],
+   [
+    [
+     74,
+     612,
+     85,
+     107
+    ],
+    [
+     199,
+     612,
+     84,
+     107
+    ],
+    [
+     325,
+     612,
+     84,
+     107
+    ],
+    [
+     457,
+     612,
+     85,
+     107
+    ],
+    [
+     573,
+     612,
+     85,
+     107
+    ],
+    [
+     702,
+     612,
+     86,
+     107
+    ],
+    [
+     826,
+     612,
+     85,
+     107
+    ],
+    [
+     939,
+     612,
+     85,
+     107
+    ],
+    [
+     1054,
+     612,
+     85,
+     107
+    ],
+    [
+     1184,
+     610,
+     92,
+     109
+    ]
+   ],
+   [
+    [
+     66,
+     729,
+     200,
+     285
+    ]
+   ]
+  ],
+  "figure": "Boston Low",
+  "attempts": 7,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c42a1dec-becd-4a18-b7cb-b041deaef89c.png",
+  "sha256": "5677336c774067dc6dc5fd4fe53732f8d977361dc0956ad973edfe33cee7eef8",
+  "originalruter": 31,
+  "resultat": "jobber/fig071_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "eea838e5845d7193f0e6686fcfd4ed2cce8d2251206fe24e6ee5552dda9eba43",
+   "original_1x.png": "f8544fa79106878877bddb8cdf0fd336f40477f98506f139239672f4dd76187a",
+   "prompt.txt": "2204dde3bf01d9aaedeffa8fee5b1be524371f9f709772c7fde1141ea43a0a75",
+   "jobb.json": "da3800616554397d0f3a677d3e360670d1291e0955777ca8ad29c5761e0a6cf8"
+  }
+ },
+ {
+  "jobb": "fig048_09",
+  "attempt": 4,
+  "rows": [
+   22,
+   6,
+   5,
+   9
+  ],
+  "fragments": 0,
+  "prompt": "Use case: surgical sprite-sheet count correction. FIRST image is the existing detailed HD sheet to EDIT. SECOND is original source for pose and sequence. THIRD is the approved smooth detailed style only. Output exactly1536 x1024 native RGBA transparent. Keep FIVE visual rows. Top row currently THIRTEEN isolated heads: remove its two rightmost heads, leaving ELEVEN. Second row currently TWELVE heads: remove only its rightmost head, leaving ELEVEN. Third row stays SIX heads. Fourth row stays FIVE full bodies. Fifth row currently TEN bodies: remove only rightmost body, leaving NINE. Final visible row counts ELEVEN,ELEVEN,SIX,FIVE,NINE. Do only these explicit deletions in the native image. Do not repack, resize, add, duplicate, redraw retained sprites or add backgrounds, shadows, ground, glow or labels. Each removed area becomes fully transparent. Antialiasing and native soft alpha on retained figures must stay intact. Do not fill any vacant slots with replacements. Return the edited PNG.",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a903e56a-e7db-4c5c-b12f-b5ba9cde86d6.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_09/original_1x.png",
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1269fd31-3b7c-4718-9ec3-c0c14a0a3473.png"
+  ],
+  "generation_rows": [
+   11,
+   11,
+   6,
+   5,
+   9
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c7d09d60-8224-44cb-b031-fc10658a22b5.png",
+  "known_native_ordered_rows": [
+   [
+    [
+     54,
+     40,
+     68,
+     89
+    ],
+    [
+     163,
+     40,
+     68,
+     89
+    ],
+    [
+     274,
+     40,
+     68,
+     89
+    ],
+    [
+     384,
+     40,
+     69,
+     89
+    ],
+    [
+     495,
+     40,
+     69,
+     89
+    ],
+    [
+     607,
+     41,
+     69,
+     88
+    ],
+    [
+     719,
+     40,
+     68,
+     89
+    ],
+    [
+     831,
+     40,
+     69,
+     89
+    ],
+    [
+     942,
+     40,
+     69,
+     89
+    ],
+    [
+     1051,
+     40,
+     67,
+     90
+    ],
+    [
+     1159,
+     40,
+     68,
+     89
+    ],
+    [
+     54,
+     164,
+     69,
+     88
+    ],
+    [
+     167,
+     165,
+     68,
+     87
+    ],
+    [
+     281,
+     165,
+     67,
+     88
+    ],
+    [
+     395,
+     166,
+     68,
+     89
+    ],
+    [
+     510,
+     167,
+     67,
+     87
+    ],
+    [
+     622,
+     167,
+     67,
+     87
+    ],
+    [
+     731,
+     167,
+     68,
+     88
+    ],
+    [
+     844,
+     167,
+     67,
+     88
+    ],
+    [
+     954,
+     167,
+     68,
+     88
+    ],
+    [
+     1064,
+     167,
+     67,
+     87
+    ],
+    [
+     1172,
+     166,
+     68,
+     88
+    ]
+   ],
+   [
+    [
+     57,
+     282,
+     68,
+     88
+    ],
+    [
+     176,
+     282,
+     68,
+     88
+    ],
+    [
+     291,
+     281,
+     69,
+     89
+    ],
+    [
+     396,
+     283,
+     68,
+     87
+    ],
+    [
+     502,
+     283,
+     70,
+     87
+    ],
+    [
+     608,
+     283,
+     68,
+     87
+    ]
+   ],
+   [
+    [
+     45,
+     394,
+     129,
+     305
+    ],
+    [
+     208,
+     395,
+     133,
+     304
+    ],
+    [
+     378,
+     395,
+     129,
+     303
+    ],
+    [
+     544,
+     395,
+     130,
+     304
+    ],
+    [
+     710,
+     392,
+     131,
+     307
+    ]
+   ],
+   [
+    [
+     34,
+     706,
+     123,
+     288
+    ],
+    [
+     193,
+     706,
+     123,
+     288
+    ],
+    [
+     348,
+     706,
+     122,
+     288
+    ],
+    [
+     509,
+     706,
+     122,
+     288
+    ],
+    [
+     663,
+     706,
+     120,
+     288
+    ],
+    [
+     820,
+     706,
+     114,
+     288
+    ],
+    [
+     964,
+     705,
+     112,
+     289
+    ],
+    [
+     1108,
+     706,
+     114,
+     288
+    ],
+    [
+     1253,
+     706,
+     116,
+     288
+    ]
+   ]
+  ],
+  "figure": "Ludger Brink",
+  "attempts": 4,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c7d09d60-8224-44cb-b031-fc10658a22b5.png",
+  "sha256": "6f4d2486459bf2886e3f41e4d5949ea398ed47ae32496fe0bd13c241daa86f6c",
+  "originalruter": 42,
+  "resultat": "jobber/fig048_09/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "68499585a9a7960fbb26158eb4fd31f59d4313039ba7db0d1ec714fc368f8b78",
+   "original_1x.png": "b764fe1a39bfed9e9c4f0ee48cafae2dd20157af22a4ebdc45e14b370a9de845",
+   "prompt.txt": "55f5d4bd1c5b9a2cf24ea5ceba1e793d9d03a71e109ec36e16d03d11d8d91246",
+   "jobb.json": "2e97247641ecd557f219af40fc76e696d036fe16c173d3f75c38d770c7fee01a"
+  }
+ },
+ {
+  "jobb": "fig137_02",
+  "attempt": 3,
+  "rows": [
+   6,
+   10,
+   1,
+   1
+  ],
+  "fragments": 3,
+  "prompt": "Use case: surgical sprite-sheet count correction. FIRST image is the existing detailed HD sheet to EDIT. SECOND is original source for pose and sequence. THIRD is the approved smooth detailed style only. Output exactly1536 x1024 native RGBA transparent. Keep FOUR visual rows. First stays SIX headed bodies. Second currently ELEVEN headless bodies: DELETE only its rightmost headless body so TEN remain. Third stays ONE headless body. Fourth stays ONE isolated head. Final counts SIX,TEN,ONE,ONE. Do only these explicit deletions in the native image. Do not repack, resize, add, duplicate, redraw retained sprites or add backgrounds, shadows, ground, glow or labels. Each removed area becomes fully transparent. Antialiasing and native soft alpha on retained figures must stay intact. Do not fill any vacant slots with replacements. Return the edited PNG.",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d25600ea-a942-475b-a308-55978765d1e2.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig137_02/original_1x.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig137_02/referanse.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-28f6a186-b162-410a-8027-5921de2c4061.png",
+  "figure": "Ludger Brink",
+  "attempts": 3,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-28f6a186-b162-410a-8027-5921de2c4061.png",
+  "sha256": "717795b26bd147976bec616922ef94282f5bf42405419cf6891d2963679b7809",
+  "originalruter": 21,
+  "resultat": "jobber/fig137_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "6b74ef9f886a040dc986f58c6f7c243c355d5e5f305c9d2d6df03a5eeb6e0b8e",
+   "original_1x.png": "71517f13e000c659c07f2ce4ae5b1fc9d89b1d6fde9b852e1cc229d57428ac66",
+   "prompt.txt": "99ceb35465fcef5f1f4475777fa4ab1deeb0a2d076fa710b8def03379d28eb81",
+   "jobb.json": "5e263e2cca649b608ecc427c04cd4c48da81cd5a6355592f80cadd3dd0d48ff5"
+  }
+ },
+ {
+  "jobb": "fig305_01",
+  "attempt": 2,
+  "rows": [
+   1,
+   1,
+   1,
+   21,
+   5
+  ],
+  "fragments": 1,
+  "prompt": "Use case: surgical sprite-sheet count correction. FIRST image is the existing detailed HD sheet to EDIT. SECOND is original source for pose and sequence. THIRD is the approved smooth detailed style only. Output exactly1536 x1024 native RGBA transparent. Keep FIVE visual rows. First three stay ONE full body,ONE headless reaching body,ONE isolated head. Fourth row currently TWENTY FOUR small heads: DELETE exactly THREE rightmost heads so TWENTY ONE remain. Fifth stays FIVE heads. Keep each retained face expression exactly. Do only these explicit deletions in the native image. Do not repack, resize, add, duplicate, redraw retained sprites or add backgrounds, shadows, ground, glow or labels. Each removed area becomes fully transparent. Antialiasing and native soft alpha on retained figures must stay intact. Do not fill any vacant slots with replacements. Return the edited PNG.",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-14aa57a7-9866-4064-96df-4664672d1581.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig305_01/original_1x.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0fdfaf3f-9b03-4d34-b0de-3e6d057520cb.png",
+  "figure": "Ludger Brink",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-0fdfaf3f-9b03-4d34-b0de-3e6d057520cb.png",
+  "sha256": "3add4eb045bc85804647f560f82d102d2d80174177eb5508c31def0d3cd3d638",
+  "originalruter": 30,
+  "resultat": "jobber/fig305_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "6ce7107e02df8d02e8e8577534f6477f44ac29b14de2c587884d738539dea1cd",
+   "original_1x.png": "31e0d4b4fe81c41ab68283f0c7eab62e7db9844c2c015f20bd8633866a6efccc",
+   "prompt.txt": "a267f0f0091593bada86e531d0912f523ecac76fd8e7fe3bee7b74217b719c66",
+   "jobb.json": "4f5c34f697859e8a2f7aa610d1b4263d6ecf34f450bafba1b314b7bd2474b134"
+  }
+ },
+ {
+  "jobb": "fig305_04",
+  "attempt": 2,
+  "rows": [
+   5,
+   2,
+   6
+  ],
+  "fragments": 3,
+  "prompt": "Use case: surgical sprite-sheet count correction. FIRST image is the existing detailed HD sheet to EDIT. SECOND is original source for pose and sequence. THIRD is the approved smooth detailed style only. Output exactly1536 x1024 native RGBA transparent. Keep THREE visual rows. First stays FIVE headless reaching bodies. Second stays TWO headless reaching bodies. Third currently SEVEN headed recovering bodies: DELETE only its rightmost body so SIX remain. Final counts FIVE,TWO,SIX. Do only these explicit deletions in the native image. Do not repack, resize, add, duplicate, redraw retained sprites or add backgrounds, shadows, ground, glow or labels. Each removed area becomes fully transparent. Antialiasing and native soft alpha on retained figures must stay intact. Do not fill any vacant slots with replacements. Return the edited PNG.",
+  "refs": [
+   "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e570ef13-98f5-4975-99e5-691528a802e5.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig305_04/original_1x.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-570ca0a2-9c00-455b-a7e0-40c10b42ce5c.png",
+  "figure": "Ludger Brink",
+  "attempts": 2,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-570ca0a2-9c00-455b-a7e0-40c10b42ce5c.png",
+  "sha256": "e220e0abc5ba6ffec9fc85acaa629af7bdf76c3562a774d0d0091c6b93f0b87c",
+  "originalruter": 16,
+  "resultat": "jobber/fig305_04/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "d4ac7c482e469e22e0bfab99f50046cc6d60cf28f5cb00d64638ec8d0d6031de",
+   "original_1x.png": "7e1e2fb7fb2b5f8631baee89029d530e44b2fff61b91c8eb0cbff4d7513b985b",
+   "prompt.txt": "d1c991d03a4d05726e408e2a1b0d5f6c13e54829b2a930c8e3432ac9be0dac78",
+   "jobb.json": "ee431b2301ba4668560ab09cca18d57d9d749a5a1e63b6a8ef0f35434f336186"
+  }
+ },
+ {
+  "jobb": "fig059_02",
+  "attempt": 1,
+  "rows": [
+   9,
+   9,
+   8
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig059_02. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nTHREE rows of NINE, NINE, EIGHT complete LEFT-facing Boston bodies leaning forward with both arms low and bent knees; preserve each talking-mouth and subtle rocking phase, navy shirt/orange trousers.\nExact original frame rows 9,9,8, total 26 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig059_02/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d20106cd-15c4-4803-9861-de207d486b06.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d20106cd-15c4-4803-9861-de207d486b06.png",
+  "sha256": "bb33ce7e587b9efe7c0b406df6385b09048a1d9bd3dbb34d0c0e5bb160712d77",
+  "originalruter": 26,
+  "resultat": "jobber/fig059_02/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "6924337b4ac0fe33dde8d8e4f1bca12a6b6df5e23b0e89b0b796bb7f5572595c",
+   "original_1x.png": "37dd04f0f3f3afdfbc7e342d23f0c15aa93f0048078e77e070295f17c3b90572",
+   "prompt.txt": "50aed2157b9d87584e3b20a55a7abe3f5f2d84eeca51fc092274db0ca840124f",
+   "jobb.json": "6ec7976d33376902e2db17036e1ca7654232cff00f4e6be1f453092b10c8686e"
+  }
+ },
+ {
+  "jobb": "fig059_03",
+  "attempt": 1,
+  "rows": [
+   6
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig059_03. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nONE row of SIX LEFT-facing Boston bodies straightening from lean to upright, preserve source order and knees.\nExact original frame rows 6, total 6 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig059_03/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4e6896a2-ef45-400e-a01a-55b1d5806f14.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4e6896a2-ef45-400e-a01a-55b1d5806f14.png",
+  "sha256": "26f88a11dfff600a3e64611be6834e4bdf7f68566ddaa00e23c6a4cde3f42d73",
+  "originalruter": 6,
+  "resultat": "jobber/fig059_03/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "fc246f162f61a26bb4feb9910c9428a07acaadb7a48fe8af3fb9252319f4ffaa",
+   "original_1x.png": "e8638e9e91cd2da8c656ec0f2af351f965d314e82e4a8bae64ecbdd396a0604e",
+   "prompt.txt": "4e188382e379f260646c49a535cab1dbb8af3ee195742038bc4b4ad6f6fb245b",
+   "jobb.json": "5955d7e300aca2f2515f40c78819b68f637dc2b0483ff1e9034f0a81f0af79cc"
+  }
+ },
+ {
+  "jobb": "fig094_01",
+  "attempt": 1,
+  "rows": [
+   1,
+   4
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig094_01. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nRow1 ONE Boston in front of a dark reddish triangular stone wall section. Row2 FOUR such full combined sprite frames, gradually bending at knees and reaching toward RIGHT. The triangular reddish wall cutout is ACTUAL PART OF THESE ORIGINAL SPRITES and must be retained with the exact source boundary behind each figure; this is an explicit exception to removing scenery. Keep black stone recess and triangular slope, no new wall outside the cutout.\nExact original frame rows 1,4, total 5 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig094_01/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-3950ab46-ad37-43c3-a2f0-aa8e275cd7da.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-3950ab46-ad37-43c3-a2f0-aa8e275cd7da.png",
+  "sha256": "055d4783f2d6875b9166f11eeeaba77ed38dedd3c75f5cad0e70eaf7e5191911",
+  "originalruter": 5,
+  "resultat": "jobber/fig094_01/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "8054e39205f01f7405c2ee090cd55e285e1499a05340fe6fae841a146c0e399f",
+   "original_1x.png": "0fff28c4728138c940dc5d91d3d93cd4013cf063484531f401ff440fa2f1f03e",
+   "prompt.txt": "0c106acfacf9414fece012c29166614d9c5ce8329de2e5d6228353e2992a8e3a",
+   "jobb.json": "9cac0b530beff5bb6d08a02f6b737fad542f6602a82bda164baea9d981c5b203"
+  }
+ },
+ {
+  "jobb": "fig094_04",
+  "attempt": 1,
+  "rows": [
+   5
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig094_04. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nONE row FIVE Boston bodies BACK-RIGHT, lowering a pale gray tool from above the head through chest to waist while straightening.\nExact original frame rows 5, total 5 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig094_04/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e7e31490-2edc-4b46-9e07-f2228e0403e2.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e7e31490-2edc-4b46-9e07-f2228e0403e2.png",
+  "sha256": "31991a4df11d91966aafd7a695f3da326831af65dc35a982ebcf8b6a0f9b28b0",
+  "originalruter": 5,
+  "resultat": "jobber/fig094_04/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "2483a315241766c01fe713aa4e2cfd1a852ed3ed579ebd935214913ad79ec73f",
+   "original_1x.png": "6327b05da780904e87afe7febc3efe3750802fcc9d8baeff39235c2d5a5ec214",
+   "prompt.txt": "94c171cf2e49a222540e860e90c3c9f1fa4b7bc157e8e2661a9b45864268f98c",
+   "jobb.json": "09007b77fb82ce7f343127d3a2baef3c7ac987f64b8f9241ec7a59e3f6b7b152"
+  }
+ },
+ {
+  "jobb": "fig072_05",
+  "attempt": 1,
+  "rows": [
+   1
+  ],
+  "fragments": 0,
+  "prompt": "Use case: smooth HD sprite sheet redraw fig072_05. Image1 is the ORIGINAL EDIT TARGET and sole authority for original pose, expression, direction and sequence. Image2 is ONLY Tom's approved smooth detailed STYLE and character identity, not its poses/layout. Output exactly1536 x1024 RGBA. Boston Low: mature broad face, brown hair with gray temples, navy short sleeve shirt, orange cargo trousers, black boots, natural sturdy proportions.\nONE BACK-RIGHT upright Boston full body, arms resting near sides. No plate, no shadow.\nExact original frame rows 1, total 1 source entries. 0 tiny source fragments are preserved separately from original on import. Never inflate fragments into people. Keep sequence, deliberate detached parts, headless bodies and partial cutoffs. Native disconnected plates/ropes belonging to one frame must stay grouped by relative layout.\nTom's approved detailed hand-painted illustration, clean flowing smooth antialiased contours, mature detailed expressive faces/mouths, fingers, hair, fabric folds, seams and boot detail. Keep original anatomy and clothing silhouette. True transparent alpha0 empty canvas; opaque subjects with narrow smooth native alpha. All entries separated and uncropped. No pink/cyan background, gray oval guides, unrelated scenery, shadow, haze, glow, matte, grid, text, labels, blur, pixel stairs or3D. Do not add or remove source entries.",
+  "refs": [
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig072_05/referanse.png",
+   "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png"
+  ],
+  "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-49315a60-ecfc-4858-b809-e05f20b7a3e1.png",
+  "figure": "Boston Low",
+  "attempts": 1,
+  "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-49315a60-ecfc-4858-b809-e05f20b7a3e1.png",
+  "sha256": "78a27044c7803dc78b77ae17d628a2a20bd8950f5a3910f87d11443ecb9fe6aa",
+  "originalruter": 1,
+  "resultat": "jobber/fig072_05/resultat.png",
+  "beskyttede_filer": {
+   "referanse.png": "98949f1afa58906d8b58fcde9ccbea224f6b89043060f42a28bbfb7190bc4e53",
+   "original_1x.png": "18ad744b3bc6048f220eb60e69af759b1cd0268f6e54634a89d7d48ed9eafbe7",
+   "prompt.txt": "51745c5d5534ee84f5e7936675e80de7f6e2b6abe9e18f9ede542218864d8f91",
+   "jobb.json": "d4d17b6346a335d2d8ba2fb37b72c62961e3ca5c7cee8a699daf8f4522e66466"
+  }
+ }
+]
