@@ -1,0 +1,13 @@
+# Leveransenotat
+
+Levert 9. oktober 2026. Kontrollert gjenbruk fra fig214_16. Ingen nye bildeforsøk for dette arket. Kildearket ble laget med innebygd ChatGPT-bildegenerator, som ikke bekrefter et eksakt modellnavn. Original_1x.png er byteidentisk mellom de to jobbene, og resultatfilen er kopiert byteidentisk. Kildeprompt og opprinnelig forsøksspor er dokumentert i sporingsfilen.
+
+Boston Low og Maggie Robbins, kostyme 222, i Toms godkjente glatte og detaljerte stil. Egen stilprompt og eventuelle avgrensede korreksjoner er dokumentert i rapporter/hovedfigurer-hd-20261009/prompter/. Original prompt.txt og øvrige inputfiler er uendret og hashkontrollert mot HEAD.
+
+Generatorens originale 1536 x 1024 RGBA er kopiert byteidentisk, uten ny pikselmaske eller kreativ etterbehandling. Radantall 7, 5 er kontrollert ved alfa 128 og visuelt sammenlignet med kildens retninger, hodeløs oppdeling, bevegelser og kostyme. 12 tegnede figurområder, 12 originaloppføringer og 0 svært små originalfragmenter. Små fragmenter må bevares fra originalmaterialet; de er ikke oppblåst til anatomi.
+
+Native alfa er bevart. Restalfa utenfor fem piksler fra alfa-128-konturen har maksimum 4/255, med 0 piksler over 16/255. Native fragmentstreker er diagnostikk, og originalfragmentene skal hentes fra originalmaterialet. Rutekartet er diagnostikk og er ikke en verifisert importmaske, skalering eller ankerplassering. Claude må tilpasse mottaket og kontrollere animasjon, retninger, fotpunkter og flimmer i spillet. Dette arket er ikke integrert, spilltestet eller separat visuelt godkjent av Tom.
+
+SHA256: 5dd45c7d7c5e8dfbc1dc231f2c1ab566d6686e62bd5e70bd394111e5da157051
+
+Radkoblingen bruker eksplisitt kildekontroll for separate deler i samme originalrute eller et løst hode med annen vertikal plassering. Alle native hoveddeler er med nøyaktig én gang; ingen er slettet for å få antallet til å stemme. Filkontrollen dokumenterer delgruppene og analyseboksene. Claude må bruke rutekartet og kontrollere koblingen ved import.
