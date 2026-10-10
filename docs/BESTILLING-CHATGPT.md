@@ -235,3 +235,10 @@ Skriv et kort notat: verktøy, dato, antall forsøk, hva som var usikkert.
 ## 11. Privat
 
 Spillet eies av Disney/Lucasfilm. Jobbene, referansene og resultatene ligger bare i det private repoet (grenen `gpt-arbeid`) og i `work/`. De skal ikke deles eller legges i `main`.
+
+
+## Tillegg 10. oktober 2026: videre arbeidsmetode
+
+Se [HD-REMASTER-METODE.md](HD-REMASTER-METODE.md) for kontroll av identitet, rutekart, hele animasjoner, objekttilstander og visuell godkjenning. Den glatte figurstilen og ekte alfa beholdes. Teknisk mottaksstatus er ikke i seg selv Toms visuelle godkjenning. Kontrollnivåene i metoden er forslag inntil verktøy og rapporter støtter dem.
+
+Formuleringen i punkt 3 om at fargesyklet vann alltid vises som originalpiksler er utdatert. Motoren støtter nå HD-fargesykling for bakgrunner og objekter, beskrevet i HD-MOTOR.md. Kontroller vann og energi i bevegelse. Fargesykling på figurer har fortsatt begrensninger.

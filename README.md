@@ -122,6 +122,8 @@ mods/             ferdige mod-mapper (lokalt)
 
 ## Dokumentasjon
 
+- [docs/HD-REMASTER-METODE.md](docs/HD-REMASTER-METODE.md): videre arbeidsmetode, repo-gjennomgang, visuell godkjenning og plan for UI
+
 - [STATUS.md](STATUS.md): hva som virker, hva som er testet og hva som mangler
 - [docs/SPILLTEST.md](docs/SPILLTEST.md): spille og teste rett fra repoet, og hva du bør se etter
 - [docs/HD-MOTOR.md](docs/HD-MOTOR.md): hvordan HD-motoren bestemmer hvor hver piksel kommer fra

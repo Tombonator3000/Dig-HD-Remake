@@ -8,6 +8,7 @@ Instrukser for alle KI-agenter som jobber i dette repoet (Claude, Codex, ChatGPT
 2. Les `todo.md`, særlig `## Neste`.
 3. Les de siste oppføringene i `log.md`.
 4. Les `STATUS.md` hvis du skal endre noe som er testet eller rapportert der.
+5. Les `docs/HD-REMASTER-METODE.md` ved videre remasterarbeid. Skille mellom teknisk mottak og visuell godkjenning er en plan, ikke nye implementerte statusverdier.
 
 ## Mens du jobber
 

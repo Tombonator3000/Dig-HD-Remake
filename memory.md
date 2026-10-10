@@ -80,3 +80,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Teksten tegnes med Exo 2 (SIL OFL 1.1) fra 9. oktober (Tom: "bruk exo2"). Skriften ligger i `pipeline/dighd/skrifter/exo2/`, modden får `fonts/map.txt`, `fonts/exo2.png` og `fonts/exo2.txt`. Bokstaven får høyden til originalboksen og skriftens egen bredde (ganger 1,2 for sideforholdet).
 - Tom har laget repoene `Tombonator3000/Sam-Max-HD` og `Tombonator3000/ZakMcKracken-HD` (9. oktober) til de to neste spillene. Brukes når The Dig er ferdig, etter planen over.
 - Bestilling 9. oktober (Tom): alle de andre figurene bestilles nå. Filmene (SAN) venter til senere, Tom kan ikke skalere dem opp nå.
+
+
+## Arbeidsmetode 10. oktober 2026
+- Tom ba om at erfaringene fra DOTT og Monkey Island-remasterne ble lagt i dette repoet for videre arbeid. `docs/HD-REMASTER-METODE.md` samler kilder, gjennomgang av dagens mottak og prioritert forbedringsplan.
+- Dette er dokumentasjon og forslag, ikke ny kode eller nye godkjenningsstatusverdier. Godkjent glatt figurstil, ekte alfa, Exo 2 og utsatte filmer beholdes. Teknisk mottak skal skilles fra visuell godkjenning i videre rapportering.

@@ -297,3 +297,12 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Runden etterpå: 86 nye filer fra Codex. Status: avvist 7, godkjent 273, levert 306, ny 3865, sjekk 12. Myke figurer: 307 ark, 5091 ruter ok, 505 til gjennomsyn. Modden: 103 rom, 628 objektbilder, 5596 kostymeruter, publisert i `hd-mod` (440 MB).
 - Den publiserte nettsiden (Dig-HD-Web 2f61d1c) testet i Chromium uten skjerm: henter `fonts/map.txt`, `fonts/exo2.png` og `fonts/exo2.txt` (fire forespørsler i stedet for 95), ingen 403. Menyen i rom 22 er komplett med Exo 2.
 - Linux-pakken feilet to ganger i testen på Debian 12: Docker Hub stoppet anonym henting av bildet (toomanyrequests). PR 41: bildet hentes fra AWS-speilet (`public.ecr.aws/docker/library/debian:12-slim`). Ny pakke bygget og testet (kjøring 37990507568): 896 MB, hd-mod 81efae7, med Exo 2.
+
+
+## 2026-10-10 07:11 (Codex)
+- Tom ba om gjennomgang av Dig-HD-Remake og lagring av fremgangsmåter for videre HD-remasterarbeid.
+- Leste README, AGENTS, memory, todo, siste logg, STATUS, BESTILLING-CHATGPT, HD-MOTOR og mottaksfunksjonene i gpt.py og myk.py. Sjekket offisielle beskrivelser, utviklerintervjuer og GDC-presentasjonen for DOTT og Monkey Island.
+- La til docs/HD-REMASTER-METODE.md: trofast nytegning, låst geometri, alfa og rutekart, animasjonskontroll, skille mellom teknisk mottak og visuell godkjenning, motor- og spilltest, UI uten endrede gåter, og prioritert forbedringsplan.
+- Konkrete funn: ruter med sjekk kan brukes i dagens mod, native alfa har annen kontrollvei, radkobling uten rutekart er usikker, kjent risiko ved flere figurer og masker, og tellingene i README/STATUS er eldre enn siste logg. Ingen nye pakketall er målt.
+- Lenket metoden fra README og AGENTS, la konkrete oppgaver i todo og henvisning i memory og bestillingen. Rettet den utdaterte bestillingsbeskrivelsen av vann til å vise til eksisterende HD-fargesykling.
+- Kontroll: dokumentlenker, bevarte opprinnelige filer og kun dokumentendringer. Ingen kode, spillfiler eller grafikk endret. Ingen pipeline-, motor- eller spilltester kjørt for denne dokumentleveransen.

@@ -4,6 +4,17 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Neste
 
+### Remastermetode og kvalitet (10. oktober)
+
+- [x] Dokumentert repo-gjennomgang og arbeidsmetode i `docs/HD-REMASTER-METODE.md`, med kilder fra offisielle remastere og konkrete forbedringspunkter
+- [ ] Lag animasjonsforhåndsvisning for myke ruter med original og HD, hode/kropp samlet, korrekt rekkefølge og tempo
+- [ ] Lag visuell godkjenningsliste per ressurs og checksum, og skill arbeidsmod fra ferdig kontrollert pakke
+- [ ] Krev eksplisitt rutekart for nye myke figurark og kontroller eldre radkoblinger før ferdigmelding
+- [ ] Kontroller at avviste myke eksportfiler ikke blir stående ved ny bygging, og at fallback virker
+- [ ] Samstem README, STATUS og pakketellinger fra samme verifiserte hd-mod-SHA; skill levert, ok, sjekk og visuelt godkjent
+- [ ] Test flere myke figurer over hverandre, z-masker, skalering og menyer i ekte spilltilstand
+
+
 - [x] GitHub Pages-inngang med lokal import av spillfiler og HD-pakke, uten lokal webserver
 - [x] Bekreft den publiserte Pages-adressen med faktisk HD-oppstart
 - [x] HD-figurer i Pages-versjonen: testet mot den publiserte siden, og siden teller HD-rom, objektbilder og figurruter
