@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:31:57.238131+00:00",
+ "oppdatert_utc": "2026-10-10T00:35:20.635845+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 174,
+ "antall": 184,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -4866,6 +4866,283 @@
      "piksler_over_0": 2337,
      "maks": 2,
      "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig128_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2881c429db879f247df234f77cecb2ead29f31c70499801c4e5ecd3e5bc9a263",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Fire store native skapningsfaser er synlige, men den femte, svært lille separate originalruten er ikke påvist. Originalen har fem tegnede ruter.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 16369,
+     "maks": 6,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig303_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f1268d34f1160ef45ac6030810081863e564c244879591459adc8addc55520ea",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "De mange små originale partikkel- og delrutene er ikke fullt koblet til kandidaten. Native radantall avviker; særlig rader med tolv og elleve originalruter krever individuell kildekontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     12,
+     11,
+     6,
+     1
+    ],
+    "native_rader": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     13,
+     7,
+     6,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 20253,
+     "maks": 7,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig313_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e8756d83c1bf55863ef90357b14148d26246be5afc1793d362e3793f1397f476",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native raden har fjorten hovedfigurer eller hodedeler mot tretten i originalraden. Ekstra fase er ikke fjernet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     13
+    ],
+    "native_rader": [
+     1,
+     14
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2332,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig314_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2b6b3ba10321d5400f5516a1013569224a86a1ddb4292b9aa70db66341270c15",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Sammensatte frø-, jord- og lyseffekter med mange løse native deler trenger manuell rutekobling og avgrenset kildekontroll av effektalfa. Rå komponenttelling er ikke antall animasjonsfaser.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     5,
+     4,
+     4
+    ],
+    "native_rader": [
+     4,
+     51,
+     59,
+     8,
+     50,
+     55,
+     14,
+     30,
+     21,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 109204,
+     "maks": 127,
+     "piksler_over_16": 2302
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig316_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "78940629c544a0a93425df7b0ee22c09c435d9932d3cef502ac61a1799da0984",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen består av mange små lyse eller blå delruter, med 22 bittesmå originaldeler som skal beholdes. Native kandidaten fortolker flere ruter som komplette menn; ingen full motiv- og rutekobling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     15,
+     18
+    ],
+    "native_rader": [
+     22,
+     20
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 16208,
+     "maks": 90,
+     "piksler_over_16": 331
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig317_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f2501d3111a97df9b98c4e649af5d9ba49173bfcacb2c641d1ea4b0f3bdd5aca",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen viser to flate blå rektangler. Native kandidaten er to hele menn. Riktig antall bekrefter ikke motivet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 158,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig318_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "43378b6b55394f7f0e2d3347553f23df7ffb8953613da53aa8dcc8a240676470",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen viser et åpent svart linjeemblem. Native kandidaten fyller det med kremfarget og gyllent metall og endrer den gjennomsiktige strukturen og paletten.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     6,
+     2,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 7136,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig324_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a6311751ae9c03ede82f9d065b9ca83402158cf1fedd79a389368defc09b9410",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åtte hvite lysfaser er tegnet med tydelige gylne konturer. Antall er riktig, men hvitfarge og lyskarakter er ikke tilstrekkelig kildebekreftet. To restalfapiksler over 16 gjenstår også.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     8
+    ],
+    "native_rader": [
+     8
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 8250,
+     "maks": 20,
+     "piksler_over_16": 2
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig325_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "dba24693ebc2a780a0332d177738df93b9bc1442b62399c188aefe20ecc076e0",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Tre originale skapningsfaser finnes, men de separate svarte strek-/delfasene er ikke med. Seks originale tegnede ruter mot tre native hovedfigurer.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     3,
+     2
+    ],
+    "native_rader": [
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 6921,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig326_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d16baee002e7787fa586adfcaf22283bac6ff1d889919acbb211856d4a440db7",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "To native mekanismer finnes, men de adskilte horisontale strøkene og løse originaldelene innen rutene er utelatt. Den åpne svarte linjestrukturen er fylt med metallflater.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 1804,
+     "maks": 107,
+     "piksler_over_16": 53
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
