@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:24:47.155186+00:00",
+ "oppdatert_utc": "2026-10-10T00:28:17.825758+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 164,
+ "antall": 168,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -4613,6 +4613,114 @@
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig277_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d290c491e0c642fef123d6f61d3b279740357b53c09415641916cf882df8442e",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den opprinnelige stein-/energiformen har synlige åpninger, særlig costume277_009. Native kandidaten fyller disse med stein. De første to tynne fasene er dessuten fortolket som steinbiter. Riktig telling alene bekrefter ikke disse formene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     8,
+     5
+    ],
+    "native_rader": [
+     1,
+     8,
+     5
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 3725,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig280_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d52b0f865496b53047f7eddcda20a2a346a11b60b403d0b5c9ca5b011cbcf7ca",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen har sju faser; native kandidaten har åtte. Midtraden har seks mot originalens fem. Ekstra kube kan ikke slettes for å få tellingen til å stemme.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1,
+     1,
+     3,
+     1
+    ],
+    "native_rader": [
+     1,
+     6,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 785,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig286_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "dd8960ef1c07713f9663db0b56d9db345e132c3cb23fdc284583e86c3242a403",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen har tydelig gyllen materialkant; native kandidaten sprer utbredt myk alfa som lys rundt objektene. Materialtrohet og 45578 restalfapiksler over 16 er ikke godkjent som tilsiktet effekt.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 89389,
+     "maks": 101,
+     "piksler_over_16": 45578
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig124_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e09c383e3b017d6936147b7cf628915faf1181e368e6d129e02b2fde4e3ac17d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Fem originalruter inkluderer tre svært tynne separate strøk i tillegg til to sammensatte figurfaser. De tre strøkene er ikke sikkert påvist i native kandidaten.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     2
+    ],
+    "native_rader": [
+     1,
+     2,
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 14093,
+     "maks": 122,
+     "piksler_over_16": 701
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
   }
  ]
 }
