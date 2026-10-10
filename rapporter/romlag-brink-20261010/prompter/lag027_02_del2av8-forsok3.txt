@@ -1,0 +1,31 @@
+Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.
+
+Input: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.
+
+Do:
+- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.
+- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.
+- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.
+
+Do not:
+- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).
+- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.
+- Copy symbols, glyphs, markings and engravings exactly in shape and position.
+- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.
+
+Output: one image, exactly 1536 x 1024 pixels, with the same layout as the input.
+
+This picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.
+
+This is part 2 of 8 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.
+
+If a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.
+
+
+SOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:
+Precise correction from referanse.png. Keep all original geometry, objects and colors at exactly their source positions. No zoom, shift, crop or replacement of small objects. Output1536 x1024 with the original plain gray border.
+Source object positions in the1536 x1024 canvas (x,y,width,height): obj236_01=[448, 480, 192, 128]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.
+
+Diagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.
+
+PRECISE SOURCE STATE: The small violet glowing triangular glyph is visibly present INSIDE the dark triangular recessed panel on the sloping platform at [448,480,192,128]. Copy its exact source triangle, not blank rock.
