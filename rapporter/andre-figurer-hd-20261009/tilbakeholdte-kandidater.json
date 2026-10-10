@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:09:40.076682+00:00",
+ "oppdatert_utc": "2026-10-10T01:10:03.688030+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 193,
+ "antall": 190,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2957,31 +2957,6 @@
    "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
   },
   {
-   "jobb": "fig134_04",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "c45278ce79fabad1faea194a9485336ccc9b365a40eb2010e965b3f6f307d783",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "En separat originalfot på 15 x 16 er ikke sikkert gjenfunnet. Fire hele native utsnitt og to løse føtter krever ny kildekobling eller nytt forsøk.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     2,
-     3
-    ],
-    "native_rader": [
-     4,
-     2
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 30475,
-     "maks": 5,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
    "jobb": "fig134_05",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "dac16f812c401c176c790d36cd3f4910ee7cb84052826ee8682a497bfb75f1f3",
@@ -3058,52 +3033,6 @@
     }
    },
    "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
-   "jobb": "fig139_05",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "3e1c3ac1da8b58fe81ac4e275de105c75a02193e82414ac8a4cf5089098ffdfd",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Native tredje rute er en hel skapning, mens originalens tredje rute har en liten separat del. Bestått rå telling er ikke bevis på riktig innhold.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     3
-    ],
-    "native_rader": [
-     3
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 14850,
-     "maks": 10,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Nytt ordrett forsøk er startet. Native anatomi må følge den faktiske originaldelen."
-  },
-  {
-   "jobb": "fig139_09",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "c5c3bee95c2582b040ece5833e1f5626f592e7a056577e30b8f3a94b503db551",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Native arket har tre hele skapninger. Originalen har to hovedfigurer og en liten originaldel; kandidaten har en ekstra hel figur.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     2
-    ],
-    "native_rader": [
-     3
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 11505,
-     "maks": 5,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Nytt ordrett forsøk er startet. Native anatomi må følge den faktiske originaldelen."
   },
   {
    "jobb": "fig140_09",

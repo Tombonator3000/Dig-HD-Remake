@@ -2,7 +2,7 @@
 
 Bestilt av Tom 9. oktober 2026 som resten av grafikk og sprites. Denne runden omfatter 3 523 figurark utenfor de 509 hovedfigurarkene. Filmene (SAN) er ikke med. Native bildefiler leveres byteidentisk med ekte alfa, i glatt detaljert stil. Originale inputfiler og prompt.txt bevares.
 
-Foreløpig er 561 av 3523 ark levert, tilsvarende 3634 av 20799 originaloppføringer. 2962 ark gjenstår. fremdrift.json er den løpende oversikten.
+Foreløpig er 567 av 3523 ark levert, tilsvarende 3649 av 20799 originaloppføringer. 2956 ark gjenstår. fremdrift.json er den løpende oversikten.
 
 Ruterekstangler er kildekontrollert diagnostikk, ikke ferdig importgeometri eller ankere. Rene magenta skygge- og registreringsmerker utelates som uttrykkelig bestilt i prompt.txt; kildepikselbevis står i originalrader.json. Alle andre små deler skal vurderes mot originalen. Ingen spilltest er utført.
 
@@ -141,3 +141,5 @@ Leveransegruppe 66: fig140_45, fig140_48, fig140_49, fig140_50, fig140_51, fig14
 Leveransegruppe 67: fig140_58, fig140_59, fig140_60, fig140_62, fig140_39, fig140_40, fig140_41, fig140_42, fig140_61, fig140_63. 10 tegnede figurområder, 10 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
 
 Leveransegruppe 68: fig140_64, fig140_65, fig140_66, fig140_67, fig140_68, fig140_69, fig140_74, fig140_75, fig140_76, fig140_77. 10 tegnede figurområder, 10 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
+
+Leveransegruppe 69: fig140_78, fig140_79, fig140_80, fig134_04, fig139_05, fig139_09. 12 tegnede figurområder, 15 originaloppføringer. Originalfragmenter og mottaksbegrensninger står i notatene.
