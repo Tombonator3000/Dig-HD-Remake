@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:58:37.174659+00:00",
+ "oppdatert_utc": "2026-10-10T00:59:00.137908+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 186,
+ "antall": 184,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -4794,14 +4794,6 @@
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
-   "jobb": "fig282_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "52127bb932a2acc19d50af76f01d869408b4b578d81944088a6beb4167475716",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "De to originale pyramidene har en tydelig brun ramme langs begge skråkantene. Native kandidaten har malt hele figuren blå eller rød uten denne brune rammen.",
-   "neste": "Nytt ordrett bildeforsøk med originalen som supplerende referanse."
-  },
-  {
    "jobb": "fig286_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "dd8960ef1c07713f9663db0b56d9db345e132c3cb23fdc284583e86c3242a403",
@@ -4924,31 +4916,6 @@
     }
    },
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
-  },
-  {
-   "jobb": "fig313_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "e8756d83c1bf55863ef90357b14148d26246be5afc1793d362e3793f1397f476",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Native raden har fjorten hovedfigurer eller hodedeler mot tretten i originalraden. Ekstra fase er ikke fjernet.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     13
-    ],
-    "native_rader": [
-     1,
-     14
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 2332,
-     "maks": 2,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
   },
   {
    "jobb": "fig314_01",
