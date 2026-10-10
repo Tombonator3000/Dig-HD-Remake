@@ -1,6 +1,6 @@
 # Lokal importkontroll av korrigert Brink
 
-Kontrollen brukte uendret pipeline fra commit 4cff0814. Pipeline er uendret i fjern-main 0c002bd1, kontrollert 10. oktober 2026. Ni korrigerte ark ga 123 ruter med status ok og 12 med sjekk. Dette er isolert importdiagnostikk, ikke integrasjon eller spilltest. Native grafikkfiler og originalfiler er uendret.
+Kontrollen brukte uendret pipeline fra commit 4cff0814. Pipeline er uendret i fjern-main 0c002bd1, kontrollert 10. oktober 2026. Første historiske prøveimport av ni korrigerte ark ga 123 ruter med status ok og 12 med sjekk. fig015_05 og fig015_06 er senere erstattet som beskrevet nedenfor. Dette er isolert importdiagnostikk, ikke integrasjon eller spilltest. Native grafikkfiler og originalfiler er uendret.
 
 ## Konkret feil i hoderuten costume015_299
 
@@ -12,7 +12,13 @@ Bevis står i markorbevis-hode299.json. Importens foreslåtte plassering står i
 
 ## Gange og omriss
 
-Ni bakre gåfaser i fig015_05 og to i fig015_06 fikk sjekk for dekning. Markørene påvirker også disse målingene; markormåling-import.json viser samme plassering målt med og uten markørene. Denne ekstra målingen endrer ikke importens status eller terskler. Nye kildebundne bildekorreksjoner er under arbeid der omrisset fortsatt avviker.
+Ni bakre gåfaser i fig015_05 og to i fig015_06 fikk sjekk for dekning. Markørene påvirker også disse målingene; markormåling-import.json viser samme plassering målt med og uten markørene. Denne ekstra målingen endrer ikke importens status eller terskler. Nye kildebundne native korreksjoner av fig015_05 og fig015_06 er nå levert. Prøveimporten av de to nye SHA256-verdiene gir 24 ok og ingen sjekk; dermed er de 11 gamle gåvarslene ikke aktuelle for de nye filene.
+
+## Andre kontrollrunde
+
+Ni nye eller erstattede native ark (fig015_02, 03, 05, 06, 17–21) er kontrollert med samme uendrede importer. Resultatet er 244 ok og 13 sjekk fordelt på 257 originaloppføringer. De fem gå-/vendearkene 17–21 gir 94 ok. fig015_02 har 70 hovedtegninger og to originalfragmenter: 69 ok, 3 sjekk. fig015_03 har 64 hovedtegninger og tre originalfragmenter: 57 ok, 10 sjekk. De 13 gjenstående varslene gjelder bakhoder og bakre trekvartshoder; de nye tegningene har annen detaljert silhuett enn de små originale pikselhodene. Omriss og stabil hodeskala må vurderes manuelt av Claude før integrasjon. Ingen terskler er senket eller varselstatus endret. fig015_02 har fått en ekstra native retting for å fjerne oppdiktede grå jakkekrager under tre separate bakhoder.
+
+importkontroll-del02.json oppgir aktuelle native SHA256, målinger, skala, originalrute og lokal importstatus. Hodeskalle og hår er visuelt sammenlignet mellom munnfasene. Det er fortsatt ingen motor- eller spilltest.
 
 ## Videre kontroll hos Claude
 

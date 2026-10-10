@@ -5,14 +5,14 @@
     "vurdering": "Retninger, separate hoder og hodeløse kropper kontrollert mot originalen. Prøveimport gir 29 ok og ingen manglende ruter; dette er en lokal importdiagnose, ikke spilltest."
   },
   "fig015_02": {
-    "godkjent": false,
-    "sha256": "8df1cc3a597f3b6de514aa732897802e6241dc5248700d7544ae73259707f33b",
-    "vurdering": "Avvist: venstre talerad har 21 hoder, kilden krever 20."
+    "godkjent": true,
+    "sha256": "8f81e09e4d259e494fa74596aeabeff4e9f8d40810882c24ed328a2a6ab90a9f",
+    "vurdering": "70 hovedtegninger er kontrollert: 12 venstrevendte gåfaser, 39 profil-/talehoder, 16 frontale hoder og 3 bakhoder. Oppdiktede grå jakkekrager på bakhodene er fjernet i native generator. Ingen helkropper er lagt til i hoderutene. Hodeskalle og hår følger samme godkjente identitet mellom munnfasene; lokal prøveimport dokumenteres separat."
   },
   "fig015_03": {
-    "godkjent": false,
-    "sha256": "87f9f879c1d3fecf1b7ff500a00ee8e1bcbc84c20fe9e282325770321d08ceb5",
-    "vurdering": "Avvist: første tre talerader har 23, 4 og 22 hoder, kilden krever 22, 5 og 21. Tillegg av jakkekrager i hoderutene avviker også fra kilden."
+    "godkjent": true,
+    "sha256": "f97ab79f85640defff98b4b8dcfcad89e479f2320a15b25dc2c50356615d0141",
+    "vurdering": "64 separate hoder kontrollert i rekkefølge 22,5,21,6,5,5. Den manglende femte hoderuten i rad 2 er satt inn med kildens lukkede munn. Retninger og munnfaser er kontrollert, uten oppdiktede jakkekrager. Bakhoder viser bakre hår, øre og en smal sidekant av ansiktet. Lokal prøveimport gir 57 ok og 10 sjekk for dekning; arket krever manuell importvurdering hos Claude."
   },
   "fig015_04": {
     "godkjent": true,
@@ -21,13 +21,13 @@
   },
   "fig015_05": {
     "godkjent": true,
-    "sha256": "587765e4904a237cae680c934168869f249b3b28a483a6b7d7b8a3fb6e31bd94",
-    "vurdering": "Gange mot oss, bort og mot oss til høyre kontrollert mot originalens rekkefølge, fot- og armpositurer. Hode og klær følger godkjent Brink-prøve."
+    "sha256": "c7dd385fe523b083bce7eebfdd1e03f44a2306e4c418552ef943cb6f1d756fad",
+    "vurdering": "Ny kildebundet gangkorreksjon er kontrollert mot originalens vide bukser, knevinkler, fotavstand og armføringer. Godkjent Brink-identitet beholdt. Uendret lokal prøveimport gir alle 12 ruter ok, uten sjekk. Erstatter første native stilrevisjon."
   },
   "fig015_06": {
     "godkjent": true,
-    "sha256": "28e0c874fcd6309e72d592c5fdbe2d1bb374f9802294640c69fc3d0cfba91458",
-    "vurdering": "Gange mot oss, bort og mot oss til høyre kontrollert mot originalens rekkefølge, fot- og armpositurer. Hode og klær følger godkjent Brink-prøve."
+    "sha256": "34f1731eadf823d6a2a1aba6de18db73895f01ecb959675daaa992a98f46e67a",
+    "vurdering": "Ny kildebundet gangkorreksjon er kontrollert mot originalens vide bukser, knevinkler, fotavstand og armføringer. Godkjent Brink-identitet beholdt. Uendret lokal prøveimport gir alle 12 ruter ok, uten sjekk. Erstatter første native stilrevisjon."
   },
   "fig015_07": {
     "godkjent": true,
@@ -78,5 +78,30 @@
     "godkjent": true,
     "sha256": "d0bc37251346945fef6db3e597b07cd5a5c50de9a1008c7c16d99288616451e4",
     "vurdering": "28 gå- og vendepositurer fordelt på 11, 11 og 6 tegninger, kontrollert mot kildens retninger og oppdeling."
+  },
+  "fig015_17": {
+    "godkjent": true,
+    "sha256": "e90f81e1c5a54895621b1ae6d5e716c1365003bb0808faa56c611c210ba505be",
+    "vurdering": "Gå- og vendefaser er sammenlignet visuelt med originalens rekkefølge, visningsretninger, kne-/fotstillinger og armføringer. Samme Brink-identitet og dempet palett er beholdt; ekte små kildefragmenter er ikke utvidet til ekstra figurer. Lokal uendret prøveimport godtar alle oppføringene på dette arket."
+  },
+  "fig015_18": {
+    "godkjent": true,
+    "sha256": "8b563995ab8d108a5bc5288bba4850d6f055707b07c65ab4d77778786501d16f",
+    "vurdering": "Gå- og vendefaser er sammenlignet visuelt med originalens rekkefølge, visningsretninger, kne-/fotstillinger og armføringer. Samme Brink-identitet og dempet palett er beholdt; ekte små kildefragmenter er ikke utvidet til ekstra figurer. Lokal uendret prøveimport godtar alle oppføringene på dette arket."
+  },
+  "fig015_19": {
+    "godkjent": true,
+    "sha256": "96710e4bfa497caca094e2d216aab6e452513a11d2f104f8d0c12a47f65a21c5",
+    "vurdering": "Gå- og vendefaser er sammenlignet visuelt med originalens rekkefølge, visningsretninger, kne-/fotstillinger og armføringer. Samme Brink-identitet og dempet palett er beholdt; ekte små kildefragmenter er ikke utvidet til ekstra figurer. Lokal uendret prøveimport godtar alle oppføringene på dette arket."
+  },
+  "fig015_20": {
+    "godkjent": true,
+    "sha256": "611d68b333a2dcedc0592ed0e0794d43e033e2269e25ba069ff2895ce5a5f229",
+    "vurdering": "Gå- og vendefaser er sammenlignet visuelt med originalens rekkefølge, visningsretninger, kne-/fotstillinger og armføringer. Samme Brink-identitet og dempet palett er beholdt; ekte små kildefragmenter er ikke utvidet til ekstra figurer. Lokal uendret prøveimport godtar alle oppføringene på dette arket."
+  },
+  "fig015_21": {
+    "godkjent": true,
+    "sha256": "6f2a558988785d6b57b9057327b3df9f33acdf396475629872b6ebd713ecf78d",
+    "vurdering": "Gå- og vendefaser er sammenlignet visuelt med originalens rekkefølge, visningsretninger, kne-/fotstillinger og armføringer. Samme Brink-identitet og dempet palett er beholdt; ekte små kildefragmenter er ikke utvidet til ekstra figurer. Lokal uendret prøveimport godtar alle oppføringene på dette arket."
   }
 }

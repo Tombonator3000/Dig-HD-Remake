@@ -1,8 +1,8 @@
 {
   "bestilling": "Brink med alle autoriserte kostymevarianter, godkjent stil 10. oktober 2026",
   "ark_totalt": 208,
-  "ark_revidert": 14,
-  "ark_gjenstar": 194,
+  "ark_revidert": 21,
+  "ark_gjenstar": 187,
   "status": "pågår, grafikklevert avventer import og spilltest",
   "leveranser": [
     {
@@ -38,6 +38,82 @@
         "original_1x.png": "fc0b5374355a6d84b59984e93f28d735c6800233433e236afe599cf05b454a62",
         "prompt.txt": "3093d769803bd02c1f430788cdeef6ab3bc64a7bb187e0cc60d0183544bb6fa1",
         "jobb.json": "ffce2bc0fa66011e7beb689caab8dc73fb5199dec2480a49c41c55a309f2a896"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig015_02",
+      "kostyme": 15,
+      "figur": "Ludger Brink",
+      "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
+      "resultat": "jobber/fig015_02/resultat.png",
+      "sha256": "8f81e09e4d259e494fa74596aeabeff4e9f8d40810882c24ed328a2a6ab90a9f",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-89a3d301-8a7a-465b-ad9d-9a770bb3a3de.png",
+      "attempts": 4,
+      "refs": [
+        "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-f6207114-dcc4-4926-8bb6-8203c9b8cec1.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_02/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_02-forsok4.txt",
+      "rows": [
+        8,
+        4,
+        19,
+        20,
+        16,
+        3
+      ],
+      "expected": 70,
+      "fragments": 2,
+      "originalruter": 72,
+      "erstatter_sha256": "31f452872985c6d9783f075a0b921568f5caa522d0f786065bd4e61969d75473",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "eefde88235ee8571783f045e03d5394636b6deecdd4190177fdc8fb799433ade",
+        "original_1x.png": "b92a51718c7d2528a8fcec2816cfe4193b2fd6a376756c63211ae0a5dd1b3d16",
+        "prompt.txt": "5fc8babf707bf34a40623aa561b1a1045424609dd0b39b2725ac609a26e1b95c",
+        "jobb.json": "efd2fc3f29269ed9692c4a4fc1712345fe9748d10459fd506562d0661a2436fe"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig015_03",
+      "kostyme": 15,
+      "figur": "Ludger Brink",
+      "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
+      "resultat": "jobber/fig015_03/resultat.png",
+      "sha256": "f97ab79f85640defff98b4b8dcfcad89e479f2320a15b25dc2c50356615d0141",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-50b9a5a3-6bfb-49f6-8e81-e5754403ad36.png",
+      "attempts": 4,
+      "refs": [
+        "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-6ca047b7-656d-48bc-8dcc-1e9b4281e73c.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/brink-kilde-rad2-hode5.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_03/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_03-forsok4.txt",
+      "rows": [
+        22,
+        5,
+        21,
+        6,
+        5,
+        5
+      ],
+      "expected": 64,
+      "fragments": 3,
+      "originalruter": 67,
+      "erstatter_sha256": "f8449085965f4de39a5ca094e19995288603f9c5c385da90d962348bf6e1a8e2",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "91e47f0d9f6838574afb57cd70035bb6ecc53fd2c753c01a36fe039986ab22b1",
+        "original_1x.png": "298235179c796459ad668a7f9f7551d04a0479f794e1c881cfb6fedd14e9cf9e",
+        "prompt.txt": "ce93d944c02ead613c0d66a85c936783505b7dd11b744e2b1b18aedc01800286",
+        "jobb.json": "7fb1f580b7f6efed99c4fa14b592a3fa0e0f0bbeb2205a741d7eb5059dfc6dc1"
       },
       "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
       "status": "grafikk revidert, avventer Claude-import og spilltest"
@@ -81,15 +157,15 @@
       "figur": "Ludger Brink",
       "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
       "resultat": "jobber/fig015_05/resultat.png",
-      "sha256": "587765e4904a237cae680c934168869f249b3b28a483a6b7d7b8a3fb6e31bd94",
-      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-7427c714-2843-44da-be3b-ef83e77bf459.png",
-      "attempts": 1,
+      "sha256": "c7dd385fe523b083bce7eebfdd1e03f44a2306e4c418552ef943cb6f1d756fad",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-38eec456-d5e5-4183-a1e8-2750a3e5b744.png",
+      "attempts": 2,
       "refs": [
         "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_05/referanse.png",
         "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
         "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
       ],
-      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_05-forsok1.txt",
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_05-forsok2.txt",
       "rows": [
         10,
         2
@@ -97,8 +173,8 @@
       "expected": 12,
       "fragments": 0,
       "originalruter": 12,
-      "erstatter_sha256": "c13a05952026a16a4d835d5fe61af48ab9542b59d32e3c744cd7d742298c3071",
-      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "erstatter_sha256": "587765e4904a237cae680c934168869f249b3b28a483a6b7d7b8a3fb6e31bd94",
+      "forrige_versjon_commit": "2632a4b7152729c8da4da328515559db32040b4d",
       "beskyttede_filer": {
         "referanse.png": "b78791b3d8a5787bda9c1d87cdb41421d211bb89a0f246f5437f54cdc80c3d7c",
         "original_1x.png": "61888aab7be17808092ab973aa903509ce02865943932112c5dc4c906f4d7e88",
@@ -114,15 +190,15 @@
       "figur": "Ludger Brink",
       "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
       "resultat": "jobber/fig015_06/resultat.png",
-      "sha256": "28e0c874fcd6309e72d592c5fdbe2d1bb374f9802294640c69fc3d0cfba91458",
-      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-2ff5504c-555c-47b5-87c8-df6bf07ee31c.png",
-      "attempts": 1,
+      "sha256": "34f1731eadf823d6a2a1aba6de18db73895f01ecb959675daaa992a98f46e67a",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-5c5b12c0-d347-4355-97f5-f8221146d133.png",
+      "attempts": 2,
       "refs": [
         "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_06/referanse.png",
         "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
         "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
       ],
-      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_06-forsok1.txt",
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_06-forsok2.txt",
       "rows": [
         11,
         1
@@ -130,8 +206,8 @@
       "expected": 12,
       "fragments": 0,
       "originalruter": 12,
-      "erstatter_sha256": "f9c4a2bd6d0a29fcb8711311debde10557589ed8a03e177da1bd8ca749f169b2",
-      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "erstatter_sha256": "28e0c874fcd6309e72d592c5fdbe2d1bb374f9802294640c69fc3d0cfba91458",
+      "forrige_versjon_commit": "2632a4b7152729c8da4da328515559db32040b4d",
       "beskyttede_filer": {
         "referanse.png": "bd99bf1faf6747c69a39596eb5cb55081c1aa1233ddb7021919a24e4b81378d0",
         "original_1x.png": "da8610a6c5bf91688a8e991f6855cfd78288688ac3f5c34f63f87d8a658dd46e",
@@ -472,6 +548,175 @@
         "original_1x.png": "067fcf57e7c5f377e1701b1579a3f0cdc99c172a07b63d1755612c1e5d72c136",
         "prompt.txt": "62910a2fe3d0024c26e9d97a0660f0f3787d56c44cb4f79239eb7bf56afd1ad4",
         "jobb.json": "2064f23af3cc0498d5619c502c19c2437f7739433517f757d7312fd4a4a09cda"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig015_17",
+      "kostyme": 15,
+      "figur": "Ludger Brink",
+      "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
+      "resultat": "jobber/fig015_17/resultat.png",
+      "sha256": "e90f81e1c5a54895621b1ae6d5e716c1365003bb0808faa56c611c210ba505be",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-7deedf7c-4d88-422f-89c6-c1e9f3946096.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_17/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_17-forsok1.txt",
+      "rows": [
+        9,
+        9,
+        5
+      ],
+      "expected": 23,
+      "fragments": 3,
+      "originalruter": 26,
+      "erstatter_sha256": "fe0b21a08f4f8479b826659b1bfce7bbb6059060ee3d9485a736c6c726d86fc0",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "c9aaffe0fcf781ecdb774aa08a46556e69335a18f3a93947fa1e4f60fc3fea04",
+        "original_1x.png": "7d34655354537aee9fc45da4418064694d07ebea458affe5ee53341152a2a6ab",
+        "prompt.txt": "54eccfc4f2ce50a3ec6fa48ce98992f9f129b148111bbb487f26328fe58a92f1",
+        "jobb.json": "5f76f919e8b9b902468eba9d1f0d7917abf8b1d8d660bad4798f5133febefa87"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig015_18",
+      "kostyme": 15,
+      "figur": "Ludger Brink",
+      "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
+      "resultat": "jobber/fig015_18/resultat.png",
+      "sha256": "8b563995ab8d108a5bc5288bba4850d6f055707b07c65ab4d77778786501d16f",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-a74e9099-a00c-45c2-bacb-2eafe96577fd.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_18/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_18-forsok1.txt",
+      "rows": [
+        10,
+        1,
+        5
+      ],
+      "expected": 16,
+      "fragments": 0,
+      "originalruter": 16,
+      "erstatter_sha256": "180a145ac181075a54d1086b24e6f88f99611bdd4fcacc93bf2bc54e898058c3",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "e8a95539d7f01415541dd3766815652459258f0869c3463539722872b6da4a1f",
+        "original_1x.png": "22eb558fef242e2410a848d0eed94669c0f07194b28fd7026a28d2a132e0bb84",
+        "prompt.txt": "cdb9693143b60c97ea5ef12778a65127329622111125b2f2a7707b1ae81f71de",
+        "jobb.json": "98b68bf85887a83b24c987cc58964fe6c9433f970631486a6e15a92ab1a3d4bd"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig015_19",
+      "kostyme": 15,
+      "figur": "Ludger Brink",
+      "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
+      "resultat": "jobber/fig015_19/resultat.png",
+      "sha256": "96710e4bfa497caca094e2d216aab6e452513a11d2f104f8d0c12a47f65a21c5",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-bf7efd6c-415c-4f31-9a2c-f51821ac4727.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_19/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_19-forsok1.txt",
+      "rows": [
+        11,
+        4,
+        3
+      ],
+      "expected": 18,
+      "fragments": 0,
+      "originalruter": 18,
+      "erstatter_sha256": "6cfd82e1642223a8c5b8913a6fb67192be1d4cb120d50af75831697a90975776",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "d59643527121dfb4f16fc37edc8f60b5e6519ac47b5f08b47ab9be3ad77c0d43",
+        "original_1x.png": "1ca940412f38d5742b028c9e0bd6d91570ae7e1a8bce0151f0bc08501b52ad21",
+        "prompt.txt": "4b2cbda31b541be48bc1548499ec3065b1a09cdfec3d023b005e2ccf27eba903",
+        "jobb.json": "3529cb5d675c195186c9bbde8bc644002326343b42e56c4232915a0b402c2137"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig015_20",
+      "kostyme": 15,
+      "figur": "Ludger Brink",
+      "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
+      "resultat": "jobber/fig015_20/resultat.png",
+      "sha256": "611d68b333a2dcedc0592ed0e0794d43e033e2269e25ba069ff2895ce5a5f229",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-2976cef8-eefd-42c4-8d8f-7ab2d2e8fc6a.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_20/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_20-forsok1.txt",
+      "rows": [
+        11,
+        9,
+        3
+      ],
+      "expected": 23,
+      "fragments": 0,
+      "originalruter": 23,
+      "erstatter_sha256": "bce8b3ceb58fbd8653019b4a11921f5cf906a4e597554db7921627cedc8448e9",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "dd257552950d5184345d91fb056b28b4a452688dac1866aa242317511c185a1a",
+        "original_1x.png": "96ffb62ad744b3f117815645a7faee095406879606b9b94c8554d11a0985408b",
+        "prompt.txt": "2056aeec06e5d0135a0dceb14a6dd98428df633d3d5c55a7f23d024e8f6c8c70",
+        "jobb.json": "4606ca4ceeabe195ea88328247773490fc3eb8274114996e69a72fcbf9e1213d"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig015_21",
+      "kostyme": 15,
+      "figur": "Ludger Brink",
+      "source_variant": "Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag",
+      "resultat": "jobber/fig015_21/resultat.png",
+      "sha256": "6f2a558988785d6b57b9057327b3df9f33acdf396475629872b6ebd713ecf78d",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-380b8bc1-0b9b-4878-9015-1e4fc2504245.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_21/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig015_21-forsok1.txt",
+      "rows": [
+        5,
+        5
+      ],
+      "expected": 10,
+      "fragments": 1,
+      "originalruter": 11,
+      "erstatter_sha256": "8c6622818e22db5f3685b1a526b955c1ddee3c5e4f74256cd297ed1663c3cabf",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "8656bfd932f3b8030ca88e4a8286342b2e5af22eeb516ded361ca54b5305355f",
+        "original_1x.png": "b169d34623fa2112b06e3170d235bf4e8d430305734824cc64fd20cb2ef13dd1",
+        "prompt.txt": "98c349859c3ba2258ee08b7c68a32d87d2a0891d1fae795de974b5a2ee338806",
+        "jobb.json": "cc137120c9efd296af037072110806c8216f29f2b1f8c62ded293e649af2beb1"
       },
       "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
       "status": "grafikk revidert, avventer Claude-import og spilltest"
