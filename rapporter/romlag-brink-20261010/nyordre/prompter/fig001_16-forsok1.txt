@@ -1,0 +1,35 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 21, facing toward the viewer (4 frames); animation 21 (a separate part the game draws on top of the body, such as the head), facing toward the viewer, away from the viewer (4 frames); animation 21, facing toward the viewer to the left, away to the left (3 frames); animation 22 (a separate part the game draws on top of the body, such as the head), facing right (1 frame).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+TOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.
+This astronaut is Boston Low, a MAN in his fifties, with the distinct Tom-approved face from imageTWO: square jaw, short brown hair and gray temples. He is neither the blond narrow-faced Brink nor the dark-haired Maggie. Copy exact source white/gray suit, backpack, helmet, yellow/gold visor rim, gloves, boots, panels and red markings.
+Use clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.
+STABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.
+EXACT main drawing rows: [4, 2]; total 6. Keep these rows and left-to-right order. There are also 1 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 5 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.
+Row 1: exactly 4 main drawings.
+Row 2: exactly 2 main drawings; tiny original fallback fragments ['costume001_003'].
+Image THREE is only a diagnostic copy of imageONE with numbered yellow original bounding boxes. Keep each drawing complete inside its corresponding original source box, at the original physical scale and source position. Never draw the guide lines or numbers. Keep transparent gaps and padding around all figures. Do not enlarge a drawing until it clips a canvas edge or touches another cell. Image TWO supplies Boston identity only, not a replacement pose or layout.
+
+SOURCE-SPECIFIC SIX FLOATING POSES: upper row four poses turn from FRONT-RIGHT THREE-QUARTER through nearly FRONT to DIRECT FRONT. Backpack is on the left in the first three, directly behind the fourth. Lower row first pose is FRONT-LEFT THREE-QUARTER with backpack behind on the right and Boston's male face visible; second is REAR-LEFT THREE-QUARTER with tall backpack on the right and NO visible face. All six float with the original bent legs, arms and hands; do not turn them into upright standing/walking people. Copy the exact progressive source poses and consistent helmet/body scale, source red beacons, red front panels, gray backpack and thin gold thigh seams only where present. There is no red shoulder badge or gold thigh marking on the rear lower-right pose. Keep the six figures in source boxes in the upper-left sheet area with transparent unused space. The tiny gray dash near x280,y742 is one real microscopic source fragment, never a body or part to complete. Five magenta-only source entries are omitted.

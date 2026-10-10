@@ -1,0 +1,31 @@
+[
+  {
+    "jobb": "fig002_01",
+    "attempt": 2,
+    "rows": [
+      7,
+      1
+    ],
+    "fragments": 0,
+    "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: standing, in all 8 directions (8 frames, in this order: right, left, toward the viewer, away from the viewer, toward the viewer to the right, toward the viewer to the left, away to the right, away to the left).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig002_01/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig002_01/original_1x.png"
+    ],
+    "source_prompt_verbatim": true,
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-042c2eaa-f141-410e-945c-40cfca14059f.png",
+    "visuell_kontroll": "Kilderetninger, verktøy og løse originaldeler kontrollert visuelt, samt alfa på hvit, sort og grønn bakgrunn.",
+    "figure": "Mannskapet i romdrakt",
+    "attempts": 2,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-042c2eaa-f141-410e-945c-40cfca14059f.png",
+    "sha256": "94008fce9bad8eefc2327b5695a0bc6e2c2b81511775a4c0a1bf4fdfd7abc43c",
+    "originalruter": 8,
+    "resultat": "jobber/fig002_01/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "b063bfc661417a5d1330fd18818216d70ac1ac7af68c185242dd1e660299073b",
+      "original_1x.png": "c43f273006dbee72fd6d87a36deea02c2d2b39fe9e5d80d2c7622edd42721ecb",
+      "prompt.txt": "7bc2cde9fdc8c39fabd3db9cb7b41a7277ace71af32c53cd167bf38118132a9e",
+      "jobb.json": "e409caf648a0f54706d31cfaaa4ed1cde5983700f8cb995e6ddb44c9a3a2b781"
+    }
+  }
+]
