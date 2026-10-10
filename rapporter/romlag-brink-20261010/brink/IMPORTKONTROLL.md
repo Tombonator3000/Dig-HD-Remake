@@ -36,6 +36,10 @@ fig017_01,02 og05 holdes tilbake lokalt på grunn av palett, antall/oppsplitting
 
 En samlet prøveimport fra den faktiske leveranseoppdagelsen og rutekartene finner alle33reviderte standardark med aktuelle SHA256. Resultatet er626ok og18sjekk over644originaloppføringer. De18varslene er de allerede beskrevne13bakre hodeomrissene,4frontale hodeomrissene og den påviste feilskaleringen av costume015_299. Ingen nye varsler kom til fra fig015_32 eller33. Full rapport står i importkontroll-standardkostyme-33ark.json. Dette bekrefter filruting i den isolerte importen, ikke motorintegrasjon eller spilltest.
 
+## Knelebevegelser, gester og vendinger
+
+Åtte nye ark fig017_10–17 gir 133 ok og ingen sjekk i isolert prøveimport, se importkontroll-del07.json. fig017_12 beholder originalens to celler med separat hode og hånd/underarm. Delene er koblet per originalcelle uten pikselendring. De hodeløse kroppene i fig017_10,13,14,15,17 er beholdt hodeløse. fig017_17 har faktisk fire komplette figurer og 18 hodeløse kropper; et feil delantall i prompten er dokumentert i visuell-kontroll.json, og bildet er kontrollert mot de faktiske kildedelene.
+
 ## Videre kontroll hos Claude
 
 Importer reviderte SHA256-verdier og rutekart etter at markeringsproblemet er rettet. Kontroller ståing, gange og tale i alle retninger med felles hodeskala og anatomisk halsanker, deretter z-masker og opptegning når figuren går. Rektangulære artefakter i Toms skjermbilder er fortsatt ikke bevist løst av grafikkrevisjonen.
