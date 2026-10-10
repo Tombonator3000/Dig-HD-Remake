@@ -6385,108 +6385,37 @@
   },
   {
    "jobb": "fig073_07",
-   "attempt": 1,
+   "kostyme": 73,
+   "figur": "Ludger Brink",
+   "source_variant": "Egne hoder og kropp",
+   "resultat": "jobber/fig073_07/resultat.png",
+   "sha256": "a6ac0d431c8dddc83aae37563fbdb56b4cd4594c7f090633208abed2b0a89b2c",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-65a7a983-6a36-4d99-bd91-d05f290484d1.png",
+   "attempts": 5,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_07/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/fig073_07-actual-source-count-guide.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/root-07307/delivered07305-cloth-color-crop-only.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig073_07-forsok5.txt",
    "rows": [
     4,
     1,
-    1,
-    5
+    1
    ],
-   "fragments": 0,
-   "prompt": "Use case: style-transfer. Asset: smooth detailed HD character animation sheet fig073_07. Exactly1536x1024 RGBA.\nImage1 is ORIGINAL EDIT TARGET for poses, piece counts, original order, headless states and orientation. Image2 is ONLY the approved smooth detailed illustrated identity/costume reference. Where image3 is present it is the Maggie style reference only. Do not copy poses/layout from style images.\nRedraw the source precisely in that smooth hand-drawn HD style: crisp detailed faces, hair strands, expressive lips, individual fingers, fabric construction/folds/seams and detailed boots. Preserve original wide body proportions, not stretched skinny people. Retain clipped bodies, loose anatomy and different animation phases.\n\nFOUR rows: top FOUR HEADLESS FRONT-LEFT Brink bodies, first arms down and next three raising hand toward LEFT. Second ONE HEADLESS FRONT-LEFT body continuing gesture. Third ONE HEADLESS FRONT-LEFT body continuing gesture. Fourth FIVE detached small HAND pieces in original order; each is anatomy, draw clearly around30px high. No heads anywhere. Exact rows4,1,1,5.\n\nHealthy Ludger Brink: swept blond hair, mature angular long-nosed face, broad shoulders/stocky source build, cool-gray full-sleeve open jacket, dark navy T-shirt, small violet-blue chest patch, loose orange trousers, black calf boots. Both knees intact orange cloth; no ripped knees, pale patches or exposed skin.\n\nExact row counts 4,1,1,5, total11 larger frame entries and0 tiny source fragments. Keep non-touching pieces, clear row separation and original left-to-right order. Headless bodies stay headless, loose hands stay hands, detached heads stay heads. Source flat tiny fragments are retained from original on import, never inflate them into extra heads/people. Remove cyan/magenta guides and gray guide patches. Full uncropped1536x1024, genuine native transparency, empty canvas/gaps alpha0, opaque subject interiors with narrow smooth antialiased edge. No background, colored haze, gray wash, glow, cast shadow, floor, grid, text, numbers, blur, pixel stairs or3D.\n",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_07/referanse.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6347e6a2-981f-435b-b7c8-bd9d0b32860c.png",
-   "known_native_rows": [
-    [
-     [
-      54,
-      44,
-      147,
-      298
-     ],
-     [
-      236,
-      44,
-      194,
-      298
-     ],
-     [
-      457,
-      44,
-      198,
-      298
-     ],
-     [
-      690,
-      44,
-      205,
-      298
-     ]
-    ],
-    [
-     [
-      35,
-      370,
-      202,
-      294
-     ]
-    ],
-    [
-     [
-      36,
-      679,
-      201,
-      277
-     ]
-    ],
-    [
-     [
-      50,
-      962,
-      29,
-      37
-     ],
-     [
-      125,
-      963,
-      36,
-      32
-     ],
-     [
-      202,
-      963,
-      37,
-      34
-     ],
-     [
-      285,
-      962,
-      28,
-      37
-     ],
-     [
-      363,
-      962,
-      28,
-      39
-     ]
-    ]
-   ],
-   "figure": "Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-6347e6a2-981f-435b-b7c8-bd9d0b32860c.png",
-   "sha256": "f7124716e97357249420f0f00cee4b5fa44dd981eb3227dc398bac8b6e7597de",
+   "expected": 6,
+   "fragments": 5,
    "originalruter": 11,
-   "resultat": "jobber/fig073_07/resultat.png",
+   "erstatter_sha256": "f7124716e97357249420f0f00cee4b5fa44dd981eb3227dc398bac8b6e7597de",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "ca2734a20b44899380ada7eed584cb28b2b98c5997c52c538a637bf4fe32676b",
     "original_1x.png": "44b1934a1366d0379bfb6246677e76e4cc8c7d6d615cde52a636ea072ceaa9e6",
-    "prompt.txt": "e097ebba6d46d03df76fc1c7ad133ed60ab84f118df14e3af36a0efd79a50414",
-    "jobb.json": "914ac174405afb5f3d109bfab60235060ac6388bc745bc18d2792619dee15787"
-   }
+    "prompt.txt": "3642126c47397d9c4d8c53e51ac0805ea102d05b213b6235c200922bea268bae",
+    "jobb.json": "95b58dad4894681d96859baa23e6e01094b3e7d50c95f3dc73ad95b6fda55b4d"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig204_02",
@@ -12606,31 +12535,37 @@
   },
   {
    "jobb": "fig174_06",
-   "attempt": 1,
+   "kostyme": 174,
+   "figur": "Boston Low og Ludger Brink",
+   "source_variant": "Brink i grønt lys",
+   "resultat": "jobber/fig174_06/resultat.png",
+   "sha256": "2aaddd02f567d7f4891c7e0a9b0e4129482ee772842b73162ed4e228709e7f56",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-4221a49a-b349-4db6-8057-32369111eb3a.png",
+   "attempts": 4,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig174_06/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/kostyme174/17401a2-Boston-single-frame-style-crop.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/kostyme174/fig174_06-actual-source-count-guide.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/kostyme174/174-mixed-actual-source-palette-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig174_06-forsok4.txt",
    "rows": [
     7,
     1
    ],
+   "expected": 8,
    "fragments": 0,
-   "prompt": "Use case: smooth HD production sprite redraw fig174_06. FIRST image is the ORIGINAL EDIT TARGET, sole authority for character identity in each cell, direction, anatomy, gesture, original pieces and order. Later images are ONLY smooth painted STYLE references, never additional content to copy. Output exactly1536 x1024 native RGBA on fully transparent background.\nPaint crisp detailed 1990s adventure concept art with smooth drawn contours, fine clothing folds, believable hands and facial detail, true soft antialiasing, NOT enlarged pixel art. Boston has brown swept short hair with gray temples, navy short-sleeve T-shirt and orange cargo pants; Maggie has short dark bob and orange flight jumpsuit with white undershirt; Brink has short blond hair and light gray-blue jacket, dark shirt and orange pants. Preserve original unique lighting, color variants, body width and exact facing. No new costume, no bruises unless present, no pixel masks.\nSOURCE ACTION: Rows SEVEN and ONE original entries, every entry is BOTH Boston and Brink side-by-side, gesturing with arms raised. Keep both people and their exact directions.\nCount original FRAME GROUPS per row exactly [7, 1]. A two-person or wall-plus-person original entry is ONE frame group, keep all its parts together. Never omit meaningful original pieces. Preserve left-to-right and top-to-bottom original source sequence, generous transparent spacing between frame groups. Remove only flat turquoise/gray background and tiny source registration pixels, not rods, walls or original held props. No opaque backdrop, scenery beyond the source frame props, grid, text, cast shadow, platform, halo or huge soft glow. Every single animation group must be present and isolated from its neighbours. Actual editable PNG asset.",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig174_06/original_1x.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-876fc2af-a729-4c33-bcfc-0b7830fe89e9.png",
-   "figure": "Boston Low og Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-876fc2af-a729-4c33-bcfc-0b7830fe89e9.png",
-   "sha256": "ac511ac826ee4ace50e05c1b6733abe0f881d82e0ce3c0647ee3df3a2b2acf59",
    "originalruter": 8,
-   "resultat": "jobber/fig174_06/resultat.png",
+   "erstatter_sha256": "ac511ac826ee4ace50e05c1b6733abe0f881d82e0ce3c0647ee3df3a2b2acf59",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "7859aef0e2d3d5a9f265926992c302a07c79af81aff390764d82a8da533125d7",
     "original_1x.png": "588cfdfa84fb7d06add59c7caffed12264aa363aa8c406d259a6618de72c3a53",
     "prompt.txt": "433470df41a49499a654e7883dafeb33b95a8e482005117c2600aeea913f79b3",
     "jobb.json": "256b6c4b1647f6483f4817ec59eadaccb948ab3d31183fbcad6d87502236f08e"
-   }
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig221_01",
@@ -13216,32 +13151,38 @@
   },
   {
    "jobb": "fig174_07",
-   "attempt": 2,
+   "kostyme": 174,
+   "figur": "Boston Low og Ludger Brink",
+   "source_variant": "Brink i grønt lys",
+   "resultat": "jobber/fig174_07/resultat.png",
+   "sha256": "de9b293fedf74aab344abe40156a5d625180402c80751318fc2539ce24f83389",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-d591ae1b-1525-494e-bef3-d42e7b35865e.png",
+   "attempts": 1,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig174_07/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/kostyme174/17401a2-Boston-single-frame-style-crop.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/kostyme174/fig174_07-actual-source-count-guide.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/kostyme174/174-mixed-actual-source-palette-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig174_07-forsok1.txt",
    "rows": [
     7,
     2,
-    4
+    1
    ],
-   "fragments": 0,
-   "prompt": "Surgical HD production sprite correction. Image1 actual editable target, image2 exact ORIGINAL sequence authority, image3 ONLY approved smooth detailed style. Exactly1536x1024 RGBA, transparent alpha0 empty background, keep native smooth detailed contours, faces, cloth, hands. Keep first row SEVEN paired Boston+Brink entries and second row TWO paired entries unchanged. Replace entire bottom area with exactly FOUR original source entries in order: tiny dark/skin partial piece, ONE full Boston+Brink pair, tiny skin partial piece, tiny skin partial piece. Use image2 actual source. No extra full pairs, no cut-off pair beneath bottom row. All four bottom entries share baseline, tiny pieces truly tiny relative to bodies. No opaque backdrop, cast shadow, matte, grid, labels, scenery or halo.",
-   "refs": [
-    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b23c3825-9ab4-4e6e-9d57-2645ac72550e.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig174_07/original_1x.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f8692ab3-61ee-46c8-bd9d-9ad5ac166486.png",
-   "figure": "Boston Low og Ludger Brink",
-   "attempts": 2,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f8692ab3-61ee-46c8-bd9d-9ad5ac166486.png",
-   "sha256": "6e0c94d7774ff894ffa99d0e202ac133ce69aa8df2bca04a4c644b0054427005",
+   "expected": 10,
+   "fragments": 3,
    "originalruter": 13,
-   "resultat": "jobber/fig174_07/resultat.png",
+   "erstatter_sha256": "6e0c94d7774ff894ffa99d0e202ac133ce69aa8df2bca04a4c644b0054427005",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "4b4d9130694cc76f2867e67f5e20c8710671ca2e562b8932b3e47a51bed38e8f",
     "original_1x.png": "bae7e88bb7773e2322c980eaac3c0482f09db59ff06637bd788e510c1790d430",
     "prompt.txt": "01b2338ab2f2d89a11c8406b474d81b7d1a1bc8b9470ec2067ef1c82a79cf5ac",
     "jobb.json": "c976acf7d9f9f759151573a8c19a39fa4333270032a4f1da805d5289ae32f137"
-   }
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig174_02",
@@ -14805,33 +14746,41 @@
   },
   {
    "jobb": "fig126_01",
-   "attempt": 2,
+   "kostyme": 126,
+   "figur": "Boston Low, Ludger Brink og Maggie Robbins",
+   "source_variant": "Brink ligger",
+   "resultat": "jobber/fig126_01/resultat.png",
+   "sha256": "27ad4379fe4d5eab3322b6133c260f3bb947162f5ffe1b8b88c045207369ad4d",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-7cb861a9-42c2-4bf8-aa1b-99b8cc9af4ea.png",
+   "attempts": 3,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig126_01/referanse.png",
+    "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-91a1cefa-c39b-4636-b4cc-e1c7a960d48f.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-126173/kostyme126/126021-actual-rgba-nearest.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-front-crop.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-126173/kostyme126/fig126_01-actual-source-count-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig126_01-forsok3.txt",
    "rows": [
     2,
     21,
     3,
-    8,
+    7,
     6
    ],
-   "fragments": 1,
-   "prompt": "Source-faithful smooth detailed HD sprite redraw/correction. First image editable target, original source authority. Keep the headless Brink top body and detached head;21 heads second row;3 heads third row;bottom6 original poses. Fourth row currently has7 groups, must have8. Insert the missing tiny original costume126_003 partial lower-leg/boot piece,2x5 source pixels in size, between FIRST seated Brink and SECOND seated Brink. It remains very small, about8x20 native pixels, never a new whole body. Then three Boston carrying Brink groups remain. Exact rows2,21,3,8,6. Exactly1536x1024 native RGBA. Tom-approved richly detailed smooth hand-painted game sprites, no pixel stair-steps, no hard pixel mask, no extra scenery/text/grid/shadows/matte. Boston short brown hair gray temples, navy T-shirt/orange cargo trousers;Maggie dark bob/orange flight suit;Brink blond gray-blue jacket/orange trousers. These identities apply ONLY where original people exist. Effect-only original entries stay effects only. Source partial bodies remain partial. Native antialiased alpha, all empty canvas alpha0. No new subjects or effect embellishments.",
-   "refs": [
-    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-2381c9ab-7556-4efe-ba75-1bd406188796.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig126_01/original_1x.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-88c0b09b-4846-459b-85b6-eb5d5e451c93.png",
-   "figure": "Boston Low og Ludger Brink",
-   "attempts": 2,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-88c0b09b-4846-459b-85b6-eb5d5e451c93.png",
-   "sha256": "0c8cb4d1507e9870e1c426ecc95edbc72896fed0e2c6bcbf63db614921be846d",
+   "expected": 39,
+   "fragments": 2,
    "originalruter": 41,
-   "resultat": "jobber/fig126_01/resultat.png",
+   "erstatter_sha256": "0c8cb4d1507e9870e1c426ecc95edbc72896fed0e2c6bcbf63db614921be846d",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "a71e2170bee278c37207b850fa7ddc2d208ca11b2ffe19899dbe761c7fb72ce4",
     "original_1x.png": "d6a12311e42c7984a90fa8b3bb3607bd599b407a66cac9210b16c5b68e52e4a8",
     "prompt.txt": "e318e5b5de9130153b2c5c555a548a96329da6c0fcd6108c35a0996c7b6542ba",
     "jobb.json": "8a37366793f231cc36fbd74dd4929fa447222f6597f6caa490a501fc6d4cdac8"
-   }
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig164_01",
@@ -15993,245 +15942,38 @@
   },
   {
    "jobb": "fig229_01",
-   "attempt": 1,
+   "kostyme": 229,
+   "figur": "Boston Low og Ludger Brink",
+   "source_variant": "Med lyn",
+   "resultat": "jobber/fig229_01/resultat.png",
+   "sha256": "b3b25af37e5368210dbacb4557380f958a44142e8654fbf47773d60681b16ae8",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-0b5bc2e0-8063-4b00-82ae-6c115f4f7ca0.png",
+   "attempts": 3,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig229_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-front-crop.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-plain-face-only.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-229/fig229_01-source-box-guide.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-229/fig229_01-original002-10x.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig229_01-forsok3.txt",
    "rows": [
     2,
     2
    ],
+   "expected": 4,
    "fragments": 0,
-   "prompt": "Use case: smooth detailed HD production sprite redraw fig229_01. FIRST image is original editable target and authority for every frame, subject, original crop, direction, hand gesture, clothing and effect phase. Later images ONLY illustrate Tom-approved smooth detailed painted character style, never extra frames or layout. Output exactly1536 x1024 native RGBA with truly transparent background.\nSOURCE CONTENT: Preserve original resurrection/transforming creature sequence. Blond Brink gray-blue jacket and Boston navy shirt often stand side by side above or next to PURPLE/WHITE/PALE YELLOW elongated energy/creature forms at their feet. Some original entries are ONLY people, others ONLY isolated purple effect pieces, others people plus effect. Follow the actual picture entry-by-entry. The long purple forms gradually curl into oval loops then into a tall purple spiky alien/creature; preserve phase, asymmetry, torn edges and purple-yellow colors from original. Do NOT replace effects with generic flames, new people or random dragons. A detached effect and two people belonging to ONE source entry remain the same relative group; keep standalone original effects separate.\nOriginal frame groups per row exactly [2, 2]. Count every original group ONCE, including meaningful standalone parts and effect-only entries. Keep exact original top-to-bottom/left-to-right sequence. A group containing two or more subjects stays one group with same relative placement and occlusion. Do not add, omit, merge or mirror groups. Preserve deliberate headless bodies, detached heads, tiny parts and effects; do not complete missing anatomy. All frames isolated with generous gaps.\nBoston has short brown swept hair with gray temples, sturdy mature face, navy T-shirt/orange cargo trousers. Maggie has dark bob/orange jumpsuit/white undershirt. Brink has blond hair/light gray-blue jacket/dark shirt/orange pants. Preserve original body proportions and original colored lighting. Render fine facial detail, believable fingers, cloth seams/folds and smooth hand-painted contours, no pixel stair-steps, no hard original pixel mask. Other original subjects must retain source anatomy and colors.\nNative soft antialiasing and alpha, subjects opaque except original transparent effects. Original glows fade smoothly into alpha0 in a compact area close to each effect; no broad halo. Empty canvas alpha0, no matte, solid background, extra scenery, ground plane, text, labels, grid, cast shadow or watermark. Remove flat cyan/yellow/magenta reference background and magenta ground-shadow markers only, not meaningful subjects or effects. Deliver an actual production PNG.",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig229_01/original_1x.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig262_01/resultat.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-82fa35f5-759e-49e4-8e78-10cbf4f38a6a.png",
-   "known_native_frame_groups": [
-    [
-     [
-      58,
-      79,
-      146,
-      366
-     ],
-     [
-      203,
-      119,
-      137,
-      345
-     ]
-    ],
-    [
-     [
-      363,
-      381,
-      240,
-      58
-     ],
-     [
-      466,
-      381,
-      10,
-      6
-     ]
-    ],
-    [
-     [
-      391,
-      482,
-      161,
-      370
-     ],
-     [
-      549,
-      529,
-      140,
-      345
-     ],
-     [
-      73,
-      787,
-      11,
-      7
-     ],
-     [
-      58,
-      787,
-      348,
-      82
-     ],
-     [
-      56,
-      794,
-      17,
-      18
-     ],
-     [
-      162,
-      859,
-      33,
-      17
-     ],
-     [
-      173,
-      883,
-      7,
-      6
-     ]
-    ],
-    [
-     [
-      724,
-      495,
-      581,
-      417
-     ],
-     [
-      1303,
-      537,
-      137,
-      345
-     ],
-     [
-      878,
-      785,
-      13,
-      9
-     ],
-     [
-      741,
-      790,
-      13,
-      7
-     ],
-     [
-      740,
-      847,
-      12,
-      9
-     ],
-     [
-      900,
-      918,
-      7,
-      7
-     ]
-    ]
-   ],
-   "known_native_main_parts": [
-    [
-     466,
-     381,
-     10,
-     6
-    ],
-    [
-     878,
-     785,
-     13,
-     9
-    ],
-    [
-     73,
-     787,
-     11,
-     7
-    ],
-    [
-     741,
-     790,
-     13,
-     7
-    ],
-    [
-     56,
-     794,
-     17,
-     18
-    ],
-    [
-     740,
-     847,
-     12,
-     9
-    ],
-    [
-     173,
-     883,
-     7,
-     6
-    ],
-    [
-     900,
-     918,
-     7,
-     7
-    ]
-   ],
-   "known_native_ordered_rows": [
-    [
-     [
-      58,
-      79,
-      282,
-      385
-     ],
-     [
-      363,
-      381,
-      240,
-      58
-     ]
-    ],
-    [
-     [
-      56,
-      482,
-      633,
-      407
-     ],
-     [
-      724,
-      495,
-      716,
-      430
-     ]
-    ]
-   ],
-   "source_group_basis": "Each original cell compared visually with native art. People and the separate energy creature parts belonging to one original frame are grouped; standalone original effect pieces retain their own entries. Every native alpha128 component is accounted for exactly once. Source row order is retained even where native parts have different baselines.",
-   "source_proven_effect_regions": [
-    [
-     340,
-     340,
-     300,
-     140
-    ],
-    [
-     0,
-     740,
-     720,
-     250
-    ],
-    [
-     700,
-     740,
-     780,
-     250
-    ]
-   ],
-   "source_effect_basis": "Original costume229 shows purple/lilac, pale yellow-white transforming energy and creature forms at these exact frame phases. The visually compared compact alpha in these matching effect areas is intentional; all native character contours and alpha outside the source effect areas remain independently checked.",
-   "figure": "Boston Low og Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-82fa35f5-759e-49e4-8e78-10cbf4f38a6a.png",
-   "sha256": "c032af6c53a2d98a26dcf032d6f6fdffa10a006329eac7c038b7632945062c2a",
    "originalruter": 4,
-   "resultat": "jobber/fig229_01/resultat.png",
+   "erstatter_sha256": "c032af6c53a2d98a26dcf032d6f6fdffa10a006329eac7c038b7632945062c2a",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "325dfa4142f6dd082b2d31eb8d554e63152fb499054dfbee89d2a4ea38589041",
     "original_1x.png": "c559e8db8d7fbae5bdd4e64631380ccf95f8fdd838f6193770345637eb3e761b",
     "prompt.txt": "64da9da66f7f781b929af528a6dc0a9ff3be2f51475d64bccbce70c344e66b2c",
     "jobb.json": "7eb402632644d98452328390834a9cc46d281bfd6c2d3385d1ae66248a353eab"
-   }
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig229_02",
@@ -23090,224 +22832,38 @@
   },
   {
    "jobb": "fig053_06",
-   "attempt": 3,
+   "kostyme": 53,
+   "figur": "Boston Low",
+   "source_variant": "Scene med alle tre",
+   "resultat": "jobber/fig053_06/resultat.png",
+   "sha256": "9e0d1080dd2dd91f1e893dc7fad805e7a280a6797eb505e2cea91e09da54e3a7",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-805fb1a1-3b1b-4df5-a8a0-c8bb65b46de8.png",
+   "attempts": 1,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_06/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-front-crop.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-plain-face-only.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/maggie-source-concept-face-only.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig053_06-forsok1.txt",
    "rows": [
     5,
     5,
     5
    ],
+   "expected": 15,
    "fragments": 0,
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_06/referanse.png",
-    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-de5dfbae-3173-4af1-9723-c9d31888d9b5.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig053_06/original_1x.png"
-   ],
-   "prompt": "Output exactly 1536 x 1024 RGBA on true transparent background. This is a surgical source-faithfulness correction to an HD sprite sheet. First and third images are authoritative source layout/poses; second image supplies only the approved smooth detailed painted style and character identity. Keep fine cloth seams, hair, fabric folds, natural anatomy, anti-aliased native alpha. No background or glow outside actual source effects, no contact shadows or registration pink. Preserve every real disconnected source element in its original animation frame; no added parts, poses or people. Preserve the sheet's existing complete poses, count, white spark/effect shapes and entry layout. Correct only the cable and foot registration colors: all cables/ropes are DARK NAVY/BLACK, not vivid purple, magenta, orange or red. Orange/red isolated effect rods in fig053_10 are genuine source effects and must remain orange/red. Remove flat magenta or purple patches immediately beneath boots; preserve dark boots and the actual dark cable underneath. Preserve all separate effect-only entries as drawn, including small sparks. No new decorative sparks. Exactly three rows of 5 composite Boston+cable entries each.",
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-45c98f82-48af-49c1-a564-f53bc40c9585.png",
-   "source_verified_frame_regions": [
-    [
-     [
-      0,
-      0,
-      310,
-      330
-     ],
-     [
-      310,
-      0,
-      300,
-      330
-     ],
-     [
-      610,
-      0,
-      295,
-      330
-     ],
-     [
-      905,
-      0,
-      310,
-      330
-     ],
-     [
-      1215,
-      0,
-      321,
-      330
-     ]
-    ],
-    [
-     [
-      0,
-      330,
-      310,
-      320
-     ],
-     [
-      310,
-      330,
-      305,
-      320
-     ],
-     [
-      615,
-      330,
-      310,
-      320
-     ],
-     [
-      925,
-      330,
-      315,
-      320
-     ],
-     [
-      1240,
-      330,
-      296,
-      320
-     ]
-    ],
-    [
-     [
-      0,
-      650,
-      310,
-      374
-     ],
-     [
-      310,
-      650,
-      300,
-      374
-     ],
-     [
-      610,
-      650,
-      320,
-      374
-     ],
-     [
-      930,
-      650,
-      310,
-      374
-     ],
-     [
-      1240,
-      650,
-      296,
-      374
-     ]
-    ]
-   ],
-   "source_region_basis": "Kilden har15 originale Boston-med-kabel-ruter, fem i hver rad. Løse hvite gnister og kabeldeler hører til samme kildeframe som Boston over dem; alle15 er visuelt sammenlignet med originalen.",
-   "source_proven_effect_regions": [
-    [
-     0,
-     200,
-     310,
-     125
-    ],
-    [
-     310,
-     200,
-     300,
-     125
-    ],
-    [
-     610,
-     200,
-     320,
-     125
-    ],
-    [
-     930,
-     200,
-     310,
-     125
-    ],
-    [
-     1240,
-     200,
-     296,
-     125
-    ],
-    [
-     0,
-     540,
-     310,
-     100
-    ],
-    [
-     310,
-     540,
-     300,
-     100
-    ],
-    [
-     610,
-     540,
-     320,
-     100
-    ],
-    [
-     930,
-     540,
-     310,
-     100
-    ],
-    [
-     1240,
-     540,
-     296,
-     100
-    ],
-    [
-     0,
-     875,
-     310,
-     140
-    ],
-    [
-     310,
-     875,
-     300,
-     140
-    ],
-    [
-     610,
-     875,
-     320,
-     140
-    ],
-    [
-     930,
-     875,
-     310,
-     140
-    ],
-    [
-     1240,
-     875,
-     296,
-     140
-    ]
-   ],
-   "source_effect_basis": "Originalens elektriske faser ved kabelen under føttene. Bare de lave kabel- og gnistområdene unntas fra bakgrunnsprøven; mennesker og mellomrom over dem er fortsatt kontrollert.",
-   "figure": "Boston Low, Maggie Robbins og Ludger Brink",
-   "attempts": 3,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-45c98f82-48af-49c1-a564-f53bc40c9585.png",
-   "sha256": "54a3ffd1366930ad09588672a26a42806f3f17ceecc310ee2b37eb2e38d7a212",
    "originalruter": 15,
-   "resultat": "jobber/fig053_06/resultat.png",
+   "erstatter_sha256": "54a3ffd1366930ad09588672a26a42806f3f17ceecc310ee2b37eb2e38d7a212",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "7fe9b85f244ce3c3830dbe46af55dd93294a1b4691ea19c98dd78603f913bad6",
     "original_1x.png": "054d3f05c71b1570d7121d1842c73682d34f05b0de9e49dae8286cb83fcc5e26",
     "prompt.txt": "8167f461643d3cf59370a510b093dd8325341b49d85075f61187b8ab2527c0ce",
     "jobb.json": "2f40958eb53251d971d5a410d988beb5dbd76e212acaa61afb17076e7e9eceee"
-   }
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig053_07",
@@ -27124,7 +26680,7 @@
  "retning_til_korrigering": [],
  "brink_stilrevisjon_20261010": {
   "stilanker": "rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
-  "revidert": 116,
+  "revidert": 122,
   "planlagt": 208,
   "status": "pågår"
  }

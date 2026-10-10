@@ -1,0 +1,129 @@
+{
+  "module": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/code-v2/pipeline/dighd/myk.py",
+  "code_sha256": "7cb20ae673d0576a0f51ecc62f18a289c9c3f1e5b79cff6b9b0cd521f44b6176",
+  "spilltestet": false,
+  "jobs": {
+    "fig137_06": {
+      "native_sha256": "faf5af5d550e6b97f3bad3104bc0e81d4b63e357f1e7ee71876ac8c440665004",
+      "status_counts": {
+        "ok": 23
+      }
+    },
+    "fig230_04": {
+      "native_sha256": "cd1d9180210818ba3210c09449c03358bb771757dd38d6ead07633460af5adb0",
+      "status_counts": {
+        "ok": 8
+      }
+    }
+  },
+  "head_case": {
+    "frames": [
+      {
+        "id": "costume137_005",
+        "source_bbox_size": [
+          9,
+          13
+        ],
+        "group_scale": 0.5253,
+        "actual_scale_xy": [
+          0.5253,
+          0.5253
+        ],
+        "status": "ok"
+      },
+      {
+        "id": "costume137_004",
+        "source_bbox_size": [
+          9,
+          13
+        ],
+        "group_scale": 0.5253,
+        "actual_scale_xy": [
+          0.5253,
+          0.5253
+        ],
+        "status": "ok"
+      },
+      {
+        "id": "costume137_003",
+        "source_bbox_size": [
+          9,
+          13
+        ],
+        "group_scale": 0.5253,
+        "actual_scale_xy": [
+          0.4622,
+          0.5306
+        ],
+        "status": "ok"
+      },
+      {
+        "id": "costume137_002",
+        "source_bbox_size": [
+          9,
+          13
+        ],
+        "group_scale": 0.5253,
+        "actual_scale_xy": [
+          0.4622,
+          0.5253
+        ],
+        "status": "ok"
+      },
+      {
+        "id": "costume137_094",
+        "source_bbox_size": [
+          9,
+          13
+        ],
+        "group_scale": 0.5253,
+        "actual_scale_xy": [
+          0.4622,
+          0.52
+        ],
+        "status": "ok"
+      }
+    ],
+    "x_scale_range_relative_to_max": 0.1201218351418237,
+    "same_original_bbox": true,
+    "meaning": "Different actual whole-head X scales require animation review even when all import statuses are ok."
+  },
+  "marker_case": {
+    "id": "costume230_002",
+    "actual_import_record": {
+      "status": "ok",
+      "kilde": "originalen (fragment)",
+      "fil": "costumes/costume230_002_hd.png",
+      "sha256": "c193c31120519662b09d261047a0d02e2eaa992ccdc8c3d46e5b161bacfe7f05",
+      "storrelse": [
+        32,
+        20
+      ],
+      "marg": [
+        2,
+        2
+      ],
+      "flytt_hd": [
+        0,
+        0
+      ],
+      "snitt_union": null,
+      "dekning": null,
+      "deler": 0,
+      "skala": 0.817,
+      "tilpasset": false,
+      "skala_xy": null,
+      "kostyme": 230,
+      "rute": 2,
+      "animasjon": 6,
+      "retning": 1,
+      "lag": 0
+    },
+    "export": {
+      "visible_alpha_gt0": 276,
+      "magenta_alpha_gt0": 276,
+      "magenta_alpha_ge128": 64
+    },
+    "meaning": "The original cel is a pure technical marker; a visible magenta export is not missing artwork."
+  }
+}
