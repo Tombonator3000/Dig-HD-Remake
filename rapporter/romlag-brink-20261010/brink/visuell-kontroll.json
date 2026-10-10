@@ -456,8 +456,8 @@
   },
   "fig073_05": {
     "godkjent": true,
-    "sha256": "66e3282a4e6dff5e2f65e4c86c1019a74c0dd78a9e2c6e38ee265fa6aec5a879",
-    "vurdering": "Root har sett kilde og grå native: 13 hoveddeler i 7+1+5, kildekorrekt knebøy og hodeløse kropper. Native forsøk2 har smalt merke ved venstre jakkeåpning og grått bredt høyre panel, uten ekstra brystmerke. Original-RGBA og rekkefølge er selvstendig verifisert. Faktisk v2 gir 13 ok. Import og spilltest i motoren gjenstår."
+    "sha256": "1d53b163886762a5420078b60ff596ad8446ededbc8a1841ab825f5a39df438c",
+    "vurdering": "Root har sett original og native på grå bakgrunn. Alle13figurer beholder armstillinger, fire hoder, ni hodeløse kropper, enkeltmerker og ekte slitasje. Buksefamilien er mørk rust i alle ruter; bottom4/5 har armene nede. Faktisk v2 har13ok. Modellens reduserte fargestikk er kontrollert; PNG er byteidentisk."
   },
   "fig073_06": {
     "godkjent": true,
@@ -563,5 +563,40 @@
     "godkjent": true,
     "sha256": "eb3651f0ca6db912f109f61fcaa44095f0869e506cb0ae8b00ec5ea073debc57",
     "vurdering": "Root har sett faktisk originalguide og native på grå bakgrunn. Tjuetre områder inkluderer Boston alene, Brink bakfra alene og de tre ekte Boston/Brink-komposittparene. Personer, bakvendt Brink-hode, håndobjekt og gåfaser er bevart etter kilden; ingen frontansikt på bakhodet."
+  },
+  "fig073_01": {
+    "godkjent": true,
+    "sha256": "7f1bd2e88e0ec2d8074c07e22239bac6885ce7ef41e2f7af0acfef11f44c8450",
+    "vurdering": "Root har sett kildehoder, native på grå bakgrunn og faktisk importpreview. To separate hoder har lik nativehøyde78 mot tidligere96/92, og kildeproporsjonene er forbedret; de to hodeløse kroppene og fem helfigurer har mørk rust, ekte slitasje og kildebundne poser.12importer ok, med hode-IoU0.780/0.783 og dekning0.977/0.986. Dette beviser ikke stabil motoranimasjon."
+  },
+  "fig174_05": {
+    "godkjent": true,
+    "sha256": "fbd3fc3598d480516e5126c66dd39c25bd04ac213e3fa0d7cc756a9a9cb8b3e7",
+    "vurdering": "Root har sett faktisk originalguide og native på grå bakgrunn.17ekte Boston/Brink-par, samme korte Brink-bakhår, kildeekte enkeltklær, dempet belysning og ulike Boston-munnfaser. Ingen ekstra cargoposer eller fullførte manglende deler."
+  },
+  "fig230_01": {
+    "godkjent": true,
+    "sha256": "bfcca17fd8951e5a68d47a10bc25e6e11d769ae14500a64f5b4679e802ecb83e",
+    "vurdering": "Root har sett kildeguide og native på grå bakgrunn. Fem kildeekte brune dørdeler; bare siste har de opprinnelige små fingrene ved venstrekanten. Ingen oppdiktede personer. Kildens transparente sprekker er åpne."
+  },
+  "fig230_02": {
+    "godkjent": true,
+    "sha256": "04eb158cd9aceeca73e905ebe77b56e1c5927dc78af36ee942f5def052bd7112",
+    "vurdering": "Root har sett kildeguide og native på grå bakgrunn. Dørens kant, sprekker og kildeekte smådeler bevares; alle Boston/Brink-poser, avskårne kropper og endrede håndstillinger følger kilden. Komposittdeler er én originalscene, ikke nye ekstra ruter."
+  },
+  "fig230_03": {
+    "godkjent": true,
+    "sha256": "ee5d5aa24a5868450c42d3297307849bb5eaa725ce2a92e8d7383037ed6f4876",
+    "vurdering": "Root har sett kildeguide og native på grå bakgrunn. Dørens kant, sprekker og kildeekte smådeler bevares; alle Boston/Brink-poser, avskårne kropper og endrede håndstillinger følger kilden. Komposittdeler er én originalscene, ikke nye ekstra ruter."
+  },
+  "fig230_04": {
+    "godkjent": true,
+    "sha256": "cd1d9180210818ba3210c09449c03358bb771757dd38d6ead07633460af5adb0",
+    "vurdering": "Root har sett kildeguide og native på grå bakgrunn. Dørens kant, sprekker og kildeekte smådeler bevares; alle Boston/Brink-poser, avskårne kropper og endrede håndstillinger følger kilden. Komposittdeler er én originalscene, ikke nye ekstra ruter. Ren magenta costume230_002 er riktig utelatt fra native; v2s grønne originalfallback tegner den likevel og må rettes av Claude."
+  },
+  "fig230_05": {
+    "godkjent": true,
+    "sha256": "6dd3e4129e67341d7e7fb1eea50f49c41013ae7287489a1749cdbf4fd2700984",
+    "vurdering": "Root har sett kildeguide og native på grå bakgrunn. Dørens kant, sprekker og kildeekte smådeler bevares; alle Boston/Brink-poser, avskårne kropper og endrede håndstillinger følger kilden. Komposittdeler er én originalscene, ikke nye ekstra ruter."
   }
 }

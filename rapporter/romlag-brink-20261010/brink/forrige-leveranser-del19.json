@@ -1,0 +1,283 @@
+[
+  {
+    "jobb": "fig073_01",
+    "attempt": 1,
+    "prompt": "Use case: faithful style-transfer HD game sprites. Asset fig073_01, exactly1536x1024 RGBA.\nImage1 is ORIGINAL EDIT TARGET for all actual source poses, cropped parts, piece order, proportions, facial angles and props. Later images are approved smooth detailed art style and identity references ONLY. Redraw the source artwork in that approved crisp hand-drawn inked cel-shaded style with detailed face/hair/fingers/seams/fabric folds/boots. Never borrow poses or layout from the style references.\n\nFOUR rows, piece counts TWO, THREE, ONE, FIVE. Top one HEADLESS open-jacket body and ONE detached blond head. Row2 one HEADLESS mirrored-angle open-jacket body, ONE tiny detached HAND and ONE detached blond head, in that order. Row3 ONE tiny detached HAND only, not a head or full figure. Draw the two tiny hands clearly as hands, 30-40px high, no invented arm/body. Bottom FIVE headed open-jacket walking/standing/front turn bodies. Preserve the two separate small hands and all source headless states. The one nearly invisible source fragment remains tiny. Keep each row visually separate with clear vertical spacing, including the tiny-hand row.\n\nBoston: mature squared angular face, short brown hair gray temples, navy short-sleeve tee, orange loose cargo trousers with belt, black calf boots. Maggie: black bob haircut, orange coverall with rolled sleeves and blue/violet chest patch, white undershirt, black boots. Brink: swept blond hair and long angular nose, full-sleeve gray jacket over navy tee, orange cargo trousers, black boots. Match only the character(s) visible in ORIGINAL. Dark dirty Brink in188, healthy lighter gray Brink in48/73. Preserve source clothing condition and every held prop.\n\nKeep source adult proportions, body width, broad shoulders, silhouette and loose fabric fit. Intact orange fabric on both knees, no invented skin holes/rips/pale knee patches. Preserve source headless torsos, loose heads, hands and partial/cropped bodies exactly; don't complete missing parts. Original fragments(1) are tiny and must remain tiny or be recovered from unchanged original files, never inflated into heads or full bodies.\n\nExact actual row counts 2,3,1,5. Space every separate piece and row clearly; keep original sequence and direction. True transparent empty canvas and all gaps ALPHA ZERO. Opaque subject interiors, narrow smooth native antialiased edges, no glow or haze. Remove flat cyan/magenta and gray margin completely. No background wash, brown smoke, black/gray fill, floor, cast shadow, grid, text, frame, blur, pixel stairs or3D. Keep uncropped full1536x1024 with all pieces inside canvas. Only the actual character artwork remains opaque.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/resultat.png"
+    ],
+    "rows": [
+      2,
+      3,
+      1,
+      5
+    ],
+    "fragments": 1,
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-25d9231e-84d0-42c5-9498-8508394af38d.png",
+    "figure": "Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-25d9231e-84d0-42c5-9498-8508394af38d.png",
+    "sha256": "f1a230a4f87437aba81bc6bb096eada5cb4543e0869e5a78c495be16b6b66d86",
+    "originalruter": 12,
+    "resultat": "jobber/fig073_01/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "09c924b2d55b4f8dd1e330095a1a1c64856e1eaed5859bb42c421f9332b03a97",
+      "original_1x.png": "a5859514d906f64b956830e26b8275dcba41c06e6eddd3d790452742e97ab7f2",
+      "prompt.txt": "abc5ec7be0becfddd8a15813d26b68273974c1720b7f728b9fe2af31d81f9611",
+      "jobb.json": "f2ece21fd09f2e2868749ee72cc5c8686be56b295699b8ba5b961ba22c87d08d"
+    }
+  },
+  {
+    "jobb": "fig073_05",
+    "kostyme": 73,
+    "figur": "Ludger Brink",
+    "source_variant": "Egne hoder og kropp",
+    "resultat": "jobber/fig073_05/resultat.png",
+    "sha256": "66e3282a4e6dff5e2f65e4c86c1019a74c0dd78a9e2c6e38ee265fa6aec5a879",
+    "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-032f7baf-a9e3-4027-b292-46e9b8a00cf8.png",
+    "attempts": 2,
+    "refs": [
+      "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-bef0f512-0b04-4ddc-866a-cc268092745a.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_05/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/referanse.png",
+      "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/fig073_05-actual-source-count-guide.png"
+    ],
+    "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig073_05-forsok2.txt",
+    "rows": [
+      7,
+      1,
+      5
+    ],
+    "expected": 13,
+    "fragments": 0,
+    "originalruter": 13,
+    "erstatter_sha256": "84edacb221acf7bbfb22270c3069a9002d64e69e675f6341a64a6a9d2b1c9869",
+    "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+    "beskyttede_filer": {
+      "referanse.png": "4b5be07bed98590304fbe7d66676fc865d27efb7e31f16944034832efb850903",
+      "original_1x.png": "d7b5a67b5fb4e879b9e4ac94f538f7047d0af035a67778f2a510ce38c6200390",
+      "prompt.txt": "9cb5353ac8b4dafc9a2c4d1782c50882547b8f2c73604b73629f29802294d36d",
+      "jobb.json": "b9ae62b99fc9d6cd40f1c6d16335ab4237f48eccfe802df6e2971e2b09573a5c"
+    },
+    "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+    "status": "grafikk revidert, avventer Claude-import og spilltest"
+  },
+  {
+    "jobb": "fig174_05",
+    "attempt": 1,
+    "rows": [
+      6,
+      6,
+      5
+    ],
+    "fragments": 0,
+    "prompt": "Use case: smooth HD production sprite redraw fig174_05. FIRST image is the ORIGINAL EDIT TARGET, sole authority for character identity in each cell, direction, anatomy, gesture, original pieces and order. Later images are ONLY smooth painted STYLE references, never additional content to copy. Output exactly1536 x1024 native RGBA on fully transparent background.\nPaint crisp detailed 1990s adventure concept art with smooth drawn contours, fine clothing folds, believable hands and facial detail, true soft antialiasing, NOT enlarged pixel art. Boston has brown swept short hair with gray temples, navy short-sleeve T-shirt and orange cargo pants; Maggie has short dark bob and orange flight jumpsuit with white undershirt; Brink has short blond hair and light gray-blue jacket, dark shirt and orange pants. Preserve original unique lighting, color variants, body width and exact facing. No new costume, no bruises unless present, no pixel masks.\nSOURCE ACTION: Rows SIX,SIX,FIVE original entries. Every entry shows BOTH Boston on LEFT and Brink on RIGHT side-by-side, talking and gesturing. Source greenish light, Brink mostly seen from back; preserve two people and relative placement in every one of seventeen original entries.\nCount original FRAME GROUPS per row exactly [6, 6, 5]. A two-person or wall-plus-person original entry is ONE frame group, keep all its parts together. Never omit meaningful original pieces. Preserve left-to-right and top-to-bottom original source sequence, generous transparent spacing between frame groups. Remove only flat turquoise/gray background and tiny source registration pixels, not rods, walls or original held props. No opaque backdrop, scenery beyond the source frame props, grid, text, cast shadow, platform, halo or huge soft glow. Every single animation group must be present and isolated from its neighbours. Actual editable PNG asset.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig174_05/original_1x.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d45b4888-945a-4422-985c-b2dcdf7cdb4d.png",
+    "figure": "Boston Low og Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d45b4888-945a-4422-985c-b2dcdf7cdb4d.png",
+    "sha256": "9f427e0b6aa4e67201f0a66583321f477abb17d0fc4dccb6d28e584422787ab1",
+    "originalruter": 17,
+    "resultat": "jobber/fig174_05/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "b22e7e966afb4bf7864be3d208a1b1a81cb9f4093a0d22dc0491c8519f291585",
+      "original_1x.png": "c697af817870075c7360a247fac12b8249aeb473710ef0e3630f13ad0f9e6c61",
+      "prompt.txt": "2b47b5541fe6c1145522929b968ac7a3f39e8ebae928fb66e1d0ae2905f6c596",
+      "jobb.json": "d03c5e2780d8c040947a89ac45c2525668b4af20390a5c56a76a3028e1aa3b2d"
+    }
+  },
+  {
+    "jobb": "fig230_01",
+    "attempt": 1,
+    "rows": [
+      1,
+      4
+    ],
+    "fragments": 0,
+    "prompt": "Use case: smooth HD production sprite redraw fig230_01. FIRST image is the ORIGINAL EDIT TARGET, sole authority for character identity in each cell, direction, anatomy, gesture, original pieces and order. Later images are ONLY smooth painted STYLE references, never additional content to copy. Output exactly1536 x1024 native RGBA on fully transparent background.\nPaint crisp detailed 1990s adventure concept art with smooth drawn contours, fine clothing folds, believable hands and facial detail, true soft antialiasing, NOT enlarged pixel art. Boston has brown swept short hair with gray temples, navy short-sleeve T-shirt and orange cargo pants; Maggie has short dark bob and orange flight jumpsuit with white undershirt; Brink has short blond hair and light gray-blue jacket, dark shirt and orange pants. Preserve original unique lighting, color variants, body width and exact facing. No new costume, no bruises unless present, no pixel masks.\nSOURCE ACTION: NO PERSON appears yet. Row1 ONE and row2 FOUR reddish-brown stone fan/wall cutouts, five animation entries total. Redraw every stone section and preserve exact broken shape, cracks and turquoise holes as transparent holes. This wall is meaningful animation content, not a background to discard.\nCount original FRAME GROUPS per row exactly [1, 4]. A two-person or wall-plus-person original entry is ONE frame group, keep all its parts together. Never omit meaningful original pieces. Preserve left-to-right and top-to-bottom original source sequence, generous transparent spacing between frame groups. Remove only flat turquoise/gray background and tiny source registration pixels, not rods, walls or original held props. No opaque backdrop, scenery beyond the source frame props, grid, text, cast shadow, platform, halo or huge soft glow. Every single animation group must be present and isolated from its neighbours. Actual editable PNG asset.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig230_01/original_1x.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a3bb8fb9-d999-40b3-9d38-750c6382fb30.png",
+    "figure": "Boston Low og Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a3bb8fb9-d999-40b3-9d38-750c6382fb30.png",
+    "sha256": "0fa1223084b6fc132607c7bce0f849a0c34691bd70c3fcf2ee3cf691c94a3b31",
+    "originalruter": 5,
+    "resultat": "jobber/fig230_01/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "46ce103ba90246360ae00bae2d35117051b26fc2f410d6f5a4f80ce79eb1d072",
+      "original_1x.png": "3ac4021ca48a98c32191271f3cdef73a5e80e99a3ff734d8d936ec1bd9dcc9b7",
+      "prompt.txt": "694e3b9eb050560d987d4ab62ed6346f7b92346e0cd36379bb2f5a347d047b94",
+      "jobb.json": "ea8fd755beb6747e3b0a1941f4468539cdc9f3d9dcc725b69525e6e6b271df81"
+    }
+  },
+  {
+    "jobb": "fig230_02",
+    "attempt": 1,
+    "rows": [
+      4,
+      4
+    ],
+    "fragments": 0,
+    "prompt": "Use case: smooth HD production sprite redraw fig230_02. FIRST image is the ORIGINAL EDIT TARGET, sole authority for character identity in each cell, direction, anatomy, gesture, original pieces and order. Later images are ONLY smooth painted STYLE references, never additional content to copy. Output exactly1536 x1024 native RGBA on fully transparent background.\nPaint crisp detailed 1990s adventure concept art with smooth drawn contours, fine clothing folds, believable hands and facial detail, true soft antialiasing, NOT enlarged pixel art. Boston has brown swept short hair with gray temples, navy short-sleeve T-shirt and orange cargo pants; Maggie has short dark bob and orange flight jumpsuit with white undershirt; Brink has short blond hair and light gray-blue jacket, dark shirt and orange pants. Preserve original unique lighting, color variants, body width and exact facing. No new costume, no bruises unless present, no pixel masks.\nSOURCE ACTION: TWO rows of FOUR original entries. Every entry includes a reddish fan-shaped broken stone wall AND partially hidden Boston and Brink along LEFT edge. Preserve wall, both people, exact occlusion and emerging poses. No replacement scene.\nCount original FRAME GROUPS per row exactly [4, 4]. A two-person or wall-plus-person original entry is ONE frame group, keep all its parts together. Never omit meaningful original pieces. Preserve left-to-right and top-to-bottom original source sequence, generous transparent spacing between frame groups. Remove only flat turquoise/gray background and tiny source registration pixels, not rods, walls or original held props. No opaque backdrop, scenery beyond the source frame props, grid, text, cast shadow, platform, halo or huge soft glow. Every single animation group must be present and isolated from its neighbours. Actual editable PNG asset.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig230_02/original_1x.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4449a5d7-32f6-452d-9528-de49ba4de0fd.png",
+    "known_native_frame_groups": [
+      [
+        [
+          901,
+          70,
+          38,
+          76
+        ],
+        [
+          791,
+          97,
+          358,
+          333
+        ]
+      ],
+      [
+        [
+          1275,
+          71,
+          37,
+          73
+        ],
+        [
+          1180,
+          97,
+          343,
+          332
+        ]
+      ]
+    ],
+    "source_group_basis": "Detached original Boston heads above left edge of wall are parts of the same wall-plus-two-people frame; groups verified against source.",
+    "figure": "Boston Low og Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4449a5d7-32f6-452d-9528-de49ba4de0fd.png",
+    "sha256": "ccf1413b7f088644909deac53ba66327ee2503f726d12c10d63770b4b2b4e890",
+    "originalruter": 8,
+    "resultat": "jobber/fig230_02/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "b759662d68e835e2e91967a1f5571aad8b036876f39313004d413df49b7d3c53",
+      "original_1x.png": "cc9751e68f8a32a887fcb1776d85173bade40f82d4041f2033dc1c3ed118193f",
+      "prompt.txt": "c3358c83ab1bcf06a4c48c01a94e161856b53b557ae5c47ab10cbfc07e003c9f",
+      "jobb.json": "a6acdecb563e82773496835291609661dd1200d3738b22f8310b351003f63480"
+    }
+  },
+  {
+    "jobb": "fig230_03",
+    "attempt": 1,
+    "rows": [
+      4,
+      4
+    ],
+    "fragments": 0,
+    "prompt": "Use case: smooth HD production sprite redraw fig230_03. FIRST image is the ORIGINAL EDIT TARGET, sole authority for character identity in each cell, direction, anatomy, gesture, original pieces and order. Later images are ONLY smooth painted STYLE references, never additional content to copy. Output exactly1536 x1024 native RGBA on fully transparent background.\nPaint crisp detailed 1990s adventure concept art with smooth drawn contours, fine clothing folds, believable hands and facial detail, true soft antialiasing, NOT enlarged pixel art. Boston has brown swept short hair with gray temples, navy short-sleeve T-shirt and orange cargo pants; Maggie has short dark bob and orange flight jumpsuit with white undershirt; Brink has short blond hair and light gray-blue jacket, dark shirt and orange pants. Preserve original unique lighting, color variants, body width and exact facing. No new costume, no bruises unless present, no pixel masks.\nSOURCE ACTION: TWO rows of FOUR original entries. Each is wall plus Boston and Brink emerging on its LEFT. Brink in light blue-gray jacket and orange pants is in front/LEFT; Boston navy shirt orange pants behind/right. Keep exact source arrangement.\nCount original FRAME GROUPS per row exactly [4, 4]. A two-person or wall-plus-person original entry is ONE frame group, keep all its parts together. Never omit meaningful original pieces. Preserve left-to-right and top-to-bottom original source sequence, generous transparent spacing between frame groups. Remove only flat turquoise/gray background and tiny source registration pixels, not rods, walls or original held props. No opaque backdrop, scenery beyond the source frame props, grid, text, cast shadow, platform, halo or huge soft glow. Every single animation group must be present and isolated from its neighbours. Actual editable PNG asset.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig230_03/original_1x.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1284ad4b-c107-4be5-9bbf-1c674dbe662b.png",
+    "figure": "Boston Low og Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1284ad4b-c107-4be5-9bbf-1c674dbe662b.png",
+    "sha256": "3ed00303bcc08b53de10fdb99f42989d3ef137335e5944b36b50c3c998fcf691",
+    "originalruter": 8,
+    "resultat": "jobber/fig230_03/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "c0f8b56c7c9fcbf6942f370e10dc31097ed162c8ec993bf108b54e2c6a6dac4f",
+      "original_1x.png": "900c7ca0f9e6399a7f61e30f95a34b880b7d4f1c23f496d75d1404b5e5dda6c0",
+      "prompt.txt": "c3358c83ab1bcf06a4c48c01a94e161856b53b557ae5c47ab10cbfc07e003c9f",
+      "jobb.json": "0eda6b9896347d2d12c4c235597c8021762452aa6d7f6ec091cdd267979157ff"
+    }
+  },
+  {
+    "jobb": "fig230_04",
+    "attempt": 1,
+    "rows": [
+      4,
+      3
+    ],
+    "fragments": 1,
+    "prompt": "Use case: smooth HD production sprite redraw fig230_04. FIRST image is the ORIGINAL EDIT TARGET, sole authority for character identity in each cell, direction, anatomy, gesture, original pieces and order. Later images are ONLY smooth painted STYLE references, never additional content to copy. Output exactly1536 x1024 native RGBA on fully transparent background.\nPaint crisp detailed 1990s adventure concept art with smooth drawn contours, fine clothing folds, believable hands and facial detail, true soft antialiasing, NOT enlarged pixel art. Boston has brown swept short hair with gray temples, navy short-sleeve T-shirt and orange cargo pants; Maggie has short dark bob and orange flight jumpsuit with white undershirt; Brink has short blond hair and light gray-blue jacket, dark shirt and orange pants. Preserve original unique lighting, color variants, body width and exact facing. No new costume, no bruises unless present, no pixel masks.\nSOURCE ACTION: Rows FOUR and THREE original entries. Each includes same red stone wall on RIGHT and Boston and Brink standing/emerging on LEFT. Preserve both people and wall in each frame; ignore only tiny registration speck.\nCount original FRAME GROUPS per row exactly [4, 3]. A two-person or wall-plus-person original entry is ONE frame group, keep all its parts together. Never omit meaningful original pieces. Preserve left-to-right and top-to-bottom original source sequence, generous transparent spacing between frame groups. Remove only flat turquoise/gray background and tiny source registration pixels, not rods, walls or original held props. No opaque backdrop, scenery beyond the source frame props, grid, text, cast shadow, platform, halo or huge soft glow. Every single animation group must be present and isolated from its neighbours. Actual editable PNG asset.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig230_04/original_1x.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7bfbbb21-51fe-4374-8995-551ba28870ef.png",
+    "figure": "Boston Low og Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7bfbbb21-51fe-4374-8995-551ba28870ef.png",
+    "sha256": "bbf942b7e33e7dbc3d674006f904a6ea253059f38b1ca83b2f5cbe937d11949d",
+    "originalruter": 8,
+    "resultat": "jobber/fig230_04/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "553e00f6ddea0b9346e3e793686dfeae4fb0c03c49c3192529e87e9b49ae87ae",
+      "original_1x.png": "71cf147a641d7888b7b40769b2667029eedd7c22e090d28a7b5d2d6ef70ac8f6",
+      "prompt.txt": "c3358c83ab1bcf06a4c48c01a94e161856b53b557ae5c47ab10cbfc07e003c9f",
+      "jobb.json": "20fa26d38a22e92e980cf2682b1bc10c445af8d657b2dc69ea84588f5c6adb76"
+    }
+  },
+  {
+    "jobb": "fig230_05",
+    "attempt": 1,
+    "rows": [
+      1
+    ],
+    "fragments": 0,
+    "prompt": "Use case: smooth HD production sprite redraw fig230_05. FIRST image is the ORIGINAL EDIT TARGET, sole authority for character identity in each cell, direction, anatomy, gesture, original pieces and order. Later images are ONLY smooth painted STYLE references, never additional content to copy. Output exactly1536 x1024 native RGBA on fully transparent background.\nPaint crisp detailed 1990s adventure concept art with smooth drawn contours, fine clothing folds, believable hands and facial detail, true soft antialiasing, NOT enlarged pixel art. Boston has brown swept short hair with gray temples, navy short-sleeve T-shirt and orange cargo pants; Maggie has short dark bob and orange flight jumpsuit with white undershirt; Brink has short blond hair and light gray-blue jacket, dark shirt and orange pants. Preserve original unique lighting, color variants, body width and exact facing. No new costume, no bruises unless present, no pixel masks.\nSOURCE ACTION: ONE source entry, both Boston and Brink standing to the LEFT of the fan-shaped red stone wall. Keep complete two-person-plus-wall composite together, not separate unrelated people.\nCount original FRAME GROUPS per row exactly [1]. A two-person or wall-plus-person original entry is ONE frame group, keep all its parts together. Never omit meaningful original pieces. Preserve left-to-right and top-to-bottom original source sequence, generous transparent spacing between frame groups. Remove only flat turquoise/gray background and tiny source registration pixels, not rods, walls or original held props. No opaque backdrop, scenery beyond the source frame props, grid, text, cast shadow, platform, halo or huge soft glow. Every single animation group must be present and isolated from its neighbours. Actual editable PNG asset.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig230_05/original_1x.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig068_01/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig015_01/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4987f89f-234a-43b0-afd2-f7c596f417a8.png",
+    "known_native_frame_groups": [
+      [
+        [
+          223,
+          143,
+          262,
+          851
+        ],
+        [
+          474,
+          15,
+          887,
+          978
+        ]
+      ]
+    ],
+    "source_group_basis": "Original single entry contains both people and fan-shaped wall; all native components belong to this one original composite.",
+    "figure": "Boston Low og Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4987f89f-234a-43b0-afd2-f7c596f417a8.png",
+    "sha256": "139cce5955ee7043b29aaa47e4b0f3dcce4edfc6ad20168fe793e9c67f56f64c",
+    "originalruter": 1,
+    "resultat": "jobber/fig230_05/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "8595561e94b3dbfdf0c2f3d7a1bf939ba8a1429581003ff894515eecc84d90bf",
+      "original_1x.png": "0b33de33b3f38bc69c57a5fa6baa547a0e6822536365fed21ee6110c6cf808f1",
+      "prompt.txt": "a1130c6d427c9938ef8e40ae5330160f047896c356db59225d795cacff7d5579",
+      "jobb.json": "bcfad0fe0241a8bde9fef19398cc3e8411dfe2dbc253c2881e8a9f6045d9d7d6"
+    }
+  }
+]

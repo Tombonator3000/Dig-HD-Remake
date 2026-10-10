@@ -1,0 +1,67 @@
+{
+  "source_marker": "costume230_002",
+  "actual_measurement": {
+    "source": {
+      "sha256": "d71a09ba72c7124c7a3c416453dbaa717251194e50439247387f7ef1464fa8fa",
+      "size": [
+        4,
+        1
+      ],
+      "visible_alpha_gt0": 4,
+      "magenta_alpha_gt0": 4,
+      "magenta_alpha_ge128": 4
+    },
+    "native": {
+      "sha256": "cd1d9180210818ba3210c09449c03358bb771757dd38d6ead07633460af5adb0",
+      "size": [
+        1536,
+        1024
+      ],
+      "visible_alpha_gt0": 667390,
+      "magenta_alpha_gt0": 0,
+      "magenta_alpha_ge128": 0
+    },
+    "actual_v2_export": {
+      "sha256": "c193c31120519662b09d261047a0d02e2eaa992ccdc8c3d46e5b161bacfe7f05",
+      "size": [
+        32,
+        20
+      ],
+      "visible_alpha_gt0": 276,
+      "magenta_alpha_gt0": 276,
+      "magenta_alpha_ge128": 64
+    }
+  },
+  "actual_import_record": {
+    "status": "ok",
+    "kilde": "originalen (fragment)",
+    "fil": "costumes/costume230_002_hd.png",
+    "sha256": "c193c31120519662b09d261047a0d02e2eaa992ccdc8c3d46e5b161bacfe7f05",
+    "storrelse": [
+      32,
+      20
+    ],
+    "marg": [
+      2,
+      2
+    ],
+    "flytt_hd": [
+      0,
+      0
+    ],
+    "snitt_union": null,
+    "dekning": null,
+    "deler": 0,
+    "skala": 0.817,
+    "tilpasset": false,
+    "skala_xy": null,
+    "kostyme": 230,
+    "rute": 2,
+    "animasjon": 6,
+    "retning": 1,
+    "lag": 0
+  },
+  "code_sha256": "7cb20ae673d0576a0f51ecc62f18a289c9c3f1e5b79cff6b9b0cd521f44b6176",
+  "runtime_tested": false,
+  "funn": "Teknisk markør blir feilaktig synlig gjennom originalfallback. Native er riktig uten magenta."
+}
