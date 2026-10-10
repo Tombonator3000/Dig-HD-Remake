@@ -41,6 +41,11 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Motor: Ctrl+H bytter HD og klassisk, Ctrl+Shift+H viser gult felt der HD mangler. `DIGHD_CLASSIC=1`, `DIGHD_SHOW_MISSING=1`, `DIGHD_TEST_KEYS=ramme:tast,...` for test uten skjerm. Binær her: /home/claude/scummvm.
 - Fra 10. oktober får Claude ikke flette sine egne PR-er herfra (stoppet av sikkerhetskontrollen). Tom fletter når CI er grønn.
 - `DIGHD_TEST_KEYS` tar a til z, 0 til 9, f1 til f12, space og escape, så Alt+1 (lagre) og Ctrl+1 (laste) kan testes uten skjerm.
+- Kostymer i romdrakt (funnet 10. oktober i rom 4): 1 Boston Low, 2 Maggie Robbins, 3 Ludger Brink. 7 er Pig (atomsprengladningen, «flying pig»). 22 og 23 er trolig Brink og Maggie (samme ruter og mål som 3 og 2).
+- Inventaret er blast-objekter (ruten 627 med skyggemodus 3, ikonene oppå). Motoren bygger det mørknede i HD og mørkner det (`beginBlast`/`endBlast`).
+- The Dig HD avslutter aldri rett til skrivebordet: alt som ber om å avslutte, åpner spillets meny; Quit der avslutter (Tom 10. oktober).
+- `myke-figurer` versjon 2: hver rute tilpasses originalens omriss i bredde og høyde (FIT_RANGE 12 prosent), så figurene holder størrelse og form gjennom rutene. Avviste ark i `docs/gpt-avvisninger.csv` tas ikke inn.
+- Uten dekoderne kan originalrutene lages fra `original_1x.png` og `rekt` i jobbmappene i `gpt-arbeid` (gjort 10. oktober for å lappe modden).
 - Pipeline: `dighd` (Python 3.12+, Pillow, NumPy, SciPy, thedig-textures låst til commit 1cf355e som ekstra). CI kjører `pytest -m "not game"` på hver push og PR.
 
 ## HD-grafikk fra ChatGPT

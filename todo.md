@@ -77,10 +77,19 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 - [x] Lagring i Linux-pakken undersøkt (10. oktober): virker uten skjerm og med ekte X11-inndata, ingen feil funnet. Patchen i `saveload.cpp` flytter bare pekeren etter lasting
 - [ ] Tom prøver lagring fra F5-menyen igjen på laptopen og sier fra (hvor det stopper hvis det ikke virker)
+- [x] Inventaret i HD (blast-objekter med skygge, ikonene med HD-bilde), PR 44
+- [x] Aldri rett til skrivebordet: avslutning åpner menyen, Esc starter ikke stoppede skript, PR 44
+- [ ] F5 ga «HEAP ... MEM ... VID» hos Tom; F5 virker her. Se i loggen hans etter `DigHD: key 286` neste gang
+- [x] Beskrivelsesteksten (navn ved musen) med Exo 2 og skygge, PR 44
+- [ ] Luft etter r i HD-skriften («Br ink»)
+- [ ] Armen som løfter Pig ut av romfergen ser rar ut (Tom 10. oktober, rettes etter hvert)
+- [ ] Nye ark for Boston, Maggie og Brink i romdrakt (kostyme 1, 2, 3) og Pig (7) fra Codex; Tom ser første ark for Boston og Brink
+- [ ] Kostyme 22 og 23 (romdrakt i tunnelen) er trolig Brink og Maggie (samme ruter og mål som 3 og 2); ikke kontrollert i spill
+- [x] Fast størrelse mellom rutene i myke-figurer (versjon 2), modden lappet og publisert (fdad5c7)
 - [ ] Temaet `scummremastered` lastes ikke i Linux-pakken (LiberationSans-Bold.ttf mangler); legg skriften i pakken eller ta temaet ut
 - [x] PR 42 var flettet 07:44; runden ble ferdig (`hd-mod` 07:50, `gpt-arbeid` 07:53)
 - [x] Ctrl+Shift+H byttet til klassisk grafikk i stedet for gult felt (PR 43). Sifre i `DIGHD_TEST_KEYS`
-- [ ] Codex-arkene levert 07:29 til 07:50 (gruppe 90, fig169 og fig170 m.fl.) kan mangle i modden fra 07:50 (ikke sjekket). Neste runde tar dem inn, men se først på stilavvisningen under. Tom avviste stilen på de siste figurarkene i Codex-chatten (overlevering i `gpt-arbeid`, `rapporter/overlevering-ny-chat-20261010/`)
+- [ ] Codex-arkene levert 07:29 til 07:50 (gruppe 90, fig169 og fig170 m.fl.) er ikke i modden (holdt utenfor da modden ble lappet 10. oktober). Neste runde tar dem inn, men se først på stilavvisningen under. Tom avviste stilen på de siste figurarkene i Codex-chatten (overlevering i `gpt-arbeid`, `rapporter/overlevering-ny-chat-20261010/`)
 
 - [x] HD-skrift for teksten: Exo 2 i stedet for xBR (PR 38 og 40)
 - [ ] Tom ser teksten på ekte skjerm og sier om Exo 2 passer (vekt, luft mellom bokstavene)
