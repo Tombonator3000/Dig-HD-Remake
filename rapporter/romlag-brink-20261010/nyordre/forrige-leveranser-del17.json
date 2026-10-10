@@ -1,0 +1,31 @@
+[
+  {
+    "jobb": "fig001_07",
+    "attempt": 3,
+    "rows": [
+      3,
+      2
+    ],
+    "fragments": 0,
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_07/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_07/original_1x.png"
+    ],
+    "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 16, facing right (5 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+    "source_prompt_verbatim": true,
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4a3fd3f8-d591-45e8-b1dc-04e7f36109a4.png",
+    "visuell_kontroll": "Kilderetninger, verktøy og løse originaldeler kontrollert visuelt, samt alfa på hvit, sort og grønn bakgrunn.",
+    "figure": "Mannskapet i romdrakt",
+    "attempts": 3,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-4a3fd3f8-d591-45e8-b1dc-04e7f36109a4.png",
+    "sha256": "e87d411679164312d593ca9defbb8aa376dc2987172dae20ddc9e9e53766537c",
+    "originalruter": 5,
+    "resultat": "jobber/fig001_07/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "b2467ecf8feac50260a4136f85097531cfe210282fb8176cf2651a9642f31c4c",
+      "original_1x.png": "eb6bf4e84e2eb03cfdb6ffe2dc6b01d8516ae65deaeaf21ea3da0b457f90fdbb",
+      "prompt.txt": "4ebbd64620e2950c2f7f67675608c874893a84734dc7c8622b80b71c1df23d3e",
+      "jobb.json": "873ec882099b4eff90aa3c023a4f1ffaa1d9d3e42c511b91241ba514d7b85bf1"
+    }
+  }
+]
