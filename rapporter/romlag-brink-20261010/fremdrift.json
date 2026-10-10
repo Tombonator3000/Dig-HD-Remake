@@ -1,8 +1,8 @@
 {
   "bestilling": "Brink med alle autoriserte kostymevarianter, godkjent stil 10. oktober 2026",
   "ark_totalt": 208,
-  "ark_revidert": 73,
-  "ark_gjenstar": 135,
+  "ark_revidert": 78,
+  "ark_gjenstar": 130,
   "status": "pågår, grafikklevert avventer import og spilltest",
   "leveranser": [
     {
@@ -2496,6 +2496,179 @@
         "original_1x.png": "c418992d12c091ed01a293569698471d37fd8863e89fdcee70c962299c3c8cc0",
         "prompt.txt": "1e5d203204fdfcad58d52b4edd1868506f2cfe2de3fb2a1c033440dedfcb4632",
         "jobb.json": "8d9cb1bbc32569d2780be96f8cbc15ec92d33db21efd99be6b2313a88426301c"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig016_13",
+      "kostyme": 16,
+      "figur": "Ludger Brink",
+      "source_variant": "Variant: rift i buksa. Settes i de samme skriptene som 15 og 17",
+      "resultat": "jobber/fig016_13/resultat.png",
+      "sha256": "1adb999e0e06cb90fc507de43b86791c7c9870e2c5feb65e8ac1ef904c935171",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-2762dd05-9d62-4288-a24e-3e1111572a0a.png",
+      "attempts": 2,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_13/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/referanse.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig016_13-forsok2.txt",
+      "rows": [
+        5,
+        5
+      ],
+      "expected": 10,
+      "fragments": 0,
+      "originalruter": 10,
+      "erstatter_sha256": "7666458b864c20013173b46fd5201c753ffb521f33a5f44d16817a26c36fe1d2",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "e475386073bc9a8a4b661c301574cf701d7ccd2dec91994345f78927d47ea406",
+        "original_1x.png": "f542327a0cb053145660297f36e2398a0ebbc423840a4e4c241e7cc7afa4d502",
+        "prompt.txt": "0f316a909a97f4e9996d56c86901139b9f40694f078d792eab6902071f58e0d3",
+        "jobb.json": "63042d6a958a5c0a37d2682c66f6612cb39cefc946fd1f2e21137545a1ab3869"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig016_14",
+      "kostyme": 16,
+      "figur": "Ludger Brink",
+      "source_variant": "Variant: rift i buksa. Settes i de samme skriptene som 15 og 17",
+      "resultat": "jobber/fig016_14/resultat.png",
+      "sha256": "8d3bdb16b81932106a0c75ea0e0ea98779df2a2f10683dcca37db9d9946d08bf",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-b6b9d778-fc14-4d05-9448-c85e4c2dfe47.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_14/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/referanse.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig016_14-forsok1.txt",
+      "rows": [
+        5,
+        3
+      ],
+      "expected": 8,
+      "fragments": 0,
+      "originalruter": 8,
+      "erstatter_sha256": "85b9d5f515d24b3bdb815da538de85de8ad0999e8c59fc265b23171f17f7724d",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "cfc85f6766178a1b2e8084509b15fe4bd45db0413ba42892cbf62f7b13efb884",
+        "original_1x.png": "4510adb05979daff01e6102bc527540dc1fe3939b5e2cff53fefa75dc45a96f6",
+        "prompt.txt": "c8aac73806bc10b60a8382ee750c31f69e6ea9aa8ef6b92415912011c2bf760e",
+        "jobb.json": "bbb10e9f9c01a53823756746f5136f59a8d369959bdc921d752f9512e11faa2c"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig016_15",
+      "kostyme": 16,
+      "figur": "Ludger Brink",
+      "source_variant": "Variant: rift i buksa. Settes i de samme skriptene som 15 og 17",
+      "resultat": "jobber/fig016_15/resultat.png",
+      "sha256": "b2d6084b4d5ad377f88339352731509d8e91b0d6d79e402deb87ec420778830f",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-97d7a10f-67f1-491e-9e6f-951c84577095.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_15/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/referanse.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig016_15-forsok1.txt",
+      "rows": [
+        11,
+        5,
+        3
+      ],
+      "expected": 19,
+      "fragments": 1,
+      "originalruter": 20,
+      "erstatter_sha256": "197a420e348f10e8743b9f3c9fbded361a9870c31fd262ae75240b7a75bc626d",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "24535d2751a4728d0c1a036956ba45a49c592c7b18a3ba24c39450b2a1b80ef7",
+        "original_1x.png": "1044fba8d629c08bc51ec26a829e3c87cd45b61716625088d6b2457874157371",
+        "prompt.txt": "bb98a4dd869153355323b0a9f1cf760dcc29096565b2482c692a4e61b92c0f1b",
+        "jobb.json": "c65baf868229c877b84f5eeba9230283a0a00e823e71c393aa1b3e5884ec90b9"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig016_16",
+      "kostyme": 16,
+      "figur": "Ludger Brink",
+      "source_variant": "Variant: rift i buksa. Settes i de samme skriptene som 15 og 17",
+      "resultat": "jobber/fig016_16/resultat.png",
+      "sha256": "934f2609b9412593276fe21dbf74cb0d7925d33466a8e08c780696428953c90c",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-c0a8f236-d50b-4b64-b716-76f547fa579d.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_16/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/referanse.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig016_16-forsok1.txt",
+      "rows": [
+        11,
+        11,
+        6
+      ],
+      "expected": 28,
+      "fragments": 1,
+      "originalruter": 29,
+      "erstatter_sha256": "7c7301ff2ae8cc48fcda71df4d5f195456b8cbc94d4e39aa180a5733a0047ec7",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "20f54556cb4123f38eaa04a9d703b4744aa366068ef624c35f8bceddb693002c",
+        "original_1x.png": "faa88da0cc870f1d9c574f80060dd54025e62b50d7464a805a6eb7a4f033bc60",
+        "prompt.txt": "f48c6b1de851e5b7546a3aa92fcffe088caa99d3190a40b976a6e482f6ff571d",
+        "jobb.json": "92c003f401555d2b5aa44e46966b5b891b3e3452c5f0606cb9c91812c1dba22d"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig016_17",
+      "kostyme": 16,
+      "figur": "Ludger Brink",
+      "source_variant": "Variant: rift i buksa. Settes i de samme skriptene som 15 og 17",
+      "resultat": "jobber/fig016_17/resultat.png",
+      "sha256": "bd2c2adc8d703a29ae1926b1e5b40c6a877795f663b20ba3c943d14ef8eb3a62",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-fd46189a-ed65-497b-90d8-d7651a7355b1.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_17/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_01/referanse.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig016_17-forsok1.txt",
+      "rows": [
+        9,
+        9,
+        5
+      ],
+      "expected": 23,
+      "fragments": 3,
+      "originalruter": 26,
+      "erstatter_sha256": "3b35641b36aa8ec63c4789d345efad027340851d6773a25de8e47d44d2031547",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "8db5b30e507fd28d978a6dcb12e9d19cbde0e36a67cda61d28a9322e447ae9e0",
+        "original_1x.png": "c1840f22c480065a8a2f71ea5ab682a89ef6ce5f7df9f10a0d05217f40817ba1",
+        "prompt.txt": "54eccfc4f2ce50a3ec6fa48ce98992f9f129b148111bbb487f26328fe58a92f1",
+        "jobb.json": "8e1ad558a4259a0a5f883b13fd18fca17a012ada875f9c596a07d169f747fce9"
       },
       "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
       "status": "grafikk revidert, avventer Claude-import og spilltest"

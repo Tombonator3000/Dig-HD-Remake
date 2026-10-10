@@ -404,33 +404,110 @@
     },
     {
       "jobb": "fig001_14",
-      "attempt": 1,
+      "kostyme": 1,
+      "figure": "Boston Low i romdrakt",
+      "resultat": "jobber/fig001_14/resultat.png",
+      "sha256": "e9933215cd234a269febce4f4e9cb2a6607f6ca44a6ee4499dd2218ee38d578b",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-1ea8299f-5b87-409b-9d60-85f84d7d55b5.png",
+      "attempts": 1,
       "rows": [
         2,
         2
       ],
-      "fragments": 7,
-      "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 20 (a separate part the game draws on top of the body, such as the head), facing away from the viewer (3 frames); animation 20, facing toward the viewer to the right, toward the viewer to the left (5 frames); animation 20 (a separate part the game draws on top of the body, such as the head), facing away to the left (3 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
-      "source_prompt_verbatim": true,
+      "originalruter": 11,
+      "fragments": [
+        "costume001_157",
+        "costume001_154",
+        "costume001_153",
+        "costume001_112",
+        "costume001_111",
+        "costume001_110",
+        "costume001_148"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig001_14-forsok1.ordrett.json",
       "refs": [
         "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_14/referanse.png",
-        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_01/resultat.png",
-        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_14/original_1x.png"
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_14-kildegrenseguide.png"
       ],
-      "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c573121b-77bb-44e2-b7f1-b242afe5ead9.png",
-      "visuell_kontroll": "Positurer, kilderetninger og antall kontrollert mot originalen. Native alfa vist på hvit, sort og grønn bakgrunn.",
-      "figure": "Mannskapet i romdrakt",
-      "attempts": 1,
-      "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c573121b-77bb-44e2-b7f1-b242afe5ead9.png",
-      "sha256": "bb50df765a5f4130514dbae9a0fc16fe34749bff9ad64eb1dcfc5828e4e60db6",
-      "originalruter": 11,
-      "resultat": "jobber/fig001_14/resultat.png",
       "beskyttede_filer": {
         "referanse.png": "7b0df33ac6104153194598f78a45f886b27c4105fd07ebd1271f3b861d1fac7a",
         "original_1x.png": "babcb56e24c1a6e21bf11138a12810d47944e2a1655256af9df4ab001039753a",
         "prompt.txt": "476153436872ad8735f8247ad8680eea84d024b29beac645222e36c5bc90a1b7",
         "jobb.json": "49bf808c38c7f26f6d16b65319bd70d9ea360741ccadfe8f3da4b18cb3369927"
-      }
+      },
+      "erstatter_sha256": "bb50df765a5f4130514dbae9a0fc16fe34749bff9ad64eb1dcfc5828e4e60db6",
+      "forrige_versjon_commit": "2c60a1cdbf24fa84b0cfbb25d656d35a9b73d007",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume001_157": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        },
+        "costume001_154": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 39
+        },
+        "costume001_153": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 2
+        },
+        "costume001_112": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 5
+        },
+        "costume001_111": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 46
+        },
+        "costume001_110": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        }
+      },
+      "reelle_kildefragmenter": [
+        "costume001_148"
+      ],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-face-only.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_14-kildegrenseguide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_14-kildegrenseguide.png"
+        }
+      ]
     },
     {
       "jobb": "fig001_16",
@@ -625,32 +702,73 @@
     },
     {
       "jobb": "fig001_13",
-      "attempt": 2,
+      "kostyme": 1,
+      "figure": "Boston Low i romdrakt",
+      "resultat": "jobber/fig001_13/resultat.png",
+      "sha256": "ffb9aa27da2ccb0852fbdd81e824e86c6cc0bf601da58869a7f9ee8b992f6a6d",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-27945126-e4c0-48cd-8b6d-f4eaeedcc5ee.png",
+      "attempts": 1,
       "rows": [
         7,
         7,
         6
       ],
-      "fragments": 2,
-      "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 20, facing toward the viewer (20 frames); animation 20 (a separate part the game draws on top of the body, such as the head), facing toward the viewer (2 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
-      "source_prompt_verbatim": true,
-      "refs": [
-        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_13/referanse.png"
-      ],
-      "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f78bb66f-9e36-4698-8692-854a321d2fbf.png",
-      "visuell_kontroll": "Originalens retninger, antall, mekaniske deler og effekter sammenlignet visuelt. Native alfa kontrollert på hvit, sort og grønn bakgrunn.",
-      "figure": "Mannskapet i romdrakt",
-      "attempts": 2,
-      "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-f78bb66f-9e36-4698-8692-854a321d2fbf.png",
-      "sha256": "1306d16969f9b4b9a22116947c9fc89b0b26c8ea835349c19f57deed98205ce0",
       "originalruter": 22,
-      "resultat": "jobber/fig001_13/resultat.png",
+      "fragments": [
+        "costume001_122",
+        "costume001_121"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig001_13-forsok1.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_13/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_13-kildegrenseguide.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-rear-neutral-style-crop.png"
+      ],
       "beskyttede_filer": {
         "referanse.png": "770a459c00409247c8c99e917e48d7110f98b7a4c4cff8792167aff610f8baf8",
         "original_1x.png": "aee3b96555412fe13f148b3ffe0ccce048ebaf8329b954a0d17282ce731692ba",
         "prompt.txt": "011a239c30c8151dc1f3d89dd2da64d756b58ec8c654a3a7064925227da920ef",
         "jobb.json": "b580f1757da0f6e99ce485e7e5fe938916c75a3586bd170251f231659068a4aa"
-      }
+      },
+      "erstatter_sha256": "1306d16969f9b4b9a22116947c9fc89b0b26c8ea835349c19f57deed98205ce0",
+      "forrige_versjon_commit": "2c60a1cdbf24fa84b0cfbb25d656d35a9b73d007",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume001_122": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 2
+        },
+        "costume001_121": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 94
+        }
+      },
+      "reelle_kildefragmenter": [],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-face-only.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_13-kildegrenseguide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_13-kildegrenseguide.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-rear-neutral-style-crop.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-rear-neutral-style-crop.png"
+        }
+      ]
     },
     {
       "jobb": "fig001_15",
@@ -60979,7 +61097,7 @@
   ],
   "nyordre_revisjon_20261010": {
     "ordre_commit": "02fd5a36",
-    "revidert_i_denne_gruppen": 23,
+    "revidert_i_denne_gruppen": 25,
     "status": "pågår, avventer import og spilltest"
   }
 }

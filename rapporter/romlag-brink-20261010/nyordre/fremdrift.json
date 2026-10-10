@@ -7,8 +7,8 @@
     7
   ],
   "ark_planlagt": 50,
-  "ark_revidert": 23,
-  "ark_gjenstar": 27,
+  "ark_revidert": 25,
+  "ark_gjenstar": 25,
   "status": "pågår, første Boston- og Brink-romdrakt godkjent av Tom",
   "leveranser": [
     {
@@ -1650,6 +1650,183 @@
         {
           "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_12-kildegrenseguide.png",
           "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_12-kildegrenseguide.png"
+        }
+      ]
+    },
+    {
+      "jobb": "fig001_13",
+      "kostyme": 1,
+      "figure": "Boston Low i romdrakt",
+      "resultat": "jobber/fig001_13/resultat.png",
+      "sha256": "ffb9aa27da2ccb0852fbdd81e824e86c6cc0bf601da58869a7f9ee8b992f6a6d",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-27945126-e4c0-48cd-8b6d-f4eaeedcc5ee.png",
+      "attempts": 1,
+      "rows": [
+        7,
+        7,
+        6
+      ],
+      "originalruter": 22,
+      "fragments": [
+        "costume001_122",
+        "costume001_121"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig001_13-forsok1.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_13/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_13-kildegrenseguide.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-rear-neutral-style-crop.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "770a459c00409247c8c99e917e48d7110f98b7a4c4cff8792167aff610f8baf8",
+        "original_1x.png": "aee3b96555412fe13f148b3ffe0ccce048ebaf8329b954a0d17282ce731692ba",
+        "prompt.txt": "011a239c30c8151dc1f3d89dd2da64d756b58ec8c654a3a7064925227da920ef",
+        "jobb.json": "b580f1757da0f6e99ce485e7e5fe938916c75a3586bd170251f231659068a4aa"
+      },
+      "erstatter_sha256": "1306d16969f9b4b9a22116947c9fc89b0b26c8ea835349c19f57deed98205ce0",
+      "forrige_versjon_commit": "2c60a1cdbf24fa84b0cfbb25d656d35a9b73d007",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume001_122": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 2
+        },
+        "costume001_121": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 94
+        }
+      },
+      "reelle_kildefragmenter": [],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-face-only.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_13-kildegrenseguide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_13-kildegrenseguide.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-rear-neutral-style-crop.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-rear-neutral-style-crop.png"
+        }
+      ]
+    },
+    {
+      "jobb": "fig001_14",
+      "kostyme": 1,
+      "figure": "Boston Low i romdrakt",
+      "resultat": "jobber/fig001_14/resultat.png",
+      "sha256": "e9933215cd234a269febce4f4e9cb2a6607f6ca44a6ee4499dd2218ee38d578b",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-1ea8299f-5b87-409b-9d60-85f84d7d55b5.png",
+      "attempts": 1,
+      "rows": [
+        2,
+        2
+      ],
+      "originalruter": 11,
+      "fragments": [
+        "costume001_157",
+        "costume001_154",
+        "costume001_153",
+        "costume001_112",
+        "costume001_111",
+        "costume001_110",
+        "costume001_148"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig001_14-forsok1.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_14/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_14-kildegrenseguide.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "7b0df33ac6104153194598f78a45f886b27c4105fd07ebd1271f3b861d1fac7a",
+        "original_1x.png": "babcb56e24c1a6e21bf11138a12810d47944e2a1655256af9df4ab001039753a",
+        "prompt.txt": "476153436872ad8735f8247ad8680eea84d024b29beac645222e36c5bc90a1b7",
+        "jobb.json": "49bf808c38c7f26f6d16b65319bd70d9ea360741ccadfe8f3da4b18cb3369927"
+      },
+      "erstatter_sha256": "bb50df765a5f4130514dbae9a0fc16fe34749bff9ad64eb1dcfc5828e4e60db6",
+      "forrige_versjon_commit": "2c60a1cdbf24fa84b0cfbb25d656d35a9b73d007",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume001_157": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        },
+        "costume001_154": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 39
+        },
+        "costume001_153": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 2
+        },
+        "costume001_112": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 5
+        },
+        "costume001_111": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 46
+        },
+        "costume001_110": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        }
+      },
+      "reelle_kildefragmenter": [
+        "costume001_148"
+      ],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-face-only.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_14-kildegrenseguide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_14-kildegrenseguide.png"
         }
       ]
     }

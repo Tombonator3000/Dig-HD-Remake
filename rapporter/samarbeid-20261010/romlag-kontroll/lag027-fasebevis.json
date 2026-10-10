@@ -1,0 +1,134 @@
+{
+  "jobb": "lag027_03_del2av8",
+  "candidate_path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-807672e7-ab0e-4cc4-8b21-f686d7f14c49.png",
+  "historical_attempt": 5,
+  "actual_metrics": {
+    "skift_x": -0.07,
+    "skift_y": -0.04,
+    "blokk_maks": 33.86,
+    "kantlikhet": 0.955,
+    "fargeavvik": 10.3
+  },
+  "blocks": [
+    {
+      "box_original": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "shift": [
+        -0.055,
+        -0.0
+      ],
+      "distance": 0.055,
+      "peak": 0.6392,
+      "source_edges_std": 3.40077,
+      "native_edges_std": 3.9389
+    },
+    {
+      "box_original": [
+        128,
+        0,
+        128,
+        128
+      ],
+      "shift": [
+        -0.032,
+        0.055
+      ],
+      "distance": 0.064,
+      "peak": 0.6083,
+      "source_edges_std": 3.70977,
+      "native_edges_std": 4.37012
+    },
+    {
+      "box_original": [
+        256,
+        0,
+        128,
+        128
+      ],
+      "shift": [
+        -16.005,
+        29.836
+      ],
+      "distance": 33.858,
+      "peak": 0.03934,
+      "source_edges_std": 0.2669,
+      "native_edges_std": 0.61177
+    },
+    {
+      "box_original": [
+        0,
+        128,
+        128,
+        128
+      ],
+      "shift": [
+        -0.197,
+        -0.11
+      ],
+      "distance": 0.226,
+      "peak": 0.49093,
+      "source_edges_std": 3.14048,
+      "native_edges_std": 3.86287
+    },
+    {
+      "box_original": [
+        128,
+        128,
+        128,
+        128
+      ],
+      "shift": [
+        -0.024,
+        -0.094
+      ],
+      "distance": 0.097,
+      "peak": 0.54113,
+      "source_edges_std": 3.56911,
+      "native_edges_std": 4.53132
+    },
+    {
+      "box_original": [
+        256,
+        128,
+        128,
+        128
+      ],
+      "shift": [
+        -0.062,
+        -0.073
+      ],
+      "distance": 0.096,
+      "peak": 0.47287,
+      "source_edges_std": 1.76437,
+      "native_edges_std": 2.3256
+    }
+  ],
+  "qa": {
+    "resultat": "exec-807672e7-ab0e-4cc4-8b21-f686d7f14c49.png",
+    "storrelse": [
+      1536,
+      1024
+    ],
+    "sha256_resultat": "15b42e6e98ae9aaf3ee28446d0a22b068c39f2dc7316e5aa346bcd592840597b",
+    "format": "lerret",
+    "objektkontroll": {
+      "obj231_02": {
+        "objekt": 0.934,
+        "bakgrunn": 0.624,
+        "kanter": 1.9
+      }
+    },
+    "skift_x": -0.07,
+    "skift_y": -0.04,
+    "blokk_maks": 33.86,
+    "kantlikhet": 0.955,
+    "fargeavvik": 10.3,
+    "status": "avvist",
+    "kommentar": "deler av bildet er flyttet eller zoomet (opptil 33.9 px)"
+  },
+  "interpretation": "Lavt fasekorrelasjonssignal i svak lilla veggflate er ikke tilstrekkelig bevis på faktisk flyttet arkitektur. Kandidaten er fortsatt avvist av uendret kontroll. Claude ma vurdere kildetro geometri og kontrollens signalstyrke; ingen terskel er endret."
+}

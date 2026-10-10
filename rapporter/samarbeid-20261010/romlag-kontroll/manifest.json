@@ -1,0 +1,198 @@
+{
+  "repo": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk",
+  "branch": "gpt-arbeid",
+  "head_at_report": "2ecb21869437980d5fd98e849ede831cb8c63703",
+  "new_native_candidates": [
+    {
+      "jobb": "lag023_03_del3av6",
+      "attempt": 7,
+      "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 3 of 6 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\nAUTHORIZED PRECISE LOCAL OBJECT CORRECTION, attempt 7. Input 1 is the original full scene and correct object states. Input 2 is approved HD texture reference, but its right-hand plaque is the wrong object state. Input 3 is six-times enlarged SOURCE ONLY right plaque from x952..1080,y272..400 of the original canvas. Input 4 is six-times enlarged SOURCE ONLY orange left plaque from x56..216,y304..400. Input 5 is the full-canvas HD edit target.\nKeep input 5 fixed outside the two tiny plaques. In the RIGHT plaque, completely replace the four raised bevel-edged rectangular button sockets with the four flat dark stepped indicator marks visible in input 3. The source marks have irregular squared downward extensions, dark brown flat fills and subtle lighter brown gaps. They have no bright bevels, no metallic button rims, no holes shaped like empty rectangular sockets. They are flat painted markings flush with the original diamond stone panel. Preserve literal size and x,y position from input 1. Do not retain any of the input 5 button outlines there. The correct source state must be visibly different from input 2.\nIn the left orange plaque retain the four short angular indicator marks with their small yellow lower tabs, not rounded mechanical buttons. All surrounding rock, doorway, floor, crystals and gray border remain pixel-aligned with input 5. Same original dark values and colors as input 1. No lighting redesign. Output the entire 1536x1024 canvas with plain gray border, no crop layout, labels or enlargement.\n",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag023_03_del3av6/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom023_del3av6/resultat.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag023-right-state-source-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag023-left-state-source-only.png",
+        "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-34d0daba-b21b-463d-9388-8d033896cb35.png"
+      ],
+      "parent_attempt": 6,
+      "base_prompt_sha256": "ef1ce648f1dc91a6f7c6d0d9d6fb58188368192e7bf2c92c0eba443e710aa6c3",
+      "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-36fe8994-c6b1-48d4-9cae-ed88d2f8387a.png",
+      "sha256": "af5269caaf4ad48d41e8923f1efc9b99311c8ce1b31f0a06ad71c1f4446ca9a7",
+      "decision": "holdes",
+      "reason": "Tilbakeholdt. obj178_02 har fortsatt feil mørkt dekkende mønster og ligner HD-underlaget mer enn kildeobjektet. Flatere knapper i nytt forsok7 er ikke nok. Objektkantlikhet0.107 mot bakgrunn0.937. Den dekodede originale RGBA-filen har232 synlige piksler, resten er transparent.",
+      "local_qa_status": "avvist",
+      "local_qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag023_03_del3av6-attempt7.qa.json",
+      "prompt_spec_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag023_03_del3av6-attempt7.json",
+      "protected_unchanged": {
+        "referanse.png": true,
+        "original_1x.png": true,
+        "prompt.txt": true,
+        "jobb.json": true
+      }
+    },
+    {
+      "jobb": "lag025_01_del1av3",
+      "attempt": 8,
+      "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 1 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\nAUTHORIZED PRECISE SOURCE CORRECTION, attempt 8. Input 1 is the authoritative original scene. Input 2 is its approved HD background, for texture and light only. Input 3 is a ten-times enlarged original upper-right control at full-canvas [864,400,96,64]. Input 4 is an eight-times enlarged original lower-left control at [640,368,96,96]. Input 5 is the full-scene HD edit target; preserve its architecture, its open left doorway and its blue vertical bars.\nChange ONLY the green marks in the two control panels of input 5 to the literal angular green marks from inputs 1,3,4. The current upper panel joins marks into a winding connected glyph. Erase that winding connection and keep the source gaps. Do not draw cursive curves or rings. Keep the two original corner-touching marks as such; there must be dark gaps between the six separate source islands. Here is the exact source geometry in the final 1536x1024 canvas: upper-right green source rectangles [x,y,width,height]: [896,408,8,4], [904,412,4,8], [888,416,8,4], [916,416,4,4], [916,420,8,4], [904,424,4,4], [908,428,4,4], [924,428,4,4], [924,432,8,4], [912,436,4,8], [920,436,4,8]. Render the union of these small source strokes, with at most a fine natural antialiased edge, no extra connecting stroke. All other pixels remain the input-5 scene.\nFor the lower-left panel, retain the four separate short source marks and their positions exactly as input 4. Output the entire 1536x1024 full scene with the same plain gray border. Do not output isolated patches or an enlarged crop. Do not add any labels, guides, numbers or annotation.\n",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag025-upper-green-source-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag025-lower-green-source-only.png",
+        "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-6a1e3bc1-917e-4654-9dc2-ad2422e2fd42.png"
+      ],
+      "parent_attempt": 7,
+      "base_prompt_sha256": "0412797075b750c8ebc86d9cd6de7cfcadb0463dc13bb6ceb4393187bafde955",
+      "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-0b2eb87b-978a-46e6-8ca3-daa2152e465c.png",
+      "sha256": "2a07f5087a6c01a4006800240d328973b7b54b8795fb21b95cf6eabfd77ebb31",
+      "decision": "holdes",
+      "reason": "Tilbakeholdt til tross for automatisk godkjent. Originalens seks atskilte grønne øyer i øvre kontroll er fortsatt feilaktig delvis sammenbundet i native. RGB-kontroll viser6 kildeøyer mot5 nativeøyer ved dokumentert terskel og8-naboskap. Nederste kontroll har4 mot4. Skjermbevis viser feil kurvede og sammenbundne baner.",
+      "local_qa_status": "godkjent",
+      "local_qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag025_01_del1av3-attempt8.qa.json",
+      "prompt_spec_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag025_01_del1av3-attempt8.json",
+      "protected_unchanged": {
+        "referanse.png": true,
+        "original_1x.png": true,
+        "prompt.txt": true,
+        "jobb.json": true
+      }
+    },
+    {
+      "jobb": "lag026_03_del2av3",
+      "attempt": 6,
+      "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\nAUTHORIZED PRECISE OBJECT CORRECTION, attempt 6. Input 1: original full canvas with the actual object state. Input 2: approved HD background, texture and lighting only. Input 3: ten-times enlarged ORIGINAL central mechanism crop from full canvas x728..848,y744..792. Input 4: full-canvas HD edit target.\nKeep every pixel of input 4 except the tiny mechanism at full-canvas x736..844,y752..784. Replace its incorrect slender bright cyan neon lines with the actual broad opaque royal-blue vertical bands and stepped teal finger shapes from input 3. Match the pattern literally at its original small size: BLUE FACES are broad painted vertical rectangular faces with pale blue centers and deep blue sides, not illuminated filaments. The surrounding object gaps stay dark purple. The left teal fingers have the precise stepped source silhouettes, no tall rounded pegs. The two complete blue faces to the right each have a visible solid blue face several pixels wide, with the third rightmost blue face only partly inside obj227_01. Preserve their source x positions and y extents exactly, including the differing heights. No glow, no cyan laser hairlines, no changed socket or pedestal.\nThis is a small local production correction, not a scene redesign. Keep all architecture, windows, water, colors, perspective, crop and margins exactly fixed. Output the whole 1536x1024 canvas with plain gray border; no detail enlargement or labels.\n",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag026_03_del2av3/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom026_del2av3/resultat.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag026-mechanism-source-only.png",
+        "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-8c55b0d8-4c07-4a42-94bf-a872cfcd2996.png"
+      ],
+      "parent_attempt": 5,
+      "base_prompt_sha256": "d7c94355002cce966ae730afe14e63c7b312e71f8b9a26817fdca34dfc2f4880",
+      "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-2b41d07f-8826-4d5d-81ab-9019a8efe8cd.png",
+      "sha256": "c5d580b36d527a3a1c839c436250bb38adb378d0265b43e8b5080bd8f1179c9e",
+      "decision": "holdes",
+      "reason": "Tilbakeholdt, automatisk avvist. obj227_01 kantlikhet-0.127. Native har større runde peglignende deler og feil x-plassering/antall blå flater i kildeutsnittet. Hele arkitekturen ligger godt, skift(0.17,-0.10), blokk0.71, kantlikhet0.906. Feilen er objektets faktiske innhold.",
+      "local_qa_status": "avvist",
+      "local_qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag026_03_del2av3-attempt6.qa.json",
+      "prompt_spec_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag026_03_del2av3-attempt6.json",
+      "protected_unchanged": {
+        "referanse.png": true,
+        "original_1x.png": true,
+        "prompt.txt": true,
+        "jobb.json": true
+      }
+    },
+    {
+      "jobb": "lag090_01",
+      "attempt": 6,
+      "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\nAUTHORIZED PRECISE STATE AND EXPOSURE CORRECTION, attempt 6. Image 1 is the authoritative source and its dark original exposure. Image 2 is approved HD texture only; it is too bright and does not show the required object states. Image 3 shows the actual three original object patches enlarged. Image 4 is the full-canvas HD edit target.\nKeep image4's full architecture aligned, but bring its room picture inside x128..1408,y112..912 down to image1's extremely dim reddish-black exposure. Preserve the plain gray border at #808080. The room is only faintly visible, with very low contrast and dark burgundy-black shadows, not glowing orange stone.\nAt the upper patch obj593_01=[704,272,128,128], copy the literal dark original color pattern shown by the first crop in image3. It is a flat original state patch with an indistinct darker irregular silhouette near its upper-right edge, no raised inset rim, no hard highlighted square frame. Remove image4's bright red outline around the patch. The small flat patch obj594_01=[576,560,64,32] has the exact subdued source shape. At lower obj595_01=[928,784,160,32], retain the very dark original horizontal band and its faint uneven burgundy upper edge, without a bright rim or new border. These patches are real source object states, but their boundaries must have the same low contrast against the surroundings as image1. Do not erase the source patches and do not add carved frames.\nOnly source-driven exposure and these tiny state patterns change. All polygon seams, camera, geometry, crop and gray margins stay fixed. Output the complete 1536x1024 image, no crop or labels.\n",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag090_01/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom090/resultat.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag090_01-kun-kilde.png",
+        "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-beae9bc6-b2fc-4195-bd7f-3902ed103587.png"
+      ],
+      "parent_attempt": 5,
+      "base_prompt_sha256": "c38e2847e8ec6ba25ab2894e00e63752784c153d12e2760bc5a1dc815eddcb01",
+      "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-d4c8ec21-700b-48e3-803c-dfab5a8398e5.png",
+      "sha256": "9d8e15154db3eb44ba899e41d25f156067946c5b6c32e922dbb59e2bf1089705",
+      "decision": "holdes",
+      "reason": "Tilbakeholdt til tross for automatisk godkjent. Øvre ekte kildepatch inneholder en mørk uregelmessig figur, men native innfører fortsatt en for tydelig rød ramme. Den lille midtre sourcepatchen er flat, mens native beholder den diagonale romsømmen gjennom feltet. Fargelås med uendret kode fjerner ikke avvikene. Rektangulære objektgrenser finnes også i kilden; de er ikke i seg selv feil.",
+      "local_qa_status": "godkjent",
+      "local_qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag090_01-attempt6.qa.json",
+      "prompt_spec_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag090_01-attempt6.json",
+      "protected_unchanged": {
+        "referanse.png": true,
+        "original_1x.png": true,
+        "prompt.txt": true,
+        "jobb.json": true
+      }
+    }
+  ],
+  "ready_for_delivery": [],
+  "held_native_candidates": 4,
+  "dependent_anchor_blocks": [
+    {
+      "jobb": "rom032",
+      "status": "avvist",
+      "sha256_resultat": "94c380cfc272cd723de4afa48da4132e1e681f1839ac00d796021daeac2b042a",
+      "dependent_jobs": [
+        "lag032_01",
+        "lag032_02",
+        "lag032_03",
+        "lag032_04",
+        "lag032_05",
+        "lag032_06",
+        "lag032_07"
+      ]
+    },
+    {
+      "jobb": "rom077",
+      "status": "sjekk",
+      "sha256_resultat": "d9cc7424735332a99a3f49abee2068f53207689ece4c977d3b60912d2dd08b41",
+      "dependent_jobs": [
+        "lag077_01",
+        "lag077_02",
+        "lag077_03",
+        "lag077_04"
+      ]
+    },
+    {
+      "jobb": "rom088_del7av9",
+      "status": "avvist",
+      "sha256_resultat": "093f89e97a4fc6ebf9fe148f282cc19ccb43978326f79cfdcf8bf742fc331b6f",
+      "dependent_jobs": [
+        "lag088_01_del7av9",
+        "lag088_02_del7av9",
+        "lag088_03_del7av9",
+        "lag088_04_del7av9"
+      ]
+    }
+  ],
+  "additional_held_job": {
+    "jobb": "lag027_03_del2av8",
+    "new_generation": false,
+    "evidence": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag027-fasebevis.json",
+    "next_action": "Claude vurderer svak fasekorrelasjon i en nesten tom veggblokk. Ingen kontrollgrense er endret; kandidaten er fortsatt avvist."
+  },
+  "protected_checks": {
+    "lag023_03_del3av6": {
+      "referanse.png": true,
+      "original_1x.png": true,
+      "prompt.txt": true,
+      "jobb.json": true
+    },
+    "lag025_01_del1av3": {
+      "referanse.png": true,
+      "original_1x.png": true,
+      "prompt.txt": true,
+      "jobb.json": true
+    },
+    "lag026_03_del2av3": {
+      "referanse.png": true,
+      "original_1x.png": true,
+      "prompt.txt": true,
+      "jobb.json": true
+    },
+    "lag027_03_del2av8": {
+      "referanse.png": true,
+      "original_1x.png": true,
+      "prompt.txt": true,
+      "jobb.json": true
+    },
+    "lag090_01": {
+      "referanse.png": true,
+      "original_1x.png": true,
+      "prompt.txt": true,
+      "jobb.json": true
+    }
+  },
+  "shared_deliveries_modified": false,
+  "git_mutations_performed": false,
+  "tool": "innebygd image_gen",
+  "exact_model_version": "ikke eksponert av verktøyet",
+  "room_layers_graphics_delivered_still": 210,
+  "total_room_layers": 230,
+  "remaining20_not_solved": true
+}
