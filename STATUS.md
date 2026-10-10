@@ -101,7 +101,7 @@ fullskjerm) og Toms egen maskin.
 
 ## Linux-pakken
 
-Én fil med alt: `TheDigHD-x86_64.AppImage` (765 MB) i den private releasen
+Én fil med alt: `TheDigHD-x86_64.AppImage` (1,48 GB 10. oktober, hd-mod be2056c) i den private releasen
 [linux](https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux):
 ScummVM med HD-patchen, spillet, musikk, tale og HD-modden. Starter rett i
 spillet i fullskjerm. Innstillinger i `~/.config/the-dig-hd`, lagrede spill i
