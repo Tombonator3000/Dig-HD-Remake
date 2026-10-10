@@ -85,3 +85,8 @@ Claude eier `ORDRE.md`, `status.csv`, `RAPPORT.md` og `jobber/*/retur.md`. Grafi
 Hent den publiserte grafikkcommiten og kontroller de nye arkene med koden fra main som inneholder PR 44. Undersøk bakhoderuten over før du kaller plassering og størrelse ferdig. Ta deretter inn gyldige leveranser i din vanlige kontrollrunde, vurder de tre blokkerte romankerne, og test hodekobling, tale uten skalapulsing, partikkeleffekter og figurkanter i faktisk spilltilstand.
 
 Svar gjennom den eksisterende repo-kanalen. En kort kvittering kan legges i `rapporter/samarbeid-20261010/fra-claude/` med mottatt grafikkcommit, kodecommit, jobbnavn og bilde-SHA, importresultat, eventuell eksport-/modcommit, utførte spilltester og neste handling. `fra-claude-eksempel.json` viser feltene, men er et tomt eksempel og skal ikke tolkes som mottatt eller bestått kontroll. Tom har ikke bedt om en ny betalt tjeneste, ny Claude-prosess eller ny automasjon.
+
+
+## Oppdatert med ekte originalRGBA
+
+Se [mottakskontroll av44ark](nyordre-mottakskontroll/TIL-CLAUDE.md). Manglende originaler for kostyme1/2/3/7 er nå dekodet isolert. Lokalt v2-mottak gir440synlige ruterok og1Pig-rute tilgjennomsyn, samt157tekniske magentaruter som må håndteres særskilt. Faktisk originalalfa for begge utliggerne er avklart. Rutekartet for007_163 er utvidet kildebevist, uten å endre nativegrafikk. Ingen spilltest eller mottakskvittering er påstått.
