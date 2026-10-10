@@ -26,6 +26,16 @@ fig015_22–31 gir 162 ok og 4 sjekk i lokal prøveimport av aktuelle SHA256-ver
 
 Arkene fig015_12–16 er dessuten kontrollert fra den faktiske leveranseoppdagelsen og rutekartene. Disse fem arkene gir 80 ok og 0 sjekk, se importkontroll-del04.json. Disse kontrollene gjør ingen endring i kildefiler, native bildefiler eller motoren.
 
+## Fullført standardkostyme og første mørke variantark
+
+Seks nye ark fig015_32,33 og fig017_03,04,06,07 gir samlet168ok og3sjekk i isolert prøveimport. Standardkostymet har nå33grafikkreviderte ark. fig017_03 har102tegnede hoder og ett ekte originalfragment. De tre varslene gjelder hoderutene costume017_128,154,169 (IoU0,716–0,767, dekning0,750–0,772), og krever manuell vurdering hos Claude. Tallene i importkontroll-del06.json gjelder de faktiske leverte SHA256-verdiene.
+
+fig017_01,02 og05 holdes tilbake lokalt på grunn av palett, antall/oppsplitting eller oppdiktet skade i forsøkene. De gamle jobbfilene er bevart. Et teknisk riktig radantall er ikke alene nok til grafikklevering.
+
+## Samlet leveranseoppdagelse for alle33standardark
+
+En samlet prøveimport fra den faktiske leveranseoppdagelsen og rutekartene finner alle33reviderte standardark med aktuelle SHA256. Resultatet er626ok og18sjekk over644originaloppføringer. De18varslene er de allerede beskrevne13bakre hodeomrissene,4frontale hodeomrissene og den påviste feilskaleringen av costume015_299. Ingen nye varsler kom til fra fig015_32 eller33. Full rapport står i importkontroll-standardkostyme-33ark.json. Dette bekrefter filruting i den isolerte importen, ikke motorintegrasjon eller spilltest.
+
 ## Videre kontroll hos Claude
 
 Importer reviderte SHA256-verdier og rutekart etter at markeringsproblemet er rettet. Kontroller ståing, gange og tale i alle retninger med felles hodeskala og anatomisk halsanker, deretter z-masker og opptegning når figuren går. Rektangulære artefakter i Toms skjermbilder er fortsatt ikke bevist løst av grafikkrevisjonen.

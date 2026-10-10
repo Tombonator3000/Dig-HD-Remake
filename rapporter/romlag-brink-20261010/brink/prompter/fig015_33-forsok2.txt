@@ -1,0 +1,26 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character (Ludger Brink), in different poses. On this sheet, row by row from left to right: other frames (2).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+TOM-AUTHORIZED SOURCE-EXACT POSE RETRY: Edit imageONE, the original two headless walking bodies, into smooth approved Brink artwork matching imageTWO. ImageTHREE and imageFOUR are nearest-neighbor enlargements of the TWO EXACT original sprites, in order. Take every arm and LEG PHASE from these enlarged originals. Both bodies face REAR-RIGHT and walk toward screen RIGHT, closed back of gray jacket. Both have NO head. In BOTH sprites the boot at SCREEN LEFT is PLANTED flat on the ground, with its toe pointing RIGHT; the boot at SCREEN RIGHT is lifted, with bent knee, seen in SIDE VIEW, toe pointing RIGHT. The first body's LEFT screen leg is bent, second body's LEFT screen leg is straighter. DO NOT show a large boot sole toward us, DO NOT swap which leg carries the weight, DO NOT make identical crossing-behind strides. The visible right sleeve hangs DOWN along the right side in BOTH original figures, with the hand near hip/thigh; do not bend it upward. Follow the specific source changes between these two frames exactly. The trousers are LOOSE/BAGGY burnt ochre, boots heavy black-blue-gray; preserve the source widths and irregular knee positions. Exactly TWO headless bodies, one row, nothing else. True native transparent RGBA1536x1024. No magenta markers, floor or shadows.
