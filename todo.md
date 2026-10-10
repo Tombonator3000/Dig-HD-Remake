@@ -14,9 +14,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Samstem README, STATUS og pakketellinger fra samme verifiserte hd-mod-SHA; skill levert, ok, sjekk og visuelt godkjent
 - [ ] Test flere myke figurer over hverandre, z-masker, skalering og menyer i ekte spilltilstand
 - [x] Gjennomgang av hvordan LucasArts og Double Fine laget remasterne, med tiltak: `docs/REMASTER-FORBILDER.md`
-- [ ] Master-figurark for Boston, Brink, Maggie og Pig (forfra, profil, bakfra, i drakt og uten), godkjent av Tom, og påbudt som referanse i alle figurjobber for dem
+- [ ] Master-figurark for Boston, Brink, Maggie og Pig (forfra, profil, bakfra, i drakt og uten), godkjent av Tom, og påbudt som referanse i alle figurjobber for dem. Bestilt i ORDRE.md 11. oktober (`hovedark/`), venter på Codex og så Tom
 - [ ] Visuell kontroll av figur mot rom i ekte spillbilde: samme kantmykhet, lysretning og metning
-- [ ] Merk feil i todo som `[original]` eller `[HD]`, og skriv i HD-MOTOR.md om hver motorendring leser tilstand, endrer tilstand eller lapper skript
+- [ ] Merk feil i todo som `[original]` eller `[HD]` (påbegynt 11. oktober i Motor), og skriv i HD-MOTOR.md om hver motorendring leser tilstand, endrer tilstand eller lapper skript
 
 
 - [x] GitHub Pages-inngang med lokal import av spillfiler og HD-pakke, uten lokal webserver
@@ -83,11 +83,15 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Tom prøver lagring fra F5-menyen igjen på laptopen og sier fra (hvor det stopper hvis det ikke virker)
 - [x] Inventaret i HD (blast-objekter med skygge, ikonene med HD-bilde), PR 44
 - [x] Aldri rett til skrivebordet: avslutning åpner menyen, Esc starter ikke stoppede skript, PR 44
-- [ ] F5 ga «HEAP ... MEM ... VID» hos Tom; F5 virker her. Se i loggen hans etter `DigHD: key 286` neste gang
+- [ ] [original] F5 ga «HEAP ... MEM ... VID» hos Tom; F5 virker her. Meldingen er spillets egen (SYSTEM.022, tasten h). Se i loggen hans etter `DigHD: key 286` neste gang
 - [x] Beskrivelsesteksten (navn ved musen) med Exo 2 og skygge, PR 44
-- [ ] Luft etter r i HD-skriften («Br ink»)
-- [ ] Armen som løfter Pig ut av romfergen ser rar ut (Tom 10. oktober, rettes etter hvert)
-- [ ] Nye ark for Boston, Maggie og Brink i romdrakt (kostyme 1, 2, 3) og Pig (7) fra Codex; Tom ser første ark for Boston og Brink
+- [x] [original] Luft etter r i HD-skriften («Br ink»): originalskriften har samme luft (r er fire piksler med armen øverst). Prøvd å tilpasse bredden og plassen til originalbokstaven 11. oktober; ingen synlig forskjell, tatt ut igjen
+- [ ] [HD] Armen som løfter Pig ut av romfergen ser rar ut (Tom 10. oktober): robotarmen er kostyme 4 og 5, og hver rute er tegnet for seg, så festet, leddene og enden skifter form fra rute til rute. Bestilt hovedark og nye ark i ORDRE.md 11. oktober. Scenen er ikke sett i spill her (skjer etter at spilleren gjør noe i rom 2)
+- [x] [HD] Flekker av originalpiksler rundt skalerte myke figurer (astronauten som holder Pig i rom 4): PR 45, venter på at Tom fletter
+- [x] Nye ark for Boston, Maggie og Brink i romdrakt (kostyme 1, 2, 3) og Pig (7) fra Codex tatt inn 11. oktober (riktige personer); Tom ser dem i pakken
+- [ ] Tom ser på astronautene og Brink (kostyme 16 og 17 har mørkere hake i originalen, HD-Brink er glattbarbert som konseptet)
+- [ ] 20 nye ruter for kostyme 229 er holdt ute (kodek 5, fargetabellen har like farger med ulik indeks, indeksbildet kan ikke lages uten dekoderne)
+- [ ] Rom 32 og 77 er levert på nytt, men kan ikke kontrolleres her (rommene trenger uttrekket med dekoderne)
 - [ ] Kostyme 22 og 23 (romdrakt i tunnelen) er trolig Brink og Maggie (samme ruter og mål som 3 og 2); ikke kontrollert i spill
 - [x] Fast størrelse mellom rutene i myke-figurer (versjon 2), modden lappet og publisert (fdad5c7)
 - [ ] Temaet `scummremastered` lastes ikke i Linux-pakken (LiberationSans-Bold.ttf mangler); legg skriften i pakken eller ta temaet ut

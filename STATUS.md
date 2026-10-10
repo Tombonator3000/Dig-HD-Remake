@@ -131,6 +131,12 @@ mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
 - Myke figurer holder originalens størrelse og form i hver rute (myke-figurer versjon 2). Arkene for Boston, Maggie og Brink i romdrakt og Pig er avvist (feil personer, Pig feil) og vises som originalpiksler til nye kommer.
 - Ikke funnet: hvorfor F5 ga «HEAP ... MEM ... VID» hos Tom. Tastene logges nå.
 
+## Endret 11. oktober
+
+- 157 nye figurark fra Codex tatt inn (2379 ruter ok, 8 til gjennomsyn, 47 uten del): astronautene i romdrakt er nå Boston, Maggie og Brink, Pig er ny, og Brink (kostyme 16, 17, 48 og flere) har nye ark. 2367 myke ruter lagt i modden, publisert i `hd-mod` (3bfde8a). Indeksbilder som manglet for 225 ruter er laget med `tools/ruteindeks.py`; 20 ruter for kostyme 229 holdt ute.
+- Linux-pakken bygget på nytt med den nye modden (kjøring 38093165905, bestått). Lastet ned og kjørt uten skjerm fra Toms lagring i rom 4: de myke astronautene vises (7259 piksler myk figur). Ikke testet på Toms skjerm.
+- PR 45 (venter på fletting): skalerte myke figurer etterlater ikke lenger originalpiksler i kanten. Testet uten skjerm, se PR-en.
+
 ## Kjente begrensninger
 
 - Kodek 5 og 16: 110 av kostymene ble ikke tegnet da testen hoppet gjennom rommene, så fargene deres er valgt etter hvilken palett som gir jevnest bilde. Et kostyme som vises med to helt ulike paletter, får riktige HD-farger bare i den ene (sett for 266 i rom 79).
