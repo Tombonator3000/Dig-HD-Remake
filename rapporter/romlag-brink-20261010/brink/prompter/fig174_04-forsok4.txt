@@ -1,0 +1,31 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same characters (Boston Low and Ludger Brink), as one scene, in different poses. On this sheet, row by row from left to right: animation 13, facing right (14 frames); animation 15, facing right (9 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+TOM-AUTHORIZED PRECISE SOURCE/STYLE CORRECTION:
+Generate a clean new native drawing from the actual source image1. Image2 is the selected same-variant costume17401 Boston native, the sole drawn-style/identity and muted olive skin continuity anchor. Image3 is a factual actual original-RGBA count/pose guide; image4 is actual source costume174 palette evidence for Boston and BACK-FACING Brink. Their labels, swatches, backgrounds and magenta markers are diagnostic only and must not appear in output. These roles override the generic description in the base prefix.
+This sheet contains exactly23 ORIGINAL FRAMES arranged [9,5,9]. Top row slot2 is BRINK ALONE FROM BEHIND: source olive-blond hair, muted green-gray long-sleeved jacket, source brown trousers, blue-black boots, raised right arm. Top row other eight frames are BOSTON ALONE. Middle row all five BOSTON ALONE. Bottom row nine: slots1,8,9 are each a genuine original COMPOSITE PAIR Boston on the left facing right plus Brink on the right seen FROM BEHIND, same exact contact/overlap and relative scale as the source. Bottom row slots2..7 are Boston alone. Thus23 original frames and26 visible people. Do not split pairs into separate frames, or add a second person to solo frames. Preserve every original frame row/order, original distinct walk, turn, arm, head and foot phase. Keep frame groups separate from their neighbors.
+BOSTON is brown-haired with gray temple, square/angular jaw, dark NAVY SHORT-SLEEVE T-SHIRT, no jacket or badge, bare forearms and hands, dark brown-ochre trousers, blue-black boots. Match selected image2 Boston drawn identity/style, not a different blond character. His small irregular white/gray curved artifact follows the exact source size, orientation, contour and fingers in each phase. It is not a large ring, sphere, glove, weapon or shiny modern sculpture, and emits NO glow in this source. All Brink instances are back-facing; show the back skull/hair and back of jacket, no front eyes/face/chest badge. Do not invent outfit details.
+Actual COLOR/LIGHT from image1/4: Boston skin highlights RGB139,127,67, mid123,107,51, shadows91,71,27, subdued OLIVE/YELLOW-TAN, no healthy peach/orange/pink skin. Shirt RGB23,35,43 /15,23,31. Dark trouser family115,63,0 /95,51,7 /75,35,0, not fresh orange. Brink jacket95,135,115 /63,103,95 /39,71,75 and green-lit blond hair151,175,47 /99,111,31. Smooth natural drawn shading within these actual muted source families; allow highlights, retain hue, not flat monochrome. No neon green zombie face, damage, texture or photographic/3D/plastic rendering. Clean drawn contours and angular painted shadow planes like image2, smooth antialiased edges, stable skull/head/neck/body scale across phases.
+IMPORTANT CLEAN TRANSPARENCY: This variant has ambient green light ON the visible surfaces only, never floating external light. NO glow, bloom, matte, floor, ground/cast shadow, cloud, vignette or halo around heads, hair, pale artifact, clothes or boots. Background and all spaces BETWEEN silhouettes genuinely transparent alpha0. Only immediate contour antialiasing, no broad faded matte. Retain every real limb/finger/item, omit only magenta technical footmarks. Output1536x1024 RGBA with exact23 original frames, no text, numbering, labels, grid, boxes, shadows or loose extras.

@@ -1,15 +1,11 @@
 # Leveransenotat
 
-Levert 9. oktober 2026. Innebygd ChatGPT-bildegenerator, 2 bildeforsøk i valgt forsøksspor. Verktøyet oppgir ikke et bekreftet modellnavn. Tidligere uvalgte forsøk er bevart lokalt.
+Revidert 10. oktober 2026 etter Toms beskjed «Ja, bruk dette Brink-utseendet videre». Det godkjente stilankeret er rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png. Boston Low og Ludger Brink, kostyme 174. Variant: Brink i grønt lys.
 
-Boston Low og Ludger Brink, kostyme 174, i Toms godkjente glatte og detaljerte stil. Egen stilprompt og eventuelle avgrensede korreksjoner er dokumentert i rapporter/hovedfigurer-hd-20261009/prompter/. Original prompt.txt og øvrige inputfiler er uendret og hashkontrollert mot HEAD.
+Innebygd ChatGPT-bildegenerator. Eksakt modellnavn er ikke oppgitt av verktøyet. 4 forsøk i dette revisjonssporet. Full prompt med den autoriserte Brink-rettingen ligger i rapporter/romlag-brink-20261010/brink/prompter/fig174_04-forsok4.txt. De fire originalfilene er uendret og hashkontrollert.
 
-Generatorens originale 1536 x 1024 RGBA er kopiert byteidentisk, uten ny pikselmaske eller kreativ etterbehandling. Radantall 9, 5, 9 er kontrollert ved alfa 128 og visuelt sammenlignet med kildens retninger, hodeløs oppdeling, bevegelser og kostyme. 23 tegnede figurområder, 23 originaloppføringer og 0 svært små originalfragmenter. Små fragmenter må bevares fra originalmaterialet; de er ikke oppblåst til anatomi.
+Native 1536 x 1024 RGBA er kopiert byteidentisk uten kreativ etterbehandling, ny pikselmaske eller alfarydding. Radantall [9, 5, 9] gir 23 tegnede områder. 23 originaloppføringer inkluderer 0 små fragmenter som må beholdes fra originalmaterialet. Alfarest utenfor fem piksler fra kjernen: maksimum 6/255, 0 piksler over 16/255. Root har sett faktisk originalguide og native på grå bakgrunn. Tjuetre områder inkluderer Boston alene, Brink bakfra alene og de tre ekte Boston/Brink-komposittparene. Personer, bakvendt Brink-hode, håndobjekt og gåfaser er bevart etter kilden; ingen frontansikt på bakhodet.
 
-Native alfa er bevart. Restalfa utenfor fem piksler fra alfa-128-konturen har maksimum 17/255, med 1 piksler over 16/255. Native fragmentstreker er diagnostikk, og originalfragmentene skal hentes fra originalmaterialet. Rutekartet er diagnostikk og er ikke en verifisert importmaske, skalering eller ankerplassering. Claude må tilpasse mottaket og kontrollere animasjon, retninger, fotpunkter og flimmer i spillet. Dette arket er ikke integrert, spilltestet eller separat visuelt godkjent av Tom.
+Erstatter SHA256 f465def2475974ec78bd1f3a12d874bea0ecb5c82cb2423b97b3198909683786 i commit 9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7. Tidligere bilde og notat er også bevart lokalt under /home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/brink-forrige/fig174_04/f465def2475974ec78bd1f3a12d874bea0ecb5c82cb2423b97b3198909683786. Ny SHA256: eb3651f0ca6db912f109f61fcaa44095f0869e506cb0ae8b00ec5ea073debc57.
 
-SHA256: f465def2475974ec78bd1f3a12d874bea0ecb5c82cb2423b97b3198909683786
-
-Radkoblingen bruker eksplisitt kildekontroll for separate deler i samme originalrute eller et løst hode med annen vertikal plassering. Alle native hoveddeler er med nøyaktig én gang; ingen er slettet for å få antallet til å stemme. Filkontrollen dokumenterer delgruppene og analyseboksene. Claude må bruke rutekartet og kontrollere koblingen ved import.
-
-Særskilt visuell restalfavurdering: Ett isolert alfapiksel på 17/255 utenfor fempikselkonturen er visuelt ubetydelig. Konturene og tom bakgrunn er kontrollert; dette er ikke en bred restmatte.. Den faktiske restalfamålingen over er beholdt uendret.
+Arket er grafikklevert og har diagnostisk rutekart. Det er ikke integrert, spilltestet eller separat godkjent av Tom. Claude må kontrollere skalering, hode- og fotankere, originalfragmenter og animasjon i motoren. Rapporten hode-og-brink-vurdering-20261010 beskriver de uavklarte import- og motorproblemene.

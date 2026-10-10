@@ -1,0 +1,105 @@
+[
+  {
+    "jobb": "rom032",
+    "attempt": 1,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nIf a second image is attached, it is an already approved HD picture from the same game. Match its level of detail and brushwork, but take all content, shapes and colors from the first image.\n\n\nEdit referanse.png. Keep the arch on the left exactly as in the reference: below its rim there are thin pale blue vertical streaks running down to the pool. Paint them as a thin sheet of water falling from the arch, not as carved stone. Do not add ornaments, carvings or patterns to the arch. Keep everything else at exactly the same position. Same size 1536 x 1024.\n\nSource-faithful return correction only. Image1 is the exact geometry and content authority. Image2 supplies only the approved smooth painted treatment, not its content or layout. Under the original left arch rim, paint the existing thin pale-blue vertical streaks as a transparent falling water sheet, like thin hanging watery strands. Retain dark gaps and the exact original small extent. The rest of the pool scene, silhouettes, plants, stepping stones, door and distant spires stay in their original shapes and pixel positions. No sculpted teeth, new ornament or engraved pattern under the arch. Do not increase the waterfall size or change the arch outline. The gray padding remains exactly as in image1.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom032/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/stil/room022_beach.png"
+    ],
+    "protected": {
+      "referanse.png": "81bb8b8fa1f62f17feff944aee6d8c9c91c993d62d9d5836ceca4901772424dc",
+      "original_1x.png": "a55e5d280295a50d2d3c7282c74d2f730dcfbb39556f62b517a73c3bda60ed85",
+      "prompt.txt": "c4d6f198738b9bccb0c8ace65a2fe958f950713f2e7922f6b07f2c707786ef36",
+      "jobb.json": "757d873268fa7f4140aab7b71cd2daba93adfe8fe548ecfcc0e9f20f5e0a3782"
+    },
+    "old_result_sha256": "94c380cfc272cd723de4afa48da4132e1e681f1839ac00d796021daeac2b042a",
+    "scope": "retur.md-korreksjon som mulig nytt anker for syv blokkerte lag, ikke automatisk godkjent",
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-26bc3da5-bc00-4623-b940-5f3db309084d.png",
+    "sha256": "c8b886027bfd8b3e0c3d70887b241ec99f47f97caa1f904a574e2e0d3ea4dc28",
+    "qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/root-romankere/rom032-attempt1.qa.json",
+    "resultat": "jobber/rom032/resultat.png",
+    "brukt_prompt": "rapporter/romlag-brink-20261010/romanker/prompter/rom032-forsok1.txt",
+    "baseline_commit": "a6d3982a9dbcf981bf703daead9a9b41cc8ede8a",
+    "kontroll": {
+      "resultat": "exec-26bc3da5-bc00-4623-b940-5f3db309084d.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "c8b886027bfd8b3e0c3d70887b241ec99f47f97caa1f904a574e2e0d3ea4dc28",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1
+      },
+      "skift_x": -0.01,
+      "skift_y": -0.2,
+      "blokk_maks": 0.33,
+      "kantlikhet": 0.906,
+      "fargeavvik": 7.4,
+      "status": "godkjent",
+      "kommentar": ""
+    },
+    "visual": {
+      "approved": true,
+      "sha256": "c8b886027bfd8b3e0c3d70887b241ec99f47f97caa1f904a574e2e0d3ea4dc28",
+      "review": "Root sammenlignet full original/native og særskilt utsnitt under buen. De originale lyse loddrette vannstripene er igjen fallende vann, og den feilaktige utskårne dekoren er fjernet. Pool, steiner, trinn, dør og spirsilhuetter er kildebasert.",
+      "runtime_tested": false
+    },
+    "code_sha256": "e929e066bc0331e3763de41ff3463e1e1859e01b1a6966f8591561d27969780e",
+    "manual_overrides": {},
+    "status": "ny grafikkrevisjon; avventer Claude-kontroll; romlag ikke automatisk åpnet"
+  },
+  {
+    "jobb": "rom077",
+    "attempt": 1,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nNote for this room: Map of the island. Keep each spire, rock and the island outline exactly where they are. These positions are used in the game.\n\nIf a second image is attached, it is an already approved HD picture from the same game. Match its level of detail and brushwork, but take all content, shapes and colors from the first image.\n\n\nPrecise correction of the attached HD picture. The previous result did not line up with the original. Start again from referanse.png and keep every outline, edge and object at exactly the same pixel position as in that image. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\n\nSource-faithful return correction only. Image1 is the sole authority for all content, exact pixel positions, contours and original lighting/colors. Image2 supplies only the approved painted detail level. Keep the exact image rectangle and every shape; improve surface detail inside existing forms only. No new composition, perspective, framing or objects.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom077/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/stil/room022_beach.png"
+    ],
+    "protected": {
+      "referanse.png": "a0f5139b6dd02ddeb354a8fced3b784a12d88fc4d725eddcbe4016c02e1de06c",
+      "original_1x.png": "74bb56cc68c434633a33111cf5aa596ae7f28bc6b6d8cf41898f33731827f038",
+      "prompt.txt": "0fb3c622104e228498f2a011d0ac27be96b05b4f206bc239d36ab08dc6eb4d3d",
+      "jobb.json": "80b0b5803e06018332622adb6a2fab272a5449ef8b450c77e3888433588fac8e"
+    },
+    "old_result_sha256": "d9cc7424735332a99a3f49abee2068f53207689ece4c977d3b60912d2dd08b41",
+    "scope": "avgrenset returretting for bakgrunnsanker; Claude må kontrollere på nytt før blokkerte lag åpnes",
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-c53790be-af97-46ca-8d1d-f11e1db0a4e9.png",
+    "sha256": "c4873d4dc2f347af2c435eb4599ab43ab959faa0dac6063ed7b34c7cdf509cfd",
+    "qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/root-romankere/rom077-attempt1.qa.json",
+    "resultat": "jobber/rom077/resultat.png",
+    "brukt_prompt": "rapporter/romlag-brink-20261010/romanker/prompter/rom077-forsok1.txt",
+    "baseline_commit": "a6d3982a9dbcf981bf703daead9a9b41cc8ede8a",
+    "kontroll": {
+      "resultat": "exec-c53790be-af97-46ca-8d1d-f11e1db0a4e9.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "c4873d4dc2f347af2c435eb4599ab43ab959faa0dac6063ed7b34c7cdf509cfd",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1,
+        "topp": 1
+      },
+      "skift_x": 0.03,
+      "skift_y": -0.09,
+      "blokk_maks": 0.13,
+      "kantlikhet": 0.941,
+      "fargeavvik": 9.4,
+      "status": "godkjent",
+      "kommentar": ""
+    },
+    "visual": {
+      "approved": true,
+      "sha256": "c4873d4dc2f347af2c435eb4599ab43ab959faa0dac6063ed7b34c7cdf509cfd",
+      "review": "Root sammenlignet original og native. Spirenes konturer, avstand, høyder, sentralberg og skygger er bevart; lilla/oransje sjølys og overflatebehandling følger kilden. Ingen zoom eller ny ramme i bildefeltet.",
+      "runtime_tested": false
+    },
+    "code_sha256": "e929e066bc0331e3763de41ff3463e1e1859e01b1a6966f8591561d27969780e",
+    "manual_overrides": {},
+    "status": "ny grafikkrevisjon; avventer Claude-kontroll; romlag ikke automatisk åpnet"
+  }
+]
