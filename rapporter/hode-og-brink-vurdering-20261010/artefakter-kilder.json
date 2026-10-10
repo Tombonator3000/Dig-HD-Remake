@@ -1,0 +1,85 @@
+{
+  "dato": "2026-10-10",
+  "skjermbilde": {
+    "fil": "skjermbilde-07.png",
+    "sha256": "9ac5729f806b55f614c048941ea12d36d215cb87f97e04b105ab69b1f0c33308",
+    "size": [
+      662,
+      481
+    ],
+    "opprinnelse": "Uendret brukerattachment",
+    "bygg_og_modmanifest": "Ukjent"
+  },
+  "utsnitt": [
+    {
+      "navn": "Maggie: hår og hals",
+      "boks_xyxy": [
+        445,
+        92,
+        523,
+        173
+      ],
+      "forstorrelse": 4,
+      "resampling": "NEAREST"
+    },
+    {
+      "navn": "Brink: buksekant",
+      "boks_xyxy": [
+        536,
+        274,
+        587,
+        349
+      ],
+      "forstorrelse": 4,
+      "resampling": "NEAREST"
+    },
+    {
+      "navn": "Boston: skuldre",
+      "boks_xyxy": [
+        291,
+        186,
+        380,
+        240
+      ],
+      "forstorrelse": 4,
+      "resampling": "NEAREST"
+    }
+  ],
+  "kontrollerte_ark": [
+    {
+      "fil": "jobber/fig018_01/resultat.png",
+      "sha256": "e471afbe02b89164e71887e49966bb2ca8718400ff886345cf66cd913c90d4ae",
+      "kontroll": "Visuell kontroll av native ark. Konkret rute i skjermbildet er ikke identifisert."
+    },
+    {
+      "fil": "jobber/fig018_08/resultat.png",
+      "sha256": "3ecdd23c7fc82706bbfeefd68de3bdbfdd81467cdbdfa1ba02b8a13c5457cecf",
+      "kontroll": "Visuell kontroll av native ark. Konkret rute i skjermbildet er ikke identifisert."
+    },
+    {
+      "fil": "jobber/fig015_09/resultat.png",
+      "sha256": "f6c24e48c41acb820b8863dfbbfc02e78ee553d6477466fb0c7fe22c593b43b2",
+      "kontroll": "Visuell kontroll av native ark. Konkret rute i skjermbildet er ikke identifisert."
+    }
+  ],
+  "kode": [
+    {
+      "fil": "engine/patches/0001-dighd-hd-grafikk.patch",
+      "sha256": "635fccce1588a80f4bba7f8a9a79e0b3993684de449fdaa6a8cd534edd0f3f83",
+      "commit": "4cff08145f0760d9e7765bcec6f6c9a371e196bb"
+    },
+    {
+      "fil": "docs/HD-MOTOR.md",
+      "sha256": "a030e9c6abb555739297ce86c13ad8751f9ba67cd3b93dea02fcd688a170aa90",
+      "commit": "4cff08145f0760d9e7765bcec6f6c9a371e196bb"
+    }
+  ],
+  "scummvm_originalkilde": {
+    "commit": "c9091321060acfc8f037767c18f8279a86305b7e",
+    "fil": "engines/scumm/base-costume.cpp",
+    "sha256": "32e8d678f62b13b017152b6347640ad5ce2f27afeed58d9ceb198bba73650272"
+  },
+  "spilltest_utfort": false,
+  "eksakt_rute_identifisert": false,
+  "produktendringer": false
+}

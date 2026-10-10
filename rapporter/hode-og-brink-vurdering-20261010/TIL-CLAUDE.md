@@ -2,6 +2,8 @@
 
 Dato: 10. oktober 2026. Vurdering etter Toms seks faktiske skjermbilder. Dette er en feilrapport og stilvurdering. Ingen spillkode, jobbfiler eller leverte figurer er endret.
 
+Tillegg etter et syvende skjermbilde: [Firkantede rester rundt figurene](ARTEFAKTER.md). Tydelige blokker ved Maggie, Boston og Brink er dokumentert med utsnitt og konkrete kontrollpunkter for skalering, originalpiksler og oppdatering mellom animasjonsfaser.
+
 ## Konklusjon
 
 Toms observasjon har et konkret grunnlag. Hodegrafikken og den nåværende skaleringsregelen gir forskjellig hodestørrelse mellom ståing og tale, avhengig av retning. Plasseringen ved halsen bør kontrolleres sammen med størrelsen. Brink avviker dessuten fra karakterkonseptet i farger, ansikt og kroppsbygning.
