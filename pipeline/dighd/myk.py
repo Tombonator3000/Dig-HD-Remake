@@ -7,8 +7,11 @@ rute på arket gjør mottaket dette:
 
 1. Finner delene av tegningen som hører til ruten: rutekartet grafikeren leverte (boksene rundt
    hver del), ellers rad og rekkefølge på arket.
-2. Skalerer med én faktor for hele arket, slik at figurene får originalens høyde. Én faktor gjør at
-   rutene i en animasjon har samme størrelse og ikke pulserer.
+2. Skalerer med én faktor per gruppe på arket, slik at figurene får originalens høyde, og
+   tilpasser så hver rute til originalens omriss i bredde og høyde (innenfor FIT_RANGE). Grafikeren
+   tegner rutene litt ulikt i størrelse og form; originalen er jevn. Når hver rute får originalens mål,
+   skifter ikke figuren størrelse eller form mellom rutene (Tom 10. oktober: astronautene skiftet
+   størrelse når de snakket). Tilpasningen brukes bare når den ikke dekker originalen tydelig dårligere.
 3. Plasserer tegningen over originalruten i 4x der omrisset dekker originalen best, med fotfeste
    og midtpunkt som start.
 4. Skriver costumes/costumeCCC_NNN_hd.png: ruten i 4x med en marg rundt (like stor på begge sider),
@@ -38,7 +41,9 @@ SEARCH = 16       # hvor langt plasseringen prøves flyttet, i HD-piksler
 SMALL = 40        # originalruter med færre synlige piksler regnes som fragmenter
 GOOD_IOU = 0.6    # under dette er omrisset så ulikt originalen at ruten må ses på
 GOOD_COVER = 0.8  # andel av originalens piksler tegningen må dekke
-VERSION = 1       # økes når mottaket endres, så alle ark tas inn på nytt
+FIT_RANGE = 0.12  # hvor mye hver rute kan skaleres bort fra gruppens faktor, i bredde og høyde for seg
+FIT_SLACK = 0.03  # tilpasningen brukes når snitt/union er høyst så mye dårligere enn med gruppens faktor
+VERSION = 2       # økes når mottaket endres, så alle ark tas inn på nytt
 
 
 def _sha(path: Path) -> str:
@@ -228,12 +233,44 @@ def _centre_x(mask: np.ndarray) -> float:
     return float(xs.mean()) if len(xs) else mask.shape[1] / 2
 
 
-def place(drawing: np.ndarray, original: np.ndarray, scale: float) -> dict:
+def fit_scales(drawing: np.ndarray, original: np.ndarray, scale: float) -> tuple[float, float]:
+    """Faktorene i bredde og høyde som gir tegningens kjerne samme mål som originalens omriss i 4x,
+    hver holdt innenfor FIT_RANGE fra gruppens faktor."""
+    core = drawing[..., 3] >= CORE
+    if not core.any() or not (original[..., 3] > 0).any():
+        return scale, scale
+    ys, xs = np.nonzero(core)
+    oy, ox = np.nonzero(original[..., 3] > 0)
+    dw, dh = xs.max() - xs.min() + 1, ys.max() - ys.min() + 1
+    ow, oh = (ox.max() - ox.min() + 1) * SCALE, (oy.max() - oy.min() + 1) * SCALE
+    lo, hi = scale * (1 - FIT_RANGE), scale * (1 + FIT_RANGE)
+    return float(min(hi, max(lo, ow / dw))), float(min(hi, max(lo, oh / dh)))
+
+
+def place_fitted(drawing: np.ndarray, original: np.ndarray, scale: float) -> dict:
+    """Som place(), men med originalens mål (fit_scales) når det ikke dekker originalen tydelig dårligere
+    enn gruppens faktor. Rapporten sier hvilken som ble brukt (tilpasset)."""
+    plain = place(drawing, original, scale)
+    sx, sy = fit_scales(drawing, original, scale)
+    if abs(sx - scale) < 1e-3 and abs(sy - scale) < 1e-3:
+        plain["tilpasset"] = False
+        return plain
+    fitted = place(drawing, original, sx, sy)
+    if fitted["snitt_union"] >= plain["snitt_union"] - FIT_SLACK and not (fitted["kuttet"] and not plain["kuttet"]):
+        fitted["tilpasset"] = True
+        fitted["skala_xy"] = [round(sx, 4), round(sy, 4)]
+        return fitted
+    plain["tilpasset"] = False
+    return plain
+
+
+def place(drawing: np.ndarray, original: np.ndarray, scale: float, scale_y: float | None = None) -> dict:
     """Skalerer tegningen (RGBA, bare denne rutens deler) og legger den over originalruten (RGBA i 1x).
+    scale_y: egen faktor i høyden (ellers samme som scale).
     Gir bildet med marg (RGBA, (w + 2 * margx) * 4 x (h + 2 * margy) * 4), margene og målene."""
     h, w = original.shape[:2]
     o4 = np.repeat(np.repeat(original[..., 3] > 0, SCALE, axis=0), SCALE, axis=1)
-    nh = max(1, round(drawing.shape[0] * scale))
+    nh = max(1, round(drawing.shape[0] * (scale if scale_y is None else scale_y)))
     nw = max(1, round(drawing.shape[1] * scale))
     scaled = _premul_resize(drawing, (nw, nh))
     a = scaled[..., 3] >= CORE
@@ -372,7 +409,7 @@ def import_sheet(sheet: np.ndarray, cels: list[dict], boxes: dict[str, list[int]
             y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
             part = sheet[y0:y1, x0:x1].copy()
             part[~own[y0:y1, x0:x1]] = 0
-            r = place(part, o, scale_of.get(b, overall))
+            r = place_fitted(part, o, scale_of.get(b, overall))
             ok = r["snitt_union"] >= GOOD_IOU and r["dekning"] >= GOOD_COVER and not r["kuttet"]
             status = "ok" if ok else "sjekk"
             kilde = "arket"
@@ -387,7 +424,8 @@ def import_sheet(sheet: np.ndarray, cels: list[dict], boxes: dict[str, list[int]
         report[b] = {"status": status, "kilde": kilde, "fil": f"costumes/{b}_hd.png", "sha256": _sha(dest),
                      "storrelse": [r["bilde"].shape[1], r["bilde"].shape[0]], "marg": [r["margx"], r["margy"]],
                      "flytt_hd": r["flytt"], "snitt_union": r["snitt_union"], "dekning": r["dekning"],
-                     "deler": len(nrs), "skala": round(scale_of.get(b, overall), 4), "kostyme": c.get("kostyme"), "rute": c.get("rute"),
+                     "deler": len(nrs), "skala": round(scale_of.get(b, overall), 4), "tilpasset": r.get("tilpasset", False),
+                     "skala_xy": r.get("skala_xy"), "kostyme": c.get("kostyme"), "rute": c.get("rute"),
                      "animasjon": c.get("animasjon"), "retning": c.get("retning"), "lag": c.get("lag")}
     return {"metode": how, "skala": round(overall, 4), "grupper": len(groups), "deler_paa_arket": len(found),
             "ruter": report}
@@ -436,10 +474,22 @@ def preview(sheet_report: dict, extract: Path, out_dir: Path, name: str, columns
 
 # ------------------------------------------------------------------ alle leverte ark
 
+def rejected_sheet(rejections: dict[str, dict] | None, job: str, sha: str) -> dict | None:
+    """Avvisningen for arket (docs/gpt-avvisninger.csv, status avvist) når den gjelder denne leveransen
+    (samme sha256 eller "*"), ellers None."""
+    r = (rejections or {}).get(job)
+    if not r or (r.get("status") or "avvist").strip() != "avvist":
+        return None
+    want = (r.get("sha256_resultat") or "").strip()
+    return r if want in ("*", sha) else None
+
+
 def import_all(gren: Path, extract: Path, out: Path, only: set[str] | None = None,
-               previews: Path | None = None) -> dict:
+               previews: Path | None = None, rejections: dict[str, dict] | None = None) -> dict:
     """Tar inn alle leverte ark i glatt stil fra arbeidsgrenen (gren: work/.gpt-gren). Skriver de myke
-    rutene til out/costumes og rapporten til out/myke.json. Gir rapporten."""
+    rutene til out/costumes og rapporten til out/myke.json. Gir rapporten.
+    rejections: avvisningene (gpt.read_rejections). Et avvist ark tas ikke inn, og rutene det ga før,
+    slettes, så motoren viser originalen til et nytt ark er godkjent."""
     maps = route_maps(gren)
     result: dict = {"versjon": VERSION, "ark": {}, "ruter_ok": 0, "ruter_sjekk": 0, "ruter_mangler": 0}
     # Ark som er tatt inn før med samme bilde, jobb, rutekart og versjon, tas ikke inn på nytt
@@ -459,6 +509,13 @@ def import_all(gren: Path, extract: Path, out: Path, only: set[str] | None = Non
         sha = _sha(src)
         if d.get("sha256") and d["sha256"] != sha:
             result["ark"][job] = {"feil": "sha256 stemmer ikke med leveransen", "resultat": d["resultat"]}
+            continue
+        why = rejected_sheet(rejections, job, sha)
+        if why:
+            for r in (before.get(job) or {}).get("ruter", {}).values():
+                if r.get("fil"):
+                    (out / r["fil"]).unlink(missing_ok=True)
+            result["ark"][job] = {"avvist": (why.get("grunn") or "").strip(), "resultat": d["resultat"], "sha256": sha}
             continue
         meta = json.loads(meta_path.read_text())
         if meta.get("type") != "figur":

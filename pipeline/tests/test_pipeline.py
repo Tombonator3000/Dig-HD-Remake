@@ -1258,3 +1258,45 @@ def test_text_font_letters(tmp_path):
     assert rows[0] and rows[-1] and not rows.all()  # et mellomrom mellom prikk og stav
     for c, (x, y, w, h) in plass.items():
         assert x + w <= atlas.width and y + h <= atlas.height
+
+
+def test_soft_cel_keeps_original_size():
+    # Tom 10. oktober: figurene skiftet størrelse mellom rutene. Hver rute tilpasses originalens omriss
+    # i bredde og høyde (innenfor FIT_RANGE), så en rute grafikeren tegnet for smal får originalens bredde.
+    import numpy as np
+    from dighd import myk
+
+    original = np.zeros((20, 10, 4), np.uint8)
+    original[2:18, 2:8] = (200, 180, 160, 255)          # 6 x 16 originalpiksler
+    drawing = np.zeros((80, 60, 4), np.uint8)
+    drawing[5:69, 10:31] = (200, 180, 160, 255)         # 21 x 64: for smal i forhold til høyden
+    scale = 16 * 4 / 64                                  # gruppens faktor gir originalens høyde
+    plain = myk.place(drawing, original, scale)
+    fitted = myk.place_fitted(drawing, original, scale)
+
+    def size(r):
+        ys, xs = np.nonzero(r["bilde"][..., 3] >= 128)
+        return xs.max() - xs.min() + 1, ys.max() - ys.min() + 1
+
+    assert size(plain)[0] < 6 * 4 - 1                     # uten tilpasning: smalere enn originalen
+    assert fitted["tilpasset"] and size(fitted) == (6 * 4, 16 * 4)
+    assert fitted["snitt_union"] > plain["snitt_union"]
+    # Tilpasningen holdes innenfor FIT_RANGE: en tegning som er altfor smal, blir ikke strukket helt
+    thin = np.zeros((80, 60, 4), np.uint8)
+    thin[5:69, 10:20] = 255
+    sx, sy = myk.fit_scales(thin, original, scale)
+    assert abs(sx - scale * (1 + myk.FIT_RANGE)) < 1e-6 and abs(sy - scale) < 1e-6
+
+
+def test_rejected_soft_sheet():
+    # Et avvist ark (docs/gpt-avvisninger.csv) tas ikke inn av myke-figurer, bare for samme leveranse
+    from dighd import myk
+
+    rej = {"fig001_01": {"jobb": "fig001_01", "sha256_resultat": "abc", "status": "avvist", "grunn": "feil figur"},
+           "fig002_01": {"jobb": "fig002_01", "sha256_resultat": "*", "status": "avvist"},
+           "fig003_01": {"jobb": "fig003_01", "sha256_resultat": "abc", "status": "sjekk"}}
+    assert myk.rejected_sheet(rej, "fig001_01", "abc")["grunn"] == "feil figur"
+    assert myk.rejected_sheet(rej, "fig001_01", "def") is None      # en ny leveranse er ikke avvist
+    assert myk.rejected_sheet(rej, "fig002_01", "hva som helst")     # "*" gjelder alle
+    assert myk.rejected_sheet(rej, "fig003_01", "abc") is None      # sjekk er ikke avvist
+    assert myk.rejected_sheet(None, "fig004_01", "abc") is None

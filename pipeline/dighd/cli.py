@@ -171,8 +171,12 @@ def cmd_gpt_ordre(a) -> int:
 def cmd_myke_figurer(a) -> int:
     only = {j.strip() for j in a.jobb.split(",") if j.strip()} if a.jobb else None
     r = myk.import_all(Path(a.gren), Path(a.extract), Path(a.ut), only=only,
-                       previews=Path(a.forhandsvisning) if a.forhandsvisning else None)
+                       previews=Path(a.forhandsvisning) if a.forhandsvisning else None,
+                       rejections=gpt.read_rejections(Path(a.avvisninger) if a.avvisninger else None))
     bad = {j: x["feil"] for j, x in r["ark"].items() if x.get("feil")}
+    rejected = sorted(j for j, x in r["ark"].items() if x.get("avvist") is not None)
+    if rejected:
+        print(f"Avviste ark, ikke tatt inn: {', '.join(rejected)}")
     print(f"Myke figurer: {len(r['ark']) - len(bad)} ark, {r['ruter_ok']} ruter ok, {r['ruter_sjekk']} til "
           f"gjennomsyn, {r['ruter_mangler']} uten del på arket -> {Path(a.ut) / 'costumes'} (rapport i myke.json)")
     for j, why in sorted(bad.items()):
@@ -265,6 +269,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--jobb", help="bare disse arkene, for eksempel fig014_01,fig014_05")
     p.add_argument("--forhandsvisning", default=str(root / "work" / "gpt" / "forhandsvisning"),
                    help="mappe for kontaktark myk_<jobb>.png (tom streng for ingen)")
+    p.add_argument("--avvisninger", default=str(root / "docs" / "gpt-avvisninger.csv"),
+                   help="avviste ark (jobb, sha256_resultat, status avvist) tas ikke inn")
 
     a = ap.parse_args(argv)
     return {"info": cmd_info, "extract": cmd_extract, "build-mod": cmd_build_mod,

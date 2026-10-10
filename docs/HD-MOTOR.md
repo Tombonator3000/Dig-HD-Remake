@@ -95,6 +95,8 @@ Merkingen koster lite: 0,006 ms per bilde i rom 2 (3 ruter). Oppslaget er en sam
 
 Figurene ChatGPT/Codex tegner nå, har et eget omriss og ekte alfa med myke kanter. Klippet med originalens piksler, slik figurene over blir, får de trappetrinnene tilbake, og en hard alfagrense (`ha < 128`) gir ingen myke kanter. De tegnes derfor på en annen måte.
 
+Fast størrelse og form (10. oktober). Tom så at astronautene skiftet størrelse når de snakket. Grafikeren tegner rutene litt ulikt i størrelse og form på arket, mens originalen er jevn. `dighd myke-figurer` (versjon 2 av mottaket, `pipeline/dighd/myk.py`) skalerer derfor ikke bare hver gruppe til originalens høyde, men tilpasser hver rute til originalens omriss i bredde og høyde for seg (`fit_scales`, høyst 12 prosent fra gruppens faktor), og bruker det når det ikke dekker originalen tydelig dårligere (snitt/union høyst 0,03 lavere). Målt på de 441 rutene for kostyme 1, 2, 3 og 7: for Brink i romdrakt (kostyme 3) gikk spredningen i bredde i forhold til originalen fra 1,9 til 0,3 prosent, for Boston (kostyme 1) fra 7,2 til 5,9 prosent; snitt/union ble likt eller bedre. Ruter der grafikeren har tegnet noe helt annet (en arm mangler), rettes ikke av dette og står som sjekk. Samme regel som i prosjektbibliotekets skill for figurark (morbidium-spritesheets): fast skala, fotfeste og hodestørrelse gjennom alle rutene, ingen rute skalert for seg for å fylle boksen. Avviste ark (`docs/gpt-avvisninger.csv`, status avvist) tas ikke inn, og rutene de ga før, slettes.
+
 Filen er `costumes/costumeCCC_NNN_hd.png` ved siden av `costumeCCC_NNN_idx.png`. Bildet er ruten i 4x med en marg rundt, like stor på begge sider og i hele originalpiksler: (bredde + 2 x margx) x 4 ganger (høyde + 2 x margy) x 4. Motoren regner margen ut av størrelsen. Finnes `_hd.png`, brukes den før `costumeCCC_NNN.png`. Filene lages av `dighd myke-figurer` (se README).
 
 Slik tegnes en myk rute:
@@ -285,9 +287,9 @@ Modden har:
 Slik lages en bokstav (`makeFaceGlyph`):
 
 1. Tegneren melder fontnummeret og tegnkoden sammen med glyfen (`GlyphDraw::font` og `chr`). `NutRenderer` får fontnummeret fra filnavnet.
-2. Nivået som ligger mest langs utsiden er kanten eller skyggen, det andre er bokstaven. Har glyfen mer enn to nivåer, brukes xBR.
-3. Bokstaven fra Exo 2 får høyden til boksen rundt originalbokstavens piksler, og bredden den har i skriften (skjermen vises 1,2 ganger høyere enn pikslene, så bredden ganges med 1,2). Den sentreres i boksen og blir aldri bredere enn den. Uten dette ble smale bokstaver som i like brede som pikselfontens føtter. Dekningen regnes med 4 x 4 prøver per HD-piksel.
-4. Kanten lages som originalen har den: en ring på én originalpiksel rundt bokstaven, eller bokstaven flyttet én piksel (skygge). Det som passer best med originalens kant velges, og overlappet må være minst 0,6, ellers brukes xBR.
+2. Bokstavens farge er den som gir best passform for de andre fargene som kant og skygge (ved likt: den som ligger minst langs utsiden). Glyfer med opptil tre farger tas med: bokstav, kant og skygge (de hvite navnene når musen er over noe, for eksempel «flying pig», har hvit bokstav med mørk skygge til høyre og under og noen få halvmørke hjørnepiksler). En farge med bare noen få piksler i forhold til den andre regnes ikke med. Har glyfen flere farger, brukes xBR.
+3. Bokstaven fra Exo 2 får høyden til boksen rundt originalbokstavens piksler, og bredden den har i skriften (skjermen vises 1,2 ganger høyere enn pikslene, så bredden ganges med 1,2), og kan gjøres opptil 25 prosent bredere for å fylle boksen (fra 10. oktober, så hullene ved smale bokstaver som r og f blir mindre). Den sentreres i boksen og blir aldri bredere enn den. En bokstav som er én originalpiksel bred, fyller boksen; er Exo 2-bokstaven for bred til det (l har fot), brukes originalbokstaven. Dekningen regnes med 4 x 4 prøver per HD-piksel.
+4. Kanten og skyggen lages som originalen har dem: en ring på én originalpiksel rundt bokstaven, bokstaven flyttet én piksel, eller flyttet både til høyre og ned (myk skygge). Med tre farger legges den andre fargen rundt bokstaven og den første sammen. Det som passer best med originalen velges (en skygge til venstre taper ved likt), og overlappet må være minst 0,6, ellers brukes xBR. `DIGHD_DEBUG_FACE=1` logger hvilket valg som ble gjort, og glyfene som ikke fikk skriften, med pikslene.
 
 Fargene, plasseringen, linjebruddene og hvordan teksten fjernes er som for de andre HD-glyfene over.
 
@@ -298,6 +300,8 @@ Testet uten skjerm 2026-10-09 med modden `gpt` pluss skriften:
 - Introfilmen: undertekstene bruker `FONT0.NUT` (100) og fikk Exo 2 («Borneo Deep Space Observatory», «This is the loneliest place on earth.»). Bokstavene står litt luftig, fordi de er smalere enn boksene i pikselfonten.
 - `engine/test.sh` (modden `test-nearest` har ingen skrift): 0 avvik i bakgrunner og uskalerte figurer, skjermen lik hele skjermen bygget på nytt i alle 12 dumper. Avvik bare i bilder med skalerte figurer (500, 1750 og 2000).
 - Ikke testet: tegnsett 0 og 3 og NUT-font 1 til 3 i spill, ekte skjerm.
+
+Testet uten skjerm 2026-10-10 fra Toms automatiske lagring (rom 4) med musen over Pig og Brink: «flying pig» og «Brink» med Exo 2, hvit bokstav og mørk skygge. Før ble «flying pig» tegnet med pikselfonten (Tom: «explosive unit Beta» så dårlig ut). Replikken i rom 2 ser ut som før. Det er fortsatt litt luft etter r («Br ink»).
 
 Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger hvordan glyfene lages: `font` (standard: HD-skriften der modden har den, ellers xBR), `xbr`, `scale4x`, `nearest` eller `off` (tekst som originalpiksler, som før).
 
@@ -313,9 +317,10 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger hvordan gly
 | `nut_renderer.cpp`, `nut_renderer.h` | Melder hver glyf fra NUT-fontene i filmene (`NutRenderer::drawCharV7`), med fontnummer (100 + n fra `fontN.nut`) og tegnkode |
 | `string_v7.cpp` | Teksten som tegnes og merkes, nullstiller ikke seg selv. `removeBlastTexts` nullstiller glyfene i spillskjermen |
 | `palette.cpp` | Palett sendes til DigHD i stedet for til skjermen |
-| `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand. Blast-objekter beholder figurmerkene under seg |
+| `object.cpp` | Melder hvilke objekter som tegnes og i hvilken tilstand. Blast-objekter beholder figurmerkene under seg, og DigHD får pikslene under et blast-objekt før det tegnes og beskjed når blast-objektene fjernes (inventaret, se Blast-objekter) |
+| `script.cpp`, `script.h` | Esc hopper ikke over en mellomsekvens når skriptet som startet den er stoppet (se Avslutning og Esc) |
 | `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes (kodek 1, 5 og 16), hvor, om de er speilvendt, om kodene er tegnet rett som palettindekser, om de tegnes i skjermbufferen eller i bakgrunnsbufferen, og hvilken z-maske skuespilleren har |
-| `cursor.cpp`, `input.cpp`, `saveload.cpp` | Musepeker i HD, museposisjon delt på skala, hurtigtastene Ctrl+H og Ctrl+Shift+H |
+| `cursor.cpp`, `input.cpp`, `saveload.cpp` | Musepeker i HD, museposisjon delt på skala, hurtigtastene Ctrl+H og Ctrl+Shift+H. F-tastene logges og får sin vanlige ASCII-kode. En forespørsel om å avslutte som ikke kommer fra Quit i menyen, åpner menyen |
 | `smush/smush_player.cpp` | Filmrammer og filmpalett via DigHD. Filmteksten tegnes også i laget til DigHD, og DigHD får beskjed når en ny ramme er pakket ut |
 
 ## Innstillinger
@@ -347,7 +352,9 @@ Test og feilsøking (bare miljøvariabler):
 | `DIGHD_TEST_ACTOR`, `DIGHD_TEST_POS`, `DIGHD_TEST_PALETTE`, `DIGHD_TEST_CHORE_EVERY` | Skuespilleren testkroken bruker (standard 29), plassen i rommet (`x,y`, standard midt på skjermen og 180), rompaletten som settes (`setCurrentPalette`, standard ingen) og hvor mange bilder hver animasjon vises (standard 60) |
 | `DIGHD_TEST_WALK` | Skuespilleren fra testkroken går til `x,y` og tilbake til plassen, om og om igjen (rett linje, uten gangboksene), i stedet for å spille animasjonene |
 | `DIGHD_TEST_CLIP` | Z-masken til skuespilleren fra testkroken (`_forceClip`, standard 0 = ingen, 100 = etter gangboksen). Med 1 til 3 går den bak forgrunnen i rom med z-plan |
-| `DIGHD_DEBUG_SOFT=1` | Logger hver myk rute som tegnes (rute, plass, størrelse) og hvert område som bygges på nytt for dem |
+| `DIGHD_DEBUG_SOFT=1` | Logger hver myk rute som tegnes (rute, kostyme, plass, størrelse) og hvert område som bygges på nytt for dem |
+| `DIGHD_DEBUG_BLAST=1` | Logger hvert blast-objekt (inventaret): nummer, tilstand, plass, mørknede og malte piksler, og hvor mange med HD |
+| `DIGHD_DEBUG_FACE=1` | Logger valget for hver bokstav med HD-skriften (bokstavfarge, kant og skygge) og glyfene som ikke fikk skriften |
 | `DIGHD_TEST_OBJSTATE` | Testkroken for objekttilstander. `884:2,886:1` setter objektene i disse tilstandene etter hoppet og holder dem der. `alle` viser hver tilstand av hvert objekt i rommet etter hverandre og lagrer skjermen etter hver tilstand. Se Objekttilstander i testen |
 | `DIGHD_TEST_OBJSTATE_AT`, `DIGHD_TEST_OBJSTATE_EVERY` | Bilder etter at spillet er i testrommet før den første tilstanden settes (standard 30), og hvor mange bilder hver tilstand vises med `alle` (standard 40) |
 
@@ -364,6 +371,31 @@ Med `DIGHD_VERIFY=1` skriver hver dump to til fire linjer:
 - `soft cels, N of M pixels disagree with the z-plane (K behind it)`: bare med myke ruter bak en z-maske. For hver piksel der indeksbildet til en myk rute har farge og ingenting annet ligger over: om motoren skjuler den myke tegningen nøyaktig der tegnerutinen lot være å tegne ruten. N skal være 0. K er pikslene bak forgrunnen.
 
 Under en film skriver hver dump også en linje for selve rammen, i originalpiksler: `film SQ1 frame 487: 61155 px from HD frame, 0 px original on purpose (text), 0 px original without HD, HD text over 2845 px`. Tekstpiksler med HD-glyf telles under det som er under dem (her HD-rammen), og i tillegg i det siste tallet. Med `DIGHD_VERIFY=1` skriver hver dump utenom film hvilke kostymer hver skuespiller sist ble tegnet med, og hvor mange av rutene som har HD-bilde: `costumes drawn: actor 6 costume 210 (1 cels HD, 0 without, raw codes)`. `raw codes` betyr at kodene ble tegnet rett som palettindekser. Første gang et kostyme tegnes i et rom med en palett, kommer også en linje som `costume 210 in room 78 with palette 0: codes as palette indices` (eller `codes through AKPL and the actor palette`).
+
+## Blast-objekter (inventaret)
+
+Inventaret i The Dig tegnes av skriptene som blast-objekter over skjermen: en gjennomsiktig rute (objekt 627, 256 x 128) som mørkner det som er under gjennom skyggetabellene (skyggemodus 3, `bompApplyShadow3`), og ikonene (objekt 628, 631, 637, 643 og så videre) oppå. Før 10. oktober visste DigHD ikke om dem: alt under ruten og ikonene ble originalpiksler (Tom: «gammel grafikk under» når inventaret åpnes).
+
+Nå:
+
+1. `beginBlast` tar vare på pikslene under objektet før det tegnes, `endBlast` sammenligner etterpå og merker hver piksel som ble endret: mørknet gjennom skyggetabellen (skyggemodus 1: tabell 0, modus 3: en av tabell 0 til 7), eller malt av objektet. Merkene gjelder til motoren fjerner blast-objektene (`blastsRemoved`, hvert bilde).
+2. En mørknet piksel bygges i HD av det som er under (HD-rommet, en HD-figur, en myk figur) og mørknes så med forholdet mellom fargen som vises og fargen før, per kanal. Mørkningen gjøres etter de myke figurene og før teksten.
+3. En malt piksel får objektets HD-bilde (`objects/objNNN_SS.png`, samme navn som for objekter i rommet, ikonene fra ikonarkene) når originalpikselen er lik indeksbildet der, ellers originalpikselen.
+
+`DIGHD_DEBUG_BLAST=1` logger hvert blast-objekt: nummer, tilstand, plass, mørknede og malte piksler, og hvor mange som fikk HD. Loggen teller mørknede piksler som `shaded px`.
+
+Testet uten skjerm 2026-10-10 fra Toms automatiske lagring (rom 4, tasten i): HD-rommet og de tre myke astronautene vises mørknet under ruten, ikonene i HD (lupen, håndcomputeren, lommelykten, Pig). `DIGHD_VERIFY=1`: 0 piksler ulik hele skjermen bygget på nytt. Linjene i rutenettet er mørknet i originalens 4 x 4-blokker. Ikke testet på ekte skjerm, med et ikon som dras, eller med ikoner uten HD-bilde.
+
+## Avslutning og Esc
+
+Tom 10. oktober: Esc trykket mange ganger avsluttet spillet rett til skrivebordet. Spillet skal aldri gå rett ut; avslutning skal gå via menyen. Årsaken ble ikke funnet på Toms maskin, så to ting er gjort:
+
+- Enhver forespørsel om å avslutte som ikke kommer fra Quit i spillets meny (vinduet lukkes, Ctrl+Q, Ctrl+C, Alt+X, Alt+Q, ScummVMs egen meny), åpner spillets meny i stedet (`interceptQuit`, loggen sier `quit request (...)`). Quit i menyen avslutter som før.
+- Esc hopper ikke over en mellomsekvens når skriptet som startet den er stoppet, eller sporet er tatt av et annet skript. Før startet `abortCutscene` den døde sporet igjen der mellomsekvensen begynte, og motoren stoppet med en assert i `pop()` (eller «Invalid opcode»), som avslutter programmet. Dette ble funnet med testhoppet til rom 22 og Esc trykket raskt. Loggen sier `Esc ignored, the cut scene's script N has stopped`.
+
+Tastene F1 til F12, Esc og H skrives i loggen med tastekode, ASCII-kode og flagg (`DigHD: key 286, ascii 319, flags 0`), og en F-tast uten riktig ASCII-kode får den, så F5 alltid åpner menyen. Tom fikk «HEAP 10000 MEM0 VID0» da han trykket F5; den meldingen kommer fra et skript i spillet som reagerer på H, og F5 åpnet menyen i alle testene her. Loggen fra hans maskin vil vise hva som kommer neste gang.
+
+Testet uten skjerm 2026-10-10: Ctrl+C i rom 22 åpnet menyen, og Quit avsluttet. Alt+Q åpnet menyen. 40 raske Esc etter testhoppet til rom 22: ingen stopp (før: assert). Esc gjennom introen fra vanlig start: som før. Ikke testet på Toms maskin.
 
 ## Objekttilstander i testen
 
