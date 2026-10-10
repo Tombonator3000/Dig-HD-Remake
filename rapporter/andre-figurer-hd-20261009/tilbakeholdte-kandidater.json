@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:06:12.086064+00:00",
+ "oppdatert_utc": "2026-10-10T01:08:44.648833+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 191,
+ "antall": 193,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -3202,6 +3202,56 @@
     }
    },
    "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
+  },
+  {
+   "jobb": "fig140_70",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "1f4bb06d8008b32657014a7da98a60223daeb4a499aae254296f32692c065f0f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Generatoren tegnet en rød rektangulær ramme som ikke finnes i kilden.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     3,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 2764,
+     "maks": 118,
+     "piksler_over_16": 56
+    }
+   },
+   "neste": "Nytt forsøk med prompt.txt ordrett; ramme eller alfa fjernes ikke i etterbehandling."
+  },
+  {
+   "jobb": "fig140_73",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c8bba6b24ecd950a6979ee4c3c3aec19cef601ecd39323d4d9a739c1b5583ce1",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Generatoren tegnet en grønn rektangulær ramme som ikke finnes i kilden.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     4,
+     2,
+     3,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 14871,
+     "maks": 127,
+     "piksler_over_16": 154
+    }
+   },
+   "neste": "Nytt forsøk med prompt.txt ordrett; ramme eller alfa fjernes ikke i etterbehandling."
   },
   {
    "jobb": "fig146_01",

@@ -2,9 +2,9 @@
  "status": "pågår",
  "ark_totalt": 3523,
  "originalruter_totalt": 20799,
- "ark_levert": 541,
- "originalruter_levert": 3614,
- "ark_gjenstar": 2982,
+ "ark_levert": 551,
+ "originalruter_levert": 3624,
+ "ark_gjenstar": 2972,
  "leveranser": [
   {
    "jobb": "fig001_01",
@@ -47133,6 +47133,486 @@
     "original_1x.png": "c9726320d815bee970579a51a94c75f2bac65c83f4ea6b9d7a4f31074bf04bc5",
     "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
     "jobb.json": "085d8fe7ed3e7eacf31d63bb915367152419332b13f80d1b4229aa35205bd6a0"
+   }
+  },
+  {
+   "jobb": "fig140_58",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_58/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_58/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-21008796-2662-44a0-a73f-a106c354d03c.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      49,
+      36,
+      805,
+      554
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser én sammensatt støv- og røykfase med løse partikler. Den native helheten, det åpne hullet i tidlige faser og det lilla innholdet i senere faser er sammenlignet med originalen. Alle hoveddeler og partikler tilhører denne ene originalruten. Analyseboksen er motivets kompakte faktiske alfa-over-16-grense.",
+   "source_proven_effect_regions": [
+    [
+     49,
+     36,
+     805,
+     554
+    ]
+   ],
+   "source_effect_basis": "Kildebevist myk røyk og lysende støvpartikler innenfor faktisk kompakt motivgrense. Bakgrunn utenfor grensen kontrolleres separat. Ingen native alfa eller pikseldata er endret.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-21008796-2662-44a0-a73f-a106c354d03c.png",
+   "sha256": "2ded5ee53efe2acdd4ccd221e19127ebebf53ef9119c72e88bc03af4dd6ea2e2",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_58/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "a40fdfff00aaa229eb64bb119bf14126f9cacc62330a89d5d0f3db17c61b41bc",
+    "original_1x.png": "1485d91791ed05205f768844e37809e750aeff7b32131fafa0c05dcc8edcbe9b",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "8be41f13322ff8992bae991b6b2e37315d4bf920d4c2863157a07c1a4d659001"
+   }
+  },
+  {
+   "jobb": "fig140_59",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_59/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_59/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d75e5a95-8e2b-42c1-bf08-f449eab6cb27.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      43,
+      20,
+      809,
+      550
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser én sammensatt støv- og røykfase med løse partikler. Den native helheten, det åpne hullet i tidlige faser og det lilla innholdet i senere faser er sammenlignet med originalen. Alle hoveddeler og partikler tilhører denne ene originalruten. Analyseboksen er motivets kompakte faktiske alfa-over-16-grense.",
+   "source_proven_effect_regions": [
+    [
+     43,
+     20,
+     809,
+     550
+    ]
+   ],
+   "source_effect_basis": "Kildebevist myk røyk og lysende støvpartikler innenfor faktisk kompakt motivgrense. Bakgrunn utenfor grensen kontrolleres separat. Ingen native alfa eller pikseldata er endret.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d75e5a95-8e2b-42c1-bf08-f449eab6cb27.png",
+   "sha256": "f8236c0943e3140cbf504e7f558f247e04748012fe47de93a9987fc82e5f1628",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_59/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "dc0fd24c9cd928999da91e4fa9913d7fa5e85e03ce8f86cec254e1d6657b2e8c",
+    "original_1x.png": "1241427c47c5c46cbab2dfd122c7f43f102ce0140f1bfc70d446aa814c3a8919",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "53ec04065f9f7e530ebe4374ba8e8017841bda236a9b7bc8839c0eb3bfb51c51"
+   }
+  },
+  {
+   "jobb": "fig140_60",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_60/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_60/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-31acf5b9-a584-4403-b161-35bb541c98fe.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      29,
+      21,
+      803,
+      546
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser én sammensatt støv- og røykfase med løse partikler. Den native helheten, det åpne hullet i tidlige faser og det lilla innholdet i senere faser er sammenlignet med originalen. Alle hoveddeler og partikler tilhører denne ene originalruten. Analyseboksen er motivets kompakte faktiske alfa-over-16-grense.",
+   "source_proven_effect_regions": [
+    [
+     29,
+     21,
+     803,
+     546
+    ]
+   ],
+   "source_effect_basis": "Kildebevist myk røyk og lysende støvpartikler innenfor faktisk kompakt motivgrense. Bakgrunn utenfor grensen kontrolleres separat. Ingen native alfa eller pikseldata er endret.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-31acf5b9-a584-4403-b161-35bb541c98fe.png",
+   "sha256": "a26f0edd8d85aac428b9449637053213dc80745016a99e688c5fde5e24bf71b9",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_60/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "d2b2728264aa8bbc9fee9bb8ffe6a0e617d3fb3a3521d78ac61801ac96b69594",
+    "original_1x.png": "95547d8c3e291d5cc0538f32ea81d67aeeff7fc43ffb4c2913fc705703c3c9fc",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "5a1a36a4319f7ad0fefbcbe374e4aa6736e3bfcf667cfffeb259d1075ee3c833"
+   }
+  },
+  {
+   "jobb": "fig140_62",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_62/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_62/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-76162e63-651f-48c6-a351-59f377fff965.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      33,
+      53,
+      799,
+      546
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser én sammensatt støv- og røykfase med løse partikler. Den native helheten, det åpne hullet i tidlige faser og det lilla innholdet i senere faser er sammenlignet med originalen. Alle hoveddeler og partikler tilhører denne ene originalruten. Analyseboksen er motivets kompakte faktiske alfa-over-16-grense.",
+   "source_proven_effect_regions": [
+    [
+     33,
+     53,
+     799,
+     546
+    ]
+   ],
+   "source_effect_basis": "Kildebevist myk røyk og lysende støvpartikler innenfor faktisk kompakt motivgrense. Bakgrunn utenfor grensen kontrolleres separat. Ingen native alfa eller pikseldata er endret.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-76162e63-651f-48c6-a351-59f377fff965.png",
+   "sha256": "cd92866335cd685d38f507bcc2c1ffed7357deb98375c59b64c4ccfc99056090",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_62/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "25f5b9d96b2b153a62e0e7083a7df7b0cc15e1172558cb231a60baba330cc315",
+    "original_1x.png": "66e1f87d8592514445bb978d3842f1bd9ee4ff0c62eb2b2b4038184dd6c5d55d",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "a6cff9295e16500cb9061ded4e9ca299d2f9e5bc659fc538e6627bd405c07eb8"
+   }
+  },
+  {
+   "jobb": "fig140_39",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_39/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_39/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-843d42ab-7920-4d1d-b10b-420f084ecf71.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      53,
+      34,
+      739,
+      530
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser en enkelt fase av gullbrun røyk og stein med lilla indre. Hele den sammenhengende fasen og partiklene er sammenlignet visuelt med originalen. Dette er én originalrute, ikke en rute per røykdel.",
+   "source_proven_effect_regions": [
+    [
+     53,
+     34,
+     739,
+     530
+    ]
+   ],
+   "source_effect_basis": "Kildebekreftet røyk og gullpartikler innen den faktiske kompakte motivboksen. Myk native alfa beholdes byteidentisk. Ingen generell bakgrunn eller rektangulær ramme er godtatt.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-843d42ab-7920-4d1d-b10b-420f084ecf71.png",
+   "sha256": "a9aa502f61668a108f0774f271c1ff8d005f57ac0658d7bdf90fdd5d6f13656b",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_39/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "d57663b0cd108fa4f61520e0f97f4d19e029b1d858142afa5d73a3a3896ad64f",
+    "original_1x.png": "0cd2ed9df196a933c02e9ae9919b0f494b1efd1eef2b07235c06cf23692bc5f9",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "d2b252771b4e7d3fd288cf9bcd33f84e4516c6566dcf583251722e9cfe8749f7"
+   }
+  },
+  {
+   "jobb": "fig140_40",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_40/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_40/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-185cbe17-fba3-48ce-a0aa-6e353f862382.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      29,
+      34,
+      765,
+      533
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser en enkelt fase av gullbrun røyk og stein med lilla indre. Hele den sammenhengende fasen og partiklene er sammenlignet visuelt med originalen. Dette er én originalrute, ikke en rute per røykdel.",
+   "source_proven_effect_regions": [
+    [
+     29,
+     34,
+     765,
+     533
+    ]
+   ],
+   "source_effect_basis": "Kildebekreftet røyk og gullpartikler innen den faktiske kompakte motivboksen. Myk native alfa beholdes byteidentisk. Ingen generell bakgrunn eller rektangulær ramme er godtatt.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-185cbe17-fba3-48ce-a0aa-6e353f862382.png",
+   "sha256": "0874c35776d3a1c67072202396dc72b6bef90b9ea9b9ebdaf536866dcc7fc395",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_40/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "43e745919cd4ad1efdaf697cddbb665ab31b8cd6daafbdf6cc578dc4fa94dd22",
+    "original_1x.png": "56cfd010137ef62315d823cb25ba2f9563b85c1bd6419bed4a9bc94678cee933",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "db0d96d7f6f77ef23cf62ed430e1f48187ac2d4a353837b1ef79b298e8516747"
+   }
+  },
+  {
+   "jobb": "fig140_41",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_41/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_41/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-425be38c-61ef-4d99-a511-5f8836ee1d8c.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      19,
+      26,
+      801,
+      541
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser en enkelt fase av gullbrun røyk og stein med lilla indre. Hele den sammenhengende fasen og partiklene er sammenlignet visuelt med originalen. Dette er én originalrute, ikke en rute per røykdel.",
+   "source_proven_effect_regions": [
+    [
+     19,
+     26,
+     801,
+     541
+    ]
+   ],
+   "source_effect_basis": "Kildebekreftet røyk og gullpartikler innen den faktiske kompakte motivboksen. Myk native alfa beholdes byteidentisk. Ingen generell bakgrunn eller rektangulær ramme er godtatt.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-425be38c-61ef-4d99-a511-5f8836ee1d8c.png",
+   "sha256": "f5cfbcf65baec94db5d35dc2f279d73b9331c51a36ea36b9daa34553558ee75c",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_41/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "b982074bb5df72c05eac9a7c3c08c3e332d4352378ff468324714dcf557a4c00",
+    "original_1x.png": "355e63545afc19547b36a348c68bc06cd75d4772150434d7bf3a94f8d98d7c9f",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "34b8f3ca387c60919dca5f1b7178a47d6a93fbbfd7ae93a37aaedb80209a5e51"
+   }
+  },
+  {
+   "jobb": "fig140_42",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_42/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_42/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-da531ea8-58eb-4bba-a047-65307866351c.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      39,
+      31,
+      774,
+      540
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser en enkelt fase av gullbrun røyk og stein med lilla indre. Hele den sammenhengende fasen og partiklene er sammenlignet visuelt med originalen. Dette er én originalrute, ikke en rute per røykdel.",
+   "source_proven_effect_regions": [
+    [
+     39,
+     31,
+     774,
+     540
+    ]
+   ],
+   "source_effect_basis": "Kildebekreftet røyk og gullpartikler innen den faktiske kompakte motivboksen. Myk native alfa beholdes byteidentisk. Ingen generell bakgrunn eller rektangulær ramme er godtatt.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-da531ea8-58eb-4bba-a047-65307866351c.png",
+   "sha256": "e6ad0ff792c26d8ed0c35ca367e7eeb37eb11d4658f0f60c243ffe27169cd302",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_42/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "978a9880adebc6ffa0fe04c6c995ce8a2b668fd1ce2c95f3dbc1cb9697beb093",
+    "original_1x.png": "80bdfd3d3c2047e91d3be1f9df26d717ec63a1ac2a7bba8e95417f8627956399",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "6d7e91cd7f698f59eaf70e5b35cfd51f0087bc52bd63ccb6569cf1420319d219"
+   }
+  },
+  {
+   "jobb": "fig140_61",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_61/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_61/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-5f8d8a43-be2f-4dbd-88cc-83912ecbfb07.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      57,
+      32,
+      767,
+      517
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser en enkelt fase av gullbrun røyk og stein med lilla indre. Hele den sammenhengende fasen og partiklene er sammenlignet visuelt med originalen. Dette er én originalrute, ikke en rute per røykdel.",
+   "source_proven_effect_regions": [
+    [
+     57,
+     32,
+     767,
+     517
+    ]
+   ],
+   "source_effect_basis": "Kildebekreftet røyk og gullpartikler innen den faktiske kompakte motivboksen. Myk native alfa beholdes byteidentisk. Ingen generell bakgrunn eller rektangulær ramme er godtatt.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-5f8d8a43-be2f-4dbd-88cc-83912ecbfb07.png",
+   "sha256": "35cb5eda409bc8ed2b564f74f31cafd82a39d63e199246d249aefddeac42b89e",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_61/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "29bca3150400bc751d8485123be949f9bdb5f6b4179eec8b7c04baafc3f5efe7",
+    "original_1x.png": "11dc365d53daa2b1d3cfb5b972b2b218f6055784c7ce2dc1e8a5d1a614c06384",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "489d8fe2e91fef72a091e2540bda8f97bbac90bb61c2751a1b1e45cdcc6b036a"
+   }
+  },
+  {
+   "jobb": "fig140_63",
+   "attempt": 1,
+   "rows": [
+    1
+   ],
+   "fragments": 0,
+   "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (1 frame).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n",
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_63/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_01/resultat.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig140_63/original_1x.png"
+   ],
+   "source_prompt_verbatim": true,
+   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-789def67-2353-4197-9349-14b90405d9a3.png",
+   "source_verified_frame_regions": [
+    [
+     [
+      28,
+      21,
+      825,
+      564
+     ]
+    ]
+   ],
+   "source_region_basis": "Originalen viser en enkelt fase av gullbrun røyk og stein med lilla indre. Hele den sammenhengende fasen og partiklene er sammenlignet visuelt med originalen. Dette er én originalrute, ikke en rute per røykdel.",
+   "source_proven_effect_regions": [
+    [
+     28,
+     21,
+     825,
+     564
+    ]
+   ],
+   "source_effect_basis": "Kildebekreftet røyk og gullpartikler innen den faktiske kompakte motivboksen. Myk native alfa beholdes byteidentisk. Ingen generell bakgrunn eller rektangulær ramme er godtatt.",
+   "figure": "kostyme 140",
+   "attempts": 1,
+   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-789def67-2353-4197-9349-14b90405d9a3.png",
+   "sha256": "14d1ab5f88e15f8500a5ab06c0c75122a9f3c762462a5b7d7678723e69fb6d38",
+   "originalruter": 1,
+   "resultat": "jobber/fig140_63/resultat.png",
+   "beskyttede_filer": {
+    "referanse.png": "2e4a9a054e28f68c5c9d82003c62d42704974c576bf5e5279ce2089a72855018",
+    "original_1x.png": "d122e83fae47913a23984e6b1e4e37d78af03624ac895cbb0d3090a8caa152bf",
+    "prompt.txt": "6d4519821e2655e9f79cccf5fe37db27f082e874fafc5235c389adce8eed73e6",
+    "jobb.json": "39866732129e63ffcddd70d90f2cbd8f927efaa67dce70ef9edf58edbabf014e"
    }
   }
  ],
