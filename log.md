@@ -365,3 +365,6 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 
 ## 2026-10-10 16:10 (Claude)
 - Tom lagret den nye versjonen av skillen `scumm-hd-remake` og ba om en utgave han kan kopiere til ChatGPT. Laget `docs/skills/scumm-hd-remake/SKILL.md`: samme innhold, med en innledning om rollene (Claude koden, ChatGPT/Codex grafikken, Tom godkjenner), en beskrivelse som også dekker grafikkarbeidet, og prosjektbiblioteket som lenke i stedet for Claude-skillen `spill-gjenbruk`. Sendt Tom som SKILL.md og som zip med mappen.
+
+## 2026-10-11 00:05 (Claude)
+- Tom spurte om status. Sjekket grenene: main 2e9aba8 (CI grønn), hd-mod fdad5c7 (10. okt 12:36), Linux-pakken fra 10. okt 12:58. I `gpt-arbeid` har Codex levert 40 commits siden forrige innhenting (siste 10. okt 17:35): nye ark for astronautene (kostyme 1, 2, 3 og 7, levert etter rettelsen i ORDRE.md), Brink (fig015 og fig017), rom 32 og 77 og rundt 70 andre figurark. Ingenting av dette er tatt inn eller sett på. Ingen åpne PR-er.
