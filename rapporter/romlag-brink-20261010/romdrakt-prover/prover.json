@@ -1,0 +1,103 @@
+[
+  {
+    "jobb": "fig001_01",
+    "figure": "Boston Low",
+    "attempt": 1,
+    "rows": [
+      7,
+      1,
+      7
+    ],
+    "expected": 15,
+    "fragments": 0,
+    "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: standing, in all 8 directions (8 frames, in this order: right, left, toward the viewer, away from the viewer, toward the viewer to the right, toward the viewer to the left, away to the right, away to the left); talking, facing toward the viewer to the right (7 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nSPECIFIC TOM CORRECTION FROM ORDRE.md, 10 OCTOBER 2026, FIRST SHEET FOR REVIEW:\nImage ONE is the exact ORIGINAL space-suit frame sheet, and controls every suit shape, pose, angle, animation phase, layout, frame count, frame size and source color. Image TWO is the approved person's face and drawing style authority only. Boston Low is a mature MAN in his fifties, recognizable square angular jaw, strong broad nose, short brown hair graying at the temples, modest forehead wrinkles and deep-set masculine eyes. Use exactly the Boston man in image two for the face inside the visor, never a generic pretty female face or blond Brink. Image three is the original Boston concept identity. Do not transfer his T-shirt or orange trousers into the suit.\nRender the original 15 separate astronaut drawings, with EXACT rows 7, 1, 7, at the same original positions and outer bounds. Eight directional floating/standing poses and then seven talking poses. These are space suits with bulky white padding, neutral gray square backpack/flight unit and control rails, original red lamps, yellow visor rim and original gold leg bands. Follow every actual source part and side literally, never mirror a turn, redraw the equipment as a different machine or invent transparent wings, guns, rocket fire, objects, logos, hair outside the helmet, new displays, text, labels or shadows. Every complete source astronaut remains complete; do not add spare heads or people. Nothing is a woman in this specific sheet; every visible face is the one mature man named above.\nKeep the source compact head inside the existing helmet opening. Face identity comes from the approved model, helmet/backpack/body silhouette comes strictly from image one. Eyes, nose, ears, skull, hairline, helmet rim and entire body remain exactly the same scale and stable position across the seven talking frames. Change only the mouth shape and required source expression. No expanding skull, changing body height or bobbing entire helmet while speaking. Do not enlarge the face relative to the helmet, or change the suit's shoulder, hip or boot proportions. Smooth detailed hand-drawn 2D with deliberate dark contours and angular painted shadow planes, not rounded plastic 3D, photorealism or airbrushed volume.\nReturn the full 1536 x1024 sheet as RGBA on truly transparent native alpha. Keep crisp clean smooth edges, no cyan/gray rectangle, no background field, no fog, glow, fringe, floor or cast shadows. Preserve meaningful source fragments, no magenta technical shadow markers. This is only the first review sheet and does not authorize a different costume model.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_01/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/boston-28-ruter.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/konsept-main.webp"
+    ],
+    "protected": {
+      "referanse.png": "d4df2bc936b4acd895e1086a9871408578f1d974dc14b6f2c45fa6c284c137e4",
+      "original_1x.png": "50e4a4b419b4126deeb41e5d77a88f7ebad8d5840a4a566840db692d06190d49",
+      "prompt.txt": "9185118d2ec42d107a84b7e0e2076e9d050e842e7c6c10fda7f29677f69c4eec",
+      "jobb.json": "1c405f20b7b7e0a0a6968d9ef951626d45402c8ddcedec2acc85ed8b7ce5c82c"
+    },
+    "old_result_sha256": "a68fbdc173ba457e4a1e3bfe0569d3246fa66f7d4631cf6242c753cee8aaedd5",
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-edca421f-e22b-4aa1-bf7a-41e92148dad7.png",
+    "sample": "rapporter/romlag-brink-20261010/romdrakt-prover/fig001_01-forsok1.png",
+    "native_sha256": "5e115a5a4e69817548c1a45dc7e2c48074f61087d62383d6987d1b3b7ef43fcd",
+    "status": "avventer Tom, første romdraktark, ikke kopiert til jobbfil",
+    "qa_counts": [
+      7,
+      1,
+      7
+    ],
+    "bottom_body_heights": [
+      313,
+      313,
+      313,
+      313,
+      313,
+      313,
+      313
+    ]
+  },
+  {
+    "jobb": "fig003_01",
+    "figure": "Ludger Brink",
+    "attempt": 2,
+    "rows": [
+      7,
+      1,
+      7
+    ],
+    "expected": 15,
+    "fragments": 0,
+    "prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: standing, in all 8 directions (8 frames, in this order: right, left, toward the viewer, away from the viewer, toward the viewer to the right, toward the viewer to the left, away to the right, away to the left); talking, facing toward the viewer to the right (7 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE FACE CORRECTION, FIRST SPACE-SUIT SHEET: Image ONE is the first generated Brink space-suit sheet to edit. Image TWO is Tom's explicitly approved healthy BRINK identity. Image THREE is the original space-suit shape/pose/color source. Keep all fifteen astronauts, all source views and every helmet, backpack, body, leg and boot silhouette exactly as image one, same rows 7,1,7 and positions. Edit ONLY exposed faces/hair within helmet openings and the invented blue shoulder emblem.\nThe current face has become too broad, too square-jawed and too young/heroic. Replace it with the EXACT older lean scientist face in image two: long narrow face, noticeably long straight nose, slim tapered lower cheeks and chin, small restrained thin mouth, sunken mature cheek planes and modest forehead/eye creases, muted straw-blond hair with brown side planes, natural mature skin. Boston is a broad square-jawed brown-haired man; this is BRINK and must not share Boston's square jaw. Do not exaggerate the brow into an angry superhero, do not add facial hair, eyewear, large ears, long hair or female features. Fit the narrower head inside the EXISTING helmet opening without enlarging or changing helmet or suit. All speaking frames use identical skull width/height, hairline, eyes, ears, nose and neck location, changing only the exact original mouth phase. Keep every actual source profile, front and rear direction.\nThe source shoulder patch is a small red shape. Remove the invented blue petals/logo and render only the source's small solid red patch. Preserve original red lamps and gold trim, but do not make blond hair bright yellow like the helmet trim. No other new equipment, changes to pose, extra astronaut or background.\nReturn native 1536 x1024 RGBA, truly transparent outside the fifteen clean cutouts, smooth deliberate hand-drawn contours and shadow planes. No floor, shadows, stray dots, gray/cyan field, haze or glow. This is a correction of an unapproved first sample, not a new costume design.\n",
+    "refs": [
+      "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-0dfb7e1f-00cb-4ab6-ba37-c0e876a2fc2b.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig003_01/referanse.png"
+    ],
+    "protected": {
+      "referanse.png": "8c04af0b0ea8dc13ab7fdca0f890ab73582b47e7a769e092c8d871fb537908b1",
+      "original_1x.png": "af7e675656ff86ef69d0f635610e33dc4120744842f07b144057fda68bc5c3b5",
+      "prompt.txt": "9185118d2ec42d107a84b7e0e2076e9d050e842e7c6c10fda7f29677f69c4eec",
+      "jobb.json": "3b27653898779e13a36608baee4f74118764d94ed35b56f8cd0e006550d7a9a4"
+    },
+    "old_result_sha256": "2922e8c7ee69a659635d0402370f3ac8584fe624c2dd825c8b8936349046f27c",
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-1b3b04a6-2721-4a66-a41b-71f3bbfb5dff.png",
+    "source_proven_effect_regions": [
+      [
+        198,
+        90,
+        5,
+        14
+      ],
+      [
+        296,
+        92,
+        10,
+        23
+      ]
+    ],
+    "source_effect_basis": "Visuelt kontrollert mot originalen fig003_01/referanse.png: de to første profilhjelmene har klart, utstikkende visir foran ansiktet. Disse to nøyaktige områdene er det tynne native visirglasset med alfa under128, ikke løse bakgrunnsprikker. Alle124 diagnostiske piksler over16 utenfor fem piksler fra opak kjerne ligger i disse visirflatene. Kildeform, native RGBA og alfa er uendret; særregelen gjelder bare disse to glassflatene. Se romdrakt-alpha-forsok2.png.",
+    "sample": "rapporter/romlag-brink-20261010/romdrakt-prover/fig003_01-forsok2.png",
+    "native_sha256": "dfb22d86c55f3cf94c3a891046411113446c63150a4083917f1f75745a94c49e",
+    "status": "avventer Tom, første romdraktark, ikke kopiert til jobbfil",
+    "qa_counts": [
+      7,
+      1,
+      7
+    ],
+    "bottom_body_heights": [
+      298,
+      298,
+      298,
+      298,
+      297,
+      298,
+      298
+    ]
+  }
+]

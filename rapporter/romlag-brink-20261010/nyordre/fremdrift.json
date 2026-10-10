@@ -1,0 +1,48 @@
+{
+  "ordre_commit": "02fd5a36",
+  "kostymer": [
+    1,
+    2,
+    3,
+    7
+  ],
+  "ark_planlagt": 50,
+  "ark_revidert": 1,
+  "ark_gjenstar": 49,
+  "status": "pågår, første Boston- og Brink-romdrakt avventer Tom",
+  "leveranser": [
+    {
+      "jobb": "fig007_01",
+      "kostyme": 7,
+      "figure": "Pig, fiktionell atomsprengladning fra The Dig",
+      "resultat": "jobber/fig007_01/resultat.png",
+      "sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-cbc7fcd8-e923-4ed6-8d5f-f1aca5a90752.png",
+      "attempts": 2,
+      "rows": [
+        1,
+        8,
+        8,
+        8
+      ],
+      "originalruter": 26,
+      "fragments": [
+        "costume007_155"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig007_01-forsok2.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/pig007_01-kilderuter-diagram.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "130bcf71d20f2bb2a54beb75e6bf01c9dfc765b08a6635f57a64fb7bdb2cd2cc",
+        "original_1x.png": "598089814f16702ea273d7d0fc7732e22f2d954648954c139b5077329cbaa6d7",
+        "prompt.txt": "486649233cd9636dfa7dadb113ad7646661071c9020a9d5168c7ddb785cb239d",
+        "jobb.json": "70fa76b83bf7723a939c44fe9ee1427883c4d745e0eecd58e8d4b5c2918c9900"
+      },
+      "erstatter_sha256": "d87c7b5235bacd5680e9ac3e6926ddf81171c77705efe63b9f5c1538eb02e772",
+      "forrige_versjon_commit": "3c549373253f78a879fc631f57d43188ba25213f",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    }
+  ]
+}

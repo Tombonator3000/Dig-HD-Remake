@@ -67,3 +67,7 @@ Claude må skille hele figurer fra hodeløse kropper og avklare den isolerte pik
 ## Tilbakeholdt tynt fragment i fig017_23
 
 Originalcellen costume017_479 har 43 synlige piksler fordelt på en tynn ekte stripe med 34 sammenhengende piksler og 9 separate én-piksel-øyer. Den er kildeklassifisert som fragment, men importens SMALL40-grense gir status mangler når den ikke har en egen tegnet del. Dette er ikke et manglende helt menneske. Første forsøk fullførte stripen til en ny delvis figur og ble avvist. Andre forsøk fjernet denne, men har for lys buksepalett og holdes tilbake. Claude må beholde akkurat dette originale fragmentet eksplisitt eller avklare fragmentregelen; det skal ikke erstattes med en oppdiktet kropp.
+
+## Del 10
+
+Sju nye ark, 90 ruter med diagnostisk status ok og to med sjekk (fig016_06, costume016_661 og _660). Dekning 0.794 og 0.785, snitt/union 0.781 og 0.752. Det er en importvurdering, ikke spilltest. Kildebundne slitasjefelt og opprinnelige ermelinjer er kontrollert; ingen kreativ etterbehandling av native PNG. fig016_01 forsøk 3 mangler tre originale slitasjefelt, fig016_04 forsøk 2 har én ekstra gangfase, og fig016_11 forsøk 1 har oppdiktede slitasjefelt i første to rader. Disse tre er holdt tilbake.
