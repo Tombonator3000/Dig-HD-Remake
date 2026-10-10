@@ -19,6 +19,8 @@ Dokumenterte forhold:
 - Craig Derrick forklarer at første Monkey Island Special Edition vurderte et trevalgs verb coin, men beholdt de ni handlingene i separat tilgjengelige verb- og inventarmenyer. Figurene var en nytolkning basert på flere spill og covere.
 - Monkey Island 2 SE tilbyr håndtegnet HD, direkte kontroll som alternativ og bytte til originalgrafikken.
 
+Grundigere gjennomgang av alle fem remasterne, kritikken av dem og tiltak for The Dig: `docs/REMASTER-FORBILDER.md`.
+
 Konsekvens for oss: DOTT er det nærmeste forbildet for trofast nytegning. Bevar originalens handlinger når UI endres. Ikke påstå at alle prosjektene brukte samme hjul eller identisk arbeidsmetode.
 
 Kildene dokumenterer prinsippene og omfanget. Lagstrukturen og kontrollpunktene nedenfor er vårt forslag, ikke en påstand om hvilket tegneprogram eller hvilken eksakt overtegningsprosedyre Double Fine brukte.

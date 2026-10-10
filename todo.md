@@ -13,6 +13,10 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Kontroller at avviste myke eksportfiler ikke blir stående ved ny bygging, og at fallback virker
 - [ ] Samstem README, STATUS og pakketellinger fra samme verifiserte hd-mod-SHA; skill levert, ok, sjekk og visuelt godkjent
 - [ ] Test flere myke figurer over hverandre, z-masker, skalering og menyer i ekte spilltilstand
+- [x] Gjennomgang av hvordan LucasArts og Double Fine laget remasterne, med tiltak: `docs/REMASTER-FORBILDER.md`
+- [ ] Master-figurark for Boston, Brink, Maggie og Pig (forfra, profil, bakfra, i drakt og uten), godkjent av Tom, og påbudt som referanse i alle figurjobber for dem
+- [ ] Visuell kontroll av figur mot rom i ekte spillbilde: samme kantmykhet, lysretning og metning
+- [ ] Merk feil i todo som `[original]` eller `[HD]`, og skriv i HD-MOTOR.md om hver motorendring leser tilstand, endrer tilstand eller lapper skript
 
 
 - [x] GitHub Pages-inngang med lokal import av spillfiler og HD-pakke, uten lokal webserver

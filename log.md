@@ -354,3 +354,8 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 
 ## 2026-10-10 13:36 (Claude)
 - Tom ba om at skillen `scumm-hd-remake` oppdateres med det vi har lært. Foreslått ny versjon (kort til lagring hos Tom) med lærdom fra 10. oktober: blast-objekter og inventaret, avslutning via menyen, Esc og stoppede skript, menytasten og logging av taster, Ctrl+Shift-sjekken, HD-skrift med tre farger, navn på hvert kostyme (astronautene), fast størrelse per rute, avviste ark ute av mottaket, originalruter fra arbeidsbordet uten dekoderne, testing med Xvfb og xdotool, Toms pakke og lagring, menykoordinater, PNG-størrelse, at Tom fletter PR-ene, og arbeidsformen når Tom melder funn.
+
+## 2026-10-10 14:13 til 14:35 (Claude)
+- Tom ba om å finne ut hvordan LucasArts og Double Fine laget sine remastere og hva vi kan lære. Lest GDC-foredraget til Double Fine og Shiny Shoe, Game Developer-artiklene om Full Throttle Remastered (kunst og filmløypa), Schafer-intervju i PC Gamer, Kotaku om Grim Fandango-arkivet og anmeldelser av DOTT, Grim, MI SE og MI2 SE.
+- Skrevet `docs/REMASTER-FORBILDER.md`: hva de gjorde (motor, grafikk, filmer, lyd, valg, ekstra), hva som ble kritisert, og en tabell med tiltak for The Dig. Henvisning lagt inn i del 2 av `HD-REMASTER-METODE.md`.
+- Viktigste tiltak lagt i todo: master-figurark for Boston, Brink, Maggie og Pig før flere figurark, kontroll av figur mot rom i ekte spillbilde, og feil merket som original eller HD. Ingen kode endret, ingenting testet.
