@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:02:44.115485+00:00",
+ "oppdatert_utc": "2026-10-10T00:06:37.841297+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 78,
+ "antall": 135,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -803,74 +803,43 @@
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
   },
   {
-   "jobb": "fig035_04",
-   "siste_kontrollerte_forsok": 3,
-   "kandidat_sha256": "97fd0a04f4934c144be41deee98db2e86cd32f9cf238a4d80da42c9b96f9755c",
+   "jobb": "fig035_11",
+   "siste_kontrollerte_forsok": 4,
+   "kandidat_sha256": "40474d1443ac7bfbd67d65794567cc8bd7f5b5bbacc8b21e5eafd059779211ba",
    "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Tredje forsøk har fortsatt synlig restalfa utenfor konturene.",
+   "grunn": "Fjerde forsøk har fortsatt synlig restalfa, maksimum 65 av 255 og 400 piksler over alfa 16 utenfor konturen.",
    "lokal_kontroll": {
     "forventede_rader": [
      2
     ],
     "native_rader": [
-     4,
-     11,
-     7,
+     8,
+     8,
      10,
      6,
      5,
-     13,
-     5,
-     9,
-     3
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 6438,
-     "maks": 110,
-     "piksler_over_16": 43
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig035_11",
-   "siste_kontrollerte_forsok": 3,
-   "kandidat_sha256": "c2370c6ff68f91bec8093a674370c3937f9bb512f88eadc43ccbc3ffe5656d71",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Tredje forsøk har fortsatt synlig restalfa utenfor konturene.",
-   "lokal_kontroll": {
-    "forventede_rader": [
+     2,
+     2,
+     4,
+     10,
      2
     ],
-    "native_rader": [
-     6,
-     2,
-     3,
-     5,
-     6,
-     1,
-     3,
-     3,
-     5
-    ],
     "antall_ok": false,
     "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 7913,
-     "maks": 94,
-     "piksler_over_16": 139
+     "piksler_over_0": 10994,
+     "maks": 65,
+     "piksler_over_16": 400
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig035_12",
-   "siste_kontrollerte_forsok": 3,
-   "kandidat_sha256": "0eaf7a6d62f980be3bea9b352f44e40f71bc73e2b1b7dcfa782e003af7ab6790",
+   "siste_kontrollerte_forsok": 4,
+   "kandidat_sha256": "2892dcef35e70828255d1724924a090dcf7d24c026636ec5c0281ecc68e98dbf",
    "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Tredje forsøk tegner 36 liggende hele mennesker i stedet for originalens 20 tynne delformer.",
+   "grunn": "Fjerde forsøk tegner hele mennesker og magenta ruterektangler i stedet for originalens tynne delformer.",
    "lokal_kontroll": {
     "forventede_rader": [
      2,
@@ -885,32 +854,27 @@
      2
     ],
     "native_rader": [
-     4,
-     4,
-     4,
-     4,
-     4,
-     4,
-     4,
-     4,
-     4
+     5,
+     9,
+     9,
+     5
     ],
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 101671,
-     "maks": 8,
+     "piksler_over_0": 46940,
+     "maks": 6,
      "piksler_over_16": 0
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig035_13",
-   "siste_kontrollerte_forsok": 3,
-   "kandidat_sha256": "88a4f42d3134e6144ad5ffe789e47b2aa2684d84f27f26b57ac934c435a5319a",
+   "siste_kontrollerte_forsok": 4,
+   "kandidat_sha256": "13097e2808ff0b580c6581096074d5a523e618be8dc6904f4f1252bee392553f",
    "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Tredje forsøk mangler flere av originalens separate loddrette faseformer.",
+   "grunn": "De loddrette, uregelmessige originalformene er fortsatt forenklet til runde klumper. Automatkoblingen blander også enkelte nabodeler.",
    "lokal_kontroll": {
     "forventede_rader": [
      15,
@@ -918,26 +882,25 @@
      1
     ],
     "native_rader": [
-     23,
-     44,
-     48,
-     1,
-     2,
+     19,
+     28,
+     39,
      3,
-     7,
-     1,
-     7,
+     6,
+     12,
+     8,
+     6,
      1
     ],
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 21156,
-     "maks": 5,
+     "piksler_over_0": 7078,
+     "maks": 8,
      "piksler_over_16": 0
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig035_30",
@@ -1169,39 +1132,39 @@
   },
   {
    "jobb": "fig035_39",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "4f685028fcca7524dfe561d4bc464514f8292fdd1bdbb5c08ca1f14cb6a1b455",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "5ac65358da9738cf387b3f215c73740d6ebfdd806ddd0bb7ea143613d539708b",
    "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Et lite magenta ruterektangel er malt inn ved starten av den diagonale formen.",
+   "grunn": "Andre forsøk gjør den uregelmessige diagonalen til ovale kjededeler og har synlig restalfa.",
    "lokal_kontroll": {
     "forventede_rader": [
      1
     ],
     "native_rader": [
-     5,
-     3,
+     4,
+     1,
+     1,
      2,
      2,
-     2,
-     2,
+     1,
      2
     ],
     "antall_ok": false,
     "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 1231,
-     "maks": 110,
-     "piksler_over_16": 25
+     "piksler_over_0": 395,
+     "maks": 100,
+     "piksler_over_16": 5
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig035_45",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "e0e686ea2b1be56de2a3951b2ed58869e01219e45da69f88faf8a151c7127b46",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "c96ca8485ea8a44d99360ecd07c541826819d8a4e3882f7b3ccf97e092f72511",
    "status": "Tilbakeholdt, ikke levert",
-   "grunn": "De øvre hudfargede originaldelene mangler i det tegnede arket.",
+   "grunn": "De øvre hudfargede originaldelene mangler også i andre forsøk. Dette er bekreftet parvis, ikke bare ut fra komponentantall.",
    "lokal_kontroll": {
     "forventede_rader": [
      6
@@ -1215,12 +1178,12 @@
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 3053,
-     "maks": 2,
+     "piksler_over_0": 3866,
+     "maks": 1,
      "piksler_over_16": 0
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig039_01",
@@ -1319,6 +1282,710 @@
     }
    },
    "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+  },
+  {
+   "jobb": "fig051_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "61cd5c5c72fe5fd1b1ac894ffc5aad5a62e3a478f3267c1eb9cef0b3c9ee6bfe",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Løse skydeler må kobles manuelt; korngrupper kan ikke brukes som erstatning for en manglende originalrute uten kildebevis.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     4
+    ],
+    "native_rader": [
+     1,
+     1,
+     6,
+     10,
+     3,
+     6,
+     2,
+     3,
+     6,
+     13
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 34756,
+     "maks": 95,
+     "piksler_over_16": 108
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7adc2b67cf448691bc7f50c0f7ae07225258f9cab203565f520918c2d2b1e764",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De sammensatte skyene og løse delene krever manuell kobling og avgrenset støvalfakontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     4
+    ],
+    "native_rader": [
+     3,
+     1,
+     1,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 49325,
+     "maks": 118,
+     "piksler_over_16": 2293
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_06",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e92f33f2049f612676738f81577f31c17faf033d7cdac5d48dd4be570d8c13aa",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Flere originalruter står tomme i automatisk kobling. Manuell kontroll av de sammensatte skyene gjenstår.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     3,
+     5
+    ],
+    "native_rader": [
+     3,
+     1,
+     7,
+     1,
+     2,
+     6,
+     2,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 42022,
+     "maks": 108,
+     "piksler_over_16": 104
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_07",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "53e0972258873f712bcb497fd8d5f443420ef9d5c7ab09e89b83bb7d6590af11",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Automatisk kobling etterlater en tom originalrute. Separate effektdeler og støvalfa trenger manuell kontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     7,
+     3,
+     3
+    ],
+    "native_rader": [
+     2,
+     6,
+     3,
+     3,
+     1,
+     2,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 94925,
+     "maks": 126,
+     "piksler_over_16": 829
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_08",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f20b9d4b5c40426752ab55a34533139846fbb7ee97707360e7aa0419682f4d05",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De fire sammensatte støvkolonnene har mange løse native deler. Manuell kildekobling gjenstår.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4
+    ],
+    "native_rader": [
+     5,
+     15,
+     15,
+     22,
+     18,
+     10
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 26771,
+     "maks": 117,
+     "piksler_over_16": 838
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4a26b8ced3c1367b44259910260c8725bcc56bcdaacbaf7aac322c63141e2e27",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De fem sammensatte støvskyene trenger kildekobling av løse deler og avgrensning av myk alfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     2
+    ],
+    "native_rader": [
+     3,
+     3,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 60388,
+     "maks": 127,
+     "piksler_over_16": 442
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_10",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "70225aece4e4a1627cec142dfd72ad86672dfa14f09e3a9e61b4a031ad1c1b69",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Automatisk kobling etterlater en tom originalrute. Delene må kontrolleres manuelt.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     5
+    ],
+    "native_rader": [
+     2,
+     3,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 64482,
+     "maks": 126,
+     "piksler_over_16": 379
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_11",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d3fc6f2cdcfd519dc0290b5198753d75ac1a3d9dda1051d22b97d7904b4ccc28",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Automatisk kobling etterlater en tom originalrute. Delene må kontrolleres manuelt.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     5,
+     3
+    ],
+    "native_rader": [
+     2,
+     4,
+     3,
+     1,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 44340,
+     "maks": 99,
+     "piksler_over_16": 225
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_12",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "49f85e44dff796c2c0ad19f2eb0fd79b01ee3404d72ed4c011bc7692ade4fe58",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Ni større skyer er tegnet i stedet for originalens seks hovedruter.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     3
+    ],
+    "native_rader": [
+     1,
+     3,
+     1,
+     4,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 129455,
+     "maks": 123,
+     "piksler_over_16": 4176
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_13",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c158babc148014f3dee7c9082c5ce358294342a654a13c16aac6cc1801b93029",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De små separate originalfasene rundt de fem større skyene krever manuell kildekobling før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     6
+    ],
+    "native_rader": [
+     5,
+     5,
+     4,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 40204,
+     "maks": 82,
+     "piksler_over_16": 47
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_14",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f6a47f0cf4ad88190f07ae82b18370a626927bc74e58b6ae09aef480058157fc",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De sju sammensatte skyene trenger kildekobling av løse deler og avgrensning av effektalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     4
+    ],
+    "native_rader": [
+     2,
+     1,
+     3,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 47697,
+     "maks": 126,
+     "piksler_over_16": 2585
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_15",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c839911c0dcb2f2dfdc8318491e966ed89b0986f0c09a71a6e4ba38dd889f998",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De sju sammensatte skyene trenger kildekobling av løse deler og avgrensning av effektalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     3
+    ],
+    "native_rader": [
+     9,
+     13,
+     17,
+     5,
+     9,
+     14,
+     13,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 70177,
+     "maks": 106,
+     "piksler_over_16": 2579
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "fa7a612891d3838f6f1dbc2d3ee10e1df8b7a4b1d9f1baa8bbf0922ac7d72f6d",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De små separate originalfasene mellom de fem større skyene trenger manuell kildekontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     3
+    ],
+    "native_rader": [
+     1,
+     3,
+     2,
+     2,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 18928,
+     "maks": 121,
+     "piksler_over_16": 21
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_18",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cda08410beebc1cb765ff4335f82e17a4b35fc605cc932b5c5fed8992e3924a5",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De åtte sammensatte skyene trenger kildekobling av løse deler og avgrensning av effektalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4
+    ],
+    "native_rader": [
+     2,
+     4,
+     3,
+     1,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 29131,
+     "maks": 122,
+     "piksler_over_16": 485
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_19",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "871049d23f28d48fc33fa7137a6e2195af8fee87ecc64a9b054b227f72b17bfc",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De seks støvfasene trenger kompakt kildeavgrensning av den tilsiktede myke alfaen og parvis kontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     3
+    ],
+    "native_rader": [
+     3,
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 38846,
+     "maks": 122,
+     "piksler_over_16": 83
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_20",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ce6eca7f5ecf805bfea58a509b3b2d2047f38f040fb5ad306757f79f8e095da2",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De seks støvfasene og en løs native del trenger manuell kildekobling og effektalfakontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     3
+    ],
+    "native_rader": [
+     3,
+     1,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 19143,
+     "maks": 56,
+     "piksler_over_16": 109
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_21",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a01ec5d9edc2fd9bb753e149a9df69a37e8ac35c39297e2d12416ac042604560",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De sju sammensatte skyene trenger kildekobling av løse deler og avgrensning av effektalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     4
+    ],
+    "native_rader": [
+     15,
+     7,
+     6,
+     12,
+     7,
+     18,
+     10,
+     21,
+     18,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 49064,
+     "maks": 123,
+     "piksler_over_16": 519
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_23",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "dff6a6dcaef9d4d8b17107e8b3004b8b224dcdddc9b7b593315b1e7a9b293125",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Nederste rad har fem større skyer der originalen har fire. Native faseantall er ikke kildebekreftet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4,
+     4
+    ],
+    "native_rader": [
+     4,
+     5,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 84844,
+     "maks": 116,
+     "piksler_over_16": 723
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_26",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2e64d36ce37f05dbcfd870c982e5bbae5140f20a759cbad819aab7bcf2fd4b70",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De mange små originalfasene har ikke en bekreftet entydig native kobling. Komponentantall kan ikke erstatte ruteantall.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     18,
+     18,
+     17,
+     3
+    ],
+    "native_rader": [
+     1,
+     1,
+     4,
+     13,
+     9,
+     8,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 117134,
+     "maks": 108,
+     "piksler_over_16": 1088
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_27",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3553a5881fceeb6f80195829bf4bc70c15adf04d5da20473cfb784e4d2b1981d",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De mange små originalfasene har ikke en bekreftet entydig native kobling. Komponentantall kan ikke erstatte ruteantall.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     20,
+     19,
+     21,
+     18,
+     16,
+     20,
+     19
+    ],
+    "native_rader": [
+     21,
+     21,
+     24,
+     4,
+     16,
+     4,
+     15,
+     20,
+     16
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 246110,
+     "maks": 68,
+     "piksler_over_16": 101
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig051_28",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "bd5d148ed46c5f554862b761cf4667645984025a33a0982aec7f3e40b859a1f6",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Native antall og småfasekobling avviker fra originalen og må kontrolleres.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     19,
+     17
+    ],
+    "native_rader": [
+     20,
+     18
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 19911,
+     "maks": 55,
+     "piksler_over_16": 51
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig062_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "29ec08e05e0237ecdcb2e8f23b064e4822237c89fba1d113586d8fa792dc557a",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Cyan åpninger i originalens steinformer ser ut til å være fylt med mørk tegning. Native gjennomsiktige hull må verifiseres.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4
+    ],
+    "native_rader": [
+     4,
+     4
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 16809,
+     "maks": 25,
+     "piksler_over_16": 2
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig062_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "5860094d638d50e89ceb7079ad4eb5a41691c73bab774fc2d1859d0a3654d311",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Cyan åpninger i originalens steinformer ser ut til å være fylt med mørk tegning. Native gjennomsiktige hull må verifiseres.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     3
+    ],
+    "native_rader": [
+     4,
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 12468,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig062_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "b55d3ce6b8fd70f9032e40b1827ec17ac8c5c6d28323eab61d3048f6125def26",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Cyan åpninger i originalens steinformer ser ut til å være fylt med mørk tegning. Native gjennomsiktige hull må verifiseres.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4
+    ],
+    "native_rader": [
+     4,
+     4
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 5250,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig062_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c0c89ab9d8e298f6d99829371b8ff1603c628efa82a3dc40425406965600f6cf",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Den tredje lille originaldelen mangler, og åpningene i de to steinbildene må kontrolleres.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 459,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig066_05",
@@ -1448,6 +2115,109 @@
     }
    },
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig084_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c304007ea9383748088337bb7e2b514d37814ead395d5089c8a8657d65edd31a",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De fire sammensatte energieffektene trenger manuell kobling av løse deler før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1
+    ],
+    "native_rader": [
+     2,
+     4,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4057,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig084_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c7e9052a14364e725444653f5fc639fe01aa018583ce270e7fd5bce3550860af",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De fire sammensatte energieffektene trenger manuell kobling av løse deler før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1
+    ],
+    "native_rader": [
+     2,
+     3,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 6879,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig084_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0d6a298d06a81d2ddd43667e7ebe50a2aed6062ce813557943fa114e5a349785",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De fire sammensatte energieffektene trenger manuell kobling og avgrensning av effektalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1
+    ],
+    "native_rader": [
+     1,
+     3,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 12414,
+     "maks": 59,
+     "piksler_over_16": 15
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig084_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4349f18a7d67f9cf8545cfcea08ffdf40d77c09631c47b8a6f0d9905bc687ca9",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De fire sammensatte energieffektene trenger manuell kobling og avgrensning av effektalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1
+    ],
+    "native_rader": [
+     7,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 14997,
+     "maks": 51,
+     "piksler_over_16": 229
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig087_01",
@@ -1870,33 +2640,33 @@
   },
   {
    "jobb": "fig153_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "7148127b7d37a0888e4f289fdcdcf35318ab0039d6d4bc6bf8726a173054771a",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Første originalrute inneholder bare blå deler. Kandidaten legger til brunt hode og overkropp. De delvise fasene må bevares.",
+   "siste_kontrollerte_forsok": 3,
+   "kandidat_sha256": "5cfc7dd067d33b59917a4e318a152472c9acbd4a9122e7b4d1672fc575ae5f6c",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Tredje forsøk tegner fem hele personer i stedet for originalens seks delbilder.",
    "lokal_kontroll": {
     "forventede_rader": [
      6
     ],
     "native_rader": [
-     6
+     5
     ],
-    "antall_ok": true,
+    "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 784,
+     "piksler_over_0": 546,
      "maks": 2,
      "piksler_over_16": 0
     }
    },
-   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig154_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "09665032479ce00cd35c84e39e46c34fe5076bdb79da5f3ef6c99767d8d79134",
-   "status": "tilbakeholdt – ikke grafikkleveranse",
-   "grunn": "Flere løse deler og løpefaser er feilfordelt eller mangler. Siste rad viser ni mot elleve originalfaser.",
+   "siste_kontrollerte_forsok": 3,
+   "kandidat_sha256": "274ce8e0985aad7c01f4750b126b3194970244f8fa1c35a488fe33e35ad8b2a5",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Tredje forsøk har endret radfordeling. Originalens delutsnitt og separate ruter må kobles og kontrolleres manuelt.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -1907,20 +2677,20 @@
     "native_rader": [
      1,
      3,
-     13,
+     16,
      2,
      16,
      9
     ],
     "antall_ok": false,
-    "alpha_control_ok": false,
+    "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 64810,
-     "maks": 55,
-     "piksler_over_16": 22
+     "piksler_over_0": 36981,
+     "maks": 7,
+     "piksler_over_16": 0
     }
    },
-   "neste": "Nytt ordrett, kildebundet forsøk er startet. Kandidaten skal ikke importeres."
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
    "jobb": "fig155_01",
@@ -2174,6 +2944,841 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig176_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "3f81dcd1c8490650cb5f180862549bb5c8d770fde7f0bd50f79f211a4c5dc7b7",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Andre forsøk gjør fortsatt den lille mørke originalformen til en hel person.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 23,
+     "maks": 1,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig179_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "baf4c19ad1fe2c4974f33ff6f947caba17457e7151a6f1a2c2ec89d43a97af4c",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Andre forsøk mangler flere av originalens små separate haledeler.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     9,
+     1
+    ],
+    "native_rader": [
+     1,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 1701,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig180_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ca486eea8d5f2c959d11227b71532368bf4bc4891d0a264289e2ebce3c0d2f96",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Antallet alene avklarer ikke de små haledelene og løpeposene. Manuell kildekobling gjenstår.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     9,
+     8,
+     3
+    ],
+    "native_rader": [
+     1,
+     9,
+     8,
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 9618,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig182_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e41a881ded3b86636bf14acf305a1465895668f496e45f5a2ea4534ee1ce025a",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De sammensatte klo- og stråleformene krever manuell kobling. Myk effektalfa er ikke ferdig kildeavgrenset.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     7,
+     6,
+     3
+    ],
+    "native_rader": [
+     3,
+     8,
+     6,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 60062,
+     "maks": 102,
+     "piksler_over_16": 23
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig183_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a56cc5a8890adcfc8180fc2018b447350a6d340db1dbc8b845bf409c8bcd4392",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Tre ekstra native hoveddeler må skilles fra originale separate deler. De opprinnelige delutsnittene trenger manuell kontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     8,
+     5,
+     10,
+     4,
+     4,
+     4,
+     18,
+     10
+    ],
+    "native_rader": [
+     1,
+     10,
+     5,
+     10,
+     4,
+     4,
+     4,
+     18,
+     11
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 58965,
+     "maks": 32,
+     "piksler_over_16": 6
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig184_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d830ce55f4af0226158dd3cbb775d4f643717dbb4a1d5e8e41056a9613e93d41",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De tre små øvre originaldelene er ikke gjenfunnet som tre separate deler. Radfordelingen er endret.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     12,
+     7
+    ],
+    "native_rader": [
+     1,
+     16,
+     7
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 10965,
+     "maks": 78,
+     "piksler_over_16": 11
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig186_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "1a288067606c4069bdccc45ddeff96dee2d00e8f787f68dcd7b03b14f88542b7",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Den lille første originalfasen mangler fortsatt; de femten større kulene alene dekker ikke alle originalruter.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     6,
+     5,
+     4
+    ],
+    "native_rader": [
+     6,
+     5,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 34195,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig194_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "25df09e70d6745e47bb93e45adcf57240307d7d857d8e842123d38eb902621cd",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Sammensatte trådformer og energibilder trenger manuell kobling; flere tomme automatkoblinger er ikke avklart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     5,
+     8,
+     5,
+     7
+    ],
+    "native_rader": [
+     1,
+     2,
+     3,
+     3,
+     8,
+     1,
+     6,
+     3,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 36052,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig195_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d44d765f4247a2a8e3101abec085a5b1842744ab353230f8c3ec032e6211850c",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Sammensatte trådformer og energibilder trenger manuell kobling og avgrenset effektalfakontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     7,
+     4,
+     3
+    ],
+    "native_rader": [
+     1,
+     4,
+     7,
+     1,
+     4,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 43471,
+     "maks": 57,
+     "piksler_over_16": 402
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig196_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "41db48a6397a001caa2af919dafe4e7aef7b5ac1c00e17213e7eea6b5b832870",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De fire sammensatte lyse effektfasene trenger manuell kobling, også den svært lille siste originaldelen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     3
+    ],
+    "native_rader": [
+     4,
+     2,
+     3,
+     10,
+     3,
+     2,
+     1,
+     5,
+     6,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 46035,
+     "maks": 95,
+     "piksler_over_16": 1662
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig197_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4899257833ffea94eb0a829a58bbd924cdd4a855c7c0b85a7da34d6e5b19f48d",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "En ekstra native del i nest siste rad må avklares som kildebasert del eller oppdiktet rute.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     13,
+     12,
+     6,
+     3
+    ],
+    "native_rader": [
+     1,
+     13,
+     12,
+     7,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 48239,
+     "maks": 10,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig198_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cde6d5b330e9864ddb5918ffba342a843c95dbf71354d681091b1e1b5b37090e",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Den smale, diagonale originalformen er tolket som en større underarm med tydelig erme og hånd. Kildetro identitet og kontur er ikke godtgjort.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     4
+    ],
+    "native_rader": [
+     1,
+     4
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 704,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig200_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e50e4c8882aba2e2a0ba6400f6814b0aff2d7ffd1c1e9c031d0f9fa2c1e04360",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Den liggende figuren har mange løse originaldeler og flere tomme automatkoblinger. Manuell kontroll av delutsnitt gjenstår.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     5,
+     4,
+     6,
+     8,
+     10,
+     11,
+     5
+    ],
+    "native_rader": [
+     1,
+     6,
+     5,
+     9,
+     9,
+     12,
+     13,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 62943,
+     "maks": 7,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig205_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "6d307742cd718d092d6ffffc0434f857b0ebd9ec3d802b3213eaffe96bce9fa9",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Magenta ruterektangler og mange ekstra deler er tegnet inn. Det finnes også synlig restalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     12,
+     6,
+     5,
+     9,
+     6,
+     4
+    ],
+    "native_rader": [
+     15,
+     12,
+     8,
+     20,
+     20,
+     12
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 252817,
+     "maks": 127,
+     "piksler_over_16": 43328
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig206_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "561f3730b845c4d2694a1aa24595181074148d15f101a9451be380fb5499e8a5",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De flygende skapningens separate originaldeler krever manuell kobling. Automatisk nærmeste-kobling gir tomme ruter.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     6,
+     1,
+     9,
+     5
+    ],
+    "native_rader": [
+     1,
+     7,
+     1,
+     9,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 40025,
+     "maks": 9,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig208_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cff90adc3236d47befdafc1d570966c6680ba4e79b3dea2528f91e153aea4627",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Tynne originale delbilder er erstattet av flere hele blå mennesker.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     3
+    ],
+    "native_rader": [
+     1,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 718,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig210_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "23934179bc6bc7ba782e8fa1fb2161cc4a9b9befb2eb09c27c2cae824b2a138b",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Originalens avkuttede høyre og nedre kant er tegnet ut til en hel rund kule.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 1514,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig212_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0bf157608f935446ad59957e81402deed40adedf26ad1c5e388bf62c2730ce3a",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "De smale separate originalfasene må kobles manuelt. Antallet og delplasseringen er ikke bekreftet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     6
+    ],
+    "native_rader": [
+     1,
+     1,
+     7
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4336,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig216_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f8172f8190f59e2b5232976c00c3f2ea20b8d24163c3de0227a8beac33aaa6f1",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Den store grå bakgrunnsformen og venstre strek fra originalruten er utelatt. Bare figurene er tegnet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     1
+    ],
+    "native_rader": [
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 3439,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig217_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "b20bcb0eedbeea03006b325155d1bf6f74203c6ef51226b2c3bcf07c7a56cbf5",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Den store grå bakgrunnsformen og venstre strek fra originalruten er utelatt. Bare figurene er tegnet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2377,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig224_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "97e44224fe4964f37da2d2a6b62ed916c9ff88dc1e1f191367cb55955f275bda",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Originalens gråtoneportretter er fargelagt. Samme kildefarger er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     2
+    ],
+    "native_rader": [
+     1,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4935,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig225_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "aadf5e7851033644dc6fd18418cab7a06def5b7b7cbb9491db22831ff03dd1b4",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Originalens gråtoneportretter er fargelagt, og det mørke skjeve panelet er utelatt.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     2
+    ],
+    "native_rader": [
+     1,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 7176,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig226_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c59dfc8924001c95ad7e4d266285cd2548ece4333c60f3d022b03422f7b50d47",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Originalens gråtoneportretter er fargelagt. Samme kildefarger er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     2
+    ],
+    "native_rader": [
+     1,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4698,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig227_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "26e5c4ab9396bd3cbacaeb785f2ca44d93fd7c36d4bfd7fdb0dfdc7cd13c474d",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Originalens gråtoneportretter er fargelagt, og det mørke skjeve panelet er utelatt.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     2
+    ],
+    "native_rader": [
+     1,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 5359,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig231_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "5997a9e6a3177e1a141dd2c6a8b7f6cf67f1f2d56d075f6ec15ede604b9478be",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Parvis kontroll viser at native buksepartier fyller mellomrom under de fremoverbøyde delutsnittene. Originalens avkuttede anatomi er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     10,
+     10,
+     2
+    ],
+    "native_rader": [
+     1,
+     10,
+     10,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 15682,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig232_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0b5b8f8384ce412daa9131bb5415dc7de88b9049514d9cfdc747852769b419cb",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Synlig restalfa utenfor konturene består ikke kontroll: 31 piksler over alfa 16, maksimum 26 av 255.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     8,
+     6,
+     6,
+     6,
+     2
+    ],
+    "native_rader": [
+     1,
+     8,
+     6,
+     6,
+     6,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 47049,
+     "maks": 26,
+     "piksler_over_16": 31
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig234_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ae7f1ec9db63eaed9c86cedd2c3eae66b4e1aaa4ca6e9eb1607e65ffcca177e7",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Parvis kontroll viser nye hele endekuler der flere originalstenger er avkuttet ved rutegrensen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1,
+     4
+    ],
+    "native_rader": [
+     3,
+     1,
+     4
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 3864,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig235_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2b8db6d44c2a1e52067247e1a29d828541ffc9729b07346a8cb2f53a74ceaa4a",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Cyan ruterektangler er tegnet inn rundt stengene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     2
+    ],
+    "native_rader": [
+     4,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 23578,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig238_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e052a5ab46ae03dc02e486ca994a046659d3576e2162ae6fa0fefb7db35f2813",
+   "status": "Tilbakeholdt, ikke levert",
+   "grunn": "Det store arket har mange flere native småbilder enn de meningsbærende originalrutene. Originalfragmenter og fasekoblinger er ikke bekreftet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6,
+     2,
+     5,
+     4,
+     9,
+     8,
+     3,
+     3,
+     8,
+     3,
+     1
+    ],
+    "native_rader": [
+     26,
+     23,
+     22,
+     19,
+     22,
+     18,
+     17,
+     16,
+     16,
+     21,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 280575,
+     "maks": 55,
+     "piksler_over_16": 15
+    }
+   },
+   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   }
  ]
 }
