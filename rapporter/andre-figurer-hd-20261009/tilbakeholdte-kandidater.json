@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:16:41.305031+00:00",
+ "oppdatert_utc": "2026-10-10T01:19:53.738322+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 186,
+ "antall": 198,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2983,27 +2983,11 @@
   },
   {
    "jobb": "fig140_70",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "1f4bb06d8008b32657014a7da98a60223daeb4a499aae254296f32692c065f0f",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "10d508a0e601cf8a0d932a311835030c791a018651a1bc141e75c9502bd7391d",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Generatoren tegnet en rød rektangulær ramme som ikke finnes i kilden.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     3,
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 2764,
-     "maks": 118,
-     "piksler_over_16": 56
-    }
-   },
-   "neste": "Nytt forsøk med prompt.txt ordrett; ramme eller alfa fjernes ikke i etterbehandling."
+   "grunn": "Kildens tydelige transparente spalte mellom øvre sky og scenen er fylt. Radantall og global restalfaprøve alene er ikke tilstrekkelig.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
   },
   {
    "jobb": "fig140_71",
@@ -3023,29 +3007,107 @@
   },
   {
    "jobb": "fig140_73",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "c8bba6b24ecd950a6979ee4c3c3aec19cef601ecd39323d4d9a739c1b5583ce1",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "64561f65d9fabe77d28e196e091549b4ef6d6a2a0a9f96dfa0425221504adcdf",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Generatoren tegnet en grønn rektangulær ramme som ikke finnes i kilden.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     4,
-     2,
-     3,
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 14871,
-     "maks": 127,
-     "piksler_over_16": 154
-    }
-   },
-   "neste": "Nytt forsøk med prompt.txt ordrett; ramme eller alfa fjernes ikke i etterbehandling."
+   "grunn": "Generatoren har beholdt en synlig farget rektangulær ramme rundt motivet. Native kandidat er bevart, men ikke levert.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig141_30",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "113068c07e5cba25b7d586b06cd0322cc153cf8a2acb37d11c63925dc05026fd",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens tydelige transparente spalte mellom øvre sky og scenen er fylt. Radantall og global restalfaprøve alene er ikke tilstrekkelig.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig141_31",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0a6690e958dbfecee9df96728cb7821c9636e53e7dd2076d5956cbac95d932ec",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens tydelige transparente spalte mellom øvre sky og scenen er fylt. Radantall og global restalfaprøve alene er ikke tilstrekkelig.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig141_32",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "6289b83371a3b37e6b09b9e097366ad558264e22529e78a5a1fb959483088d1d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens tydelige transparente spalte mellom øvre sky og scenen er fylt. Radantall og global restalfaprøve alene er ikke tilstrekkelig.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig141_33",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "da9e0db2e8850d5a60ea9c97f0c8b2f5bb43b86cfc1126afd3a57b42c17afccf",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Generatoren har beholdt en synlig farget rektangulær ramme rundt motivet. Native kandidat er bevart, men ikke levert.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig141_34",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "000f4305174e6e1f691ec47e0997ebfcbfa64c7fbb2d7d77a55138d4e02ca537",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens tydelige transparente spalte mellom øvre sky og scenen er fylt. Radantall og global restalfaprøve alene er ikke tilstrekkelig.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig141_35",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cedbd8f95accfd94998693f5a2840b936939a8dac16576510b8d56f973bc233f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens tydelige transparente spalte mellom øvre sky og scenen er fylt. Radantall og global restalfaprøve alene er ikke tilstrekkelig.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig141_36",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3c6bc5d2e66e4d6f68071bdcdd10454344f3bef828af1aabd3b049b23b0e7c08",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens tydelige transparente spalte mellom øvre sky og scenen er fylt. Radantall og global restalfaprøve alene er ikke tilstrekkelig.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig142_11",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0dfbac102efc49305df7ab4f1e007013696a3e1ddfec00aff4af7bb849db0c0d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Generatoren har beholdt en synlig farget rektangulær ramme rundt motivet. Native kandidat er bevart, men ikke levert.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig142_14",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e27a0444f1d2bd3bd5680497ed5a8008bb099c7e6ae7b0ca075e41daac15111b",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den mørke lilla/blå scenen som bygges opp inne i originalringen mangler eller er ufullstendig i native kandidaten.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig142_15",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "55259151325b55f47454aa65c5225183e24b693049fb041f39a0211721da1f0d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den mørke lilla/blå scenen som bygges opp inne i originalringen mangler eller er ufullstendig i native kandidaten.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig142_16",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "64c4aef989e963691b9105fd46098c6a0c18652abc98c33b864044cdfa760012",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den mørke lilla/blå scenen som bygges opp inne i originalringen mangler eller er ufullstendig i native kandidaten.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+  },
+  {
+   "jobb": "fig142_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7dbddfb47e1c4bba12cdfe509f88cbd5fa3849b6ce6c9552d7aaf652a24754b5",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den mørke lilla/blå scenen som bygges opp inne i originalringen mangler eller er ufullstendig i native kandidaten.",
+   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
   },
   {
    "jobb": "fig146_01",

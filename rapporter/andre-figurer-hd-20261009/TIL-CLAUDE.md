@@ -145,3 +145,7 @@ Gruppe 69: sporing-del69.json, filkontroll-del69.json og rutekart-del69.json fø
 Gruppe 70: sporing-del70.json, filkontroll-del70.json og rutekart-del70.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
 
 Gruppe 71: sporing-del71.json, filkontroll-del71.json og rutekart-del71.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Utvidet kontroll 10. oktober: fig140_64 til fig140_69 fra gruppe 68 er levert, men en ny direkte sammenligning viser at den voksende transparente spalten over den lilla scenen er tegnet for tett. Disse seks tidligere leveransene krever korrigering før import. Ordrette nye forsøk er under arbeid; de eksisterende native filene bevares til en bedre kildekontrollert kandidat foreligger. Antall og global restalfaprøve alene var ikke tilstrekkelig for denne indre åpningen. Dette er et konkret grafikkavvik, ikke en runtime-konklusjon.
+
+Gruppe 72: sporing-del72.json, filkontroll-del72.json og rutekart-del72.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
