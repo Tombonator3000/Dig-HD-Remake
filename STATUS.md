@@ -101,7 +101,7 @@ fullskjerm) og Toms egen maskin.
 
 ## Linux-pakken
 
-Én fil med alt: `TheDigHD-x86_64.AppImage` (1,48 GB 10. oktober, hd-mod be2056c) i den private releasen
+Én fil med alt: `TheDigHD-x86_64.AppImage` (1,44 GB 10. oktober 10:56 UTC, Dig-HD-Remake 36cd09f, hd-mod fdad5c7) i den private releasen
 [linux](https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux):
 ScummVM med HD-patchen, spillet, musikk, tale og HD-modden. Starter rett i
 spillet i fullskjerm. Innstillinger i `~/.config/the-dig-hd`, lagrede spill i
@@ -122,6 +122,14 @@ lasting virket uten skjerm og med ekte X11-mus og tastatur i Xvfb. Årsaken hos
 Tom er ikke funnet; Tom regner med at det virker nå og prøver igjen.
 Temaet `scummremastered` lastes ikke i pakken (skriften LiberationSans-Bold.ttf
 mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
+
+## Endret 10. oktober (etter Toms test)
+
+- Inventaret i HD: det som er under den gjennomsiktige ruten bygges i HD og mørknes, ikonene vises med HD-bildene. Testet uten skjerm fra Toms lagring i rom 4, også med pakken fra releasen.
+- Spillet går aldri rett til skrivebordet: alt som ber om å avslutte (vinduet, Ctrl+Q, Ctrl+C, Alt+X, Alt+Q) åpner menyen, og Quit der avslutter. Esc starter ikke lenger en mellomsekvens fra et stoppet skript (krasj etter raske Esc). Testet uten skjerm, ikke på Toms maskin.
+- Navnene ved musen (beskrivelsesteksten) har Exo 2 med skygge.
+- Myke figurer holder originalens størrelse og form i hver rute (myke-figurer versjon 2). Arkene for Boston, Maggie og Brink i romdrakt og Pig er avvist (feil personer, Pig feil) og vises som originalpiksler til nye kommer.
+- Ikke funnet: hvorfor F5 ga «HEAP ... MEM ... VID» hos Tom. Tastene logges nå.
 
 ## Kjente begrensninger
 
