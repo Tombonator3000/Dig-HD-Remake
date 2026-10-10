@@ -1,0 +1,37 @@
+{
+  "jobb": "fig073_02",
+  "status": "HOLD",
+  "runtime_tested": false,
+  "resultat_unchanged": true,
+  "attempts": [
+    {
+      "attempt": 3,
+      "native": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-7b787426-6bda-4072-bfe8-564f79727937.png",
+      "sha256": "3abe4a15e51f4d9267e93ec2e82cc985c51ed579709eb9df5a85c1358318782e",
+      "rows": [
+        8,
+        21,
+        5,
+        5
+      ],
+      "alpha_control_ok": true,
+      "reason": "Riktig antall[8,21,5,5] og ren alfa, men toppradens hoder fikk ensrettet hoyre-yaw i stedet for originale front/venstre-variasjoner. Flere synlige kildebrystmerker mangler og larinnfelt er for lyst.",
+      "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/root-0730203/fig073_02-attempt3.batch.qa.json"
+    },
+    {
+      "attempt": 4,
+      "native": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-07443ef6-07d4-4da5-905c-e483c94beb1e.png",
+      "sha256": "543d3e3a60a1a756624d9742d22e86ce46e0ac13b3e2740dab303b5a0dad05b8",
+      "rows": [
+        8,
+        25,
+        5,
+        5
+      ],
+      "alpha_control_ok": true,
+      "reason": "Native retting korrigerte femte/sjette hoderetning, men skapte25 i stedet for21 talehoder og forstorret tegningene. Manglende brystmerker og for lys larstripe er fortsatt synlig.",
+      "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/root-0730203/fig073_02-attempt4.batch.qa.json"
+    }
+  ],
+  "protected_unchanged": true
+}
