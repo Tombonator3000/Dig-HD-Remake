@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:30:33.758619+00:00",
+ "oppdatert_utc": "2026-10-10T01:36:36.551195+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 220,
+ "antall": 227,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -3071,11 +3071,11 @@
   },
   {
    "jobb": "fig141_40",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "85cc2fb2ba952b633ccfc9d2bccf928c4934ee247b2bacce38aa2eddde1015ed",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "8f6172f07592df53c5abe86611ce715d84bfc83931bcb6bb62eb97f59f1fea52",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalens mørkere, oppbrutte sentrum er gjort til en sterk sammenhengende gullglød. Indre åpninger og oppløsningsfase trenger bedre samsvar.",
-   "neste": "Nytt ordrett forsøk; behold input og native kandidat."
+   "grunn": "Andre forsøk viser fortsatt sammenhengende sentral gullglød og gulvflate som avviker fra originalens oppbrutte sentrum.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
    "jobb": "fig141_41",
@@ -3087,11 +3087,11 @@
   },
   {
    "jobb": "fig141_42",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "61b667f68a411bc7ca622b19f74691fbe6c0ca5e5b3f5e99785ea5d5e91b7cb6",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "9d9056f7d07ce9d479edd30bbba7744116f67b1383d46263b7fa29f91788828a",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalens mørkere, oppbrutte sentrum er gjort til en sterk sammenhengende gullglød. Indre åpninger og oppløsningsfase trenger bedre samsvar.",
-   "neste": "Nytt ordrett forsøk; behold input og native kandidat."
+   "grunn": "Andre forsøk viser fortsatt sammenhengende sentral gullglød og gulvflate som avviker fra originalens oppbrutte sentrum.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
    "jobb": "fig141_43",
@@ -3108,14 +3108,6 @@
    "status": "tilbakeholdt, ikke grafikkleveranse",
    "grunn": "Andre forsøk har fortsatt sterk, sammenhengende sentral gullglød og gulvflate som avviker fra originalens oppbrutte sentrum.",
    "neste": "Kontroller et bedre nytt ordrett forsøk, eller avvent tillatelse til avgrenset korrigeringsprompt. Originaler og kandidat bevares."
-  },
-  {
-   "jobb": "fig142_11",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "0dfbac102efc49305df7ab4f1e007013696a3e1ddfec00aff4af7bb849db0c0d",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Generatoren har beholdt en synlig farget rektangulær ramme rundt motivet. Native kandidat er bevart, men ikke levert.",
-   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
   },
   {
    "jobb": "fig142_14",
@@ -3135,19 +3127,19 @@
   },
   {
    "jobb": "fig142_16",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "64c4aef989e963691b9105fd46098c6a0c18652abc98c33b864044cdfa760012",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "df310a70f0f2c888012a3257fd5cdfbdeb47a9259d418e7c9d977211e780f36a",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Den mørke lilla/blå scenen som bygges opp inne i originalringen mangler eller er ufullstendig i native kandidaten.",
-   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+   "grunn": "Den fremkommende lilla/mørke innvendige scenen mangler; native viser en tom ring.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
    "jobb": "fig142_17",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "7dbddfb47e1c4bba12cdfe509f88cbd5fa3849b6ce6c9552d7aaf652a24754b5",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "09c43fe25a5614b70c16597b0ca48572cd5faed97c59c1d2a3d160bb3e1cca9f",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Den mørke lilla/blå scenen som bygges opp inne i originalringen mangler eller er ufullstendig i native kandidaten.",
-   "neste": "Nytt ordrett forsøk er under arbeid. Kontroller indre åpninger, sceneinnhold og ramme; bevar originaler og native alfa."
+   "grunn": "Den fremkommende lilla/mørke innvendige scenen mangler; native viser en tom ring.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
    "jobb": "fig142_59",
@@ -3164,6 +3156,22 @@
    "status": "tilbakeholdt, ikke grafikkleveranse",
    "grunn": "Forstørret rutesammenligning viser at den voksende magentafargede originalspalten over blåscenen er fylt. Helbildevisning alene var ikke tilstrekkelig.",
    "neste": "Nytt ordrett forsøk med kontroll av kildegapet. Bevar native kandidat."
+  },
+  {
+   "jobb": "fig142_61",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2c6b414079ac3036c566f6978e523b929af2ba0f79116682547f7523f24e0eae",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+  },
+  {
+   "jobb": "fig142_62",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ab6c83609fa8bc330cd7d0ffe16174f5c7fd4e018cd0a1742fbc12881de2e532",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
    "jobb": "fig142_63",
@@ -3188,6 +3196,14 @@
    "status": "tilbakeholdt, ikke grafikkleveranse",
    "grunn": "Forstørret rutesammenligning viser at den voksende magentafargede originalspalten over blåscenen er fylt. Helbildevisning alene var ikke tilstrekkelig.",
    "neste": "Nytt ordrett forsøk med kontroll av kildegapet. Bevar native kandidat."
+  },
+  {
+   "jobb": "fig142_66",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4d1f46c4b47dc5d666dbc69bf1fa535d4959ef13900ef2debfb7af86b6f7d7dc",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
    "jobb": "fig142_68",
@@ -3254,6 +3270,22 @@
    "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
+   "jobb": "fig142_77",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c50688fe5a0631213ec129cd2c736c1c50e5ab2145c57e2657e6db9de54a68e4",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+  },
+  {
+   "jobb": "fig142_78",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "bf17be2756f513713ab255a63595ae3c267a4abc0862130369fff2dfceeddb6a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+  },
+  {
    "jobb": "fig143_14",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "351122f94b3f57c5a3492d4d9125b66f0cdc79ee3af40694329f22b5e383dc69",
@@ -3283,6 +3315,30 @@
    "kandidat_sha256": "a3c16a72074243e38c5b82f1a6a780254c96f6d25d1e8c05b6ed1dc0d7809735",
    "status": "tilbakeholdt, ikke grafikkleveranse",
    "grunn": "Den gradvis fremkommende mørke/blå innvendige scenen fra kilden mangler. Native viser en tom ring. Rød ramme er også beholdt.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+  },
+  {
+   "jobb": "fig143_19",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e0829c4e002ec7971fa1fbb3062c996044d8c4790a43ff835d5e72b7eb348b59",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+  },
+  {
+   "jobb": "fig143_20",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "006a91a08d76b56887d6e34dc2bffd67ee205b8daec7c3bb60343598f98a7fcd",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
+   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+  },
+  {
+   "jobb": "fig143_21",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e10c086aa35e26f694d126db310d452f1e82220345ba0d68d0e92741f49caf73",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens transparente spalte over eller ved siden av den innvendige scenen er fylt igjen i native kandidaten.",
    "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {

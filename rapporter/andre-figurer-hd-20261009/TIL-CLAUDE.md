@@ -167,3 +167,5 @@ Gruppe 79: sporing-del79.json, filkontroll-del79.json og rutekart-del79.json fø
 Utvidet kontroll av blå portalserie: fig142_67 fra gruppe 79 har en opprinnelig transparent spalte over blåscenen som er fylt i native tegningen. Behold rå leveranse og original; korriger før import. Nærliggende, ennå ikke leverte fig142_59, fig142_60 og fig142_63 til fig142_65 er av samme grunn tatt ut av utvalg 80. Dette er et visuelt kildeavvik som antall og ytre restalfakontroll ikke fanger.
 
 Gruppe 80: sporing-del80.json, filkontroll-del80.json og rutekart-del80.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Gruppe 81: sporing-del81.json, filkontroll-del81.json og rutekart-del81.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
