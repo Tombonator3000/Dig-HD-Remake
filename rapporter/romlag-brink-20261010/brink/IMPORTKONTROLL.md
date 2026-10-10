@@ -71,3 +71,7 @@ Originalcellen costume017_479 har 43 synlige piksler fordelt på en tynn ekte st
 ## Del 10
 
 Sju nye ark, 90 ruter med diagnostisk status ok og to med sjekk (fig016_06, costume016_661 og _660). Dekning 0.794 og 0.785, snitt/union 0.781 og 0.752. Det er en importvurdering, ikke spilltest. Kildebundne slitasjefelt og opprinnelige ermelinjer er kontrollert; ingen kreativ etterbehandling av native PNG. fig016_01 forsøk 3 mangler tre originale slitasjefelt, fig016_04 forsøk 2 har én ekstra gangfase, og fig016_11 forsøk 1 har oppdiktede slitasjefelt i første to rader. Disse tre er holdt tilbake.
+
+## Del11, mottak versjon2 etter PR44
+
+Kontroll kjørt med uendret myk.py fra maincommit36cd09f13eb0201cff190d8d0c99c788a8bcaa6b. Status {'ok': 118, 'mangler': 1}. costume017_479 har fortsatt status mangler:43kildepiksler gjør at fragmentet ikke får originalfallback med terskel40. Den native grafikken har riktige16hovedruter, og ingen ekstra figur er malt for å omgå importfeilen. Fragmentet må håndteres av Claude før bruk. Tidligere kontroller i rapporten gjelder versjon1 på angitt tidspunkt.
