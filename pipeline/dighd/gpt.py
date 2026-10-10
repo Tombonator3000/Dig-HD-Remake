@@ -1113,6 +1113,30 @@ def _evaluate(res_path: Path, job: "Job", d: Path, extract: Path, manual: dict, 
     return r, locked
 
 
+def _spill(arr: np.ndarray, stem: Path) -> Path:
+    """Legger et bilde på disk (PNG når det går, ellers npy) og gir stien."""
+    if arr.dtype == np.uint8 and (arr.ndim == 2 or (arr.ndim == 3 and arr.shape[2] in (3, 4))):
+        path = stem.with_suffix(".png")
+        Image.fromarray(arr).save(path, compress_level=1)
+    else:
+        # Fargelåste bilder er float64 med verdier 0 til 255. float32 er nøyaktig nok for det
+        # som blir lagret som 8 bit til slutt, og tar halve plassen.
+        path = stem.with_suffix(".npy")
+        np.save(path, arr.astype(np.float32) if arr.dtype == np.float64 else arr)
+    return path
+
+
+def _unspill(t):
+    """Det motsatte av _spill. Annet enn en sti gis tilbake som det er."""
+    if not isinstance(t, Path):
+        return t
+    if t.suffix == ".npy":
+        a = np.load(t)
+        return a.astype(np.float64) if a.dtype == np.float32 else a
+    with Image.open(t) as im:
+        return np.asarray(im).copy()
+
+
 def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, strength: float = 1.0,
                    only_approved: bool = False, rejections: Path | None = None) -> dict:
     jobs_dir = work / "jobber"
@@ -1168,11 +1192,10 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
         _write_return(d, r)
         keep = status == "godkjent" or (status == "sjekk" and not only_approved)
         if keep and locked is not None:
-            # Til disk og lest som minnekart, så alle de godkjente bildene ikke ligger i minnet
-            # samtidig (med tusenvis av jobber ble gpt-inn stoppet for for mye minne)
-            spill = Path(spill_dir.name) / f"{job.id}.npy"
-            np.save(spill, locked)
-            locked = np.load(spill, mmap_mode="c")
+            # Til disk og lest inn igjen først når HD-bildet settes sammen, så alle de godkjente
+            # bildene ikke ligger i minnet samtidig (6 GB med 4463 jobber). Mindre enn før på disk
+            # (npy med float64 fylte 14 GB med 2098 nye leveranser).
+            locked = _spill(locked, Path(spill_dir.name) / job.id)
         tiles.setdefault(job.bilde, []).append((job, locked if keep else None))
 
     _write_status(work, jobs, results)
@@ -1191,6 +1214,7 @@ def import_results(work: Path, extract: Path, out: Path, *, sigma: float = 6.0, 
     stale: list[str] = []
     settings = {"sigma": sigma, "styrke": strength}
     for name, parts in tiles.items():
+        parts = [(j, _unspill(t)) for j, t in parts]
         first = parts[0][0]
         if first.type == "figur":
             from . import figur
