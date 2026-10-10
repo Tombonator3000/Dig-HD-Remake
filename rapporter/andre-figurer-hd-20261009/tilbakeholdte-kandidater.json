@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:10:03.688030+00:00",
+ "oppdatert_utc": "2026-10-10T01:16:16.006302+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 190,
+ "antall": 186,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2957,59 +2957,6 @@
    "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
   },
   {
-   "jobb": "fig134_05",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "dac16f812c401c176c790d36cd3f4910ee7cb84052826ee8682a497bfb75f1f3",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Fire kroppsdeler og løs antennespiss trenger kildekobling; 16 restalfapiksler med maksimum 97 utenfor konturen er ikke avklart.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     2,
-     2
-    ],
-    "native_rader": [
-     1,
-     2,
-     2
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 36010,
-     "maks": 97,
-     "piksler_over_16": 16
-    }
-   },
-   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
-   "jobb": "fig134_06",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "7b5b62dc5595e577310eb7fe8776e82812cf7440c5f3b4637f991bb2309680a2",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "De to separate originalstrekene på 12 x 6 og 10 x 2 mangler. Bare tre kroppsruter er tegnet.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     3,
-     1,
-     1
-    ],
-    "native_rader": [
-     1,
-     1,
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 9380,
-     "maks": 6,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
    "jobb": "fig135_04",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "72a085fec52538f44ab0e5c1a4ac0419a8df3a289cfb49245ead027db6c0215c",
@@ -3029,104 +2976,6 @@
     "restalfa": {
      "piksler_over_0": 6644,
      "maks": 5,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
-   "jobb": "fig140_09",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "33d31cf037a21641cae110d2560991af8ef0bca4852ecbc91fc71d8abdc3131a",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     4,
-     8,
-     1,
-     3,
-     2,
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 11619,
-     "maks": 117,
-     "piksler_over_16": 94
-    }
-   },
-   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
-   "jobb": "fig140_46",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "f991b48370053fe2ee0ef237f5f0f34e49c482b9922e14c82a8c1deb3fc70a8a",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     1
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 2990,
-     "maks": 68,
-     "piksler_over_16": 12
-    }
-   },
-   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
-   "jobb": "fig140_47",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "4ab218a5d2db63d66a2db6892005c3352f3bde0dc3edad6e5be5e3e4d15de3ca",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     1,
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 6381,
-     "maks": 124,
-     "piksler_over_16": 118
-    }
-   },
-   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
-  },
-  {
-   "jobb": "fig140_55",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "f1360e754bd83e0f14ec07a128876d04b2464175574dddf71c988f09dd73c8e6",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     1
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 7317,
-     "maks": 4,
      "piksler_over_16": 0
     }
    },
@@ -3155,6 +3004,22 @@
     }
    },
    "neste": "Nytt forsøk med prompt.txt ordrett; ramme eller alfa fjernes ikke i etterbehandling."
+  },
+  {
+   "jobb": "fig140_71",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ac4b07b7bbff2694335501349cf765624dc64e49912280f68e8798fb0d2652f3",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens åpne, gjennomsiktige spalte mellom øvre sky og nedre lilla scene er fylt med berg i native tegningen. Antall og global alfa alene fanger ikke dette avviket.",
+   "neste": "Nytt ordrett forsøk og kontroll av indre åpninger. Ingen native piksel eller alfa endres."
+  },
+  {
+   "jobb": "fig140_72",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "72c0d291c8c2cdd1a636e0f8d62b4337f399e65c9c51223fb76f15db989124ea",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens åpne, gjennomsiktige spalte mellom øvre sky og nedre lilla scene er fylt med berg i native tegningen. Antall og global alfa alene fanger ikke dette avviket.",
+   "neste": "Nytt ordrett forsøk og kontroll av indre åpninger. Ingen native piksel eller alfa endres."
   },
   {
    "jobb": "fig140_73",
