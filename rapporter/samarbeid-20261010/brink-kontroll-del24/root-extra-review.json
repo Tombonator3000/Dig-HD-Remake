@@ -1,0 +1,60 @@
+{
+  "fig138_01": {
+    "native_sha256": "c6f2a3d9cc39bf7401866c9b13150aa1f834d304f6b04f85c4c499f92780172a",
+    "root_review": null,
+    "native_png_delivered": true,
+    "actual_import_status": {
+      "ok": 3
+    },
+    "spilltest": false
+  },
+  "fig173_05": {
+    "native_sha256": "c2be13e696f2bfee7b43a27a6b6a99cd969132f80ab2bf00096077092dc1e1f2",
+    "root_review": {
+      "reviewed_original_rgba": 22,
+      "reviewed_actual_v2_imports": 22,
+      "source_sequence_preserved": true,
+      "limitation": "Konsekvent dempet gull/oliven-hud er moderat varmere i de siste frontfasene. Root fysisk vurderte alle 22 kilder, native og importer; ingen isolert fargeredigering som skaper flimring."
+    },
+    "native_png_delivered": true,
+    "actual_import_status": {
+      "ok": 22
+    },
+    "spilltest": false
+  },
+  "fig229_18": {
+    "native_sha256": "38fe7d02fd6227e2bcd9dd4b35939d11fa85ae46b84a077f0e080127869de2b8",
+    "root_review": {
+      "actual_source_and_v2_pairs_reviewed": 13,
+      "actual_original_thigh_detail_reviewed": true,
+      "small_rose_center_corrected": true,
+      "limitation": "Mørk rand rundt rosefeltet er litt kraftig, men kildefeltets farge og relative størrelse er beholdt. Lokal edit er ikke pikselidentisk utenfor feltet; alle genuine faser er fysisk kontrollert på grå bakgrunn.",
+      "height_measurement": {
+        "ids": [
+          "costume229_094",
+          "costume229_001",
+          "costume229_103",
+          "costume229_104"
+        ],
+        "source_body_4x_px": [
+          260,
+          264,
+          264,
+          264
+        ],
+        "actual_v2_body_px": [
+          262,
+          265,
+          265,
+          266
+        ],
+        "measurement": "Første29originalkolonner uten teknisk magenta; første125HDkolonner ved alfa>=128, felles ROI for allefire."
+      }
+    },
+    "native_png_delivered": true,
+    "actual_import_status": {
+      "ok": 13
+    },
+    "spilltest": false
+  }
+}

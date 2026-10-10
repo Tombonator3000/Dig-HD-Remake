@@ -1,0 +1,125 @@
+{
+  "job": "fig229_19",
+  "attempt": 1,
+  "native_sha256": "d5a0290b0e99f91ac1dd7bfc07f0f22d43176c6e7c111c3dde88f100dbccccbf",
+  "rows": [
+    {
+      "name": "costume229_106",
+      "source_RGBA_sha256": "1daca07d04e5e718202b224b8f13e4c609c6a46eb5ba261ec94fffa4b06d799b",
+      "source_body_measurement": "first29 original columns; exclude literaltechnicalmagenta; alpha>0",
+      "original_Brink_height_at4x": 264,
+      "native_measurement_region_xyxy": [
+        50,
+        60,
+        220,
+        435
+      ],
+      "native_Brink_height_alpha128": 343,
+      "actual_v2_Y": 0.7845,
+      "estimated_imported_Brink_height": 269.084,
+      "relative_to_source": 1.0193,
+      "actual_status": "ok"
+    },
+    {
+      "name": "costume229_107",
+      "source_RGBA_sha256": "ba502d55df0192b1ed461df1b729e87cf91fffb06f066390c1af84575d79ec85",
+      "source_body_measurement": "first29 original columns; exclude literaltechnicalmagenta; alpha>0",
+      "original_Brink_height_at4x": 264,
+      "native_measurement_region_xyxy": [
+        790,
+        60,
+        946,
+        435
+      ],
+      "native_Brink_height_alpha128": 342,
+      "actual_v2_Y": 0.7333,
+      "estimated_imported_Brink_height": 250.789,
+      "relative_to_source": 0.95,
+      "actual_status": "ok"
+    },
+    {
+      "name": "costume229_108",
+      "source_RGBA_sha256": "f64fe7d531f1d5bbb77394cdf2203f302718c0ce9775480c24bda3f4a0bdaa59",
+      "source_body_measurement": "first29 original columns; exclude literaltechnicalmagenta; alpha>0",
+      "original_Brink_height_at4x": 264,
+      "native_measurement_region_xyxy": [
+        50,
+        600,
+        220,
+        980
+      ],
+      "native_Brink_height_alpha128": 342,
+      "actual_v2_Y": 0.7896,
+      "estimated_imported_Brink_height": 270.043,
+      "relative_to_source": 1.0229,
+      "actual_status": "ok"
+    },
+    {
+      "name": "costume229_109",
+      "source_RGBA_sha256": "65355fa2b8b699f2e99dfb30766a55ff324384924f95edd6e3a1c9ebd2064900",
+      "source_body_measurement": "first29 original columns; exclude literaltechnicalmagenta; alpha>0",
+      "original_Brink_height_at4x": 264,
+      "native_measurement_region_xyxy": [
+        790,
+        600,
+        946,
+        980
+      ],
+      "native_Brink_height_alpha128": 342,
+      "actual_v2_Y": 0.8588,
+      "estimated_imported_Brink_height": 293.71,
+      "relative_to_source": 1.1125,
+      "actual_status": "ok"
+    }
+  ],
+  "reason": "Native Brink heights are stable, but effect109 is short relative to its people; actual v2 percelY then scales the whole stable head/body differently despite statusok. This is source/import diagnostic evidence, not an enginevideo or permission to compensate by shrinking the painted head.",
+  "spilltest": false,
+  "root_verified": {
+    "utc": "2026-10-10T15:10:38.769452+00:00",
+    "native_source_import_SHA_unchanged": true,
+    "source_native_body_heights_and_actual_export_measured": [
+      {
+        "bilde": "costume229_106",
+        "source_height_4x": 264,
+        "native_height_alpha128": 343,
+        "actual_v2_Y": 0.7845,
+        "exported_Brink_height_alpha128_first125columns": 269,
+        "export_SHA256": "febd769285f9e8d03521b735d7f554b827753d40eafef40ff3922a1bba229d1a",
+        "estimated_native_height_times_Y": 269.084
+      },
+      {
+        "bilde": "costume229_107",
+        "source_height_4x": 264,
+        "native_height_alpha128": 342,
+        "actual_v2_Y": 0.7333,
+        "exported_Brink_height_alpha128_first125columns": 252,
+        "export_SHA256": "fde5f93fe2df33be66761559abe7b4b64d6467afc6683edfec06f9d3c40f62b5",
+        "estimated_native_height_times_Y": 250.789
+      },
+      {
+        "bilde": "costume229_108",
+        "source_height_4x": 264,
+        "native_height_alpha128": 342,
+        "actual_v2_Y": 0.7896,
+        "exported_Brink_height_alpha128_first125columns": 271,
+        "export_SHA256": "4499efa98084e2554276b8bf4e8e56a067eb75fa45c105ccfcd2f77b627d3ab4",
+        "estimated_native_height_times_Y": 270.043
+      },
+      {
+        "bilde": "costume229_109",
+        "source_height_4x": 264,
+        "native_height_alpha128": 342,
+        "actual_v2_Y": 0.8588,
+        "exported_Brink_height_alpha128_first125columns": 294,
+        "export_SHA256": "e2262eea4d475fcb9a5a6f19acd2d0e2c7abfb8219a35ec7c9f98ca9a04c2234",
+        "estimated_native_height_times_Y": 293.71
+      }
+    ],
+    "root_viewed_actual_source_native_gray_and_v2_preview": true,
+    "status": "HOLD",
+    "engine_runtime_tested": false
+  },
+  "native": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-8b51ba26-9fc5-42da-b8af-c94289de3c87.png",
+  "source_package": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-229/fig229_19-attempt1.batch.json",
+  "source_package_sha256": "dd17e14c074d6380fdfbb7e64d0e677dc68f7eb7dc246c2856967cbe9226bc86"
+}

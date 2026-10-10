@@ -1,0 +1,1216 @@
+{
+  "scope": "Read-only triage of existing fig306_01/02/04 and fig305_02/03",
+  "ready": [],
+  "selected_for_edit": null,
+  "new_imagegen_calls": 0,
+  "new_imports": 0,
+  "entries": [
+    {
+      "job": "fig306_01",
+      "status": "HOLD",
+      "native": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-f17f04fd-a3e5-43c1-9d8a-e0a4e5998959.png",
+      "sha256": "5a766d75446b5755710b1a76b84b79faee80d5ac501ff8c6775536a641931007",
+      "full_attempt_spec": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/brink-attempts/fig306_01-forsok1.json",
+      "native_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_01.qa.json",
+      "expected_rows": [
+        1,
+        1,
+        1,
+        22,
+        7
+      ],
+      "actual_rows": [
+        1,
+        1,
+        1,
+        23,
+        7
+      ],
+      "count_ok": false,
+      "alpha_control_ok": true,
+      "alpha_residual": {
+        "piksler_over_0": 5156,
+        "maks": 3,
+        "piksler_over_16": 0
+      },
+      "gray_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_01-forsok1-native-gray.png",
+      "prior_actual_v2_report": null,
+      "prior_actual_v2_status_counts": null,
+      "prior_actual_v2_checks": {},
+      "source_rgba": [
+        {
+          "original": "costume306_000",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_000.png",
+          "sha256": "92a0e25765d0f5c07f60ee24de7e86d9e215ef1a710d7838a54554223878eab3",
+          "size": [
+            25,
+            68
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_012",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_012.png",
+          "sha256": "ebab46b6459877c859486aa75ee6d2b8cea356413ab44b2b1c23d9030ffc95a9",
+          "size": [
+            48,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_002",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_002.png",
+          "sha256": "b8626776026e7e5a760beef1d43b40f50dd0903c56583707d66f64ff408a2332",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_013",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_013.png",
+          "sha256": "6645db1cdbd03e54bb0d3799dab3b6c7bd01b564375b13443ad11c13299407bc",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_064",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_064.png",
+          "sha256": "b92d94c5d2175c077b47d0098e0bc85fcbb1f0a99a0175012ef3812d0dc09599",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_062",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_062.png",
+          "sha256": "36ec18161c5c7a7f8d9abcf5247483c572f62bfc1dd33f8e3b870ed8a8b31e9d",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_054",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_054.png",
+          "sha256": "679c7851c11497d12ee2520925dbbc11c61b35da65b252e115256cc2d53a9fd8",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_052",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_052.png",
+          "sha256": "e1c3eb20624dd38a568199002985989b81c05829b6b77b162b713bc560fd48e8",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_044",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_044.png",
+          "sha256": "201fa9fcbf4c70fb8457c5ad99494358621201012780a8fc08916b50ee78fce3",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_032",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_032.png",
+          "sha256": "371251f527baf259df908457b2c429837269a86be0e138b1245a4429af8c53d9",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_030",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_030.png",
+          "sha256": "248826257324e2d18f9946812f22d67e310245c374c53bb8c89674b798216c53",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_027",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_027.png",
+          "sha256": "9e38e7a7f35153e5317b74705465e2e78f4a519b2de3068bdcd21959d6928c4c",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_018",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_018.png",
+          "sha256": "ee0348149be99d4f21ef322d591280a71cfbdbdf3d7c58df8f5c1bcb1b47b58e",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_016",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_016.png",
+          "sha256": "140239d8d42b70f603012ef1ef66606fbb43f06edbff84b87132354a9c8e26b9",
+          "size": [
+            8,
+            11
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_014",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_014.png",
+          "sha256": "d52403ea716b679d42f319c42b0472e4c0a4a18b962313c97bac87c8cdb3fd26",
+          "size": [
+            8,
+            11
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_015",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_015.png",
+          "sha256": "e42709206d7d8767aaa51a5a63908694c5df079987bbdbf672162a71a10d4b78",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_003",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_003.png",
+          "sha256": "4aa678b2230aff7e3d5f103a99aa6f8b69735b624ce5e63543e26ff3613aa44a",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_017",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_017.png",
+          "sha256": "ff1715fc15ae1d07ca981249486d803adcce7f79a5fdf0ef701621a9a158f953",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_001",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_001.png",
+          "sha256": "1735fd83a3264d8d3d70a73b2a3cec7fe0e9e4e567d4090e84e0230ef6a1f298",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_019",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_019.png",
+          "sha256": "f1de25511f7a1c4e47bd560c5f500ab3db4bb5f98df5a5f31980ffe164bd4b01",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_020",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_020.png",
+          "sha256": "145d9bf61ae148893162bdb5f752f861f8a3694ef3827af0e04461e0078f8367",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_021",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_021.png",
+          "sha256": "9c4276fb560aaea11c48031b07f4dfbe24b6bc88891d89881f8d2500b7d5b601",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_022",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_022.png",
+          "sha256": "b7a7165e92253d81dae67b05861daf0dbb47398fde6bd049cae401cc3d07292a",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_023",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_023.png",
+          "sha256": "eb8f80c25333c202c8a9564b1ed21859df366676ede1ceeb0f5093831c574d7d",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_024",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_024.png",
+          "sha256": "68bb4d7d8656926a89036f878d46f76d5206a72f25974d7b3be01f9f18b2bdb6",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_025",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_025.png",
+          "sha256": "3cdade86c0a0ebe1d6d45e9b5fc3fcecad0796cebbc02f4061267055405635d1",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_026",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_026.png",
+          "sha256": "87bb639d5c4bbffcade4044043c624ebdad1ff4792a3d98da8ea63ac9a32654d",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_011",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_011.png",
+          "sha256": "de0faa2c8bdddc1a6421f95324c59365198dbdeabe016b2f99b298636e76d92e",
+          "size": [
+            1,
+            1
+          ],
+          "fragment": true
+        },
+        {
+          "original": "costume306_028",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_028.png",
+          "sha256": "8a36834504a2fdc5b560d050925e8dce5aa96734a5ce29b2c5d2c54f269bf0f8",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_029",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_029.png",
+          "sha256": "038d9fc65a9f21b34dc3fd451c6f94d8e7dbe72b2b9488ddecb54f4ac60fbadd",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_010",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_010.png",
+          "sha256": "694b6748fe1e321482a571509f4587e974a7c027a2d02f7de3c0199de9c42e22",
+          "size": [
+            8,
+            10
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_031",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_031.png",
+          "sha256": "e57e04646df53b567f9acb9b78f91ca5850c5dee611854d07b518c6af7ed03bf",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_009",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_009.png",
+          "sha256": "de651ee7a63495707d166a47c101cc521a6aa30fba1939f36dec00b042fb6fc9",
+          "size": [
+            8,
+            12
+          ],
+          "fragment": false
+        }
+      ],
+      "historical_hold_note": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_01-HOLD.md",
+      "current_triage_reasons": [
+        "Native long row has23 heads, source22; phases not one-to-one, including source064 open vs native2 closed. Blind deletion is unjustified."
+      ],
+      "selected_for_edit": false,
+      "new_generation": false,
+      "existing_result_sha256": "614337ebb41807e006e56ce4725b5170b428fd7ac0b994d7aaeb820ca9018943",
+      "protected4_unchanged": true,
+      "physical_evidence": [
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_01-count-phase-comparison.png"
+      ]
+    },
+    {
+      "job": "fig306_02",
+      "status": "HOLD",
+      "native": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-8db28ea5-9d82-4602-8703-bf2831e3f6d1.png",
+      "sha256": "cf3e7ad65fed6a1fd12e956f9e9e8321790a3b50f4d95912b897ad29f68a2726",
+      "full_attempt_spec": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/brink-attempts/fig306_02-forsok1.json",
+      "native_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_02.qa.json",
+      "expected_rows": [
+        6
+      ],
+      "actual_rows": [
+        6
+      ],
+      "count_ok": true,
+      "alpha_control_ok": true,
+      "alpha_residual": {
+        "piksler_over_0": 4752,
+        "maks": 4,
+        "piksler_over_16": 0
+      },
+      "gray_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_02-forsok1-native-gray.png",
+      "prior_actual_v2_report": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_02.import-v2.json",
+      "prior_actual_v2_status_counts": {
+        "ok": 5,
+        "sjekk": 1
+      },
+      "prior_actual_v2_checks": {
+        "costume306_036": {
+          "status": "sjekk",
+          "fil": "costumes/costume306_036_hd.png",
+          "storrelse": [
+            168,
+            240
+          ],
+          "marg": [
+            2,
+            3
+          ],
+          "flytt_hd": [
+            -2,
+            -6
+          ],
+          "snitt_union": 0.742,
+          "dekning": 0.791,
+          "skala": 0.6729,
+          "skala_xy": [
+            0.6552,
+            0.6626
+          ]
+        }
+      },
+      "source_rgba": [
+        {
+          "original": "costume306_033",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_033.png",
+          "sha256": "8908f39fee3f74b0d1e339366fe10eab6999725034c151c4f0982b867821589c",
+          "size": [
+            30,
+            65
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_034",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_034.png",
+          "sha256": "6cd3bee91b788baab35d6018cbc116eae44f03d5b691df45ca2f8af527314ab3",
+          "size": [
+            33,
+            63
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_035",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_035.png",
+          "sha256": "eeca9d4e7467bd02d4da65e3d67dfc4da31dbcfdc09649a74a3e1baa0fe21739",
+          "size": [
+            34,
+            58
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_036",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_036.png",
+          "sha256": "2bc5333736cd6dc243a081a022bfd4fb31e87b0c30008d4fa2ba263007864f81",
+          "size": [
+            38,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_037",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_037.png",
+          "sha256": "eab2d32499d2781bbc17b5ca38edc8e1985bd93074a16e63334d4ac01a22e660",
+          "size": [
+            42,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_038",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_038.png",
+          "sha256": "0811bf7bd0222df4fd78aa38ab40d7482a2d1c5dae674a49ecaae9a564492c59",
+          "size": [
+            48,
+            54
+          ],
+          "fragment": false
+        }
+      ],
+      "historical_hold_note": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_02-HOLD.md",
+      "current_triage_reasons": [
+        "Actual-v2 source036 coverage0.791, below current0.8 diagnostic criterion.",
+        "Multiple original short irregular warm brown-gray/dusty-tan thigh tears become long outlined neutral-gray native strips; not one isolated pose error."
+      ],
+      "selected_for_edit": false,
+      "new_generation": false,
+      "existing_result_sha256": "e67dc4c8899bc02aa65bd3c8051334fdda22d049c87acaa03c2e17c033b88cb6",
+      "protected4_unchanged": true,
+      "physical_evidence": [
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305306-triage/fig306_02-six-source-native-comparison.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305306-triage/fig306_02-six-source-native-comparison.json",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305306-triage/fig306_02-six-wear-regions.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305306-triage/fig306_02-source-wear-regions.json"
+      ]
+    },
+    {
+      "job": "fig306_04",
+      "status": "HOLD",
+      "native": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-be3efcc7-118b-4510-a411-a2b11f2582b5.png",
+      "sha256": "d72c08468ce197f9ba665b8dd9991f30a1b94248cd520495b90085a29388a328",
+      "full_attempt_spec": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/brink-attempts/fig306_04-forsok1.json",
+      "native_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_04.qa.json",
+      "expected_rows": [
+        6,
+        3,
+        6
+      ],
+      "actual_rows": [
+        6,
+        3,
+        6
+      ],
+      "count_ok": true,
+      "alpha_control_ok": true,
+      "alpha_residual": {
+        "piksler_over_0": 39007,
+        "maks": 5,
+        "piksler_over_16": 0
+      },
+      "gray_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_04-forsok1-native-gray.png",
+      "prior_actual_v2_report": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_04.import-v2.json",
+      "prior_actual_v2_status_counts": {
+        "ok": 15
+      },
+      "prior_actual_v2_checks": {},
+      "source_rgba": [
+        {
+          "original": "costume306_055",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_055.png",
+          "sha256": "1364ca10fbfcca033c01b2284a56bec2d529827c4bf3f5ab78a2e1868b56d243",
+          "size": [
+            48,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_056",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_056.png",
+          "sha256": "a779df59ffd5243a3ec8ef4f2d8c6ce182458238374bf1e5543ac1728adb6fdc",
+          "size": [
+            49,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_057",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_057.png",
+          "sha256": "3eefc1e4071c122021374020ec476c1422a55b6f64bbfb630ec20d34fcdfffe1",
+          "size": [
+            50,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_058",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_058.png",
+          "sha256": "a47913089f50fc58030e6033cc4ba0d205caf0bb4e6ea905ef44625f10aad86c",
+          "size": [
+            48,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_059",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_059.png",
+          "sha256": "a239d911049bae58450a87d55216229983fffb2826966f4e83f7a69a615d72d0",
+          "size": [
+            47,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_060",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_060.png",
+          "sha256": "03f16a99dfd76a32eab2057f262c53ec5de817be5fb800d806243f6083107546",
+          "size": [
+            47,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_061",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_061.png",
+          "sha256": "a0e479535be29a96c5f4e2392bee62b542dbf2ffc14cb5bbf4b7448f74d517cc",
+          "size": [
+            48,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_005",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_005.png",
+          "sha256": "36464d1966ddc110853214154407fa1de77af37939c88258296753315094da98",
+          "size": [
+            49,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_063",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_063.png",
+          "sha256": "63c2c4bac9ee15144bcc8868815f85ef484e6dc0a0df0872eb9ecea86e5549f2",
+          "size": [
+            48,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_004",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_004.png",
+          "sha256": "af8c2e95137d4acc0e5eb35c0df4885d50f6da26e85d5020214acd017a1f628c",
+          "size": [
+            45,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_065",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_065.png",
+          "sha256": "ebf6e2c28f6d4f281c81e44803affd3c31bd4481d6768f45329b5ab5443b621b",
+          "size": [
+            43,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_066",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_066.png",
+          "sha256": "d573830c39e1331d5f19a0aa78d004e89110d18b47b3cb93f246d073c7898dde",
+          "size": [
+            37,
+            58
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_067",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_067.png",
+          "sha256": "ee1b707936f245ef3213949d08e35d12ad5439cd7cd67acea80f2a218c473166",
+          "size": [
+            32,
+            62
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_068",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_068.png",
+          "sha256": "bc930da441e1e1e4e3d49194ae27ff499cca5bf6276db43853d1fe839504e8c7",
+          "size": [
+            28,
+            64
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume306_069",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume306_069.png",
+          "sha256": "4db674fa1639e6e382ec7c01c52b89df147f6812a785e2a077d16892e921f290",
+          "size": [
+            27,
+            67
+          ],
+          "fragment": false
+        }
+      ],
+      "historical_hold_note": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_04-HOLD.md",
+      "current_triage_reasons": [
+        "All15 actual-v2 routes ok, but long straight neutral-gray strips replace irregular warm source tears in15 cels."
+      ],
+      "selected_for_edit": false,
+      "new_generation": false,
+      "existing_result_sha256": "94ed2f033cdff44ca8b4704e3fe3f4f716e3008eefd9e5585fdc8a9a8fc7892d",
+      "protected4_unchanged": true,
+      "physical_evidence": [
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_04-tear-comparison.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_04-own-source-wear.provenance.json"
+      ]
+    },
+    {
+      "job": "fig305_02",
+      "status": "HOLD",
+      "native": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-d43c7b48-43cf-4f12-972b-3ee2c61d3f7d.png",
+      "sha256": "40d8a0a9f451eba9f2da6bfe1a28c682409385fa68fe835d303b92fd032ee6a6",
+      "full_attempt_spec": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/brink-attempts/fig305_02-forsok1.json",
+      "native_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_02.qa.json",
+      "expected_rows": [
+        6
+      ],
+      "actual_rows": [
+        6
+      ],
+      "count_ok": true,
+      "alpha_control_ok": true,
+      "alpha_residual": {
+        "piksler_over_0": 9765,
+        "maks": 4,
+        "piksler_over_16": 0
+      },
+      "gray_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_02-forsok1-native-gray.png",
+      "prior_actual_v2_report": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_02.import-v2.json",
+      "prior_actual_v2_status_counts": {
+        "ok": 5,
+        "sjekk": 1
+      },
+      "prior_actual_v2_checks": {
+        "costume305_033": {
+          "status": "sjekk",
+          "fil": "costumes/costume305_033_hd.png",
+          "storrelse": [
+            196,
+            240
+          ],
+          "marg": [
+            4,
+            3
+          ],
+          "flytt_hd": [
+            2,
+            -7
+          ],
+          "snitt_union": 0.704,
+          "dekning": 0.784,
+          "skala": 0.6626,
+          "skala_xy": [
+            0.6667,
+            0.6409
+          ]
+        }
+      },
+      "source_rgba": [
+        {
+          "original": "costume305_030",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_030.png",
+          "sha256": "50051bcfac2b6df46e533c0ce2b07f3078469cd296a1f92908480c4274412e46",
+          "size": [
+            30,
+            65
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_031",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_031.png",
+          "sha256": "8eac85c429efc1faa3358fe2da0ee79f6d0a6715a023c28341612f426fd6892d",
+          "size": [
+            33,
+            63
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_032",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_032.png",
+          "sha256": "a06d604844e33259b98034293920e9f1aa0fb89f222cb4180596407081bbcba7",
+          "size": [
+            34,
+            58
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_033",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_033.png",
+          "sha256": "c8b78a4280c9f269da335b456649a64e32ded2482e6fd4d39e7137e4027fa96c",
+          "size": [
+            41,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_034",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_034.png",
+          "sha256": "95ac373bc033ba14c8f6f39a5c1c69bf57dee3a65f8f1fff13c224672e90ef16",
+          "size": [
+            47,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_035",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_035.png",
+          "sha256": "eeef31878e598139fbe0b88200093e0dc7ba07b492afc076d22b1c7f30991885",
+          "size": [
+            51,
+            54
+          ],
+          "fragment": false
+        }
+      ],
+      "historical_hold_note": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_02-HOLD.md",
+      "current_triage_reasons": [
+        "Actual-v2 source033 coverage0.784.",
+        "Native uses pale gray centers/long straight outlined thigh fields instead of source olive/dusty-pink-gray wear across multiple cels."
+      ],
+      "selected_for_edit": false,
+      "new_generation": false,
+      "existing_result_sha256": "034432c2ee0866455696c3c1e881e9576bbb52273d9436e4b11cde210a24202b",
+      "protected4_unchanged": true,
+      "physical_evidence": [
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305306-triage/fig305_02-six-source-native-comparison.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305306-triage/fig305_02-six-source-native-comparison.json"
+      ]
+    },
+    {
+      "job": "fig305_03",
+      "status": "HOLD",
+      "native": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-90c08386-2844-4947-b933-0fd3fd13d15d.png",
+      "sha256": "ac5b9cfa1c6b9e82f41582c13d388ff4a3ed67805dcc2e93b443de0c7e5cfde4",
+      "full_attempt_spec": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/brink-attempts/fig305_03-forsok1.json",
+      "native_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_03.qa.json",
+      "expected_rows": [
+        6,
+        6,
+        1,
+        3
+      ],
+      "actual_rows": [
+        6,
+        6,
+        1,
+        3
+      ],
+      "count_ok": true,
+      "alpha_control_ok": true,
+      "alpha_residual": {
+        "piksler_over_0": 30895,
+        "maks": 4,
+        "piksler_over_16": 0
+      },
+      "gray_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_03-forsok1-native-gray.png",
+      "prior_actual_v2_report": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_03.import-v2.json",
+      "prior_actual_v2_status_counts": {
+        "ok": 14,
+        "sjekk": 2
+      },
+      "prior_actual_v2_checks": {
+        "costume305_050": {
+          "status": "sjekk",
+          "fil": "costumes/costume305_050_hd.png",
+          "storrelse": [
+            208,
+            248
+          ],
+          "marg": [
+            3,
+            4
+          ],
+          "flytt_hd": [
+            -3,
+            -10
+          ],
+          "snitt_union": 0.749,
+          "dekning": 0.795,
+          "skala": 0.8963,
+          "skala_xy": [
+            0.8804,
+            0.8963
+          ]
+        },
+        "costume305_001": {
+          "status": "sjekk",
+          "fil": "costumes/costume305_001_hd.png",
+          "storrelse": [
+            204,
+            248
+          ],
+          "marg": [
+            4,
+            4
+          ],
+          "flytt_hd": [
+            -4,
+            -10
+          ],
+          "snitt_union": 0.733,
+          "dekning": 0.778,
+          "skala": 0.8963,
+          "skala_xy": [
+            0.8776,
+            0.8926
+          ]
+        }
+      },
+      "source_rgba": [
+        {
+          "original": "costume305_010",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_010.png",
+          "sha256": "a02211b3262944df8ffb1d84a4dc277913944b6af0fbdb887d7de213ba74c41f",
+          "size": [
+            49,
+            51
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_037",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_037.png",
+          "sha256": "cdec2c37e46bd959580b9e5088ee3b6a3d0280630a945a95a7450dc2031471ad",
+          "size": [
+            48,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_038",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_038.png",
+          "sha256": "ac5f1e3929328b6841215f1e95acc568d6f84f9dfc62627564dd48560c9a6ffa",
+          "size": [
+            49,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_008",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_008.png",
+          "sha256": "a49b1f0f91011792d647898a70109e661507e5ea6a176f74da604749639da0ca",
+          "size": [
+            52,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_040",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_040.png",
+          "sha256": "f2fb934b54ea78a8dcdabf944abc871f7773f64b316f32f32bbf4833122a094a",
+          "size": [
+            47,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_041",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_041.png",
+          "sha256": "fbaef3420aed8f9f5983507cb751bee330a2e139ceffc910c5e62991c4ad9f2d",
+          "size": [
+            49,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_007",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_007.png",
+          "sha256": "c51b6d9e2cc189d95d95bec4f7815583f17fc795718a6850d86ff036d198eae9",
+          "size": [
+            51,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_043",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_043.png",
+          "sha256": "62efb98d9097ad169a4184c77c7316c63707c2d871bdcc3ebe7423594cd1d9bb",
+          "size": [
+            52,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_044",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_044.png",
+          "sha256": "3740fb4d40194bd130e7b4ddd17efbb17dbc40c509fed577b1965eada5e97db8",
+          "size": [
+            48,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_045",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_045.png",
+          "sha256": "acb48c1c35d20a58925d7187c00163fb742de5e493d6477ae867b176c6f4731b",
+          "size": [
+            53,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_046",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_046.png",
+          "sha256": "bdc7a8e218696520529f2c265e3f7306943681a096b4718cd152af31a8abbcbc",
+          "size": [
+            50,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_047",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_047.png",
+          "sha256": "ab5f2a6cb0f723513b0acfa9549f6245018353d0f68b7789815a5616e14daaa5",
+          "size": [
+            50,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_048",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_048.png",
+          "sha256": "122a38a7e79fbea4ed29eb3629d09f58c36cf7f0627147f4232eaeeb5a07da34",
+          "size": [
+            51,
+            50
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_006",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_006.png",
+          "sha256": "63f40268d5ffdfbdfbaf4e20cd9ea8d0d1a1cf2b2deb304902eae510c2af8c10",
+          "size": [
+            48,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_050",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_050.png",
+          "sha256": "0a98f33035e5dfa6af1addc42fae995fca71520679dd9d4109209592d096e6d3",
+          "size": [
+            46,
+            54
+          ],
+          "fragment": false
+        },
+        {
+          "original": "costume305_001",
+          "source_rgba": "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume305_001.png",
+          "sha256": "e0e2cc31ae1c0f9ff0ead48834d3a503bdeebb4b508ee788747e57e67f42fc76",
+          "size": [
+            43,
+            54
+          ],
+          "fragment": false
+        }
+      ],
+      "historical_hold_note": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-305/fig305_03-HOLD.md",
+      "current_triage_reasons": [
+        "Native largely omits actual olive/pink-gray wear on16 bodies.",
+        "Actual-v2 sources050/001 sjekk with coverage0.795/0.778."
+      ],
+      "selected_for_edit": false,
+      "new_generation": false,
+      "existing_result_sha256": "3466e6abbbe436adbbd93f8d44119c1f291915c86ebce9ac95c918df5924e93c",
+      "protected4_unchanged": true,
+      "physical_evidence": []
+    }
+  ],
+  "protected_file_count": 20,
+  "protected_audit": [
+    {
+      "job": "fig306_01",
+      "file": "referanse.png",
+      "sha256": "48def2e03ed0821032b48313c26aca5f5d12206c63f2c7d592fe2afdbc2c527a",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_01",
+      "file": "original_1x.png",
+      "sha256": "37cf7fe4e7ad96413377c06f4d3ae247261da9247d2cfca281a95718056903c5",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_01",
+      "file": "prompt.txt",
+      "sha256": "8a8eea9bf37ad7258749ef1c47ed44d65533952a90932ef68148ebaddcff007b",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_01",
+      "file": "jobb.json",
+      "sha256": "e1b44dd071fbaea1829ee5214acb0bccf9e60b03a5994cee4c7865a9e47d4fe6",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_02",
+      "file": "referanse.png",
+      "sha256": "c1a847b27a91d183153861ef6e63f227d060c3be3b9755341c42fc671dcaf54a",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_02",
+      "file": "original_1x.png",
+      "sha256": "23075907687386ca8f67b903523a67834302e084ce67e61b81b18f3d2d47c1f3",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_02",
+      "file": "prompt.txt",
+      "sha256": "147668c35622881ba253bac4c240a1af6013c21d780b167541a1bd946955b298",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_02",
+      "file": "jobb.json",
+      "sha256": "87368f05419bef3c2c2fa8a2b0b7df8de3ef475eaebdd4139ff9fdce95a61462",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_04",
+      "file": "referanse.png",
+      "sha256": "73f9761759a7bd09db7b22eb5ea1de691986ed609cd982bcea5dd7c590b367cd",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_04",
+      "file": "original_1x.png",
+      "sha256": "4323432a229edef3860acc4aec437cdfedd52b1674dd100742d3cd308d3557fd",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_04",
+      "file": "prompt.txt",
+      "sha256": "9e5045d837153d1f7e44694b86eb4f9b6a235548e4e2bf68c6abf8678bd8264e",
+      "unchanged": true
+    },
+    {
+      "job": "fig306_04",
+      "file": "jobb.json",
+      "sha256": "f045602ca2ff7b700b7c294448038bab1387ecde852a7c64cf0557a699d54976",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_02",
+      "file": "referanse.png",
+      "sha256": "65be6b882286519312a322c55075d57d782dc616553786098506eecfdb8113ef",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_02",
+      "file": "original_1x.png",
+      "sha256": "6a0bcba33017a2ed5d0786d16ecc6e62d748c8f5db4d77c27fe8b2e061c9aa88",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_02",
+      "file": "prompt.txt",
+      "sha256": "147668c35622881ba253bac4c240a1af6013c21d780b167541a1bd946955b298",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_02",
+      "file": "jobb.json",
+      "sha256": "a30a03165f25d63d3a45f5e36352f16efc3ac80ee03512a0dada4109e389c6aa",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_03",
+      "file": "referanse.png",
+      "sha256": "c7bb78824d122a607766a6699a72311a3ad18d4cb2e91406897b70b99a990167",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_03",
+      "file": "original_1x.png",
+      "sha256": "1333daf889ff5740da24f9ca2291b42dc8e273c80f9c552e7cafdf19233d530a",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_03",
+      "file": "prompt.txt",
+      "sha256": "c5eef5817c3e6d9280191c4971b16c5cdf220386df7b26f92289d212ab5bace1",
+      "unchanged": true
+    },
+    {
+      "job": "fig305_03",
+      "file": "jobb.json",
+      "sha256": "39fbf1e931b75fa8e00f8b2b3dcffb058e7155cffd237b863c8665b9962becb0",
+      "unchanged": true
+    }
+  ],
+  "all_native_source_protected_and_result_hashes_unchanged": true,
+  "repo_git_code_progress_delivery_mutations": false,
+  "runtime_tested": false,
+  "next_action": "No batch-filling generation. Parent/Claude retain existing main-cel geometry checks separately from native art errors. A future edit needs an actually isolated original-cel problem and a strategy preserving phases/materials."
+}

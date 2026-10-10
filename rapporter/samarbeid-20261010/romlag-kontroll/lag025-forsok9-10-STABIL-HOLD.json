@@ -1,0 +1,925 @@
+{
+  "job": "lag025_01_del1av3",
+  "status": "STABIL_HOLD",
+  "ready": [],
+  "this_agent_attempts": [
+    9,
+    10
+  ],
+  "attempt_limit_met": "One justified source-bound local edit plus one documented isolated topology correction; no further025 attempt.",
+  "previous_hold": {
+    "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag025_01_del1av3-attempt8.json",
+    "native": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-0b2eb87b-978a-46e6-8ca3-daa2152e465c.png",
+    "native_sha256": "2a07f5087a6c01a4006800240d328973b7b54b8795fb21b95cf6eabfd77ebb31",
+    "upper_source6_native5": true
+  },
+  "attempts": [
+    {
+      "jobb": "lag025_01_del1av3",
+      "attempt": 9,
+      "parent_attempt": 8,
+      "attempt_scope": "One precise native upper-panel topology edit, maximum one isolated correction after review",
+      "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 1 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nTOM-AUTHORIZED PRECISE NATIVE EDIT, attempt9. ImageONE is the authoritative original layout. ImageTWO is the approved same-room HD texture/light anchor. ImageTHREE is the full-scene edit target, a held native candidate, NOT an approved delivery. ImageFOUR is an untouched crop of protected original_1x.png enlarged32x with nearest sampling; its green shapes are factual source geometry, not a pixel-art style request. ImageFIVE shows the original lower-left control.\n\nEDIT ONLY green marks inside the small UPPER-RIGHT CONTROL of imageTHREE, within canvas rectangle[864,400,96,64]. Preserve all architecture, open left doorway, both vertical blue bars, lower-left control and every other part of imageTHREE. The upper-right mark has an invented connected U-shaped green path. Replace it and other upper marks with the EXACT SIX disconnected angular source islands in imageFOUR. Do not make a continuous winding line, ring, U, letter or decorative glyph. There must be dark stone between all six islands.\n\nExact six-island silhouettes in final1536x1024 coordinates, each expressed as small source rectangles[x,y,width,height]:\nIsland1: [896,408,8,4] plus [904,412,4,8], touching only at the original corner.\nIsland2: [888,416,8,4], a separate short horizontal mark.\nIsland3: [916,416,4,4] plus [916,420,8,4], a separate small angular L.\nIsland4: [904,424,4,4] plus [908,428,4,4], a short diagonal pair touching at the original corner, isolated from bottom marks.\nIsland5: [924,428,4,4] plus [924,432,8,4] plus [920,436,4,8], with original corner contact between its right upper tip and left lower stem.\nIsland6: [912,436,4,8], a separate vertical short mark.\nKeep dark gap between island4 and island6; keep dark gap between island6 atx912..915 and island5 stem atx920..923. Do NOT connect these bottom stems with a horizontal or curved base. Do NOT connect short diagonal island4 to either bottom stem. Preserve original corner contacts WITHIN each island. Six bright-green disconnected islands, same sizes, locations and shapes as source, with only a fine antialiased edge, no bloom bridging gaps.\n\nThe lower-left control already has its four genuine separated source marks; preserve them exactly. Blue bars are genuine object overlays and remain untouched. Return full1536x1024 scene with same gray top/bottom border and all non-target content of imageTHREE preserved. No isolated patch, crop, zoom, extra marks, labels, numbers, guides, text or new symbols.\n",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png",
+        "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-0b2eb87b-978a-46e6-8ca3-daa2152e465c.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025-upper-green-protected-original-nearest32.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/obj219_01-actual-sheet-nearest6.png"
+      ],
+      "reference_sha256": {
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png": "3c7ae370baf7c81ee4d3508e2baaa1fbb0d3267530d86631468a8203b3f349c4",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png": "502858d0e1182e796eb06a3829d484171729c8477bdd5594c72bfcc5f76e6c82",
+        "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-0b2eb87b-978a-46e6-8ca3-daa2152e465c.png": "2a07f5087a6c01a4006800240d328973b7b54b8795fb21b95cf6eabfd77ebb31",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025-upper-green-protected-original-nearest32.png": "cc311ddd10f99c8a075914b9d62baf99c2ccdacec68c7ccd2badf32310a7e836",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/obj219_01-actual-sheet-nearest6.png": "4385d7721ffcd070a136ed6bcd72d493a6864a575286100030cb49026c46e1d8"
+      },
+      "protected": {
+        "referanse.png": "3c7ae370baf7c81ee4d3508e2baaa1fbb0d3267530d86631468a8203b3f349c4",
+        "original_1x.png": "99a457d0abdf10ad9deb8b4078700c80b5ae4daf3d96cae570f7071119de138e",
+        "prompt.txt": "0412797075b750c8ebc86d9cd6de7cfcadb0463dc13bb6ceb4393187bafde955",
+        "jobb.json": "b2058fef62462829fda8b741c8f05cc86de318570e10da994ce88523b26d1ee9"
+      },
+      "base_prompt_sha256": "0412797075b750c8ebc86d9cd6de7cfcadb0463dc13bb6ceb4393187bafde955",
+      "old_result_sha256": null,
+      "old_result_existed": false,
+      "source_objects": {
+        "obj217_01": {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj217_01.png",
+          "sha256": "4c7da3c348b428be35fa47143984b3f9329ec3bcdf9a0396ac82e1488eff8a47",
+          "size": [
+            72,
+            88
+          ],
+          "mode": "RGBA",
+          "alpha_values": [
+            0,
+            255
+          ],
+          "visible_pixels": 4919,
+          "top_colors": [
+            [
+              [
+                27,
+                35,
+                63,
+                255
+              ],
+              360
+            ],
+            [
+              [
+                19,
+                19,
+                43,
+                255
+              ],
+              269
+            ],
+            [
+              [
+                35,
+                43,
+                75,
+                255
+              ],
+              240
+            ],
+            [
+              [
+                31,
+                39,
+                71,
+                255
+              ],
+              215
+            ],
+            [
+              [
+                23,
+                27,
+                55,
+                255
+              ],
+              203
+            ]
+          ],
+          "sheet_rect": [
+            96,
+            208,
+            288,
+            352
+          ]
+        },
+        "obj218_01": {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj218_01.png",
+          "sha256": "3e1f2092c15905bd85378bf876e4270277bf1e18deb493fe22c399faeabd54f7",
+          "size": [
+            24,
+            16
+          ],
+          "mode": "RGBA",
+          "alpha_values": [
+            0,
+            255
+          ],
+          "visible_pixels": 48,
+          "top_colors": [
+            [
+              [
+                19,
+                83,
+                151,
+                255
+              ],
+              10
+            ],
+            [
+              [
+                35,
+                75,
+                143,
+                255
+              ],
+              9
+            ],
+            [
+              [
+                27,
+                67,
+                143,
+                255
+              ],
+              8
+            ],
+            [
+              [
+                35,
+                75,
+                135,
+                255
+              ],
+              7
+            ],
+            [
+              [
+                27,
+                99,
+                175,
+                255
+              ],
+              5
+            ]
+          ],
+          "sheet_rect": [
+            864,
+            400,
+            96,
+            64
+          ]
+        },
+        "obj219_01": {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj219_01.png",
+          "sha256": "9c6594be7161e20e31711534f33d9affd3e4e720b1224e873d1eae79d861e384",
+          "size": [
+            24,
+            24
+          ],
+          "mode": "RGBA",
+          "alpha_values": [
+            0,
+            255
+          ],
+          "visible_pixels": 72,
+          "top_colors": [
+            [
+              [
+                27,
+                99,
+                175,
+                255
+              ],
+              10
+            ],
+            [
+              [
+                19,
+                83,
+                151,
+                255
+              ],
+              10
+            ],
+            [
+              [
+                35,
+                75,
+                143,
+                255
+              ],
+              9
+            ],
+            [
+              [
+                35,
+                107,
+                183,
+                255
+              ],
+              8
+            ],
+            [
+              [
+                27,
+                67,
+                143,
+                255
+              ],
+              8
+            ]
+          ],
+          "sheet_rect": [
+            640,
+            368,
+            96,
+            96
+          ]
+        }
+      },
+      "green_source": {
+        "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/original_1x.png",
+        "source_sha256": "99a457d0abdf10ad9deb8b4078700c80b5ae4daf3d96cae570f7071119de138e",
+        "source_crop_xyxy": [
+          216,
+          72,
+          240,
+          88
+        ],
+        "nearest_factor": 32,
+        "diagnostic_only": true,
+        "output_sha256": "cc311ddd10f99c8a075914b9d62baf99c2ccdacec68c7ccd2badf32310a7e836"
+      },
+      "topology_fixed_rule": "G>140 and G-R>60 and G-B>60, RGB int16, 8-neighbor, no area filtering",
+      "source_upper_green_islands": [
+        {
+          "area": 64,
+          "bbox": [
+            896,
+            408,
+            12,
+            12
+          ]
+        },
+        {
+          "area": 32,
+          "bbox": [
+            888,
+            416,
+            8,
+            4
+          ]
+        },
+        {
+          "area": 48,
+          "bbox": [
+            916,
+            416,
+            8,
+            8
+          ]
+        },
+        {
+          "area": 32,
+          "bbox": [
+            904,
+            424,
+            8,
+            8
+          ]
+        },
+        {
+          "area": 80,
+          "bbox": [
+            920,
+            428,
+            12,
+            16
+          ]
+        },
+        {
+          "area": 32,
+          "bbox": [
+            912,
+            436,
+            4,
+            8
+          ]
+        }
+      ],
+      "frozen_qa_main_commit": "4cff08145f0760d9e7765bcec6f6c9a371e196bb",
+      "frozen_qa_gpt_sha256": "e929e066bc0331e3763de41ff3463e1e1859e01b1a6966f8591561d27969780e",
+      "source_note": "Green marks belong to source room behind transparent object218/219. Actual objectRGBA shows only48/72 opaque blue-bar pixels; green topology separately controlled on protected composite original_1x/reference.",
+      "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-a47b308c-629f-4025-b785-b149d76cd378.png",
+      "sha256": "67980ff4816bb045323611f0c7ab08b70b473ce224e33f1682977e4b5ad3d07c",
+      "tool": "built-in ChatGPT imagegen",
+      "model": "exact version not exposed",
+      "native_size": [
+        1536,
+        1024
+      ],
+      "decision": "HOLD",
+      "reason": "Upper control remains an invented connected U-shaped stroke, extra green dots, and altered rightward shape. Exactly six source islands are not preserved. Ordinary QA is green but green glyphs are room pixels behind transparent object218/219 and are not proven by blue-bar object masks.",
+      "manual_review": {
+        "status": "HOLD",
+        "source_seen": true,
+        "native_seen": true,
+        "all_three_native_object_crops_seen": true,
+        "actual_source_RGBA_seen": true,
+        "frozen_qa_preview_seen": true,
+        "upper_source_islands": 6,
+        "upper_native_islands": 7,
+        "lower_source_islands": 4,
+        "lower_native_islands": 4,
+        "threshold_unchanged": "G>140 and G-R>60 and G-B>60, RGB int16, 8-neighbor, no area filtering",
+        "no_area_filtering": true,
+        "reason": "Upper control remains an invented connected U-shaped stroke, extra green dots, and altered rightward shape. Exactly six source islands are not preserved. Ordinary QA is green but green glyphs are room pixels behind transparent object218/219 and are not proven by blue-bar object masks.",
+        "frozen_qa_status": "godkjent",
+        "technical_geometry": {
+          "skift_x": 0.15,
+          "skift_y": -0.08,
+          "blokk_maks": 0.26,
+          "kantlikhet": 0.925,
+          "fargeavvik": 7.9
+        },
+        "native_byte_identical": true,
+        "runtime_test": false
+      },
+      "topology_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt9-topology.json",
+      "frozen_qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt9.qa.json",
+      "source_native_comparison": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt9-source-native-comparison.png",
+      "frozen_qa_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/qa/lag025_01_del1av3/9/lag025_01_del1av3.png"
+    },
+    {
+      "jobb": "lag025_01_del1av3",
+      "attempt": 10,
+      "parent_attempt": 9,
+      "attempt_scope": "Final single isolated upper-panel topology correction after new attempt9; no further production loop",
+      "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 1 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nTOM-AUTHORIZED FINAL ISOLATED CORRECTION, attempt10. The sole edit is the small UPPER-RIGHT green control marks in imageTHREE. ImageTHREE is an unapproved native edit target. ImageONE is the original scene, imageTWO the approved same-room rendering style. ImageFOUR is an EXACT source geometry diagnostic: WHITE pixels are the SIX original green islands, BLACK pixels are the spaces between them, at sixfold enlargement. ImageFIVE is an untouched32x enlarged original color crop of that same control. The mask is a reading guide, not an image to paste or a new background.\n\nErase ALL current green winding strokes and stray green dots ONLY inside rectangle x864,y400,width96,height64 of imageTHREE. Draw the SIX original white silhouettes from imageFOUR as six tiny bright-green marks in their exact source locations, smoothly antialiased at the final scale. Map the entire576x384 imageFOUR to this96x64 control rectangle. Black gaps in imageFOUR must be dark control stone in the output. White pixels become the source's luminous green. Keep the original sharp/angular stroke directions and square short ends; no cursive curves, U, ring, outline, halo, bloom, added sparks or filler marks.\n\nThe six source island boxes[x,y,width,height] are[896,408,12,12],[888,416,8,4],[916,416,8,8],[904,424,8,8],[920,428,12,16],[912,436,4,8]. These boxes CONTAIN the exact white silhouettes shown in imageFOUR; do not fill their entire rectangles. Original touching corners within one white island remain joined; black gaps between different islands remain separated. In particular the short diagonal mark near(907,427) must NOT flow into the two lower vertical marks. The two lower stems near x912..915 andx920..923 must NOT have a U-shaped connecting base. Remove the current stray green flecks near(900,435) and(905,443), which do not exist in the source.\n\nAll architecture, open left doorway, both blue vertical bars, lower-left control and its four existing marks, room textures and lighting remain as imageTHREE. Green source marks are in the original room behind the transparent object area; no blue bar is removed. Return the full1536x1024 native scene with the same gray border. No crop, zoom, labels, guides, numbers, black mask background, white marks or changed non-target geometry.\n",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png",
+        "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-a47b308c-629f-4025-b785-b149d76cd378.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt9-obj218_01-source-green-mask-diagnostic.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025-upper-green-protected-original-nearest32.png"
+      ],
+      "reference_sha256": {
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png": "3c7ae370baf7c81ee4d3508e2baaa1fbb0d3267530d86631468a8203b3f349c4",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png": "502858d0e1182e796eb06a3829d484171729c8477bdd5594c72bfcc5f76e6c82",
+        "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-a47b308c-629f-4025-b785-b149d76cd378.png": "67980ff4816bb045323611f0c7ab08b70b473ce224e33f1682977e4b5ad3d07c",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt9-obj218_01-source-green-mask-diagnostic.png": "c8249836bc5428845fa5c71ba91048809b3509e20d06654081c5b5c7166dfe34",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025-upper-green-protected-original-nearest32.png": "cc311ddd10f99c8a075914b9d62baf99c2ccdacec68c7ccd2badf32310a7e836"
+      },
+      "protected": {
+        "referanse.png": "3c7ae370baf7c81ee4d3508e2baaa1fbb0d3267530d86631468a8203b3f349c4",
+        "original_1x.png": "99a457d0abdf10ad9deb8b4078700c80b5ae4daf3d96cae570f7071119de138e",
+        "prompt.txt": "0412797075b750c8ebc86d9cd6de7cfcadb0463dc13bb6ceb4393187bafde955",
+        "jobb.json": "b2058fef62462829fda8b741c8f05cc86de318570e10da994ce88523b26d1ee9"
+      },
+      "base_prompt_sha256": "0412797075b750c8ebc86d9cd6de7cfcadb0463dc13bb6ceb4393187bafde955",
+      "old_result_sha256": null,
+      "old_result_existed": false,
+      "source_objects": {
+        "obj217_01": {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj217_01.png",
+          "sha256": "4c7da3c348b428be35fa47143984b3f9329ec3bcdf9a0396ac82e1488eff8a47",
+          "size": [
+            72,
+            88
+          ],
+          "mode": "RGBA",
+          "alpha_values": [
+            0,
+            255
+          ],
+          "visible_pixels": 4919,
+          "top_colors": [
+            [
+              [
+                27,
+                35,
+                63,
+                255
+              ],
+              360
+            ],
+            [
+              [
+                19,
+                19,
+                43,
+                255
+              ],
+              269
+            ],
+            [
+              [
+                35,
+                43,
+                75,
+                255
+              ],
+              240
+            ],
+            [
+              [
+                31,
+                39,
+                71,
+                255
+              ],
+              215
+            ],
+            [
+              [
+                23,
+                27,
+                55,
+                255
+              ],
+              203
+            ]
+          ],
+          "sheet_rect": [
+            96,
+            208,
+            288,
+            352
+          ]
+        },
+        "obj218_01": {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj218_01.png",
+          "sha256": "3e1f2092c15905bd85378bf876e4270277bf1e18deb493fe22c399faeabd54f7",
+          "size": [
+            24,
+            16
+          ],
+          "mode": "RGBA",
+          "alpha_values": [
+            0,
+            255
+          ],
+          "visible_pixels": 48,
+          "top_colors": [
+            [
+              [
+                19,
+                83,
+                151,
+                255
+              ],
+              10
+            ],
+            [
+              [
+                35,
+                75,
+                143,
+                255
+              ],
+              9
+            ],
+            [
+              [
+                27,
+                67,
+                143,
+                255
+              ],
+              8
+            ],
+            [
+              [
+                35,
+                75,
+                135,
+                255
+              ],
+              7
+            ],
+            [
+              [
+                27,
+                99,
+                175,
+                255
+              ],
+              5
+            ]
+          ],
+          "sheet_rect": [
+            864,
+            400,
+            96,
+            64
+          ]
+        },
+        "obj219_01": {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj219_01.png",
+          "sha256": "9c6594be7161e20e31711534f33d9affd3e4e720b1224e873d1eae79d861e384",
+          "size": [
+            24,
+            24
+          ],
+          "mode": "RGBA",
+          "alpha_values": [
+            0,
+            255
+          ],
+          "visible_pixels": 72,
+          "top_colors": [
+            [
+              [
+                27,
+                99,
+                175,
+                255
+              ],
+              10
+            ],
+            [
+              [
+                19,
+                83,
+                151,
+                255
+              ],
+              10
+            ],
+            [
+              [
+                35,
+                75,
+                143,
+                255
+              ],
+              9
+            ],
+            [
+              [
+                35,
+                107,
+                183,
+                255
+              ],
+              8
+            ],
+            [
+              [
+                27,
+                67,
+                143,
+                255
+              ],
+              8
+            ]
+          ],
+          "sheet_rect": [
+            640,
+            368,
+            96,
+            96
+          ]
+        }
+      },
+      "green_source": {
+        "source": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/original_1x.png",
+        "source_sha256": "99a457d0abdf10ad9deb8b4078700c80b5ae4daf3d96cae570f7071119de138e",
+        "source_crop_xyxy": [
+          216,
+          72,
+          240,
+          88
+        ],
+        "nearest_factor": 32,
+        "diagnostic_only": true,
+        "output_sha256": "cc311ddd10f99c8a075914b9d62baf99c2ccdacec68c7ccd2badf32310a7e836"
+      },
+      "topology_fixed_rule": "G>140 and G-R>60 and G-B>60, RGB int16, 8-neighbor, no area filtering",
+      "source_upper_green_islands": [
+        {
+          "area": 64,
+          "bbox": [
+            896,
+            408,
+            12,
+            12
+          ]
+        },
+        {
+          "area": 32,
+          "bbox": [
+            888,
+            416,
+            8,
+            4
+          ]
+        },
+        {
+          "area": 48,
+          "bbox": [
+            916,
+            416,
+            8,
+            8
+          ]
+        },
+        {
+          "area": 32,
+          "bbox": [
+            904,
+            424,
+            8,
+            8
+          ]
+        },
+        {
+          "area": 80,
+          "bbox": [
+            920,
+            428,
+            12,
+            16
+          ]
+        },
+        {
+          "area": 32,
+          "bbox": [
+            912,
+            436,
+            4,
+            8
+          ]
+        }
+      ],
+      "frozen_qa_main_commit": "4cff08145f0760d9e7765bcec6f6c9a371e196bb",
+      "frozen_qa_gpt_sha256": "e929e066bc0331e3763de41ff3463e1e1859e01b1a6966f8591561d27969780e",
+      "source_note": "Green marks belong to source room behind transparent object218/219. Actual objectRGBA shows only48/72 opaque blue-bar pixels; green topology separately controlled on protected composite original_1x/reference.",
+      "tool": "built-in ChatGPT imagegen",
+      "model": "exact version not exposed",
+      "correction_scope": "Only source-proven six-island green topology in upper control; replace false U and stray dots using original binary geometry reading guide",
+      "correction_of_native": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-a47b308c-629f-4025-b785-b149d76cd378.png",
+      "correction_of_sha256": "67980ff4816bb045323611f0c7ab08b70b473ce224e33f1682977e4b5ad3d07c",
+      "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-c66e48e2-ad02-454e-9856-5537ac430a78.png",
+      "sha256": "5d30f54b19258095d7a7ad2695ba3a0ba9e9a584e7af66f9f134f5665a9f6bd1",
+      "native_size": [
+        1536,
+        1024
+      ],
+      "decision": "HOLD",
+      "reason": "Upper control remains an invented connected U-shaped stroke, extra green dots, and altered rightward shape. Exactly six source islands are not preserved. Ordinary QA is green but green glyphs are room pixels behind transparent object218/219 and are not proven by blue-bar object masks.",
+      "manual_review": {
+        "status": "HOLD",
+        "source_seen": true,
+        "native_seen": true,
+        "all_three_native_object_crops_seen": true,
+        "actual_source_RGBA_seen": true,
+        "frozen_qa_preview_seen": true,
+        "upper_source_islands": 6,
+        "upper_native_islands": 8,
+        "lower_source_islands": 4,
+        "lower_native_islands": 4,
+        "threshold_unchanged": "G>140 and G-R>60 and G-B>60, RGB int16, 8-neighbor, no area filtering",
+        "no_area_filtering": true,
+        "reason": "Upper control remains an invented connected U-shaped stroke, extra green dots, and altered rightward shape. Exactly six source islands are not preserved. Ordinary QA is green but green glyphs are room pixels behind transparent object218/219 and are not proven by blue-bar object masks.",
+        "frozen_qa_status": "godkjent",
+        "technical_geometry": {
+          "skift_x": 0.14,
+          "skift_y": -0.1,
+          "blokk_maks": 0.33,
+          "kantlikhet": 0.918,
+          "fargeavvik": 8.3
+        },
+        "native_byte_identical": true,
+        "runtime_test": false
+      },
+      "topology_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt10-topology.json",
+      "frozen_qa_file": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt10.qa.json",
+      "source_native_comparison": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/lag025_01_del1av3-attempt10-source-native-comparison.png",
+      "frozen_qa_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/qa/lag025_01_del1av3/10/lag025_01_del1av3.png"
+    }
+  ],
+  "source_objects_RGBA": {
+    "obj217_01": {
+      "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj217_01.png",
+      "sha256": "4c7da3c348b428be35fa47143984b3f9329ec3bcdf9a0396ac82e1488eff8a47",
+      "size": [
+        72,
+        88
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "visible_pixels": 4919,
+      "top_colors": [
+        [
+          [
+            27,
+            35,
+            63,
+            255
+          ],
+          360
+        ],
+        [
+          [
+            19,
+            19,
+            43,
+            255
+          ],
+          269
+        ],
+        [
+          [
+            35,
+            43,
+            75,
+            255
+          ],
+          240
+        ],
+        [
+          [
+            31,
+            39,
+            71,
+            255
+          ],
+          215
+        ],
+        [
+          [
+            23,
+            27,
+            55,
+            255
+          ],
+          203
+        ]
+      ],
+      "sheet_rect": [
+        96,
+        208,
+        288,
+        352
+      ]
+    },
+    "obj218_01": {
+      "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj218_01.png",
+      "sha256": "3e1f2092c15905bd85378bf876e4270277bf1e18deb493fe22c399faeabd54f7",
+      "size": [
+        24,
+        16
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "visible_pixels": 48,
+      "top_colors": [
+        [
+          [
+            19,
+            83,
+            151,
+            255
+          ],
+          10
+        ],
+        [
+          [
+            35,
+            75,
+            143,
+            255
+          ],
+          9
+        ],
+        [
+          [
+            27,
+            67,
+            143,
+            255
+          ],
+          8
+        ],
+        [
+          [
+            35,
+            75,
+            135,
+            255
+          ],
+          7
+        ],
+        [
+          [
+            27,
+            99,
+            175,
+            255
+          ],
+          5
+        ]
+      ],
+      "sheet_rect": [
+        864,
+        400,
+        96,
+        64
+      ]
+    },
+    "obj219_01": {
+      "path": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj219_01.png",
+      "sha256": "9c6594be7161e20e31711534f33d9affd3e4e720b1224e873d1eae79d861e384",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "visible_pixels": 72,
+      "top_colors": [
+        [
+          [
+            27,
+            99,
+            175,
+            255
+          ],
+          10
+        ],
+        [
+          [
+            19,
+            83,
+            151,
+            255
+          ],
+          10
+        ],
+        [
+          [
+            35,
+            75,
+            143,
+            255
+          ],
+          9
+        ],
+        [
+          [
+            35,
+            107,
+            183,
+            255
+          ],
+          8
+        ],
+        [
+          [
+            27,
+            67,
+            143,
+            255
+          ],
+          8
+        ]
+      ],
+      "sheet_rect": [
+        640,
+        368,
+        96,
+        96
+      ]
+    }
+  },
+  "protected_originals_verified_unchanged": true,
+  "resultat_remains_absent": true,
+  "native_files_verified_byte_identical": true,
+  "base_prompt_exact_prefix": true,
+  "frozen_main_QA": "4cff08145f0760d9e7765bcec6f6c9a371e196bb",
+  "frozen_gpt_sha256": "e929e066bc0331e3763de41ff3463e1e1859e01b1a6966f8591561d27969780e",
+  "source_topology_rule_predeclared": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag025-rootnext/topology-before-fixed-threshold.json",
+  "ordinary_QA_proves_glyph_topology": false,
+  "next_Claude_action": "Keep lag025 unaccepted. Source green glyphs are room pixels behind alpha-transparent parts of object218/219; object masks contain only48/72 opaque blue pixels. Check source-room glyph topology separately from blue-bar objectQA, then review a truly six-island native before any delivery. No automatic pixel/alpha/mask edits made to assets.",
+  "runtime_test": false,
+  "shared_delivery_status_or_git_changed": false
+}

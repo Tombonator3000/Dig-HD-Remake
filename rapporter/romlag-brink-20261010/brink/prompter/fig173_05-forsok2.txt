@@ -1,0 +1,29 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character (Ludger Brink), in different poses. On this sheet, row by row from left to right: animation 13, facing right (14 frames); animation 14, facing right (8 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+TOM-AUTHORIZED PRECISE SOURCE DETAIL CORRECTION. Reference roles override generic secondary-image assumptions: IMAGE1 is the exact original173_05 source sheet. IMAGE2 is the existing native22-frame SMOOTH drawn candidate TO EDIT. IMAGE3 is the actual unmodified costume173 GREEN-LIGHT head source palette. IMAGE4 is an unmodified headcrop from the current same-series root-delivered173_01, smooth approved Brink identity/style in the green-light palette, no new approval. IMAGE5 is an UNMODIFIED nearest source enlargement of only079,080,081,082 to make their tiny actual thigh detail unambiguous, NOT a style model and NOT four extra drawings to add.
+Keep image2 all22 drawings, source kick/arm/knee/ankle/head directions, geometry/body/neck sizes, clean SMOOTH drawn contours/AA, green-light face/hair/teal jacket, DARK brown pants/navy boots and layout EXACTLY [7,7,8]. ONLY restore the tiny REAL PALE OLIVE thigh tabs on the LAST FOUR drawings on the BOTTOM ROW, slots5–8 = source079,080,081,082. They are present in image5 but currently missing/brown in image2. Position is HIS RIGHT / VIEWER LEFT upper thigh, just under the hip/belt, beside the lowered empty hand.079/080 tabs angle with the source thigh;081/082 are two narrow VERTICAL olive planes. Flat SMALL cloth/tab, not a large cargo pocket or new dimensional equipment. Use exact source muted olive center #6F5F2B, restrained lit plane #8B7F3F and dark edge #57471F. The actual source tab is gently lighter and greener than DARK brown #5F3307 trousers; preserve this difference. Keep source size/proportion/position, no green strips elsewhere.
+Do NOT change any of the first18 drawings. The first14 are pure rear/right-kicking phases and must not gain front thigh tabs or chest badges. Keep already-correct blue chest badge only in actual last front views. No new face on backheads or object in empty hands.
+GLOBAL SOURCE GREEN LIGHT MUST STAY: skin lit #8B7F3F/mid #6F5F2B, not healthy peach/orange/tan; hair green-olive #97AF2F/#636F1F, not normal golden lemon; jacket green-teal #5F8773/#3F675F/#27474B, not cold gray-blue; trousers DARK brown #5F3307/#4B2300. Image3/4 anchor these already-correct source families. Native smooth shading is retained; DO NOT copy blocky pixels or pixel-shaped contour/shadow steps from image5. No new shading texture/pixel effect.
+1536x1024nativeRGBA transparent outsideexact22drawings in three rows[7,7,8]. No extra figures, palette cards, numbers, labels, gray/cyan from diagnostics, floor/cast shadows, source magenta, halo/colorfield/haze. No creative postprocessing.

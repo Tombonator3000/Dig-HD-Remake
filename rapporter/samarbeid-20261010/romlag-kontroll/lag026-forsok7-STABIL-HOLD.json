@@ -1,0 +1,618 @@
+{
+  "job": "lag026_03_del2av3",
+  "status": "HOLD",
+  "new_attempts": 1,
+  "optional_isolated_correction_used": false,
+  "candidate": {
+    "attempt": 7,
+    "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-b7eda0b0-27c3-48da-be67-2b4b4fb136f4.png",
+    "sha256": "ce62f5f45dfeb8680949fb0778e0787c2d81cb4e574c5a132b2925d9eda23fc7",
+    "size": [
+      1536,
+      1024
+    ],
+    "byte_identical_preserved_copy": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/held-native-attempt7.png",
+    "spec": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/lag026_03_del2av3-attempt7.spec.json",
+    "prompt": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/lag026_03_del2av3-attempt7.prompt.txt",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag026_03_del2av3/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom026_del2av3/resultat.png",
+      "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-2b41d07f-8826-4d5d-81ab-9019a8efe8cd.png",
+      "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/mechanism-source-composite-nearest40.png",
+      "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/mechanism-source-geometry-guide.png"
+    ],
+    "reference_sha256": {
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag026_03_del2av3/referanse.png": "690440c884151d5d1759d48b3792882e81b32b9562761cb301c70c09c7f710fa",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom026_del2av3/resultat.png": "5013274b91744575d61acad3103533686e7130a99c3965dd66a702872e41d4e5",
+      "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-2b41d07f-8826-4d5d-81ab-9019a8efe8cd.png": "c5d580b36d527a3a1c839c436250bb38adb378d0265b43e8b5080bd8f1179c9e",
+      "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/mechanism-source-composite-nearest40.png": "e92e3d1075bc2dd00d3cb4180ca7f38f09cbfc6d18bbfc3935409292ce67e37e",
+      "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/mechanism-source-geometry-guide.png": "c3e66b3a553974056b6ff5fc3a7a805f7b0fd6e6bb44977d3770d2e0b1e823c4"
+    },
+    "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/lag026_03_del2av3-attempt7.qa.json",
+    "manual_review": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/attempt7-manual-review.json"
+  },
+  "source_facts": {
+    "job": "lag026_03_del2av3",
+    "source_compared_to_room_base_different_pixel_count": 42,
+    "objects_total_opaque": 42,
+    "full_composite_equals_room_plus_all_three_RGBA_objects": true,
+    "source_base": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/rooms/room026.png",
+    "source_base_sha256": "3ab8554264330c86079851810eafc328770ce104dcf9405e4fa9b98ad685740a",
+    "objects": {
+      "obj224_01": {
+        "original_RGBA": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj224_01.png",
+        "sha256": "371516cf1dedb13c85a9c9e7e8901ad0a09c238837311260ce9648c1ac183f5f",
+        "opaque_pixels": 13,
+        "target_rect_xywh": [
+          768,
+          752,
+          32,
+          32
+        ],
+        "opaque_bbox_xyxy": [
+          776,
+          764,
+          792,
+          780
+        ],
+        "rgba_rows": [
+          "........",
+          "........",
+          "........",
+          "..BB....",
+          "..BBB...",
+          "..BBBB..",
+          "..BBBB..",
+          "........"
+        ],
+        "opaque_pixels_local_xy_rgba": [
+          [
+            2,
+            3,
+            [
+              0,
+              51,
+              167,
+              255
+            ]
+          ],
+          [
+            3,
+            3,
+            [
+              87,
+              163,
+              231,
+              255
+            ]
+          ],
+          [
+            2,
+            4,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            3,
+            4,
+            [
+              99,
+              179,
+              235,
+              255
+            ]
+          ],
+          [
+            4,
+            4,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            2,
+            5,
+            [
+              15,
+              43,
+              139,
+              255
+            ]
+          ],
+          [
+            3,
+            5,
+            [
+              83,
+              147,
+              227,
+              255
+            ]
+          ],
+          [
+            4,
+            5,
+            [
+              0,
+              51,
+              167,
+              255
+            ]
+          ],
+          [
+            5,
+            5,
+            [
+              83,
+              147,
+              227,
+              255
+            ]
+          ],
+          [
+            2,
+            6,
+            [
+              11,
+              31,
+              127,
+              255
+            ]
+          ],
+          [
+            3,
+            6,
+            [
+              71,
+              123,
+              223,
+              255
+            ]
+          ],
+          [
+            4,
+            6,
+            [
+              11,
+              31,
+              127,
+              255
+            ]
+          ],
+          [
+            5,
+            6,
+            [
+              71,
+              123,
+              223,
+              255
+            ]
+          ]
+        ],
+        "source_matches_actual_RGBA": true,
+        "outside_all_object_opaque_pixels_matches_room_background": true
+      },
+      "obj226_01": {
+        "original_RGBA": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj226_01.png",
+        "sha256": "b3f77cbb1e27af3d97a55cc38ada067f8bd58a1e45df26188687c4f2a723fc5e",
+        "opaque_pixels": 13,
+        "target_rect_xywh": [
+          736,
+          752,
+          64,
+          32
+        ],
+        "opaque_bbox_xyxy": [
+          756,
+          756,
+          768,
+          776
+        ],
+        "rgba_rows": [
+          "................",
+          "......BB........",
+          ".....BBB........",
+          ".....BBB........",
+          ".....BBB........",
+          "......BB........",
+          "................",
+          "................"
+        ],
+        "opaque_pixels_local_xy_rgba": [
+          [
+            6,
+            1,
+            [
+              0,
+              51,
+              167,
+              255
+            ]
+          ],
+          [
+            7,
+            1,
+            [
+              87,
+              163,
+              231,
+              255
+            ]
+          ],
+          [
+            5,
+            2,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            6,
+            2,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            7,
+            2,
+            [
+              99,
+              179,
+              235,
+              255
+            ]
+          ],
+          [
+            5,
+            3,
+            [
+              15,
+              43,
+              139,
+              255
+            ]
+          ],
+          [
+            6,
+            3,
+            [
+              15,
+              43,
+              139,
+              255
+            ]
+          ],
+          [
+            7,
+            3,
+            [
+              83,
+              147,
+              227,
+              255
+            ]
+          ],
+          [
+            5,
+            4,
+            [
+              11,
+              31,
+              127,
+              255
+            ]
+          ],
+          [
+            6,
+            4,
+            [
+              11,
+              31,
+              127,
+              255
+            ]
+          ],
+          [
+            7,
+            4,
+            [
+              71,
+              123,
+              223,
+              255
+            ]
+          ],
+          [
+            6,
+            5,
+            [
+              71,
+              123,
+              223,
+              255
+            ]
+          ],
+          [
+            7,
+            5,
+            [
+              15,
+              43,
+              139,
+              255
+            ]
+          ]
+        ],
+        "source_matches_actual_RGBA": true,
+        "outside_all_object_opaque_pixels_matches_room_background": true
+      },
+      "obj227_01": {
+        "original_RGBA": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/extract/objects/obj227_01.png",
+        "sha256": "8b966ae8bcb6d878ac8db2eeb34fc42a9b01bab81594febe4137e2d51dcc5bc5",
+        "opaque_pixels": 16,
+        "target_rect_xywh": [
+          800,
+          752,
+          32,
+          32
+        ],
+        "opaque_bbox_xyxy": [
+          800,
+          752,
+          812,
+          780
+        ],
+        "rgba_rows": [
+          ".BB.....",
+          ".BB.....",
+          ".BB.....",
+          "BBB.....",
+          "BBB.....",
+          "BBB.....",
+          ".B......",
+          "........"
+        ],
+        "opaque_pixels_local_xy_rgba": [
+          [
+            1,
+            0,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            2,
+            0,
+            [
+              7,
+              23,
+              119,
+              255
+            ]
+          ],
+          [
+            1,
+            1,
+            [
+              0,
+              51,
+              167,
+              255
+            ]
+          ],
+          [
+            2,
+            1,
+            [
+              87,
+              163,
+              231,
+              255
+            ]
+          ],
+          [
+            1,
+            2,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            2,
+            2,
+            [
+              99,
+              179,
+              235,
+              255
+            ]
+          ],
+          [
+            0,
+            3,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            1,
+            3,
+            [
+              15,
+              43,
+              139,
+              255
+            ]
+          ],
+          [
+            2,
+            3,
+            [
+              83,
+              147,
+              227,
+              255
+            ]
+          ],
+          [
+            0,
+            4,
+            [
+              15,
+              43,
+              139,
+              255
+            ]
+          ],
+          [
+            1,
+            4,
+            [
+              19,
+              55,
+              147,
+              255
+            ]
+          ],
+          [
+            2,
+            4,
+            [
+              71,
+              123,
+              223,
+              255
+            ]
+          ],
+          [
+            0,
+            5,
+            [
+              11,
+              31,
+              127,
+              255
+            ]
+          ],
+          [
+            1,
+            5,
+            [
+              15,
+              43,
+              139,
+              255
+            ]
+          ],
+          [
+            2,
+            5,
+            [
+              71,
+              123,
+              223,
+              255
+            ]
+          ],
+          [
+            1,
+            6,
+            [
+              11,
+              31,
+              127,
+              255
+            ]
+          ]
+        ],
+        "source_matches_actual_RGBA": true,
+        "outside_all_object_opaque_pixels_matches_room_background": true
+      }
+    },
+    "source_crop_canvas_xyxy": [
+      728,
+      744,
+      848,
+      792
+    ],
+    "explanation": "Sparse blue state faces only. Teal bodies and additional blue faces outside the union of original opaque pixels are room graphics. Rectangles 224/226 overlap, but opaque masks do not."
+  },
+  "review": {
+    "status": "HOLD",
+    "manual_review": "Flere samtidige mekanismeavvik etter den ene avgrensede kildebundne rettingen: avrundede neonstolper erstatter kildens flate blå tilstandsflater, antall og x-plassering av synlige flater er feil, original blåflate for obj226 og obj227 mangler ved faktisk kildested. Obj224 er en enkelt rett stolpe fremfor kildens kontiguous trappede flate med to lysere nedre striper. Obj227-utklippet viser én forskjøvet stolpe fremfor både den ekte objektflaten og romstripen bak transparent område.",
+    "physically_viewed": [
+      "protected full reference",
+      "approved full room",
+      "old native attempt6",
+      "new native attempt7",
+      "untouched original mechanism nearest enlargement",
+      "actual original RGBA of all three objects",
+      "annotated source geometry guide",
+      "source/old/new mechanism and all three exact object crops",
+      "frozen QA preview"
+    ],
+    "qa_summary": {
+      "status": "avvist",
+      "object227": {
+        "objekt": -0.231,
+        "bakgrunn": -0.421,
+        "kanter": 2.6
+      },
+      "objects224226": null,
+      "meaning": "null object evaluations are not evidence of correct source geometry"
+    },
+    "no_further_generation_reason": "No single isolated remaining error. An additional full mechanism edit would repeat the held loop rather than repair one demonstrated isolated detail.",
+    "source_facts": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/source-geometry-facts.json",
+    "descriptive_color_footprint": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-lag026-rootnext/attempt7-descriptive-blue-source-footprint.json",
+    "descriptive_threshold_is_not_approval": true,
+    "protected_originals_unchanged": true,
+    "native_unchanged": true,
+    "delivery_performed": false,
+    "import_or_game_test_performed": false
+  },
+  "protected_before": {
+    "referanse.png": "690440c884151d5d1759d48b3792882e81b32b9562761cb301c70c09c7f710fa",
+    "original_1x.png": "70d5069157ff4629daf2de870c5017c647b44ed1d24f13fecdfa6fc22d9706b9",
+    "prompt.txt": "d7c94355002cce966ae730afe14e63c7b312e71f8b9a26817fdca34dfc2f4880",
+    "jobb.json": "cb526efd6dac415d46a2e8294abb1a8e74c169a72972c682dfcbcbce0dba270a"
+  },
+  "protected_after": {
+    "referanse.png": "690440c884151d5d1759d48b3792882e81b32b9562761cb301c70c09c7f710fa",
+    "original_1x.png": "70d5069157ff4629daf2de870c5017c647b44ed1d24f13fecdfa6fc22d9706b9",
+    "prompt.txt": "d7c94355002cce966ae730afe14e63c7b312e71f8b9a26817fdca34dfc2f4880",
+    "jobb.json": "cb526efd6dac415d46a2e8294abb1a8e74c169a72972c682dfcbcbce0dba270a"
+  },
+  "frozen_qa_gpt_sha256": "e929e066bc0331e3763de41ff3463e1e1859e01b1a6966f8591561d27969780e",
+  "previous_attempt6": {
+    "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-2b41d07f-8826-4d5d-81ab-9019a8efe8cd.png",
+    "sha256": "c5d580b36d527a3a1c839c436250bb38adb378d0265b43e8b5080bd8f1179c9e",
+    "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-romlag/lag026_03_del2av3-attempt6.qa.json"
+  },
+  "ready_native_batch": [],
+  "next_action": "Keep actual original obj224_01/obj226_01/obj227_01 as fallbacks until source-faithful HD states exist. Claude should verify each state opaque footprint separately from room graphics visible through its transparent pixels, including overlapping 224/226 crop rectangles. Do not treat a whole-room green result or null object check as confirmation of these tiny states. No further image generation initiated here.",
+  "scope": "Own candidate/helper/QA files only. No job delivery, protected-source edit, global ledger/status/code edit, or Git mutation."
+}

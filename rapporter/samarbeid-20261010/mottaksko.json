@@ -1,46 +1,54 @@
 {
-  "oppdatert_utc": "2026-10-10T14:53:46.055247+00:00",
+  "oppdatert_utc": "2026-10-10T15:32:53.906833+00:00",
   "grafikkcheckout": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk",
   "gren": "gpt-arbeid",
-  "batch": 23,
+  "batch": 24,
   "mottatt_av_claude": false,
   "spilltestet": false,
   "kodegrunnlag_for_lokal_kontroll": "36cd09f13eb0201cff190d8d0c99c788a8bcaa6b",
   "grafikk_commit": "Bruk Git-commiten som inneholder denne manifestfilen; ikke foreldrens HEAD.",
-  "brink_revidert": 138,
+  "brink_revidert": 141,
   "brink_plan": 208,
   "jobber": [
     {
-      "jobb": "fig306_03",
-      "sha256": "7f64e26936284b2dfe33614e647660bdcd10fd92125a97b3d45312461d48703f",
-      "resultat": "jobber/fig306_03/resultat.png"
+      "jobb": "fig138_01",
+      "sha256": "c6f2a3d9cc39bf7401866c9b13150aa1f834d304f6b04f85c4c499f92780172a",
+      "resultat": "jobber/fig138_01/resultat.png"
     },
     {
-      "jobb": "fig173_04",
-      "sha256": "170727ee24c71068d784256e7ecdae402f7782103ba45e1ba0e75678f57c46b2",
-      "resultat": "jobber/fig173_04/resultat.png"
+      "jobb": "fig173_05",
+      "sha256": "c2be13e696f2bfee7b43a27a6b6a99cd969132f80ab2bf00096077092dc1e1f2",
+      "resultat": "jobber/fig173_05/resultat.png"
     },
     {
-      "jobb": "fig223_01",
-      "sha256": "26cfd899a4784a96e03700056e8d2fff02d9f65b60287ca7db937126363af338",
-      "resultat": "jobber/fig223_01/resultat.png"
+      "jobb": "fig229_18",
+      "sha256": "38fe7d02fd6227e2bcd9dd4b35939d11fa85ae46b84a077f0e080127869de2b8",
+      "resultat": "jobber/fig229_18/resultat.png"
+    }
+  ],
+  "kontrollerte_hold_jobber": [
+    {
+      "jobb": "fig138_02",
+      "file": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/samarbeid-20261010/brink-kontroll-hold/fig138_02-root-attempt4-HOLD.json",
+      "sha256": "c6063d9ecae38cfebe99aa2b888d559f67c9380ce11db3b1df9d05c518dd9dbf",
+      "unchanged_result_sha256": "49b68ea98c5871f432b4a53b3faf5df99268bb5c18b82e856b350e1856f3bdf9",
+      "protected_unchanged": true,
+      "new_image_delivered": false
     },
     {
-      "jobb": "fig229_11",
-      "sha256": "57cbafb1be60dc2c2fe62a974dfe0536cdff3c56ea921fd3e45a7e6d1710769a",
-      "resultat": "jobber/fig229_11/resultat.png"
-    },
-    {
-      "jobb": "fig229_12",
-      "sha256": "82f61c648c7473cb0d386cc7322271a9f7f9a30eece4e7e1e0c50c2a53b0841c",
-      "resultat": "jobber/fig229_12/resultat.png"
+      "jobb": "fig229_08",
+      "file": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/samarbeid-20261010/brink-kontroll-hold/fig229_08-publisert-detaljfeil-og-erstatning-HOLD.json",
+      "sha256": "c720175c53e2e581e770fcc912932bb3a4b7bde1e6c3d9ee464da396771c871e",
+      "unchanged_result_sha256": "fb01557d321cc618a6daf1309e3aaf297eb7b77416f1063fd91f9f8b5e8da7f5",
+      "protected_unchanged": true,
+      "new_image_delivered": false
     }
   ],
   "kontrollgrunnlag": {
-    "preflight": "rapporter/samarbeid-20261010/brink-kontroll-del23/root-preflight.json",
-    "faktisk_import": "rapporter/samarbeid-20261010/brink-kontroll-del23/tested-v2-import.json",
-    "rutekart": "rapporter/samarbeid-20261010/brink-kontroll-del23/tested-v2-rutekart.json",
-    "original_RGBA": "rapporter/samarbeid-20261010/brink-kontroll-del23/actual-original-RGBA.json"
+    "preflight": "rapporter/samarbeid-20261010/brink-kontroll-del24/root-preflight.json",
+    "faktisk_import": "rapporter/samarbeid-20261010/brink-kontroll-del24/tested-v2-import.json",
+    "rutekart": "rapporter/samarbeid-20261010/brink-kontroll-del24/tested-v2-rutekart.json",
+    "original_RGBA": "rapporter/samarbeid-20261010/brink-kontroll-del24/actual-original-RGBA.json"
   },
   "kodekontroll_prioritet": [
     {
@@ -72,6 +80,11 @@
       "jobb": "fig016_37",
       "feil": "Lik nativehøyde, men hele hodet strekkes8,33 prosent ulikt mellom munnfaser.",
       "bevis": "hodepuls-v2/root-verifisert.json"
+    },
+    {
+      "jobb": "fig229_19",
+      "feil": "Holdt kandidat: samme originalhoyde264px og native343/342/342/342px blir269/252/271/294px i faktisk eksport. Kildegeometrien mellom personer og effekt109 ma ogsa rettes. Ikke krymp malte hoder for a kompensere for framefit.",
+      "bevis": "brink-kontroll-hold/fig229_19-root-verifisert-HOLD.json"
     },
     {
       "jobb": "costume016_264",

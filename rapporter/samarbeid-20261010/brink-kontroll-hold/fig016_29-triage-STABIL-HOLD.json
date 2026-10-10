@@ -1,0 +1,175 @@
+{
+  "ready": [],
+  "held": {
+    "fig016_29": {
+      "attempt": 2,
+      "native": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-5c817846-8f78-4b4c-8a09-f21f03ebf1de.png",
+      "sha256": "31df08e722674a1c0bee51c87746823980b7322afc6d8310dabd63ea23123b6b",
+      "full_spec": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/brink-attempts/fig016_29-forsok2.json",
+      "full_prompt": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-full-prompt.txt",
+      "reference_sha256": {
+        "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-206c03f3-16ea-4123-acb7-8d223ddd77fc.png": "8e784a12fd1e66fad09ef62137368facba82929f57b499d4769c792ddd4dd9ce",
+        "/home/tombonator3000t/.codex/tasks/the-dig-hovedfigurer-20261009/extract/costumes/costume016_577.png": "dc4036dc734c515e27089545c593e637fa312128c6fe166bac5f8a5fffa1a19d",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-577-wear-before.png": "9aa5254ffe22c30caa069217b493d8a8d427a2c6deaba0cb9d1d1f8b722a13a8",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-local-edit-guide.png": "3f53a587085aa0ecb051821495f46d1df2a4eb34b4aec8958f1c36a4f02cf38c"
+      },
+      "source_evidence": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-source-color-and-route-evidence.json",
+      "exact_local_source_proof": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-selected-local-edit.json",
+      "hold_reason": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-HOLD.md",
+      "gray_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-forsok2-native-gray.png",
+      "source_native_comparison": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29-forsok2-local-edit-comparison.png",
+      "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/fig016_29.qa.json",
+      "native_expected_rows": [
+        3,
+        4,
+        2
+      ],
+      "native_actual_rows": [
+        3,
+        4,
+        2
+      ],
+      "alpha_residual": {
+        "piksler_over_0": 2190,
+        "maks": 3,
+        "piksler_over_16": 0
+      },
+      "actual_v2_executed": false,
+      "import_not_run_reason": "Visible native source deviation rejected before expensive v2. Baseline actual-v2 evidence belongs to attempt1 only.",
+      "prior_attempt1_actual_v2": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/brink-attempts/fig016_29-forsok1.import-v2.json",
+      "source_main_route_pairs": [
+        {
+          "original": "costume016_568",
+          "row": 1,
+          "col": 1,
+          "native_alphacore_rect": [
+            74,
+            40,
+            113,
+            302
+          ]
+        },
+        {
+          "original": "costume016_569",
+          "row": 1,
+          "col": 2,
+          "native_alphacore_rect": [
+            231,
+            35,
+            114,
+            304
+          ]
+        },
+        {
+          "original": "costume016_570",
+          "row": 1,
+          "col": 3,
+          "native_alphacore_rect": [
+            384,
+            35,
+            110,
+            307
+          ]
+        },
+        {
+          "original": "costume016_575",
+          "row": 2,
+          "col": 1,
+          "native_alphacore_rect": [
+            64,
+            367,
+            158,
+            291
+          ]
+        },
+        {
+          "original": "costume016_576",
+          "row": 2,
+          "col": 2,
+          "native_alphacore_rect": [
+            263,
+            360,
+            97,
+            297
+          ]
+        },
+        {
+          "original": "costume016_577",
+          "row": 2,
+          "col": 3,
+          "native_alphacore_rect": [
+            418,
+            360,
+            98,
+            302
+          ]
+        },
+        {
+          "original": "costume016_144",
+          "row": 2,
+          "col": 4,
+          "native_alphacore_rect": [
+            556,
+            362,
+            115,
+            301
+          ]
+        },
+        {
+          "original": "costume016_129",
+          "row": 3,
+          "col": 1,
+          "native_alphacore_rect": [
+            46,
+            681,
+            124,
+            297
+          ]
+        },
+        {
+          "original": "costume016_573",
+          "row": 3,
+          "col": 2,
+          "native_alphacore_rect": [
+            218,
+            681,
+            108,
+            299
+          ]
+        }
+      ]
+    }
+  },
+  "new_imagegen_calls": 1,
+  "additional_calls": 0,
+  "triage": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-016-triage/costume016-bounded-triage.json",
+  "protected4_unchanged": true,
+  "protected_audit": {
+    "referanse.png": {
+      "before": "b3afd370156e03f7f1a7f5cced6f1fb5b96387f538f79182d21cd86fa8a527f8",
+      "after": "b3afd370156e03f7f1a7f5cced6f1fb5b96387f538f79182d21cd86fa8a527f8",
+      "unchanged": true
+    },
+    "original_1x.png": {
+      "before": "5f29069cc27cb6498766a27d10174252212e57337a95c8ff7cfd215499ff6021",
+      "after": "5f29069cc27cb6498766a27d10174252212e57337a95c8ff7cfd215499ff6021",
+      "unchanged": true
+    },
+    "prompt.txt": {
+      "before": "cef493e16c67bec9909fa6f04d50ae34c43c39c7efee2f3a0c732ec2c5a3ef01",
+      "after": "cef493e16c67bec9909fa6f04d50ae34c43c39c7efee2f3a0c732ec2c5a3ef01",
+      "unchanged": true
+    },
+    "jobb.json": {
+      "before": "adc79e0d8a87de3b2f5fde67e023016b1d3cb6cc3a1c1f550f27cc770f4c86df",
+      "after": "adc79e0d8a87de3b2f5fde67e023016b1d3cb6cc3a1c1f550f27cc770f4c86df",
+      "unchanged": true
+    }
+  },
+  "existing_result_unchanged": true,
+  "existing_result_sha256": "581804cc60a1affd966758d0c826e42215e26497bc5cd79205a96278454c21be",
+  "all_historical_held016_native_hashes_unchanged": true,
+  "repo_git_code_delivery_mutations": false,
+  "runtime_tested": false,
+  "next": "No further016 generation without a new concrete strategy. Parent coordinates existing import diagnostics with Claude separately."
+}
