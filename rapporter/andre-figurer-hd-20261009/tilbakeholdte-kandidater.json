@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:51:25.714111+00:00",
+ "oppdatert_utc": "2026-10-10T00:53:44.915221+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 184,
+ "antall": 186,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2931,10 +2931,10 @@
   },
   {
    "jobb": "fig131_03",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "0224eab091dad0787633a96861156437e597a78b63fb32c2590937f1c769fd1a",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "8ffe10b848ffc509fe4935d8e2526015fff936b98a40ac2ba6b776f09ca1902f",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Native arket har lagt til røde rektangelrammer rundt de tre fasebildene. De finnes ikke i originalen.",
+   "grunn": "Forsøk 2 har fortsatt synlige magenta rektangler rundt de tre skapningsrutene. Ingen ny importfil er levert.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -2942,27 +2942,92 @@
      1
     ],
     "native_rader": [
+     3,
      2,
-     2,
-     3
+     2
     ],
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 20339,
+     "piksler_over_0": 30796,
+     "maks": 9,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
+  },
+  {
+   "jobb": "fig132_16",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "fee1b5c4bada66d5ff9d895c2ffda7227b149807b1759ebac76bce7a0c898a58",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden har én skapningsrute, men kandidaten har to hele skapninger. Den ekstra figuren er ikke en separat originaldel.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2377,
      "maks": 7,
      "piksler_over_16": 0
     }
    },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
   },
   {
-   "jobb": "fig131_12",
+   "jobb": "fig135_04",
    "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "6c064de28c96bbed58b7dde0d6d756a8cb25492ba5b6a44b7f01a8f479b1d9d0",
+   "kandidat_sha256": "1677f7a9dbf786a64a221bd882389f3c6d5e5c4e232ce92962739c5676a03461",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Native filen er 1535 x 1024, én piksel for smal. Ruter og alfa er kontrollert, men leveringsstørrelsen er feil. Native filen er ikke skalert eller fylt ut.",
-   "neste": "Nytt ordrett bildeforsøk på 1536 x 1024."
+   "grunn": "Originalen har en selvstendig 8 x 1-strek etter første skapningsrute. Native kandidat har bare de to store figurene; strekens tegning er ikke bekreftet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 7596,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
+  },
+  {
+   "jobb": "fig135_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "267b6eafc3073980ab33217a0babc6b75985832350af05f6a278b0414cce444a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens sju delruter finnes visuelt, men native kontur har 15 uforklarte restalfapiksler med maksimum 57/255. Rå komponenttall krever også eksplisitt delkobling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     5,
+     2
+    ],
+    "native_rader": [
+     6,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 7217,
+     "maks": 57,
+     "piksler_over_16": 15
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
   },
   {
    "jobb": "fig146_01",
@@ -4922,10 +4987,10 @@
   },
   {
    "jobb": "fig316_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "78940629c544a0a93425df7b0ee22c09c435d9932d3cef502ac61a1799da0984",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "8477d106946e88276a1e9a6c1f657ca5589b896a3072127c9355fa04dee28099",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen består av mange små lyse eller blå delruter, med 22 bittesmå originaldeler som skal beholdes. Native kandidaten fortolker flere ruter som komplette menn; ingen full motiv- og rutekobling.",
+   "grunn": "Forsøk 2 har avvikende radantall for de små delrutene og 61 uforklarte restalfapiksler med maksimum 70/255. Ingen verifisert én-til-én-kobling er levert.",
    "lokal_kontroll": {
     "forventede_rader": [
      15,
@@ -4938,12 +5003,12 @@
     "antall_ok": false,
     "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 16208,
-     "maks": 90,
-     "piksler_over_16": 331
+     "piksler_over_0": 15435,
+     "maks": 70,
+     "piksler_over_16": 61
     }
    },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
   },
   {
    "jobb": "fig318_01",
@@ -5066,10 +5131,10 @@
   },
   {
    "jobb": "fig325_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "dba24693ebc2a780a0332d177738df93b9bc1442b62399c188aefe20ecc076e0",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "3b99d971a956d7af91e9c74db733ccb5faf4dae0e70ae9877361220841f8845d",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Tre originale skapningsfaser finnes, men de separate svarte strek-/delfasene er ikke med. Seks originale tegnede ruter mot tre native hovedfigurer.",
+   "grunn": "Forsøk 2 har fortsatt bare de tre store skapningsrutene. Originalens tre separate svarte strek-/delfaser mangler.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -5083,12 +5148,12 @@
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 6921,
-     "maks": 3,
+     "piksler_over_0": 5526,
+     "maks": 4,
      "piksler_over_16": 0
     }
    },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
   },
   {
    "jobb": "fig326_01",
