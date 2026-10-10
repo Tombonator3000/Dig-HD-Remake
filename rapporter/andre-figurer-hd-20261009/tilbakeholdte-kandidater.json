@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:43:28.044370+00:00",
+ "oppdatert_utc": "2026-10-10T00:44:56.047568+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 186,
+ "antall": 185,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -4756,6 +4756,14 @@
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
+   "jobb": "fig282_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "52127bb932a2acc19d50af76f01d869408b4b578d81944088a6beb4167475716",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "De to originale pyramidene har en tydelig brun ramme langs begge skråkantene. Native kandidaten har malt hele figuren blå eller rød uten denne brune rammen.",
+   "neste": "Nytt ordrett bildeforsøk med originalen som supplerende referanse."
+  },
+  {
    "jobb": "fig286_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "dd8960ef1c07713f9663db0b56d9db345e132c3cb23fdc284583e86c3242a403",
@@ -4776,29 +4784,6 @@
      "piksler_over_0": 89389,
      "maks": 101,
      "piksler_over_16": 45578
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig301_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "03036507945885722e958a8e6a5a59a9112d04612bc0923facf64c7b30c2662e",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Native arket legger en tydelig rød rektangulær ramme rundt den avkuttede blå steinformen. Rammen finnes ikke i originalen; antall og alfa kan bestå selv om dette innholdet er feil.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     1
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 663,
-     "maks": 2,
-     "piksler_over_16": 0
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
@@ -4983,29 +4968,6 @@
      "piksler_over_0": 16208,
      "maks": 90,
      "piksler_over_16": 331
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig317_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "f2501d3111a97df9b98c4e649af5d9ba49173bfcacb2c641d1ea4b0f3bdd5aca",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen viser to flate blå rektangler. Native kandidaten er to hele menn. Riktig antall bekrefter ikke motivet.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     2
-    ],
-    "native_rader": [
-     2
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 158,
-     "maks": 2,
-     "piksler_over_16": 0
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
