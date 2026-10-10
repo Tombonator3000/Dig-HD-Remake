@@ -102,5 +102,35 @@
     "scope": "grafikerens visuelle kildegjennomgang",
     "sha256": "039e45d61dda171ca7ea8921953e77c79b6540cd2d13780c47392dee388be631",
     "vurdering": "Fem komplette bakfra-ruter i 3,2, ingen synlige ansikter eller røde merker. Kontrollert original og faktisk grå alfakompositt. Kroppskjerner er 239 px høye i øverste rad og 243 px i nedre rad, originalens kropp 220 px i 4x. Hele effektruten måles separat fra kroppen. Små grå kildepartikler er glattet, ikke pikselidentiske komponenter. Faktisk mottak versjon 2 tilordner alle 52 native deler nøyaktig én gang via rutekartet. Kantkontroll godkjent. Native PNG er uendret; original-PNG-import og spilltest gjenstår hos Claude."
+  },
+  "fig001_08": {
+    "godkjent": true,
+    "scope": "grafikerens visuelle kildegjennomgang",
+    "sha256": "e8143c0ddad7b2f396ba26e55fe8de2d97b3d35637896c91c86ee50f20506da3",
+    "vurdering": "Én komplett astronaut direkte bakfra i øvre venstre del, uten ansikt eller røde merker. Kroppskjerne 155x224 px mot original152x220 i4x. Tolv magenta-only spillmarkører er utelatt. Grå kildepartikler følger hovedruten; faktiske mottak versjon2 tilordner alle7 native deler én gang. Små detaljer er glatt omtegnet, ikke pikselidentiske. Faktisk alfa kontrollert mot grått, ingen kantartefakter over terskel. Uendret native PNG; original-PNG-import og spilltest gjenstår."
+  },
+  "fig001_09": {
+    "godkjent": true,
+    "scope": "grafikerens visuelle kildegjennomgang",
+    "sha256": "9e7c83bfd6fd272294fb4e5ad43a4ff82af0a569523a77723d215fdd85333fab",
+    "vurdering": "Elleve komplette bakfra-ruter i6,5, uten synlige ansikter. Arm/verktøydetaljen senkes mot venstre i øvre rad; nedre rad har kildebasert øvre hvit detalj og lite rødt lys fra celle2. Ingen røde merker på øvre rad. Sammenlignet kilde og faktisk alfa mot grått. Øvre kroppshøyder255..256px; nedre totalhøyde varierer med den synlige øvre detaljen. Ingen klipping eller løse artefakter over alfa16. Uendret native PNG. Nøyaktig tilpasning mot original-PNG og bevegelse i spillet er ikke verifisert."
+  },
+  "fig001_10": {
+    "godkjent": true,
+    "scope": "grafikerens visuelle kildegjennomgang",
+    "sha256": "7060f91a0d95d68397fff6b8dc96dafb44e20eb3039cf3134f1e7010d1df4a2f",
+    "vurdering": "Tretten hele bakre trekvartfigurer i7,6 med kildens armbevegelse og røde øvre lys, uten synlige ansikter. Åtte magenta-only kilderuter utelatt. Ekstra brede gule hoftebånd korrigert til hvit/grå drakt; små detaljer er glatt omtegnet og ikke pikselidentiske. Sammenlignet kilde og faktisk grå alfakompositt. Høyde312..319px øvre rad og316..318px nedre rad, ingen klipping ved lerretet. Ingen løse artefakter over alfa16. Uendret nativePNG, full original-PNG-import/skalatilpasning og spilltest er ikke verifisert."
+  },
+  "fig001_11": {
+    "godkjent": true,
+    "scope": "grafikerens visuelle kildegjennomgang",
+    "sha256": "b337188349eb15229c821ff9b239b929132148dd4a7d2ef245f0869f08bf1298",
+    "vurdering": "Femten hovedruter i7,5,3 med bakre venstre trekvart og originalens siste tre dreiefaser bakfra mot høyre profil. Ansikt synlig bare i siste celle, med Bostons godkjente mannlige identitet. De12 ekstra røde skuldermerkene fra forsøk1 er fjernet, kildebaserte øvre røde lys beholdt. Siste to dreiefaser har synlige dressdetaljer som kilden. Sammenlignet kilde og grå alfakompositt; fri marg, ingen løse artefakter over alfa16. Kroppsskala kontrollert innen hver animasjonsrad; variasjon mellom dreieposer skyldes silhuetten. Nativeuendret, original-PNG-import og spilltest ikke verifisert."
+  },
+  "fig001_12": {
+    "godkjent": true,
+    "scope": "grafikerens visuelle kildegjennomgang",
+    "sha256": "a4262b990520af824a805417c081aebdf33cb828bb8c31b16a3a63c0a7f51fb9",
+    "vurdering": "Fire komplette dreiefaser bakre venstre mot venstreprofil, ansikt synlig bare i siste celle med Bostons godkjente mannlige identitet. Åtte magenta-only markørbilder utelatt. Stabil nativehøyde345..347px. Kilde og faktisk grå alfakompositt kontrollert; ingen klipping. Ni piksler alfa78..90 utenfor5px-kjernen tilhører siste transparente visirbue og er dokumentert med kilde/alfabevis; øvrig ytteralfa høyst16. Hele PNG leveres nativeuendret, original-PNG-import og spilltest gjenstår."
   }
 }
