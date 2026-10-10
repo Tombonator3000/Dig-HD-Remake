@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:44:15.830869+00:00",
+ "oppdatert_utc": "2026-10-10T01:48:27.233195+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 257,
+ "antall": 267,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -3763,6 +3763,33 @@
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
+   "jobb": "fig143_73",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "b2065b0d196d74ab69717ff71bd5e6c281199e05a8915c54429a4efdd10b8bd4",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     7,
+     5,
+     2,
+     2,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 28110,
+     "maks": 121,
+     "piksler_over_16": 9753
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig143_75",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "77dfae84e04ce96a1498468ed738f66522fad065db0dd55ee3e3c116ea64c264",
@@ -3902,6 +3929,99 @@
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
+   "jobb": "fig144_07",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d00d95545b854db4cfcd621aa67bfe29764917c09d9bba42a9e3a14b1767dc42",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 22559,
+     "maks": 100,
+     "piksler_over_16": 4310
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_08",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "9ee51467197589ccb6579ab0c70967ff10ab3dc8bcd962719d8d2af2c5231b48",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 4464,
+     "maks": 63,
+     "piksler_over_16": 402
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cf35d6f2095d2f38f052cdea849cfcecdc1792aa328d9f595b8e869f113df69f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 22157,
+     "maks": 98,
+     "piksler_over_16": 5992
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_10",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7f05f9b112485833c06d965aeeb33ab48ede0d5b13ae19f3b042aefc5df2546c",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 57895,
+     "maks": 126,
+     "piksler_over_16": 12377
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig144_11",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "07b2158e98bf8b2a2e60085ce377646509ef198ce2cdea0631214524d6da1d4b",
@@ -3920,6 +4040,29 @@
      "piksler_over_0": 16565,
      "maks": 45,
      "piksler_over_16": 357
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_12",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "fa209c6875ed61fa80b193ceb7d50baea0bfa17c8f4d93f618e7a67cc1f7f14c",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 12319,
+     "maks": 73,
+     "piksler_over_16": 1398
     }
    },
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
@@ -4107,6 +4250,99 @@
      "piksler_over_0": 17105,
      "maks": 115,
      "piksler_over_16": 2465
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_29",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "842288eca14b4d9a4de041b4d8af9c3ba0ec810fa3491693cdb1aea2abdab094",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 5753,
+     "maks": 111,
+     "piksler_over_16": 619
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_30",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "bba7b136a8c20f79c006fb0301dd7517ecd863f3b9fbaf9473ba16a418673fa2",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 24877,
+     "maks": 122,
+     "piksler_over_16": 4790
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_31",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ee15c3754ecb67a6d2f52238a2f1aeab71b750528aa8b3c3fd6ae9aeecd0803c",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 22261,
+     "maks": 109,
+     "piksler_over_16": 4278
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_32",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ad2c41c66b52f8d4c10f2917ca6479eebdcec012a84a6da24bb079d3713c1843",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom den øvre skyen og innvendig scene er fylt igjen. Kandidaten må rette disse før grafikkleveranse.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 19319,
+     "maks": 86,
+     "piksler_over_16": 4417
     }
    },
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
