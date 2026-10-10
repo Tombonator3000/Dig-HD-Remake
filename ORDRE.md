@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-10 07:52 (norsk tid)
+Oppdatert 2026-10-10 12:10 (norsk tid), rettelse fra Tom lagt til øverst
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -12,6 +12,17 @@ Les denne filen før du starter. Den erstatter tidligere ordre.
 - Lagjobber: 188 av 236 godkjent. Ferdige objektbilder fra lag: 376 av 460
 - Ikonark: 3 av 3 godkjent. Ferdige ikoner fra ikonark: 149 av 149
 - Figurark: 1 av 4032 godkjent. Ferdige figurruter: 28 av 28481
+
+## Rettelse fra Tom 10. oktober (gjør dette først)
+
+Tom har spilt med HD-figurene i romdrakt og sier at alle tre astronautene ser ut som kvinner og er like. Det er feil. Kostymene i romdrakt er tre bestemte personer:
+
+- Kostyme 1 (`fig001_*`): **Boston Low**, en mann i femtiårene, firkantet kjeve, kort hår, grått ved tinningene. Samme ansikt som på Boston Low-arkene (kostyme 14).
+- Kostyme 2 (`fig002_*`): **Maggie Robbins**, en kvinne med eget ansikt og hår som på Maggie-arkene (kostyme 18).
+- Kostyme 3 (`fig003_*`): **Ludger Brink**, en mann, eldre enn Boston, med ansikt og hår som på Brink-arkene (kostyme 15).
+- Kostyme 7 (`fig007_*`): **Pig**, atomsprengladningen (en gjenstand, ikke et dyr). Den ser feil ut: kopier form, vinkel, farger, den mørke runde enden, panelene og de små røde og grønne lysene nøyaktig fra referanse.png. Ikke legg til åpning, løp eller nye deler.
+
+Alle leverte ark for disse fire kostymene er avvist (`docs/gpt-avvisninger.csv` i main) og er tatt ut av modden til nye er levert. Lag dem på nytt, ett ark om gangen, og hold hver figur like stor og med samme omriss som originalen i alle rutene (Tom så at figurene skiftet størrelse når de snakket). Drakt, ryggsekk, hjelm og stilling kopieres fra referanse.png; ansiktet inne i hjelmen tegnes fra originalen og hovedpersonens egne ark. Vis første ark for Boston og Brink til Tom før resten.
 
 ## Gjør disse nå
 
