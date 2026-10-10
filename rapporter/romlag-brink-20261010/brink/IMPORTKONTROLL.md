@@ -40,6 +40,18 @@ En samlet prøveimport fra den faktiske leveranseoppdagelsen og rutekartene finn
 
 Åtte nye ark fig017_10–17 gir 133 ok og ingen sjekk i isolert prøveimport, se importkontroll-del07.json. fig017_12 beholder originalens to celler med separat hode og hånd/underarm. Delene er koblet per originalcelle uten pikselendring. De hodeløse kroppene i fig017_10,13,14,15,17 er beholdt hodeløse. fig017_17 har faktisk fire komplette figurer og 18 hodeløse kropper; et feil delantall i prompten er dokumentert i visuell-kontroll.json, og bildet er kontrollert mot de faktiske kildedelene.
 
+## Isolerte originalpiksler over hodeløse kropper
+
+Alle 12 originalceller i fig017_08 har én isolert okerfarget piksel (RGB 171,143,79) ved y=0. Selve kroppen begynner ved y=10. For eksempel har costume017_030 punktet i [9,0,1,1] og kroppen i [0,10,28,57]. Dette er kildefunn, se kildekomponenter-fig017_08.json; originalfilene er uendret. Pikselens betydning i motoren er ikke fastslått.
+
+Claude må skille slike små øyer fra kroppens anatomiske høyde når skala og halsanker måles. En måling av hele alfautstrekningen inkluderer også mellomrommet over kroppen. Dette er en ekstra kontrollsak, og ikke et bevis for årsaken til alle Toms skjermbilder. De lokale forsøkene på fig017_08 og09 holdes foreløpig tilbake på grunn av oppdiktede klesdetaljer; ingen nye rutekart for disse er levert.
+
+## Flere gåfaser og kontroll av faktiske hodevinkler
+
+Åtte nye ark fig017_18,19,21,22,24–27 gir 136 ok og ingen sjekk i isolert prøveimport, se importkontroll-del08.json. Fire diagnostiske retningaudit-bilder sammenligner originale kildepiksler med native hoder fra de nye variantarkene. Faktiske vinkler og delgrenser er kontrollert visuelt. Retningsnavnene i originalpromptene gjelder scriptgrupper, og vendefasene kan vise andre faktiske vinkler innen gruppen. Enkelte ekstra retningsord i de nye stiltilleggene var misvisende; kildebildet og den manuelle kontrollen styrer leveransen, og ordrette toolprompter er bevart.
+
+fig017_20 og23 holdes tilbake: førstnevnte fikk ekstra gåfaser; sistnevnte fullførte en tynn originalstripe til en ekstra delvis kropp. Ingen av disse forsøkene er kopiert til jobbfilene.
+
 ## Videre kontroll hos Claude
 
 Importer reviderte SHA256-verdier og rutekart etter at markeringsproblemet er rettet. Kontroller ståing, gange og tale i alle retninger med felles hodeskala og anatomisk halsanker, deretter z-masker og opptegning når figuren går. Rektangulære artefakter i Toms skjermbilder er fortsatt ikke bevist løst av grafikkrevisjonen.
