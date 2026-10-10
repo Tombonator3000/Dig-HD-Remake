@@ -359,3 +359,6 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Tom ba om å finne ut hvordan LucasArts og Double Fine laget sine remastere og hva vi kan lære. Lest GDC-foredraget til Double Fine og Shiny Shoe, Game Developer-artiklene om Full Throttle Remastered (kunst og filmløypa), Schafer-intervju i PC Gamer, Kotaku om Grim Fandango-arkivet og anmeldelser av DOTT, Grim, MI SE og MI2 SE.
 - Skrevet `docs/REMASTER-FORBILDER.md`: hva de gjorde (motor, grafikk, filmer, lyd, valg, ekstra), hva som ble kritisert, og en tabell med tiltak for The Dig. Henvisning lagt inn i del 2 av `HD-REMASTER-METODE.md`.
 - Viktigste tiltak lagt i todo: master-figurark for Boston, Brink, Maggie og Pig før flere figurark, kontroll av figur mot rom i ekte spillbilde, og feil merket som original eller HD. Ingen kode endret, ingenting testet.
+
+## 2026-10-10 14:42 (Claude)
+- Tom ba om at lærdommen fra remasterne lagres i skillen. Foreslått ny versjon av `scumm-hd-remake` (kort til lagring hos Tom): ny del «Forbildene: LucasArts og Double Fine» (lese, endre, lappe; to feillister; master-figurark; purisme; figur mot rom; uavhengige valg; sideforhold; filmløypa; lyd; ekstra), master-figurark i stilpiloten, og henvisning til `docs/REMASTER-FORBILDER.md`.
