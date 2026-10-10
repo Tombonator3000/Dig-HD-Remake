@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:41:42.510450+00:00",
+ "oppdatert_utc": "2026-10-10T01:44:15.830869+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 234,
+ "antall": 257,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -3223,11 +3223,26 @@
   },
   {
    "jobb": "fig142_70",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "213db9c6ca841a1014e29d863db0f367c92ce06c391957524e69b767068f1134",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "05a644535d1515dac94940ba4144e3805aa3b6954ec171434a9cf5c940963c77",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Tydelige originale åpninger mellom øvre sky og innvendig scene er fylt eller vesentlig innsnevret. Kandidaten kan ikke brukes som kildefast effektfase.",
-   "neste": "Kontroller et bedre nytt ordrett forsøk, eller avvent tillatelse til avgrenset korrigeringsprompt. Originaler og kandidat bevares."
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 15362,
+     "maks": 123,
+     "piksler_over_16": 1981
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig142_71",
@@ -3247,27 +3262,74 @@
   },
   {
    "jobb": "fig142_73",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "ee32c1976f9d94a8272732fae792ea4542a297e83c048f1fcedcc47fae570684",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "65b79c085b39db7caf1144361245d9b2df69f9d1d3a3f2675fce75bd43260dbf",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalens indre åpninger er fylt eller vesentlig innsnevret; effektfasen er ikke tilstrekkelig kildefast.",
-   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 14981,
+     "maks": 110,
+     "piksler_over_16": 4633
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig142_74",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "88789a13d8fedf4a88f29ec1f97a11395e71310881bc421afa0743e0622bb32f",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "50d13988024dd57605a7d225debc0e9bfe49b8dfdfe60edee6f403fe606a3656",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalens indre åpninger er fylt eller vesentlig innsnevret; effektfasen er ikke tilstrekkelig kildefast. Synlig farget rektangulær ramme er også beholdt.",
-   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     5,
+     3,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 17767,
+     "maks": 111,
+     "piksler_over_16": 2770
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig142_75",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "5a31bb2ac45f3ebb0a75f68f233610a52a964b42c2da0295d90719cf7e95d987",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "de92d317d2ab26436355d3743d47ba5182a43430742228c471d565a3bd71281c",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalens indre åpninger er fylt eller vesentlig innsnevret; effektfasen er ikke tilstrekkelig kildefast.",
-   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 1504,
+     "maks": 36,
+     "piksler_over_16": 5
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig142_77",
@@ -3287,35 +3349,89 @@
   },
   {
    "jobb": "fig143_14",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "351122f94b3f57c5a3492d4d9125b66f0cdc79ee3af40694329f22b5e383dc69",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "c8c02161315a494d48ce6f6e6477a119b7f2df45b1ec6eac2646e2ed57a1a0f4",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Den gradvis fremkommende mørke/blå innvendige scenen fra kilden mangler. Native viser en tom ring.",
-   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+   "grunn": "Originalens lilla innvendige bilde er erstattet av et tomt hull. Kan ikke leveres som samme effektfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     4,
+     9,
+     13,
+     12,
+     5,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 42846,
+     "maks": 119,
+     "piksler_over_16": 1384
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig143_15",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "6a8e90ed5c8fcda7736974377fed1dfb3a188f2b25ac0014200db3ec2bc14c59",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "c9ece4f09667d8fbf30e9497c4ce16fdfe7d97853d9e97d80dc71396574768eb",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Den gradvis fremkommende mørke/blå innvendige scenen fra kilden mangler. Native viser en tom ring.",
-   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+   "grunn": "Originalens lilla innvendige bilde er erstattet av et tomt hull. Kan ikke leveres som samme effektfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     13,
+     1,
+     3,
+     6,
+     6,
+     3,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 13381,
+     "maks": 120,
+     "piksler_over_16": 318
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig143_16",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "53c26c73955e3f9590ddcc57794543a4ec25c004289c424507a194bdd2650b8f",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "85a71fc0291f9d373d30a377c8b50945d605a802ae6f27189b6454b91602f64e",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Den gradvis fremkommende mørke/blå innvendige scenen fra kilden mangler. Native viser en tom ring.",
-   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
-  },
-  {
-   "jobb": "fig143_17",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "a3c16a72074243e38c5b82f1a6a780254c96f6d25d1e8c05b6ed1dc0d7809735",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Den gradvis fremkommende mørke/blå innvendige scenen fra kilden mangler. Native viser en tom ring. Rød ramme er også beholdt.",
-   "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt samme avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+   "grunn": "Originalens lilla innvendige bilde er erstattet av et tomt hull. Kan ikke leveres som samme effektfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     16,
+     7,
+     9,
+     12,
+     8,
+     5,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 16264,
+     "maks": 120,
+     "piksler_over_16": 2518
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig143_19",
@@ -3374,6 +3490,279 @@
    "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
   },
   {
+   "jobb": "fig143_63",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "40184e08e1320d7b5f2e2b37aa48258be284281dd90c5acb971827af8023d5ce",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     12,
+     7,
+     2,
+     3,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 12544,
+     "maks": 125,
+     "piksler_over_16": 875
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_64",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "276999ff0e05172bd173f9ff20936a4ecf4db7dd33df1dd508db72b367b5798e",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     7,
+     4,
+     1,
+     2,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 13735,
+     "maks": 124,
+     "piksler_over_16": 1712
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_65",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a3d4d60978e4609be98788d056c4bae82f7a78815410c494fb41cd6fd678433c",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     8,
+     6,
+     1,
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 17955,
+     "maks": 121,
+     "piksler_over_16": 1009
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_66",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "701880ea82b05021eba668727b15ad2869f2cfa94131f70e6c3396cbe25f030f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     19,
+     5,
+     2,
+     1,
+     2,
+     3,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 14336,
+     "maks": 124,
+     "piksler_over_16": 889
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_67",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "bea19f98ea12a5b1a639a02a7147a6f8ccbb25173e5829aa22083f642042bbc6",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     12,
+     8,
+     1,
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 9762,
+     "maks": 125,
+     "piksler_over_16": 1131
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_68",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ee4fd1c5d9150e9485e45b2a29ba77e771ceabda2c757af4fb9949a441f24fc3",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     12,
+     10,
+     3,
+     1,
+     4,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 9143,
+     "maks": 119,
+     "piksler_over_16": 275
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_69",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4791f55f418ce6eefcb4d25d0eb9a946ed0c878be7b0334e27654402dc29080e",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase. Kandidaten har dessuten en synlig rektangulær ramme.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     13,
+     6,
+     1,
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 11609,
+     "maks": 117,
+     "piksler_over_16": 396
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_70",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a8d6ee0bd251d0d17042c93fc058d734716c933fbee8e08aa0a6b902c2554122",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     10,
+     5,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 18483,
+     "maks": 111,
+     "piksler_over_16": 4513
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_71",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "51139cde42e5b991ba5588d4bfb52775c60e78c727be808d870e651e35bac76a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     16,
+     11,
+     1,
+     1,
+     3,
+     1,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 21296,
+     "maks": 127,
+     "piksler_over_16": 1650
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig143_72",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c5402c31b36d0b62ba3eac5af653e19f581591272f12fd83f43b673ccb6c0250",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     17,
+     4,
+     1,
+     4,
+     12
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 22683,
+     "maks": 123,
+     "piksler_over_16": 3466
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig143_75",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "77dfae84e04ce96a1498468ed738f66522fad065db0dd55ee3e3c116ea64c264",
@@ -3396,6 +3785,331 @@
    "status": "tilbakeholdt, ikke grafikkleveranse",
    "grunn": "Originalens transparente spalte over den innvendige scenen er fylt igjen eller innsnevret i kandidaten. Den mørke innvendige scenen er også delvis erstattet av en lys blå virvel.",
    "neste": "Nytt ordrett forsøk ved første avvik; ved gjentatt avvik avvent avgrenset korrigeringsprompt. Bevar input og native kandidat."
+  },
+  {
+   "jobb": "fig144_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "b3cc9f18e8707e1fda028a2b84ab3a7dff79f8c411841a6e3fc4cb084d579190",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 8511,
+     "maks": 86,
+     "piksler_over_16": 559
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a0964d62c1aca45fefb7ab4f146163099917a82efe1ec741668f51555c50c647",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 19352,
+     "maks": 114,
+     "piksler_over_16": 6567
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d3f38b9a8c65039c07abaafcbf7bd769b317fdc9835a020fa6e2e6e7885f2e05",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 19294,
+     "maks": 118,
+     "piksler_over_16": 3139
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "5f44d2adb954e8cd2533fab1c7f9013efc4f8e5282b36258556454a25297667d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 21629,
+     "maks": 109,
+     "piksler_over_16": 5208
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_06",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "08dacea6ae3f73c7cb69b0c6ef478b9566e7f25676ddadeb0715c15bd11a6a72",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 40908,
+     "maks": 118,
+     "piksler_over_16": 11934
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_11",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "07b2158e98bf8b2a2e60085ce377646509ef198ce2cdea0631214524d6da1d4b",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase. Kandidaten har dessuten en synlig rektangulær ramme.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 16565,
+     "maks": 45,
+     "piksler_over_16": 357
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_21",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cc3e7e4374546bde28459c5e1b2b197959ce3db90567660c77613390232e1a6f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 5142,
+     "maks": 70,
+     "piksler_over_16": 275
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_22",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c54d96644b174ff90aea741d2af53770a20cabea24c554790259cd62b024d4db",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 9524,
+     "maks": 93,
+     "piksler_over_16": 968
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_23",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "dfc382a44e908cecdadd7abc01df0f54d02ea78fc664d92a914eb482fe1ef734",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 7311,
+     "maks": 89,
+     "piksler_over_16": 707
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_24",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f3ba74d7197ce2eb2e6320450880de4bea549c91f14b6ef6077cc9e3177250e3",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 3070,
+     "maks": 70,
+     "piksler_over_16": 117
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_25",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ee2851d0e4d5517b2e76f54e62d465c9e775c90a48006d143d0c093bfb71e31f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 2251,
+     "maks": 24,
+     "piksler_over_16": 3
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_26",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f1b6223424af1436c6cec74d5c49fbb84ba9e375b061a7455f50bce3cde478d7",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     2,
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 6831,
+     "maks": 124,
+     "piksler_over_16": 703
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_27",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2296932e5c7cc0c1d65daa94701b94b3e1014ad28a7dbcad345ece855fd36272",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 5113,
+     "maks": 69,
+     "piksler_over_16": 716
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig144_28",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7bb09657346dab9cf942582eb4ff72e93eb1e2314b478cc41f5af3fd1108ac85",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens åpninger mellom skytopp og innvendig scene er fylt med ugjennomsiktig sky eller stein. Kan ikke leveres som kildebevarende animasjonsfase.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 17105,
+     "maks": 115,
+     "piksler_over_16": 2465
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig146_01",
