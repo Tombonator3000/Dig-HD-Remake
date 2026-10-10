@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:44:56.047568+00:00",
+ "oppdatert_utc": "2026-10-10T00:49:45.867535+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 185,
+ "antall": 184,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2963,33 +2963,6 @@
    "status": "tilbakeholdt, ikke grafikkleveranse",
    "grunn": "Native filen er 1535 x 1024, én piksel for smal. Ruter og alfa er kontrollert, men leveringsstørrelsen er feil. Native filen er ikke skalert eller fylt ut.",
    "neste": "Nytt ordrett bildeforsøk på 1536 x 1024."
-  },
-  {
-   "jobb": "fig132_04",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "8554a58ede5a6de840702c3c6d3e3fe0a8e6d51ece5e747588d674bb8b011604",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Native arket har lagt til røde rektangelrammer rundt de tre fasebildene. De finnes ikke i originalen.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     1,
-     1
-    ],
-    "native_rader": [
-     1,
-     1,
-     1
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 17285,
-     "maks": 6,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig146_01",
