@@ -1,0 +1,286 @@
+{
+  "kildecommit": "5f018d7380ae227d81c4aabe3dc2fe813f23158f",
+  "dato": "2026-10-10",
+  "prikkterskler": {
+    "rod": "R>180,G<90,B<90",
+    "gul": "R>180,G>150,B<100"
+  },
+  "bakgrunner": [
+    "#e9e9e5",
+    "#1e252e",
+    "#238c4a"
+  ],
+  "jobber": [
+    {
+      "jobb": "fig103_02",
+      "vedlegg": "rapporter/overlevering-ny-chat-20261010/avvist-graaharet-figur.png",
+      "vedlegg_sha256": "e3f099e05bd338f2b330bb2da5f8661305cbf877160808923f814fa4490ec8f2",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-b001966d-2dbb-40c9-80ee-3490cc5702ac.png",
+      "native_sha256": "30c7c15d58b011b6f7e7028e7aa00f3217cd9445d3d8d343c98d7aeb4bfdf5ea",
+      "forsoksregistrering": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/attempts/fig103_02-1.json",
+      "forsoksregistrering_sha256": "7a8900e8474b02fa65775c9e43fa40cef37db1f4cdbf09a728ea23b3fc2e0aa3",
+      "samme_storrelse": true,
+      "samme_rgba_bytes": false,
+      "identisk_alfa": true,
+      "alfa_yttergrenser": [
+        0,
+        254
+      ],
+      "alfa_antall_nivaer": 255,
+      "prikkstatistikk": {
+        "rod": {
+          "alfa1_127": 29855,
+          "alfa128_254": 14472
+        },
+        "gul": {
+          "alfa1_127": 13299,
+          "alfa128_254": 25
+        }
+      },
+      "rene_rode_gule_alfa": {
+        "rod": {
+          "1": 29835
+        },
+        "gul": {
+          "1": 13143
+        }
+      },
+      "komposisjonsavvik": {
+        "#e9e9e5": {
+          "kanal_yttergrenser": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "middel": [
+            0.015664418538411457,
+            0.017276763916015625,
+            0.014657974243164062
+          ]
+        },
+        "#1e252e": {
+          "kanal_yttergrenser": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "middel": [
+            0.022219340006510418,
+            0.02053070068359375,
+            0.014796574910481771
+          ]
+        },
+        "#238c4a": {
+          "kanal_yttergrenser": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "middel": [
+            0.023007710774739582,
+            0.031847635904947914,
+            0.0112152099609375
+          ]
+        }
+      },
+      "registrert_levert": false,
+      "tilbakeholdelse": {
+        "jobb": "fig103_02",
+        "siste_kontrollerte_forsok": 1,
+        "kandidat_sha256": "30c7c15d58b011b6f7e7028e7aa00f3217cd9445d3d8d343c98d7aeb4bfdf5ea",
+        "status": "tilbakeholdt, ikke grafikkleveranse",
+        "grunn": "Native ark mangler tre små, reelle originalfaser i midtraden. Opprinnelig radfordeling er 7,10,3; tegningen gir 7,7,3. Disse delene er ikke ufarlige markører.",
+        "lokal_kontroll": {
+          "forventede_rader": [
+            7,
+            10,
+            3
+          ],
+          "native_rader": [
+            7,
+            7,
+            3
+          ],
+          "antall_ok": false,
+          "alpha_control_ok": true,
+          "restalfa": {
+            "piksler_over_0": 25863,
+            "maks": 3,
+            "piksler_over_16": 0
+          }
+        },
+        "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+      }
+    },
+    {
+      "jobb": "fig170_04",
+      "vedlegg": "rapporter/overlevering-ny-chat-20261010/avvist-flygende-figur.png",
+      "vedlegg_sha256": "23203f86617418df08f81aa69542b02f45c120562586f5d9531e88b0a262b4fe",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d3b4026e-780e-486a-bc5a-68cf771eacbb.png",
+      "native_sha256": "437c1f778479e8922ae8d187979c34db51c08a69c8beb95f54e1f80e88d44d7c",
+      "forsoksregistrering": "/home/tombonator3000t/.codex/tasks/the-dig-resten-20261009/attempts/fig170_04-1.json",
+      "forsoksregistrering_sha256": "2f66aac8598564303f8273de5022df217e2d0bac9e9fddfc852a4b4cc35e405c",
+      "samme_storrelse": true,
+      "samme_rgba_bytes": false,
+      "identisk_alfa": true,
+      "alfa_yttergrenser": [
+        0,
+        254
+      ],
+      "alfa_antall_nivaer": 255,
+      "prikkstatistikk": {
+        "rod": {
+          "alfa1_127": 3672,
+          "alfa128_254": 14771
+        },
+        "gul": {
+          "alfa1_127": 2995,
+          "alfa128_254": 1713
+        }
+      },
+      "rene_rode_gule_alfa": {
+        "rod": {
+          "1": 3663
+        },
+        "gul": {
+          "1": 2938
+        }
+      },
+      "komposisjonsavvik": {
+        "#e9e9e5": {
+          "kanal_yttergrenser": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "middel": [
+            0.005402882893880208,
+            0.0050334930419921875,
+            0.0052776336669921875
+          ]
+        },
+        "#1e252e": {
+          "kanal_yttergrenser": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "middel": [
+            0.0065746307373046875,
+            0.006457010904947917,
+            0.00376129150390625
+          ]
+        },
+        "#238c4a": {
+          "kanal_yttergrenser": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "middel": [
+            0.007104237874348958,
+            0.008799870808919271,
+            0.003575007120768229
+          ]
+        }
+      },
+      "registrert_levert": false,
+      "tilbakeholdelse": {
+        "jobb": "fig170_04",
+        "siste_kontrollerte_forsok": 1,
+        "kandidat_sha256": "437c1f778479e8922ae8d187979c34db51c08a69c8beb95f54e1f80e88d44d7c",
+        "status": "tilbakeholdt, ikke grafikkleveranse",
+        "grunn": "Kildens store blå plattform og oppløsningseffekt er utelatt. Bare en hel flygende mann er tegnet.",
+        "lokal_kontroll": {
+          "forventede_rader": [
+            2
+          ],
+          "native_rader": [
+            2
+          ],
+          "antall_ok": true,
+          "alpha_control_ok": true,
+          "restalfa": {
+            "piksler_over_0": 2941,
+            "maks": 5,
+            "piksler_over_16": 0
+          }
+        },
+        "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+      }
+    }
+  ],
+  "beskyttede_filer": {
+    "jobber/fig103_02/referanse.png": "e82a2b277ab702e2b0795742e9a392db7b24cd2048dc1de6c2cfb65081d98a58",
+    "jobber/fig103_02/original_1x.png": "cc2fa5cbe054f0041b75bb7186ccfa6d3e2e97e690860f2d9bd7d558ce28d5ab",
+    "jobber/fig103_02/prompt.txt": "52c347c696d72d33b6be9f4b984616822711be766361734ae4f2fa68f8577316",
+    "jobber/fig103_02/jobb.json": "a1172a11973c72fc2148635bf6604de851f4afd003463d5719805b54a8eb9442",
+    "jobber/fig170_04/referanse.png": "ff3c9319228760abd1c453ffee695c27489d18e9e2070e8406cd5c57bc9184e9",
+    "jobber/fig170_04/original_1x.png": "c4ee9708c7b812689507a2df9c56af92f6fd59d0751cbe5a645f927b95f692de",
+    "jobber/fig170_04/prompt.txt": "74bac5ccbc167fd487d7cdf3e7435f8ac9a51e2d6004a6b936cd77a8a6761b2c",
+    "jobber/fig170_04/jobb.json": "48be79936fdabcdcd1fcd2de849a2f41cd62a175c6660e36ca690fd2af8334b3",
+    "jobber/fig014_16/referanse.png": "22676e9be92cbc769860d3969d8e93eda0491ec657cd9efea7442a583a8294cf",
+    "jobber/fig014_16/original_1x.png": "f377f72692bf4f6b3725a986483926b08b725044fedbde814ba60a2b9b371ac9",
+    "jobber/fig014_16/prompt.txt": "de93a9e80e3e35f49244a4ee2fedcf3976cc9142d531d72386bb3c554272de4a",
+    "jobber/fig014_16/jobb.json": "14a5655df18159008c3618cadc6e318ac868c19e69b5ee3820ee154173b944ff"
+  },
+  "godkjente_referanser": {
+    "rapporter/boston-konsept-glatte-kanter-20261009/konsept-main.webp": "bd07090fbc4b82c082887d7d174ba68b032224d514cfd7ed79f1e184c9c1863a",
+    "rapporter/boston-konsept-glatte-kanter-20261009/boston-gang-hoyre.png": "560175215920343f500c6a18fd312ae1ddd50da1d8e84cbaea791e17873f8442",
+    "rapporter/boston-konsept-glatte-kanter-20261009/boston-28-ruter.png": "1287ad8fa53a72ea19a5b77a430e42b0d2c6df4f490a62759cba0b2eae03b5ca"
+  }
+}
