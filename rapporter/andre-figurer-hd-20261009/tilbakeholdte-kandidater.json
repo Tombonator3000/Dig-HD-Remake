@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T05:28:32.892868+00:00",
+ "oppdatert_utc": "2026-10-10T05:39:06.314989+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 327,
+ "antall": 337,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2587,6 +2587,33 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
   },
   {
+   "jobb": "fig103_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "30c7c15d58b011b6f7e7028e7aa00f3217cd9445d3d8d343c98d7aeb4bfdf5ea",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native ark mangler tre små, reelle originalfaser i midtraden. Opprinnelig radfordeling er 7,10,3; tegningen gir 7,7,3. Disse delene er ikke ufarlige markører.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     7,
+     10,
+     3
+    ],
+    "native_rader": [
+     7,
+     7,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 25863,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig105_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "e80bf8470f59f75cadec79040ca094fcc530f2047e691e769904af4168aad156",
@@ -2763,6 +2790,90 @@
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig122_12",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3f71fc66bd49103f9d9aa3c876f9639a23a8a8f5b4ea29f13e8ea5c27b571b88",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Røde delkonturer i originalen er gjort om til større, komplette blå former. Ingen kildeverifisert fasekobling eller material-/maskefunksjon.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     4
+    ],
+    "native_rader": [
+     4,
+     5,
+     10,
+     12,
+     1,
+     9,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 204205,
+     "maks": 74,
+     "piksler_over_16": 381
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig122_13",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cffff5d4cf474392e288d598b4ffc7196b043e270f24903be754038538fe7877",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Røde delkonturer i originalen er gjort om til større, komplette blå former. Ingen kildeverifisert fasekobling eller material-/maskefunksjon.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     11,
+     2,
+     7,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 31651,
+     "maks": 16,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig122_14",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3b71410f56024d85686fe13d8e7cb088c8fbbf33b23f753f2a8fbb82da675027",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens røde delkonturer er endret til komplette blå halvballformer. Både farge og utfylte områder avviker.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     5,
+     3,
+     4,
+     3,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 111818,
+     "maks": 116,
+     "piksler_over_16": 35442
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig123_01",
@@ -6099,6 +6210,136 @@
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
   },
   {
+   "jobb": "fig170_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "88812ab81482b8fb6712e4e1a212de337f60352604086af94993c4b97117500f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Myke effektområder fra to separate originalfaser henger sammen i native alfa. Ingen verifisert adskillelse uten å klippe i motivet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     6,
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 86125,
+     "maks": 127,
+     "piksler_over_16": 21372
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig170_06",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f003fca55f91555bf77979c60ba05fef6266239119d6552ed164d9ef36da490f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native figur fremstår bar overkropp, mens kostymets tidligere stilanker og faser viser oransje skjorte. Denne klærendringen er ikke kildeavklart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     29,
+     8,
+     4,
+     1,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 19017,
+     "maks": 126,
+     "piksler_over_16": 533
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig170_07",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2f1f28f669417bd85980950207d8ea0ad372c40b921f0708ea76adc0318933cd",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native figur fremstår bar overkropp, mens kostymets tidligere stilanker og faser viser oransje skjorte. Denne klærendringen er ikke kildeavklart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     38,
+     8,
+     5,
+     4,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 27219,
+     "maks": 126,
+     "piksler_over_16": 630
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig170_08",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "5a2917342be4e5106fcd25bc6a66da6b5318764776ebbccd4683d89a0d15148a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native figur fremstår bar overkropp, mens kostymets tidligere stilanker og faser viser oransje skjorte. Denne klærendringen er ikke kildeavklart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     4,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 7575,
+     "maks": 126,
+     "piksler_over_16": 222
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig170_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a3f8ccc2097e2b4ce93d42036fd8ee04e5b0ab33e4c23bfc28aae7f54a4f2895",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native figur fremstår bar overkropp, mens kostymets tidligere stilanker og faser viser oransje skjorte. Denne klærendringen er ikke kildeavklart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     3,
+     7,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 28650,
+     "maks": 125,
+     "piksler_over_16": 4838
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig176_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "3f81dcd1c8490650cb5f180862549bb5c8d770fde7f0bd50f79f211a4c5dc7b7",
@@ -6915,6 +7156,31 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig228_14",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "430a3b67c33c211aa867085646a388eeaa8e8f4cdf501b04f177527213f1af0e",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen viser fire TV-støybilder. Native ark erstatter den tilfeldige pikselstøyen med bølge-/slørmønstre. Effekten er dermed semantisk endret, selv om antallet flater stemmer.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 3386,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig231_01",
