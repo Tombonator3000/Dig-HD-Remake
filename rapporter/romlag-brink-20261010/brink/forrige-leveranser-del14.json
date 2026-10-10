@@ -1,0 +1,58 @@
+[
+  {
+    "jobb": "fig048_05",
+    "attempt": 2,
+    "rows": [
+      21,
+      6,
+      7,
+      1
+    ],
+    "fragments": 1,
+    "prompt": "Edit attached finished HD character sheet. Exactly1536x1024 RGBA. Make ONLY this targeted correction:\nTOP row has22 detached heads, must have21. Erase ONLY its final rightmost head near x1480,y100. Keep first21. Other rows6heads,7bodies,1headless body unchanged. Erase small isolated BLUE guide dot near x767,y120. Native transparency.\nPreserve detailed smooth painted character style, original faces, clothes, all other pieces, their layout, size and poses. True transparent empty gaps alpha0, opaque interiors, native smooth antialias. No background, glow, haze, matte, floor, cast shadows, text, blur or added objects.",
+    "refs": [
+      "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1a63aaea-b44d-4c1e-a1ab-2a610b7e4272.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e8da3d5a-e892-4878-83d2-6398bc3c6e0d.png",
+    "figure": "Ludger Brink",
+    "attempts": 2,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-e8da3d5a-e892-4878-83d2-6398bc3c6e0d.png",
+    "sha256": "59f9e6781a409c7758972116a57443a40db62fcd2be13c6e8a47f8163b12fbcd",
+    "originalruter": 36,
+    "resultat": "jobber/fig048_05/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "032a6c1d571c916e1ff846be7a4ab6127e1206484b4ce23fcba46926c8adb779",
+      "original_1x.png": "23904eff7176460068d85aa5300478ddaad0f262b5efff61db841da3c93353fd",
+      "prompt.txt": "32ca24da17f0d63058ea0c44c14b4d9937054c2e0ad8d9c05326c7ac2b9816d3",
+      "jobb.json": "d0b372693f1c84f6a7f8343498bc511f105f842e84696d236d587db20eb82b75"
+    }
+  },
+  {
+    "jobb": "fig048_06",
+    "attempt": 1,
+    "rows": [
+      1,
+      1,
+      4
+    ],
+    "fragments": 0,
+    "prompt": "Use case: style-transfer. Asset: smooth detailed HD character animation sheet fig048_06. Exactly1536x1024 RGBA.\nImage1 is ORIGINAL EDIT TARGET for poses, piece counts, original order, headless states and orientation. Image2 is ONLY the approved smooth detailed illustrated identity/costume reference. Where image3 is present it is the Maggie style reference only. Do not copy poses/layout from style images.\nRedraw the source precisely in that smooth hand-drawn HD style: crisp detailed faces, hair strands, expressive lips, individual fingers, fabric construction/folds/seams and detailed boots. Preserve original wide body proportions, not stretched skinny people. Retain clipped bodies, loose anatomy and different animation phases.\n\nTHREE rows: top ONE HEADLESS FRONT-LEFT body with open-palm gesture toward LEFT, middle ONE detached FRONT-LEFT head, bottom FOUR HEADED FRONT-LEFT bodies progressively lowering gesturing arm to side. Preserve LEFT orientation and all six pieces.\n\nHealthy Ludger Brink: swept blond hair, mature angular long-nosed face, broad shoulders/stocky source build, cool-gray full-sleeve open jacket, dark navy T-shirt, small violet-blue chest patch, loose orange trousers, black calf boots. Both knees intact orange cloth; no ripped knees, pale patches or exposed skin.\n\nExact row counts 1,1,4, total6 larger frame entries and0 tiny source fragments. Keep non-touching pieces, clear row separation and original left-to-right order. Headless bodies stay headless, loose hands stay hands, detached heads stay heads. Source flat tiny fragments are retained from original on import, never inflate them into extra heads/people. Remove cyan/magenta guides and gray guide patches. Full uncropped1536x1024, genuine native transparency, empty canvas/gaps alpha0, opaque subject interiors with narrow smooth antialiased edge. No background, colored haze, gray wash, glow, cast shadow, floor, grid, text, numbers, blur, pixel stairs or3D.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_06/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-396d7edd-57e2-44f5-9fbe-81a869c2f0ab.png",
+    "figure": "Ludger Brink",
+    "attempts": 1,
+    "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-396d7edd-57e2-44f5-9fbe-81a869c2f0ab.png",
+    "sha256": "8a766f75f9834037bb9e3866ab8da7c10cae82306919de70da2619cf86a58a21",
+    "originalruter": 6,
+    "resultat": "jobber/fig048_06/resultat.png",
+    "beskyttede_filer": {
+      "referanse.png": "7cc0e38a9754435a9e5cf1386a5823d1935846c3c6b5f96f338fc9211273e547",
+      "original_1x.png": "1cd33b8dbcb8f2425208c4cdf641ce669fcee3af05a9d1fa197f0b7afbca8ed9",
+      "prompt.txt": "ef0d8021b48b24062654d707e4a8cf98c36012a267e3ba953c1fc87a7f9a2882",
+      "jobb.json": "adede7090d7bba71abd6e17155f1c1088e397acf846b4445721fb6a813d2c7e4"
+    }
+  }
+]

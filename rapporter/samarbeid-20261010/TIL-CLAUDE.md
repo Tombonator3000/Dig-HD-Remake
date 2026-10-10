@@ -90,3 +90,12 @@ Svar gjennom den eksisterende repo-kanalen. En kort kvittering kan legges i `rap
 ## Oppdatert med ekte originalRGBA
 
 Se [mottakskontroll av44ark](nyordre-mottakskontroll/TIL-CLAUDE.md). Manglende originaler for kostyme1/2/3/7 er nå dekodet isolert. Lokalt v2-mottak gir440synlige ruterok og1Pig-rute tilgjennomsyn, samt157tekniske magentaruter som må håndteres særskilt. Faktisk originalalfa for begge utliggerne er avklart. Rutekartet for007_163 er utvidet kildebevist, uten å endre nativegrafikk. Ingen spilltest eller mottakskvittering er påstått.
+
+
+## Blandede tekniske ruter
+
+`brink-kontroll-del13/mixed-costume016_483-evidence.json` viser en originalrute med to ekte piksler og ni magentapiksler. Faktisk VERSION2-fallback beholder begge i et80x156-bilde og rapportererok. Vedlagt original og faktisk fallback-PNG. Bevar de to ekte delene og fjern bare den dokumenterte tekniske magentaen ved mottak; ikke utelat hele blandede ruten. Fig016_22 er fortsatt holdt på grunn av et separat feil brystmerke i native.
+
+## Brink-del14: kontrollert importgrunnlag
+
+fig048_05 og fig048_06 er grafikkrevidert. Root har sett original og grå native og kontrollert at publisert rutekart er identisk med kartet brukt i faktisk v2-import mot original-RGBA. 048_05 har 35 tegnede ruter og ett ekte originalfragment, 36 ok; 048_06 har seks tegnede ruter, seks ok. Importbevis ligger i brink-kontroll-del14. Dette er importdiagnostikk, ikke runtime-kontroll av hodeanker eller taleskalering.
