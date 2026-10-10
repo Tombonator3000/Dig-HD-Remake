@@ -306,3 +306,9 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Konkrete funn: ruter med sjekk kan brukes i dagens mod, native alfa har annen kontrollvei, radkobling uten rutekart er usikker, kjent risiko ved flere figurer og masker, og tellingene i README/STATUS er eldre enn siste logg. Ingen nye pakketall er målt.
 - Lenket metoden fra README og AGENTS, la konkrete oppgaver i todo og henvisning i memory og bestillingen. Rettet den utdaterte bestillingsbeskrivelsen av vann til å vise til eksisterende HD-fargesykling.
 - Kontroll: dokumentlenker, bevarte opprinnelige filer og kun dokumentendringer. Ingen kode, spillfiler eller grafikk endret. Ingen pipeline-, motor- eller spilltester kjørt for denne dokumentleveransen.
+
+## 2026-10-10 06:45 til 07:55 (Claude)
+- Codex leverte over 100 commits i natt (2098 filer, mest figurark og effektark). Runden stoppet først med full disk: npy-filene fra PR 39 er float64 (omtrent 24 MB per del). PR 42 (åpen, CI grønn, ikke flettet fordi Tom avbrøt): PNG for 8-bitsbilder og float32 ellers, lest inn først når HD-bildet settes sammen. Med den gikk `gpt-inn` gjennom: avvist 11, godkjent 367, levert 1257, ny 2816, sjekk 12. Objektbilder fra lag: 370 av 460.
+- Runden kjørte fortsatt (`dighd myke-figurer` på de nye arkene, så build-mod og publisering i `hd-mod`) da samtalen ble avsluttet. Sjekk om `hd-mod` og `gpt-arbeid` ble oppdatert etter 07:50; ellers kjør `tools/gpt_runde.sh` på nytt etter at PR 42 er flettet.
+- Tom: Linux-pakken virker, men lagring virker ikke. Ikke undersøkt. Lagringsmappen er `~/.local/share/the-dig-hd/saves` (AppRun i `tools/pakke_linux.sh`, `--savepath`), og den lages med `mkdir -p`. Patchen endrer `saveload.cpp`, så sjekk den først. Prøv å lagre uten skjerm med testkrokene, og se i loggen etter feilmeldinger fra lagringen.
+- Tom vil fortsette i en ny samtale i prosjektet, fordi denne er blitt for lang.

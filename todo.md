@@ -75,6 +75,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Motor
 
+- [ ] Lagring virker ikke i Linux-pakken (Tom 10. oktober). Finn årsaken (patchen i `saveload.cpp`, lagringsmappen) og rett
+- [ ] Flett PR 42 (gpt-inn, mindre disk) og kjør runden på nytt hvis den ikke ble ferdig
+
 - [x] HD-skrift for teksten: Exo 2 i stedet for xBR (PR 38 og 40)
 - [ ] Tom ser teksten på ekte skjerm og sier om Exo 2 passer (vekt, luft mellom bokstavene)
 - [ ] HD-skrift: tegnsett 0 og 3 og NUT-font 1 til 3 er ikke sett i spill ennå
