@@ -1,11 +1,11 @@
 # Leveransenotat
 
-Levert 9. oktober 2026. Innebygd ChatGPT-bildegenerator, 1 bildeforsøk i valgt forsøksspor. Verktøyet oppgir ikke et bekreftet modellnavn. Tidligere uvalgte forsøk er bevart lokalt.
+Revidert 10. oktober 2026 etter Toms beskjed «Ja, bruk dette Brink-utseendet videre». Det godkjente stilankeret er rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png. Ludger Brink, kostyme 17. Variant: Variant: mørkere og skitnere jakke, gråere ansikt. Settes i de samme skriptene som 15 og 16.
 
-Ludger Brink, kostyme 17, i Toms godkjente glatte og detaljerte stil. Egen stilprompt og eventuelle avgrensede korreksjoner er dokumentert i rapporter/hovedfigurer-hd-20261009/prompter/. Original prompt.txt og øvrige inputfiler er uendret og hashkontrollert mot HEAD.
+Innebygd ChatGPT-bildegenerator. Eksakt modellnavn er ikke oppgitt av verktøyet. 1 forsøk i dette revisjonssporet. Full prompt med den autoriserte Brink-rettingen ligger i rapporter/romlag-brink-20261010/brink/prompter/fig017_29-forsok1.txt. De fire originalfilene er uendret og hashkontrollert.
 
-Generatorens originale 1536 x 1024 RGBA er kopiert byteidentisk, uten ny pikselmaske eller kreativ etterbehandling. Radantall 3, 4, 2 er kontrollert ved alfa 128 og visuelt sammenlignet med kildens retninger, hodeløs oppdeling, bevegelser og kostyme. 9 tegnede figurområder, 9 originaloppføringer og 0 svært små originalfragmenter. Små fragmenter må bevares fra originalmaterialet; de er ikke oppblåst til anatomi.
+Native 1536 x 1024 RGBA er kopiert byteidentisk uten kreativ etterbehandling, ny pikselmaske eller alfarydding. Radantall [3, 4, 2] gir 9 tegnede områder. 9 originaloppføringer inkluderer 0 små fragmenter som må beholdes fra originalmaterialet. Alfarest utenfor fem piksler fra kjernen: maksimum 3/255, 0 piksler over 16/255. Ni celler i rader 3,4,2. Tre komplette figurer og seks hodeløse kropper, med de faktiske kildevinklene og skiftende føtter. Ingen nye hoder i de delte cellene.
 
-Native alfa er bevart. Restalfa utenfor fem piksler fra alfa-128-konturen har maksimum 3/255, med 0 piksler over 16/255. Native fragmentstreker er diagnostikk, og originalfragmentene skal hentes fra originalmaterialet. Rutekartet er diagnostikk og er ikke en verifisert importmaske, skalering eller ankerplassering. Claude må tilpasse mottaket og kontrollere animasjon, retninger, fotpunkter og flimmer i spillet. Dette arket er ikke integrert, spilltestet eller separat visuelt godkjent av Tom.
+Erstatter SHA256 d1ecc85a1b9fb43abe9fa92b27e45e3f5e2ebc2df21f67cb212b34254dd8f0d7 i commit 9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7. Tidligere bilde og notat er også bevart lokalt under /home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/brink-forrige/fig017_29/d1ecc85a1b9fb43abe9fa92b27e45e3f5e2ebc2df21f67cb212b34254dd8f0d7. Ny SHA256: c77a417707152b1cbc66fecb37e9e6f69dd89628ad269b4f39d35ca4ae9eea8d.
 
-SHA256: d1ecc85a1b9fb43abe9fa92b27e45e3f5e2ebc2df21f67cb212b34254dd8f0d7
+Arket er grafikklevert og har diagnostisk rutekart. Det er ikke integrert, spilltestet eller separat godkjent av Tom. Claude må kontrollere skalering, hode- og fotankere, originalfragmenter og animasjon i motoren. Rapporten hode-og-brink-vurdering-20261010 beskriver de uavklarte import- og motorproblemene.

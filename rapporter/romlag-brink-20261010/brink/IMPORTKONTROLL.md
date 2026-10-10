@@ -1,6 +1,6 @@
 # Lokal importkontroll av korrigert Brink
 
-Kontrollen brukte uendret pipeline fra commit 4cff0814. Pipeline er uendret i fjern-main 0c002bd1, kontrollert 10. oktober 2026. Første historiske prøveimport av ni korrigerte ark ga 123 ruter med status ok og 12 med sjekk. fig015_05 og fig015_06 er senere erstattet som beskrevet nedenfor. Dette er isolert importdiagnostikk, ikke integrasjon eller spilltest. Native grafikkfiler og originalfiler er uendret.
+Kontrollen brukte uendret pipeline fra commit 4cff0814. Pipeline er uendret i fjern-main 78cb0633, kontrollert 10. oktober 2026. Første historiske prøveimport av ni korrigerte ark ga 123 ruter med status ok og 12 med sjekk. fig015_05 og fig015_06 er senere erstattet som beskrevet nedenfor. Dette er isolert importdiagnostikk, ikke integrasjon eller spilltest. Native grafikkfiler og originalfiler er uendret.
 
 ## Konkret feil i hoderuten costume015_299
 
@@ -55,3 +55,15 @@ fig017_20 og23 holdes tilbake: førstnevnte fikk ekstra gåfaser; sistnevnte ful
 ## Videre kontroll hos Claude
 
 Importer reviderte SHA256-verdier og rutekart etter at markeringsproblemet er rettet. Kontroller ståing, gange og tale i alle retninger med felles hodeskala og anatomisk halsanker, deretter z-masker og opptegning når figuren går. Rektangulære artefakter i Toms skjermbilder er fortsatt ikke bevist løst av grafikkrevisjonen.
+
+## Ni nye ark og påvist måleproblem i blandet gågruppe
+
+Ni ark er grafikklevert i del09: fig017_01,05,08,09,28,29,30,31 og fig016_03. Isolert prøveimport gir 176 ok og 1 sjekk over 177 originaloppføringer, se importkontroll-del09.json. Det ene varslet er costume017_432, IoU 0,573 og dekning 0,901. fig017_05,08 og30 er rettet nativt for å fjerne oppdiktede lyse skader i hele bakre bukseben. fig017_01 har riktig hodeløs oppdeling og alle åtte separate hoder i kilderekkefølge. Holdene for disse arkene i tidligere historiske avsnitt er dermed avløst av de nye leveransene.
+
+kildeoyer-og-fragment-09-23.json viser måledata fra uendrede kilder og aktuell native fil. Første gåcelle i fig017_09, costume017_442, er en hel figur med anatomisk kildehøyde 68 og native kjerne 319. I samme importgruppe ligger hodeløse kropper, blant annet costume017_439, med én løs kildepiksel ved y0 og kroppen ved y10 med høyde 56. Importøren bruker hele utstrekningen 66. Gruppen får skala 0,9714. Den hele figurens kjerne blir dermed omtrent 310 HD-piksler høy mot forventet 272, altså omtrent 14 prosent for stor. En kropp med native høyde 271 blir omtrent 263 HD-piksler mot kroppens 224, omtrent 18 prosent for stor. Det tekniske omrissmålet gir likevel status ok for flere av disse rutene. Dette er et konkret problem i den uendrede lokale importen, ikke bevis for årsaken til alle skjermbildene.
+
+Claude må skille hele figurer fra hodeløse kropper og avklare den isolerte pikselens funksjon før anatomisk høyde og halsanker beregnes. Ikke ta feilskalerte ruter inn i en release. Native bilder, originalfiler, terskler og pipelinekode er uendret.
+
+## Tilbakeholdt tynt fragment i fig017_23
+
+Originalcellen costume017_479 har 43 synlige piksler fordelt på en tynn ekte stripe med 34 sammenhengende piksler og 9 separate én-piksel-øyer. Den er kildeklassifisert som fragment, men importens SMALL40-grense gir status mangler når den ikke har en egen tegnet del. Dette er ikke et manglende helt menneske. Første forsøk fullførte stripen til en ny delvis figur og ble avvist. Andre forsøk fjernet denne, men har for lys buksepalett og holdes tilbake. Claude må beholde akkurat dette originale fragmentet eksplisitt eller avklare fragmentregelen; det skal ikke erstattes med en oppdiktet kropp.
