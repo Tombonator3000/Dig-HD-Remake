@@ -1,0 +1,36 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character (Ludger Brink), in different poses. On this sheet, row by row from left to right: animation 25, facing away to the right, away to the left (14 frames); animation 27, facing right (4 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+TOM-AUTHORIZED BRINK STYLE CORRECTION, 10 OCTOBER 2026:
+Image ONE is the original frame sheet and controls every pose, viewing direction, row, part boundary and animation state. Image TWO is the corrected healthy Brink style model that Tom explicitly approved: use its lean scientist identity, long narrow angular face, prominent long straight nose, narrow tapered chin, small mouth, restrained expressive brows, muted straw-blond hair with brown-ochre side planes, clean dark contours, angular drawn shadow planes and smooth anti-aliased edges. Image THREE is the original character concept, identity authority. Use its healthy character; apply ONLY the variant state visible in the first reference, never an arbitrary green resurrected face. Preserve the exact original costume variant, damage, lighting, expression and palette shifts when present; the healthy sample does not override those source-specific states. No broad muscular superhero body, blunt short nose, square jaw, bright lemon-yellow hair, fluorescent orange trousers, 3D rendering, photographic texture, round plastic shading or halos.
+The base outfit is medium neutral gray open jacket, dark navy/teal shirt, small violet left chest patch, subdued burnt-ochre brown-orange trousers and black blue-gray boots. Apply the same model and palette to every healthy frame, following the exact original clothing and pose. Do not invent damage, rips, equipment, stripes or glowing effects absent from the source. Keep real source variant details exactly as shown. Every frame on this sheet is the same character apart from the prescribed pose/state. Talking changes mouth and jaw only: keep skull dimensions, hairline, eyes, ears, nose and anatomical neck attachment stable in all frames of the same viewing direction. Do not scale the whole head between mouth phases.
+Keep every head-only frame head-only, every headless body headless, every separate limb/effect separate, and every complete figure complete. In back and back-three-quarter heads show the back of the hair and ear, not a front-facing eye, brow or mouth. Follow all source left/right directions literally. Reproduce every different walking foot/arm pose and every mouth opening in its exact source sequence, never repeat one pose in place of multiple frames.
+Return exactly 1536 x1024 RGBA with truly transparent background and clean soft edges, no cyan/gray field, floor or cast shadow, vignette, labels, grid, watermark, stray color dots, bright magenta shadow markers or marks between drawings. Native alpha is required; keep meaningful source fragments and effects, never invent a complete head/limb from a tiny real fragment.
+
+SOURCE VARIANT: Hovedkostymet på planeten: stå, gå og snakke i 8 retninger, hodet er et eget lag
+EXACT MAIN DRAWING ROWS: [11, 3, 4]; total 18. There are additionally 0 authentic tiny original fragments; do not turn them into full characters.
+Row 1: EXACTLY 11 main drawings. animation 25, facing away to the right
+Row 2: EXACTLY 3 main drawings. animation 25, facing away to the left
+Row 3: EXACTLY 4 main drawings. animation 27, facing right

@@ -1,6 +1,6 @@
 # Brink-revisjon
 
-Tom godkjente stilprøven 10. oktober 2026. 21 av 208 Brink-relaterte ark i 20 kostymer er revidert og grafikklevert. 187 ark gjenstår. Tidligere samlet dekning på 509 hovedfigurark økes ikke av disse erstatningene.
+Tom godkjente stilprøven 10. oktober 2026. 31 av 208 Brink-relaterte ark i 20 kostymer er revidert og grafikklevert. 177 ark gjenstår. Tidligere samlet dekning på 509 hovedfigurark økes ikke av disse erstatningene.
 
 Leveransene bruker godkjent utseende og kildebundne positurer, retninger, oppdeling, kostymer og farger. Filkontroll og manuell gjennomgang gjelder enkeltark. Native PNG-er er uendret; ingen hard maskering eller alfarydding. Rutekart-brink-del*.json i rapportens rot er tilgjengelige for eksisterende myke-figurer-import.
 

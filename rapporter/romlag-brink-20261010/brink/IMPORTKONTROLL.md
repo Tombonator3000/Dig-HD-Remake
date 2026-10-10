@@ -20,6 +20,12 @@ Ni nye eller erstattede native ark (fig015_02, 03, 05, 06, 17–21) er kontrolle
 
 importkontroll-del02.json oppgir aktuelle native SHA256, målinger, skala, originalrute og lokal importstatus. Hodeskalle og hår er visuelt sammenlignet mellom munnfasene. Det er fortsatt ingen motor- eller spilltest.
 
+## Gåark og lagdelte kropper, tredje runde
+
+fig015_22–31 gir 162 ok og 4 sjekk i lokal prøveimport av aktuelle SHA256-verdier. fig015_26 ble rettet nativt fordi to figurer vendte feil vei, og gir nå alle 12 originaloppføringer ok. fig015_31 beholder 20 separate hoder, 12 hodeløse kropper og 6 hele figurer. De fire frontale hoderutene costume015_624, 625, 626 og 021 får sjekk for omriss/dekning (IoU0,702–0,719); de må vurderes manuelt mot godkjent ansiktsform før integrasjon. importkontroll-del03.json inneholder målingene.
+
+Arkene fig015_12–16 er dessuten kontrollert fra den faktiske leveranseoppdagelsen og rutekartene. Disse fem arkene gir 80 ok og 0 sjekk, se importkontroll-del04.json. Disse kontrollene gjør ingen endring i kildefiler, native bildefiler eller motoren.
+
 ## Videre kontroll hos Claude
 
 Importer reviderte SHA256-verdier og rutekart etter at markeringsproblemet er rettet. Kontroller ståing, gange og tale i alle retninger med felles hodeskala og anatomisk halsanker, deretter z-masker og opptegning når figuren går. Rektangulære artefakter i Toms skjermbilder er fortsatt ikke bevist løst av grafikkrevisjonen.
