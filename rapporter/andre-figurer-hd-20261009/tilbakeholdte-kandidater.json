@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:01:50.742010+00:00",
+ "oppdatert_utc": "2026-10-10T01:02:42.576400+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 184,
+ "antall": 191,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2931,33 +2931,115 @@
   },
   {
    "jobb": "fig132_16",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "fee1b5c4bada66d5ff9d895c2ffda7227b149807b1759ebac76bce7a0c898a58",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "4ad0a4b660c2dbc48f0a07b6f097875c67cf6b2004f7e611ff9bffd57841306c",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Kilden har én skapningsrute, men kandidaten har to hele skapninger. Den ekstra figuren er ikke en separat originaldel.",
+   "grunn": "Fortsatt to hele skapninger mot én originalrute; også rammelinjer.",
    "lokal_kontroll": {
     "forventede_rader": [
      1
     ],
     "native_rader": [
+     1,
+     1,
+     2,
+     1,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 13607,
+     "maks": 127,
+     "piksler_over_16": 1740
+    }
+   },
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
+  },
+  {
+   "jobb": "fig134_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c45278ce79fabad1faea194a9485336ccc9b365a40eb2010e965b3f6f307d783",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "En separat originalfot på 15 x 16 er ikke sikkert gjenfunnet. Fire hele native utsnitt og to løse føtter krever ny kildekobling eller nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     3
+    ],
+    "native_rader": [
+     4,
      2
     ],
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 2377,
-     "maks": 7,
+     "piksler_over_0": 30475,
+     "maks": 5,
      "piksler_over_16": 0
     }
    },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
+  },
+  {
+   "jobb": "fig134_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "dac16f812c401c176c790d36cd3f4910ee7cb84052826ee8682a497bfb75f1f3",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Fire kroppsdeler og løs antennespiss trenger kildekobling; 16 restalfapiksler med maksimum 97 utenfor konturen er ikke avklart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     1,
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 36010,
+     "maks": 97,
+     "piksler_over_16": 16
+    }
+   },
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
+  },
+  {
+   "jobb": "fig134_06",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7b5b62dc5595e577310eb7fe8776e82812cf7440c5f3b4637f991bb2309680a2",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "De to separate originalstrekene på 12 x 6 og 10 x 2 mangler. Bare tre kroppsruter er tegnet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1,
+     1
+    ],
+    "native_rader": [
+     1,
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 9380,
+     "maks": 6,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
   },
   {
    "jobb": "fig135_04",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "1677f7a9dbf786a64a221bd882389f3c6d5e5c4e232ce92962739c5676a03461",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "72a085fec52538f44ab0e5c1a4ac0419a8df3a289cfb49245ead027db6c0215c",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen har en selvstendig 8 x 1-strek etter første skapningsrute. Native kandidat har bare de to store figurene; strekens tegning er ikke bekreftet.",
+   "grunn": "Den separate originale 8 x 1-streken mangler også i andre forsøk.",
    "lokal_kontroll": {
     "forventede_rader": [
      2,
@@ -2970,12 +3052,12 @@
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 7596,
+     "piksler_over_0": 6644,
      "maks": 5,
      "piksler_over_16": 0
     }
    },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
   },
   {
    "jobb": "fig139_05",
@@ -3022,6 +3104,104 @@
     }
    },
    "neste": "Nytt ordrett forsøk er startet. Native anatomi må følge den faktiske originaldelen."
+  },
+  {
+   "jobb": "fig140_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "33d31cf037a21641cae110d2560991af8ef0bca4852ecbc91fc71d8abdc3131a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     4,
+     8,
+     1,
+     3,
+     2,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 11619,
+     "maks": 117,
+     "piksler_over_16": 94
+    }
+   },
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
+  },
+  {
+   "jobb": "fig140_46",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f991b48370053fe2ee0ef237f5f0f34e49c482b9922e14c82a8c1deb3fc70a8a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 2990,
+     "maks": 68,
+     "piksler_over_16": 12
+    }
+   },
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
+  },
+  {
+   "jobb": "fig140_47",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4ab218a5d2db63d66a2db6892005c3352f3bde0dc3edad6e5be5e3e4d15de3ca",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 6381,
+     "maks": 124,
+     "piksler_over_16": 118
+    }
+   },
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
+  },
+  {
+   "jobb": "fig140_55",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "f1360e754bd83e0f14ec07a128876d04b2464175574dddf71c988f09dd73c8e6",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Synlig farget rektangel rundt røykmotivet. Skal ikke importeres eller fjernes med en ny pikselmaske.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 7317,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
   },
   {
    "jobb": "fig146_01",
@@ -4948,28 +5128,28 @@
   },
   {
    "jobb": "fig316_01",
-   "siste_kontrollerte_forsok": 2,
-   "kandidat_sha256": "8477d106946e88276a1e9a6c1f657ca5589b896a3072127c9355fa04dee28099",
+   "siste_kontrollerte_forsok": 3,
+   "kandidat_sha256": "8cafafdaf76d37fe0f5b3ed7e53bfa768252ac3cfd2dc3bbcbe3a9a80b3d74e5",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Forsøk 2 har avvikende radantall for de små delrutene og 61 uforklarte restalfapiksler med maksimum 70/255. Ingen verifisert én-til-én-kobling er levert.",
+   "grunn": "Små fasefragmenter har fortsatt usikker én-til-én-kobling, og åtte uforklarte alfapiksler når 87.",
    "lokal_kontroll": {
     "forventede_rader": [
      15,
      18
     ],
     "native_rader": [
-     22,
-     20
+     26,
+     23
     ],
     "antall_ok": false,
     "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 15435,
-     "maks": 70,
-     "piksler_over_16": 61
+     "piksler_over_0": 12090,
+     "maks": 87,
+     "piksler_over_16": 8
     }
    },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
   },
   {
    "jobb": "fig318_01",
@@ -5092,10 +5272,10 @@
   },
   {
    "jobb": "fig325_01",
-   "siste_kontrollerte_forsok": 2,
-   "kandidat_sha256": "3b99d971a956d7af91e9c74db733ccb5faf4dae0e70ae9877361220841f8845d",
+   "siste_kontrollerte_forsok": 3,
+   "kandidat_sha256": "a50723248103c0de58595070ac72ac59040dbe174cb8b46986fe6a575ae82369",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Forsøk 2 har fortsatt bare de tre store skapningsrutene. Originalens tre separate svarte strek-/delfaser mangler.",
+   "grunn": "Tre separate svarte originalstreker mangler fortsatt i tredje forsøk.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -5109,12 +5289,12 @@
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 5526,
+     "piksler_over_0": 4451,
      "maks": 4,
      "piksler_over_16": 0
     }
    },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
+   "neste": "Kildekontroll og eventuelt nytt ordrett forsøk. Originalfiler og native alfa bevares."
   },
   {
    "jobb": "fig326_01",
