@@ -7,8 +7,8 @@
     7
   ],
   "ark_planlagt": 50,
-  "ark_revidert": 30,
-  "ark_gjenstar": 20,
+  "ark_revidert": 35,
+  "ark_gjenstar": 15,
   "status": "pågår, første Boston- og Brink-romdrakt godkjent av Tom",
   "leveranser": [
     {
@@ -2149,6 +2149,471 @@
         {
           "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_16-kildegrenseguide.png",
           "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_16-kildegrenseguide.png"
+        }
+      ]
+    },
+    {
+      "jobb": "fig001_17",
+      "kostyme": 1,
+      "figure": "Boston Low i romdrakt",
+      "resultat": "jobber/fig001_17/resultat.png",
+      "sha256": "1b1acf080b0d6f3dec2a7f731f6d8633dcd89ce191337ff385cc076e6aca5835",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-7b2dc5c7-5295-43f5-98f0-12a2bbcb700e.png",
+      "attempts": 1,
+      "rows": [
+        2,
+        2,
+        1
+      ],
+      "originalruter": 6,
+      "fragments": [
+        "costume001_086"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig001_17-forsok1.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_17/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_17-kildegrenseguide.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "fbb8bac58f1eb6493f0d95fc1d62599137422b88983c330d0d5575cc2ef2ca8c",
+        "original_1x.png": "7fc17eff51e8b5810dee47ba728ab787aad800379de02e769cd3f43e47833157",
+        "prompt.txt": "590408e0a252b4c7b7e607da47525e0fb67fe1fc96a74a6bee552cc09197bccc",
+        "jobb.json": "49618b6529f6a7119495ed6cbb6677c589a4ff8fb8bf5b8749ec169501f7a4d7"
+      },
+      "erstatter_sha256": "b3b0e3972f3c94315349cf2826d6b96b7ac541883fcb603b3c2f96ad55d94d5c",
+      "forrige_versjon_commit": "8677cbfc99e549b6e2b013a5dfb3895ecdb205d2",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume001_086": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 3
+        }
+      },
+      "reelle_kildefragmenter": [],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-face-only.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_17-kildegrenseguide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_17-kildegrenseguide.png"
+        }
+      ]
+    },
+    {
+      "jobb": "fig001_18",
+      "kostyme": 1,
+      "figure": "Boston Low i romdrakt",
+      "resultat": "jobber/fig001_18/resultat.png",
+      "sha256": "2032303f87d05db42f79a3d9e38ad55e380e573aa8874afb30bd83c66004cab5",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-bf354b57-75b6-4acb-93c7-38e20b226a20.png",
+      "attempts": 1,
+      "rows": [
+        7,
+        7
+      ],
+      "originalruter": 16,
+      "fragments": [
+        "costume001_083",
+        "costume001_000"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig001_18-forsok1.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_18/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_18-kildegrenseguide.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "6a427f996d43755acb01f422bd1c16bd8d16f89b9f546966d160d09364950a07",
+        "original_1x.png": "c0c68c47630c4ef796a5daec70f3b75cdfb2c2a094e5f480157f6fc15887cf6f",
+        "prompt.txt": "513e49053f7b8e62836938915931c9b939bbf135205b0fee75ec238bc42018cb",
+        "jobb.json": "721db1172ba8812ad3dd7884ea394cd9e7024c00c2ad9d4c8db85edb9987bec6"
+      },
+      "erstatter_sha256": "ce8f6e8cfc79d5d4cfb4ec8bdb4d685024dc0796511d7bd70db84f2847341602",
+      "forrige_versjon_commit": "8677cbfc99e549b6e2b013a5dfb3895ecdb205d2",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume001_083": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 16
+        },
+        "costume001_000": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 56
+        }
+      },
+      "reelle_kildefragmenter": [],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-face-only.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_18-kildegrenseguide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_18-kildegrenseguide.png"
+        }
+      ]
+    },
+    {
+      "jobb": "fig001_19",
+      "kostyme": 1,
+      "figure": "Boston Low i romdrakt",
+      "resultat": "jobber/fig001_19/resultat.png",
+      "sha256": "44e81ee1dc9244587dd0b1ada74625816d1e859fb12e81a2250c3c4730cb9fbd",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-a24121c3-5cde-4c9c-b083-8288e4a2cbea.png",
+      "attempts": 1,
+      "rows": [
+        7,
+        7,
+        1
+      ],
+      "originalruter": 16,
+      "fragments": [
+        "costume001_001"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig001_19-forsok1.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig001_19/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_19-kildegrenseguide.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "ea3452fbf30fe7f6db523fdfc2030de78aefad2e62e6c8c7a8eca1786252320b",
+        "original_1x.png": "c25aabd612e389fb22e97bf633a6bbae5c2faecb0b148bd02e20d1041bd8cb4b",
+        "prompt.txt": "21e2239b91117ee129083f917a04f8ab2d7203a3587326bddef458c9e3fa2254",
+        "jobb.json": "49b04261830caed479064e10d440e4fc0d41d0d4534fa75ed1478787be73d12a"
+      },
+      "erstatter_sha256": "82f18122926a6dc70c56534bd301a53e06e98e20a3380c6521dddfe5ab4cabdb",
+      "forrige_versjon_commit": "8677cbfc99e549b6e2b013a5dfb3895ecdb205d2",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume001_001": {
+          "basis": "Alle ikke-bakgrunnspiksler er originalens magenta skygge-/registreringsmerke. Prompt.txt ber uttrykkelig om å utelate disse.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 56
+        }
+      },
+      "reelle_kildefragmenter": [],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/boston-approved-face-only.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/boston-approved-face-only.png"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/fig001_19-kildegrenseguide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig001_19-kildegrenseguide.png"
+        }
+      ]
+    },
+    {
+      "jobb": "fig002_04",
+      "kostyme": 2,
+      "figure": "Maggie Robbins i romdrakt",
+      "resultat": "jobber/fig002_04/resultat.png",
+      "sha256": "e484f965e8c463f84974bc607c24ef9bddc3b5ae4dcedc06bd441fc188ec9ffb",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-85b18e32-3376-4087-8762-a1db5bd567b8.png",
+      "attempts": 2,
+      "rows": [
+        2,
+        4,
+        3
+      ],
+      "originalruter": 15,
+      "fragments": [
+        "costume002_053",
+        "costume002_060",
+        "costume002_007",
+        "costume002_002",
+        "costume002_075",
+        "costume002_074"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig002_04-forsok2.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig002_04/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/maggie-robbins-source-concept.webp",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/konsept-main.webp",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/fig002_04-source-box-guide.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "23aa01d0a09e976e3a40e84b959e2309b33487c019c6d4665427032edc128ef9",
+        "original_1x.png": "e57e4cfc8de9c482cee3a7cbf280aa11fd5707e128c93378e1097d619ae19f0d",
+        "prompt.txt": "982a308e63cce8b125b3c37bece9f851ad40bad859491c8fec1eec72dabcff08",
+        "jobb.json": "7e575c8705b78e11afb1688491e6ad4fdebbfa6c49aa257366ac232158a1f1d4"
+      },
+      "erstatter_sha256": "432dcde34c855e918d2663054739636f95808d39efc0bfbfbe95d4ff54daac90",
+      "forrige_versjon_commit": "8677cbfc99e549b6e2b013a5dfb3895ecdb205d2",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume002_053": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        },
+        "costume002_060": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 18
+        },
+        "costume002_007": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 97
+        },
+        "costume002_002": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 21
+        },
+        "costume002_075": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 1
+        },
+        "costume002_074": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 6
+        }
+      },
+      "reelle_kildefragmenter": [],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/maggie-robbins-source-concept.webp",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/maggie-robbins-source-concept.webp"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/fig002_04-source-box-guide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig002_04-source-box-guide.png"
+        }
+      ]
+    },
+    {
+      "jobb": "fig002_05",
+      "kostyme": 2,
+      "figure": "Maggie Robbins i romdrakt",
+      "resultat": "jobber/fig002_05/resultat.png",
+      "sha256": "0d0e50653f9877f809226f4ff9901c4a79198c3e508b7a18fff22fac6235647f",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-0c333340-d5ec-4065-8b2c-da29f47e7a29.png",
+      "attempts": 2,
+      "rows": [
+        4,
+        3
+      ],
+      "originalruter": 21,
+      "fragments": [
+        "costume002_066",
+        "costume002_051",
+        "costume002_058",
+        "costume002_063",
+        "costume002_055",
+        "costume002_062",
+        "costume002_077",
+        "costume002_067",
+        "costume002_049",
+        "costume002_047",
+        "costume002_046",
+        "costume002_044",
+        "costume002_040",
+        "costume002_039"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/nyordre/prompter/fig002_05-forsok2.ordrett.json",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig002_05/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/maggie-robbins-source-concept.webp",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/boston-konsept-glatte-kanter-20261009/konsept-main.webp",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/fig002_05-source-box-guide.png"
+      ],
+      "beskyttede_filer": {
+        "referanse.png": "bee1281a2f257cd3957efac003243739027976dacab842f953145b97a5b27dd8",
+        "original_1x.png": "10a16206704d546bd5128b4e13c0d24fdbbe8614b8e6fed3e80b7043ec389a5b",
+        "prompt.txt": "c9567f8885a26da65d0c6fa0e384edf1adc83c44992498b3b3c214aa0b4aaa91",
+        "jobb.json": "e7b926ae3ced59a088e8831dad27da5657e99342bb70ab8190fa02192596edd0"
+      },
+      "erstatter_sha256": "f5f54a08d3851764db0d2586d21add8d58362026870b06bbfc4e54e24412d057",
+      "forrige_versjon_commit": "8677cbfc99e549b6e2b013a5dfb3895ecdb205d2",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "magenta_skyggemarkorer": {
+        "costume002_066": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        },
+        "costume002_051": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 18
+        },
+        "costume002_058": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 10
+        },
+        "costume002_063": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 2
+        },
+        "costume002_055": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 94
+        },
+        "costume002_062": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        },
+        "costume002_077": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 39
+        },
+        "costume002_067": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 2
+        },
+        "costume002_049": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 5
+        },
+        "costume002_047": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 46
+        },
+        "costume002_046": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 4
+        },
+        "costume002_044": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 5
+        },
+        "costume002_040": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 104
+        },
+        "costume002_039": {
+          "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+          "rgb": [
+            252,
+            84,
+            252
+          ],
+          "pixels": 27
+        }
+      },
+      "reelle_kildefragmenter": [],
+      "diagnostiske_referanser_i_repo": [
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/maggie-robbins-source-concept.webp",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/maggie-robbins-source-concept.webp"
+        },
+        {
+          "native_input": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-maggie/fig002_05-source-box-guide.png",
+          "repo_reference": "rapporter/romlag-brink-20261010/nyordre/kildeguider/fig002_05-source-box-guide.png"
         }
       ]
     }
