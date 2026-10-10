@@ -351,3 +351,6 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - PR 44 (motor, pipeline, dokumentasjon), CI grønn. Venter på at Tom fletter. Så Linux-pakken og nettsiden.
 - Codex leverer nye Brink-ark (fig015 og fig017) i ny samtale etter Toms stilavvisning; ikke sett på eller tatt inn.
 - 12:51 Tom flettet PR 44 (36cd09f). Linux-pakken bygget av arbeidsflyten (kjøring 38046389925, bestått): 1,44 GB, hd-mod fdad5c7. Nettsiden: patchen kopiert til Dig-HD-Web (5c46f33), bygging og publisering bestått; den publiserte siden er ikke testet. Pakken fra releasen testet uten skjerm fra Toms lagring: inventaret med HD-ikoner (734 px), Esc ga ingen avslutning, Ctrl+C åpnet menyen og Quit avsluttet.
+
+## 2026-10-10 13:36 (Claude)
+- Tom ba om at skillen `scumm-hd-remake` oppdateres med det vi har lært. Foreslått ny versjon (kort til lagring hos Tom) med lærdom fra 10. oktober: blast-objekter og inventaret, avslutning via menyen, Esc og stoppede skript, menytasten og logging av taster, Ctrl+Shift-sjekken, HD-skrift med tre farger, navn på hvert kostyme (astronautene), fast størrelse per rute, avviste ark ute av mottaket, originalruter fra arbeidsbordet uten dekoderne, testing med Xvfb og xdotool, Toms pakke og lagring, menykoordinater, PNG-størrelse, at Tom fletter PR-ene, og arbeidsformen når Tom melder funn.
