@@ -31,7 +31,7 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Motor: filmer | HD-rammer per SAN-fil, med undertekstene oppå som originalpiksler | 198 av 198 rammer i introen like med nearest-rammer etter rettingen til `_frame - 1`. Undertekster: hele SQ1 med nearest-rammer og merkede rammer, all synlig tekst på samme sted som i originalen og resten HD |
 | Motor: tekst | All tekst i spillet (tegnsettene i DIG.LA1) og i filmene (NUT-fontene) tegnes med HD-bokstaver på samme sted og med samme farger. Bokstavene tegnes med skriften Exo 2 når modden har `fonts/` (standard fra `dighd build-mod`), ellers med xBR fra spillets egne fonter. `DIGHD_TEXT` velger | Rom 2 og introen med undertekster: med `nearest` 0 avvik i 45 dumper med tekst, plasseringen stemmer i 47 av 47, ingen tekst står igjen, ingen målbar tidsøkning i rommet. Exo 2 (9. oktober): dialogen i rom 2, menyen i rom 22 og undertekstene i introen uten skjerm, og menyen på den publiserte nettsiden i Chromium. Ikke testet på ekte skjerm |
 | Motor: farger | Fade og palettbytte følger med. Fargesyklede områder (vann, fosser) vises med HD-bildet og følger syklingen | Rom 22 med ChatGPT-bakgrunn og rom 11 og 43 med lanczos-sharp: vannet beveger seg uten rutenett eller glorie. Ett syklingssteg i rom 22 tar 2,0 ms (før 7,8 ms) |
-| Motor: brytere | HD Graphics i spillets meny (F5) og Ctrl+H bytter mellom HD og originalgrafikk, og valget huskes (`dighd_classic`). Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`) | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Menyen uten skjerm med `DIGHD_TEST_CLICKS` og i nettleseren med musklikk: byttet virker og huskes ved neste start. Ikke prøvd med ekte tastatur |
+| Motor: brytere | HD Graphics i spillets meny (F5) og Ctrl+H bytter mellom HD og originalgrafikk, og valget huskes (`dighd_classic`). Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`). Fram til PR 43 (10. oktober) byttet Ctrl+Shift+H til klassisk grafikk i stedet | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Menyen uten skjerm med `DIGHD_TEST_CLICKS` og i nettleseren med musklikk: byttet virker og huskes ved neste start. Ikke prøvd med ekte tastatur |
 | Motor: store objekter | HD-objektbilder fra ChatGPT også i rom uten HD-bakgrunn | Rom 28 kjørt uten skjerm: tavla obj241 dekker nesten hele skjermen (69 492 objektpiksler mot 185 rompiksler) |
 | Motor: myke figurer | Figurer i den glatte stilen legges over HD-bakgrunnen med egen alfa: myke kanter, eget omriss, bak forgrunnen (z-masken), under tekst og menyer, og borte når figuren er borte. Med i nettsiden og i Linux-pakken | Rom 22 uten skjerm: Boston går fram og tilbake med de ekte myke rutene, skjermen lik hele skjermen bygget på nytt i alle 48 dumper, ingen rester av margen. Bak forgrunnen med tre z-plan: 0 avvik fra z-masken. `engine/test.sh` som før. Den publiserte nettsiden i Chromium uten skjerm: de myke rutene hentes og vises. Ikke testet på ekte skjerm |
 | Motor: ChatGPT-figur | De 28 rutene fra fig014_01 (Boston Low) vises i spillet | Rom 22 uten skjerm med `DIGHD_TEST_COSTUME=14` og `DIGHD_VERIFY=1`, 1400 bilder: når Boston står eller går mot siden, kommer 699 til 1088 figurpiksler fra HD-rutene og 0 fra originalen. Animasjoner som ikke er malt ennå, vises som originalen. Skjermen lik hele skjermen bygget på nytt i alle dumper |
@@ -112,8 +112,16 @@ eller pakkeskriptet endres, og hver natt hvis `hd-mod` er endret. Testet i
 arbeidsflyten 9. oktober: pakken uten skjerm (rom 22, F5 og klikk på HD
 Graphics ga klassisk, valget lagret, ingen "Can't open bundle file") og på
 Debian 12 med bare skrivebordsbibliotekene (ingen manglende biblioteker, rom 22
-lastet). AppDir og oppstarten også testet her. Ikke testet: en ekte
-Linux-maskin med skjerm og lyd, FUSE på Toms maskin, Wayland.
+lastet). AppDir og oppstarten også testet her.
+
+Tom har spilt pakken på laptopen sin (10. oktober, rom 1 til 22 på 22
+minutter, automatisk lagring i `dig.s00` virket). Han meldte at lagring fra
+F5-menyen ikke virket ("ingenting skjer"). Lagringen ble testet 10. oktober med
+pakken fra releasen: F5, Save, plass, navn og OK, overskriving, Alt+1 og
+lasting virket uten skjerm og med ekte X11-mus og tastatur i Xvfb. Årsaken hos
+Tom er ikke funnet; Tom regner med at det virker nå og prøver igjen.
+Temaet `scummremastered` lastes ikke i pakken (skriften LiberationSans-Bold.ttf
+mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
 
 ## Kjente begrensninger
 

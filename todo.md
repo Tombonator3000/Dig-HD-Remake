@@ -75,8 +75,12 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Motor
 
-- [ ] Lagring virker ikke i Linux-pakken (Tom 10. oktober). Finn årsaken (patchen i `saveload.cpp`, lagringsmappen) og rett
-- [ ] Flett PR 42 (gpt-inn, mindre disk) og kjør runden på nytt hvis den ikke ble ferdig
+- [x] Lagring i Linux-pakken undersøkt (10. oktober): virker uten skjerm og med ekte X11-inndata, ingen feil funnet. Patchen i `saveload.cpp` flytter bare pekeren etter lasting
+- [ ] Tom prøver lagring fra F5-menyen igjen på laptopen og sier fra (hvor det stopper hvis det ikke virker)
+- [ ] Temaet `scummremastered` lastes ikke i Linux-pakken (LiberationSans-Bold.ttf mangler); legg skriften i pakken eller ta temaet ut
+- [x] PR 42 var flettet 07:44; runden ble ferdig (`hd-mod` 07:50, `gpt-arbeid` 07:53)
+- [x] Ctrl+Shift+H byttet til klassisk grafikk i stedet for gult felt (PR 43). Sifre i `DIGHD_TEST_KEYS`
+- [ ] Codex-arkene levert 07:29 til 07:50 (gruppe 90, fig169 og fig170 m.fl.) kan mangle i modden fra 07:50 (ikke sjekket). Neste runde tar dem inn, men se først på stilavvisningen under. Tom avviste stilen på de siste figurarkene i Codex-chatten (overlevering i `gpt-arbeid`, `rapporter/overlevering-ny-chat-20261010/`)
 
 - [x] HD-skrift for teksten: Exo 2 i stedet for xBR (PR 38 og 40)
 - [ ] Tom ser teksten på ekte skjerm og sier om Exo 2 passer (vekt, luft mellom bokstavene)
