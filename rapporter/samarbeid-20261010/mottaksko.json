@@ -1,57 +1,62 @@
 {
-  "oppdatert_utc": "2026-10-10T14:12:54.658773+00:00",
+  "oppdatert_utc": "2026-10-10T14:27:02.837713+00:00",
   "grafikkcheckout": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk",
   "gren": "gpt-arbeid",
-  "batch": 20,
+  "batch": 21,
   "mottatt_av_claude": false,
   "spilltestet": false,
   "kodegrunnlag_for_lokal_kontroll": "36cd09f13eb0201cff190d8d0c99c788a8bcaa6b",
   "grafikk_commit": "Bruk Git-commiten som inneholder denne manifestfilen; ikke foreldrens HEAD.",
-  "brink_revidert": 122,
+  "brink_revidert": 128,
   "brink_plan": 208,
   "jobber": [
     {
-      "jobb": "fig174_06",
-      "sha256": "2aaddd02f567d7f4891c7e0a9b0e4129482ee772842b73162ed4e228709e7f56",
-      "resultat": "jobber/fig174_06/resultat.png"
+      "jobb": "fig126_02",
+      "sha256": "31225d39734c353d2e51bda71d2c9a97ab24c1c6d1c63d8e76689d898b1c6b64",
+      "resultat": "jobber/fig126_02/resultat.png"
     },
     {
-      "jobb": "fig174_07",
-      "sha256": "de9b293fedf74aab344abe40156a5d625180402c80751318fc2539ce24f83389",
-      "resultat": "jobber/fig174_07/resultat.png"
+      "jobb": "fig126_03",
+      "sha256": "16721af430af0df4b83000ce488623fb8c78fc6aa0a0310c8d723edeb37a3e4b",
+      "resultat": "jobber/fig126_03/resultat.png"
     },
     {
-      "jobb": "fig229_01",
-      "sha256": "b3b25af37e5368210dbacb4557380f958a44142e8654fbf47773d60681b16ae8",
-      "resultat": "jobber/fig229_01/resultat.png"
+      "jobb": "fig126_04",
+      "sha256": "e23506ea1b457eded8f63a675c1451fe39f572f36b440f293134f6b93d71a009",
+      "resultat": "jobber/fig126_04/resultat.png"
     },
     {
-      "jobb": "fig073_07",
-      "sha256": "a6ac0d431c8dddc83aae37563fbdb56b4cd4594c7f090633208abed2b0a89b2c",
-      "resultat": "jobber/fig073_07/resultat.png"
+      "jobb": "fig126_05",
+      "sha256": "002ce188b39ea84a1d2dcc19dcdf472c56b12376d2f407735fc4dc37dffa6766",
+      "resultat": "jobber/fig126_05/resultat.png"
     },
     {
-      "jobb": "fig053_06",
-      "sha256": "9e0d1080dd2dd91f1e893dc7fad805e7a280a6797eb505e2cea91e09da54e3a7",
-      "resultat": "jobber/fig053_06/resultat.png"
+      "jobb": "fig229_02",
+      "sha256": "5495810c8977be1b32537c3cbd87c705a77ec5cf862b40b2417206f2e1aef13f",
+      "resultat": "jobber/fig229_02/resultat.png"
     },
     {
-      "jobb": "fig126_01",
-      "sha256": "27ad4379fe4d5eab3322b6133c260f3bb947162f5ffe1b8b88c045207369ad4d",
-      "resultat": "jobber/fig126_01/resultat.png"
+      "jobb": "fig069_02",
+      "sha256": "50d5e7197176584014dd4fb798fafaf231bd88462b0cf1f9d1860235034c970a",
+      "resultat": "jobber/fig069_02/resultat.png"
     }
   ],
   "kontrollgrunnlag": {
-    "preflight": "rapporter/samarbeid-20261010/brink-kontroll-del20/root-preflight.json",
-    "faktisk_import": "rapporter/samarbeid-20261010/brink-kontroll-del20/tested-v2-import.json",
-    "rutekart": "rapporter/samarbeid-20261010/brink-kontroll-del20/tested-v2-rutekart.json",
-    "original_RGBA": "rapporter/samarbeid-20261010/brink-kontroll-del20/actual-original-RGBA.json"
+    "preflight": "rapporter/samarbeid-20261010/brink-kontroll-del21/root-preflight.json",
+    "faktisk_import": "rapporter/samarbeid-20261010/brink-kontroll-del21/tested-v2-import.json",
+    "rutekart": "rapporter/samarbeid-20261010/brink-kontroll-del21/tested-v2-rutekart.json",
+    "original_RGBA": "rapporter/samarbeid-20261010/brink-kontroll-del21/actual-original-RGBA.json"
   },
   "kodekontroll_prioritet": [
     {
       "jobb": "costume230_002",
       "feil": "Ren teknisk magenta blir synlig som originalfallback; native har ingen magenta.",
       "bevis": "brink-kontroll-del19/magenta-root-verifisert.json"
+    },
+    {
+      "jobb": "costume126_087",
+      "feil": "Blandet originalfragment har20 ekte og3 tekniske magentapiksler; fallback importerer119 magentafargede HD-piksler vedR/B>200,G<128,A>0. Behold ekte kunst og filtrer markorene.",
+      "bevis": "brink-kontroll-del21/126087-root-verifisert.json"
     },
     {
       "jobb": "fig137_06",

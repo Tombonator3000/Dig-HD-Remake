@@ -1,0 +1,39 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character (Ludger Brink), in different poses. On this sheet, row by row from left to right: animation 6, facing right (23 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+TOM-AUTHORIZED SOURCE-FAITHFUL STYLE/IDENTITY CORRECTION,10 OCTOBER2026. Use case: style-transfer.
+Image ONE is the exact source and controls every actual pose, view, complete/incomplete body part, object, palette and layout. Image TWO is ONLY approved Brink face identity: lean older scientist, long narrow angular face, long straight nose, narrow chin, straw-blond hair and drawn smooth finish. The face crop does not control body pose, clothes, green/dark scene lighting or colors. Source RGBA always overrides old character labels and any default outfit description. Never turn a source object/effect into a man. No invented cargo pockets, emblems, ornaments, tears, body completion or modern equipment.
+Preserve the source-specific clothing and all source-visible tiny rectangular violet fabric chest patches on their exact original viewer-side. No round pin. Do not add a patch where obscured or absent. Keep the same anatomical identity, head size, skull, hairline, eyes and neck within a viewing direction; talking changes the lips/jaw only. Keep every individual original gesture/mouth phase. In back views preserve the back of head, never add frontal eyes or a face.
+Do not mistake genuine dark, gray, gold, pink or white separate source pieces for bright magenta game shadow-marker pixels. Keep genuine parts tiny and incomplete exactly as shown. Only bright magenta technical shadow markers are omitted. Every touching multi-character source cell remains ONE composite cell with its exact internal relative size/position. Separate source cells must remain separate, in source order.
+Exactly1536x1024 RGBA, true transparent background and smooth edges. Keep the original occupied area, free margins and all blank canvas, do not enlarge or center sparse sheets. No cyan/gray background or border, floor/cast shadow, new glow absent from source, labels, grid, watermark or stray colored debris.
+
+SOURCE LIGHTING VARIANT: Brink in green scene light. Preserve the actual olive/yellow-green skin and hair, muted green-gray open jacket, dark teal shirt, brown ochre trousers, navy boots, source shadows. Never restore healthy peach skin/neutral gray or neon orange, never invent zombie wounds or damage. Face identity only follows the approved crop.
+
+EXACT MAIN SOURCE ROWS [9, 10, 4] = 23 cells, not necessarily that many complete people. 0 additional technical tiny fragments stay original fallback, never enlarged.
+Row1: costume069_001, costume069_002, costume069_003, costume069_004, costume069_005, costume069_006, costume069_007, costume069_008, costume069_009 in this exact source order.
+Row2: costume069_010, costume069_011, costume069_012, costume069_013, costume069_014, costume069_015, costume069_016, costume069_017, costume069_018, costume069_019 in this exact source order.
+Row3: costume069_020, costume069_021, costume069_022, costume069_023 in this exact source order.
+
+ACTUAL RGBA BADGE/WEAR CORRECTION: row1 all nine chests are unmarked in the original, no violet/blue badge anywhere in row1. Row2 columns1,2,6 are unmarked/occluded too; only row2 columns3,4,5,7,8,9,10 and row3 columns1..4 show a tiny deep blue square (source RGB0,0,99), on its exact visible side. Do not impose a badge on every man. Image THREE is an unretouched own-target trouser detail, not a pose donor: genuine small vertical ochre/olive-centered open wear hole, dark brown edges. Preserve this existing tear where visible. It is NOT a cargo pocket, no flap/button/sewn pouch, no white center. Keep each green-lit face and every arm gesture exact from image ONE.
