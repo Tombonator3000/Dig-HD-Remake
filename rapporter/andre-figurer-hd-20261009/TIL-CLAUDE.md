@@ -85,3 +85,7 @@ Gruppe 40: sporing-del40.json, filkontroll-del40.json og rutekart-del40.json fø
 Gruppe 41: sporing-del41.json, filkontroll-del41.json og rutekart-del41.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
 
 Gruppe 42: sporing-del42.json, filkontroll-del42.json og rutekart-del42.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
+
+Kildeavklaring: se KILDEAVKLARING-EFFEKTER.md og maskelignende-kilder.json for 29 maskelignende ark. Ikke importer de tilbakeholdte fig092-forsøkene som blå kuler i originale tomrom. Fig122_12 til _20 venter kildeklassifisering. Dette er ikke et manglende omfangssamtykke.
+
+Gruppe 43: sporing-del43.json, filkontroll-del43.json og rutekart-del43.json følger de nye arkene. Bevar native alfa og undersøk originalfragmentene. Rutekartene gir ikke sikre ankere eller autorisasjon til å bruke hard originalmaske. Ingen runtime-test er utført her.
