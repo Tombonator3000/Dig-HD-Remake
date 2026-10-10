@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:29:52.071035+00:00",
+ "oppdatert_utc": "2026-10-10T00:31:57.238131+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 168,
+ "antall": 174,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -4718,6 +4718,154 @@
      "piksler_over_0": 14093,
      "maks": 122,
      "piksler_over_16": 701
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig301_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "03036507945885722e958a8e6a5a59a9112d04612bc0923facf64c7b30c2662e",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native arket legger en tydelig rød rektangulær ramme rundt den avkuttede blå steinformen. Rammen finnes ikke i originalen; antall og alfa kan bestå selv om dette innholdet er feil.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 663,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig302_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d5ef6068a0c83cb46a1aa4d150a17e82687a5d0d3bb92bb71c22db155d4bc643",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Mange små originale figur- og delruter er ikke sikkert gjenfunnet. Native telling 69 mot 86 tegnede originalruter. Ingen sikker full rutekobling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     13,
+     21,
+     25,
+     23,
+     3
+    ],
+    "native_rader": [
+     18,
+     23,
+     25,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 8959,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig304_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "6ddc53ab9e692819e7bf507924ed86978fda37daadf28e7b5579f96552e499c1",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen er hvit tekst Thrust og små hvite streker. Native kandidaten erstatter disse med tolv komplette gående menn. Motividentiteten er feil.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     9
+    ],
+    "native_rader": [
+     12
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 3489,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig320_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e0e446b2aca4b89815df88db3439714487e987b3a6a9c9249805538a9ef9747e",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen er fire åpne svarte linjetegninger med rektangulære rammer og indre ovaler. Native kandidaten tegner fire tette, opake metallovaler og fjerner den åpne strukturen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 3590,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig322_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e54b05cba1c7418feb7c3d879bf5670631c3afd195a0f86bd0f55d5f97b1c49a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen har tre tegnede ruter: stor kompositt og to tynne lyse løse deler, pluss en liten originaldel. Native kandidaten viser bare kompositten. De to lyse delene er ikke påvist.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 1870,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig323_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "21694d16c640655aeb87561d2850d635f1436cd771e61c1cd0c16a60ddc54681",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen har pyramiden og en separat tynn lys strek. Native kandidaten viser bare pyramiden. Den løse streken mangler.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2337,
+     "maks": 2,
+     "piksler_over_16": 0
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
