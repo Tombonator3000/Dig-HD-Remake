@@ -4102,63 +4102,71 @@
   },
   {
    "jobb": "fig016_28",
-   "attempt": 2,
-   "prompt": "Edit the FIRST attached finished sprite sheet with ONE costume correction throughout. The SECOND image is the original source for the correct clothing. Keep every character, head, headless torso, face, pose, gesture, direction, silhouette, scale, position, spacing and row count unchanged. Keep the same smooth detailed hand-drawn HD quality and native antialiased RGBA alpha.\n\nThe orange trousers have INTACT FABRIC in this costume. Remove ALL torn holes, exposed skin, ripped knees, pale/white/gray patches on the knees and torn edges in EVERY body on the sheet. Paint those regions as unbroken orange trouser fabric with the existing natural folds and shading. Both knees must be covered by continuous orange cloth, on every body and in every view. Do not leave a single white spot or exposed skin patch on any knee. The small original flat ochre cargo-pocket tab at the upper right thigh may remain flat ochre, and is NOT a skin hole. Do not introduce new marks.\n\nDo not change any other clothing, heads, hands, boots or details. Preserve headless bodies as headless and detached heads as detached. Preserve all counts and their exact order: 3,4,2. Transparent background, no glow, shadows, grid, text or background. Exactly 1536 x 1024 RGBA, full uncropped original layout.\n\nAll empty areas must have actual alpha zero, with no colored halo or atmosphere. Only the trouser knee fabric should change.\n",
+   "kostyme": 16,
+   "figur": "Ludger Brink",
+   "source_variant": "Variant: rift i buksa. Settes i de samme skriptene som 15 og 17",
+   "resultat": "jobber/fig016_28/resultat.png",
+   "sha256": "a0aa352112e96c6ac301e318f9e60cda41038d9d93adbf3127abb43fe7e1216e",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-ea98814f-0552-4b38-8c9f-3e1d8320fb60.png",
+   "attempts": 1,
    "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_28/resultat.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_28/referanse.png"
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_28/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-front-crop.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-profile-crop.png"
    ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig016_28-forsok1.txt",
    "rows": [
     3,
     4,
     2
    ],
+   "expected": 9,
    "fragments": 1,
-   "correction": "hele bukseknær, original kostymedetalj",
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a6f222a6-8d99-4df7-83d8-b97e7f7c67ce.png",
-   "erstatter_sha256": "03b30f85f3480b8cc38dc3c84a21d3b4736bf63443a63493acf486afa0b6925e",
-   "figure": "Ludger Brink",
-   "attempts": 2,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a6f222a6-8d99-4df7-83d8-b97e7f7c67ce.png",
-   "sha256": "b5d1eeb72aed0add13c977ca99eededc97b70579218e8302abae8c1f5885f508",
    "originalruter": 10,
-   "resultat": "jobber/fig016_28/resultat.png",
+   "erstatter_sha256": "b5d1eeb72aed0add13c977ca99eededc97b70579218e8302abae8c1f5885f508",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "f569bc26d7bf00ef5ce699029ae99a230371483f43841149212f59d023323a7d",
     "original_1x.png": "139cb43e74578d2b799dd1894bb8b2a5b07c829084fe56ca43ca3471498bb4b8",
-    "prompt.txt": "8306ed231f8082e9a00873003d74ec56233ca70179aa21065e27832a03eec1d4",
-    "jobb.json": "0631c416c398f623f1fd35db58ecfd6005df334afd9071e55af0ce0e502badc8"
-   }
+    "prompt.txt": "fe6d284578b4dcbe5b09abd65c90ba10c678df376f0cbb428579648838f0860d",
+    "jobb.json": "bb332ec93fc61622e3326ec98c4b097277db8adfbd71b34e7aca9d18faac1964"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig016_30",
-   "attempt": 2,
-   "prompt": "Edit the FIRST attached finished sprite sheet with ONE costume correction throughout. The SECOND image is the original source for the correct clothing. Keep every character, head, headless torso, face, pose, gesture, direction, silhouette, scale, position, spacing and row count unchanged. Keep the same smooth detailed hand-drawn HD quality and native antialiased RGBA alpha.\n\nThe orange trousers have INTACT FABRIC in this costume. Remove ALL torn holes, exposed skin, ripped knees, pale/white/gray patches on the knees and torn edges in EVERY body on the sheet. Paint those regions as unbroken orange trouser fabric with the existing natural folds and shading. Both knees must be covered by continuous orange cloth, on every body and in every view. Do not leave a single white spot or exposed skin patch on any knee. The small original flat ochre cargo-pocket tab at the upper right thigh may remain flat ochre, and is NOT a skin hole. Do not introduce new marks.\n\nDo not change any other clothing, heads, hands, boots or details. Preserve headless bodies as headless and detached heads as detached. Preserve all counts and their exact order: 3,3,3. Transparent background, no glow, shadows, grid, text or background. Exactly 1536 x 1024 RGBA, full uncropped original layout.\n\nAll empty areas must have actual alpha zero, with no colored halo or atmosphere. Only the trouser knee fabric should change.\n",
+   "kostyme": 16,
+   "figur": "Ludger Brink",
+   "source_variant": "Variant: rift i buksa. Settes i de samme skriptene som 15 og 17",
+   "resultat": "jobber/fig016_30/resultat.png",
+   "sha256": "a9b8240ea60fd5f12bdefa094e2f63e26864c252991dc94e18cdd736e1db2ee6",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-eeb0087a-fe06-46f7-9f6b-7f5bbb893ab3.png",
+   "attempts": 1,
    "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_30/resultat.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_30/referanse.png"
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig016_30/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-front-crop.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-profile-crop.png"
    ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig016_30-forsok1.txt",
    "rows": [
     3,
     3,
     3
    ],
+   "expected": 9,
    "fragments": 0,
-   "correction": "hele bukseknær, original kostymedetalj",
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9a2b7e2d-91a8-494e-b1cb-a0c1f073d1b2.png",
-   "erstatter_sha256": "3237560246f9b4a6b9f670077700b1bfc16cd9326d5f163977312e582db5aa17",
-   "figure": "Ludger Brink",
-   "attempts": 2,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-9a2b7e2d-91a8-494e-b1cb-a0c1f073d1b2.png",
-   "sha256": "b91e3edafe8c0263c29d75dfc04e901681c88e2d34feff2fe62f419b6ebd6610",
    "originalruter": 9,
-   "resultat": "jobber/fig016_30/resultat.png",
+   "erstatter_sha256": "b91e3edafe8c0263c29d75dfc04e901681c88e2d34feff2fe62f419b6ebd6610",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "47b909b7879804ed182770f7e400e53f12cbb08ca37308bbac5669e909331de2",
     "original_1x.png": "7a8cd7d28e9ac3a00ab7fbc16d10079b9bdc0182e75d18963ae3a90bc5d449df",
-    "prompt.txt": "4d2fd7bf63f41b8c1925ab0e4142d22edf7ffb223f94872f98d8b4a0bd7938dd",
-    "jobb.json": "b6ffeaf5dafa29c3a1749a9ba9918a850afe4a32df61d2fff91ac774a894566a"
-   }
+    "prompt.txt": "97651501e66c5fd307e40d91086e3f81aa024fd70f74c183681c19d52b95eb16",
+    "jobb.json": "8542369689fc6d31c0cb6d0c0d0f98808786b7dbd16d3d0b882b4e117196f94b"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig016_33",
@@ -6030,60 +6038,76 @@
   },
   {
    "jobb": "fig073_04",
-   "attempt": 1,
+   "kostyme": 73,
+   "figur": "Ludger Brink",
+   "source_variant": "Egne hoder og kropp",
+   "resultat": "jobber/fig073_04/resultat.png",
+   "sha256": "875e898b86ea7f014717c396614db4142c5be752e60748c5913e367fd9ca0f2b",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-7f380ff0-e071-4562-8504-16f875f87279.png",
+   "attempts": 1,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_04/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/fig073_04-actual-source-count-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig073_04-forsok1.txt",
    "rows": [
     7,
     1,
-    6,
+    1,
     5
    ],
-   "fragments": 0,
-   "prompt": "Use case: style-transfer. Asset: smooth detailed HD animation sheet fig073_04, exactly1536x1024 RGBA.\nImage1 is the ORIGINAL source EDIT TARGET for every pose, direction, piece type, headless state and order. Image2 is ONLY the approved smooth detailed character style and costume anchor; do not copy its poses or layout.\nRedraw every source piece faithfully with the detailed hand-drawn illustrated contours, crisp facial anatomy, expressive mouth frames, individual fingers, fabric folds/seams and constructed boots of image2. Keep original body width and proportions. Preserve torso/head separation and every distinct animation phase.\n\nFOUR rows of frame entries with counts7,1,6,5. Top SEVEN bodies: first HEADED FRONT-RIGHT, next FOUR HEADLESS turning from front-right toward side/right and moving hand forward, sixth HEADED bent-knee FRONT-RIGHT, seventh HEADLESS bent-knee FRONT-RIGHT. Second row ONE HEADLESS bent-knee FRONT-RIGHT body. Third row SIX loose anatomy pieces: ONE small detached HAND, ONE detached blond HEAD, then FOUR more small detached HANDS, in that exact order. All FIVE small hand pieces are legitimate anatomy, render them clearly around30px high, do not discard or turn into heads. Bottom FIVE walking bodies: first TWO HEADED FRONT-RIGHT, last THREE HEADLESS BACK/BACK-LEFT. Preserve the intentional headless bodies.\n\nHEALTHY Ludger Brink: swept blond hair, angular mature long-nosed face, cool-gray open full-sleeve jacket with dark navy T-shirt visible at front, small violet/blue chest patch, orange loose trousers, black calf boots. Broad shoulders and stocky original proportions. BOTH knees are continuous intact orange cloth. No ripped holes, white patches or exposed knee skin.\n\nExact row counts 7,1,6,5, total19 larger frame entries plus 0 tiny original fragments. Clearly separated non-touching pieces and rows. Detached heads stay detached, headless bodies stay headless, loose hands stay hands. Full sheet uncropped. Native genuine transparency: empty canvas and every gap alpha0, opaque subject interiors and narrow smooth antialiased contour. Remove cyan/magenta guides; no background, gray mat, haze, gradient, shadow, glow, floor, text, grid, blur, nearest-neighbor pixel stairs or3D. Do not add or omit figures. 1536 x 1024 RGBA.\n",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_04/referanse.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-98cc087f-f691-46d3-8916-45fabb6a3bf8.png",
-   "figure": "Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-98cc087f-f691-46d3-8916-45fabb6a3bf8.png",
-   "sha256": "0edecef9b2a1234f93357506f441040fe8dc65cf48b1bb0e83de1845f7b4e1d2",
+   "expected": 14,
+   "fragments": 5,
    "originalruter": 19,
-   "resultat": "jobber/fig073_04/resultat.png",
+   "erstatter_sha256": "0edecef9b2a1234f93357506f441040fe8dc65cf48b1bb0e83de1845f7b4e1d2",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "69c520200ca0c7e91ae57223674af5c828ec20beea237b7a3d50f829458c928e",
     "original_1x.png": "bfe4c1c78926c65dd703d39be3f50b0672496bda967cf2389c623dacb7caf707",
-    "prompt.txt": "472dd2fdbb6be4394045eb3282ba9fc3ac97af2cfbb69915fbc4b8d382f0ddad",
-    "jobb.json": "f0788f1205d9614fa467937ebc17f0b6558c811eb0b57dad2ae47640e8507006"
-   }
+    "prompt.txt": "3e4ce13fea45a9b032bf6ad9f7154ca5f1967de3da116b2026967b2f1e358f13",
+    "jobb.json": "b933f4b41736ce5ff129c932d0be09f851b2d7d55b7ab303e7bbef42c4bcb663"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig188_02",
-   "attempt": 1,
+   "kostyme": 188,
+   "figur": "Ludger Brink",
+   "source_variant": "Som 17, egne hoder",
+   "resultat": "jobber/fig188_02/resultat.png",
+   "sha256": "57626d3a5ffe4a6b03a879c5fac021be4c16f5aa660a76462ad99e826b3cd93a",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-cce7b528-74c2-4e99-955e-74c411c86632.png",
+   "attempts": 2,
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-de9cbc65-15cf-42d9-a4cb-1ece23773672.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_02/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/fig188-original-head-palette-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig188_02-forsok2.txt",
    "rows": [
     5,
     5,
     1
    ],
+   "expected": 11,
    "fragments": 0,
-   "prompt": "Use case: style-transfer. Asset: smooth detailed HD animation sheet fig188_02, exactly1536x1024 RGBA.\nImage1 is the ORIGINAL source EDIT TARGET for every pose, direction, piece type, headless state and order. Image2 is ONLY the approved smooth detailed character style and costume anchor; do not copy its poses or layout.\nRedraw every source piece faithfully with the detailed hand-drawn illustrated contours, crisp facial anatomy, expressive mouth frames, individual fingers, fabric folds/seams and constructed boots of image2. Keep original body width and proportions. Preserve torso/head separation and every distinct animation phase.\n\nTHREE rows. Top FIVE HEADED FRONT-RIGHT bodies progressively lowering bent arms from fists near chest to relaxed stance. Middle FIVE HEADED FRONT-RIGHT relaxed stance/turn bodies. Bottom ONE HEADLESS FRONT-RIGHT stance body. Do not add a head to bottom body. Preserve angular mature weathered face and jacket front.\n\nDIRTY Ludger Brink: swept blond hair, pallid mature angular long-nosed weathered face, dark charcoal-gray open jacket and dark navy T-shirt, muted burnt-orange loose trousers, black calf boots. Broad original shoulders and stocky build, subtle grime/stubble, not clean gray-jacket Brink. Both knees remain intact cloth, no holes or pale patches.\n\nExact row counts 5,5,1, total11 larger frame entries plus 0 tiny original fragments. Clearly separated non-touching pieces and rows. Detached heads stay detached, headless bodies stay headless, loose hands stay hands. Full sheet uncropped. Native genuine transparency: empty canvas and every gap alpha0, opaque subject interiors and narrow smooth antialiased contour. Remove cyan/magenta guides; no background, gray mat, haze, gradient, shadow, glow, floor, text, grid, blur, nearest-neighbor pixel stairs or3D. Do not add or omit figures. 1536 x 1024 RGBA.\n",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_02/referanse.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-138d057d-d539-49cc-9294-7457569fcb4b.png",
-   "figure": "Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-138d057d-d539-49cc-9294-7457569fcb4b.png",
-   "sha256": "2e77a0bac6e4e3e714e513d1f8ec9fb4e13b2c914c56968f9f514d6d84385215",
    "originalruter": 11,
-   "resultat": "jobber/fig188_02/resultat.png",
+   "erstatter_sha256": "2e77a0bac6e4e3e714e513d1f8ec9fb4e13b2c914c56968f9f514d6d84385215",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "71e7af3a6109ac4a5f681a42fc721460abd0eb19e11d28b00414f701cd7d0a45",
     "original_1x.png": "962c8e3464e62f1de8f0e1522bba1b2483e16f252fa75162cca3b4ec4d4e794c",
-    "prompt.txt": "7e479fdfdbfe32f8e9867997f131f7206aee365fc431d06a2f47be22df214f1e",
-    "jobb.json": "3ba0ff8c9b874fecd22b0c033563c534f4eaa302719e4a190dd17628587bde37"
-   }
+    "prompt.txt": "68e69d376fe793ca23513aabace56ae5a8a66616aabd3a947fd06e6ae5689138",
+    "jobb.json": "874f1bba4993c95882279bd1605239d54f4db38b13c4bb07bcf55f39e2afca20"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig068_02",
@@ -6282,59 +6306,75 @@
   },
   {
    "jobb": "fig073_05",
-   "attempt": 1,
+   "kostyme": 73,
+   "figur": "Ludger Brink",
+   "source_variant": "Egne hoder og kropp",
+   "resultat": "jobber/fig073_05/resultat.png",
+   "sha256": "66e3282a4e6dff5e2f65e4c86c1019a74c0dd78a9e2c6e38ee265fa6aec5a879",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-032f7baf-a9e3-4027-b292-46e9b8a00cf8.png",
+   "attempts": 2,
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-bef0f512-0b04-4ddc-866a-cc268092745a.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_05/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/fig073_05-actual-source-count-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig073_05-forsok2.txt",
    "rows": [
     7,
     1,
     5
    ],
+   "expected": 13,
    "fragments": 0,
-   "prompt": "Use case: style-transfer. Asset: smooth detailed HD character animation sheet fig073_05. Exactly1536x1024 RGBA.\nImage1 is ORIGINAL EDIT TARGET for poses, piece counts, original order, headless states and orientation. Image2 is ONLY the approved smooth detailed illustrated identity/costume reference. Where image3 is present it is the Maggie style reference only. Do not copy poses/layout from style images.\nRedraw the source precisely in that smooth hand-drawn HD style: crisp detailed faces, hair strands, expressive lips, individual fingers, fabric construction/folds/seams and detailed boots. Preserve original wide body proportions, not stretched skinny people. Retain clipped bodies, loose anatomy and different animation phases.\n\nTHREE rows: top SEVEN Brink bodies, first HEADED FRONT-LEFT, next FOUR HEADLESS FRONT-LEFT, sixth HEADED bent-knee FRONT-LEFT, seventh HEADLESS bent-knee FRONT-LEFT. Middle ONE HEADLESS bent-knee FRONT-LEFT body. Bottom FIVE walkers, first TWO HEADED FRONT-LEFT, last THREE HEADLESS BACK/BACK-RIGHT. Preserve direction toward LEFT and source headless states.\n\nHealthy Ludger Brink: swept blond hair, mature angular long-nosed face, broad shoulders/stocky source build, cool-gray full-sleeve open jacket, dark navy T-shirt, small violet-blue chest patch, loose orange trousers, black calf boots. Both knees intact orange cloth; no ripped knees, pale patches or exposed skin.\n\nExact row counts 7,1,5, total13 larger frame entries and0 tiny source fragments. Keep non-touching pieces, clear row separation and original left-to-right order. Headless bodies stay headless, loose hands stay hands, detached heads stay heads. Source flat tiny fragments are retained from original on import, never inflate them into extra heads/people. Remove cyan/magenta guides and gray guide patches. Full uncropped1536x1024, genuine native transparency, empty canvas/gaps alpha0, opaque subject interiors with narrow smooth antialiased edge. No background, colored haze, gray wash, glow, cast shadow, floor, grid, text, numbers, blur, pixel stairs or3D.\n",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_05/referanse.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-dce4d243-fee9-4d9b-a6db-9d98a2cf6272.png",
-   "figure": "Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-dce4d243-fee9-4d9b-a6db-9d98a2cf6272.png",
-   "sha256": "84edacb221acf7bbfb22270c3069a9002d64e69e675f6341a64a6a9d2b1c9869",
    "originalruter": 13,
-   "resultat": "jobber/fig073_05/resultat.png",
+   "erstatter_sha256": "84edacb221acf7bbfb22270c3069a9002d64e69e675f6341a64a6a9d2b1c9869",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "4b5be07bed98590304fbe7d66676fc865d27efb7e31f16944034832efb850903",
     "original_1x.png": "d7b5a67b5fb4e879b9e4ac94f538f7047d0af035a67778f2a510ce38c6200390",
-    "prompt.txt": "abdcbcd4322f6e198f0acd0dbfc7c10e99ecc3cd3b4334d215d7ce553f80c02b",
-    "jobb.json": "283160f82ec4a9b4d059ea963582142272d6e8235586eacef0e4fc8ceed7295b"
-   }
+    "prompt.txt": "9cb5353ac8b4dafc9a2c4d1782c50882547b8f2c73604b73629f29802294d36d",
+    "jobb.json": "b9ae62b99fc9d6cd40f1c6d16335ab4237f48eccfe802df6e2971e2b09573a5c"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig073_06",
-   "attempt": 1,
+   "kostyme": 73,
+   "figur": "Ludger Brink",
+   "source_variant": "Egne hoder og kropp",
+   "resultat": "jobber/fig073_06/resultat.png",
+   "sha256": "2e884436e8c2db9ed457a9c56491437eeac16bc2d3235b730ff5583847e7216b",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-1fe0e8f7-6a78-4812-b3a8-1f47327102ed.png",
+   "attempts": 1,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_06/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/fig073_06-actual-source-count-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig073_06-forsok1.txt",
    "rows": [
     4,
     1,
     1
    ],
+   "expected": 6,
    "fragments": 0,
-   "prompt": "Use case: style-transfer. Asset: smooth detailed HD character animation sheet fig073_06. Exactly1536x1024 RGBA.\nImage1 is ORIGINAL EDIT TARGET for poses, piece counts, original order, headless states and orientation. Image2 is ONLY the approved smooth detailed illustrated identity/costume reference. Where image3 is present it is the Maggie style reference only. Do not copy poses/layout from style images.\nRedraw the source precisely in that smooth hand-drawn HD style: crisp detailed faces, hair strands, expressive lips, individual fingers, fabric construction/folds/seams and detailed boots. Preserve original wide body proportions, not stretched skinny people. Retain clipped bodies, loose anatomy and different animation phases.\n\nTHREE rows: top FOUR HEADLESS FRONT-RIGHT Brink bodies, first arms down, other three gesturing forearm/palm forward toward RIGHT. Middle ONE HEADLESS FRONT-RIGHT body continuing gesture. Bottom ONE HEADLESS FRONT-RIGHT body continuing palm-up gesture. No heads anywhere on this sheet. Do not invent detached heads.\n\nHealthy Ludger Brink: swept blond hair, mature angular long-nosed face, broad shoulders/stocky source build, cool-gray full-sleeve open jacket, dark navy T-shirt, small violet-blue chest patch, loose orange trousers, black calf boots. Both knees intact orange cloth; no ripped knees, pale patches or exposed skin.\n\nExact row counts 4,1,1, total6 larger frame entries and0 tiny source fragments. Keep non-touching pieces, clear row separation and original left-to-right order. Headless bodies stay headless, loose hands stay hands, detached heads stay heads. Source flat tiny fragments are retained from original on import, never inflate them into extra heads/people. Remove cyan/magenta guides and gray guide patches. Full uncropped1536x1024, genuine native transparency, empty canvas/gaps alpha0, opaque subject interiors with narrow smooth antialiased edge. No background, colored haze, gray wash, glow, cast shadow, floor, grid, text, numbers, blur, pixel stairs or3D.\n",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_06/referanse.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig073_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-3a1d27c0-3a6d-4e85-bbb0-1a2e384938ca.png",
-   "figure": "Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-3a1d27c0-3a6d-4e85-bbb0-1a2e384938ca.png",
-   "sha256": "4c2e2f84389380c553a78f43fe6226be42096687f07d96eeb170620c97841526",
    "originalruter": 6,
-   "resultat": "jobber/fig073_06/resultat.png",
+   "erstatter_sha256": "4c2e2f84389380c553a78f43fe6226be42096687f07d96eeb170620c97841526",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "a1503521c7e4045bfdb1f8d4e026336f11b2ca631a161036b17806e2cccd8339",
     "original_1x.png": "eddbe10f0fca53ddbb598d3ff80cf1160ebcabd500c83d43a8e2cf3dfccdfba0",
-    "prompt.txt": "2e878454b963cdbda4b4faa6f488350091096d99dd5066f8e5ff56eca4904f74",
-    "jobb.json": "afd3805fbcc944f02ffef51829dfdb3b01f0d3f3a677c32810f0affc09f57e60"
-   }
+    "prompt.txt": "0778fe26bf7583f3f7eb377c2eb0b36bfb9f9aab0016f029902d9c80e922ddd0",
+    "jobb.json": "aaf267ee98ba636d50e6aff836533e0b3bc27342dafca34ca9671230ac36b9cf"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig073_07",
@@ -6668,30 +6708,38 @@
   },
   {
    "jobb": "fig188_03",
-   "attempt": 1,
+   "kostyme": 188,
+   "figur": "Ludger Brink",
+   "source_variant": "Som 17, egne hoder",
+   "resultat": "jobber/fig188_03/resultat.png",
+   "sha256": "3044f920b4b89b81c0b623187370cdba1490b114d2e737a552bb0397eadc119f",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-37984b4b-5864-4c16-81a1-7b83b0c2a586.png",
+   "attempts": 2,
+   "refs": [
+    "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-2951cb84-2066-4844-a467-c7648bc5da44.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_03/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-073188/fig188-original-head-palette-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig188_03-forsok2.txt",
    "rows": [
     1,
     1
    ],
+   "expected": 2,
    "fragments": 1,
-   "prompt": "Use case: style-transfer. Asset: smooth detailed HD animation sheet fig188_03, exactly1536x1024 RGBA.\nImage1 is the ORIGINAL source EDIT TARGET for every pose, direction, piece type, headless state and order. Image2 is ONLY the approved smooth detailed character style and costume anchor; do not copy its poses or layout.\nRedraw every source piece faithfully with the detailed hand-drawn illustrated contours, crisp facial anatomy, expressive mouth frames, individual fingers, fabric folds/seams and constructed boots of image2. Keep original body width and proportions. Preserve torso/head separation and every distinct animation phase.\n\nTWO rows of ONE body each. Top ONE HEADLESS FRONT-RIGHT stance body, arms at sides. Bottom ONE HEADED FRONT-RIGHT stance body, mature weathered face. One tiny original fragment stays tiny, not an added body or head. Do not complete the headless top body.\n\nDIRTY Ludger Brink: swept blond hair, pallid mature angular long-nosed weathered face, dark charcoal-gray open jacket and dark navy T-shirt, muted burnt-orange loose trousers, black calf boots. Broad original shoulders and stocky build, subtle grime/stubble, not clean gray-jacket Brink. Both knees remain intact cloth, no holes or pale patches.\n\nExact row counts 1,1, total2 larger frame entries plus 1 tiny original fragments. Clearly separated non-touching pieces and rows. Detached heads stay detached, headless bodies stay headless, loose hands stay hands. Full sheet uncropped. Native genuine transparency: empty canvas and every gap alpha0, opaque subject interiors and narrow smooth antialiased contour. Remove cyan/magenta guides; no background, gray mat, haze, gradient, shadow, glow, floor, text, grid, blur, nearest-neighbor pixel stairs or3D. Do not add or omit figures. 1536 x 1024 RGBA.\n",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_03/referanse.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig188_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-df406269-bf86-4e81-ada3-1a1564b059fa.png",
-   "figure": "Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-df406269-bf86-4e81-ada3-1a1564b059fa.png",
-   "sha256": "d15a48d95801de5cae2bdc65a843b83cf66f3886ed79d40d8e4137e14a3b5e31",
    "originalruter": 3,
-   "resultat": "jobber/fig188_03/resultat.png",
+   "erstatter_sha256": "d15a48d95801de5cae2bdc65a843b83cf66f3886ed79d40d8e4137e14a3b5e31",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "aeccbc3f4147de1271f33fd42308c2cb78ac742743cf23b7265060a13fc31899",
     "original_1x.png": "e2e45b28ce33df4ce8702da121997f03435eaa1179247306c50fbd40f470336a",
-    "prompt.txt": "84791d0661b678cf1058e1df055fb534767d6269f39f6c7e472ea18f1f7f6d70",
-    "jobb.json": "96bed954ff43cd60ce5705092c9684e37a077bad43cf66cbde0af5fcf3470fe3"
-   }
+    "prompt.txt": "b106c6a78641040c9b2374b9da1cf1205651008d04f83fcbaa158b13f5f6af3f",
+    "jobb.json": "4275a0cd8622dd1549bcce39c3626296955ede748d34340f24b50af6e4903e87"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig016_37",
@@ -6989,59 +7037,76 @@
   },
   {
    "jobb": "fig048_07",
-   "attempt": 2,
+   "kostyme": 48,
+   "figur": "Ludger Brink",
+   "source_variant": "Snakking og gester (hoder og overkropp)",
+   "resultat": "jobber/fig048_07/resultat.png",
+   "sha256": "849e3c95efb83ddcbda76ecabe94829e28aaac6ebf4c055b5be15013bb1ca39f",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-4181ce3f-bd76-4968-aae2-00bb212a2f15.png",
+   "attempts": 1,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_07/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-048/fig048_07-source-box-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig048_07-forsok1.txt",
    "rows": [
     9,
     5,
     22,
     7
    ],
+   "expected": 43,
    "fragments": 0,
-   "prompt": "Edit attached finished HD character sheet. Exactly1536x1024 RGBA. Make ONLY this targeted correction:\nTHIRD row has23 detached heads, must have22. Erase ONLY its last rightmost head near x1475,y786. Keep first22. All other rows9,5,7 unchanged, including detached head and headless body in row2. Native transparency.\nPreserve detailed smooth painted character style, original faces, clothes, all other pieces, their layout, size and poses. True transparent empty gaps alpha0, opaque interiors, native smooth antialias. No background, glow, haze, matte, floor, cast shadows, text, blur or added objects.",
-   "refs": [
-    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-7603eff0-3513-459d-9688-dd3df0cdd980.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-97eda91a-ac47-43ee-8da1-e52ec50a0a10.png",
-   "figure": "Ludger Brink",
-   "attempts": 2,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-97eda91a-ac47-43ee-8da1-e52ec50a0a10.png",
-   "sha256": "2c8d2822b075d3cdbcdc32ae910076a63505737d12e1f3f85381a5487dd0f5b1",
    "originalruter": 43,
-   "resultat": "jobber/fig048_07/resultat.png",
+   "erstatter_sha256": "2c8d2822b075d3cdbcdc32ae910076a63505737d12e1f3f85381a5487dd0f5b1",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "305c55914b01ef98e511cb8e8abb26bc37f577c934373e4d8c43a84c50f47563",
     "original_1x.png": "c17fe6bae4f0c5a57930431a238192d4da2595e57dae7eeade9dbc957850c760",
-    "prompt.txt": "b247836f1a0b8492f51c8805048722b2488d560a7c5232f8dec727711189d041",
-    "jobb.json": "5bdf27f0361ffc0d0261941421fa34c47c1428f369dd38c1c9a40362383f0e4b"
-   }
+    "prompt.txt": "203edc8394026498264de0fe356d7473c04e3c1d8bd272996e17a85e0e714a63",
+    "jobb.json": "91199a16619f4fd7816d0a53407cb61466ef6bcc43228338af95f62a0789f4ee"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig048_08",
-   "attempt": 1,
+   "kostyme": 48,
+   "figur": "Ludger Brink",
+   "source_variant": "Snakking og gester (hoder og overkropp)",
+   "resultat": "jobber/fig048_08/resultat.png",
+   "sha256": "977dce166551df2088e3efc91ebef08aeebebd57b4a821a050d655086f654176",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-e1731c96-e05a-4b53-8223-66766783a03d.png",
+   "attempts": 1,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_08/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/referanse.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-048/fig048_08-source-box-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig048_08-forsok1.txt",
    "rows": [
     6,
     9,
     5
    ],
+   "expected": 20,
    "fragments": 0,
-   "prompt": "Use case: style-transfer. Smooth detailed HD sprite sheet fig048_08. Exactly1536x1024 RGBA. Image1 is ORIGINAL EDIT TARGET, authoritative for poses, direction, all piece identities and order. Image2 is ONLY smooth illustrated identity/style reference; NEVER copy its poses/layout.\nRedraw image1 in approved smooth detailed hand-drawn HD style: natural facial detail, expressive mouth phases, individually drawn fingers, hair strands, clear folds, seams and detailed boots. Preserve original broad body proportions.\nHealthy Brink: strong blond middle-aged man, short golden blond hair, broad square mature jaw, robust original wide build. Light cool gray jacket over navy shirt with small blue chest patch, loose orange cargo trousers with INTACT orange knees, no tears/white patches/skin showing on legs; black boots.\nRow1 loose LEFT-facing head FIRST followed by FIVE headed FRONT-LEFT standing bodies. Row2 NINE headed FRONT-LEFT gesture bodies. Row3 THREE headed LEFT-facing bodies, then ONE detached head, then ONE HEADLESS left body. Keep ordering and headlessness.\nExact row counts 6,9,5, total 20 separately cuttable figure/anatomy entries. 0 tiny source fragments are handled separately from original on import, never inflate them into heads/people. Headless bodies remain headless, detached heads remain detached. Keep expressions and sequence. Clearly separated non-touching pieces, no missing/extra heads. Genuine transparent empty canvas alpha0, opaque subjects and narrow smooth antialiased contours. Remove cyan/magenta ground guides, all gray ovals/rectangles, detached colored marks. No floor, cast shadow, haze, glow, matte, background, text, numbers, blur, pixel stairs or3D. Full uncropped1536x1024.",
-   "refs": [
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_08/referanse.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_01/resultat.png"
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d1a5c446-060c-4b8c-8930-e0217541af3e.png",
-   "figure": "Ludger Brink",
-   "attempts": 1,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-d1a5c446-060c-4b8c-8930-e0217541af3e.png",
-   "sha256": "c2e496ba7878db9acda93abfdaa74aee207ee28a09a454793e1ca95e349a1640",
    "originalruter": 20,
-   "resultat": "jobber/fig048_08/resultat.png",
+   "erstatter_sha256": "c2e496ba7878db9acda93abfdaa74aee207ee28a09a454793e1ca95e349a1640",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "dc6f30500fe1bb73352d39ce8a39800b77a9aeedec7ab2b7d57bac0f1ea851a0",
     "original_1x.png": "1367635868870b69caeab79d136f30ded556edf61d0c4287c2f8a5266401fc8e",
-    "prompt.txt": "89f861a9b54711aab8b4f62b5aa843c17704d9285aa22bc9553599763c337b54",
-    "jobb.json": "9ea4c1022e3da005b07eb7e9df0a7ad1a0598720128525d47eb66ffc2281f9b6"
-   }
+    "prompt.txt": "f9c181ef40201b5cba3db59f035cc667d60c72a2b3d94000c1826cb662e54c50",
+    "jobb.json": "ff8ccdda70031ff3460177e1c2c16fe7bb6be1f9e6b969f510e2ac7a039d498b"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig048_10",
@@ -8923,302 +8988,40 @@
   },
   {
    "jobb": "fig048_09",
-   "attempt": 4,
+   "kostyme": 48,
+   "figur": "Ludger Brink",
+   "source_variant": "Snakking og gester (hoder og overkropp)",
+   "resultat": "jobber/fig048_09/resultat.png",
+   "sha256": "6129f713e0a3ff482e7600b4c50ecbc9881d63576153285305d52da5f71f7b1f",
+   "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-e8c27a2d-1eeb-4a39-9c4c-ab9a81f93518.png",
+   "attempts": 2,
+   "refs": [
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_09/referanse.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
+    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/hovedfigurer-hd-20261009/referanser/brink-konsept.jpeg",
+    "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-43543a58-9d4c-4352-8098-2f175410f0b7.png",
+    "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-048/fig048_09-source-box-guide.png"
+   ],
+   "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig048_09-forsok2.txt",
    "rows": [
     22,
     6,
     5,
     9
    ],
+   "expected": 42,
    "fragments": 0,
-   "prompt": "Use case: surgical sprite-sheet count correction. FIRST image is the existing detailed HD sheet to EDIT. SECOND is original source for pose and sequence. THIRD is the approved smooth detailed style only. Output exactly1536 x1024 native RGBA transparent. Keep FIVE visual rows. Top row currently THIRTEEN isolated heads: remove its two rightmost heads, leaving ELEVEN. Second row currently TWELVE heads: remove only its rightmost head, leaving ELEVEN. Third row stays SIX heads. Fourth row stays FIVE full bodies. Fifth row currently TEN bodies: remove only rightmost body, leaving NINE. Final visible row counts ELEVEN,ELEVEN,SIX,FIVE,NINE. Do only these explicit deletions in the native image. Do not repack, resize, add, duplicate, redraw retained sprites or add backgrounds, shadows, ground, glow or labels. Each removed area becomes fully transparent. Antialiasing and native soft alpha on retained figures must stay intact. Do not fill any vacant slots with replacements. Return the edited PNG.",
-   "refs": [
-    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-a903e56a-e7db-4c5c-b12f-b5ba9cde86d6.png",
-    "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig048_09/original_1x.png",
-    "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-1269fd31-3b7c-4718-9ec3-c0c14a0a3473.png"
-   ],
-   "generation_rows": [
-    11,
-    11,
-    6,
-    5,
-    9
-   ],
-   "path": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c7d09d60-8224-44cb-b031-fc10658a22b5.png",
-   "known_native_ordered_rows": [
-    [
-     [
-      54,
-      40,
-      68,
-      89
-     ],
-     [
-      163,
-      40,
-      68,
-      89
-     ],
-     [
-      274,
-      40,
-      68,
-      89
-     ],
-     [
-      384,
-      40,
-      69,
-      89
-     ],
-     [
-      495,
-      40,
-      69,
-      89
-     ],
-     [
-      607,
-      41,
-      69,
-      88
-     ],
-     [
-      719,
-      40,
-      68,
-      89
-     ],
-     [
-      831,
-      40,
-      69,
-      89
-     ],
-     [
-      942,
-      40,
-      69,
-      89
-     ],
-     [
-      1051,
-      40,
-      67,
-      90
-     ],
-     [
-      1159,
-      40,
-      68,
-      89
-     ],
-     [
-      54,
-      164,
-      69,
-      88
-     ],
-     [
-      167,
-      165,
-      68,
-      87
-     ],
-     [
-      281,
-      165,
-      67,
-      88
-     ],
-     [
-      395,
-      166,
-      68,
-      89
-     ],
-     [
-      510,
-      167,
-      67,
-      87
-     ],
-     [
-      622,
-      167,
-      67,
-      87
-     ],
-     [
-      731,
-      167,
-      68,
-      88
-     ],
-     [
-      844,
-      167,
-      67,
-      88
-     ],
-     [
-      954,
-      167,
-      68,
-      88
-     ],
-     [
-      1064,
-      167,
-      67,
-      87
-     ],
-     [
-      1172,
-      166,
-      68,
-      88
-     ]
-    ],
-    [
-     [
-      57,
-      282,
-      68,
-      88
-     ],
-     [
-      176,
-      282,
-      68,
-      88
-     ],
-     [
-      291,
-      281,
-      69,
-      89
-     ],
-     [
-      396,
-      283,
-      68,
-      87
-     ],
-     [
-      502,
-      283,
-      70,
-      87
-     ],
-     [
-      608,
-      283,
-      68,
-      87
-     ]
-    ],
-    [
-     [
-      45,
-      394,
-      129,
-      305
-     ],
-     [
-      208,
-      395,
-      133,
-      304
-     ],
-     [
-      378,
-      395,
-      129,
-      303
-     ],
-     [
-      544,
-      395,
-      130,
-      304
-     ],
-     [
-      710,
-      392,
-      131,
-      307
-     ]
-    ],
-    [
-     [
-      34,
-      706,
-      123,
-      288
-     ],
-     [
-      193,
-      706,
-      123,
-      288
-     ],
-     [
-      348,
-      706,
-      122,
-      288
-     ],
-     [
-      509,
-      706,
-      122,
-      288
-     ],
-     [
-      663,
-      706,
-      120,
-      288
-     ],
-     [
-      820,
-      706,
-      114,
-      288
-     ],
-     [
-      964,
-      705,
-      112,
-      289
-     ],
-     [
-      1108,
-      706,
-      114,
-      288
-     ],
-     [
-      1253,
-      706,
-      116,
-      288
-     ]
-    ]
-   ],
-   "figure": "Ludger Brink",
-   "attempts": 4,
-   "source": "/home/tombonator3000t/.codex/generated_images/01a11313-7600-7563-a72c-3929d93dfca8/exec-c7d09d60-8224-44cb-b031-fc10658a22b5.png",
-   "sha256": "6f4d2486459bf2886e3f41e4d5949ea398ed47ae32496fe0bd13c241daa86f6c",
    "originalruter": 42,
-   "resultat": "jobber/fig048_09/resultat.png",
+   "erstatter_sha256": "6f4d2486459bf2886e3f41e4d5949ea398ed47ae32496fe0bd13c241daa86f6c",
+   "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
    "beskyttede_filer": {
     "referanse.png": "68499585a9a7960fbb26158eb4fd31f59d4313039ba7db0d1ec714fc368f8b78",
     "original_1x.png": "b764fe1a39bfed9e9c4f0ee48cafae2dd20157af22a4ebdc45e14b370a9de845",
-    "prompt.txt": "55f5d4bd1c5b9a2cf24ea5ceba1e793d9d03a71e109ec36e16d03d11d8d91246",
-    "jobb.json": "2e97247641ecd557f219af40fc76e696d036fe16c173d3f75c38d770c7fee01a"
-   }
+    "prompt.txt": "338d015986b70c41ef02e3298476b76b7300e417f57a0d2542ded0f2d23a0655",
+    "jobb.json": "5adc35129c42e0d29febfda8e738e760db867dbd81657763fb49d95c8f4733c2"
+   },
+   "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+   "status": "grafikk revidert, avventer Claude-import og spilltest"
   },
   {
    "jobb": "fig137_02",
@@ -27307,7 +27110,7 @@
  "retning_til_korrigering": [],
  "brink_stilrevisjon_20261010": {
   "stilanker": "rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png",
-  "revidert": 86,
+  "revidert": 96,
   "planlagt": 208,
   "status": "pågår"
  }

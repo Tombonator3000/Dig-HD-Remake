@@ -448,5 +448,55 @@
     "godkjent": true,
     "sha256": "e6e51892695ef01bc57ae348785a313b721cd2bcb55e181f5ffe199b98f0c185",
     "vurdering": "Root har sammenlignet original og native på grått: én hodeløs gestkropp, ett venstrevendt hode og fire venstrevendte figurer i samme gestrekkefølge. Hodeform, dempet hår, grå jakke og oker bukser følger godkjent identitet og originalkostymet. Ingen ekstra deler eller magenta grunnstripe tegnet. Faktisk v2-kontroll gir 6 ok. Import og spilltest hos Claude gjenstår."
+  },
+  "fig073_04": {
+    "godkjent": true,
+    "sha256": "875e898b86ea7f014717c396614db4142c5be752e60748c5913e367fd9ca0f2b",
+    "vurdering": "Root har sett kilde og grå native: 14 hoveddeler i 7+1+1+5, korrekte hode-/hodeløse tilstander, knebøy, hender og lårrektangel. Smalt Brink-ansikt og grått/oker kostyme. Fem originale hudfragmenter er selvstendig verifisert fra faktisk RGBA og tegnes ikke som ekstra hoder. Faktisk v2 gir 19 ok. Import og spilltest i motoren gjenstår."
+  },
+  "fig073_05": {
+    "godkjent": true,
+    "sha256": "66e3282a4e6dff5e2f65e4c86c1019a74c0dd78a9e2c6e38ee265fa6aec5a879",
+    "vurdering": "Root har sett kilde og grå native: 13 hoveddeler i 7+1+5, kildekorrekt knebøy og hodeløse kropper. Native forsøk2 har smalt merke ved venstre jakkeåpning og grått bredt høyre panel, uten ekstra brystmerke. Original-RGBA og rekkefølge er selvstendig verifisert. Faktisk v2 gir 13 ok. Import og spilltest i motoren gjenstår."
+  },
+  "fig073_06": {
+    "godkjent": true,
+    "sha256": "2e884436e8c2db9ed457a9c56491437eeac16bc2d3235b730ff5583847e7216b",
+    "vurdering": "Root har sett kilde og grå native: seks hodeløse kropper i 4+1+1, først hender ned så åpnende håndflate, ingen ekstra hoder. Lårrektangel, lite merke, grå jakke og okerbukser følger originalen. Original-RGBA og eksplisitte rute-ID-er er verifisert. Faktisk v2 gir 6 ok. Import og spilltest i motoren gjenstår."
+  },
+  "fig016_28": {
+    "godkjent": true,
+    "sha256": "a0aa352112e96c6ac301e318f9e60cda41038d9d93adbf3127abb43fe7e1216e",
+    "vurdering": "Root har sett kilde og grå native: ni figurer i 3+4+2 med riktig profil, vending, steg og dempet mørk rust. Kildeekte olivenrifter beholdt; top1 har smal delvis rift og intet brystmerke, de åtte øvrige har lite merke og rift. V2 gir ni tegnede ruter ok og én blandet originalfragmentfallback; de tre magentapikslene i016_148 må behandles av Claude, mens den ekte blågrå pikselen bevares. Import og spilltest i motoren gjenstår."
+  },
+  "fig016_30": {
+    "godkjent": true,
+    "sha256": "a9b8240ea60fd5f12bdefa094e2f63e26864c252991dc94e18cdd736e1db2ee6",
+    "vurdering": "Root har sett kilde og grå native: ni figurer i 3+3+3, bakfra og venstre vending med kildebundne skritt. Ingen synlig kildebåndrift eller brystmerke i disse fasene, og ingen slike detaljer lagt til native. Mørk rust, grå jakke og slankt Brink-ansikt bevart. Faktisk v2 gir 9 ok. Import og spilltest i motoren gjenstår."
+  },
+  "fig048_07": {
+    "godkjent": true,
+    "sha256": "849e3c95efb83ddcbda76ecabe94829e28aaac6ebf4c055b5be15013bb1ca39f",
+    "vurdering": "Root har sett kilde og grå native: 9+5+22+7 med tolv hele figurer, én hodeløs og tretti høyrevendte hoder. Munnfaser varierer mens hodeformen holder seg stabil, gest-/lommefaser følger originalen. V2 gir 42 ok og én eksplisitt sjekk for det lille hodet048_123, dekning0.791/IoU0.784, flytt[-6,-5]; Claude må kontrollere dette før runtime-godkjenning. Import og spilltest i motoren gjenstår."
+  },
+  "fig048_08": {
+    "godkjent": true,
+    "sha256": "977dce166551df2088e3efc91ebef08aeebebd57b4a821a050d655086f654176",
+    "vurdering": "Root har sett kilde og grå native: 6+9+5 med høyrevendt topprad, venstrevendte to nederste rader, korrekt to løse hoder og én hodeløs kropp. Den lille fiolette flekken ved venstre jakkeåpning finnes i originalen og er bevart, uten ekstra skulderbånd. Faktisk v2 gir 20 ok. Import og spilltest i motoren gjenstår."
+  },
+  "fig188_02": {
+    "godkjent": true,
+    "sha256": "57626d3a5ffe4a6b03a879c5fac021be4c16f5aa660a76462ad99e826b3cd93a",
+    "vurdering": "Root har sett original og grå native: elleve deler i5+5+1 med riktige håndfaser, hodeløs siste kropp med begge armer ned. Native forsøk2 har kildebundet mørk brungrå hud, dempet okerhår og mørk grå jakke, uten friske lyse ansikter eller nye merker. Lårrektangel følger originalen. Faktisk original-RGBA er selvstendig verifisert, v2 gir11ok. Import og spilltest i motoren gjenstår."
+  },
+  "fig188_03": {
+    "godkjent": true,
+    "sha256": "3044f920b4b89b81c0b623187370cdba1490b114d2e737a552bb0397eadc119f",
+    "vurdering": "Root har sett original og grå native: én hodeløs kropp og én helfigur i høyrevendt fase, kildebundet mørk brungrå hud, dempet okerhår, mørk jakke og lårrektangel. En reell original blågrå piksel188_046 beholdes kun via fallback, ikke blåst opp til ekstra hode. Original-RGBA og SHA selvstendig verifisert, v2 gir3ok. Import og spilltest i motoren gjenstår."
+  },
+  "fig048_09": {
+    "godkjent": true,
+    "sha256": "6129f713e0a3ff482e7600b4c50ecbc9881d63576153285305d52da5f71f7b1f",
+    "vurdering": "Root har sett original og grå native:22+6venstrevendte munnfaser, fem venstrevendte gestfigurer og ni høyrevendte tenke-/gestfigurer. Forsøk2 har fjernet ekstra armstriper og doble merker; det ene kildeekte lille merket ved venstre jakkeåpning beholdes der synlig, mens de tildekkede tenkefasene følger kilden. Smalt Brink-ansikt og kildekostyme bevart. Faktisk v2 gir42ok. Import og spilltest i motoren gjenstår."
   }
 }
