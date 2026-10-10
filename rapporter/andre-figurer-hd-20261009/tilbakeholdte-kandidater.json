@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:23:09.240445+00:00",
+ "oppdatert_utc": "2026-10-10T00:24:47.155186+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 153,
+ "antall": 164,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2740,6 +2740,31 @@
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
   },
   {
+   "jobb": "fig120_05",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "fd5cf48e75e7f81827e950b5e75417fa58ce3c8d3ffef728eda7946746f6fd76",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen viser 13 små grønne streker og avkuttede deler på én rad. Kandidaten tegner elleve komplette stein-/energikuler i tre rader. Kildeidentitet og antall er feil.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     13
+    ],
+    "native_rader": [
+     4,
+     4,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 5494,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
    "jobb": "fig123_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "52b18309bf244dcf5426e2402c046d05dd70b471eac76265d50af2a4cc6aa9b6",
@@ -2771,6 +2796,33 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig124_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c660ac7883dda6b6e90f3b1c55f155e9777cb66f109711ae42c9d10243eab4ec",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Sammensatte Boston-/objektfaser har riktig figurtall etter gruppering, men originale svarte underlagsstreker og skyggeflater ved føttene er ikke sikkert bevart. Holdes tilbake for detaljert kildekontroll.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     5,
+     5,
+     2
+    ],
+    "native_rader": [
+     10,
+     5,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 41092,
+     "maks": 9,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
    "jobb": "fig125_01",
@@ -4287,6 +4339,276 @@
     "restalfa": {
      "piksler_over_0": 27796,
      "maks": 8,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig259_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c0d62c922db92125fdd01d03569aad692f3c14693ec88209a98d508e5daac3d0",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Båt og vanneffekter er sammensatte. Radfordelingen av løse sprutdeler og restalfa må kildeverifiseres før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     5,
+     4,
+     4,
+     3
+    ],
+    "native_rader": [
+     1,
+     5,
+     4,
+     4,
+     15,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 81677,
+     "maks": 121,
+     "piksler_over_16": 1482
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig264_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e4e55b6e7139c0b7ebe0821f1087f44147fe4ada83c17ad44781adc5a5d7653d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Mange små gullfragmenter og sammensatte effektfaser. Rå komponenttall avviker fra originalens ruter; rutevis kildekobling og effektalfa er ikke ferdig kontrollert.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     21,
+     18,
+     13,
+     9,
+     6,
+     8,
+     5
+    ],
+    "native_rader": [
+     1,
+     4,
+     13,
+     14,
+     20,
+     15,
+     10,
+     6,
+     4,
+     9
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 484577,
+     "maks": 125,
+     "piksler_over_16": 1113
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig266_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "309b51e4acd16152deea0316f3116f3525973cbb67cd37162ed002f8e36bfc9f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen består av mange små streker og delkropper; kandidaten legger til mer komplette personer. Antall og hver originale delrute er ikke bevist.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     13,
+     12,
+     13,
+     6,
+     5
+    ],
+    "native_rader": [
+     4,
+     22,
+     12,
+     12,
+     9
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 13397,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig267_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "485bda88aee0cc77cf3144ed19c20549f21f56dc23418fe6da98331d8ee39452",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Rå radfordeling avviker for kule-/strekfaser med løse effektdeler. Krever kildekontrollert gruppering og alfaavklaring.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     7,
+     13,
+     5,
+     6,
+     11
+    ],
+    "native_rader": [
+     7,
+     14,
+     5,
+     6,
+     12
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 23528,
+     "maks": 34,
+     "piksler_over_16": 100
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig268_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "129d99c2d9b2069c9693517cd128879a5d50e8d4952bdf56de1797a665e450f5",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den første originalkulen er skåret av med rett høyrekant. Kandidaten tegner den som en komplett kule, selv om antall består.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     3,
+     3
+    ],
+    "native_rader": [
+     1,
+     3,
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2272,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig269_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "39d9398ae19bc05ee1bec6b337ccdc313b4ae6cf4697270f36d17018b8329a4c",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Små trekantfaser og sammensatte streker krever detaljert kildekobling. Automatisk forslag gir tom første originalrute og flere native deler; forslaget er ikke godkjent.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     5,
+     1,
+     1,
+     2
+    ],
+    "native_rader": [
+     6,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 348,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig270_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "50a4dfb2a79fbef9d2872cc61b916607478f98df9f44c9bd8e05e045ea4f7b83",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den første originalkulen har avkuttet rett høyrekant. Kandidaten fyller ut en komplett kule. Kildetrohet består ikke selv om antall og alfa gjør det.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     3
+    ],
+    "native_rader": [
+     1,
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 1625,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig271_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "840e6d08382632428dda390dcb082b76b28c6501629760e826e98cc4a4ad9213",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Tolv originalruter mot elleve native hovedkomponenter. Små flak og delvise trekantfaser er ikke sikkert koblet; antallet må avklares med native alfa før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     6,
+     4,
+     1
+    ],
+    "native_rader": [
+     1,
+     5,
+     4,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 9662,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig273_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "8b6bdfbd818c64eebfcaf76190d29efd8b2de9d52305886faf257328df18ee37",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Den første svært tynne originalfasen er ikke bekreftet i native arket. Tretten originalruter mot tolv hovedkomponenter; kan ikke leveres ut fra de store trekantene alene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     5,
+     4,
+     4
+    ],
+    "native_rader": [
+     4,
+     4,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 6037,
+     "maks": 4,
      "piksler_over_16": 0
     }
    },
