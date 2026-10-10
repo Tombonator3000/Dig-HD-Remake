@@ -325,3 +325,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Nettsiden: patchen kopiert til Dig-HD-Web (af9ac84), bygging og publisering bestått. Den publiserte siden er ikke testet etter dette.
 - Linux-pakken: flettingen startet arbeidsflyten, men jeg startet den også for hånd, og `cancel-in-progress` avbrøt den første. Jeg avbrøt så den andre, så begge stoppet. Startet på nytt (kjøring 38034882519).
 - Linux-pakken bygget og publisert i releasen `linux` (kjøring 38034882519, sjekk og pakke bestått): 1,48 GB, Dig-HD-Remake 7ef1033, hd-mod be2056c (07:49). Lastet ned og testet med ekte X11-mus og tastatur i Xvfb: F5, Save, plass 1, navn "ny pakke", OK skrev `dig.s01`; ny start, F5, Load, plass 1 lastet spillet. Ikke testet på Toms skjerm.
+
+## 2026-10-10 10:11 til 10:20 (Claude)
+- Tom spurte om PNG-filene kan komprimeres. Målte modden (1 GB: figurer 756 MB, rom 192 MB, objekter 55 MB) og prøvde på 200 figurruter og 20 rom: oxipng 3 til 6 prosent, pngquant 55 til 60 prosent (rom snittavvik 0,78 av 255, figurer 1,32 målt på synlige piksler ganget med alfa, alfa opptil 51 ulik), JPEG q92 for rom 80 prosent. Ingenting endret. Tom: tas helt til slutt. Lagt i todo under Senere.
+- Status fra `gpt-arbeid`: rom 153 godkjent, 6 avvist, 3 sjekk av 162. Store objekter 22 godkjent, 8 sjekk. Lag 188 godkjent, 46 nye. Ikoner 3 av 3. Figurark 1257 levert, 2770 nye, 4 avvist, 1 godkjent (de glatte arkene får status levert og tas inn av `myke-figurer`).

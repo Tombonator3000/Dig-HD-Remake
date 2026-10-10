@@ -107,6 +107,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [ ] Fyll inn prioritet i `docs/rom-oversikt.csv`
 - [ ] Finn ut i skriptene hvilke SAN-filer som er rene filmer og hvilke som styres av spillet (NUTCracker eller descumm -7)
 - [ ] Skript som lager hele HD-pakken lokalt fra brukerens egne spillfiler (for eventuell deling)
+- [ ] Helt til slutt (Tom 10. oktober): mindre HD-filer. Prøvd på utvalg: oxipng 3 til 6 prosent (tapsfritt), pngquant 55 til 60 prosent (rom snittavvik under 1 av 255, figurer 1,3), JPEG q92 for rom 80 prosent (krever at motoren leser JPEG). `_idx.png` må være tapsfrie. Modden er 1 GB, 756 MB av det er figurer
 
 ## Ferdig
 
