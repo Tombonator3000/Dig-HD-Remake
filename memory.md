@@ -39,6 +39,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Fargesyklede områder i HD-bakgrunner og HD-objekter: forholdet mellom nåværende og opprinnelig farge interpoleres med kvadratisk B-spline fra 3 x 3 originalpiksler og ganges inn i HD-pikselen. På figurer er syklede farger originalpiksler.
 - Tekst i HD: tegnsettene i DIG.LA1 (`CharsetRendererV7`) og NUT-fontene i filmene melder hver glyf til DigHD, som tegner en xBR-skalert glyf. `DIGHD_TEXT` = xbr (standard), scale4x, nearest eller off.
 - Motor: Ctrl+H bytter HD og klassisk, Ctrl+Shift+H viser gult felt der HD mangler. `DIGHD_CLASSIC=1`, `DIGHD_SHOW_MISSING=1`, `DIGHD_TEST_KEYS=ramme:tast,...` for test uten skjerm. Binær her: /home/claude/scummvm.
+- Fra 10. oktober får Claude ikke flette sine egne PR-er herfra (stoppet av sikkerhetskontrollen). Tom fletter når CI er grønn.
+- `DIGHD_TEST_KEYS` tar a til z, 0 til 9, f1 til f12, space og escape, så Alt+1 (lagre) og Ctrl+1 (laste) kan testes uten skjerm.
 - Pipeline: `dighd` (Python 3.12+, Pillow, NumPy, SciPy, thedig-textures låst til commit 1cf355e som ekstra). CI kjører `pytest -m "not game"` på hver push og PR.
 
 ## HD-grafikk fra ChatGPT
