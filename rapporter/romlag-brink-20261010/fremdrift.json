@@ -1,8 +1,8 @@
 {
   "bestilling": "Brink med alle autoriserte kostymevarianter, godkjent stil 10. oktober 2026",
   "ark_totalt": 208,
-  "ark_revidert": 133,
-  "ark_gjenstar": 75,
+  "ark_revidert": 138,
+  "ark_gjenstar": 70,
   "status": "pågår, grafikklevert avventer import og spilltest",
   "leveranser": [
     {
@@ -4465,6 +4465,78 @@
       "status": "grafikk revidert, avventer Claude-import og spilltest"
     },
     {
+      "jobb": "fig229_11",
+      "kostyme": 229,
+      "figur": "Boston Low og Ludger Brink med faktiske effektfaser",
+      "source_variant": "Med lyn",
+      "resultat": "jobber/fig229_11/resultat.png",
+      "sha256": "57cbafb1be60dc2c2fe62a974dfe0536cdff3c56ea921fd3e45a7e6d1710769a",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-7884e2cc-1fb7-436c-80fe-f9d34f86ea95.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig229_11/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-229/source-checked-candidate-frontal-heads.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-229/root-accepted02-warm-thigh-detail-6x.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-229/fig229_11-technical-marker-guide.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig229_11-forsok1.txt",
+      "rows": [
+        2,
+        3
+      ],
+      "expected": 5,
+      "fragments": 0,
+      "originalruter": 5,
+      "erstatter_sha256": "8eea04e7b720ed6383f946230d0d6b867c9079b31ac7d2b42c76bcaf86509525",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "ef15370acd8ec5924d2ff040c11ffc981afc775c437d725d33ef3f6c3b5f5379",
+        "original_1x.png": "22ec8e3d6cc1fb29f1ac352eef306616d69296610061d5fcc3bbfc63f966e2d9",
+        "prompt.txt": "0fd467264802d271068a35d8dae30d4e3c2763008aa1a86fe9d1fd091e395e14",
+        "jobb.json": "ac9f39788143d12f1595e88955c63350613c0c59b803c9c699c1334a328c33ee"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig229_12",
+      "kostyme": 229,
+      "figur": "Ekte energifaser uten personer",
+      "source_variant": "Med lyn",
+      "resultat": "jobber/fig229_12/resultat.png",
+      "sha256": "82f61c648c7473cb0d386cc7322271a9f7f9a30eece4e7e1e0c50c2a53b0841c",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-8c12220b-bd75-452b-9286-049a3e173a52.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig229_12/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-229/fig229_12-source-box-guide.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig229_12-forsok1.txt",
+      "rows": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "expected": 20,
+      "fragments": 0,
+      "originalruter": 20,
+      "erstatter_sha256": "4b6244a5ebf5c3ea83a0524fd132b110ce0b59f37ced19d58dd4e98729d9e9d0",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "215ac84f1dfb48c8cb7a1de5444137ffaa191da86c87010573b3296f8977cbbc",
+        "original_1x.png": "534d14a1c313e71c88c8a1444942d4f48d2e7817e2e59ae86462b570891a3c49",
+        "prompt.txt": "b5f71b8b9395c5f82a31a38f43c84e4e5741564c853ee0f07e1e82b8924306b9",
+        "jobb.json": "d4c21d953befe671e6416cae2fee0baaf7b9b014c71c77402beb91edb475d054"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
       "jobb": "fig173_01",
       "kostyme": 173,
       "figur": "Ludger Brink i faktisk gront lys",
@@ -4535,6 +4607,80 @@
       "status": "grafikk revidert, avventer Claude-import og spilltest"
     },
     {
+      "jobb": "fig173_04",
+      "kostyme": 173,
+      "figur": "Ludger Brink i faktisk grønt lys",
+      "source_variant": "I grønt lys, sparker",
+      "resultat": "jobber/fig173_04/resultat.png",
+      "sha256": "170727ee24c71068d784256e7ecdae402f7782103ba45e1ba0e75678f57c46b2",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-9d019d61-1aee-4cb6-8ce8-34a8b314e2b1.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig173_04/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-front-crop.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-126173/kostyme173/fig173_04-actual-source-count-guide.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-126173/kostyme173/17301-first-source-head-nearest.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-126173/kostyme173/17301-native-source-green-head-crop.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig173_04-forsok1.txt",
+      "rows": [
+        10,
+        4
+      ],
+      "expected": 14,
+      "fragments": 0,
+      "originalruter": 14,
+      "erstatter_sha256": "4d578d51b5102f9180840333bdb49dd01903c21d44dd9bd10ec6e99adfa47aa9",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "7c6caa31a61ed5c283aac6d411cef03cfaebf2980125a466e2d9592f44fd7e19",
+        "original_1x.png": "9a2417627fd12e969d37fddfd05ae117c1a8ada2e0c1e89332020281e6ba62bf",
+        "prompt.txt": "e43759b9ba53484e0e65aa6ccb2efc7b5097c572b8509452a487570cdb9badbe",
+        "jobb.json": "2c5b8645271d54a0eadcf6986bd49badf5400840eacfda5d2c19d53acb10dde4"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig306_03",
+      "kostyme": 306,
+      "figur": "Ludger Brink",
+      "source_variant": "Som 305, mørkere",
+      "resultat": "jobber/fig306_03/resultat.png",
+      "sha256": "7f64e26936284b2dfe33614e647660bdcd10fd92125a97b3d45312461d48703f",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-843a994b-1f6e-4ca4-b578-0ae6de96d156.png",
+      "attempts": 1,
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig306_03/referanse.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink/approved-head-front-crop.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_03-own-source-wear.png",
+        "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-brink-306/fig306_03-own-source-head-palette.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig306_03-forsok1.txt",
+      "rows": [
+        5,
+        6,
+        1,
+        3
+      ],
+      "expected": 15,
+      "fragments": 1,
+      "originalruter": 16,
+      "erstatter_sha256": "ddf867ffc725a8c1f526f7d0801f567d606dc751a671ce70c780a37c120f251e",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "f71930c2b54203865ef79d5dc4414cf902cffb41ede7a75c1c3a501363d93bee",
+        "original_1x.png": "21ef1ca36d0933c6653d6e83001581632a09a3ac05082736b6e55a4abf672a0c",
+        "prompt.txt": "c5eef5817c3e6d9280191c4971b16c5cdf220386df7b26f92289d212ab5bace1",
+        "jobb.json": "227f4e80d18d71ebf49c13b401cd0856b5a63120d31e2bebc1d1aae73c42ab59"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest",
+      "technical_marker_ids": [
+        "costume306_043"
+      ]
+    },
+    {
       "jobb": "fig069_02",
       "kostyme": 69,
       "figur": "Ludger Brink",
@@ -4564,6 +4710,39 @@
         "original_1x.png": "e4aac33901e4c2179a45e6acfaff7016feef757997b4b3e5547a46ccbf049f30",
         "prompt.txt": "f3183e56b9672f874930a1b0f3346da6d1e3de87fb4d191d07d0f4b71574e2fb",
         "jobb.json": "c1bf9acc18849e8efeea752c19cabd1ebdbc995381c3e25a1d86cd1be83c798f"
+      },
+      "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
+      "status": "grafikk revidert, avventer Claude-import og spilltest"
+    },
+    {
+      "jobb": "fig223_01",
+      "kostyme": 223,
+      "figur": "Ludger Brink",
+      "source_variant": "Trolig Brink, grå i et annet lys",
+      "resultat": "jobber/fig223_01/resultat.png",
+      "sha256": "26cfd899a4784a96e03700056e8d2fff02d9f65b60287ca7db937126363af338",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-e3110b82-1059-430b-9172-abf593fa71b8.png",
+      "attempts": 2,
+      "refs": [
+        "/home/tombonator3000t/.codex/generated_images/01a125af-8c88-7301-b1d2-e81e5843e9a2/exec-9f3f2018-550f-412c-8d8d-a6b9cfcdece0.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig223_01/referanse.png"
+      ],
+      "prompt": "rapporter/romlag-brink-20261010/brink/prompter/fig223_01-forsok2.txt",
+      "rows": [
+        2,
+        6,
+        4
+      ],
+      "expected": 12,
+      "fragments": 0,
+      "originalruter": 12,
+      "erstatter_sha256": "209beb4b656c5aef93bbf63503a6ba5a7f140654a1ae613fc326c4a96844d72b",
+      "forrige_versjon_commit": "9ad231cdc3f8458d18b4a5f9c6cdddb6de6a44a7",
+      "beskyttede_filer": {
+        "referanse.png": "43e3f655a0dfc27315a0b7473b3a1d1bbe52657291d78b7a98caa7d7eeb4f2c4",
+        "original_1x.png": "23c26673b29e5c9f797675d97be4ffecf2078aada6fffc11f920a8abbfc1105b",
+        "prompt.txt": "4f98895ac5903d3d683778f0a2de29091a06558aa3f1854a3f2abe62698b2219",
+        "jobb.json": "796fab626c4cdccd89a3f5e81140f2104d9f5a56440f35d791e2efce1f9bc003"
       },
       "godkjent_stil_sha256": "68ba2d0076bf3f00282043bb2e8ce385549381c603b245f3dd875cd6cfedb080",
       "status": "grafikk revidert, avventer Claude-import og spilltest"

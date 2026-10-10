@@ -4,12 +4,12 @@ Root har kjørt den faktiske uendrede VERSION2-importøren fra main36cd09f på d
 
 Resultatet gjenskaper 12,01prosent forskjell i faktisk X-skala mellom fem hoder med lik originalboks. Den rene tekniske markøren costume230_002 blir276synlige magentapiksler,64med alfa minst128. Alle rutene rapporteres likevel ok. Dette er importbevis, ikke en spilltest eller bevis for at dette er alle årsakene til Toms skjermbilder.
 
-Verktøyet ligger utenfor kodecheckouten og endrer ingen originale PNG-er, modfiler eller motorfiler. Det krever en ny tom utdatamappe og skriver bare diagnose der. Claude kan kjøre det mot egen kode etter retting:
+Verktøyet ligger utenfor kodecheckouten og endrer ingen originale PNG-er, modfiler eller motorfiler. Det krever en ny tom utdatamappe og skriver bare diagnose der. Kjør fra Claudes egen kodecheckout, der `pipeline/dighd/myk.py` faktisk finnes. Den gamle katalogen `/home/tombonator3000t/Documents/Codex/Dig-HD-Remake` er ikke verifisert som aktiv kodecheckout og mangler denne filen; den skal ikke brukes som forhåndsvalgt kodesti. Verktøyet stopper før skriving hvis valgt kode mangler eller en annen modul importeres.
 
 ```bash
 /home/tombonator3000t/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
   /home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/reproduce_import_issues.py \
-  --pipeline /home/tombonator3000t/Documents/Codex/Dig-HD-Remake/pipeline \
+  --pipeline "$PWD/pipeline" \
   --out /home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/claude-retur-kontroll-01
 ```
 

@@ -1,46 +1,46 @@
 {
-  "oppdatert_utc": "2026-10-10T14:41:19.633113+00:00",
+  "oppdatert_utc": "2026-10-10T14:53:46.055247+00:00",
   "grafikkcheckout": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk",
   "gren": "gpt-arbeid",
-  "batch": 22,
+  "batch": 23,
   "mottatt_av_claude": false,
   "spilltestet": false,
   "kodegrunnlag_for_lokal_kontroll": "36cd09f13eb0201cff190d8d0c99c788a8bcaa6b",
   "grafikk_commit": "Bruk Git-commiten som inneholder denne manifestfilen; ikke foreldrens HEAD.",
-  "brink_revidert": 133,
+  "brink_revidert": 138,
   "brink_plan": 208,
   "jobber": [
     {
-      "jobb": "fig173_01",
-      "sha256": "181b86d4b9ee37515d50d0516224ef4520d83adf15685d4e7e0e9554269940bd",
-      "resultat": "jobber/fig173_01/resultat.png"
+      "jobb": "fig306_03",
+      "sha256": "7f64e26936284b2dfe33614e647660bdcd10fd92125a97b3d45312461d48703f",
+      "resultat": "jobber/fig306_03/resultat.png"
     },
     {
-      "jobb": "fig173_02",
-      "sha256": "c0c560a6dfc39275d594046bfcd3e25ea749bef08d2bcb6eadbb3d04dfb19c59",
-      "resultat": "jobber/fig173_02/resultat.png"
+      "jobb": "fig173_04",
+      "sha256": "170727ee24c71068d784256e7ecdae402f7782103ba45e1ba0e75678f57c46b2",
+      "resultat": "jobber/fig173_04/resultat.png"
     },
     {
-      "jobb": "fig305_01",
-      "sha256": "b81cc9d9e731bf089d78d6b73960215676fb0c56ab4ddd48c11ebac6cb8f49bc",
-      "resultat": "jobber/fig305_01/resultat.png"
+      "jobb": "fig223_01",
+      "sha256": "26cfd899a4784a96e03700056e8d2fff02d9f65b60287ca7db937126363af338",
+      "resultat": "jobber/fig223_01/resultat.png"
     },
     {
-      "jobb": "fig305_04",
-      "sha256": "0859cad070f7676a4c86d9b32f1958f1550039c63d248813ffae1febb5631b93",
-      "resultat": "jobber/fig305_04/resultat.png"
+      "jobb": "fig229_11",
+      "sha256": "57cbafb1be60dc2c2fe62a974dfe0536cdff3c56ea921fd3e45a7e6d1710769a",
+      "resultat": "jobber/fig229_11/resultat.png"
     },
     {
-      "jobb": "fig229_08",
-      "sha256": "fb01557d321cc618a6daf1309e3aaf297eb7b77416f1063fd91f9f8b5e8da7f5",
-      "resultat": "jobber/fig229_08/resultat.png"
+      "jobb": "fig229_12",
+      "sha256": "82f61c648c7473cb0d386cc7322271a9f7f9a30eece4e7e1e0c50c2a53b0841c",
+      "resultat": "jobber/fig229_12/resultat.png"
     }
   ],
   "kontrollgrunnlag": {
-    "preflight": "rapporter/samarbeid-20261010/brink-kontroll-del22/root-preflight.json",
-    "faktisk_import": "rapporter/samarbeid-20261010/brink-kontroll-del22/tested-v2-import.json",
-    "rutekart": "rapporter/samarbeid-20261010/brink-kontroll-del22/tested-v2-rutekart.json",
-    "original_RGBA": "rapporter/samarbeid-20261010/brink-kontroll-del22/actual-original-RGBA.json"
+    "preflight": "rapporter/samarbeid-20261010/brink-kontroll-del23/root-preflight.json",
+    "faktisk_import": "rapporter/samarbeid-20261010/brink-kontroll-del23/tested-v2-import.json",
+    "rutekart": "rapporter/samarbeid-20261010/brink-kontroll-del23/tested-v2-rutekart.json",
+    "original_RGBA": "rapporter/samarbeid-20261010/brink-kontroll-del23/actual-original-RGBA.json"
   },
   "kodekontroll_prioritet": [
     {
@@ -52,6 +52,11 @@
       "jobb": "fig305_04",
       "feil": "Tre rene tekniske markorfragmenter054/057/059 blir synlige i originalfallback selv om native er rent. Samme type som230002.",
       "bevis": "brink-kontroll-del22/305-marker-root-verifisert.json"
+    },
+    {
+      "jobb": "costume306_043",
+      "feil": "Rent teknisk magentafragment blir synlig i originalfallback:1413 piksler vedA>0 og446 vedA>=128. Native er uten magenta. Samme feil som230002 og305-markorene.",
+      "bevis": "brink-kontroll-del23/306-marker-root-verifisert.json"
     },
     {
       "jobb": "costume126_087",

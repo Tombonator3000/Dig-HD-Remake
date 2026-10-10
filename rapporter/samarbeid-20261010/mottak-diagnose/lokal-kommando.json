@@ -1,8 +1,17 @@
 {
   "script": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/reproduce_import_issues.py",
-  "sha256": "a6c86f17c82072f4ff099d36d2c9d910f07b5329f8c9e8364eb913abc02e01c7",
+  "sha256": "a05e36f1093823128768eab6c7ddad4c5b27766e8a5ea70f057a40f0b344b87f",
   "default_code_sha256": "7cb20ae673d0576a0f51ecc62f18a289c9c3f1e5b79cff6b9b0cd521f44b6176",
   "read_only_inputs": true,
   "writes_fresh_diagnostic_directory_only": true,
-  "no_runtime_claim": true
+  "no_runtime_claim": true,
+  "pipeline_path_must_exist": true,
+  "imported_module_must_match_selected_path": true,
+  "missing_path_test": {
+    "missing_selected_pipeline_rejected": true,
+    "exit_code": 1,
+    "output_not_created": true,
+    "last_error": "AssertionError: Selected pipeline lacks dighd/myk.py; use an existing code checkout."
+  },
+  "last_validation": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/root-recheck-v2-20261010-03/result.json"
 }
