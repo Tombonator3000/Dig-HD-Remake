@@ -1,6 +1,6 @@
 # Ordre fra Claude
 
-Oppdatert 2026-10-10 12:10 (norsk tid), rettelse fra Tom lagt til øverst
+Oppdatert 2026-10-11 02:20 (norsk tid), nytt punkt fra Claude øverst
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
 
@@ -13,16 +13,26 @@ Les denne filen før du starter. Den erstatter tidligere ordre.
 - Ikonark: 3 av 3 godkjent. Ferdige ikoner fra ikonark: 149 av 149
 - Figurark: 1 av 4032 godkjent. Ferdige figurruter: 28 av 28481
 
-## Rettelse fra Tom 10. oktober (gjør dette først)
+## Fra Claude 11. oktober (gjør dette først)
 
-Tom har spilt med HD-figurene i romdrakt og sier at alle tre astronautene ser ut som kvinner og er like. Det er feil. Kostymene i romdrakt er tre bestemte personer:
+Takk for de nye arkene for astronautene (kostyme 1, 2, 3) og Pig (kostyme 7). De er tatt inn i modden: Boston, Maggie og Brink er nå tre forskjellige personer, og størrelsen stemmer med originalen. Tom ser på dem før de regnes som godkjent.
 
-- Kostyme 1 (`fig001_*`): **Boston Low**, en mann i femtiårene, firkantet kjeve, kort hår, grått ved tinningene. Samme ansikt som på Boston Low-arkene (kostyme 14).
-- Kostyme 2 (`fig002_*`): **Maggie Robbins**, en kvinne med eget ansikt og hår som på Maggie-arkene (kostyme 18).
-- Kostyme 3 (`fig003_*`): **Ludger Brink**, en mann, eldre enn Boston, med ansikt og hår som på Brink-arkene (kostyme 15).
-- Kostyme 7 (`fig007_*`): **Pig**, atomsprengladningen (en gjenstand, ikke et dyr). Den ser feil ut: kopier form, vinkel, farger, den mørke runde enden, panelene og de små røde og grønne lysene nøyaktig fra referanse.png. Ikke legg til åpning, løp eller nye deler.
+### 1. Hovedark for hver hovedperson (nytt, før flere figurark for dem)
 
-Alle leverte ark for disse fire kostymene er avvist (`docs/gpt-avvisninger.csv` i main) og er tatt ut av modden til nye er levert. Lag dem på nytt, ett ark om gangen, og hold hver figur like stor og med samme omriss som originalen i alle rutene (Tom så at figurene skiftet størrelse når de snakket). Drakt, ryggsekk, hjelm og stilling kopieres fra referanse.png; ansiktet inne i hjelmen tegnes fra originalen og hovedpersonens egne ark. Vis første ark for Boston og Brink til Tom før resten.
+Lag ett hovedark per person i mappen `hovedark/`, som de store produksjonene gjør før de tegner animasjonene:
+
+- `hovedark/boston.png`, `hovedark/maggie.png`, `hovedark/brink.png`: hel figur forfra, i profil og bakfra, i klærne på planeten og i romdrakt (med ansiktet synlig i hjelmen), og et nærbilde av ansiktet. Samme stil som de godkjente arkene.
+- `hovedark/pig.png`: Pig fra tre vinkler, som referanse.png i kostyme 7.
+- `hovedark/robotarm.png`: robotarmen på romfergen (se punkt 2).
+
+Tom godkjenner hovedarkene. Etterpå legges riktig hovedark ved som bilde to i alle nye figurark for den personen eller gjenstanden, i stedet for stilankeret.
+
+### 2. Robotarmen på romfergen (kostyme 4 og 5) tegnes på nytt
+
+Tom: armen som løfter Pig ut av romfergen ser rar ut. Årsaken er at hver rute er tegnet for seg, så festet, leddene og enden ser forskjellige ut fra rute til rute (ett sted en finne, et annet en sylinder; ett sted en kniv i enden, et annet en griper). I animasjonen flimrer armen.
+
+- Lag `hovedark/robotarm.png` først: festet på romfergen, de to armdelene, albueleddet med den gule bøylen og kabelen, håndleddet og griperen i enden. Kopier formene fra originalrutene i `fig004_*` og `fig005_*` (referanse.png), ikke fra fantasien. Rødt merke på den nedre delen som i originalen.
+- Tegn så alle arkene for kostyme 4 og 5 på nytt med hovedarket som bilde to. Hver del skal se lik ut i alle rutene; bare vinkelen og lengden endres, slik som i originalen.
 
 ## Gjør disse nå
 
