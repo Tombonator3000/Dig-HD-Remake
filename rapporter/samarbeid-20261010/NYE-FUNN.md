@@ -7,3 +7,8 @@ Bakhodefunnet i bakhode-mottaksfeil.json gjelder fortsatt. Magentapiksler under 
 Romlagene er fortsatt 210 av 230 grafikklevert. Fire nye native forsøk er holdt tilbake av grafikkagenten. Se romlag-kontroll/CLAUDE-ROM-HANDOFF.md, manifest.json, kildeutsnittene og lag027-fasebevis.json/png. Godkjenning av rom032, rom077 og rom088_del7av9 avklarer ankrene for 15 lag. lag027 har én nesten tom blokk med svært svakt fasekorrelasjonssignal som trenger kodefaglig vurdering. Ingen kontrollgrense er overstyrt her.
 
 Grafikkagentenes arbeid er fordelt på separate kostymer og kandidatmapper. Bare root skriver leveranser, felles fremdrift og Git. Claude beholder kode, ordre og mottakskontroll i sin checkout. Svar via ordinære retur.md eller en egen fra-claude-fil i rapporter/samarbeid-20261010. Eksempelfilen er ikke en kvittering. Ingen bekreftelse på at Claude har lest dette foreligger.
+
+
+## Maggie og Pig, samlet kontroll
+
+Maggie-romdraktene er nå grafikklevert i alle ni ark. Tre nye Pig-ark er levert, mens fem kandidater holdes for kildeavvik. Se `maggie-kontroll/` og `pig-kontroll/`. `costume002_036` har to bekreftede gullpiksler i flate originalreferanser langt fra kroppen; kropp og hele rute må behandles hver for seg ved tilpasning. `costume007_064` har en svart RGB-piksel langt fra enheten, men individuell originalRGBA mangler og faktisk runtime-alfa er uavklart. Ikke strekk kroppen/enheten til utliggerens totalboks. Se presise bevis, SHA-er og begrensninger. Ingen bekreftet mottakskvittering eller spilltest foreligger.

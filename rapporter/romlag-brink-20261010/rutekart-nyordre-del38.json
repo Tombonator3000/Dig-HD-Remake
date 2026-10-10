@@ -1,0 +1,246 @@
+{
+  "fig002_07": {
+    "importklar": false,
+    "native_sha256": "f15a5b3cc2ca1bdf78aa78f6e68bd4f1db9d371f83e634e4658689a7d7ceb08b",
+    "metode": "Kildeverifisert rad og x-rekkefølge. Separate ring- og senterskivedeler kan være én originalrute. Ingen kreativ etterbehandling.",
+    "koblinger": [
+      {
+        "bilde": "costume002_036",
+        "kostyme": 2,
+        "rute": 36,
+        "animasjon": 21,
+        "retning": 5,
+        "lag": 0,
+        "nr": 0,
+        "original_rekt": [
+          4,
+          4,
+          91,
+          64
+        ],
+        "native_analyseboks_alfa128": [
+          51,
+          37,
+          411,
+          323
+        ]
+      },
+      {
+        "bilde": "costume002_032",
+        "kostyme": 2,
+        "rute": 32,
+        "animasjon": 22,
+        "retning": 3,
+        "lag": 0,
+        "nr": 0,
+        "original_rekt": [
+          4,
+          95,
+          42,
+          64
+        ],
+        "native_analyseboks_alfa128": [
+          51,
+          391,
+          214,
+          308
+        ]
+      },
+      {
+        "bilde": "costume002_025",
+        "kostyme": 2,
+        "rute": 25,
+        "animasjon": 23,
+        "retning": 6,
+        "lag": 0,
+        "nr": 0,
+        "original_rekt": [
+          4,
+          167,
+          41,
+          64
+        ],
+        "native_analyseboks_alfa128": [
+          49,
+          698,
+          211,
+          313
+        ]
+      },
+      {
+        "bilde": "costume002_024",
+        "kostyme": 2,
+        "rute": 24,
+        "animasjon": 23,
+        "retning": 6,
+        "lag": 0,
+        "nr": 1,
+        "original_rekt": [
+          53,
+          167,
+          40,
+          64
+        ],
+        "native_analyseboks_alfa128": [
+          281,
+          698,
+          205,
+          312
+        ]
+      },
+      {
+        "bilde": "costume002_029",
+        "kostyme": 2,
+        "rute": 29,
+        "animasjon": 23,
+        "retning": 4,
+        "lag": 0,
+        "nr": 0,
+        "original_rekt": [
+          101,
+          167,
+          40,
+          64
+        ],
+        "native_analyseboks_alfa128": [
+          511,
+          698,
+          210,
+          313
+        ]
+      }
+    ],
+    "fragmenter_original": [
+      "costume002_031",
+      "costume002_030"
+    ],
+    "native_fragmenter_alfa128": [],
+    "source_proven_frame_groups": [
+      {
+        "members": [
+          {
+            "rect": [
+              51,
+              37,
+              214,
+              323
+            ],
+            "area": 41011
+          },
+          {
+            "rect": [
+              451,
+              87,
+              11,
+              11
+            ],
+            "area": 112
+          },
+          {
+            "rect": [
+              440,
+              98,
+              10,
+              11
+            ],
+            "area": 109
+          }
+        ],
+        "frame_rect": [
+          51,
+          37,
+          411,
+          323
+        ],
+        "basis": "Kildebasert intrarutegruppering: costume002_036 har kropp samt to ekte gullpiksler i samme originale rute. Bevis fig002_07-kilde-utliggerbevis.png/.json. Native forsøk2 har kropp[51,37,214,323] og to separate gullkomponenter[451,87,11,11]/[440,98,10,11]. Det er én animasjonsrute, ingen ekstra person eller ny rute. Førsterutens hele boks[51,37,411,323] skal bevare alle delene i mottak; kroppen må ikke skaleres/ankres etter gullutliggeren. Native gullformene er større enn4x-kilden og fysisk mottak er ikke verifisert."
+      }
+    ],
+    "source_group_basis": "Kildebasert intrarutegruppering: costume002_036 har kropp samt to ekte gullpiksler i samme originale rute. Bevis fig002_07-kilde-utliggerbevis.png/.json. Native forsøk2 har kropp[51,37,214,323] og to separate gullkomponenter[451,87,11,11]/[440,98,10,11]. Det er én animasjonsrute, ingen ekstra person eller ny rute. Førsterutens hele boks[51,37,411,323] skal bevare alle delene i mottak; kroppen må ikke skaleres/ankres etter gullutliggeren. Native gullformene er større enn4x-kilden og fysisk mottak er ikke verifisert.",
+    "magenta_skyggemarkorer_skal_utelates": {
+      "costume002_031": {
+        "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+        "rgb": [
+          252,
+          84,
+          252
+        ],
+        "pixels": 20
+      },
+      "costume002_030": {
+        "basis": "Alle ikke-bakgrunnspiksler er magenta markør, som prompt.txt ber om å utelate.",
+        "rgb": [
+          252,
+          84,
+          252
+        ],
+        "pixels": 3
+      }
+    },
+    "reelle_kildefragmenter": [],
+    "source_verified_frame_regions": [],
+    "source_region_basis": null,
+    "source_loose_components": [
+      {
+        "cel": "costume002_036",
+        "rects_in_4x": [
+          [
+            440,
+            92,
+            4,
+            4
+          ],
+          [
+            436,
+            96,
+            4,
+            4
+          ]
+        ],
+        "rgb": [
+          172,
+          124,
+          0
+        ],
+        "body_in_4x": [
+          80,
+          48,
+          164,
+          256
+        ],
+        "whole_original_bbox_in_4x": [
+          80,
+          48,
+          364,
+          256
+        ],
+        "meaning_unknown": true,
+        "native_body_bbox": [
+          51,
+          37,
+          214,
+          323
+        ],
+        "native_loose_bboxes": [
+          [
+            451,
+            87,
+            11,
+            11
+          ],
+          [
+            440,
+            98,
+            10,
+            11
+          ]
+        ],
+        "native_whole_bbox": [
+          51,
+          37,
+          411,
+          323
+        ]
+      }
+    ]
+  }
+}

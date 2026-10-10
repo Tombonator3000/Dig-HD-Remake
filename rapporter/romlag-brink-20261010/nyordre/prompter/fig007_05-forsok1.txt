@@ -1,0 +1,38 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (28 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+TOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.
+Pig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.
+Use clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.
+STABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.
+EXACT main drawing rows: [8, 9, 10, 1]; total 28. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.
+Row 1: exactly 8 main drawings.
+Row 2: exactly 9 main drawings.
+Row 3: exactly 10 main drawings.
+Row 4: exactly 1 main drawings.
+
+SOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.
+CRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.
+
+SHEET 005 MOTION: the original whole units progressively turn from diagonal toward vertical. Copy each particular angle and the changing cap/dark-disc position, rather than stamping the same45degree object. All main units retain the original bright white lower/front flash. Copy the detached dark cap above the upper end in early phases and the dark disc at the side of the unit in later phases exactly. These are actual separate pieces of the SAME source frame, not extra frames. The upper end is usually dark and partly hidden by the cap, never a bright green terminal or added three-LED panel. The final source cell at bottom left is ONLY a solid dark disc; do not add a ring, central ball or whole unit there. Preserve row counts [8,9,10,1].

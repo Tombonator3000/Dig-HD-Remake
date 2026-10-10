@@ -1,0 +1,142 @@
+{
+  "fig002_07": {
+    "path": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-d9d3ee28-ea90-46c6-b3c3-eb6d0951f66e.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "f15a5b3cc2ca1bdf78aa78f6e68bd4f1db9d371f83e634e4658689a7d7ceb08b",
+    "alpha_min": 0,
+    "alpha_max": 254,
+    "alpha_levels": 255,
+    "components": 5,
+    "fragment_components": [],
+    "rows": [
+      {
+        "cy": 360.0,
+        "count": 1,
+        "rects": [
+          [
+            51,
+            37,
+            411,
+            323
+          ]
+        ]
+      },
+      {
+        "cy": 699.0,
+        "count": 1,
+        "rects": [
+          [
+            51,
+            391,
+            214,
+            308
+          ]
+        ]
+      },
+      {
+        "cy": 1010.6666666666666,
+        "count": 3,
+        "rects": [
+          [
+            49,
+            698,
+            211,
+            313
+          ],
+          [
+            281,
+            698,
+            205,
+            312
+          ],
+          [
+            511,
+            698,
+            210,
+            313
+          ]
+        ]
+      }
+    ],
+    "row_grouping": "bottom_baseline_gap45; explicit source-proven separate-part frame grouping",
+    "expected_rows": [
+      1,
+      1,
+      3
+    ],
+    "antall_ok": true,
+    "restalfa_utenfor_5px": {
+      "piksler_over_0": 5835,
+      "maks": 4,
+      "piksler_over_16": 0
+    },
+    "raw_main_component_count": 7,
+    "source_proven_frame_groups": [
+      {
+        "members": [
+          {
+            "rect": [
+              51,
+              37,
+              214,
+              323
+            ],
+            "area": 41011
+          },
+          {
+            "rect": [
+              451,
+              87,
+              11,
+              11
+            ],
+            "area": 112
+          },
+          {
+            "rect": [
+              440,
+              98,
+              10,
+              11
+            ],
+            "area": 109
+          }
+        ],
+        "frame_rect": [
+          51,
+          37,
+          411,
+          323
+        ],
+        "basis": "Kildebasert intrarutegruppering: costume002_036 har kropp samt to ekte gullpiksler i samme originale rute. Bevis fig002_07-kilde-utliggerbevis.png/.json. Native forsøk2 har kropp[51,37,214,323] og to separate gullkomponenter[451,87,11,11]/[440,98,10,11]. Det er én animasjonsrute, ingen ekstra person eller ny rute. Førsterutens hele boks[51,37,411,323] skal bevare alle delene i mottak; kroppen må ikke skaleres/ankres etter gullutliggeren. Native gullformene er større enn4x-kilden og fysisk mottak er ikke verifisert."
+      }
+    ],
+    "source_proven_small_main_parts": [
+      [
+        451,
+        87,
+        11,
+        11
+      ],
+      [
+        440,
+        98,
+        10,
+        11
+      ]
+    ],
+    "source_verified_frame_regions": [],
+    "source_region_basis": null,
+    "source_proven_effect_regions": [],
+    "source_effect_basis": null,
+    "source_proven_fallback_regions": [],
+    "source_fallback_basis": null,
+    "visible_alpha_outside_source_effect_regions": 0,
+    "alpha_control_ok": true,
+    "visually_verified_residual_exception": null
+  }
+}

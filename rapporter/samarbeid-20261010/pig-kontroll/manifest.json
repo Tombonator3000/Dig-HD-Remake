@@ -1,0 +1,842 @@
+{
+  "prepared_utc": "2026-10-10T12:39:40.054963+00:00",
+  "agent": "romlag_produksjon -> Pig007_02..09",
+  "scope": "Eight Pig sheets, fictional existing mechanical game prop",
+  "read_only_delivery_policy": "No delivery/resultat/notat/common ledger or Git mutations by this agent; parent integrates serially. Own metadata and diagnostics only. Native raw PNGs preserved unchanged.",
+  "approved_anchor": {
+    "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+    "raw_native_path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-cbc7fcd8-e923-4ed6-8d5f-f1aca5a90752.png",
+    "sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+  },
+  "counts": {
+    "requested_sheets": 8,
+    "original_main_frames": 194,
+    "original_nonmarker_tiny_fragments": 21,
+    "native_sheet_candidates": 15,
+    "native_corrective_reference_candidates": 1,
+    "ready_sheets": 3,
+    "ready_main_frames": 41,
+    "held_sheets": 5,
+    "held_main_frames": 153
+  },
+  "ready_batch": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/ready-native-batch.json",
+  "ready": [
+    {
+      "job": "fig007_05",
+      "attempt": 1,
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-f2f16ccf-59af-4fb6-9c7c-4af73467c6b3.png",
+      "sha256": "6043eea7311d4199d245fd9a490175caf170a7a468ff402caf08436575c4c90c",
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_05-attempt1-proven.json",
+      "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_05-attempt1-proven.batch.qa.json",
+      "source_proven_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_05-attempt1-source-proven-guide.png",
+      "status": "klar_til_root_kontroll"
+    },
+    {
+      "job": "fig007_08",
+      "attempt": 3,
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-189f5999-9189-465a-bba8-d1bfee689c29.png",
+      "sha256": "198d1f0b9ae4cdef4cc2e4587257aa70f21af7cf932e23fbba60e56057b0cf9f",
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt3-proven.json",
+      "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt3-proven.batch.qa.json",
+      "source_proven_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt3-source-proven-guide.png",
+      "status": "klar_til_root_kontroll"
+    },
+    {
+      "job": "fig007_09",
+      "attempt": 1,
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-b1c741cf-59da-49be-87fd-ad8b2d7480b6.png",
+      "sha256": "20afac9c8e626d637164f36a5b251d2906c8f68f6b5b1d2f24c5710d286472fb",
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_09-attempt1-proven.json",
+      "qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_09-attempt1-proven.batch.qa.json",
+      "source_proven_preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_09-attempt1-source-proven-guide.png",
+      "status": "klar_til_root_kontroll"
+    }
+  ],
+  "held": {
+    "fig007_02": {
+      "latest_attempt": 5,
+      "why": [
+        "One-green correction improved the copied triple array, but extra bright red source-absent spots remain at several cap/hinge locations.",
+        "Costume007_060 detached cap vanished in attempt4 and was restored in attempt5; keep the source-bound grouping, not raw CC counting."
+      ],
+      "next": "Precise native source-phase lamp correction; retain all ring/disc/cap groups and both flashes in056. Do not paint alpha or edit delivered files."
+    },
+    "fig007_03": {
+      "latest_attempt": 2,
+      "why": [
+        "Copied triple-green lamp array remains despite source-closeup correction.",
+        "The flat RGB source pixel in costume007_064 is omitted; native alpha at x1108..1111,y580..583 is0. Its actual game alpha remains unknown without per-frame source RGBA."
+      ],
+      "next": "Claude must inspect decoder palette/alpha and original frame064 geometry before trimming its giant sparse bounding box or preserving the pixel as visible runtime graphics. Then native correction of source lamp states."
+    },
+    "fig007_04": {
+      "latest_attempt": 1,
+      "why": [
+        "Full units still inherit the triple-green cap array from001 while source shows dim source-specific indicators.",
+        "True cap/ring/center groupings and original fragments011/010 must be retained; no arbitrary merging to satisfy29."
+      ],
+      "next": "Source-specific native cap-state correction, followed by manual per-cell groups and QA. Keep the two flashes in098 and original holes in087/097."
+    },
+    "fig007_06": {
+      "latest_attempt": 1,
+      "why": [
+        "Several whole-device cap states inherit brighter/multiple green lamps from001.",
+        "Sparse source stages, notably005/004/170, become longer, more complete curved outlines; source-bound gap/part review is still required.",
+        "Strict alpha check reports5 pixels>16 outside5px, max29; source effect proof has not been established for this candidate."
+      ],
+      "next": "Native correction of exact lamp and sparse-stroke phases, then source-based region grouping; no painted cleanup or convenient alpha exception."
+    },
+    "fig007_07": {
+      "latest_attempt": 1,
+      "why": [
+        "Some partially vanished source rings become complete rings.",
+        "Small fragment costume007_191 becomes a decorated bulb-like object; tiny original chips are rounded/completed in other cells."
+      ],
+      "next": "Native source-bound fragment correction and frame grouping. Preserve actual original sparse pieces and panel marks without inventing complete mini-objects."
+    }
+  },
+  "protected_originals": [
+    {
+      "job": "fig007_02",
+      "file": "referanse.png",
+      "sha256": "3b507fe5d083295d35c19b9632f11c4c410fe934e420adfd91b4ccbeae530a41",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_02",
+      "file": "original_1x.png",
+      "sha256": "f39da07cb5a7202be24d463c536a747f0b8ffec702be7e9a684f71b1536fb6a1",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_02",
+      "file": "prompt.txt",
+      "sha256": "b1bb61e9ad5acab413489accabbf67ba19bcff803d7550fc280f3d0fe49b11b2",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_02",
+      "file": "jobb.json",
+      "sha256": "177d01b9d57b87a156fbd122a07840d583dd15b0acbc017b500463476e53c884",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_03",
+      "file": "referanse.png",
+      "sha256": "5af770862da9ed6d93fde997e1706c00e3684f836acfe34f4f216cafd9554268",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_03",
+      "file": "original_1x.png",
+      "sha256": "12d171a3f36b4242f872122de64937356003fb7f2472846784d013fee690ce21",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_03",
+      "file": "prompt.txt",
+      "sha256": "45d2947062ea09697a920ec119197b395b51dc89a59eac840257e3ea925679a6",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_03",
+      "file": "jobb.json",
+      "sha256": "3996e51561e93964a94f9d9f45feddaf93541e9c92c66eea100774fcbdbe2426",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_04",
+      "file": "referanse.png",
+      "sha256": "b076bec4df9b9c5cfde33acae433ef7739843f3da14cd75666dc01145d816d43",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_04",
+      "file": "original_1x.png",
+      "sha256": "37f94aa17835c4681b9bf14260bb471db16d975c7ea9986153153bdfa18d13a2",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_04",
+      "file": "prompt.txt",
+      "sha256": "35f928a1c3e3970d2e66b5622c1c71d3f8dd67a01a706a4a059138f5b612edf9",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_04",
+      "file": "jobb.json",
+      "sha256": "af0504733bd8699729d9115249eb7d7ecd8954c248179e9bc53b6530e70ca31e",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_05",
+      "file": "referanse.png",
+      "sha256": "604ca1145d0009728c07dc39398e408a80cfe51c31c0e87d16462db0ca5daa6a",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_05",
+      "file": "original_1x.png",
+      "sha256": "abe628b17e08a70f8280094d1b7ea39662e26e0a134cda19c6fc44ba83049c78",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_05",
+      "file": "prompt.txt",
+      "sha256": "60b4e0d087af18e31468d12c95927b7ba20dbf6d94acd0886eb19dca79f142d7",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_05",
+      "file": "jobb.json",
+      "sha256": "c7a378a85e424e7fb79d2167d66735ee08082323cc74f2c4610ad1764b8faf75",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_06",
+      "file": "referanse.png",
+      "sha256": "175e4c4917ce8dac95cff6f31dcee4b036d1864879e28fbd2910c59b96808b37",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_06",
+      "file": "original_1x.png",
+      "sha256": "9a628de6ee1cddd2f2aa16d94d6444cc4599276b61eb65fb39ae1f9cd23943b4",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_06",
+      "file": "prompt.txt",
+      "sha256": "ce4714de3dd568f554ce6ef8e2cfcfe46b7556a3bed90b7046007dc5843817b5",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_06",
+      "file": "jobb.json",
+      "sha256": "84f73688519b52ecd39f6cc0c47fc613afbb2f328c7377eac338c4fcb050ca2b",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_07",
+      "file": "referanse.png",
+      "sha256": "7b04874134466c41e7b1c6f358b4349cf458c255909ee6f4459a74a95efa6dc8",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_07",
+      "file": "original_1x.png",
+      "sha256": "8d624ffa0221fc6abc999ea94c4655558ed4677b79307d251d540a0de2bce03c",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_07",
+      "file": "prompt.txt",
+      "sha256": "47b67da25d57712d1e11332e9560e5dab996d76389d18f1defbeccece7525225",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_07",
+      "file": "jobb.json",
+      "sha256": "da14f0882e49af7b605a039f6320a1d5be0b56f87e496752cebb11b4f8ad3355",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_08",
+      "file": "referanse.png",
+      "sha256": "0ae9925e68b1f648e48cf44a56ee4440f80257e67ca6defecf2757bee3728485",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_08",
+      "file": "original_1x.png",
+      "sha256": "cb8ad7b0b43c07090e645e61f5a3e1e8472b85e63c79c5a97d04f912a3255746",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_08",
+      "file": "prompt.txt",
+      "sha256": "057a35ced7a5cc6cf8f93ebee87389c97f4a00ec0d03952f0f8454432f706eb8",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_08",
+      "file": "jobb.json",
+      "sha256": "10a45d1cd6956b2a0deb09074454a32d5d095c06bc28d9d7abccdea265701788",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_09",
+      "file": "referanse.png",
+      "sha256": "3680b331e1520896f1ad80b5d7225df5b69797ed4a73f1022b85eb7bbf49e153",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_09",
+      "file": "original_1x.png",
+      "sha256": "e1a221b8f8a221bf34e7fda6d5e2943bd413baf974b4a636f35517429f9baf5e",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_09",
+      "file": "prompt.txt",
+      "sha256": "8a950da14ddc98e2a479d46f9ef3d5b1d9df85656fd07b7f61d5b35a2fc47fc8",
+      "unchanged": true
+    },
+    {
+      "job": "fig007_09",
+      "file": "jobb.json",
+      "sha256": "53e3a57b0f374eae17ed5bd8dcb979549a3bcb048e6b0d4318339b0d3dd0171f",
+      "unchanged": true
+    }
+  ],
+  "all_attempts": [
+    {
+      "job": "fig007_02",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-a1d54538-e470-4308-8c2a-6cc2d1943fa8.png",
+      "sha256": "f3481a07e443e101b3be2f38c2ac9427a80681ba6798a3cbf36f23984c9ef4ee",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (35 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [9, 9, 8, 9]; total 35. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 9 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 8 main drawings.\nRow 4: exactly 9 main drawings.\n\nImage THREE is only an original-source diagnostic showing numbered cyan cell bounds. Those bounds identify the exact parts belonging to one original frame, including a concentric ring plus central disc within ONE cell. Copy each complete cell literally and keep its original screen position and scale. Never paint the cyan rectangles or numbers. Repeated small rings, solid discs, cut-out arcs, sliced side caps, and full devices are distinct ordered original phases; preserve every one exactly, never merge neighboring cells. White dots on full devices are actual original white flashes, confined to those cells; do not add extra white light on caps or discs. All yellow seen in the source is transparent empty space.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_02/referanse.png",
+          "current_sha256": "3b507fe5d083295d35c19b9632f11c4c410fe934e420adfd91b4ccbeae530a41"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-source-cells-guide.png",
+          "current_sha256": "e9c8b1b3d00c5e44bdecc571d2d2365afb301771f5ac18239d0f4c3950ded0a7"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        11,
+        10,
+        4,
+        8,
+        1,
+        2,
+        9
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_02",
+      "attempt": 2,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt2.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-1e820921-8294-4fb7-a73a-835620cd26b9.png",
+      "sha256": "e47d432b814e74294cdf428b6bfaed4e10adcc4345bb6f3c05abd9e45f1212a6",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (35 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [9, 9, 8, 9]; total 35. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 9 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 8 main drawings.\nRow 4: exactly 9 main drawings.\n\nImage THREE is only an original-source diagnostic showing numbered cyan cell bounds. Those bounds identify the exact parts belonging to one original frame, including a concentric ring plus central disc within ONE cell. Copy each complete cell literally and keep its original screen position and scale. Never paint the cyan rectangles or numbers. Repeated small rings, solid discs, cut-out arcs, sliced side caps, and full devices are distinct ordered original phases; preserve every one exactly, never merge neighboring cells. White dots on full devices are actual original white flashes, confined to those cells; do not add extra white light on caps or discs. All yellow seen in the source is transparent empty space.\n\nNARROW EDIT OF IMAGE FOUR (the native candidate), preserve all its silhouettes, frame positions and separate pieces. Correct only these two source-state lighting details: (1) In bottom row, the FIRST full elongated device (source cell31, costume007_056, original source box[544,760,216,192]), add the source WHITE FLASH on its upper-right far end in exactly the phase seen in images1 and3. That source frame has TWO white flashes, one at the lower-left near round end and one on the upper-right far end. Keep both. Do not add this far-end flash to any other full device. (2) The tiny red/green indicators on the full devices are muted dark source lights, not bright neon. In the source first head, green is approximately RGB15,59,23 and dark red approximately107,7,11. Match the small dark light values and source placement rather than image4's bright saturated lamps. No other panels, caps, bodies, rings or flashes change. This does not open the device: all literal source phases remain exactly as drawn. Fully transparent1536x1024, no painted yellow or gray background.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_02/referanse.png",
+          "current_sha256": "3b507fe5d083295d35c19b9632f11c4c410fe934e420adfd91b4ccbeae530a41"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-source-cells-guide.png",
+          "current_sha256": "e9c8b1b3d00c5e44bdecc571d2d2365afb301771f5ac18239d0f4c3950ded0a7"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-a1d54538-e470-4308-8c2a-6cc2d1943fa8.png",
+          "current_sha256": "f3481a07e443e101b3be2f38c2ac9427a80681ba6798a3cbf36f23984c9ef4ee"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt2.batch.qa.json",
+      "unmapped_rows": [
+        11,
+        10,
+        12,
+        1,
+        13
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_02",
+      "attempt": 3,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt3.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-dbb56f89-470b-4e35-a0f0-4d5e980922c5.png",
+      "sha256": "8edc9761831176b867e4269c05f5c08ffea86b099daea3b620e83eccfb6bde34",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (35 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [9, 9, 8, 9]; total 35. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 9 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 8 main drawings.\nRow 4: exactly 9 main drawings.\n\nImage THREE is only an original-source diagnostic showing numbered cyan cell bounds. Those bounds identify the exact parts belonging to one original frame, including a concentric ring plus central disc within ONE cell. Copy each complete cell literally and keep its original screen position and scale. Never paint the cyan rectangles or numbers. Repeated small rings, solid discs, cut-out arcs, sliced side caps, and full devices are distinct ordered original phases; preserve every one exactly, never merge neighboring cells. White dots on full devices are actual original white flashes, confined to those cells; do not add extra white light on caps or discs. All yellow seen in the source is transparent empty space.\n\nNARROW EDIT OF IMAGE FOUR (the native candidate), preserve all its silhouettes, frame positions and separate pieces. Correct only these two source-state lighting details: (1) In bottom row, the FIRST full elongated device (source cell31, costume007_056, original source box[544,760,216,192]), add the source WHITE FLASH on its upper-right far end in exactly the phase seen in images1 and3. That source frame has TWO white flashes, one at the lower-left near round end and one on the upper-right far end. Keep both. Do not add this far-end flash to any other full device. (2) The tiny red/green indicators on the full devices are muted dark source lights, not bright neon. In the source first head, green is approximately RGB15,59,23 and dark red approximately107,7,11. Match the small dark light values and source placement rather than image4's bright saturated lamps. No other panels, caps, bodies, rings or flashes change. This does not open the device: all literal source phases remain exactly as drawn. Fully transparent1536x1024, no painted yellow or gray background.\n\nCORRECTION IMAGE ROLES OVERRIDE: imageONE remains the original source. ImageTWO is the EXISTING NATIVE TARGET TO EDIT, NOT an approved authority for the lamps. ImageTHREE is the source cell guide. ImageFOUR is a nearest-neighbor detail crop of the ORIGINAL upper closed cap and lamp, for exact state/color only. Do not copy its yellow background.\nMake ONLY this narrow edit on imageTWO: on ALL seven complete purple device drawings, remove the conspicuous THREE bright green dots from each upper closed cap. Replace that copied triple-LED array with ONLY the ONE tiny dark green source dot, almost unlit, at the source position on the cap. The source dark green is aboutRGB15,59,23, a small subdued dark tint, NOT a luminous neon point. Keep the dark CLOSED rounded cap surface. There must be no row of three green LEDs, no green glowing panel and no added lights. The tiny red source indicator is also muted darkred around107,7,11, not brightneon. Do not alter any drawing size, position, pose, separated ring, center disc, cap, arc, transparent hole, panel or whiteflash. In particular retain BOTH original white flashes on row4 first complete unit costume007_056. Preserve every existing source part and all35source cells. This edit concerns only the incorrect copied LED states, nothing else.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_02/referanse.png",
+          "current_sha256": "3b507fe5d083295d35c19b9632f11c4c410fe934e420adfd91b4ccbeae530a41"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-1e820921-8294-4fb7-a73a-835620cd26b9.png",
+          "current_sha256": "e47d432b814e74294cdf428b6bfaed4e10adcc4345bb6f3c05abd9e45f1212a6"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-source-cells-guide.png",
+          "current_sha256": "e9c8b1b3d00c5e44bdecc571d2d2365afb301771f5ac18239d0f4c3950ded0a7"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-source-lamp-closeup.png",
+          "current_sha256": "d82f8cd21a780732cbff3f2f633e306eeac865e4fc28c2fe701eceace5b666b2"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt3.batch.qa.json",
+      "unmapped_rows": [
+        11,
+        10,
+        4,
+        8,
+        1,
+        13
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_02",
+      "attempt": 4,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt4.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-d213df08-e2ad-4f04-be81-74fa6c8a6992.png",
+      "sha256": "043161c04297aa2d723b2fe79fdc9f19c9d7620222d824ee01f8899672e9cb46",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (35 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [9, 9, 8, 9]; total 35. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 9 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 8 main drawings.\nRow 4: exactly 9 main drawings.\n\nImage THREE is only an original-source diagnostic showing numbered cyan cell bounds. Those bounds identify the exact parts belonging to one original frame, including a concentric ring plus central disc within ONE cell. Copy each complete cell literally and keep its original screen position and scale. Never paint the cyan rectangles or numbers. Repeated small rings, solid discs, cut-out arcs, sliced side caps, and full devices are distinct ordered original phases; preserve every one exactly, never merge neighboring cells. White dots on full devices are actual original white flashes, confined to those cells; do not add extra white light on caps or discs. All yellow seen in the source is transparent empty space.\n\nNARROW EDIT OF IMAGE FOUR (the native candidate), preserve all its silhouettes, frame positions and separate pieces. Correct only these two source-state lighting details: (1) In bottom row, the FIRST full elongated device (source cell31, costume007_056, original source box[544,760,216,192]), add the source WHITE FLASH on its upper-right far end in exactly the phase seen in images1 and3. That source frame has TWO white flashes, one at the lower-left near round end and one on the upper-right far end. Keep both. Do not add this far-end flash to any other full device. (2) The tiny red/green indicators on the full devices are muted dark source lights, not bright neon. In the source first head, green is approximately RGB15,59,23 and dark red approximately107,7,11. Match the small dark light values and source placement rather than image4's bright saturated lamps. No other panels, caps, bodies, rings or flashes change. This does not open the device: all literal source phases remain exactly as drawn. Fully transparent1536x1024, no painted yellow or gray background.\n\nCORRECTION IMAGE ROLES OVERRIDE: imageONE remains the original source. ImageTWO is the EXISTING NATIVE TARGET TO EDIT, NOT an approved authority for the lamps. ImageTHREE is the source cell guide. ImageFOUR is a nearest-neighbor detail crop of the ORIGINAL upper closed cap and lamp, for exact state/color only. Do not copy its yellow background.\nMake ONLY this narrow edit on imageTWO: on ALL seven complete purple device drawings, remove the conspicuous THREE bright green dots from each upper closed cap. Replace that copied triple-LED array with ONLY the ONE tiny dark green source dot, almost unlit, at the source position on the cap. The source dark green is aboutRGB15,59,23, a small subdued dark tint, NOT a luminous neon point. Keep the dark CLOSED rounded cap surface. There must be no row of three green LEDs, no green glowing panel and no added lights. The tiny red source indicator is also muted darkred around107,7,11, not brightneon. Do not alter any drawing size, position, pose, separated ring, center disc, cap, arc, transparent hole, panel or whiteflash. In particular retain BOTH original white flashes on row4 first complete unit costume007_056. Preserve every existing source part and all35source cells. This edit concerns only the incorrect copied LED states, nothing else.\n\nFINAL NARROW CORRECTION WITH VISUAL LAMP PROOF: imageFOUR now shows the source-corrected cap in LARGE SCALE, with ONE GREEN and ONE RED dot, not three green dots. This image is ONLY a positive lamp-state reference, not a source of texture, scale, arrangement, new panels or new geometry. ImageFIVE is the actual original one-green/one-red source. ImageTWO remains the full-sheet target to edit. Replace the upper cap lamp arrangement on ALL SEVEN whole units in imageTWO with the simple ONE-GREEN/ONE-RED arrangement seen in imageFOUR, scaled tiny to the sheet. Explicitly erase the other two green dots, not merely dim them. ONE green dot total on each cap; not three. All cap surfaces remain dark, closed and solid. Make that exact local deletion, without shifting any unit, ring, cap, center disc, source flash, panel or frame. Keep both flashes in costume007_056. This cap correction is the only change. Preserve the native drawing style from imageTWO and do not import the large-object brush texture or additional details from imageFOUR.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_02/referanse.png",
+          "current_sha256": "3b507fe5d083295d35c19b9632f11c4c410fe934e420adfd91b4ccbeae530a41"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-dbb56f89-470b-4e35-a0f0-4d5e980922c5.png",
+          "current_sha256": "8edc9761831176b867e4269c05f5c08ffea86b099daea3b620e83eccfb6bde34"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-source-cells-guide.png",
+          "current_sha256": "e9c8b1b3d00c5e44bdecc571d2d2365afb301771f5ac18239d0f4c3950ded0a7"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-db1a278f-2725-486c-8e80-ecd2e1426ac8.png",
+          "current_sha256": "11fe1c0abb27c8c061d0acb8d2b213c3ec7afc4e7062e5ca7bfe9c0eec46e2fc"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-source-lamp-closeup.png",
+          "current_sha256": "d82f8cd21a780732cbff3f2f633e306eeac865e4fc28c2fe701eceace5b666b2"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt4.batch.qa.json",
+      "unmapped_rows": [
+        11,
+        10,
+        4,
+        8,
+        2,
+        9
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_02",
+      "attempt": 5,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt5.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-f75c439d-7e60-419a-8611-254eed432e28.png",
+      "sha256": "82f8f22c050986e6a8d956036bf0843b2e66738a74ae314977a443ea1f38789a",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (35 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [9, 9, 8, 9]; total 35. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 9 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 8 main drawings.\nRow 4: exactly 9 main drawings.\n\nImage THREE is only an original-source diagnostic showing numbered cyan cell bounds. Those bounds identify the exact parts belonging to one original frame, including a concentric ring plus central disc within ONE cell. Copy each complete cell literally and keep its original screen position and scale. Never paint the cyan rectangles or numbers. Repeated small rings, solid discs, cut-out arcs, sliced side caps, and full devices are distinct ordered original phases; preserve every one exactly, never merge neighboring cells. White dots on full devices are actual original white flashes, confined to those cells; do not add extra white light on caps or discs. All yellow seen in the source is transparent empty space.\n\nNARROW EDIT OF IMAGE FOUR (the native candidate), preserve all its silhouettes, frame positions and separate pieces. Correct only these two source-state lighting details: (1) In bottom row, the FIRST full elongated device (source cell31, costume007_056, original source box[544,760,216,192]), add the source WHITE FLASH on its upper-right far end in exactly the phase seen in images1 and3. That source frame has TWO white flashes, one at the lower-left near round end and one on the upper-right far end. Keep both. Do not add this far-end flash to any other full device. (2) The tiny red/green indicators on the full devices are muted dark source lights, not bright neon. In the source first head, green is approximately RGB15,59,23 and dark red approximately107,7,11. Match the small dark light values and source placement rather than image4's bright saturated lamps. No other panels, caps, bodies, rings or flashes change. This does not open the device: all literal source phases remain exactly as drawn. Fully transparent1536x1024, no painted yellow or gray background.\n\nCORRECTION IMAGE ROLES OVERRIDE: imageONE remains the original source. ImageTWO is the EXISTING NATIVE TARGET TO EDIT, NOT an approved authority for the lamps. ImageTHREE is the source cell guide. ImageFOUR is a nearest-neighbor detail crop of the ORIGINAL upper closed cap and lamp, for exact state/color only. Do not copy its yellow background.\nMake ONLY this narrow edit on imageTWO: on ALL seven complete purple device drawings, remove the conspicuous THREE bright green dots from each upper closed cap. Replace that copied triple-LED array with ONLY the ONE tiny dark green source dot, almost unlit, at the source position on the cap. The source dark green is aboutRGB15,59,23, a small subdued dark tint, NOT a luminous neon point. Keep the dark CLOSED rounded cap surface. There must be no row of three green LEDs, no green glowing panel and no added lights. The tiny red source indicator is also muted darkred around107,7,11, not brightneon. Do not alter any drawing size, position, pose, separated ring, center disc, cap, arc, transparent hole, panel or whiteflash. In particular retain BOTH original white flashes on row4 first complete unit costume007_056. Preserve every existing source part and all35source cells. This edit concerns only the incorrect copied LED states, nothing else.\n\nFINAL NARROW CORRECTION WITH VISUAL LAMP PROOF: imageFOUR now shows the source-corrected cap in LARGE SCALE, with ONE GREEN and ONE RED dot, not three green dots. This image is ONLY a positive lamp-state reference, not a source of texture, scale, arrangement, new panels or new geometry. ImageFIVE is the actual original one-green/one-red source. ImageTWO remains the full-sheet target to edit. Replace the upper cap lamp arrangement on ALL SEVEN whole units in imageTWO with the simple ONE-GREEN/ONE-RED arrangement seen in imageFOUR, scaled tiny to the sheet. Explicitly erase the other two green dots, not merely dim them. ONE green dot total on each cap; not three. All cap surfaces remain dark, closed and solid. Make that exact local deletion, without shifting any unit, ring, cap, center disc, source flash, panel or frame. Keep both flashes in costume007_056. This cap correction is the only change. Preserve the native drawing style from imageTWO and do not import the large-object brush texture or additional details from imageFOUR.\n\nTEN-POINT LITERAL LOCAL DELETION. ImageTWO is the current native full-sheet edit target; imageTHREE is a diagnostic gray composite with pink circles around EXACTLY ten incorrect leftover lamp-color spots. The circles and numbers are location guides only, never output graphics. ImageFOUR is the source-corrected single-object lamp arrangement. Delete ONLY the colored points centered at these native canvas coordinates: faint extra greens (581,48),(244,288),(1086,291); extra outside red LEDs (618,61),(278,302),(1121,303),(563,536),(1317,537),(730,784),(1378,786). Cover each existing extra colored point locally with the adjoining solid dark purple cap or hinge material. Keep the correct ONE green and ONE red dot ALREADY present on each cap. Do not move either retained dot or add another. After the local deletion each whole unit has one green and one red source indicator total. No pink circles/numbers in output. All seven units, source flashes including two in056, ring parts, arcs, discs, caps, pose geometry, exact current positions and all other pixels stay visually unchanged. This is a point deletion on the existing drawing, not a repaint of the sheet or a new interpretation.\n\nOne exact source-part restoration is ALSO required: the detached dark oval cap immediately ABOVE-LEFT of the last whole unit in the bottom row (costume007_060) disappeared in imageTWO. Restore that small dark oval, matching original imageONE and the correctly present oval in imageFIVE (older native drawing, cap only). It is at aboutx1154..1225,y741..802 in the older native and remains fully separate from that last main unit. It is an ORIGINAL part of frame060, not an added frame or arbitrary dot. Do not restore the older wrong lamp states from imageFIVE. Keep all current other pieces unchanged.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_02/referanse.png",
+          "current_sha256": "3b507fe5d083295d35c19b9632f11c4c410fe934e420adfd91b4ccbeae530a41"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-d213df08-e2ad-4f04-be81-74fa6c8a6992.png",
+          "current_sha256": "043161c04297aa2d723b2fe79fdc9f19c9d7620222d824ee01f8899672e9cb46"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-lamp-removal-locator.png",
+          "current_sha256": "ffaf6d6d784f9494c54bcad4f79b5ab050d585e4c98b47968afef3fc2da4d657"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-db1a278f-2725-486c-8e80-ecd2e1426ac8.png",
+          "current_sha256": "11fe1c0abb27c8c061d0acb8d2b213c3ec7afc4e7062e5ca7bfe9c0eec46e2fc"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-dbb56f89-470b-4e35-a0f0-4d5e980922c5.png",
+          "current_sha256": "8edc9761831176b867e4269c05f5c08ffea86b099daea3b620e83eccfb6bde34"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-attempt5.batch.qa.json",
+      "unmapped_rows": [
+        11,
+        10,
+        4,
+        8,
+        1,
+        2,
+        9
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_03",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-e4e789d5-38bd-4e1a-8448-7e6f0b3eee59.png",
+      "sha256": "4148ea171700ebbcccf78e20cf33ad5d91a9d98065723cb3de4bcb1a2d921a74",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (18 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [7, 9, 2]; total 18. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 7 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 2 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\nFrame costume007_064 (row 1 cell 4) has a very large source bounding box because of distant tiny pieces: its purple device remains the small original drawing at upper left of that box, with the separate dark oval immediately above-left. Preserve this sparse distribution; do not stretch or enlarge the device to fill its cell. The full original has three main rows [7,9,2] with several real multi-piece frames.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_03/referanse.png",
+          "current_sha256": "5af770862da9ed6d93fde997e1706c00e3684f836acfe34f4f216cafd9554268"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-source-cells-guide.png",
+          "current_sha256": "f78096ebf53d2887cca04d320eb9827fe73c8837e500bb9e7371dc612201a61d"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        1,
+        1,
+        2,
+        6,
+        3,
+        2,
+        9,
+        2
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_03",
+      "attempt": 2,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-attempt2.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-e627f566-f405-48e0-88e9-b7f7d1ec1b26.png",
+      "sha256": "50a75084dbc963a311df015221d5a06708211864049aae8c61546f97fc645634",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (18 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [7, 9, 2]; total 18. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 7 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 2 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\nFrame costume007_064 (row 1 cell 4) has a very large source bounding box because of distant tiny pieces: its purple device remains the small original drawing at upper left of that box, with the separate dark oval immediately above-left. Preserve this sparse distribution; do not stretch or enlarge the device to fill its cell. The full original has three main rows [7,9,2] with several real multi-piece frames.\n\nPRECISE EDIT IMAGE ROLES OVERRIDE: imageONE is the original source; imageTWO is the existing NATIVE TARGET to edit, not authority for lamp count. ImageTHREE is original cell guide; imageFOUR is the original lamp detail; imageFIVE is the original distant dark pixel detail. All yellow in images1/3/4/5 is empty alpha, not paint.\nPerform ONLY two source corrections to imageTWO. (1) On all four whole devices, REMOVE the copied three-green-LED array from the upper closed cap. Replace it with the actual ONE tiny almost-unlit dark green source dot aboutRGB15,59,23 and one subdued darkred source indicator, no glow. Do not add any other lamp. (2) In the large sparse frame costume007_064 (top source row cell4), preserve the original small dark source block at canvasx1108..1111,y580..583: it is a genuine existing 4x4 source signal, RGB0,0,0, shown in imageFIVE. Keep it ONLY there, very tiny, fully separate from the main device. Do not grow it into an object, move it beside the device, turn it magenta, omit it as residue or add any other dot. All other existing drawings, positions, white flashes, rings, centers, separate caps, shapes and order remain untouched. The huge bounding box must stay sparse, never filled or stretched.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_03/referanse.png",
+          "current_sha256": "5af770862da9ed6d93fde997e1706c00e3684f836acfe34f4f216cafd9554268"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-e4e789d5-38bd-4e1a-8448-7e6f0b3eee59.png",
+          "current_sha256": "4148ea171700ebbcccf78e20cf33ad5d91a9d98065723cb3de4bcb1a2d921a74"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-source-cells-guide.png",
+          "current_sha256": "f78096ebf53d2887cca04d320eb9827fe73c8837e500bb9e7371dc612201a61d"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-source-lamp-closeup.png",
+          "current_sha256": "8b9b3890e6364d470a48fe8235b39936ef40d3c79025c54fe2b7e4c2146224fe"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-source-pixel-closeup.png",
+          "current_sha256": "9254d521df99c871e263014c64ff56074baff52e58e722cf849c8a1074cc7d5c"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_03-attempt2.batch.qa.json",
+      "unmapped_rows": [
+        1,
+        1,
+        2,
+        6,
+        3,
+        2,
+        9,
+        2
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_04",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_04-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-bd85af76-78a5-4cc8-821a-cb3319f13daf.png",
+      "sha256": "ecd9035e7f5fc30e94bba3b31cc09125fe5b779eea742dd20b1b82996394e6aa",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (31 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [9, 9, 10, 1]; total 29. Keep these rows and left-to-right order. There are also 2 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 9 main drawings; tiny original fallback fragments ['costume007_011'].\nRow 2: exactly 9 main drawings; tiny original fallback fragments ['costume007_010'].\nRow 3: exactly 10 main drawings.\nRow 4: exactly 1 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 004 PHASE CHECK: keep each tilted upper cap/dark disc in exactly the source position and tilt, including the source-dependent gap to its own purple main body. The cap is NOT a new bright LED terminal. The last full unit in row2, costume007_098, has TWO white flashes: the usual lower-left front flash plus a separate flash near the upper-right end immediately below the lifted cap. Other full units have only the source lower-left flash. In source rings/partial caps, every yellow hole is real transparent air, including small yellow holes cut in the LOWER dark piece in costume007_087 and costume007_097; do not fill them with solid purple. The two truly tiny source fragments 011/010 stay tiny shapes in their source cells. Do not enlarge them into another cap or sphere.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_04/referanse.png",
+          "current_sha256": "b076bec4df9b9c5cfde33acae433ef7739843f3da14cd75666dc01145d816d43"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_04-source-cells-guide.png",
+          "current_sha256": "2af178e656314354677bbb9d9bf4007dc72787c27c5c680eaf7953b678207a1a"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_04-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        1,
+        3,
+        9,
+        2,
+        9,
+        2,
+        10,
+        1,
+        1
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_05",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_05-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-f2f16ccf-59af-4fb6-9c7c-4af73467c6b3.png",
+      "sha256": "6043eea7311d4199d245fd9a490175caf170a7a468ff402caf08436575c4c90c",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (28 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [8, 9, 10, 1]; total 28. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 8 main drawings.\nRow 2: exactly 9 main drawings.\nRow 3: exactly 10 main drawings.\nRow 4: exactly 1 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 005 MOTION: the original whole units progressively turn from diagonal toward vertical. Copy each particular angle and the changing cap/dark-disc position, rather than stamping the same45degree object. All main units retain the original bright white lower/front flash. Copy the detached dark cap above the upper end in early phases and the dark disc at the side of the unit in later phases exactly. These are actual separate pieces of the SAME source frame, not extra frames. The upper end is usually dark and partly hidden by the cap, never a bright green terminal or added three-LED panel. The final source cell at bottom left is ONLY a solid dark disc; do not add a ring, central ball or whole unit there. Preserve row counts [8,9,10,1].\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_05/referanse.png",
+          "current_sha256": "604ca1145d0009728c07dc39398e408a80cfe51c31c0e87d16462db0ca5daa6a"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_05-source-cells-guide.png",
+          "current_sha256": "be63a8e6a044302946d687d77cbc121dd7aff0556883d0d4f0cf99b7b4e49b80"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_05-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        4,
+        8,
+        1,
+        4,
+        9,
+        4,
+        10,
+        1
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "selected_ready"
+    },
+    {
+      "job": "fig007_06",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_06-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-8bb1c1da-db6e-4e20-85b0-723c4a8e75a9.png",
+      "sha256": "8358664655faaeb44ca27be2478dc05d23f41da8674490eac5bd6366aed0252b",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (42 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [10, 8, 11, 10]; total 39. Keep these rows and left-to-right order. There are also 3 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 10 main drawings.\nRow 2: exactly 8 main drawings; tiny original fallback fragments ['costume007_000', 'costume007_008'].\nRow 3: exactly 11 main drawings; tiny original fallback fragments ['costume007_007'].\nRow 4: exactly 10 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 006 ROTATION: the complete units rotate from almost vertical with top toward upper-left in row1, then upper-left toward lower-right progressively to shallower diagonals in the last row. Copy each actual original angle, silhouette, side cover and round end. Do not flip them to the imageTWO diagonal. Pale purple side panel with tiny muted red marks is the source-facing surface here. The white light remains at the ORIGINAL lower end of each whole unit. Only the second full unit in row1 has an additional white flash at its top. Sparse source cells showing disconnected little dark strokes, partial outlines or a few tiny corners MUST remain only those disconnected source strokes with transparent gaps. Do not connect those pieces into a complete ring, add a center, fill them solid or turn them into a new button. These sparse drawings are real source phases, not arbitrary residue. The three truly tiny source fragments costume007_000,008,007 stay in their original positions and scale. All yellow between and inside the source strokes is transparent. Every complete disc and partial cap retains its own source angle and source light/dark planes.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_06/referanse.png",
+          "current_sha256": "175e4c4917ce8dac95cff6f31dcee4b036d1864879e28fbd2910c59b96808b37"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_06-source-cells-guide.png",
+          "current_sha256": "94590ee8698e1cee50c59b40becd399ad0f63139fe1f5825fcb5bed69e12eba1"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_06-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        13,
+        9,
+        13,
+        12
+      ],
+      "alpha_control_ok": false,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_07",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_07-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-8592ae19-4f88-4013-9ec3-337f2d4e8cbc.png",
+      "sha256": "2b312ee099deb3508483274b6fc18414c8b6e894a13dc89cd17080c733f6869d",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (48 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [8, 8, 5, 5, 6]; total 32. Keep these rows and left-to-right order. There are also 16 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 8 main drawings.\nRow 2: exactly 8 main drawings; tiny original fallback fragments ['costume007_190', 'costume007_194', 'costume007_195', 'costume007_196', 'costume007_200', 'costume007_201', 'costume007_202'].\nRow 3: exactly 5 main drawings; tiny original fallback fragments ['costume007_204', 'costume007_205', 'costume007_206', 'costume007_209', 'costume007_210', 'costume007_211', 'costume007_212', 'costume007_215'].\nRow 4: exactly 5 main drawings; tiny original fallback fragments ['costume007_216'].\nRow 5: exactly 6 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 007 IS AN EXACT TURNING SEQUENCE: in rows1-3 the elongated purple device turns from diagonal with its pale two-red-mark side visible to nearly horizontal, then in rows4-5 turns upward from lower-left to upper-right with the darker reverse side visible. Copy each cell independently from imageONE, never stamp one generic angle or mirror the earlier side. Whole units are solid CLOSED devices, never barrels or gun muzzles. Source dark end face and exterior dark side plane stay solid, not holes. White flashes occur ONLY in the source phases: row2 full unit at right has its flash near upper-left; row5 second unit has its flash on the lower-third indicator panel. Every other source white spot stays exactly where source has it, and do not add extra flashes. Near the whole units there are many truly tiny dark chips and source fragments; copy the exact tiny fragments in their original source locations. A sparse cell containing one or two tiny marks must remain tiny marks, not a filled button, completed ring, cap, text, number, arc or random decoration. Keep each partly vanished ring as the actual few surviving strokes: never complete it into a whole circle. Lower rows keep stable object proportions with the exact angle change and lower-third original small green/red indicator, without a bright top-cap triple-LED array.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_07/referanse.png",
+          "current_sha256": "7b04874134466c41e7b1c6f358b4349cf458c255909ee6f4459a74a95efa6dc8"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_07-source-cells-guide.png",
+          "current_sha256": "73697a712c220db098765a5808079b932dd001e28ced950f728774b4920b49b1"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_07-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        10,
+        9,
+        1,
+        4,
+        5,
+        6
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_08",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-9628701f-5e37-453c-9f08-182feef7178d.png",
+      "sha256": "78ff0378806a00432c08f3238b1ec7a77d3a2965f9f567598dae222dedf2120c",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (2 frames); animation 7, facing right (1 frame); animation 8, facing right (2 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [2, 1, 2]; total 5. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 2 main drawings.\nRow 2: exactly 1 main drawings.\nRow 3: exactly 2 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 008 VIEW IS LITERAL: these five drawings show the REVERSE SIDE of the same device, rotating upward from bottom-left to top-right. The lower-left end is a CLOSED dark rounded flat end with a shallow lip; the upper-right end is the narrow purple housing with the actual small protrusions. There is no exposed front glass lens or open concentric muzzle at the upper-right or lower-left. Copy the small source green indicator and surrounding pale panel near the LOWER THIRD of the body, not three bright LEDs on a top cap. Source frame row2cell1 and row3cell1 alone contain the white flash near that lower-third panel. All other three frames have no white light. Preserve the small exact source changes between row1cell1/2 and row3cell2, especially the widening dark side plane. Keep rows [2,1,2] with the great empty area at right and below. Do not rearrange into a compact equal grid.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_08/referanse.png",
+          "current_sha256": "0ae9925e68b1f648e48cf44a56ee4440f80257e67ca6defecf2757bee3728485"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-source-cells-guide.png",
+          "current_sha256": "003a6de776e12ec77adf346209ec932d0f5905dc1e47e85a83eb6d93d411d11c"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        2,
+        1,
+        2
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_08",
+      "attempt": 2,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt2.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-362fea4e-a42d-464c-9953-235bf0a521cd.png",
+      "sha256": "8456edf068ffd7bb822433779b71084f3b10defb169fe8fbd441d70a1df88025",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (2 frames); animation 7, facing right (1 frame); animation 8, facing right (2 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [2, 1, 2]; total 5. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 2 main drawings.\nRow 2: exactly 1 main drawings.\nRow 3: exactly 2 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 008 VIEW IS LITERAL: these five drawings show the REVERSE SIDE of the same device, rotating upward from bottom-left to top-right. The lower-left end is a CLOSED dark rounded flat end with a shallow lip; the upper-right end is the narrow purple housing with the actual small protrusions. There is no exposed front glass lens or open concentric muzzle at the upper-right or lower-left. Copy the small source green indicator and surrounding pale panel near the LOWER THIRD of the body, not three bright LEDs on a top cap. Source frame row2cell1 and row3cell1 alone contain the white flash near that lower-third panel. All other three frames have no white light. Preserve the small exact source changes between row1cell1/2 and row3cell2, especially the widening dark side plane. Keep rows [2,1,2] with the great empty area at right and below. Do not rearrange into a compact equal grid.\n\nNARROW NATIVE CORRECTION of image FOUR: preserve all five drawings, their current row positions, proportions, details, existing green/red dots and the two correct white flashes. Correct ONLY the dark patch on the upper-right side of the last drawing (row3cell2): it is an exterior dark PURPLE SHADED SIDE PLANE, continuous solid housing, not a rectangular black hole, slot, aperture, open hatch or recessed cavity. Image ONE shows this dark outer side surface extending along the far side to the silhouette edge. Fill the invented rectangular opening with continuous solid shaded metal in the original dark purple plane. Keep its source outline and do not add any new seam, socket, grille or part. Both rounded end faces remain closed. Do not repaint or move the other four drawings.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_08/referanse.png",
+          "current_sha256": "0ae9925e68b1f648e48cf44a56ee4440f80257e67ca6defecf2757bee3728485"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-source-cells-guide.png",
+          "current_sha256": "003a6de776e12ec77adf346209ec932d0f5905dc1e47e85a83eb6d93d411d11c"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-9628701f-5e37-453c-9f08-182feef7178d.png",
+          "current_sha256": "78ff0378806a00432c08f3238b1ec7a77d3a2965f9f567598dae222dedf2120c"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt2.batch.qa.json",
+      "unmapped_rows": [
+        2,
+        1,
+        2
+      ],
+      "alpha_control_ok": false,
+      "manual_status": "held_or_superseded"
+    },
+    {
+      "job": "fig007_08",
+      "attempt": 3,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt3.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-189f5999-9189-465a-bba8-d1bfee689c29.png",
+      "sha256": "198d1f0b9ae4cdef4cc2e4587257aa70f21af7cf932e23fbba60e56057b0cf9f",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (2 frames); animation 7, facing right (1 frame); animation 8, facing right (2 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [2, 1, 2]; total 5. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 2 main drawings.\nRow 2: exactly 1 main drawings.\nRow 3: exactly 2 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 008 VIEW IS LITERAL: these five drawings show the REVERSE SIDE of the same device, rotating upward from bottom-left to top-right. The lower-left end is a CLOSED dark rounded flat end with a shallow lip; the upper-right end is the narrow purple housing with the actual small protrusions. There is no exposed front glass lens or open concentric muzzle at the upper-right or lower-left. Copy the small source green indicator and surrounding pale panel near the LOWER THIRD of the body, not three bright LEDs on a top cap. Source frame row2cell1 and row3cell1 alone contain the white flash near that lower-third panel. All other three frames have no white light. Preserve the small exact source changes between row1cell1/2 and row3cell2, especially the widening dark side plane. Keep rows [2,1,2] with the great empty area at right and below. Do not rearrange into a compact equal grid.\n\nNARROW NATIVE CORRECTION of image FOUR: preserve all five drawings, their current row positions, proportions, details, existing green/red dots and the two correct white flashes. Correct ONLY the dark patch on the upper-right side of the last drawing (row3cell2): it is an exterior dark PURPLE SHADED SIDE PLANE, continuous solid housing, not a rectangular black hole, slot, aperture, open hatch or recessed cavity. Image ONE shows this dark outer side surface extending along the far side to the silhouette edge. Fill the invented rectangular opening with continuous solid shaded metal in the original dark purple plane. Keep its source outline and do not add any new seam, socket, grille or part. Both rounded end faces remain closed. Do not repaint or move the other four drawings.\n\nSOURCE PHASE SHADE CORRECTION after closed-surface correction: imageTWO is the current native target, imageFOUR enlarges ONLY the original last two drawings. The current native last two drawings are still too uniformly purple, so the source dark-side turning phase has been lost. For BOTH drawings in the LAST ROW only, copy the source broad near-black DARK PURPLE EXTERIOR SIDE PLANE on the far upper-right side of the long body. It occupies roughly the outer right quarter of that upper body, runs to and forms the actual outer silhouette edge, and is a flat solid shaded surface. It is continuous metal, not an inset rectangular opening, hole, hatch, socket or cavity. This turning phase exposes more of the far side than in the first three drawings. The large dark plane must visibly differ from the brighter first-row body shading, matching the source. Preserve the lower-third indicator panel, the two correct white flash phases and the solid closed dark end face. Keep all five native frame sizes and current positions. Do not change the first three drawings. No new panels, loops, red points, glints, outlines or parts.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_08/referanse.png",
+          "current_sha256": "0ae9925e68b1f648e48cf44a56ee4440f80257e67ca6defecf2757bee3728485"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-362fea4e-a42d-464c-9953-235bf0a521cd.png",
+          "current_sha256": "8456edf068ffd7bb822433779b71084f3b10defb169fe8fbd441d70a1df88025"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-source-cells-guide.png",
+          "current_sha256": "003a6de776e12ec77adf346209ec932d0f5905dc1e47e85a83eb6d93d411d11c"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-source-last-two-side-planes.png",
+          "current_sha256": "d880035a7b50377fe94f40bc20b2822d60fbbe62fbf2b45372578dbf042182ba"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_08-attempt3.batch.qa.json",
+      "unmapped_rows": [
+        2,
+        1,
+        2
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "selected_ready"
+    },
+    {
+      "job": "fig007_09",
+      "attempt": 1,
+      "record": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_09-attempt1.json",
+      "native_path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-b1c741cf-59da-49be-87fd-ad8b2d7480b6.png",
+      "sha256": "20afac9c8e626d637164f36a5b251d2906c8f68f6b5b1d2f24c5710d286472fb",
+      "full_prompt": "Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.\n\nInput: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.\n\nAll frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 9, facing right (8 frames).\n\nDo:\n- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.\n- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.\n- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.\n- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.\n- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.\n\nDo not:\n- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.\n- Do not let frames touch or overlap each other.\n- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.\n- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.\n\nOutput: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.\n\nIf a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.\n\n\nTOM AUTHORIZED PRECISE SOURCE AND IDENTITY CORRECTION, 10 OCTOBER 2026. Image ONE controls the exact original poses, row layout, frame order, part boundaries, silhouettes, costume, panels, lights and source palette. Image TWO is an approved style/identity reference, never another output layout. Do not import any pose, frame, face or background from it into a source cell that does not contain it.\nPig is the specific MECHANICAL GAME DEVICE in imageONE, not a pig or a person. Copy its precise dark purple/lavender housing, angular cylindrical shape, dark CLOSED rounded end, original small panels and original red/green lamps. Do not add a gun barrel, muzzle, opening, new cap, yellow paint, invented panel or extra status lights. Source yellow is transparent empty space, never painted yellow metal. Every separate original cap, disc, arc or ring stays the exact corresponding mechanical phase. A ring and central disc separated by a transparent annulus can be ONE source frame; do not turn it into multiple output frames. Partial pieces stay solid geometric mechanical pieces, never smoke or a cloud. Any actual original flash stays in its own source position and phase.\nUse clean hand-drawn shadow planes and smooth antialiased contours, without photographic texture, rounded plastic 3D shading or film grain. The source proportions and viewing directions are literal, including every phase of a turning animation: follow the actual visible helmet/face, feet, arms and backpack in each cell, never mirror a cell based on a generic script direction label. Preserve headless bodies, isolated heads or arms exactly when present; never complete a separate part.\nSTABLE ANIMATION SCALE: use one consistent character scale across the sheet. In identical viewing directions, skull and helmet diameter, eye line, nose, suit width, backpack dimensions and limb thickness stay stable. Talking changes the prescribed mouth/jaw only, never enlarge/shrink the whole head, helmet or body to fit a frame. Copy actual relative pose sizes from the original; crouching changes height naturally, not the underlying character scale.\nEXACT main drawing rows: [7, 1]; total 8. Keep these rows and left-to-right order. There are also 0 non-marker tiny source fragments; keep them tiny, never complete them as new people or objects. The 0 magenta-only source entries are game shadow markers: omit them entirely, not extra heads, people, objects or painted fragments. True transparent RGBA1536x1024, with no background color, gray padding, grid, labels, annotation, floor, cast shadow, rectangular residue or unrelated dots. Every alpha shape must belong to its corresponding source cell.\nRow 1: exactly 7 main drawings.\nRow 2: exactly 1 main drawings.\n\nSOURCE CELL GUIDE: Image THREE is a diagnostic copy of image ONE. Thin cyan boxes and small blue numbers identify the existing source cells only; do not draw the boxes or numbers. Keep the same drawing scale and baseline within these exact source locations. A cell may contain a ring, its center disc, and a detached cap as ONE original phase. Reproduce every real separate piece and white flash within its own original cell, with the original gaps and orientation. Do not enlarge a small device to fill empty space inside a large source box. No yellow/gray/cyan/blue guide marks in the delivered alpha.\nCRITICAL LAMP STATE: copy only the tiny dim red/green lamps actually visible in that particular source cell. Do not stamp three bright green LEDs from the style reference onto all phases. These source indicators are tiny dark colored dots with NO neon emission or added green screen.\n\nSHEET 009 VIEW IS LITERAL: all eight drawings show the REVERSE SIDE of the same device, rising diagonally from bottom-left to top-right, exactly as image ONE. Do not copy the other side from image TWO. Lower-left end is CLOSED dark rounded flat metal with a shallow lip; upper-right end is narrow purple housing and the exact small protrusions. No exposed front glass lens, no open concentric muzzle, no aperture, no hole, no grille and NO white flash anywhere on this sheet. Small green/red source indicator and pale surrounding panel are near the LOWER THIRD of the body. Copy them there only, no top-cap LEDs. There are exactly seven in the top row and one at far left in row2. Keep their source drawing extents about160×180px, source top-row baseline~228 and second~440. Do not inflate them to250px tall or redistribute into four rows. Right side of the last two source phases is a broad dark exterior PURPLE SIDE PLANE (solid housing), never an invented rectangular hole. The source subtle differences in angle and dark side surface must remain, rather than stamping an exactly identical view.\n",
+      "references": [
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_09/referanse.png",
+          "current_sha256": "3680b331e1520896f1ad80b5d7225df5b69797ed4a73f1022b85eb7bbf49e153"
+        },
+        {
+          "path": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png",
+          "current_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1"
+        },
+        {
+          "path": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_09-source-cells-guide.png",
+          "current_sha256": "3115f726f69b0c65ef8fcbcebd02b6d1d12aa6de2c0ae8ba9b4897f9994e0c1a"
+        }
+      ],
+      "raw_qa": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_09-attempt1.batch.qa.json",
+      "unmapped_rows": [
+        7,
+        1
+      ],
+      "alpha_control_ok": true,
+      "manual_status": "selected_ready"
+    }
+  ],
+  "corrective_reference": {
+    "purpose": "Source-corrective native reference, not a delivery or approved new design",
+    "refs": [
+      "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/pig029-source-unit-closeup.png",
+      "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/agent-pig/fig007_02-source-lamp-closeup.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/resultat.png"
+    ],
+    "prompt": "Make one precise corrected HD reference of ONLY the purple mechanical game prop shown in imageONE (original costume007_029 from The Dig). This is a fictional existing adventure-game prop. One whole object only, on true transparent alpha, landscape1536x1024, large enough to read its small upper cap. ImageONE determines the exact device silhouette, panels, angle, dark closed rounded end, attached dark front-side disk and one white lower-left front flash. ImageTWO is an enlarged ORIGINAL detail of the upper cap and its lamps. ImageTHREE supplies only the already approved hand-drawn smooth purple material treatment. Do not use its other phases or its lamp array.\nThe crucial correction is literal: the upper closed cap has ONE SINGLE TINY UNLIT DARK GREEN DOT, as visible in imageTWO, alongside ONE muted dark red source dot. ONE green dot only. It is darkgreen approximatelyRGB15,59,23, not emitting light. There is NO array of three green LEDs, no green glowing screen and no added rows of lamps. The cap surface stays dark purple closed solid rounded metal. The tiny red dot is darkred about107,7,11. Other tiny source side-panel colors remain as in imageONE. Do not add lamps anywhere.\nUse the same smooth hand-painted shadow planes and fine clean contours as imageTHREE. Faithful source housing shape and original dimensions, not a redesign. Keep the white source front flash only. No barrel, open muzzle, hole, cavity, invented cap or invented panel. No yellow paint, yellow background, gray padding, shadow, ground, text, label or watermark. This is an enlarged single source-phase correction reference, not a montage and not a full sheet.",
+    "path": "/home/tombonator3000t/.codex/generated_images/01a125af-b7da-7411-85ba-a0097552f497/exec-db1a278f-2725-486c-8e80-ecd2e1426ac8.png",
+    "sha256": "11fe1c0abb27c8c061d0acb8d2b213c3ec7afc4e7062e5ca7bfe9c0eec46e2fc"
+  },
+  "limits": [
+    "Only the flat source sheets/metadata were available for source007; individual per-frame original RGBA missing in used extract.",
+    "No actual original-RGBA import, integration, game test or Tom visual approval is claimed.",
+    "Native drawing baselines and sizes differ from the flat sheet references; per-original-frame fitting is required.",
+    "Unmapped connected component counts are not source frame counts, because real rings/centers/caps and sparse source pieces may be disconnected.",
+    "Only005/08(attempt3)/09 are selected;08attempt2 is superseded."
+  ]
+}
