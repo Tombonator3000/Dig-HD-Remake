@@ -42,6 +42,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Fra 10. oktober får Claude ikke flette sine egne PR-er herfra (stoppet av sikkerhetskontrollen). Tom fletter når CI er grønn.
 - `DIGHD_TEST_KEYS` tar a til z, 0 til 9, f1 til f12, space og escape, så Alt+1 (lagre) og Ctrl+1 (laste) kan testes uten skjerm.
 - Kostymer i romdrakt (funnet 10. oktober i rom 4): 1 Boston Low, 2 Maggie Robbins, 3 Ludger Brink. 7 er Pig (atomsprengladningen, «flying pig»). 22 og 23 er trolig Brink og Maggie (samme ruter og mål som 3 og 2).
+- Robotarmen på romfergen er kostyme 4 og 5 (kodek 5, rom 2). Hovedark for hovedpersonene, Pig og armen bestilt hos Codex 11. oktober (`hovedark/` i gpt-arbeid); Tom godkjenner dem.
+- Uten dekoderne lager `tools/ruteindeks.py` manglende indeksbilder for myke ruter fra originalrutene og kostymets eksisterende indeksbilder. Ikke for kostymer der fargetabellen har like farger med ulik indeks (229).
 - Inventaret er blast-objekter (ruten 627 med skyggemodus 3, ikonene oppå). Motoren bygger det mørknede i HD og mørkner det (`beginBlast`/`endBlast`).
 - The Dig HD avslutter aldri rett til skrivebordet: alt som ber om å avslutte, åpner spillets meny; Quit der avslutter (Tom 10. oktober).
 - `myke-figurer` versjon 2: hver rute tilpasses originalens omriss i bredde og høyde (FIT_RANGE 12 prosent), så figurene holder størrelse og form gjennom rutene. Avviste ark i `docs/gpt-avvisninger.csv` tas ikke inn.
