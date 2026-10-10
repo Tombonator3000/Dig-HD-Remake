@@ -1309,6 +1309,647 @@
     "kontrollfil": "batch07.qa.json"
   },
   {
+    "jobb": "lag107_03",
+    "attempt": 3,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nNote for this room: Panel with raised outlines. Keep every line and every shape exactly as drawn. The shapes are part of a puzzle.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction from referanse.png. Keep all original geometry, objects and colors at exactly their source positions. No zoom, shift, crop or replacement of small objects. Output1536 x1024 with the original plain gray border.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj801_01=[192, 144, 416, 192], obj802_01=[608, 368, 192, 224], obj803_01=[224, 432, 384, 448]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nPRECISE SOURCE STATE: Exactly THREE source panels are illuminated in this state: the long upper-left triangle [192,144,416,192] and tall lower-left triangle [224,432,384,448] are pale warm WHITE; the small central quadrilateral [608,368,192,224] is bright RED-ORANGE. All other panels are dark wine-colored. Copy their precise source outlines and light colors, do not keep the all-dark anchor state.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag107_03/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom107/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag107_03.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-69c0f5c7-fe88-4677-b6a4-624d636954e3.png",
+    "kontroll": {
+      "resultat": "exec-69c0f5c7-fe88-4677-b6a4-624d636954e3.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "cd0daa1e720cd60ab3c364be17392c10b1469afb34381a706742eff76ccfc928",
+      "format": "lerret",
+      "objektkontroll": {
+        "obj801_01": {
+          "objekt": 0.962,
+          "bakgrunn": 0.139,
+          "kanter": 13.6
+        },
+        "obj802_01": {
+          "objekt": 0.91,
+          "bakgrunn": 0.165,
+          "kanter": 5.6
+        },
+        "obj803_01": {
+          "objekt": 0.975,
+          "bakgrunn": 0.19,
+          "kanter": 13.7
+        }
+      },
+      "skift_x": 0.04,
+      "skift_y": -0.69,
+      "blokk_maks": 0.93,
+      "kantlikhet": 0.947,
+      "fargeavvik": 8.2,
+      "status": "godkjent",
+      "kommentar": "",
+      "jobb": "lag107_03"
+    },
+    "kontrollfil": "batch08.qa.json"
+  },
+  {
+    "jobb": "lag109_01",
+    "attempt": 3,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nNote for this room: The small green crystals in the center must keep their exact outlines and color.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction from referanse.png. Keep all original geometry, objects and colors at exactly their source positions. No zoom, shift, crop or replacement of small objects. Output1536 x1024 with the original plain gray border.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj981_01=[576, 528, 64, 96], obj982_01=[864, 528, 64, 96]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nPRECISE SOURCE STATE: The two small side sockets in the central orange structure at [576,528,64,96] and [864,528,64,96] are BOTH filled with bright GREEN crystals in this source. They are empty dark holes in reference two and MUST be filled to match reference one. Preserve their tiny angular green shapes and size.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag109_01/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom109/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag109_01.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-de1a32f3-49b1-43d0-bfe1-23fb61dad876.png",
+    "kontroll": {
+      "resultat": "exec-de1a32f3-49b1-43d0-bfe1-23fb61dad876.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "147a274cfdcec1817e25d1583ef3b0746508dfd09477e83c2064f6a2b00d6a3c",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1
+      },
+      "objektkontroll": {
+        "obj981_01": {
+          "objekt": 0.969,
+          "bakgrunn": 0.745,
+          "kanter": 4.8
+        },
+        "obj982_01": {
+          "objekt": 0.942,
+          "bakgrunn": 0.751,
+          "kanter": 5.2
+        }
+      },
+      "skift_x": -0.09,
+      "skift_y": -0.05,
+      "blokk_maks": 0.96,
+      "kantlikhet": 0.968,
+      "fargeavvik": 9.8,
+      "status": "godkjent",
+      "kommentar": "",
+      "jobb": "lag109_01"
+    },
+    "kontrollfil": "batch08.qa.json"
+  },
+  {
+    "jobb": "lag023_03_del3av6",
+    "attempt": 5,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 3 of 6 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj178_02=[952, 272, 128, 128], obj179_03=[56, 304, 160, 96]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nPRECISE SOURCE STATE: On the RIGHT diamond plaque, the four unlit marks are FLAT, very DARK low-contrast irregular rectangular shapes, embedded flush with the stone. No raised square buttons, no bright outlines, no 3D rims, no orange lamps. Copy the left diagnostic crop's exact dark shapes and spacing. The LEFT plaque's four orange indicators retain small pale lower tabs visible in first reference.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag023_03_del3av6/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom023_del3av6/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag023_03_del3av6.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-8da16cba-6335-4dc7-a785-8819ec3844b9.png",
+    "kontroll": {
+      "resultat": "exec-8da16cba-6335-4dc7-a785-8819ec3844b9.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "62ab4bdee1992ac4484136cb58b1cc3088c17d16f166540bbb7bccd13fd28d91",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1
+      },
+      "objektkontroll": {
+        "obj178_02": {
+          "objekt": 0.109,
+          "bakgrunn": 0.932,
+          "kanter": 1.4
+        },
+        "obj179_03": {
+          "objekt": 0.944,
+          "bakgrunn": null,
+          "kanter": 3.0
+        }
+      },
+      "forslag": "Precise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.",
+      "skift_x": -0.11,
+      "skift_y": -0.05,
+      "blokk_maks": 0.27,
+      "kantlikhet": 0.873,
+      "fargeavvik": 6.9,
+      "status": "avvist",
+      "kommentar": "objekter er feil: obj178_02 mangler (kantlikhet 0.11, med bakgrunnen 0.93)",
+      "jobb": "lag023_03_del3av6"
+    },
+    "kontrollfil": "batch08.qa.json"
+  },
+  {
+    "jobb": "lag025_01_del1av3",
+    "attempt": 5,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 1 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj217_01=[96, 208, 288, 352], obj218_01=[864, 400, 96, 64], obj219_01=[640, 368, 96, 96]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nPRECISE SOURCE STATE: Keep the far LEFT doorway OPEN with blue floor visible inside. The top RIGHT console glyph obj218_01 consists of precise short angular GREEN segments, sharp right-angle L-shaped pieces in the exact layout from first reference and the left diagnostic. They are NOT curved squiggles, rounded hooks or a ring of green dots. Copy all source symbol pieces literally. Preserve the lower-left round console's four short straight green segments.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag025_01_del1av3.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-68217748-1fac-4e46-bb65-60d6103f45a2.png",
+    "kontroll": {
+      "resultat": "exec-68217748-1fac-4e46-bb65-60d6103f45a2.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "50df73803da3bb7224776b644ec3aa3d01ff7401498efa53147db143aa72d11f",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1
+      },
+      "objektkontroll": {
+        "obj217_01": {
+          "objekt": 0.953,
+          "bakgrunn": 0.684,
+          "kanter": 6.8
+        },
+        "obj218_01": {
+          "objekt": 0.909,
+          "bakgrunn": 0.652,
+          "kanter": 2.5
+        },
+        "obj219_01": {
+          "objekt": 0.918,
+          "bakgrunn": 0.494,
+          "kanter": 2.8
+        }
+      },
+      "skift_x": 0.08,
+      "skift_y": -0.05,
+      "blokk_maks": 0.26,
+      "kantlikhet": 0.931,
+      "fargeavvik": 8.8,
+      "status": "godkjent",
+      "kommentar": "",
+      "jobb": "lag025_01_del1av3"
+    },
+    "kontrollfil": "batch08.qa.json"
+  },
+  {
+    "jobb": "lag026_03_del2av3",
+    "attempt": 4,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj224_01=[768, 752, 32, 32], obj226_01=[736, 752, 64, 32], obj227_01=[800, 752, 32, 32]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nPRECISE SOURCE STATE: The small central mechanism must match the exact broad BLUE rectangular bands and stepped TEAL shapes in all three LEFT diagnostic crops. In obj227_01 the blue bands are WIDE opaque blue bars with pale blue centers, not thin bright neon filaments. The source has three visible blue vertical bands in this crop, with the last partially clipped at the right. Keep their widths and intervening dark gaps from source and avoid substituting the smooth thin neon rods in reference two.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag026_03_del2av3/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom026_del2av3/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag026_03_del2av3.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-0b68c9a6-70dd-479b-af2b-d25ad6222389.png",
+    "kontroll": {
+      "resultat": "exec-0b68c9a6-70dd-479b-af2b-d25ad6222389.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "5a8f970476054526cbdf0f5d9378527e10940d78772c90f942e442b802fcab40",
+      "format": "lerret",
+      "objektkontroll": {
+        "obj224_01": null,
+        "obj226_01": null,
+        "obj227_01": {
+          "objekt": 0.306,
+          "bakgrunn": 0.089,
+          "kanter": 2.6
+        }
+      },
+      "forslag": "Precise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.",
+      "skift_x": 0.16,
+      "skift_y": -0.11,
+      "blokk_maks": 0.8,
+      "kantlikhet": 0.908,
+      "fargeavvik": 13.4,
+      "status": "avvist",
+      "kommentar": "objekter er feil: obj227_01 tegnet om (kantlikhet 0.31)",
+      "jobb": "lag026_03_del2av3"
+    },
+    "kontrollfil": "batch08.qa.json"
+  },
+  {
+    "jobb": "lag090_01",
+    "attempt": 4,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj593_01=[704, 272, 128, 128], obj594_01=[576, 560, 64, 32], obj595_01=[928, 784, 160, 32]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nPRECISE SOURCE STATE: Repaint the FIRST image as one coherent VERY DIM DARK reddish-brown carved stone surface. Match the FIRST image's low overall luminance and muted colors; do not brighten it to match reference two. Small dark source states blend naturally into surrounding stone. There are NO pasted rectangles, NO black box outlines, NO rectangular frames, NO invented square recesses. Source object bounding boxes are technical extraction coordinates, NEVER visual boxes to draw. Keep all faint source edges exactly, and keep each dark area continuous with the adjacent stone. No inset collage patches.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag090_01/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom090/resultat.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-79f9725c-04a6-4446-98a8-3ea0b87b02f2.png",
+    "kontroll": {
+      "resultat": "exec-79f9725c-04a6-4446-98a8-3ea0b87b02f2.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "7e19fe3188f7bcb068b972c6c958e0ab7556cc089f6fbaef2565f23dd79a3b22",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1,
+        "hoyre": 3
+      },
+      "objektkontroll": {
+        "obj593_01": {
+          "objekt": 0.391,
+          "bakgrunn": 0.879,
+          "kanter": 1.3
+        },
+        "obj594_01": null,
+        "obj595_01": {
+          "objekt": 0.048,
+          "bakgrunn": 0.393,
+          "kanter": 3.4
+        }
+      },
+      "forslag": "Precise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.",
+      "skift_x": 0.06,
+      "skift_y": -0.56,
+      "blokk_maks": 2.3,
+      "kantlikhet": 0.791,
+      "fargeavvik": 7.9,
+      "status": "avvist",
+      "kommentar": "deler av bildet er flyttet eller zoomet (opptil 2.3 px); objekter er feil: obj593_01 mangler (kantlikhet 0.39, med bakgrunnen 0.88), obj595_01 mangler (kantlikhet 0.05, med bakgrunnen 0.39)",
+      "jobb": "lag090_01"
+    },
+    "kontrollfil": "batch09.qa.json"
+  },
+  {
+    "jobb": "lag090_05",
+    "attempt": 4,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction from referanse.png. Keep all original geometry, objects and colors at exactly their source positions. No zoom, shift, crop or replacement of small objects. Output1536 x1024 with the original plain gray border.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj603_01=[736, 496, 384, 352]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nPRECISE SOURCE STATE: Preserve the source whole triangle geometry with NO LOCAL SHIFT and no perspective change. The lower right slab has a thin dark irregular branching source crack from reference one. Keep that exact source path, no clean replacement slab. All large edges must match first image exactly; reference two is texture only.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag090_05/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom090/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag090_05.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-dcf2aa67-d8df-4c2b-827a-d6b8ed0a71d3.png",
+    "kontroll": {
+      "resultat": "exec-dcf2aa67-d8df-4c2b-827a-d6b8ed0a71d3.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "227d4a5e62765cce9ba5235529c75af90759155bb2de48e0db1fd86d9fb29f09",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1,
+        "hoyre": 2
+      },
+      "objektkontroll": {
+        "obj603_01": {
+          "objekt": 0.949,
+          "bakgrunn": 0.477,
+          "kanter": 1.6
+        }
+      },
+      "skift_x": 0.09,
+      "skift_y": -0.12,
+      "blokk_maks": 0.77,
+      "kantlikhet": 0.85,
+      "fargeavvik": 13.7,
+      "status": "godkjent",
+      "kommentar": "",
+      "jobb": "lag090_05"
+    },
+    "kontrollfil": "batch09.qa.json"
+  },
+  {
+    "jobb": "lag027_03_del2av8",
+    "attempt": 4,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 8 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj231_02=[448, 480, 192, 128]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nPRECISE SOURCE STATE: Keep the triangular recessed panel DARK and UNLIT, exactly as the first image. Do not add a violet symbol. The output is exactly the source canvas with no shift or new markings. No text, letters, signature, watermark, or decorative strokes anywhere, including upper corners. Reference three is a diagnostic only, not a composition.\n",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag027_03_del2av8/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom027_del2av8/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag027_03_del2av8.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-92df5184-3db4-41a4-8e80-f8770b18d256.png",
+    "kontroll": {
+      "resultat": "exec-92df5184-3db4-41a4-8e80-f8770b18d256.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "10826a0943573448e7e638a29a098d917b9a96fd7c9c970d343defd504c62544",
+      "format": "lerret",
+      "objektkontroll": {
+        "obj231_02": {
+          "objekt": 0.908,
+          "bakgrunn": 0.619,
+          "kanter": 1.9
+        }
+      },
+      "skift_x": -0.05,
+      "skift_y": -0.08,
+      "blokk_maks": 13.88,
+      "kantlikhet": 0.951,
+      "fargeavvik": 13.4,
+      "status": "avvist",
+      "kommentar": "deler av bildet er flyttet eller zoomet (opptil 13.9 px)",
+      "jobb": "lag027_03_del2av8"
+    },
+    "kontrollfil": "batch09.qa.json"
+  },
+  {
+    "jobb": "lag023_03_del3av6",
+    "attempt": 6,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 3 of 6 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj178_02=[952, 272, 128, 128], obj179_03=[56, 304, 160, 96]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nReference three contains ENLARGED SOURCE-ONLY object crops. It does not contain any HD candidates. Copy those source silhouettes, colors and symbol paths literally at their original size and position in the full first canvas. Reference two is TEXTURE STYLE ONLY and its object shapes/states are wrong. No diagnostic labels or crop layout in the output.\n\n\nFor obj178_02 on the RIGHT diamond-shaped stone plaque, reproduce FOUR DARK FLAT LOW-CONTRAST little marks flush with the stone, exactly as the top enlarged source-only crop. These are not raised buttons and have no outlined rims. For obj179_03 on the LEFT illuminated orange diamond plaque, reproduce four small angular orange indicators with pale lower tabs in the same horizontal row as the bottom source crop. Do not turn these into round pucks. All marks stay at the exact source coordinates and size.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag023_03_del3av6/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom023_del3av6/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag023_03_del3av6-kun-kilde.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-34d0daba-b21b-463d-9388-8d033896cb35.png",
+    "kontroll": {
+      "resultat": "exec-34d0daba-b21b-463d-9388-8d033896cb35.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "ff06724cfab99be04449ad60716ad49e87bf38b5b684285bd75d6f0be6afdde8",
+      "format": "lerret",
+      "kantreparasjon": {
+        "bunn": 1
+      },
+      "objektkontroll": {
+        "obj178_02": {
+          "objekt": 0.131,
+          "bakgrunn": 0.908,
+          "kanter": 1.4
+        },
+        "obj179_03": {
+          "objekt": 0.927,
+          "bakgrunn": null,
+          "kanter": 3.0
+        }
+      },
+      "forslag": "Precise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.",
+      "skift_x": 0.06,
+      "skift_y": -0.08,
+      "blokk_maks": 0.63,
+      "kantlikhet": 0.896,
+      "fargeavvik": 7.1,
+      "status": "avvist",
+      "kommentar": "objekter er feil: obj178_02 mangler (kantlikhet 0.13, med bakgrunnen 0.91)",
+      "jobb": "lag023_03_del3av6"
+    },
+    "kontrollfil": "batch10.qa.json"
+  },
+  {
+    "jobb": "lag025_01_del1av3",
+    "attempt": 6,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 1 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj217_01=[96, 208, 288, 352], obj218_01=[864, 400, 96, 64], obj219_01=[640, 368, 96, 96]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nReference three contains ENLARGED SOURCE-ONLY object crops. It does not contain any HD candidates. Copy those source silhouettes, colors and symbol paths literally at their original size and position in the full first canvas. Reference two is TEXTURE STYLE ONLY and its object shapes/states are wrong. No diagnostic labels or crop layout in the output.\n\n\nThe green paths in obj218_01 on the UPPER RIGHT control must consist of the same SHORT STRAIGHT ANGULAR L-SHAPED SEGMENTS shown in the enlarged source-only middle crop, with the same gaps. No rounded C shapes, rings, circles, spiral curls or winding curves. The lower LEFT round control obj219_01 likewise has the FOUR SHORT SEPARATE STRAIGHT GREEN SOURCE SEGMENTS at their exact positions. The far LEFT doorway obj217_01 is OPEN with dark blue floor visible, as in the first source-only crop; no closed blue door slab. Preserve the vertical blue bar beside each control from the original. Image two's green glyph state is wrong; use ONLY the original and source-only crop for the glyph paths.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag025_01_del1av3-kun-kilde.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-eb5d8777-0353-4c11-82c4-40d18259adb1.png",
+    "kontroll": {
+      "resultat": "exec-eb5d8777-0353-4c11-82c4-40d18259adb1.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "fd777a6d9ebe3c5f4220dcf548290fa1a87f2ea33ee22127f86c9e3f2177b39f",
+      "format": "lerret",
+      "objektkontroll": {
+        "obj217_01": {
+          "objekt": 0.952,
+          "bakgrunn": 0.7,
+          "kanter": 6.8
+        },
+        "obj218_01": {
+          "objekt": 0.905,
+          "bakgrunn": 0.596,
+          "kanter": 2.5
+        },
+        "obj219_01": {
+          "objekt": 0.93,
+          "bakgrunn": 0.506,
+          "kanter": 2.8
+        }
+      },
+      "skift_x": 0.08,
+      "skift_y": -0.01,
+      "blokk_maks": 0.22,
+      "kantlikhet": 0.935,
+      "fargeavvik": 7.2,
+      "status": "godkjent",
+      "kommentar": "",
+      "jobb": "lag025_01_del1av3"
+    },
+    "kontrollfil": "batch10.qa.json"
+  },
+  {
+    "jobb": "lag026_03_del2av3",
+    "attempt": 5,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj224_01=[768, 752, 32, 32], obj226_01=[736, 752, 64, 32], obj227_01=[800, 752, 32, 32]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nReference three contains ENLARGED SOURCE-ONLY object crops. It does not contain any HD candidates. Copy those source silhouettes, colors and symbol paths literally at their original size and position in the full first canvas. Reference two is TEXTURE STYLE ONLY and its object shapes/states are wrong. No diagnostic labels or crop layout in the output.\n\n\nThe central pit mechanism must have source-state blue bands of the exact original widths, positions and solid colors. obj227_01 has THREE WIDE OPAQUE BLUE vertical bands, pale blue centers, deep blue sides and dark purple gaps, with the third partly cropped by the object bounds. These are broad painted bars, not thin cyan neon lasers or glow tubes. obj224_01 and obj226_01 show short stepped TEAL fingers with BLUE opaque vertical bands and dark purple gaps, matching the source-only crops. Reproduce every existing finger silhouette; do not copy the clean thin-lit bars from the second reference.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag026_03_del2av3/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom026_del2av3/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag026_03_del2av3-kun-kilde.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-8c55b0d8-4c07-4a42-94bf-a872cfcd2996.png",
+    "kontroll": {
+      "resultat": "exec-8c55b0d8-4c07-4a42-94bf-a872cfcd2996.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "2242f01efb34dbf13f74a76eb622b13fef6eb50440db625a01c09931489c1d9a",
+      "format": "lerret",
+      "kantreparasjon": {
+        "topp": 1,
+        "bunn": 1
+      },
+      "objektkontroll": {
+        "obj224_01": null,
+        "obj226_01": null,
+        "obj227_01": {
+          "objekt": 0.358,
+          "bakgrunn": 0.76,
+          "kanter": 2.6
+        }
+      },
+      "forslag": "Precise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.",
+      "skift_x": 0.05,
+      "skift_y": -0.07,
+      "blokk_maks": 0.42,
+      "kantlikhet": 0.917,
+      "fargeavvik": 11.8,
+      "status": "avvist",
+      "kommentar": "objekter er feil: obj227_01 mangler (kantlikhet 0.36, med bakgrunnen 0.76)",
+      "jobb": "lag026_03_del2av3"
+    },
+    "kontrollfil": "batch10.qa.json"
+  },
+  {
+    "jobb": "lag027_03_del2av8",
+    "anchor": "jobber/rom027_del2av8/resultat.png",
+    "anchor_status": "godkjent",
+    "attempt": 5,
+    "protected": {
+      "referanse.png": "23e5001ca44f1d015853b6eaf9267566113425a2c2e8882535fdc78beaab05b6",
+      "original_1x.png": "340afe9d29d77598dad389a8a00867baedc4eac02c2038d7c45723b8f8ac6ad6",
+      "prompt.txt": "dc6c55545aecf3aefda1e2d446d2f2f57579474fc8cd10bd2d0907f0b36c0d87",
+      "jobb.json": "76bcba6bea25bfd701c5a32ba5ba5722fe310a0f56935f64dbf6247a427ad2e6"
+    },
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 8 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj231_02=[448, 480, 192, 128]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nThird reference is an enlarged SOURCE ONLY detail. Copy its object silhouettes and colors at the exact original positions and scale in the full FIRST image. Never render the diagnostic labels or framing. The second image is for brushwork only; its object states are wrong.\n\nPrecise locality correction: keep the UPPER RIGHT purple wall (canvas x1024..1536, y0..512) as the original very quiet, nearly flat purple value field. Its few faint source edges must be fixed exactly in place. Do not invent diagonal streaks, cracks, spots or new rock texture there. Preserve the dark source object obj231_02, an unlit triangular recess at [448,480,192,128]. Keep all existing architecture unchanged and aligned. The full picture already fills the canvas edge to edge with no gray padding, exactly as the first reference. No signature, text, marks or watermark in any corner.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag027_03_del2av8/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom027_del2av8/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag027_03_del2av8-kun-kilde.png"
+    ],
+    "original_prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 8 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n",
+    "correction_prompt": "rapporter/resten-grafikk-20261009/korreksjonsforslag/prompter/lag027_03_del2av8-forslag.txt",
+    "diagnostic_reference": "rapporter/romlag-brink-20261010/objektutsnitt/lag027_03_del2av8.png",
+    "refs_with_diagnostic": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag027_03_del2av8/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom027_del2av8/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag027_03_del2av8.png"
+    ],
+    "prompt_with_diagnostic": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 2 of 8 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj231_02=[448, 480, 192, 128]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n",
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-807672e7-ab0e-4cc4-8b21-f686d7f14c49.png",
+    "kontroll": {
+      "resultat": "exec-807672e7-ab0e-4cc4-8b21-f686d7f14c49.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "15b42e6e98ae9aaf3ee28446d0a22b068c39f2dc7316e5aa346bcd592840597b",
+      "format": "lerret",
+      "objektkontroll": {
+        "obj231_02": {
+          "objekt": 0.934,
+          "bakgrunn": 0.624,
+          "kanter": 1.9
+        }
+      },
+      "skift_x": -0.07,
+      "skift_y": -0.04,
+      "blokk_maks": 33.86,
+      "kantlikhet": 0.955,
+      "fargeavvik": 10.3,
+      "status": "avvist",
+      "kommentar": "deler av bildet er flyttet eller zoomet (opptil 33.9 px)",
+      "jobb": "lag027_03_del2av8"
+    },
+    "kontrollfil": "batch11.qa.json"
+  },
+  {
+    "jobb": "lag090_01",
+    "anchor": "jobber/rom090/resultat.png",
+    "anchor_status": "godkjent",
+    "attempt": 5,
+    "protected": {
+      "referanse.png": "f7906466b613890d28e229e51fa5eafa37f254b40339304dcbc88933e85921db",
+      "original_1x.png": "246b26dc4443b8cb149f9009b686e887cb070800480538613a94b42d21917494",
+      "prompt.txt": "c38e2847e8ec6ba25ab2894e00e63752784c153d12e2760bc5a1dc815eddcb01",
+      "jobb.json": "d4dd266dcc425d745922a18a88556528cbe84026d3505ca5b6e001a5f2ef46a3"
+    },
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj593_01=[704, 272, 128, 128], obj594_01=[576, 560, 64, 32], obj595_01=[928, 784, 160, 32]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nThird reference is an enlarged SOURCE ONLY detail. Copy its object silhouettes and colors at the exact original positions and scale in the full FIRST image. Never render the diagnostic labels or framing. The second image is for brushwork only; its object states are wrong.\n\nReproduce FIRST image's extremely dim reddish-black overall exposure. In obj593_01, an almost-black square inset has an indistinct very dark rounded protrusion near its upper edge. obj594_01 is a tiny dim flat source patch. obj595_01 is a very dark, almost black low horizontal strip over the triangle base, with a faint uneven dark-red edge. Preserve these actual source states as shown by the third reference, without brightening them, inventing frames, raised carved rims or seams through the patches. Keep seamless continuity of the surrounding stone. Match the dark value colors of the first image rather than the much brighter second image.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag090_01/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom090/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag090_01-kun-kilde.png"
+    ],
+    "original_prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n",
+    "correction_prompt": "rapporter/resten-grafikk-20261009/korreksjonsforslag/prompter/lag090_01-forslag.txt",
+    "diagnostic_reference": "rapporter/romlag-brink-20261010/objektutsnitt/lag090_01.png",
+    "refs_with_diagnostic": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag090_01/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom090/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag090_01.png"
+    ],
+    "prompt_with_diagnostic": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj593_01=[704, 272, 128, 128], obj594_01=[576, 560, 64, 32], obj595_01=[928, 784, 160, 32]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n",
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-beae9bc6-b2fc-4195-bd7f-3902ed103587.png",
+    "kontroll": {
+      "resultat": "exec-beae9bc6-b2fc-4195-bd7f-3902ed103587.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "45e40df530e32a9c483576aa9ee9f5104451877222736352a484173a2f5ff752",
+      "format": "lerret",
+      "kantreparasjon": {
+        "hoyre": 3
+      },
+      "objektkontroll": {
+        "obj593_01": {
+          "objekt": 0.784,
+          "bakgrunn": 0.447,
+          "kanter": 1.3
+        },
+        "obj594_01": null,
+        "obj595_01": {
+          "objekt": 0.994,
+          "bakgrunn": -0.416,
+          "kanter": 3.4
+        }
+      },
+      "skift_x": -0.12,
+      "skift_y": -0.27,
+      "blokk_maks": 0.55,
+      "kantlikhet": 0.857,
+      "fargeavvik": 5.3,
+      "status": "godkjent",
+      "kommentar": "",
+      "jobb": "lag090_01"
+    },
+    "kontrollfil": "batch11.qa.json"
+  },
+  {
+    "jobb": "lag025_01_del1av3",
+    "attempt": 7,
+    "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nThis is part 1 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj217_01=[96, 208, 288, 352], obj218_01=[864, 400, 96, 64], obj219_01=[640, 368, 96, 96]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nReference three contains ENLARGED SOURCE-ONLY object crops. It does not contain any HD candidates. Copy those source silhouettes, colors and symbol paths literally at their original size and position in the full first canvas. Reference two is TEXTURE STYLE ONLY and its object shapes/states are wrong. No diagnostic labels or crop layout in the output.\n\n\nThe green paths in obj218_01 on the UPPER RIGHT control must consist of the same SHORT STRAIGHT ANGULAR L-SHAPED SEGMENTS shown in the enlarged source-only middle crop, with the same gaps. No rounded C shapes, rings, circles, spiral curls or winding curves. The lower LEFT round control obj219_01 likewise has the FOUR SHORT SEPARATE STRAIGHT GREEN SOURCE SEGMENTS at their exact positions. The far LEFT doorway obj217_01 is OPEN with dark blue floor visible, as in the first source-only crop; no closed blue door slab. Preserve the vertical blue bar beside each control from the original. Image two's green glyph state is wrong; use ONLY the original and source-only crop for the glyph paths.\n\nNARROW CORRECTION TO FOURTH IMAGE: keep the fourth image's full scene and every architectural contour exactly fixed. Replace ONLY its green marks in obj218_01 and obj219_01 with the first and third reference's actual SOURCE symbol paths. Upper right obj218_01 contains SIX DISCONNECTED short green stroke islands. Count SIX separate marks, with dark gaps between all six; never connect them into one wavy path or a large glyph. The source crop shows their six positions: at top a short horizontal tip with separate descending tip, left a short horizontal dash, upper-right an L, middle a tiny diagonal pair, lower-right a small stepped L, and lower-left a tiny vertical dash. Match their literal source positions, sizes and gaps. Lower left obj219_01 contains FOUR separate short green source islands; preserve those same gaps. Remove the fourth image's winding joined glyph completely. No changed frames, no altered architecture, no invented strokes or rounded letters. Return the entire 1536 x 1024 full canvas, not cropped symbol patches.",
+    "refs": [
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/lag025_01_del1av3/referanse.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/rom025_del1av3/resultat.png",
+      "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/romlag-brink-20261010/objektutsnitt/lag025_01_del1av3-kun-kilde.png",
+      "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-eb5d8777-0353-4c11-82c4-40d18259adb1.png"
+    ],
+    "path": "/home/tombonator3000t/.codex/generated_images/01a1245d-6acb-71d0-93d5-85b7e61fd829/exec-6a1e3bc1-917e-4654-9dc2-ad2422e2fd42.png",
+    "kontroll": {
+      "resultat": "exec-6a1e3bc1-917e-4654-9dc2-ad2422e2fd42.png",
+      "storrelse": [
+        1536,
+        1024
+      ],
+      "sha256_resultat": "476413b972833742c79eaf19161cf7ec87daffc97ad3cf6b24560c5e98d4e275",
+      "format": "lerret",
+      "objektkontroll": {
+        "obj217_01": {
+          "objekt": 0.959,
+          "bakgrunn": 0.684,
+          "kanter": 6.8
+        },
+        "obj218_01": {
+          "objekt": 0.892,
+          "bakgrunn": 0.598,
+          "kanter": 2.5
+        },
+        "obj219_01": {
+          "objekt": 0.906,
+          "bakgrunn": 0.577,
+          "kanter": 2.8
+        }
+      },
+      "skift_x": 0.15,
+      "skift_y": -0.01,
+      "blokk_maks": 0.21,
+      "kantlikhet": 0.939,
+      "fargeavvik": 6.8,
+      "status": "godkjent",
+      "kommentar": "",
+      "jobb": "lag025_01_del1av3"
+    },
+    "kontrollfil": "batch12.qa.json"
+  },
+  {
     "jobb": "lag002_02_del1av3",
     "attempt": 5,
     "prompt": "Task: faithful HD remaster of one background picture from the 1995 adventure game The Dig (LucasArts). This is a production asset. A game engine lays it exactly on top of the original picture, so the geometry must not change at all.\n\nInput: the attached image is the original low-resolution artwork enlarged 4x with hard pixel edges. It sits on a plain gray (#808080) border. The border is only padding.\n\nDo:\n- Repaint the picture inside the gray border in high resolution with clean, natural detail: smooth gradients instead of dithering and color banding, crisp edges, believable texture in rock, metal, sky, water and light.\n- Keep the original look: the same painted and pre-rendered 1990s LucasArts style, the same colors, light direction, shadows, mood and contrast.\n- Keep every shape exactly where it is: outlines, horizon, edges, doorways, machines, stars and highlights must line up with the original pixels.\n\nDo not:\n- Do not move, zoom, crop, rotate, mirror or reframe anything. Do not extend the picture into the gray border. Keep the border plain gray (#808080).\n- Do not add, remove or replace anything: no new objects, people, creatures, text, symbols or details. Do not fix or reinterpret anything.\n- Copy symbols, glyphs, markings and engravings exactly in shape and position.\n- No photorealism, no modern 3D look, no film grain, no vignette, no frame, no watermark, no signature.\n\nOutput: one image, exactly 1536 x 1024 pixels, with the same layout as the input.\n\nThis picture is the room with some of the game's small objects (such as doors, switches, lights, panels and items) drawn in place on top of it. Paint everything faithfully by the rules above: the room and every object. The objects are cut out of your picture afterwards by their exact position, so every object must stay exactly where it is, with the same size, outline and colors as in the input. Do not leave out, move, merge or redesign any object.\n\nNote for this room: Space scene with the shuttle and the asteroid. Keep every star, the sun and the asteroid exactly where they are. Do not add stars, planets or nebulae.\n\nThis is part 1 of 3 of a larger scene. The other parts are made separately and joined afterwards, so keep the edges of the picture natural, with no vignette, frame or fading.\n\nIf a second image is attached, it is the approved HD version of the same room, or of the large picture the objects lie on, without these objects. Paint the room the same way as in that image, and give the objects the same level of detail, brushwork and light, so they fit into it. Take all shapes, positions and colors from the first image.\n\n\nSOURCE-SPECIFIC CORRECTION FOR THIS RETRY ONLY:\nPrecise correction of the attached picture. Some of the small objects did not match the original: they were missing, moved or painted differently. Start again from referanse.png. Paint every object exactly where it is, with the same outline, size and colors, and keep every other shape in place. Do not zoom, shift, crop or reframe. Keep the gray border plain gray. Same size 1536 x 1024.\nSource object positions in the1536 x1024 canvas (x,y,width,height): obj940_01=[608, 368, 480, 320]. Take every foreground object from FIRST reference, not from the HD room underneath, where the foreground object is absent. Keep those source silhouettes, colors and sizes exactly.\n\nDiagnostic third image: the LEFT column shows the exact original object appearance which MUST be preserved. The RIGHT column shows the HD background without that state, which MUST NOT replace the object. Use first image for exact placement, scale, colors and object state. Do not copy the diagnostic layout or labels into the output. Return only the full original 1536 x 1024 canvas.\n\nSpecific visual correction: obj940_01 is the narrow, flat, pale silver segmented rail along the RIGHT edge of the shuttle cargo bay. The source has a thin angular railing, NOT the bulky round blue tube invented in the second image. Repaint this rectangular region from the source, keeping the thin bright rail, white flat wing slats behind it, dark cargo wall and small ochre panel in their exact source positions. Do not copy the blue cylindrical pipe.\n",
