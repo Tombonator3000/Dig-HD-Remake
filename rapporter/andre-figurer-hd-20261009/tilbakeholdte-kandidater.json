@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:40:51.023737+00:00",
+ "oppdatert_utc": "2026-10-10T00:43:28.044370+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 184,
+ "antall": 186,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -2825,6 +2825,33 @@
    "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
+   "jobb": "fig124_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e09c383e3b017d6936147b7cf628915faf1181e368e6d129e02b2fde4e3ac17d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Fem originalruter inkluderer tre svært tynne separate strøk i tillegg til to sammensatte figurfaser. De tre strøkene er ikke sikkert påvist i native kandidaten.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     2
+    ],
+    "native_rader": [
+     1,
+     2,
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 14093,
+     "maks": 122,
+     "piksler_over_16": 701
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
    "jobb": "fig125_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "9628cdc720c4212b0ab18e5fb00aa0d590e7f93261fd3ed9ee020cae93faf502",
@@ -2876,6 +2903,93 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig128_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2881c429db879f247df234f77cecb2ead29f31c70499801c4e5ecd3e5bc9a263",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Fire store native skapningsfaser er synlige, men den femte, svært lille separate originalruten er ikke påvist. Originalen har fem tegnede ruter.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 16369,
+     "maks": 6,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig131_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0224eab091dad0787633a96861156437e597a78b63fb32c2590937f1c769fd1a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native arket har lagt til røde rektangelrammer rundt de tre fasebildene. De finnes ikke i originalen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1,
+     1
+    ],
+    "native_rader": [
+     2,
+     2,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 20339,
+     "maks": 7,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig131_12",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "6c064de28c96bbed58b7dde0d6d756a8cb25492ba5b6a44b7f01a8f479b1d9d0",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native filen er 1535 x 1024, én piksel for smal. Ruter og alfa er kontrollert, men leveringsstørrelsen er feil. Native filen er ikke skalert eller fylt ut.",
+   "neste": "Nytt ordrett bildeforsøk på 1536 x 1024."
+  },
+  {
+   "jobb": "fig132_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "8554a58ede5a6de840702c3c6d3e3fe0a8e6d51ece5e747588d674bb8b011604",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native arket har lagt til røde rektangelrammer rundt de tre fasebildene. De finnes ikke i originalen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1,
+     1
+    ],
+    "native_rader": [
+     1,
+     1,
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 17285,
+     "maks": 6,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig146_01",
@@ -4616,10 +4730,10 @@
   },
   {
    "jobb": "fig277_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "d290c491e0c642fef123d6f61d3b279740357b53c09415641916cf882df8442e",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "f931d704d48d0d3bab4f46355d812ec2e92df7a456475db577eec09aa5f921f6",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Den opprinnelige stein-/energiformen har synlige åpninger, særlig costume277_009. Native kandidaten fyller disse med stein. De første to tynne fasene er dessuten fortolket som steinbiter. Riktig telling alene bekrefter ikke disse formene.",
+   "grunn": "Forsøk 2 fyller fortsatt den tydelige åpningen i costume277_009. De tynne første fasene er dessuten gitt tykkere krystallform. Antall alene bekrefter ikke formene.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -4634,41 +4748,12 @@
     "antall_ok": true,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 3725,
+     "piksler_over_0": 5533,
      "maks": 3,
      "piksler_over_16": 0
     }
    },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig280_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "d52b0f865496b53047f7eddcda20a2a346a11b60b403d0b5c9ca5b011cbcf7ca",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen har sju faser; native kandidaten har åtte. Midtraden har seks mot originalens fem. Ekstra kube kan ikke slettes for å få tellingen til å stemme.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     1,
-     1,
-     3,
-     1
-    ],
-    "native_rader": [
-     1,
-     6,
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 785,
-     "maks": 2,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig286_01",
@@ -4691,33 +4776,6 @@
      "piksler_over_0": 89389,
      "maks": 101,
      "piksler_over_16": 45578
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig124_04",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "e09c383e3b017d6936147b7cf628915faf1181e368e6d129e02b2fde4e3ac17d",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Fem originalruter inkluderer tre svært tynne separate strøk i tillegg til to sammensatte figurfaser. De tre strøkene er ikke sikkert påvist i native kandidaten.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     3,
-     2
-    ],
-    "native_rader": [
-     1,
-     2,
-     2,
-     2
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 14093,
-     "maks": 122,
-     "piksler_over_16": 701
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
@@ -4747,10 +4805,10 @@
   },
   {
    "jobb": "fig302_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "d5ef6068a0c83cb46a1aa4d150a17e82687a5d0d3bb92bb71c22db155d4bc643",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "182a148720a7e92cfa7623e87b528b4b6208c6f4b2d22d4af9aeafaff231d232",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Mange små originale figur- og delruter er ikke sikkert gjenfunnet. Native telling 69 mot 86 tegnede originalruter. Ingen sikker full rutekobling.",
+   "grunn": "Originalen har en lang sekvens med svært små figur- og delruter. Native kandidaten har endret radfordeling og vesentlig synlig restalfa utenfor tegningene; ingen fullstendig kildekobling er bekreftet.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -4761,139 +4819,20 @@
      3
     ],
     "native_rader": [
-     18,
-     23,
-     25,
+     26,
+     24,
+     27,
      3
     ],
     "antall_ok": false,
-    "alpha_control_ok": true,
+    "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 8959,
-     "maks": 4,
-     "piksler_over_16": 0
+     "piksler_over_0": 156703,
+     "maks": 127,
+     "piksler_over_16": 19621
     }
    },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig304_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "6ddc53ab9e692819e7bf507924ed86978fda37daadf28e7b5579f96552e499c1",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen er hvit tekst Thrust og små hvite streker. Native kandidaten erstatter disse med tolv komplette gående menn. Motividentiteten er feil.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     9
-    ],
-    "native_rader": [
-     12
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 3489,
-     "maks": 4,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig320_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "e0e446b2aca4b89815df88db3439714487e987b3a6a9c9249805538a9ef9747e",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen er fire åpne svarte linjetegninger med rektangulære rammer og indre ovaler. Native kandidaten tegner fire tette, opake metallovaler og fjerner den åpne strukturen.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     2,
-     2
-    ],
-    "native_rader": [
-     2,
-     2
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 3590,
-     "maks": 2,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig322_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "e54b05cba1c7418feb7c3d879bf5670631c3afd195a0f86bd0f55d5f97b1c49a",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen har tre tegnede ruter: stor kompositt og to tynne lyse løse deler, pluss en liten originaldel. Native kandidaten viser bare kompositten. De to lyse delene er ikke påvist.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     3
-    ],
-    "native_rader": [
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 1870,
-     "maks": 3,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig323_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "21694d16c640655aeb87561d2850d635f1436cd771e61c1cd0c16a60ddc54681",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen har pyramiden og en separat tynn lys strek. Native kandidaten viser bare pyramiden. Den løse streken mangler.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     2
-    ],
-    "native_rader": [
-     1
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 2337,
-     "maks": 2,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
-  },
-  {
-   "jobb": "fig128_17",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "2881c429db879f247df234f77cecb2ead29f31c70499801c4e5ecd3e5bc9a263",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Fire store native skapningsfaser er synlige, men den femte, svært lille separate originalruten er ikke påvist. Originalen har fem tegnede ruter.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     3,
-     2
-    ],
-    "native_rader": [
-     2,
-     2
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 16369,
-     "maks": 6,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig303_01",
@@ -4939,6 +4878,29 @@
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+  },
+  {
+   "jobb": "fig304_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "3d76cac41b8de7be367a33984d75fb4a71b30142f8f0a1645ed066200789483d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen viser hvit tekst Thrust og smale merker. Native forsøk 2 viser hele gående menn og en turkis ramme, feil motiv.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     9
+    ],
+    "native_rader": [
+     11
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 25705,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig313_01",
@@ -5050,10 +5012,10 @@
   },
   {
    "jobb": "fig318_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "43378b6b55394f7f0e2d3347553f23df7ffb8953613da53aa8dcc8a240676470",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "610549648c98d7b652c563d5f9b0c80852c72665e7092840082a834c645dcf37",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalen viser et åpent svart linjeemblem. Native kandidaten fyller det med kremfarget og gyllent metall og endrer den gjennomsiktige strukturen og paletten.",
+   "grunn": "Originalen viser åpne svarte linjer i et emblem. Forsøk 2 har fortsatt fylt formene med kremfargede og gylne flater, og har flere løse deler.",
    "lokal_kontroll": {
     "forventede_rader": [
      1
@@ -5066,12 +5028,83 @@
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 7136,
-     "maks": 4,
+     "piksler_over_0": 7114,
+     "maks": 6,
      "piksler_over_16": 0
     }
    },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig320_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "c31e6db59c33125e2a161b4c65f9e95f120a286c34e8a27d53add21d7416ce14",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen viser svarte ovale linjer og firkantede rammer. Forsøk 2 fyller ovalene med metall og mangler rammene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4231,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig322_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "c58721373eccaecceded69de15a5d633a644af2b1cd2e31bf23759e52c672a3a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "De to separate lange hvite delene i originalen mangler fortsatt i forsøk 2. Bare pyramiden med figuren er tegnet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2002,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig323_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "6498893ea9392975e6f9d9cb50f288f19380e61520c4f5b365d52f8fe271a6b1",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalen har én pyramide og en separat hvit strek. Forsøk 2 har laget to hele pyramider og mangler den hvite streken.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4277,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig324_01",
@@ -5124,28 +5157,31 @@
   },
   {
    "jobb": "fig326_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "d16baee002e7787fa586adfcaf22283bac6ff1d889919acbb211856d4a440db7",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "a4cfb016d3ffe3d9df040481adbc61ad9d47414282c67e0ccc494a9caa83c57b",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "To native mekanismer finnes, men de adskilte horisontale strøkene og løse originaldelene innen rutene er utelatt. Den åpne svarte linjestrukturen er fylt med metallflater.",
+   "grunn": "Originalens åpne svarte mekanismer er fortsatt fylt med metall i forsøk 2. Native arket har også synlig restalfa; ingen verifisert fasekobling.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
      1
     ],
     "native_rader": [
-     1,
+     4,
+     4,
+     3,
+     5,
      1
     ],
-    "antall_ok": true,
+    "antall_ok": false,
     "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 1804,
-     "maks": 107,
-     "piksler_over_16": 53
+     "piksler_over_0": 5561,
+     "maks": 58,
+     "piksler_over_16": 29
     }
    },
-   "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originaler og native forsøk bevares."
   }
  ]
 }
