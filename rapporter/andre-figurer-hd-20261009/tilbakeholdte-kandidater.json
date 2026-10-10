@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T01:58:34.908449+00:00",
+ "oppdatert_utc": "2026-10-10T02:04:05.391548+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 295,
+ "antall": 327,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -5178,6 +5178,40 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
   },
   {
+   "jobb": "fig157_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "cb5577e825a0fed412129abd81ecabc3ae64e16ce235f4cc89cc7210c0fc2fce",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Løse fjær er lagt over store myke brune skyer. Denne bakgrunnsalfaen er ikke bevist fra originalens separate fjærdeler.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     4,
+     6,
+     5,
+     6,
+     2,
+     2,
+     5,
+     8,
+     6,
+     4,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 14154,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig157_13",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "ebc5e68a304b8a50d2353d711a769fadf516a5e46bb542868f234144125ce7ee",
@@ -5292,6 +5326,77 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
   },
   {
+   "jobb": "fig160_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ac4b924e38788d3bc288a575e55009277ffbe30107edd787f637018058278463",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Siste originalfase har begynnende gul plattform. Native fjerde figur mangler denne delen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 27055,
+     "maks": 8,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig160_06",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3cb8e5db78a40684737bf46b80e600e83ae14d6294d829427d44479e0e86a131",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native ark har en oppdiktet rød rektangulær kant rundt figuren.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 8491,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig160_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "685a89934c550f3e5441ad644cf1e2072851f5b273d604d4ecdd24082ff390df",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Én originalfase er gjort til tre fullstendige skapninger.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 11516,
+     "maks": 9,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig163_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "115c0d7d06fd40f5bd2b4e8b8e76a62511f9b026d7039e68bc853ce9c1322092",
@@ -5342,6 +5447,292 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
   },
   {
+   "jobb": "fig166_07",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a0e099ae476aa7e8c8658dd685ba339ca7796e28db85e8329b54ba18dea891bb",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native ark har ekstra deler, endret radfordeling og blå former der kilden er rød.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     5
+    ],
+    "native_rader": [
+     2,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 15013,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_08",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7ab220631d15587d16767a014626c9cec48762a3577487ed8e5d4dfa7489a68d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens røde åpne C-former er tegnet som blå kuler med røde rektangulære rammelinjer.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     2
+    ],
+    "native_rader": [
+     7,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 259235,
+     "maks": 99,
+     "piksler_over_16": 95991
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_10",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c7be0adf8e115be3dbdbf7121102c8dcbb7095c1b63d8f48d00e293b1abaad3c",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens røde åpne deler er tegnet som blå kuleformer.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 129882,
+     "maks": 94,
+     "piksler_over_16": 35552
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_11",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "13330f0022e9d42008589cea116b0cbde40a38e77a83b1ac8127dc16f6604a83",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 112027,
+     "maks": 96,
+     "piksler_over_16": 51514
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_12",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d0257be7d38e3ae5219ce8167560059424ef33cb4ac4b64297931c710a959ab7",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 132882,
+     "maks": 101,
+     "piksler_over_16": 59677
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_13",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a46de8156c17f4ba9f212ed07f0de38e148ee9f27e03bff58e0df2014e1d37f5",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 24941,
+     "maks": 107,
+     "piksler_over_16": 7898
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_14",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0fbca5ea88790e7282aa6df5b1d81654db313e1ab0621918f344f6ed170c99b2",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 11211,
+     "maks": 118,
+     "piksler_over_16": 348
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_15",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "218f41960b87a1b2e5e14a288b7c581d64132db6a8824a8586a7e46cef7047c7",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 129605,
+     "maks": 61,
+     "piksler_over_16": 18519
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_16",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "edd4aefa587ce9b012c3c22d8863ab617e616452048e574777db473df6f28cb7",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 104458,
+     "maks": 90,
+     "piksler_over_16": 39398
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "276ada267926a9940b9705f525d7485694d3e856fe6b73986006247fd2df6c5b",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2485,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_18",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "00d69e56f6d808e73bffa847057bfb37e4fe4b461319200168d772c4c5916441",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4206,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig166_21",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a23e113a929d1d1b714d7d237603a4d682ac5d5ff78865eab00ef35df9e5870f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens røde åpne del-/maskeflater er tegnet som blå kuleformer. Stilankeret gir ikke bevis for å fylle kildehull eller endre faktisk farge.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     2,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 77632,
+     "maks": 98,
+     "piksler_over_16": 33786
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig167_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "ba50189a8ad773300d4903eb3e8f75b96e2e8cd856b71ffe04f6090179e7784b",
@@ -5368,6 +5759,344 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig169_11",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "7e2f6766e7ea844cde45414ef50fc20f785363c58409fa5f2d4e414d8847d512",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalarket skifter til blå plattformfaser på nedre rad. Native beholder lilla fra stilankeret i alle fasene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6,
+     6,
+     4
+    ],
+    "native_rader": [
+     3,
+     4,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 128253,
+     "maks": 127,
+     "piksler_over_16": 24168
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_12",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a669e92b6409ac751c6e6f68328fd98eb6e1527653ac24d40ec23d609b8a9fe6",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     9,
+     3,
+     3,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 120354,
+     "maks": 122,
+     "piksler_over_16": 25888
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_13",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "079d5e39a64f989383be690c7a96a8d3526acd7c0a06f67aa2855ed32afdc8e1",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     4,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 99347,
+     "maks": 127,
+     "piksler_over_16": 36603
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_14",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "9c8e90a0a93bf536465a0cbdda2f7ee2db157173750f856c13b0464a5ca1fea7",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     3,
+     4,
+     4,
+     15,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 123103,
+     "maks": 122,
+     "piksler_over_16": 32483
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_15",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "03780576ccaa3ce39b5f8926d9998eb9808a46ac92a4012cb24aff7d7e8b506d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     6,
+     1,
+     2,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 123153,
+     "maks": 126,
+     "piksler_over_16": 29845
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_16",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3f8a9a25446f27b95f8b772d58abbe84b9e42ba20dcf5ac730e097373926bfbf",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     14,
+     7,
+     5,
+     3,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 90209,
+     "maks": 127,
+     "piksler_over_16": 18361
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c373c03832e670b19e95dfb221477d090f5390067e684b9c13e03e3a9a311145",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     1,
+     7,
+     1,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 69739,
+     "maks": 125,
+     "piksler_over_16": 16723
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_18",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a317fddfac32fa97273f215a8818df0967d738e6163a36dc02ab435f5c261eed",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     4,
+     4,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 164013,
+     "maks": 127,
+     "piksler_over_16": 62838
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_19",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "00661fd356307196fd41443f309a94bc09201218e69412a1be3f8b34016a9fe8",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     4,
+     2,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 95142,
+     "maks": 124,
+     "piksler_over_16": 23760
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_20",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "1d6289dd840cd95dc7ca5b67a72a29f31f5f96d3d2df7e9994ccc9478cff1c55",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     4
+    ],
+    "native_rader": [
+     1,
+     1,
+     2,
+     2,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 252133,
+     "maks": 126,
+     "piksler_over_16": 29586
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig169_21",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "72446c6addd1f51f81f42b245c8856512e9fd91ab381b1aff8e475102b6a960f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens blå plattform og partikler er tegnet lilla etter stilankeret. Fargen og delkonturene er ikke bevart.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6,
+     6
+    ],
+    "native_rader": [
+     3,
+     5,
+     4
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 74704,
+     "maks": 127,
+     "piksler_over_16": 10514
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig170_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "779f5ed09c448cc23cc84b6be04f80eb708a4797c84bf39cecfc4856c312e0a5",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens store blå plattform og oppløsningseffekt er utelatt. Bare en hel flygende mann er tegnet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 3067,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
+   "jobb": "fig170_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "437c1f778479e8922ae8d187979c34db51c08a69c8beb95f54e1f80e88d44d7c",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens store blå plattform og oppløsningseffekt er utelatt. Bare en hel flygende mann er tegnet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2941,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig176_01",
@@ -5446,6 +6175,31 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig181_03",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "1067c44e6236b0e30f0112d4f291dc0ae042c486817dcaf1af71db282ef76cc9",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens svært mørke steinfaser er tegnet med nye store oransje glødesprekker. Faseforløpet er ikke bevist fra originalen.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     6,
+     2
+    ],
+    "native_rader": [
+     6,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2155,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig182_01",
@@ -5543,6 +6297,32 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
+   "jobb": "fig185_04",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ed4a71f5ac46436355c1a89f4d23b195fc118928eff05caff5921e4ce383a587",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens 20 små lysstreker og effektfaser mangler; kandidaten har bare de tre store steinfasene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     10,
+     7,
+     3
+    ],
+    "native_rader": [
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 1105,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
+  },
+  {
    "jobb": "fig186_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "1a288067606c4069bdccc45ddeff96dee2d00e8f787f68dcd7b03b14f88542b7",
@@ -5602,6 +6382,35 @@
     }
    },
    "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig190_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3c13f0de131977857752ff68354ef451db79c75397b093d5b499e50d72b4cbac",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalradene 12,16,14,12 er tegnet som 12,15,14,11. To originale faser mangler.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     12,
+     16,
+     14,
+     12
+    ],
+    "native_rader": [
+     12,
+     15,
+     14,
+     11
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 60303,
+     "maks": 8,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk eller kildeavklaring. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originaler og native forsøk bevares."
   },
   {
    "jobb": "fig194_01",
