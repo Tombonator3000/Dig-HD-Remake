@@ -197,10 +197,10 @@ index 21938706..3b478c6a 100644
  							hotspotX, hotspotY,
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..59af5f7e
+index 00000000..6f4e5673
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,3876 @@
+@@ -0,0 +1,3916 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -364,6 +364,8 @@ index 00000000..59af5f7e
 +		sscanf(pos, "%d,%d", &_testPosX, &_testPosY);
 +	_testClip = envInt("DIGHD_TEST_CLIP", 0);
 +	_debugSoft = envInt("DIGHD_DEBUG_SOFT", 0) != 0;
++	if (const char *px = getenv("DIGHD_DEBUG_PIXEL"))
++		sscanf(px, "%d,%d,%d,%d,%d", &_debugPixelX, &_debugPixelY, &_debugPixelX2, &_debugPixelY2, &_debugPixelFrom);
 +	_logBlasts = envInt("DIGHD_DEBUG_BLAST", 0) != 0;
 +	_logFace = envInt("DIGHD_DEBUG_FACE", 0) != 0;
 +	if (const char *walk = getenv("DIGHD_TEST_WALK"))
@@ -903,6 +905,8 @@ index 00000000..59af5f7e
 +	CelSlot &c = base[_curCelCount++];
 +	c.used = img != nullptr;
 +	c.missing = img == nullptr;
++	if (!img && _debugSoft)
++		debug("DigHD: no HD for costume %d cel %d (%dx%d at %d,%d)", _curCostume, cel, width, height, left, top);
 +	c.costume = _curCostume;
 +	c.cel = cel;
 +	c.image = img;
@@ -996,16 +1000,41 @@ index 00000000..59af5f7e
 +			const int cx = (x - left) * idx.w / c.rw;
 +			col[x - x0] = c.mirror ? idx.w - 1 - cx : cx;
 +		}
++		// A scaled cel (an astronaut moving away) is drawn by the renderer's
++		// own choice of rows and columns, so at its edges the proportional
++		// mapping can land on a transparent pixel of the image where the cel
++		// did draw. For a soft cel such a pixel is still the figure's when it
++		// differs from the background and the image has a colour next to it;
++		// otherwise it stayed an original pixel beside the soft drawing.
++		const bool scaled = c.rw != idx.w || c.rh != idx.h;
++		auto nearColour = [&](int cx, int cy) {
++			for (int dy = -2; dy <= 2; dy++)
++				for (int dx = -2; dx <= 2; dx++) {
++					const int xx = cx + dx, yy = cy + dy;
++					if (xx >= 0 && yy >= 0 && xx < idx.w && yy < idx.h &&
++					    (int)*((const byte *)idx.getBasePtr(xx, yy)) != c.image->transparent)
++						return true;
++				}
++			return false;
++		};
 +		for (int y = y0; y < y1; y++) {
-+			const byte *row = (const byte *)idx.getBasePtr(0, (y - top) * idx.h / c.rh);
++			const int cy = (y - top) * idx.h / c.rh;
++			const byte *row = (const byte *)idx.getBasePtr(0, cy);
 +			const size_t rowOff = (size_t)y * L->pitch + shift;
 +			for (int x = x0; x < x1; x++) {
 +				const size_t off = rowOff + x;
 +				if (off >= L->size)
 +					break;
 +				const byte code = row[col[x - x0]];
-+				if ((int)code == c.image->transparent)
++				if ((int)code == c.image->transparent) {
++					if (c.soft && scaled && backBuf && buf[off] != backBuf[off] && nearColour(col[x - x0], cy)) {
++						CelMark &m = marks[off];
++						m.seq = c.seq;
++						m.slot = slot;
++						m.val = buf[off];
++					}
 +					continue;
++				}
 +				CelMark &m = marks[off];
 +				m.seq = c.seq;
 +				m.slot = slot;
@@ -1403,7 +1432,10 @@ index 00000000..59af5f7e
 +								if (cs.mirror)
 +									cx = ci.w - 1 - cx;
 +								const byte code = *((const byte *)ci.getBasePtr(cx, ly * ci.h / cs.rh));
-+								kept = (cs.raw && code != idx) || wildColour(cs.image->basePal + code * 3, _pal + idx * 3);
++								// A transparent code here is an edge pixel of a scaled cel
++								// (markCel()): the figure, with the background under it
++								kept = (int)code != cs.image->transparent &&
++								       ((cs.raw && code != idx) || wildColour(cs.image->basePal + code * 3, _pal + idx * 3));
 +							}
 +							if (!kept) {
 +								softBase = true;
@@ -1444,6 +1476,14 @@ index 00000000..59af5f7e
 +						}
 +					}
 +				}
++			}
++			if (sx >= _debugPixelX && sy >= _debugPixelY && sx <= _debugPixelX2 && sy <= _debugPixelY2 &&
++			    _frameNo >= (uint32)_debugPixelFrom) {
++				const size_t off = textOff + (size_t)r * pitch + c;
++				const CelMark *m = (celMarks && off < _celMain.size) ? &celMarks[off] : nullptr;
++				debug("DigHD: pixel %d,%d: idx %d back %d source %08x soft %d cover %u, celOn %d mapping %d, mark seq %u val %d slot %d (slot seq %u, soft %d used %d)",
++				      sx, sy, idx, b ? b[c] : -1, source, softBase, coverSeq, (int)celOn, (int)mapping, m ? m->seq : 0, m ? m->val : -1, m ? m->slot : -1,
++				      m ? _cels[m->slot].seq : 0, m ? _cels[m->slot].soft : 0, m ? _cels[m->slot].used : 0);
 +			}
 +			_shadow[sy * _w + sx] = f[c];
 +			_base[sy * _w + sx] = baseIdx;
@@ -4079,10 +4119,10 @@ index 00000000..59af5f7e
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..dc9e14b8
+index 00000000..139cfcd4
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,538 @@
+@@ -0,0 +1,540 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -4332,6 +4372,8 @@ index 00000000..dc9e14b8
 +		int gain[3] = { 256, 256, 256 };  // shown colour / image colour, 256 = 1
 +	};
 +	enum { kCelSlotsPerActor = 32, kMaxCelSlots = 1024 };
++	// DIGHD_DEBUG_PIXEL=x0,y0,x1,y1[,frame]: how each screen pixel in the rectangle is composed
++	int _debugPixelX = -1, _debugPixelY = -1, _debugPixelX2 = -1, _debugPixelY2 = -1, _debugPixelFrom = 0;
 +
 +	// Which costume cel drew a pixel of the game screen buffer, and the value it
 +	// wrote. A pixel shows the figure only while the cel's drawing is the last one
