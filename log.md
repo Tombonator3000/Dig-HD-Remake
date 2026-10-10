@@ -329,3 +329,13 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 ## 2026-10-10 10:11 til 10:20 (Claude)
 - Tom spurte om PNG-filene kan komprimeres. Målte modden (1 GB: figurer 756 MB, rom 192 MB, objekter 55 MB) og prøvde på 200 figurruter og 20 rom: oxipng 3 til 6 prosent, pngquant 55 til 60 prosent (rom snittavvik 0,78 av 255, figurer 1,32 målt på synlige piksler ganget med alfa, alfa opptil 51 ulik), JPEG q92 for rom 80 prosent. Ingenting endret. Tom: tas helt til slutt. Lagt i todo under Senere.
 - Status fra `gpt-arbeid`: rom 153 godkjent, 6 avvist, 3 sjekk av 162. Store objekter 22 godkjent, 8 sjekk. Lag 188 godkjent, 46 nye. Ikoner 3 av 3. Figurark 1257 levert, 2770 nye, 4 avvist, 1 godkjent (de glatte arkene får status levert og tas inn av `myke-figurer`).
+
+## 2026-10-10 10:35 (Claude)
+- Tom spilte Linux-pakken og meldte (med skjermbilder fra rom 16, 18, 20 og 21):
+  1. Inventaret: gammel grafikk under rutenettet.
+  2. Alle tre astronautene har samme grafikk (ser ut som kvinner).
+  3. F5 gir bare en melding "HEAP 10000 MEM0 VID0", ikke menyen med Save, Load og innstillinger.
+  4. Esc trykket mange ganger avslutter spillet rett til skrivebordet. Det skal aldri skje; avslutning skal gå via menyen.
+  6. Armen som løfter Pig ut av romfergen ser rar ut (rettes etter hvert).
+  7. Pig ser feil ut. Astronautene ser ut som kvinner. Håndbevegelsene når de snakker er som i originalen, men figurene ser ut til å skifte størrelse mellom rutene. Figurene må holde samme størrelse og form gjennom alle rutene; sjekk om vi har en løsning i andre repoer.
+  9. Beskrivelsesteksten nederst ("explosive unit Beta") ser dårlig ut og må få HD-skrift.
