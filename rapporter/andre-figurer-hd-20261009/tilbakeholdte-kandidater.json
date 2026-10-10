@@ -1,5 +1,5 @@
 {
- "oppdatert_utc": "2026-10-10T00:59:00.137908+00:00",
+ "oppdatert_utc": "2026-10-10T01:01:50.742010+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
  "antall": 184,
  "kandidater": [
@@ -2930,33 +2930,6 @@
    "neste": "Kildekontroll eller nytt ordrett forsøk. Originalene og native kandidaten bevares."
   },
   {
-   "jobb": "fig131_03",
-   "siste_kontrollerte_forsok": 2,
-   "kandidat_sha256": "8ffe10b848ffc509fe4935d8e2526015fff936b98a40ac2ba6b776f09ca1902f",
-   "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Forsøk 2 har fortsatt synlige magenta rektangler rundt de tre skapningsrutene. Ingen ny importfil er levert.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1,
-     1,
-     1
-    ],
-    "native_rader": [
-     3,
-     2,
-     2
-    ],
-    "antall_ok": false,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 30796,
-     "maks": 9,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
-  },
-  {
    "jobb": "fig132_16",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "fee1b5c4bada66d5ff9d895c2ffda7227b149807b1759ebac76bce7a0c898a58",
@@ -3005,29 +2978,50 @@
    "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
   },
   {
-   "jobb": "fig135_09",
+   "jobb": "fig139_05",
    "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "267b6eafc3073980ab33217a0babc6b75985832350af05f6a278b0414cce444a",
+   "kandidat_sha256": "3e1c3ac1da8b58fe81ac4e275de105c75a02193e82414ac8a4cf5089098ffdfd",
    "status": "tilbakeholdt, ikke grafikkleveranse",
-   "grunn": "Originalens sju delruter finnes visuelt, men native kontur har 15 uforklarte restalfapiksler med maksimum 57/255. Rå komponenttall krever også eksplisitt delkobling.",
+   "grunn": "Native tredje rute er en hel skapning, mens originalens tredje rute har en liten separat del. Bestått rå telling er ikke bevis på riktig innhold.",
    "lokal_kontroll": {
     "forventede_rader": [
-     5,
+     3
+    ],
+    "native_rader": [
+     3
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 14850,
+     "maks": 10,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Nytt ordrett forsøk er startet. Native anatomi må følge den faktiske originaldelen."
+  },
+  {
+   "jobb": "fig139_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "c5c3bee95c2582b040ece5833e1f5626f592e7a056577e30b8f3a94b503db551",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native arket har tre hele skapninger. Originalen har to hovedfigurer og en liten originaldel; kandidaten har en ekstra hel figur.",
+   "lokal_kontroll": {
+    "forventede_rader": [
      2
     ],
     "native_rader": [
-     6,
-     2
+     3
     ],
     "antall_ok": false,
-    "alpha_control_ok": false,
+    "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 7217,
-     "maks": 57,
-     "piksler_over_16": 15
+     "piksler_over_0": 11505,
+     "maks": 5,
+     "piksler_over_16": 0
     }
    },
-   "neste": "Nytt ordrett forsøk eller kildeavklaring. Originalene og native forsøk bevares."
+   "neste": "Nytt ordrett forsøk er startet. Native anatomi må følge den faktiske originaldelen."
   },
   {
    "jobb": "fig146_01",
