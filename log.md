@@ -362,3 +362,6 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 
 ## 2026-10-10 14:42 (Claude)
 - Tom ba om at lærdommen fra remasterne lagres i skillen. Foreslått ny versjon av `scumm-hd-remake` (kort til lagring hos Tom): ny del «Forbildene: LucasArts og Double Fine» (lese, endre, lappe; to feillister; master-figurark; purisme; figur mot rom; uavhengige valg; sideforhold; filmløypa; lyd; ekstra), master-figurark i stilpiloten, og henvisning til `docs/REMASTER-FORBILDER.md`.
+
+## 2026-10-10 16:10 (Claude)
+- Tom lagret den nye versjonen av skillen `scumm-hd-remake` og ba om en utgave han kan kopiere til ChatGPT. Laget `docs/skills/scumm-hd-remake/SKILL.md`: samme innhold, med en innledning om rollene (Claude koden, ChatGPT/Codex grafikken, Tom godkjenner), en beskrivelse som også dekker grafikkarbeidet, og prosjektbiblioteket som lenke i stedet for Claude-skillen `spill-gjenbruk`. Sendt Tom som SKILL.md og som zip med mappen.
