@@ -1,7 +1,7 @@
 {
- "oppdatert_utc": "2026-10-10T00:12:08.532322+00:00",
+ "oppdatert_utc": "2026-10-10T00:15:48.924147+00:00",
  "merknad": "Bare fullførte og lokalt kontrollerte kandidater uten levert resultat er listet. Lokale bildeforsøk er ikke leveranser. Enkelte har nye ordrette forsøk i arbeid. Filen endrer ingen status.csv eller retur.md. Native filer er ikke redigert for å få kontrollen til å bestå.",
- "antall": 127,
+ "antall": 162,
  "kandidater": [
   {
    "jobb": "fig001_08",
@@ -1998,6 +1998,91 @@
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
   },
   {
+   "jobb": "fig084_07",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0536e4f374357d941616dfa7ec480cd63ed29b40a018b5eb867c71552a3c0aed",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Sammensatte energifaser trenger kildekontrollert gruppering og avgrenset effektalfa. Ikke levert ut fra rå komponentantall.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1
+    ],
+    "native_rader": [
+     2,
+     7,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 9803,
+     "maks": 118,
+     "piksler_over_16": 275
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig084_08",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "874929fe941bfd82435f1447d9ff4a84be01b3e4d8c1cdc56b6afcb41e9e6631",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Synlige magenta rammelinjer rundt native effektfaser og uforklart restalfa.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3,
+     1
+    ],
+    "native_rader": [
+     1,
+     1,
+     1,
+     2,
+     4,
+     2,
+     1,
+     11,
+     1,
+     1,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 27739,
+     "maks": 127,
+     "piksler_over_16": 2192
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig084_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "b0b29b1058880ac4447a67e6f85e3e82b9128270b959d855d1a3829882146f77",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Tre sammensatte originalfaser har flere separate native energibiter. Trenger kildekontrollert gruppering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3
+    ],
+    "native_rader": [
+     1,
+     1,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 6024,
+     "maks": 17,
+     "piksler_over_16": 1
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
    "jobb": "fig087_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "c539e831ef4157b347a6d71ab8c531a3daaf587172cf801e7b2809e716bf3685",
@@ -2044,6 +2129,515 @@
     }
    },
    "neste": "Nytt kildebundet forsøk med original prompt ordrett, eller avgrenset korrigeringsprompt etter særskilt tillatelse. Ingen kandidat er importklar."
+  },
+  {
+   "jobb": "fig092_02",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e1be670fbd31b771f7de0ee90d53f24b85274bb3899d13c8669ff3788377b632",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native ark har synlige magenta rektangler rundt rutene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     3,
+     3
+    ],
+    "native_rader": [
+     8,
+     5,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 50467,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_07",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "86d0df81398b56a6663a7395f4da648a70c9f28bd9ccc242db7ba563604dbe2d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     7,
+     5,
+     3
+    ],
+    "native_rader": [
+     9,
+     7,
+     1,
+     4,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 145061,
+     "maks": 126,
+     "piksler_over_16": 7115
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_08",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "40988cc9374939ac93fba6e55f2ff185bf9ee831d391e2e9929c40448fecc302",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     1,
+     2,
+     4,
+     4,
+     1,
+     5
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 182248,
+     "maks": 123,
+     "piksler_over_16": 36617
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_09",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0ee1d63c938dc0132a016f4182f24a16616963b362adebe6ed798008f164c2c6",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 74898,
+     "maks": 41,
+     "piksler_over_16": 9064
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_10",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "da82edb8a651553dfcd81aee29d8d05494c07c2e72a0178e01ecac9aa148af92",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 222380,
+     "maks": 100,
+     "piksler_over_16": 97272
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_11",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3afe27b3b8e004daa3ba6aac5dcbff4988189da81d28db0fc91a3beac45cefcb",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 735,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_12",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d1709e370a3c9cf940fd381ec538721284477242926aa421f54216bc0667e8e6",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 1104,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_13",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "9a71631b7efad6d713b8be5a245c441ba9cc27a91ac27381b2697cccff637d5a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 1471,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_14",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "89409cb55264714452b01b6c34b2267de3829fc034218002027b252e329d0586",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 22243,
+     "maks": 5,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_15",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "6fc44529a7736d15a2b51214056aac81d49fe442263121940cd3854884898162",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 12743,
+     "maks": 41,
+     "piksler_over_16": 123
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_16",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3900530b7912c62b68a8bc99b684c99dd51414e0ea5e5f95745d03618514b3d0",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 229,
+     "maks": 1,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_17",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "eb2731fc8ce9fbb52d6a9820f21a1f74b12cfc9a300adfa33014626c7e3bbd8d",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 3680,
+     "maks": 103,
+     "piksler_over_16": 474
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_18",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "695c250acadda899ee500b62a29d56dfbf45b91392023b754392e8bf4a73aa5a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 50761,
+     "maks": 91,
+     "piksler_over_16": 19673
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_19",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0f79f9970e6e7a918c346aa3000bdb767c5354a09df7a55018d796a8b463f1b1",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 203005,
+     "maks": 108,
+     "piksler_over_16": 78075
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_20",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "edc8625cc9b699ecb526dcf5863756b5db393eb9e5a3786014ec1294a5711229",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 58719,
+     "maks": 54,
+     "piksler_over_16": 11247
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_21",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "fd7ca86b21a4c7510b06357b99126a873b7fe427d1ea98dc283516d48e863d12",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 8069,
+     "maks": 44,
+     "piksler_over_16": 112
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_22",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d3b5d2e47e4b3271c736dc1ae6a66ed716ed99bbfb6f4ee4c9d6ecf57a36ecc4",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 580,
+     "maks": 1,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_23",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "a18c72db3916c05a6a8a0d7f880fa2b77ef1309fde3710d9301b3ee2996f1616",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 2340,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_24",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "b78ef1386a624ba6008a8fc140f4461a05f05d353d3ef7818a3a71f42bf5d29f",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     2
+    ],
+    "native_rader": [
+     2,
+     2
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 4795,
+     "maks": 3,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_25",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "0831b03ead23e333157f0e475bd4fcc7a1c68871f382b2a99e551f749f6190e3",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     4
+    ],
+    "native_rader": [
+     1,
+     3,
+     2,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 314824,
+     "maks": 121,
+     "piksler_over_16": 74109
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig092_26",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "d65928c11c3e06dae0c581e25c9e8fa807a63601079991bdd6f21508a9138fdc",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden viser hovedsakelig røde maskelignende flater med gjennomsiktige dråpehull. Kandidaten tegner blå kuler eller oppdiktet innfatning og fyller hullene. Stilankeret er ikke bevis for at hullene skal tegnes. Kildens faktiske farger og maske-/effektfunksjon må avklares før nytt forsøk.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     3
+    ],
+    "native_rader": [
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 29039,
+     "maks": 74,
+     "piksler_over_16": 1651
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
    "jobb": "fig093_01",
@@ -2334,6 +2928,42 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
   },
   {
+   "jobb": "fig145_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "cd72fc84db33ff1206668fd49294d773dafe5db513f9c3e4d2a9009c5f837040",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native deler følger et spredt sammensatt kildeark. Rå radtall avviker; kildebokser må verifiseres før eventuell levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     4,
+     6,
+     5,
+     4,
+     1
+    ],
+    "native_rader": [
+     1,
+     4,
+     1,
+     6,
+     1,
+     6,
+     1,
+     1,
+     5,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 12549,
+     "maks": 32,
+     "piksler_over_16": 3
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
    "jobb": "fig146_01",
    "siste_kontrollerte_forsok": 2,
    "kandidat_sha256": "0dd743ecef04eb197c00e57d4ec4a46c2ef4b80f825995452a0408afc7b98846",
@@ -2363,10 +2993,10 @@
   },
   {
    "jobb": "fig150_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "660ba6e0db1077e405e12620ea7d2802a0265ba14558716354da57ccef238e44",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Cyan ruterektangler er tegnet inn rundt bildene.",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "9d6be57e730bbdf73c5156350dba1916a98098f20359cc19af3a1706c7e24b34",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Sammensatte små lysstreker og ringer er ikke sikkert koblet én til én til originalens 41 delruter. Native komponentantall avviker.",
    "lokal_kontroll": {
     "forventede_rader": [
      2,
@@ -2377,44 +3007,22 @@
      8
     ],
     "native_rader": [
-     10,
-     11,
      1,
      14,
+     8,
+     10,
+     4,
      12
     ],
     "antall_ok": false,
     "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 153230,
-     "maks": 126,
-     "piksler_over_16": 4901
+     "piksler_over_0": 370573,
+     "maks": 123,
+     "piksler_over_16": 3045
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig152_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "42e7264c4d3af90b4617302344a1856b0eaaa11bc9ffde3c7ecba9a7098d36d9",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Røde ruterektangler og ny menneskeanatomi er lagt til de smale originalformene.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     1
-    ],
-    "native_rader": [
-     1
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": true,
-    "restalfa": {
-     "piksler_over_0": 2678,
-     "maks": 6,
-     "piksler_over_16": 0
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
    "jobb": "fig153_01",
@@ -2472,33 +3080,33 @@
   },
   {
    "jobb": "fig155_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "5ed6496f998c8a1b85c3ff94bf270bda8ea1efee8abe6196827a3dc4f638851d",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Det er tegnet flere hele figurer enn originalens ni hovedbilder, som også inneholder delutsnitt.",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "29a71fdc9c40f27405b756320ddd2445b4d4ef07475f3239dd2cf6f7b73dca03",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kilden har ni delruter med små kroppsdeler; kandidaten tegner en lengre sekvens med hele små personer og rammelinjer.",
    "lokal_kontroll": {
     "forventede_rader": [
      9
     ],
     "native_rader": [
-     13
+     53
     ],
     "antall_ok": false,
-    "alpha_control_ok": true,
+    "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 3275,
-     "maks": 4,
-     "piksler_over_16": 0
+     "piksler_over_0": 8780,
+     "maks": 126,
+     "piksler_over_16": 645
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
    "jobb": "fig156_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "c30d19a67c8f5e63d2e4a7ba6029f05ff0d270a56e74ef4ae583a61d2769d338",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Det er tegnet flere hele mennesker enn originalens 91 meningsbærende bilder. Originale delutsnitt er ikke bevart samlet.",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "3e2a588312cf7e1bad1ab30ae77f00b550ddf149a921d4268050bc6f813051c3",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Originalens løse kropps- og armstreker er tegnet som hele personer. Antall og radfordeling stemmer ikke.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -2511,20 +3119,21 @@
      1
     ],
     "native_rader": [
-     29,
      27,
-     22,
-     23
+     29,
+     23,
+     9,
+     4
     ],
     "antall_ok": false,
-    "alpha_control_ok": true,
+    "alpha_control_ok": false,
     "restalfa": {
-     "piksler_over_0": 36354,
-     "maks": 7,
-     "piksler_over_16": 0
+     "piksler_over_0": 128974,
+     "maks": 127,
+     "piksler_over_16": 26282
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
    "jobb": "fig157_01",
@@ -2562,10 +3171,10 @@
   },
   {
    "jobb": "fig158_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "79987e476d1bceaa56b7549632afdcfa887f0bc4e4eef554e6e3c254a778a32d",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Originalens 66 meningsbærende delbilder er erstattet av 43 større overkropper.",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "23423fff74daf0ad43b97644e048f1e041920a7ce1da68f1b2c4c86cc1428716",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Mange små separate originaldeler mangler. Native ark har 41 hovedkomponenter mot 66 originale hovedruter.",
    "lokal_kontroll": {
     "forventede_rader": [
      1,
@@ -2577,7 +3186,7 @@
     ],
     "native_rader": [
      1,
-     9,
+     7,
      9,
      7,
      9,
@@ -2586,12 +3195,12 @@
     "antall_ok": false,
     "alpha_control_ok": true,
     "restalfa": {
-     "piksler_over_0": 79769,
+     "piksler_over_0": 52560,
      "maks": 7,
      "piksler_over_16": 0
     }
    },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
    "jobb": "fig159_01",
@@ -2614,33 +3223,6 @@
      "piksler_over_0": 41329,
      "maks": 5,
      "piksler_over_16": 0
-    }
-   },
-   "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
-  },
-  {
-   "jobb": "fig160_01",
-   "siste_kontrollerte_forsok": 1,
-   "kandidat_sha256": "0d84e006e13962ef8f9eec4ee7393262af6be0173ef42614d288cb3a2a4ba8ac",
-   "status": "Tilbakeholdt, ikke levert",
-   "grunn": "Synlig restalfa utenfor de tegnede konturene består ikke lokal kontroll.",
-   "lokal_kontroll": {
-    "forventede_rader": [
-     5,
-     5,
-     2
-    ],
-    "native_rader": [
-     5,
-     5,
-     2
-    ],
-    "antall_ok": true,
-    "alpha_control_ok": false,
-    "restalfa": {
-     "piksler_over_0": 23111,
-     "maks": 76,
-     "piksler_over_16": 44
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. En særskilt korrigeringsprompt brukes bare etter den ventende tillatelsen fra Tom. Native bilder og originalfiler bevares."
@@ -2925,6 +3507,39 @@
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
   },
   {
+   "jobb": "fig189_01",
+   "siste_kontrollerte_forsok": 2,
+   "kandidat_sha256": "05cc5649901641744a2c7010c0292a99589af207a26bfc58f98810f6a8ecc210",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Antall består, men kandidaten tolker den lave kildeoppløsningen som en hel liggende kvinne med bein og føtter. Disse kroppsdelene og identiteten er ikke bevist fra kilden; holdes tilbake for kildetrohet.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     7,
+     7,
+     7,
+     6,
+     6
+    ],
+    "native_rader": [
+     1,
+     7,
+     7,
+     7,
+     6,
+     6
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 78854,
+     "maks": 7,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
    "jobb": "fig194_01",
    "siste_kontrollerte_forsok": 1,
    "kandidat_sha256": "25df09e70d6745e47bb93e45adcf57240307d7d857d8e842123d38eb902621cd",
@@ -3179,6 +3794,33 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig207_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e10d2409b7f56e1c12ab9ec15a1cd8f669e3ba8efa45fe0413b36bf722b3bb33",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Native ark har magenta rektangler rundt kulene.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     4,
+     4
+    ],
+    "native_rader": [
+     2,
+     8,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 14135,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   },
   {
    "jobb": "fig208_01",
@@ -3557,6 +4199,336 @@
     }
    },
    "neste": "Fortsett kildekontroll eller ordrett nytt forsøk. Den ventende tillatelsen til særskilt korrigeringsprompt er ikke forutsatt. Native bilder og originalfiler bevares."
+  },
+  {
+   "jobb": "fig239_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "b560437915a1e27f316737d2e4601fa81445319c960f9442f6b871f365831f8a",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Antall og alfa består. Venter detaljert kilde- og bakgrunnsvurdering før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 370,
+     "maks": 2,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig240_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "1306deb2c6d00a64343e771cea1bab28fed6e2002d3ab73caf52c0d2dc62aff9",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Antall og alfa består. Venter detaljert kilde- og bakgrunnsvurdering før levering og bytekontroll av mulige duplikatjobber.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 354,
+     "maks": 1,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig241_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "4637f5cefbccf9cd606030096c0951ddcae388bcb097dca922b7f95ec97bca94",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Antall og alfa består. Venter detaljert kilde- og bakgrunnsvurdering før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1
+    ],
+    "native_rader": [
+     1
+    ],
+    "antall_ok": true,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 185,
+     "maks": 1,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig247_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "10054112029c8254a264cea6df519272d763451760e6b34fb8214d64b2f1ae91",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Sammensatte ringer og små fragmenter trenger manuell kildekobling. Rå komponenttall stemmer ikke med fem originalruter.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     1,
+     1,
+     2
+    ],
+    "native_rader": [
+     2,
+     3,
+     6,
+     1,
+     3,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 42394,
+     "maks": 74,
+     "piksler_over_16": 143
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig248_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "47719466db8dccfed148ed68b972e32614856823a7c628b27f29e99fe0e62d07",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Kildens langstrakte rosa deler er tolket som avrundede dråpekjeder. Antall og konturtrohet er ikke bevist.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     1,
+     3,
+     5,
+     1,
+     1,
+     4,
+     1,
+     4,
+     5,
+     2,
+     1,
+     3,
+     2,
+     2,
+     3,
+     2,
+     2
+    ],
+    "native_rader": [
+     3,
+     1,
+     9,
+     4,
+     6,
+     3,
+     9,
+     3,
+     8,
+     5,
+     7,
+     2
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 45534,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig249_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "2f343887582558aec2db742d64bca09b1d29fa4ba4ef69fe619ae700d5ee5647",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Sammensatte rosa lysdeler trenger kildekontrollert gruppering; uforklart restalfa og avvikende komponentantall.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     5,
+     7,
+     8,
+     8,
+     8
+    ],
+    "native_rader": [
+     2,
+     6,
+     1,
+     8,
+     8,
+     8,
+     8
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 207592,
+     "maks": 126,
+     "piksler_over_16": 230
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig250_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "ff1b242a0eb2dcbbf0fef1fd6a64082cdd9231fc4d3505c74203d015c70b6eb4",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Delrutene er gjort til mer komplette blå bueformer. Rå antall avviker, og enkelte originale avkuttede deler er ikke bevist.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     8,
+     8,
+     7,
+     8,
+     8,
+     8,
+     4,
+     7,
+     2
+    ],
+    "native_rader": [
+     1,
+     10,
+     11,
+     9,
+     11,
+     11,
+     9,
+     6,
+     10,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 101250,
+     "maks": 9,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig251_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "3498c5affe5011ab40d63a5d7bac1c44971bd67b11c9ecd96a3a35e9233cadca",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Mange små sammensatte fragmentruter. Rå telling har flere komponenter enn originalens rutetall; trenger manuell kobling.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     1,
+     15,
+     16,
+     15,
+     13,
+     5,
+     15,
+     15,
+     14,
+     1
+    ],
+    "native_rader": [
+     1,
+     15,
+     16,
+     15,
+     14,
+     6,
+     16,
+     15,
+     16,
+     1
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": false,
+    "restalfa": {
+     "piksler_over_0": 152271,
+     "maks": 20,
+     "piksler_over_16": 2
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig252_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "296c601f03610f2e5246d23deb71836796ee4fe7544b4cc2abb62e58fbe2324b",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "Løse deler i samme originalrute er ikke sikkert koblet sammen; rå radtall stemmer ikke.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2,
+     4,
+     4,
+     4
+    ],
+    "native_rader": [
+     1,
+     2,
+     7,
+     5,
+     6,
+     5,
+     6
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 27796,
+     "maks": 8,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
+  },
+  {
+   "jobb": "fig253_01",
+   "siste_kontrollerte_forsok": 1,
+   "kandidat_sha256": "e828c244c0fad246878bef86b7131db0bdd81d574df86220b069508534065517",
+   "status": "tilbakeholdt, ikke grafikkleveranse",
+   "grunn": "To store sammensatte halvformer med løse armer og effekter krever eksplisitt kildekobling før levering.",
+   "lokal_kontroll": {
+    "forventede_rader": [
+     2
+    ],
+    "native_rader": [
+     1,
+     1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     1,
+     3
+    ],
+    "antall_ok": false,
+    "alpha_control_ok": true,
+    "restalfa": {
+     "piksler_over_0": 5972,
+     "maks": 4,
+     "piksler_over_16": 0
+    }
+   },
+   "neste": "Kildekontroll eller nytt ordrett forsøk. Ingen deler slettes eller legges til for å få tellingen til å stemme. Originalene bevares."
   }
  ]
 }
