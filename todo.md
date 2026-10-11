@@ -88,6 +88,11 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] [original] Luft etter r i HD-skriften («Br ink»): originalskriften har samme luft (r er fire piksler med armen øverst). Prøvd å tilpasse bredden og plassen til originalbokstaven 11. oktober; ingen synlig forskjell, tatt ut igjen
 - [ ] [HD] Armen som løfter Pig ut av romfergen ser rar ut (Tom 10. oktober): robotarmen er kostyme 4 og 5, og hver rute er tegnet for seg, så festet, leddene og enden skifter form fra rute til rute. Bestilt hovedark og nye ark i ORDRE.md 11. oktober. Scenen er ikke sett i spill her (skjer etter at spilleren gjør noe i rom 2)
 - [x] [HD] Flekker av originalpiksler rundt skalerte myke figurer (astronauten som holder Pig i rom 4): PR 45, venter på at Tom fletter
+- [x] Mottak av myke figurer versjon 3 (PR 46, venter på fletting): tekniske magentapiksler, utliggere (Pig 064), hodepuls mellom munnstillinger, rettingsark per rute via `fra-claude/mottak-per-rute.json`
+- [x] Pig-serien etter Toms godkjente hovedark tatt inn 11. oktober (fig007_01 til 09, 03/05/07 med rettinger): 225 ruter ok, 16 sjekk; modden `hd-mod` 3f5f769
+- [ ] Tom ser Pig i spillet (romdrakt-scenen i rom 4) og godkjenner serien
+- [ ] Se på de 16 Pig-rutene til sjekk, blant dem 192 fra rettingsarket (0,78)
+- [ ] Sju ruter for Boston i romdrakt uten HD (kostyme 1: 92, 109 til 112, 120, 161), trolig fra fig001_20 som er HOLD
 - [x] Nye ark for Boston, Maggie og Brink i romdrakt (kostyme 1, 2, 3) og Pig (7) fra Codex tatt inn 11. oktober (riktige personer); Tom ser dem i pakken
 - [ ] Tom ser på astronautene og Brink (kostyme 16 og 17 har mørkere hake i originalen, HD-Brink er glattbarbert som konseptet)
 - [ ] 20 nye ruter for kostyme 229 er holdt ute (kodek 5, fargetabellen har like farger med ulik indeks, indeksbildet kan ikke lages uten dekoderne)

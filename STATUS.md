@@ -137,6 +137,8 @@ mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
 - Linux-pakken bygget på nytt med den nye modden (kjøring 38093165905, bestått). Lastet ned og kjørt uten skjerm fra Toms lagring i rom 4: de myke astronautene vises (7259 piksler myk figur). Ikke testet på Toms skjerm.
 - PR 45 (venter på fletting): skalerte myke figurer etterlater ikke lenger originalpiksler i kanten. Testet uten skjerm, se PR-en.
 
+- Kveld: Pig-serien etter Toms godkjente hovedark tatt inn med mottak versjon 3 (PR 46). Alle 1290 ark tatt inn på nytt: 10 703 ruter ok, 968 sjekk, 277 bare skyggemerker (ingen HD). Modden `hd-mod` 3f5f769. Testet uten skjerm fra Toms lagring i rom 4: Pig vises med de nye rutene, 0 avvik mot skjermen bygget på nytt. Linux-pakken bygges på nytt.
+
 ## Kjente begrensninger
 
 - Kodek 5 og 16: 110 av kostymene ble ikke tegnet da testen hoppet gjennom rommene, så fargene deres er valgt etter hvilken palett som gir jevnest bilde. Et kostyme som vises med to helt ulike paletter, får riktige HD-farger bare i den ene (sett for 266 i rom 79).

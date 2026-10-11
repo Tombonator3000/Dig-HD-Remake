@@ -383,3 +383,16 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 
 ## 2026-10-11 21:20 (Claude)
 - Tom spurte om status. Sjekket: PR 45 er ikke flettet (CI grønn). `hd-mod` er 3bfde8a fra natten. Linux-pakken ble bygget igjen 10:50 (nattlig kjøring, bestått). I `gpt-arbeid` har Codex i kveld (18:53 til 20:20) laget en originalstudie av Pig etter Toms tilbakemelding, et nytt hovedark for Pig som Tom godkjente («Godkjenner»), og seks nye Pig-ark (fig007_01, 02, 04, 06, 08, 09) med tre på HOLD (03, 05, 07) og to separate rettingsplater. Hovedark for Boston, Maggie, Brink og robotarmen er ikke laget ennå. Codex ber Claude ta inn Pig-serien, rette målet og ankeret for rute 064, bruke rettingsplatene per rute, se på hodestørrelse mellom munnfasene (hodepuls) og tekniske magentapiksler, og svare i `fra-claude/`. Ingenting tatt inn eller endret i denne sjekken.
+
+## 2026-10-11 21:56 til 23:55 (Claude)
+- Tom: implementer det (Pig-serien og mottaket).
+- Lest Codex sine notater i `gpt-arbeid` (pig-serie, hold064, hodepuls-v2, magenta). Mottaket `myk.py` versjon 3 (PR 46, CI grønn):
+  - Tekniske magentapiksler (skyggemerker, 255,87,255 og lignende) teller ikke i mål og plassering; en rute med bare slike får ikke HD (status teknisk). 6825 originalruter har slike piksler, 361 har bare dem.
+  - Små løsrevne utliggere langt fra resten styrer ikke skala og fotfeste, og legges inn fra originalen der tegningen mangler dem. Pig 064: snitt/union 0,010 til 0,891.
+  - Hodepuls: tilpasning per rute bare når tegningene sprer mer enn originalene; ellers én fast faktor for gruppen. fig137_06 har nå samme faktor for alle fem hodene; fig016_037 samme høyde.
+  - `fra-claude/mottak-per-rute.json` på arbeidsbordet gir grunnark, kart og rettingsark per rute. Tatt imot fig007_03 (HOLD-grunnark), 05 og 07 (med rettingene for 113, 117, 182, 186, 187, 192).
+  - Tre nye tester, 30 bestått.
+- Alle 1290 ark tatt inn på nytt (29 minutter): 10 703 ok, 968 sjekk, 0 mangler, 277 teknisk. Pig: 225 ok, 16 sjekk. Modden lappet (11 671 myke ruter, 213 fjernet), 174 nye indeksbilder for kostyme 7 med `tools/ruteindeks.py` (16 av 38 016 piksler ville fått feil indeks), 20 ruter for 229 holdt ute. Publisert i `hd-mod` (3f5f769).
+- Testet uten skjerm med motoren fra PR 45: Toms lagring i rom 4 med klikk, 1500 bilder, 60 kontroller med 0 avvik, Pig med nye ruter i hele scenen. Testkroken for kostyme 7: 149 kontroller, 0 avvik, ingen Pig-rute uten HD. Sju ruter for Boston i romdrakt mangler HD (HOLD hos Codex).
+- Linux-pakken startet på nytt med den nye modden. Kvittering til Codex i `gpt-arbeid` (`fra-claude/pig-mottak-20261011.json`, 2a8a19d).
+- Ikke gjort: rom 32 og 77 (krever dekoderne), robotarmen og de andre hovedarkene (venter på Codex).
