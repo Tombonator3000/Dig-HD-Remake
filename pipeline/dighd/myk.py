@@ -20,6 +20,15 @@ rute på arket gjør mottaket dette:
 Motoren legger bildet over HD-bakgrunnen med myke kanter, bak forgrunnen og under tekst og menyer
 (docs/HD-MOTOR.md, myke figurer). Svært små originalruter (løsrevne hudflekker og lignende) som ikke
 har en egen del på arket, skaleres mykt opp fra originalen, som grafikeren ba om.
+
+Versjon 3 (11. oktober, etter Codex sine målinger):
+- Tekniske magentapiksler i originalen (skyggemerker, motoren tegner dem som skygge) regnes ikke med
+  i mål, plassering eller fragmenter. En rute med bare slike piksler får ikke noe HD-bilde.
+- Små løsrevne utliggere langt fra resten av ruten (Pig 064 har én svart piksel 120 piksler unna)
+  styrer ikke skala og fotfeste. De legges inn fra originalen der tegningen ikke har dem.
+- Tilpasningen per rute brukes i en retning bare når tegningene i gruppen varierer mer i den retningen
+  enn originalene. Ellers får munnstillingene samme hode (ingen «hodepuls»).
+- Ruter kan tas fra egne rettingsark (fra-claude/mottak-per-rute.json på arbeidsbordet).
 """
 from __future__ import annotations
 
@@ -43,11 +52,57 @@ GOOD_IOU = 0.6    # under dette er omrisset så ulikt originalen at ruten må se
 GOOD_COVER = 0.8  # andel av originalens piksler tegningen må dekke
 FIT_RANGE = 0.12  # hvor mye hver rute kan skaleres bort fra gruppens faktor, i bredde og høyde for seg
 FIT_SLACK = 0.03  # tilpasningen brukes når snitt/union er høyst så mye dårligere enn med gruppens faktor
-VERSION = 2       # økes når mottaket endres, så alle ark tas inn på nytt
+VERSION = 3       # økes når mottaket endres, så alle ark tas inn på nytt
+FIT_SPREAD = 0.03 # tilpasning per rute i en retning bare når tegningene sprer mer enn originalene pluss dette
+OUTLIER_GAP = 6   # en liten del av originalen så langt unna resten (originalpiksler) er en utligger
+OUTLIER_MAX = 0.02  # ... og høyst denne andelen av rutens piksler (minst 4 piksler)
 
 
 def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+# ------------------------------------------------------------------ originalens mål
+
+def technical(rgba: np.ndarray) -> np.ndarray:
+    """Tekniske magentapiksler (skyggemerker som 255,87,255 og 255,63,255): spillet tegner dem gjennom
+    skyggetabellen, så de er ikke en del av figurens form."""
+    r, g, b = (rgba[..., k].astype(np.int16) for k in range(3))
+    return (rgba[..., 3] > 0) & (r >= 230) & (b >= 230) & (g <= 120)
+
+
+def measure_mask(rgba: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Pikslene i originalruten som bestemmer mål og plassering, og utliggerne. Tekniske piksler er med
+    i ingen av dem. En utligger er en del (8-naboer) med høyst OUTLIER_MAX av pikslene (minst 4) som
+    ligger mer enn OUTLIER_GAP originalpiksler fra resten."""
+    from scipy import ndimage
+
+    real = (rgba[..., 3] > 0) & ~technical(rgba)
+    total = int(real.sum())
+    if total == 0:
+        return real, np.zeros_like(real)
+    lab, n = ndimage.label(real, structure=np.ones((3, 3), bool))
+    if n <= 1:
+        return real, np.zeros_like(real)
+    sizes = ndimage.sum(np.ones_like(lab), lab, range(1, n + 1))
+    limit = max(4, OUTLIER_MAX * total)
+    keep = np.isin(lab, [i + 1 for i in range(n) if sizes[i] > limit])
+    if not keep.any():
+        return real, np.zeros_like(real)
+    dist = ndimage.distance_transform_edt(~keep)
+    outlier = np.zeros_like(real)
+    for i in range(n):
+        if sizes[i] <= limit:
+            comp = lab == i + 1
+            if dist[comp].min() > OUTLIER_GAP:
+                outlier |= comp
+    return real & ~outlier, outlier
+
+
+def _masked(rgba: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    out = rgba.copy()
+    out[~mask] = 0
+    return out
 
 
 # ------------------------------------------------------------------ leveranser og rutekart
@@ -72,6 +127,36 @@ def _del_number(path: Path) -> tuple:
 BOX_KEYS = ("ny_diagnostisk_rekt_alfa128", "drawn_bbox_alpha128", "native_analyseboks_alfa128", "rect")
 
 
+def _boxes(rows: list) -> dict[str, list[int]]:
+    boxes = {}
+    for r in rows:
+        box = next((r[k] for k in BOX_KEYS if r.get(k)), None)
+        if r.get("bilde") and box and len(box) == 4:
+            boxes[r["bilde"]] = [int(v) for v in box]
+    return boxes
+
+
+def accepted_sources(gren: Path) -> dict[str, dict]:
+    """Ark Claude har tatt imot fra egne kilder (fra-claude/mottak-per-rute.json på arbeidsbordet):
+    jobb -> {"base_native": sti, "base_map": sti, "overrides": [{"bilde", "native_png",
+    "native_analyseboks_alfa128"}]}. Samme form som grafikerens forslag (mottaksforslag-per-rute.json).
+    For disse jobbene brukes base_native og kartet i stedet for leveransen, og hver rute i overrides
+    tas fra sitt eget rettingsark."""
+    f = gren / "fra-claude" / "mottak-per-rute.json"
+    try:
+        return json.loads(f.read_text()).get("jobs", {})
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def load_map(path: Path, job: str) -> dict[str, list[int]]:
+    """Et rutekart i en egen fil: enten jobb -> {"koblinger": [...]} eller koblingene rett i filen."""
+    data = json.loads(path.read_text())
+    if isinstance(data.get(job), dict):
+        data = data[job]
+    return _boxes(data.get("ruter") or data.get("entries") or data.get("koblinger") or [])
+
+
 def route_maps(gren: Path) -> dict[str, dict[str, list[int]]]:
     """Rutekartene fra grafikeren: jobb -> rute (costumeCCC_NNN) -> boksen [x, y, b, h] rundt delen av
     tegningen med alfa over 128. Radene ligger under "ruter", "entries" eller "koblinger", boksen under et
@@ -85,12 +170,7 @@ def route_maps(gren: Path) -> dict[str, dict[str, list[int]]]:
         for job, d in data.items():
             if not isinstance(d, dict):
                 continue
-            rows = d.get("ruter") or d.get("entries") or d.get("koblinger") or []
-            boxes = {}
-            for r in rows:
-                box = next((r[k] for k in BOX_KEYS if r.get(k)), None)
-                if r.get("bilde") and box and len(box) == 4:
-                    boxes[r["bilde"]] = [int(v) for v in box]
+            boxes = _boxes(d.get("ruter") or d.get("entries") or d.get("koblinger") or [])
             if boxes:
                 maps[job] = boxes
     return maps
@@ -233,9 +313,11 @@ def _centre_x(mask: np.ndarray) -> float:
     return float(xs.mean()) if len(xs) else mask.shape[1] / 2
 
 
-def fit_scales(drawing: np.ndarray, original: np.ndarray, scale: float) -> tuple[float, float]:
+def fit_scales(drawing: np.ndarray, original: np.ndarray, scale: float,
+               fit: tuple = (True, True)) -> tuple[float, float]:
     """Faktorene i bredde og høyde som gir tegningens kjerne samme mål som originalens omriss i 4x,
-    hver holdt innenfor FIT_RANGE fra gruppens faktor."""
+    hver holdt innenfor FIT_RANGE fra gruppens faktor. fit: per retning True (tilpasses per rute),
+    et tall (fast faktor for hele gruppen) eller False (gruppens faktor)."""
     core = drawing[..., 3] >= CORE
     if not core.any() or not (original[..., 3] > 0).any():
         return scale, scale
@@ -244,14 +326,26 @@ def fit_scales(drawing: np.ndarray, original: np.ndarray, scale: float) -> tuple
     dw, dh = xs.max() - xs.min() + 1, ys.max() - ys.min() + 1
     ow, oh = (ox.max() - ox.min() + 1) * SCALE, (oy.max() - oy.min() + 1) * SCALE
     lo, hi = scale * (1 - FIT_RANGE), scale * (1 + FIT_RANGE)
-    return float(min(hi, max(lo, ow / dw))), float(min(hi, max(lo, oh / dh)))
+    def one(f, ratio):
+        if f is True:
+            return float(min(hi, max(lo, ratio)))
+        return float(f) if f else scale
+    return one(fit[0], ow / dw), one(fit[1], oh / dh)
 
 
-def place_fitted(drawing: np.ndarray, original: np.ndarray, scale: float) -> dict:
+def place_fitted(drawing: np.ndarray, original: np.ndarray, scale: float,
+                 fit: tuple = (True, True)) -> dict:
     """Som place(), men med originalens mål (fit_scales) når det ikke dekker originalen tydelig dårligere
-    enn gruppens faktor. Rapporten sier hvilken som ble brukt (tilpasset)."""
+    enn gruppens faktor. Rapporten sier hvilken som ble brukt (tilpasset). Er begge retningene faste
+    for gruppen (tall i fit), brukes de alltid, så alle rutene i gruppen får samme faktorer."""
+    if all(f is not True for f in fit):
+        sx, sy = fit_scales(drawing, original, scale, fit)
+        r = place(drawing, original, sx, sy)
+        r["tilpasset"] = bool(abs(sx - scale) >= 1e-3 or abs(sy - scale) >= 1e-3)
+        r["skala_xy"] = [round(sx, 4), round(sy, 4)] if r["tilpasset"] else None
+        return r
     plain = place(drawing, original, scale)
-    sx, sy = fit_scales(drawing, original, scale)
+    sx, sy = fit_scales(drawing, original, scale, fit)
     if abs(sx - scale) < 1e-3 and abs(sy - scale) < 1e-3:
         plain["tilpasset"] = False
         return plain
@@ -305,10 +399,40 @@ def from_original(original: np.ndarray) -> dict:
     h, w = original.shape[:2]
     pad = MIN_PAD
     padded = np.zeros((h + 2 * pad, w + 2 * pad, 4), np.uint8)
-    padded[pad:pad + h, pad:pad + w] = original
+    padded[pad:pad + h, pad:pad + w] = _masked(original, ~technical(original))
     big = _premul_resize(padded, ((w + 2 * pad) * SCALE, (h + 2 * pad) * SCALE))
     return {"bilde": big, "margx": pad, "margy": pad, "flytt": [0, 0], "snitt_union": None, "dekning": None,
             "kuttet": False}
+
+
+def add_outliers(r: dict, original: np.ndarray, outlier: np.ndarray) -> int:
+    """Legger utliggerne fra originalen (mykt skalert, på originalens plass) inn i bildet der tegningen
+    ikke har noe. Gir antall originalpiksler som ble lagt inn."""
+    if not outlier.any():
+        return 0
+    frag = from_original(_masked(original, outlier))["bilde"]  # marg MIN_PAD
+    canvas = r["bilde"]
+    dx, dy = (r["margx"] - MIN_PAD) * SCALE, (r["margy"] - MIN_PAD) * SCALE
+    H, W = canvas.shape[:2]
+    fh, fw = frag.shape[:2]
+    x0, y0 = max(dx, 0), max(dy, 0)
+    x1, y1 = min(dx + fw, W), min(dy + fh, H)
+    if x1 <= x0 or y1 <= y0:
+        return 0
+    under = frag[y0 - dy:y1 - dy, x0 - dx:x1 - dx].astype(np.float32) / 255
+    over = canvas[y0:y1, x0:x1].astype(np.float32) / 255
+    a_o, a_u = over[..., 3:], under[..., 3:]
+    a = a_o + a_u * (1 - a_o)
+    rgb = np.where(a > 0, (over[..., :3] * a_o + under[..., :3] * a_u * (1 - a_o)) / np.maximum(a, 1e-6), 0)
+    canvas[y0:y1, x0:x1] = np.clip(np.concatenate([rgb, a], axis=2) * 255 + 0.5, 0, 255).astype(np.uint8)
+    return int(outlier.sum())
+
+
+def _spread(values: list[float]) -> float:
+    if len(values) < 2:
+        return 0.0
+    mid = float(np.median(values)) or 1.0
+    return (max(values) - min(values)) / mid
 
 
 def sheet_scale(pairs: list[tuple[int, int]]) -> float | None:
@@ -328,10 +452,27 @@ def sheet_scale(pairs: list[tuple[int, int]]) -> float | None:
 
 # ------------------------------------------------------------------ et ark
 
+def _override_part(img: np.ndarray, box: list[int]) -> np.ndarray | None:
+    """Delen av et rettingsark som hører til én rute: delene (kjerner med myke kanter) som for det
+    meste ligger i boksen. Gir RGBA beskåret til delene, eller None."""
+    owner, core_lab, found = parts(img[..., 3])
+    nrs = [p["nr"] for p in found if _overlap(p["boks"], core_lab, p["nr"], box) * 2 >= p["areal"]]
+    if not nrs:
+        return None
+    own = np.isin(owner, nrs)
+    ys, xs = np.nonzero(own)
+    y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
+    part = img[y0:y1, x0:x1].copy()
+    part[~own[y0:y1, x0:x1]] = 0
+    return part
+
+
 def import_sheet(sheet: np.ndarray, cels: list[dict], boxes: dict[str, list[int]] | None, extract: Path,
-                 out: Path) -> dict:
+                 out: Path, overrides: dict[str, tuple[np.ndarray, list[int]]] | None = None) -> dict:
     """Tar inn ett ark (RGBA) med rutene fra jobb.json. Skriver costumes/<rute>_hd.png i out og gir en
-    rapport per rute og for arket."""
+    rapport per rute og for arket. overrides: rute -> (rettingsark RGBA, boks); de rutene tas fra
+    rettingsarket i stedet for arket, med egen skala som gir originalens høyde."""
+    overrides = overrides or {}
     owner, core_lab, found = parts(sheet[..., 3])
     originals: dict[str, np.ndarray] = {}
     for c in cels:
@@ -339,7 +480,9 @@ def import_sheet(sheet: np.ndarray, cels: list[dict], boxes: dict[str, list[int]
         if p.exists():
             with Image.open(p) as im:
                 originals[c["bilde"]] = np.asarray(im.convert("RGBA"))
-    visible = {b: int((o[..., 3] > 0).sum()) for b, o in originals.items()}
+    masks = {b: measure_mask(o) for b, o in originals.items()}
+    visible = {b: int(masks[b][0].sum() + masks[b][1].sum()) for b in originals}
+    fit_orig = {b: _masked(o, masks[b][0]) for b, o in originals.items()}
 
     how = "rutekart"
     taken = assign_by_map(cels, found, core_lab, boxes) if boxes else None
@@ -363,15 +506,18 @@ def import_sheet(sheet: np.ndarray, cels: list[dict], boxes: dict[str, list[int]
     # og hver gruppe får én skala som gir originalens høyde. Innen gruppen pulserer ikke figuren.
     info: dict[str, dict] = {}
     for c in cels:
-        nrs = taken.get(c["bilde"]) or []
-        o = originals.get(c["bilde"])
-        if not nrs or o is None or not visible.get(c["bilde"]):
+        b = c["bilde"]
+        nrs = taken.get(b) or []
+        if b in overrides or not nrs or b not in originals or not masks[b][0].any():
             continue
-        rows = np.nonzero((o[..., 3] > 0).any(axis=1))[0]
+        m = masks[b][0]
+        rows = np.nonzero(m.any(axis=1))[0]
+        cols = np.nonzero(m.any(axis=0))[0]
         mask = np.isin(core_lab, nrs)
         ys, xs = np.nonzero(mask)
-        info[c["bilde"]] = {"oh": int(rows[-1] - rows[0] + 1), "nh": int(ys.max() - ys.min() + 1),
-                            "x": float(xs.mean()), "y": float((ys.min() + ys.max()) / 2)}
+        info[b] = {"oh": int(rows[-1] - rows[0] + 1), "ow": int(cols[-1] - cols[0] + 1),
+                   "nh": int(ys.max() - ys.min() + 1), "nw": int(xs.max() - xs.min() + 1),
+                   "x": float(xs.mean()), "y": float((ys.min() + ys.max()) / 2)}
     names = list(info)
     sheet_rows = _rows([(info[b]["x"], info[b]["y"], info[b]["nh"]) for b in names])
     row_of = {names[i]: r for r, members in enumerate(sheet_rows) for i in members}
@@ -382,9 +528,19 @@ def import_sheet(sheet: np.ndarray, cels: list[dict], boxes: dict[str, list[int]
         groups.setdefault((c.get("animasjon"), c.get("lag"), row_of[b]), []).append(b)
     overall = sheet_scale([(info[b]["oh"], info[b]["nh"]) for b in names])
     if overall is None:
-        return {"metode": how, "feil": "ingen ruter med deler på arket", "ruter": {}}
+        if not overrides:
+            return {"metode": how, "feil": "ingen ruter med deler på arket", "ruter": {}}
+        overall = 1.0  # bare ruter fra rettingsark, de har egen skala
     scale_of: dict[str, float] = {}
+    fit_of: dict[str, tuple[bool, bool]] = {}
+    pending_fit: dict[tuple, tuple] = {}
     for key, members in groups.items():
+        # Tilpasning per rute i en retning bare når tegningene sprer mer enn originalene der. Ellers er
+        # forskjellen originalens egen (en åpen munn er én piksel lengre), og hele gruppen får én fast
+        # faktor i den retningen (medianen), så hodet ikke strekkes ulikt mellom munnstillingene.
+        pending_fit[key] = (
+            _spread([info[b]["nw"] for b in members]) > _spread([info[b]["ow"] for b in members]) + FIT_SPREAD,
+            _spread([info[b]["nh"] for b in members]) > _spread([info[b]["oh"] for b in members]) + FIT_SPREAD)
         if max(info[b]["oh"] for b in members) >= 8:
             g = sheet_scale([(info[b]["oh"], info[b]["nh"]) for b in members])
         else:
@@ -393,33 +549,61 @@ def import_sheet(sheet: np.ndarray, cels: list[dict], boxes: dict[str, list[int]
             g = sheet_scale([(info[b]["oh"], info[b]["nh"]) for b in same]) if same else None
         for b in members:
             scale_of[b] = g or overall
+        g = g or overall
+        lo, hi = g * (1 - FIT_RANGE), g * (1 + FIT_RANGE)
+        fx, fy = pending_fit[key]
+        gx = float(min(hi, max(lo, np.median([info[b]["ow"] * SCALE / info[b]["nw"] for b in members]))))
+        gy = float(min(hi, max(lo, np.median([info[b]["oh"] * SCALE / info[b]["nh"] for b in members]))))
+        for b in members:
+            fit_of[b] = (True if fx else gx, True if fy else gy)
 
     (out / "costumes").mkdir(parents=True, exist_ok=True)
     report: dict[str, dict] = {}
     for c in cels:
         b = c["bilde"]
         o = originals.get(b)
-        if o is None or not visible.get(b):
+        dest = out / "costumes" / f"{b}_hd.png"
+        if o is None or not (o[..., 3] > 0).any():
             report[b] = {"status": "tom", "grunn": "originalruten har ingen synlige piksler"}
             continue
+        if not visible.get(b):
+            # Bare tekniske piksler (skyggemerker): ingen HD, motoren viser originalen
+            dest.unlink(missing_ok=True)
+            report[b] = {"status": "teknisk", "grunn": "bare tekniske magentapiksler (skyggemerker)"}
+            continue
         nrs = taken.get(b) or []
-        if nrs:
+        part = None
+        own_scale = None
+        if b in overrides:
+            img, box = overrides[b]
+            part = _override_part(img, box)
+            if part is not None and masks[b][0].any():
+                rows = np.nonzero(masks[b][0].any(axis=1))[0]
+                ys = np.nonzero((part[..., 3] >= CORE).any(axis=1))[0]
+                if len(ys):
+                    own_scale = (rows[-1] - rows[0] + 1) * SCALE / (ys[-1] - ys[0] + 1)
+        elif nrs:
             own = np.isin(owner, nrs)
             ys, xs = np.nonzero(own)
             y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
             part = sheet[y0:y1, x0:x1].copy()
             part[~own[y0:y1, x0:x1]] = 0
-            r = place_fitted(part, o, scale_of.get(b, overall))
+        if part is not None and masks[b][0].any():
+            scale = own_scale or scale_of.get(b, overall)
+            r = place_fitted(part, fit_orig[b], scale, (False, False) if b in overrides else fit_of.get(b, (True, True)))
+            added = add_outliers(r, o, masks[b][1])
             ok = r["snitt_union"] >= GOOD_IOU and r["dekning"] >= GOOD_COVER and not r["kuttet"]
             status = "ok" if ok else "sjekk"
-            kilde = "arket"
+            kilde = "rettingsark" if b in overrides else "arket"
+            if added:
+                kilde += f" og {added} utliggerpiksler fra originalen"
+            scale_of[b] = scale
         elif visible[b] < SMALL:
             r = from_original(o)
             status, kilde = "ok", "originalen (fragment)"
         else:
             report[b] = {"status": "mangler", "grunn": "ingen del på arket for ruten"}
             continue
-        dest = out / "costumes" / f"{b}_hd.png"
         Image.fromarray(r["bilde"], "RGBA").save(dest, optimize=True)
         report[b] = {"status": status, "kilde": kilde, "fil": f"costumes/{b}_hd.png", "sha256": _sha(dest),
                      "storrelse": [r["bilde"].shape[1], r["bilde"].shape[0]], "marg": [r["margx"], r["margy"]],
@@ -491,18 +675,35 @@ def import_all(gren: Path, extract: Path, out: Path, only: set[str] | None = Non
     rejections: avvisningene (gpt.read_rejections). Et avvist ark tas ikke inn, og rutene det ga før,
     slettes, så motoren viser originalen til et nytt ark er godkjent."""
     maps = route_maps(gren)
-    result: dict = {"versjon": VERSION, "ark": {}, "ruter_ok": 0, "ruter_sjekk": 0, "ruter_mangler": 0}
+    accepted = accepted_sources(gren)
+    result: dict = {"versjon": VERSION, "ark": {}, "ruter_ok": 0, "ruter_sjekk": 0, "ruter_mangler": 0,
+                    "ruter_teknisk": 0}
     # Ark som er tatt inn før med samme bilde, jobb, rutekart og versjon, tas ikke inn på nytt
     try:
         before = json.loads((out / "myke.json").read_text()).get("ark", {})
     except (OSError, json.JSONDecodeError):
         before = {}
-    for d in sorted(deliveries(gren), key=lambda d: d["jobb"]):
+    todo = {d["jobb"]: d for d in deliveries(gren)}
+    for job, a in accepted.items():
+        todo[job] = {"jobb": job, "resultat": a["base_native"], "sha256": a.get("base_sha256")}
+    for d in sorted(todo.values(), key=lambda d: d["jobb"]):
         job = d["jobb"]
         if only and job not in only:
             continue
         src = gren / d["resultat"]
         meta_path = gren / "jobber" / job / "jobb.json"
+        acc = accepted.get(job)
+        overrides: dict[str, tuple[np.ndarray, list[int]]] = {}
+        extra: list = []
+        if acc:
+            if acc.get("base_map"):
+                maps[job] = load_map(gren / acc["base_map"], job)
+            for ov in acc.get("overrides", []):
+                p = gren / ov["native_png"]
+                if p.exists():
+                    with Image.open(p) as im:
+                        overrides[ov["bilde"]] = (np.asarray(im.convert("RGBA")), [int(v) for v in ov["native_analyseboks_alfa128"]])
+                    extra.append([ov["bilde"], _sha(p), ov["native_analyseboks_alfa128"]])
         if not src.exists() or not meta_path.exists():
             result["ark"][job] = {"feil": f"mangler {src.name if not src.exists() else 'jobb.json'}"}
             continue
@@ -520,7 +721,7 @@ def import_all(gren: Path, extract: Path, out: Path, only: set[str] | None = Non
         meta = json.loads(meta_path.read_text())
         if meta.get("type") != "figur":
             continue
-        key = hashlib.sha256(json.dumps([VERSION, sha, meta.get("ruter"), maps.get(job)], sort_keys=True)
+        key = hashlib.sha256(json.dumps([VERSION, sha, meta.get("ruter"), maps.get(job), extra], sort_keys=True)
                              .encode()).hexdigest()
         old = before.get(job)
         if old and old.get("nokkel") == key and all((out / r["fil"]).exists()
@@ -529,8 +730,10 @@ def import_all(gren: Path, extract: Path, out: Path, only: set[str] | None = Non
         else:
             with Image.open(src) as im:
                 sheet = np.asarray(im.convert("RGBA"))
-            rep = import_sheet(sheet, meta.get("ruter") or [], maps.get(job), extract, out)
+            rep = import_sheet(sheet, meta.get("ruter") or [], maps.get(job), extract, out, overrides)
             rep.update({"resultat": d["resultat"], "sha256": sha, "nokkel": key})
+            if extra:
+                rep["rettinger"] = extra
         fresh = rep is not old
         if previews is not None and rep.get("ruter") and (fresh or not (previews / f"myk_{job}.png").exists()):
             for b, r in rep["ruter"].items():
@@ -543,7 +746,8 @@ def import_all(gren: Path, extract: Path, out: Path, only: set[str] | None = Non
                 rep["forhandsvisning"] = p.name
         result["ark"][job] = rep
         for r in rep.get("ruter", {}).values():
-            field = {"ok": "ruter_ok", "sjekk": "ruter_sjekk", "mangler": "ruter_mangler"}.get(r["status"])
+            field = {"ok": "ruter_ok", "sjekk": "ruter_sjekk", "mangler": "ruter_mangler",
+                     "teknisk": "ruter_teknisk"}.get(r["status"])
             if field:
                 result[field] += 1
     out.mkdir(parents=True, exist_ok=True)
