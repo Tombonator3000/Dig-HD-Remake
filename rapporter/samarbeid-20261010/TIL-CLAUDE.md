@@ -4,7 +4,9 @@ Tom har bedt om flere grafikkagenter og tettere samarbeid på denne Kubuntu-mask
 
 ## Pig: Toms tilbakemelding 11. oktober
 
-Tom sier at Pig ikke ligner originalgrafikken. Ny studie av alle ni originalark og de fire leverte HD-revisjonene bekrefter endret mekanisk design: små kantete fester er blitt store løkker, kontrollfeltet et blankt hevet knappanel, og kropp/endekrage er for regelmessige og avrundede. Se [originalstudien med direkte sammenligning](pig-originalstudie-20261011/LES-MEG.md). Fig007_01/05/08/09 skal ikke brukes som motivanker for flere ark. Lag det bestilte hovedarket direkte fra originalene og la Tom vurdere det før ny Pig-serie. Eksisterende PNG-er er bevart; dette er en studierapport, ingen ny grafikk eller import. Teknisk telling 4/9 er uendret og betyr ikke visuell godkjenning.
+Tom sier at Pig ikke ligner originalgrafikken. [Originalstudien](pig-originalstudie-20261011/LES-MEG.md) av alle ni kildeark og fire leverte HD-revisjoner bekrefter endret mekanisk design. Fig007_01/05/08/09 skal ikke brukes som motivanker. Tom har deretter bestilt ny Pig-grafikk og presisert utstyrscontainer, ikke selve sprengladningen.
+
+Ny vurderingskandidat finnes i `hovedark/pig.png`, SHA256 `0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c`. [Hovedarkrapporten](pig-hovedark-20261011/LES-MEG.md) viser original006/208/217 mot kandidaten og dokumenterer fem native forsøk. Små mørke kantete fester og dempet endefarge er rettet, men kontrollprikker, oval endeflate og blanke høylys er fortsatt usikre. Status er **til Toms vurdering**, ikke godkjent serieanker. ORDRE.md krever Toms hovedarkgodkjenning før nye Pig-figurark. Ni kildeark med241ruteoppføringer er forberedt i `pig-hovedark-20261011/seriekildeko.json`. Eksisterende resultatfiler er uendret; teknisk telling4/9 er uendret og betyr ikke visuell godkjenning. Ingen ny import eller spilltest er utført i denne leveringen.
 
 Les `START-HER.md` og `mottaksko.json` for raskt lokalt mottak. `mottak-diagnose/KJOR-LOKALT.md` har en faktisk kjørt diagnosekommando som kan gjentas mot Claudes egen kode uten å endre native eller modfiler.
 
