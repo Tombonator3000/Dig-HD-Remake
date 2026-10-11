@@ -1,0 +1,191 @@
+{
+ "eksempel_ikke_kvittering": false,
+ "dato": "2026-10-11",
+ "fra": "Claude",
+ "mottatt_grafikk_commit": "e5484c2f",
+ "kontrollert_med_kode_commit": "8c9171ba (PR 46, mottak versjon 3, ikke flettet ennå)",
+ "jobber": [
+  {
+   "jobb": "fig007_01",
+   "kilde": "jobber/fig007_01/resultat.png",
+   "sha256": "f66fcb2a5f0e8cd43958616b6bea732be1b517450c81b91016ffd84ea6d64ca7",
+   "rettinger": [],
+   "ruter": {
+    "ok": 23,
+    "sjekk": 3
+   }
+  },
+  {
+   "jobb": "fig007_02",
+   "kilde": "jobber/fig007_02/resultat.png",
+   "sha256": "2e80cefab5de2b62e8050b374b26f16922196536e1ad192450f7fc954334d73d",
+   "rettinger": [],
+   "ruter": {
+    "ok": 34,
+    "sjekk": 1
+   }
+  },
+  {
+   "jobb": "fig007_03",
+   "kilde": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_03/native.png",
+   "sha256": "03a44bb00993f6682721fbbded92701c7ff8f93309f56925ee198966e3a1d61e",
+   "rettinger": [],
+   "ruter": {
+    "ok": 18
+   }
+  },
+  {
+   "jobb": "fig007_04",
+   "kilde": "jobber/fig007_04/resultat.png",
+   "sha256": "8f70afb246f20881d5b058727d04de8a1f817a741a5ad15eb445f699a812c315",
+   "rettinger": [],
+   "ruter": {
+    "ok": 31
+   }
+  },
+  {
+   "jobb": "fig007_05",
+   "kilde": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_05/native.png",
+   "sha256": "e0e6341dca966f1826f29ae80fc5121f1a85d66d9506b21eb0791d569422d0e0",
+   "rettinger": [
+    [
+     "costume007_113",
+     "948c7f1a0aa538f9a1dae8185e1b0cc19222f251baad1259a24f9bc9c22faf03",
+     [
+      117,
+      240,
+      612,
+      630
+     ]
+    ],
+    [
+     "costume007_117",
+     "948c7f1a0aa538f9a1dae8185e1b0cc19222f251baad1259a24f9bc9c22faf03",
+     [
+      822,
+      247,
+      648,
+      622
+     ]
+    ]
+   ],
+   "ruter": {
+    "ok": 27,
+    "sjekk": 1
+   }
+  },
+  {
+   "jobb": "fig007_06",
+   "kilde": "jobber/fig007_06/resultat.png",
+   "sha256": "bf66628aa89f0c05f13d23d4212219ef07529205c9d7dc783b1c827451b24fa2",
+   "rettinger": [],
+   "ruter": {
+    "ok": 34,
+    "sjekk": 8
+   }
+  },
+  {
+   "jobb": "fig007_07",
+   "kilde": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_07/native.png",
+   "sha256": "358e85efa8785d5b9e2dd1473212d6fb5177e09a409f917a7d54c27cde70a2fc",
+   "rettinger": [
+    [
+     "costume007_182",
+     "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+     [
+      101,
+      154,
+      590,
+      279
+     ]
+    ],
+    [
+     "costume007_186",
+     "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+     [
+      911,
+      160,
+      488,
+      269
+     ]
+    ],
+    [
+     "costume007_187",
+     "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+     [
+      87,
+      623,
+      605,
+      258
+     ]
+    ],
+    [
+     "costume007_192",
+     "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+     [
+      863,
+      634,
+      610,
+      240
+     ]
+    ]
+   ],
+   "ruter": {
+    "sjekk": 3,
+    "ok": 45
+   }
+  },
+  {
+   "jobb": "fig007_08",
+   "kilde": "jobber/fig007_08/resultat.png",
+   "sha256": "6ffd1572d8601ccdd72c46454b1ed6dbe24f89eb82b77ca05c26b3feec149e97",
+   "rettinger": [],
+   "ruter": {
+    "ok": 5
+   }
+  },
+  {
+   "jobb": "fig007_09",
+   "kilde": "jobber/fig007_09/resultat.png",
+   "sha256": "69f50f0ca70d77acf6e8e79cc80d5ecd9cb28fab1c37d29c27fca7e0fcb8990c",
+   "rettinger": [],
+   "ruter": {
+    "ok": 8
+   }
+  }
+ ],
+ "importresultat": {
+  "alle_ark": "1290 ark: 10703 ruter ok, 968 sjekk, 0 mangler, 277 teknisk (bare magenta, ingen HD)",
+  "pig": "241 ruter: 225 ok, 16 sjekk",
+  "costume007_064": {
+   "snitt_union": 0.891,
+   "dekning": 0.951,
+   "skala_xy": [
+    0.9208,
+    0.931
+   ],
+   "kilde": "arket og 1 utliggerpiksler fra originalen"
+  },
+  "rettinger_per_rute": "113, 117, 182, 186, 187 ok; 192 sjekk (0,78/0,79)",
+  "hodepuls": "fig137_06: alle fem hodene samme faktor (0,4622, 0,5253). fig016_037: 059/060/061 samme høyde (0,7273); bredden tilpasses fortsatt per rute der tegningene sprer mer enn originalene"
+ },
+ "eksport_eller_mod_commit": "hd-mod 3f5f769",
+ "spilltester_utfort": [
+  "Toms lagring i rom 4 med klikk på Pig og Brink, 1500 bilder, dump hvert 25. bilde med DIGHD_VERIFY: 60 kontroller, 0 piksler ulik hele skjermen bygget på nytt. Pig vises med de nye rutene (233 myke ruter tegnet), ingen Pig-rute uten HD.",
+  "Testkroken DIGHD_TEST_COSTUME=7 i rom 4, alle animasjonene, 1200 bilder: 149 kontroller, 0 avvik, 310 myke Pig-ruter, ingen uten HD.",
+  "Uten skjerm; ekte skjerm ikke testet. Selve åpningen av Pig senere i historien er ikke sett."
+ ],
+ "mottak_endret": [
+  "Tekniske magentapiksler teller ikke i mål og plassering; ruter med bare magenta får ikke HD.",
+  "Fjerne små utliggere styrer ikke skala og anker; de legges inn fra originalen der native mangler dem.",
+  "Tilpasning per rute bare når native sprer mer enn originalene; ellers én fast faktor for gruppen.",
+  "fra-claude/mottak-per-rute.json: grunnark, kart og rettingsark per rute. Claude har tatt imot fig007_03, 05 og 07 her."
+ ],
+ "indeksbilder": "174 nye indeksbilder for kostyme 7 laget med tools/ruteindeks.py (16 av 38016 piksler i kontrollen ville fått feil indeks). 20 ruter for kostyme 229 holdt ute.",
+ "neste_handling": [
+  "Tom ser Pig i spillet og godkjenner serien.",
+  "Hovedark for Boston, Maggie, Brink og robotarmen (ORDRE.md).",
+  "fig007_07 rute 192 og de 16 Pig-rutene til sjekk ses på.",
+  "Rom 32 og 77: kan ikke kontrolleres her uten dekoderne; Codex kan kjøre dighd gpt-inn lokalt på Toms maskin."
+ ]
+}
