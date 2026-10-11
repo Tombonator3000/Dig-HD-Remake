@@ -1,0 +1,94 @@
+{
+  "method": "Read-only visual review of original RGBA, native crop and actual VERSION2 imported PNG on gray. Diagnostic contactboards qa-sjekk-05/06/01.png in agent04. No regeneration, map or code changes.",
+  "runtime_verified": false,
+  "reviewed_frames": [
+    {
+      "jobb": "fig007_05",
+      "bilde": "costume007_113",
+      "konkret_observasjon": "Originalen har346 synlige kildepiksler. Ringens nedre venstre del møter den uregelmessige kappen i originalalfa (2 komponenter med senterskiven). Native/import skiller ring, skive og kappe helt (3 deler), og kappen får et mer kantet regelmessig omriss. Dette er et faktisk form-/avstandsforbehold, ikke bare en bittesmå-fragmentgrense.",
+      "anbefaling": "Behold sjekk. Se etter endret avstand/berøring i animasjonen før visuell godkjenning; ikke merk godkjent på grunnlag av teknisk import.",
+      "klasse": "reelt_formforbehold",
+      "iou": 0.703
+    },
+    {
+      "jobb": "fig007_05",
+      "bilde": "costume007_117",
+      "konkret_observasjon": "Originalens ytterring består av to separate buer, med åpninger oppe og nede. Native/import har en sammenhengende lukket ytterring. Senterskive og separat kappe finnes, men det brutte ringstadiet er blitt et helt ringstadium.",
+      "anbefaling": "Behold sjekk som konkret fase-/formfeil. Originalens ringåpninger bør bevares ved senere avgrenset retting.",
+      "klasse": "reell_fasefeil",
+      "iou": 0.713
+    },
+    {
+      "jobb": "fig007_05",
+      "bilde": "costume007_126",
+      "konkret_observasjon": "Alle tre originale deler (ytterring, senterskive, kappe) finnes med riktig overordnet oppsett. Originalringen er asymmetrisk og kappeformen rundere/ujevn; native/import gjør ring og kappe mer regelmessige og flytter forholdet mellom delene noe. Ingen del mangler.409 kildepiksler gjør dette til et synlig geometri-/proporsjonsforbehold fremfor ren lavpikselstøy.",
+      "anbefaling": "Behold sjekk for form/proporsjon. Moderat avvik, mindre tydelig fasefeil enn117. Krever visuell animasjonskontroll.",
+      "klasse": "moderat_formforbehold",
+      "iou": 0.685
+    },
+    {
+      "jobb": "fig007_06",
+      "bilde": "costume007_153",
+      "konkret_observasjon": "Originalen har115 piksler: buet blå kapperest med svart venstrekant og to isolerte enkeltpiksler. Native/import bevarer kapperesten og tomrommet, men kurven er glattere/dypere og bare én tydelig separat liten flekk kan skilles ut.",
+      "anbefaling": "Rimelig sjekk ved terskelen. Ingen fullført beholder eller lukket ring; et lite reelt fragmentforbehold gjenstår. Kontroller i animasjon.",
+      "klasse": "lite_fragmentforbehold",
+      "iou": 0.749
+    },
+    {
+      "jobb": "fig007_06",
+      "bilde": "costume007_000",
+      "konkret_observasjon": "13 ekte originalpiksler danner en liten mørk uregelmessig klump. Native/import viser samme type isolert mørkt fragment, med glattet kant og litt annen helning.",
+      "anbefaling": "Rimelig lavpikselforbehold. Behold sjekkstatus, men dette er ikke en vesentlig Pig-konstruksjonsfeil.",
+      "klasse": "lavpiksel_iou_forbehold",
+      "iou": 0.769
+    },
+    {
+      "jobb": "fig007_06",
+      "bilde": "costume007_008",
+      "konkret_observasjon": "6 ekte originalpiksler danner en skrå liten strek. Native/import bevarer en skrå isolert strek; glatting endrer de få opake pikslene og gir lav IoU.",
+      "anbefaling": "Rimelig lavpikselforbehold. Eventuell originalfallback må merkes som original, ikke nytegnet HD.",
+      "klasse": "lavpiksel_iou_forbehold",
+      "iou": 0.515
+    },
+    {
+      "jobb": "fig007_06",
+      "bilde": "costume007_005",
+      "konkret_observasjon": "19 originale piksler danner en brutt U-/bunnbue med adskilte sidebiter. Native/import har fortsatt åpen topp og adskilte buestykker, men myk kurving endrer de svært tynne strekene.",
+      "anbefaling": "Rimelig lavpiksel/IoU-forbehold. Den åpne fragmentfasen er bevart; ikke hevde at lav IoU alene er en fullført feil ring.",
+      "klasse": "lavpiksel_iou_forbehold",
+      "iou": 0.428
+    },
+    {
+      "jobb": "fig007_06",
+      "bilde": "costume007_004",
+      "konkret_observasjon": "5 originale piksler står som spredte bittesmå merker. Native/import har fortsatt bare spredte småmerker, uten oppdiktet hel gjenstand. Nøyaktig posisjon/antall alfaområder avviker på noen få piksler.",
+      "anbefaling": "Rimelig lavpikselforbehold. Originalfallback kan være mer trofast for akkurat denne fasen dersom importansvarlig velger det; ingen fallback er brukt her.",
+      "klasse": "lavpiksel_iou_forbehold",
+      "iou": 0.293
+    },
+    {
+      "jobb": "fig007_06",
+      "bilde": "costume007_170",
+      "konkret_observasjon": "26 originale piksler danner en tynn brutt ring. Native/import bevarer brudd og stort tomt senter; buene er glattet og mellomrommene litt endret. Ingen senterskive eller hel beholder er lagt til.",
+      "anbefaling": "Rimelig lavpiksel/IoU-forbehold. Behold sjekk for animasjonskontroll, men fasens hovedstruktur er bevart.",
+      "klasse": "lavpiksel_iou_forbehold",
+      "iou": 0.495
+    },
+    {
+      "jobb": "fig007_01",
+      "bilde": "costume007_162",
+      "konkret_observasjon": "Originalen har69 piksler og viser en delvis senterskive pluss en BRUTT halvbue med flere separate småstykker. Native/import gjør halvbuen til en jevn sammenhengende C-bue. Dette endrer fragmentstadiet, selv om hele objektet fortsatt er en del og ikke en full beholder.",
+      "anbefaling": "Behold sjekk som reell fase-/formfeil. Bevar de opprinnelige bruddene ved senere avgrenset retting.",
+      "klasse": "reell_fasefeil",
+      "iou": 0.562
+    },
+    {
+      "jobb": "fig007_01",
+      "bilde": "costume007_155",
+      "konkret_observasjon": "Originalen er bare4 piksler i en vannrett strek. Native/import viser fortsatt en kort strek, med svakt skrå/glattet kant. Ingen ekstra objektform er tegnet.",
+      "anbefaling": "Rimelig lavpikselforbehold. Ikke behandle dette som samme type feil som162. Eventuell originalfallback må oppgis ærlig.",
+      "klasse": "lavpiksel_iou_forbehold",
+      "iou": 0.578
+    }
+  ]
+}

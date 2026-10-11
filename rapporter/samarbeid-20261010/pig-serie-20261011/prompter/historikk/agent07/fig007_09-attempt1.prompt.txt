@@ -1,0 +1,30 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 9, facing right (8 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+AUTHORIZED SOURCE-BOUND CORRECTION FROM TOM, 11 OCTOBER 2026:
+Pig is an EQUIPMENT CONTAINER. Image 2 is the exact Pig design Tom has approved, with its painted violet body, panel ribs, restrained red markings, small dark olive rectangular fittings, olive closed end, and approved compact controls. Use this approved design consistently for every view. Image 1 determines the precise animation phase, rotation, silhouette, separated pieces and layout. The three views of image 2 are design references, never the composition to copy. Do not use any previous generated Pig sheet. Do not reinterpret the equipment container as a missile, gun, cannon, engine nozzle or atomic explosive. Do not add weapon fins, muzzle, new loops, cables or hardware. Retain original partial rings and partial pieces exactly as partial pieces, without completing them. Yellow and gray in image 1 are empty background and padding, not object material. Fully transparent background and preserved soft alpha edges; no ambient glow around the whole object, floor shadows, labels or grid.
+
+This sheet has exactly EIGHT complete views in TWO rows [7,1], left-to-right originals233..239 in the top row and original240 alone at the left of the bottom row. They are near-diagonal static phases with slight source differences in side-surface shading and small indicators. No large white flash or emitted glowing sphere occurs in any of these eight source phases. Do not import the bright source flashes from sheet08 or from earlier frames. Keep the approved equipment-container shape and construction identical between phases, with small source-bound indicator changes only. Preserve the same size, diagonal angle and layout as image1.
+
+SOURCE PHASE DETAIL: The final top-row view original239 and the sole bottom-row view original240 have a broad nearly black right-side surface. Retain this dark flat closed exterior side plane in those last two phases. It is a solid shadowed side facet with no depth, opening, trough or bright inner rim. The first six top-row views have their source lighter violet side plane. Do not flatten these phase differences by copying one identical view eight times.

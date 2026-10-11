@@ -1,0 +1,105 @@
+{
+  "native": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/pig-serie-godkjent-20261011/agent04/fig007_05-korreksjonsplate113117-forsok01.png",
+  "native_sha256": "948c7f1a0aa538f9a1dae8185e1b0cc19222f251baad1259a24f9bc9c22faf03",
+  "map_sha256": "dea30ed4980b744b717489a6bdc6563049e05fb36dab1cd17ff0280d298eafd0",
+  "boxes": {
+    "costume007_113": [
+      117,
+      240,
+      612,
+      630
+    ],
+    "costume007_117": [
+      822,
+      247,
+      648,
+      622
+    ]
+  },
+  "original_SHA256": {
+    "costume007_113": "54e0a0227292e7186f88afa6a9bb3b09b91dd98e0a61f66f812de36e1d367f9b",
+    "costume007_117": "23c9a264a7365c71116088710117c179a26cb80ccf80042ae2b85007de07e103"
+  },
+  "import": {
+    "metode": "rutekart",
+    "skala": 0.1905,
+    "grupper": 1,
+    "deler_paa_arket": 6,
+    "ruter": {
+      "costume007_113": {
+        "status": "ok",
+        "kilde": "arket",
+        "fil": "costumes/costume007_113_hd.png",
+        "sha256": "8a22ae70fada2da1d4c029e5e2b2627c95c68952d85b77c8b09c94f3f8b967f2",
+        "storrelse": [
+          132,
+          136
+        ],
+        "marg": [
+          2,
+          2
+        ],
+        "flytt_hd": [
+          -2,
+          -2
+        ],
+        "snitt_union": 0.828,
+        "dekning": 0.904,
+        "deler": 2,
+        "skala": 0.1905,
+        "tilpasset": false,
+        "skala_xy": null,
+        "kostyme": 7,
+        "rute": 113,
+        "animasjon": 6,
+        "retning": 2,
+        "lag": 0
+      },
+      "costume007_117": {
+        "status": "ok",
+        "kilde": "arket",
+        "fil": "costumes/costume007_117_hd.png",
+        "sha256": "779a810ff3200419a058c492ffffd476e3b9aba3a53b2436d5de9ff0c6c9b8a4",
+        "storrelse": [
+          136,
+          136
+        ],
+        "marg": [
+          2,
+          2
+        ],
+        "flytt_hd": [
+          -2,
+          -2
+        ],
+        "snitt_union": 0.791,
+        "dekning": 0.86,
+        "deler": 4,
+        "skala": 0.1905,
+        "tilpasset": true,
+        "skala_xy": [
+          0.1852,
+          0.1929
+        ],
+        "kostyme": 7,
+        "rute": 117,
+        "animasjon": 6,
+        "retning": 2,
+        "lag": 0
+      }
+    }
+  },
+  "status_counts": {
+    "ok": 2
+  },
+  "code_sha256": "7cb20ae673d0576a0f51ecc62f18a289c9c3f1e5b79cff6b9b0cd521f44b6176",
+  "code_commit": "36cd09f13eb0201cff190d8d0c99c788a8bcaa6b",
+  "preview": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/pig-serie-godkjent-20261011/isolert-override-import/fig007_05-948c7f1a0aa5/myk_fig007_05.png",
+  "source_fallback_fragments": [],
+  "runtime_tested": false,
+  "scope": "isolert metadatautvalg, ikke hele arkets import",
+  "override_only_frames": [
+    "costume007_113",
+    "costume007_117"
+  ]
+}

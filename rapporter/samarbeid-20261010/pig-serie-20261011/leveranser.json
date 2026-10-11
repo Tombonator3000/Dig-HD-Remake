@@ -1,0 +1,658 @@
+{
+  "date": "2026-10-11",
+  "master": {
+    "asset": "hovedark/pig.png",
+    "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+    "approval": {
+      "approved": true,
+      "date": "2026-10-11",
+      "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+      "source": "Direkte menneskelig svar i denne chatten",
+      "user_reply": "Godkjenner",
+      "asset": "hovedark/pig.png",
+      "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+      "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+    }
+  },
+  "jobs": 9,
+  "delivered_jobs": 6,
+  "hold_jobs": [
+    "fig007_03",
+    "fig007_05",
+    "fig007_07"
+  ],
+  "source_entries": 241,
+  "status_counts": {
+    "ok": 228,
+    "sjekk": 13
+  },
+  "source_fallback_count": 23,
+  "leveranser": [
+    {
+      "jobb": "fig007_01",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": "jobber/fig007_01/resultat.png",
+      "sha256": "f66fcb2a5f0e8cd43958616b6bea732be1b517450c81b91016ffd84ea6d64ca7",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a12bfe-8695-7652-ba72-5d75417fe7ce/exec-a615f59f-13ef-4b4b-b30a-1deeea2bba34.png",
+      "attempts": 4,
+      "rows": [
+        1,
+        9,
+        8,
+        8
+      ],
+      "originalruter": 26,
+      "fragments": [
+        "costume007_155",
+        "costume007_017"
+      ],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_01-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_01/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "130bcf71d20f2bb2a54beb75e6bf01c9dfc765b08a6635f57a64fb7bdb2cd2cc",
+        "original_1x.png": "598089814f16702ea273d7d0fc7732e22f2d954648954c139b5077329cbaa6d7",
+        "prompt.txt": "486649233cd9636dfa7dadb113ad7646661071c9020a9d5168c7ddb785cb239d",
+        "jobb.json": "70fa76b83bf7723a939c44fe9ee1427883c4d745e0eecd58e8d4b5c2918c9900"
+      },
+      "status": "grafikk levert, isolert import kontrollert; avventer Claude-mottak og spilltest",
+      "import_status_counts": {
+        "ok": 25,
+        "sjekk": 1
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": true,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett01a4 på grå bakgrunn mot original.162 har igjen ekte brudd og delvis senterskive;155 er et ekte lite strekkfragment, ikke magenta. Alle26kilder har kobling. Faktisk import25ok og1sjekk; gjenværende formavvik dokumenteres. Nativealfa er urørt. Spilltest gjenstår."
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "erstatter_sha256": "851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1",
+      "forrige_versjon_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+      "selected_attempt": 4,
+      "full_sheet_attempts_total": 4
+    },
+    {
+      "jobb": "fig007_02",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": "jobber/fig007_02/resultat.png",
+      "sha256": "2e80cefab5de2b62e8050b374b26f16922196536e1ad192450f7fc954334d73d",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a12bdc-18df-7752-aabc-6c7f5b5369b1/exec-dc88822c-e5b3-4425-b40f-e06597d53bd8.png",
+      "attempts": 4,
+      "rows": [
+        9,
+        9,
+        8,
+        9
+      ],
+      "originalruter": 35,
+      "fragments": [],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_02-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_02/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "3b507fe5d083295d35c19b9632f11c4c410fe934e420adfd91b4ccbeae530a41",
+        "original_1x.png": "f39da07cb5a7202be24d463c536a747f0b8ffec702be7e9a684f71b1536fb6a1",
+        "prompt.txt": "b1bb61e9ad5acab413489accabbf67ba19bcff803d7550fc280f3d0fe49b11b2",
+        "jobb.json": "177d01b9d57b87a156fbd122a07840d583dd15b0acbc017b500463476e53c884"
+      },
+      "status": "grafikk levert, isolert import kontrollert; avventer Claude-mottak og spilltest",
+      "import_status_counts": {
+        "ok": 35
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": true,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett original, native på grått og faktisk importkontakt. Alle35importoppføringer ok.056 har to faseglimt; løse ringer er lilla. Ekstra native-skive[1129,898,70,60] er uttrykkelig utelatt i060-kartet og er ikke en kildedel.060s korrekte øvre kappe sitter tettere på kroppen enn i originalen; posisjonsforbehold beholdes selv om import rapporterer ok. Ingen nativeetterbehandling."
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "selected_attempt": 4,
+      "full_sheet_attempts_total": 4
+    },
+    {
+      "jobb": "fig007_03",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": null,
+      "sha256": "03a44bb00993f6682721fbbded92701c7ff8f93309f56925ee198966e3a1d61e",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a12bdc-18df-7752-aabc-6c7f5b5369b1/exec-9a0de23e-63cb-4350-93f5-c0ce36f7a870.png",
+      "attempts": 2,
+      "rows": [
+        7,
+        9,
+        2
+      ],
+      "originalruter": 18,
+      "fragments": [
+        "costume007_074"
+      ],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_03-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_03/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "5af770862da9ed6d93fde997e1706c00e3684f836acfe34f4f216cafd9554268",
+        "original_1x.png": "12d171a3f36b4242f872122de64937356003fb7f2472846784d013fee690ce21",
+        "prompt.txt": "45d2947062ea09697a920ec119197b395b51dc89a59eac840257e3ea925679a6",
+        "jobb.json": "3996e51561e93964a94f9d9f45feddaf93541e9c92c66eea100774fcbdbe2426"
+      },
+      "status": "HOLD: nativekandidat bevart; inngår ikke i automatisk mottaksledger før importfeil er rettet",
+      "import_status_counts": {
+        "ok": 17,
+        "sjekk": 1
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": false,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett original, native og faktisk importkontakt. Kompakt kropp og faser er bevart; feilplasserte kontrollstriper er fjernet.064s ekte svarte utligger[173,133] er ikke native eller bevart via fallback. VERSION2 forstørrer064 til888x592,IoU0.010,dekning0.079. Kun064 har eksplisitt import-HOLD; Claude må bevare originalutligger uten å strekke kroppen.17andreimportoppføringer ok. Grafikkleveranse er ikke importgodkjenning.",
+        "import_hold_frames": [
+          "costume007_064"
+        ],
+        "candidate_ready_for_handoff": true,
+        "in_automatic_delivery_ledger": false
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "kandidat": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_03/native.png",
+      "selected_attempt": 2,
+      "full_sheet_attempts_total": 3
+    },
+    {
+      "jobb": "fig007_04",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": "jobber/fig007_04/resultat.png",
+      "sha256": "8f70afb246f20881d5b058727d04de8a1f817a741a5ad15eb445f699a812c315",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a12bfe-8695-7652-ba72-5d75417fe7ce/exec-65153cd1-0681-448e-81b0-94631e97c142.png",
+      "attempts": 2,
+      "rows": [
+        10,
+        10,
+        10,
+        1
+      ],
+      "originalruter": 31,
+      "fragments": [
+        "costume007_011",
+        "costume007_010"
+      ],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_04-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_04/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "b076bec4df9b9c5cfde33acae433ef7739843f3da14cd75666dc01145d816d43",
+        "original_1x.png": "37f94aa17835c4681b9bf14260bb471db16d975c7ea9986153153bdfa18d13a2",
+        "prompt.txt": "35f928a1c3e3970d2e66b5622c1c71d3f8dd67a01a706a4a059138f5b612edf9",
+        "jobb.json": "af0504733bd8699729d9115249eb7d7ecd8954c248179e9bc53b6530e70ca31e"
+      },
+      "status": "grafikk levert, isolert import kontrollert; avventer Claude-mottak og spilltest",
+      "import_status_counts": {
+        "ok": 31
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": true,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett hele native på grå bakgrunn og originalreferansen. Ring/skive-grupper, ekte hull087/092/097 og to faseglimt098 er bevart. Alle31isolerte importoppføringer ok; mottak og spilltest gjenstår."
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "selected_attempt": 2,
+      "full_sheet_attempts_total": 2
+    },
+    {
+      "jobb": "fig007_05",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": null,
+      "sha256": "e0e6341dca966f1826f29ae80fc5121f1a85d66d9506b21eb0791d569422d0e0",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a12bfe-8695-7652-ba72-5d75417fe7ce/exec-1b749c5a-0e33-4b2c-88d8-b648a66b55b3.png",
+      "attempts": 2,
+      "rows": [
+        8,
+        9,
+        10,
+        1
+      ],
+      "originalruter": 28,
+      "fragments": [],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_05-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_05/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "604ca1145d0009728c07dc39398e408a80cfe51c31c0e87d16462db0ca5daa6a",
+        "original_1x.png": "abe628b17e08a70f8280094d1b7ea39662e26e0a134cda19c6fc44ba83049c78",
+        "prompt.txt": "60b4e0d087af18e31468d12c95927b7ba20dbf6d94acd0886eb19dca79f142d7",
+        "jobb.json": "c7a378a85e424e7fb79d2167d66735ee08082323cc74f2c4610ad1764b8faf75"
+      },
+      "status": "HOLD: nativekandidat bevart; inngår ikke i automatisk mottaksledger før importfeil er rettet",
+      "import_status_counts": {
+        "ok": 25,
+        "sjekk": 3
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": false,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Beste hovedplate05a2 beholdes som HOLD.113s kappeberøring og117s to ringbrudd er feil. Senere helearkforsøk3/4/5 skadet riktige faser, og er avvist. Separat native korreksjonsplate113/117 er produsert; faktisk isolert import kontrolleres før Claude får underlaget for per-ruteoverstyring.126 har mindre konturforbehold. Ingen automatisk ny05-leveranse eller runtimegodkjenning.",
+        "import_hold_frames": [
+          "costume007_113",
+          "costume007_117"
+        ],
+        "candidate_ready_for_handoff": true,
+        "in_automatic_delivery_ledger": false
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "erstatter_sha256": "6043eea7311d4199d245fd9a490175caf170a7a468ff402caf08436575c4c90c",
+      "forrige_versjon_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+      "kandidat": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_05/native.png",
+      "separate_correction_report": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_05/leveranse.json",
+      "selected_attempt": 2,
+      "full_sheet_attempts_total": 5
+    },
+    {
+      "jobb": "fig007_06",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": "jobber/fig007_06/resultat.png",
+      "sha256": "bf66628aa89f0c05f13d23d4212219ef07529205c9d7dc783b1c827451b24fa2",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a12bfe-8695-7652-ba72-5d75417fe7ce/exec-7c411189-314f-4bbf-bab9-6ac265670f8e.png",
+      "attempts": 2,
+      "rows": [
+        10,
+        10,
+        12,
+        10
+      ],
+      "originalruter": 42,
+      "fragments": [
+        "costume007_000",
+        "costume007_008",
+        "costume007_161",
+        "costume007_007",
+        "costume007_005",
+        "costume007_004",
+        "costume007_170",
+        "costume007_174",
+        "costume007_179"
+      ],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_06-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_06/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "175e4c4917ce8dac95cff6f31dcee4b036d1864879e28fbd2910c59b96808b37",
+        "original_1x.png": "9a628de6ee1cddd2f2aa16d94d6444cc4599276b61eb65fb39ae1f9cd23943b4",
+        "prompt.txt": "ce4714de3dd568f554ce6ef8e2cfcfe46b7556a3bed90b7046007dc5843817b5",
+        "jobb.json": "84f73688519b52ecd39f6cc0c47fc613afbb2f328c7377eac338c4fcb050ca2b"
+      },
+      "status": "grafikk levert, isolert import kontrollert; avventer Claude-mottak og spilltest",
+      "import_status_counts": {
+        "ok": 36,
+        "sjekk": 6
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": true,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett original/native og faktisk importkontakt. Rotasjonsretning172/177 og brutte småbuer er bevart.153 har et mindre form-/småflekkforbehold.000/008/005/004/170 har lavpixelavvik og fortsatt sjekkstatus; ingen originalfallback påstås.36ok,6sjekk,0mangler. Spilltest gjenstår."
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "selected_attempt": 2,
+      "full_sheet_attempts_total": 2
+    },
+    {
+      "jobb": "fig007_07",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": null,
+      "sha256": "358e85efa8785d5b9e2dd1473212d6fb5177e09a409f917a7d54c27cde70a2fc",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-b2c72033-68b9-4a6d-9648-7f91af859c6f.png",
+      "attempts": 4,
+      "rows": [
+        8,
+        15,
+        13,
+        6,
+        6
+      ],
+      "originalruter": 48,
+      "fragments": [
+        "costume007_184",
+        "costume007_189",
+        "costume007_190",
+        "costume007_191",
+        "costume007_193",
+        "costume007_194",
+        "costume007_195",
+        "costume007_196",
+        "costume007_197",
+        "costume007_199",
+        "costume007_200",
+        "costume007_201",
+        "costume007_202",
+        "costume007_204",
+        "costume007_205",
+        "costume007_206",
+        "costume007_207",
+        "costume007_209",
+        "costume007_210",
+        "costume007_211",
+        "costume007_212",
+        "costume007_215",
+        "costume007_216"
+      ],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_07-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_07/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "7b04874134466c41e7b1c6f358b4349cf458c255909ee6f4459a74a95efa6dc8",
+        "original_1x.png": "8d624ffa0221fc6abc999ea94c4655558ed4677b79307d251d540a0de2bce03c",
+        "prompt.txt": "47b67da25d57712d1e11332e9560e5dab996d76389d18f1defbeccece7525225",
+        "jobb.json": "da14f0882e49af7b605a039f6320a1d5be0b56f87e496752cebb11b4f8ad3355"
+      },
+      "status": "HOLD: nativekandidat bevart; inngår ikke i automatisk mottaksledger før importfeil er rettet",
+      "import_status_counts": {
+        "sjekk": 2,
+        "ok": 46
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [
+        "costume007_184",
+        "costume007_189",
+        "costume007_190",
+        "costume007_191",
+        "costume007_193",
+        "costume007_194",
+        "costume007_195",
+        "costume007_196",
+        "costume007_197",
+        "costume007_199",
+        "costume007_200",
+        "costume007_201",
+        "costume007_202",
+        "costume007_204",
+        "costume007_205",
+        "costume007_206",
+        "costume007_207",
+        "costume007_209",
+        "costume007_210",
+        "costume007_211",
+        "costume007_212",
+        "costume007_215",
+        "costume007_216"
+      ],
+      "root_qa": {
+        "ready_for_delivery": false,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett07a4 mot godkjentmaster og originalgeometri. Blåsentrene180/185 og brutte ytterbuer er tilbake. Fire øvre kroppsfaser182/186/187/192 har fortsatt nye lyse sølvkonsentriske endetrinn, derfor HOLD. Faktisk VERSION2 gir46ok,2sjekk og bruker23 ekte under40-originalfragmenter som fallback.25 nativegrupper er kartlagt. Ikke48HD-tegninger. Separat fire-rute nativekandidat avventes; ikke automatisk mottak.",
+        "import_hold_frames": [
+          "costume007_182",
+          "costume007_186",
+          "costume007_187",
+          "costume007_192"
+        ],
+        "candidate_ready_for_handoff": true,
+        "in_automatic_delivery_ledger": false
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "kandidat": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_07/native.png",
+      "separate_correction_report": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/leveranse.json",
+      "selected_attempt": 4,
+      "full_sheet_attempts_total": 4
+    },
+    {
+      "jobb": "fig007_08",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": "jobber/fig007_08/resultat.png",
+      "sha256": "6ffd1572d8601ccdd72c46454b1ed6dbe24f89eb82b77ca05c26b3feec149e97",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-81e348c6-9693-41e9-9b36-17154471a62b.png",
+      "attempts": 2,
+      "rows": [
+        2,
+        1,
+        2
+      ],
+      "originalruter": 5,
+      "fragments": [],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_08-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_08/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "0ae9925e68b1f648e48cf44a56ee4440f80257e67ca6defecf2757bee3728485",
+        "original_1x.png": "cb8ad7b0b43c07090e645e61f5a3e1e8472b85e63c79c5a97d04f912a3255746",
+        "prompt.txt": "057a35ced7a5cc6cf8f93ebee87389c97f4a00ec0d03952f0f8454432f706eb8",
+        "jobb.json": "10a45d1cd6956b2a0deb09074454a32d5d095c06bc28d9d7abccdea265701788"
+      },
+      "status": "grafikk levert, isolert import kontrollert; avventer Claude-mottak og spilltest",
+      "import_status_counts": {
+        "ok": 5
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": true,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett originalreferansen og hele native på grått. Fem faser, glimt003/002 og lukket mørk side002/001 er bevart etter forsøk2. Alle5isolerte importoppføringer ok. Lys ytterkontur og masterens små indikatorer er dokumentert; runtime gjenstår."
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "erstatter_sha256": "198d1f0b9ae4cdef4cc2e4587257aa70f21af7cf932e23fbba60e56057b0cf9f",
+      "forrige_versjon_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+      "selected_attempt": 2,
+      "full_sheet_attempts_total": 2
+    },
+    {
+      "jobb": "fig007_09",
+      "kostyme": 7,
+      "figure": "The Flying Pig, automatisert null-G-utstyrscontainer fra The Dig",
+      "resultat": "jobber/fig007_09/resultat.png",
+      "sha256": "69f50f0ca70d77acf6e8e79cc80d5ecd9cb28fab1c37d29c27fca7e0fcb8990c",
+      "source": "/home/tombonator3000t/.codex/generated_images/01a125af-e5d5-7d01-9476-a2fed3f6efce/exec-3847a24f-1bcd-428b-b484-cbb0df1e2564.png",
+      "attempts": 4,
+      "rows": [
+        7,
+        1
+      ],
+      "originalruter": 8,
+      "fragments": [],
+      "prompt": "rapporter/samarbeid-20261010/pig-serie-20261011/prompter/fig007_09-valgt.txt",
+      "refs": [
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/jobber/fig007_09/referanse.png",
+        "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/hovedark/pig.png"
+      ],
+      "master_sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+      "master_approval": {
+        "approved": true,
+        "date": "2026-10-11",
+        "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+        "source": "Direkte menneskelig svar i denne chatten",
+        "user_reply": "Godkjenner",
+        "asset": "hovedark/pig.png",
+        "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+        "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+        "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+      },
+      "beskyttede_filer": {
+        "referanse.png": "3680b331e1520896f1ad80b5d7225df5b69797ed4a73f1022b85eb7bbf49e153",
+        "original_1x.png": "e1a221b8f8a221bf34e7fda6d5e2943bd413baf974b4a636f35517429f9baf5e",
+        "prompt.txt": "8a950da14ddc98e2a479d46f9ef3d5b1d9df85656fd07b7f61d5b35a2fc47fc8",
+        "jobb.json": "53e3a57b0f374eae17ed5bd8dcb979549a3bcb048e6b0d4318339b0d3dd0171f"
+      },
+      "status": "grafikk levert, isolert import kontrollert; avventer Claude-mottak og spilltest",
+      "import_status_counts": {
+        "ok": 8
+      },
+      "native_byte_identical": true,
+      "native_alpha_preserved": true,
+      "source_fallback_fragments": [],
+      "root_qa": {
+        "ready_for_delivery": true,
+        "native_and_source_seen_by_root": true,
+        "runtime_tested": false,
+        "observation": "Root har sett09a4 i faktisk gråalfakompositt mot originalfasene. Alle8 kroppsfaser koblet[7,1]; innvendig tverrstag i240 er fjernet.239/240 mørke åpninger er bevart;238 har lysere sidefelt og rød merking som kilde. Ingen nye store hvite glimt. Lys ytterkontur og dybdeskygge er opplyste materialforbehold. Faktisk VERSION2 alle8ok. Rå boksoverlapp alene er ikke runtimeartefakt; komponentmaskering brukes. Spilltest gjenstår."
+      },
+      "runtime_tested": false,
+      "individual_sheet_approved_by_Tom": false,
+      "erstatter_sha256": "20afac9c8e626d637164f36a5b251d2906c8f68f6b5b1d2f24c5710d286472fb",
+      "forrige_versjon_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+      "selected_attempt": 4,
+      "full_sheet_attempts_total": 4
+    }
+  ],
+  "runtime_tested": false,
+  "direct_delivery_source_entries": 147,
+  "direct_delivery_status_counts": {
+    "ok": 140,
+    "sjekk": 7
+  },
+  "source_fallback_count_note": "23 gjelder bare HOLD07, ingen av de seks direkteleverte arkene bruker originalfallback.",
+  "separate_frame_corrections": [
+    "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_05/leveranse.json",
+    "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/leveranse.json"
+  ],
+  "status_counts_scope": "Alle9hele nativekandidater, inkludert3HOLD. Direkte leveranser alene står i direct_delivery_status_counts."
+}

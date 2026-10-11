@@ -1,7 +1,7 @@
 {
   "purpose": "Kildebundet kø for ny Pig-serie etter godkjent hovedark",
   "not_delivery": true,
-  "status": "produksjon_autorisert",
+  "status": "serie_produsert_leveranser_og_HOLD_skilt",
   "required_master": "hovedark/pig.png",
   "master_approval": {
     "approved": true,
@@ -528,7 +528,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "grafikklevert",
+      "series_native_sha256": "f66fcb2a5f0e8cd43958616b6bea732be1b517450c81b91016ffd84ea6d64ca7"
     },
     {
       "jobb": "fig007_02",
@@ -1210,7 +1212,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "grafikklevert",
+      "series_native_sha256": "2e80cefab5de2b62e8050b374b26f16922196536e1ad192450f7fc954334d73d"
     },
     {
       "jobb": "fig007_03",
@@ -1568,7 +1572,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "HOLD",
+      "series_native_sha256": "03a44bb00993f6682721fbbded92701c7ff8f93309f56925ee198966e3a1d61e"
     },
     {
       "jobb": "fig007_04",
@@ -2174,7 +2180,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "grafikklevert",
+      "series_native_sha256": "8f70afb246f20881d5b058727d04de8a1f817a741a5ad15eb445f699a812c315"
     },
     {
       "jobb": "fig007_05",
@@ -2723,7 +2731,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "HOLD",
+      "series_native_sha256": "e0e6341dca966f1826f29ae80fc5121f1a85d66d9506b21eb0791d569422d0e0"
     },
     {
       "jobb": "fig007_06",
@@ -3539,7 +3549,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "grafikklevert",
+      "series_native_sha256": "bf66628aa89f0c05f13d23d4212219ef07529205c9d7dc783b1c827451b24fa2"
     },
     {
       "jobb": "fig007_07",
@@ -4470,7 +4482,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "HOLD",
+      "series_native_sha256": "358e85efa8785d5b9e2dd1473212d6fb5177e09a409f917a7d54c27cde70a2fc"
     },
     {
       "jobb": "fig007_08",
@@ -4582,7 +4596,9 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "grafikklevert",
+      "series_native_sha256": "6ffd1572d8601ccdd72c46454b1ed6dbe24f89eb82b77ca05c26b3feec149e97"
     },
     {
       "jobb": "fig007_09",
@@ -4749,10 +4765,18 @@
           "retning": 2,
           "lag": 0
         }
-      ]
+      ],
+      "series_status": "grafikklevert",
+      "series_native_sha256": "69f50f0ca70d77acf6e8e79cc80d5ecd9cb28fab1c37d29c27fca7e0fcb8990c"
     }
   ],
   "total_frame_entries": 241,
   "real_frames_under_40_pixels": 37,
-  "pure_magenta_frames": 0
+  "pure_magenta_frames": 0,
+  "series_report": "rapporter/samarbeid-20261010/pig-serie-20261011/leveranser.json",
+  "separate_frame_corrections": [
+    "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_05/leveranse.json",
+    "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/leveranse.json"
+  ],
+  "next_action": "Claude: per-rute nativekilder05/07, komponentmål+anker064, fullarkimport og spilltest"
 }

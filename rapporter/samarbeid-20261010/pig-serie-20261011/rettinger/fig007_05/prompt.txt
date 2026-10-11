@@ -1,0 +1,34 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 6, facing right (28 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+
+AUTHORIZED PRECISE CORRECTION PLATE, replacing the full-sheet scope above for this single auxiliary output only:
+Create exactly TWO composite animation frames, left to right: costume007_113 and costume007_117. Do not repaint the other 26 frames. This is a separate native two-frame correction plate; not a full 28-frame sheet. Use 1536 x 1024 transparent PNG with real alpha.
+
+Input image 1 is a diagnostic nearest-neighbor 20x enlargement of the ACTUAL ORIGINAL RGBA for just those two frames. It is the exact authority for silhouette, topology, pose, internal placement and the two-group layout. Repaint its pixel steps smoothly, while preserving these original silhouettes and all true gaps and contacts. Remove its flat gray background in the output. Input image 2 is the approved Pig master, as MATERIAL AND PAINTING STYLE anchor only. Pig is an automated zero-G equipment container. These two animation phases show separated components of that same container, not a complete cylinder, and not permanently attached extra equipment. Do not draw the complete Pig, tubes, bodies, logos, labels, shadows, text, grid, diagram arrows or any extra groups.
+
+LEFT GROUP, costume007_113: Exactly the original asymmetric bluish-violet rounded loose cap at lower left, circular blue-violet outer ring upper right, and blue-violet luminous circular center inside the ring. Keep the actual small open break in the outer ring at the bottom. Crucially the lower-left end of this ring MUST physically TOUCH the upper-right edge of the loose cap, exactly as visible in input 1. This is a true thin visible material contact, not a shadow, not a gray connector and not a separated floating cap. Do not leave transparent space at that one original contact. Preserve transparent clearance between the center disk and outer ring.
+
+RIGHT GROUP, costume007_117: Exactly the original asymmetric loose rounded cap at lower left, outer ring upper right, and blue-violet luminous center inside. The outer ring consists of TWO curved sides separated by unequal original gaps. Its original raster outer ring is about 22 pixels wide and 18 high. The TOP gap is 4 original pixels wide through the two upper ring rows, clearly visible. The BOTTOM gap is much narrower: 1 original pixel on the penultimate ring row and 2 pixels on the last ring row. At this enlarged output scale those are approximately 80 px for the top gap and 20 to 40 px for the bottom gap, proportional to a 440 px wide ring. Keep the lower gap visibly open but narrower than the top, not a symmetrical second large opening. Do not close either gap, do not remove a large sector or quadrant. The loose cap here remains separate from the ring exactly as input 1. Preserve transparent clearance around the blue center.
+
+Both groups: soft smooth painterly metallic violet-blue surfaces matching the approved master and the original blues. The loose caps should follow the ORIGINAL rounded asymmetric silhouettes, not generic faceted hexagons. Keep each group's relative part locations, size and angle exactly as the enlarged original guide. No newly invented notches, fins, fittings or changes to the phase. No hard pixel steps in final paint; preserve the source topology through smooth native alpha. Deliver just the two requested clean cutout composites, with all background and intra-group empty spaces truly transparent.

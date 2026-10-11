@@ -1,0 +1,283 @@
+{
+  "schema": "proposed_per_frame_native_sources_v1",
+  "requires_Claude_implementation": true,
+  "runtime_consumed": false,
+  "instructions": "Velg nøyaktig én nativekilde per bilde-ID. Bevar kildecanvas, komponentkorrespondanse, skalagruppe og anker. Ikke endre native-PNG eller original. Kontroller full arkimport og motoren etter eksplisitt mottak.",
+  "jobs": {
+    "fig007_05": {
+      "base_native": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_05/native.png",
+      "base_sha256": "e0e6341dca966f1826f29ae80fc5121f1a85d66d9506b21eb0791d569422d0e0",
+      "base_map": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_05/rutekart.json",
+      "overrides": [
+        {
+          "bilde": "costume007_113",
+          "native_png": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_05/native113117.png",
+          "native_sha256": "948c7f1a0aa538f9a1dae8185e1b0cc19222f251baad1259a24f9bc9c22faf03",
+          "native_analyseboks_alfa128": [
+            117,
+            240,
+            612,
+            630
+          ],
+          "original_RGBA_sha256": "54e0a0227292e7186f88afa6a9bb3b09b91dd98e0a61f66f812de36e1d367f9b",
+          "isolated_import": {
+            "status": "ok",
+            "kilde": "arket",
+            "fil": "costumes/costume007_113_hd.png",
+            "sha256": "8a22ae70fada2da1d4c029e5e2b2627c95c68952d85b77c8b09c94f3f8b967f2",
+            "storrelse": [
+              132,
+              136
+            ],
+            "marg": [
+              2,
+              2
+            ],
+            "flytt_hd": [
+              -2,
+              -2
+            ],
+            "snitt_union": 0.828,
+            "dekning": 0.904,
+            "deler": 2,
+            "skala": 0.1905,
+            "tilpasset": false,
+            "skala_xy": null,
+            "kostyme": 7,
+            "rute": 113,
+            "animasjon": 6,
+            "retning": 2,
+            "lag": 0
+          }
+        },
+        {
+          "bilde": "costume007_117",
+          "native_png": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_05/native113117.png",
+          "native_sha256": "948c7f1a0aa538f9a1dae8185e1b0cc19222f251baad1259a24f9bc9c22faf03",
+          "native_analyseboks_alfa128": [
+            822,
+            247,
+            648,
+            622
+          ],
+          "original_RGBA_sha256": "23c9a264a7365c71116088710117c179a26cb80ccf80042ae2b85007de07e103",
+          "isolated_import": {
+            "status": "ok",
+            "kilde": "arket",
+            "fil": "costumes/costume007_117_hd.png",
+            "sha256": "779a810ff3200419a058c492ffffd476e3b9aba3a53b2436d5de9ff0c6c9b8a4",
+            "storrelse": [
+              136,
+              136
+            ],
+            "marg": [
+              2,
+              2
+            ],
+            "flytt_hd": [
+              -2,
+              -2
+            ],
+            "snitt_union": 0.791,
+            "dekning": 0.86,
+            "deler": 4,
+            "skala": 0.1905,
+            "tilpasset": true,
+            "skala_xy": [
+              0.1852,
+              0.1929
+            ],
+            "kostyme": 7,
+            "rute": 117,
+            "animasjon": 6,
+            "retning": 2,
+            "lag": 0
+          }
+        }
+      ]
+    },
+    "fig007_07": {
+      "base_native": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_07/native.png",
+      "base_sha256": "358e85efa8785d5b9e2dd1473212d6fb5177e09a409f917a7d54c27cde70a2fc",
+      "base_map": "rapporter/samarbeid-20261010/pig-serie-20261011/HOLD/fig007_07/rutekart.json",
+      "overrides": [
+        {
+          "bilde": "costume007_182",
+          "native_png": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/native182186187192.png",
+          "native_sha256": "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+          "native_analyseboks_alfa128": [
+            101,
+            154,
+            590,
+            279
+          ],
+          "original_RGBA_sha256": "8ee31be5ecbdf68b6042f6a3358b9392678a6cb53b9b12b9f3ea124c6ef2b3c7",
+          "isolated_import": {
+            "status": "ok",
+            "kilde": "arket",
+            "fil": "costumes/costume007_182_hd.png",
+            "sha256": "38c105c91334a564c5730cc1638bf935f6f91b892755e616269b270585a39b3b",
+            "storrelse": [
+              304,
+              168
+            ],
+            "marg": [
+              2,
+              3
+            ],
+            "flytt_hd": [
+              0,
+              -5
+            ],
+            "snitt_union": 0.904,
+            "dekning": 0.96,
+            "deler": 1,
+            "skala": 0.5161,
+            "tilpasset": true,
+            "skala_xy": [
+              0.4881,
+              0.5161
+            ],
+            "kostyme": 7,
+            "rute": 182,
+            "animasjon": 6,
+            "retning": 2,
+            "lag": 0
+          }
+        },
+        {
+          "bilde": "costume007_186",
+          "native_png": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/native182186187192.png",
+          "native_sha256": "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+          "native_analyseboks_alfa128": [
+            911,
+            160,
+            488,
+            269
+          ],
+          "original_RGBA_sha256": "397da706507046d49f79efba4556c357adb3bbc7d2a3529a017c3fd521a793a5",
+          "isolated_import": {
+            "status": "ok",
+            "kilde": "arket",
+            "fil": "costumes/costume007_186_hd.png",
+            "sha256": "f89a75b357e5ccd5ab946895a28373f91580def5940363f80966328edb19d4fb",
+            "storrelse": [
+              260,
+              144
+            ],
+            "marg": [
+              2,
+              2
+            ],
+            "flytt_hd": [
+              -2,
+              -1
+            ],
+            "snitt_union": 0.925,
+            "dekning": 0.95,
+            "deler": 1,
+            "skala": 0.5161,
+            "tilpasset": true,
+            "skala_xy": [
+              0.5,
+              0.4758
+            ],
+            "kostyme": 7,
+            "rute": 186,
+            "animasjon": 6,
+            "retning": 2,
+            "lag": 0
+          }
+        },
+        {
+          "bilde": "costume007_187",
+          "native_png": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/native182186187192.png",
+          "native_sha256": "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+          "native_analyseboks_alfa128": [
+            87,
+            623,
+            605,
+            258
+          ],
+          "original_RGBA_sha256": "69700067dfeabb58c438792795e4b14c005f872aa7d0cd9cbe716dba0a87a336",
+          "isolated_import": {
+            "status": "ok",
+            "kilde": "arket",
+            "fil": "costumes/costume007_187_hd.png",
+            "sha256": "84ee1ba8684b79e651cd1b83b681140d211b57719f299559165376062921f12c",
+            "storrelse": [
+              316,
+              136
+            ],
+            "marg": [
+              2,
+              2
+            ],
+            "flytt_hd": [
+              -3,
+              -1
+            ],
+            "snitt_union": 0.899,
+            "dekning": 0.932,
+            "deler": 2,
+            "skala": 0.4651,
+            "tilpasset": true,
+            "skala_xy": [
+              0.4959,
+              0.4651
+            ],
+            "kostyme": 7,
+            "rute": 187,
+            "animasjon": 6,
+            "retning": 2,
+            "lag": 0
+          }
+        },
+        {
+          "bilde": "costume007_192",
+          "native_png": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/native182186187192.png",
+          "native_sha256": "7f80b3be56cbbba6ba5d00e95f3736d28521bd710c361e4ae58c229f08fc5fb3",
+          "native_analyseboks_alfa128": [
+            863,
+            634,
+            610,
+            240
+          ],
+          "original_RGBA_sha256": "c080cf01e10316fa6d9fdee57da5ae459193cb660884a3ecb294d9e75f88ba3b",
+          "isolated_import": {
+            "status": "ok",
+            "kilde": "arket",
+            "fil": "costumes/costume007_192_hd.png",
+            "sha256": "9d9df65e1557417c8ac8ce9a3096363434f99f88c9a4ede36c027ae251c61c56",
+            "storrelse": [
+              324,
+              120
+            ],
+            "marg": [
+              3,
+              2
+            ],
+            "flytt_hd": [
+              2,
+              -2
+            ],
+            "snitt_union": 0.859,
+            "dekning": 0.882,
+            "deler": 2,
+            "skala": 0.4651,
+            "tilpasset": true,
+            "skala_xy": [
+              0.4918,
+              0.4333
+            ],
+            "kostyme": 7,
+            "rute": 192,
+            "animasjon": 6,
+            "retning": 2,
+            "lag": 0
+          }
+        }
+      ]
+    }
+  }
+}

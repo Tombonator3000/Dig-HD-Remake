@@ -1,0 +1,27 @@
+{
+  "actual_ledger_matches_png_sha256": true,
+  "actual_route_maps_match_tested_boxes": true,
+  "hold05_keeps_previous_active_sha256": "6043eea7311d4199d245fd9a490175caf170a7a468ff402caf08436575c4c90c",
+  "hold03_and07_not_in_actual_delivery_consumer": true,
+  "protected_originals_unchanged": 36,
+  "unrelated_work_unchanged": 38,
+  "direct_delivery_status_counts": {
+    "ok": 140,
+    "sjekk": 7
+  },
+  "runtime_tested": false,
+  "actual_VERSION2_consumed_new_jobs": [
+    "fig007_01",
+    "fig007_02",
+    "fig007_04",
+    "fig007_06",
+    "fig007_08",
+    "fig007_09"
+  ],
+  "previous_Pig05_still_consumed": {
+    "jobb": "fig007_05",
+    "sha256": "6043eea7311d4199d245fd9a490175caf170a7a468ff402caf08436575c4c90c",
+    "new_master_series": false,
+    "map_source": "rapporter/romlag-brink-20261010/rutekart-nyordre-del41.json"
+  }
+}

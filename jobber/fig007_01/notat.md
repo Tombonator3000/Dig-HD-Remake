@@ -1,11 +1,16 @@
-# Leveransenotat
+# fig007_01: Pig etter godkjent hovedark
 
-Revidert 10. oktober 2026 etter rettelsen i ORDRE.md, commit 02fd5a36. Pig, fiktionell atomsprengladning fra The Dig. Innebygd ChatGPT-bildegenerator, eksakt modellnavn er ikke oppgitt. Forsøk 2 i dette revisjonssporet. Full prompt i rapporter/romlag-brink-20261010/nyordre/prompter/fig007_01-forsok2.ordrett.json.
+Pig er en automatisert null-G-utstyrscontainer. Toms direkte «Godkjenner» gjelder hovedarkets design som seriegrunnlag. Originalens faser og deler er fasit for bevegelsene.
 
-Native 1536 x 1024 RGBA kopiert byteidentisk uten kreativ etterbehandling, ny maske eller alfarydding. De fire originalfilene er hashkontrollert og uendret. Radantall [1, 8, 8, 8], 25 tegnede originalruter og 1 opprinnelige små fragmenter. Originalfragmentene må beholdes ved mottak. Restalfa utenfor fem piksler: maksimum 4/255, 0 piksler over 16.
+Native forsøk 4, SHA256 `f66fcb2a5f0e8cd43958616b6bea732be1b517450c81b91016ffd84ea6d64ca7`. PNG og nativealfa er kopiert byteidentisk. Ingen kreativ etterbehandling. Innebygd ChatGPT-bildegenerator; eksakt modellversjon er ikke eksponert.
 
-Originalen og native er sammenlignet på nøytral grå bakgrunn. Pig er den mekaniske gjenstanden, med lukket mørk rund ende, kildebundne paneler og lilla farger. Hvite lysfelt i de senere animasjonsfasene er bevart; ingen ny åpning eller løp. Originalens fire ruter med ring og separat senterskive er kildeverifisert og telles én gang hver. Originalens bitte lille horisontale fragment er også bevart som liten native strek. Ingen ekstra sky av synlig restalfa.
+26 kildeoppføringer, kildegruppert rutekart og faktisk isolert VERSION2-import: `{'ok': 25, 'sjekk': 1}`. 0 originalfallback. Importkode og kilde-SHA er dokumentert i `../../rapporter/samarbeid-20261010/pig-serie-20261011/import-v2/fig007_01.json`. Dette er ikke en spilltest eller Toms godkjenning av dette individuelle seriearket.
 
-Erstatter SHA256 d87c7b5235bacd5680e9ac3e6926ddf81171c77705efe63b9f5c1538eb02e772 i commit 3c549373253f78a879fc631f57d43188ba25213f. Ny SHA256 851bb3a45496ae460e0fa293cdfd147033fa0e557152cfccd117e41749ac66a1. Tidligere bilde og notat er bevart i Git og lokalt under /home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/nyordre-forrige/fig007_01/d87c7b5235bacd5680e9ac3e6926ddf81171c77705efe63b9f5c1538eb02e772.
+- 162 har nå flere adskilte buestykker med ekte alfagap og delvis senterskive; originalfasen er bevart.
+- 155 er fortsatt et genuint lite mørkt strekkfragment.
+- 093,014,019,024 er solide kapper på grå alfa;163 beholder sin originale frynsete fase.
+- Generatoren bevarer innhold og overordnet stil, men pikselidentisk gjengivelse utenfor rettingen kan ikke påstås. Ny root-import kreves.
 
-Grafikklevert med diagnostisk rutekart. Import og spilltest er ikke utført: individuelle originale kilde-PNG-er for dette kostymet finnes ikke i den lokale extracten. Claude må kontrollere import, ankere, effekter og stabil størrelse før bruk i modden. Første ark er ikke automatisk en menneskelig godkjenning av serien.
+Root-kontroll: Root har sett01a4 på grå bakgrunn mot original.162 har igjen ekte brudd og delvis senterskive;155 er et ekte lite strekkfragment, ikke magenta. Alle26kilder har kobling. Faktisk import25ok og1sjekk; gjenværende formavvik dokumenteres. Nativealfa er urørt. Spilltest gjenstår.
+
+Kilder, original_1x, prompt.txt og jobb.json er uendret. Forrige levering er bevart i Git og lokal oppgavearkiv. Claude må kontrollere mottak, fysisk størrelse, faser og plassering i motoren.

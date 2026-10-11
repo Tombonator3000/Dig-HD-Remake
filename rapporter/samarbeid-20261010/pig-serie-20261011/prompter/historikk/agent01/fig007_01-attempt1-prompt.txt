@@ -1,0 +1,27 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat yellow background (#F0C800). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: start pose, facing right (1 frame); animation 6, facing right (25 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+Authorized correction from Tom, approved Pig master sheet:
+Image 1 is the exact animation-phase, silhouette and layout authority. Image 2 is the approved construction and painted appearance of Pig, the automated zero-gravity equipment container carrying tools, equipment and charges; Pig is not an animal and not the charge itself. Use the SAME dark blue-purple container, rails, panel arrangement, small dark angular fittings, dark rounded end collar with muted olive edge and small red/green indicator cluster as image 2. Do not invent gun barrels, extra openings, wheels, fins, bright gold round side studs, text or new parts. Where image 1 shows a partial container, detached cap/disc, ring, small fragment, transparent gap or a white flash, paint exactly that phase and silhouette; do NOT replace parts with an intact container or attach loose parts permanently to it. White flashes remain present only in the exact phases where image 1 shows them. Do not place the master's control lights on a back or underside phase when they are not visible in image 1.
+The 26 source frames on this sheet form exactly FOUR visual rows, with counts 1,9,8,8. Row1:006. Row2:232,231,230,164,163,009,162,155,154. Row3:093,088,012,013,014,015,016,017. Row4:018,019,020,021,022,023,024,025. These numbers are instructions only and must not be rendered. Frame155 is a genuine tiny horizontal four-pixel fragment, not a mark to omit. Frame017 is a genuine narrow crescent part. Rings include transparent gaps between their outer ring and inner disc; do not fill those gaps. Preserve every small fragment and all phases at their original positions.
+Output one 1536x1024 PNG, real transparent alpha, no gray/yellow/black background and no outline shadows or glow around non-glowing parts. Match the approved master only in design and paint treatment; copy all poses, parts and their locations solely from image1.

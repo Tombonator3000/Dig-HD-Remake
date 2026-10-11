@@ -16,7 +16,7 @@ Den smale blålilla kroppen, de langsgående ribbene, de to burgunderfargede sid
 
 Kontrollfeltet har små hvite/oransje prikker som er tydeligere enn kilden. Olivenenden er mer oval og høylysene blankere enn de små, mørke originalflatene. De røde sidefeltene er mer flekkete. Disse forbeholdene ble opplyst før Toms godkjenning. Hovedarket er nå fasit for felles design; originalene bestemmer fase, vinkel og hvilke deler som er synlige.
 
-Root og to uavhengige Codex-agenter har sett kandidaten på grå alfakompositt mot originalene. Begge agentene anbefaler den som vurderingskandidat med forbehold, ikke som godkjent serieanker. Agenten kalt claude_samarbeid er en Codex-agent; dette er ingen bekreftelse på at Claude har mottatt eller testet bildet.
+Root og to uavhengige Codex-agenter har sett kandidaten på grå alfakompositt mot originalene. Dette var deres vurdering før Toms etterfølgende hovedarkgodkjenning. Godkjenningen over er den gjeldende stilbeslutningen. Agenten kalt claude_samarbeid er en Codex-agent; dette er ingen bekreftelse på at Claude har mottatt eller testet bildet.
 
 ## Forsøk og kontroll
 
@@ -24,12 +24,12 @@ Root og to uavhengige Codex-agenter har sett kandidaten på grå alfakompositt m
 - Forsøk 1 og 2 overtolket mekanikken. Forsøk 3 ga bedre hovedform, men for blanke, runde fester. Forsøk 4 er valgt. Forsøk 5 dempet kontrollprikker, men endret proporsjoner og lys uønsket og erstatter ikke 4.
 - Valgt PNG er native RGBA 1536 x 1024, kopiert byteidentisk med generert alfa. Ingen hardmaske, alfarydding eller kreativ etterbehandling. Gråbilder og sammenligningsplater er diagnostikk.
 - Mørk glød i rå RGB-visning er skjult fargeinformasjon, ikke synlig bakgrunn i grå alfakompositt. Dette må ikke brukes som en feilrapport om spillgrafikken.
-- Alle 44 beskyttede kildefiler og eksisterende Pig-resultater/notater har uendret SHA256. De 38 uvedkommende lokale arbeidsfilene er bevart. Ingen kode, status.csv, RAPPORT.md eller retur.md er endret.
+- Ved hovedarkleveringen var alle36 beskyttede kildefiler og åtte daværende Pig-resultater/notater uendret. Senere revisjoner er dokumentert i serierapporten. De 38 uvedkommende lokale arbeidsfilene er bevart. Ingen kode, status.csv, RAPPORT.md eller retur.md er endret.
 
 ## Klar neste handling
 
 [ORDRE.md](../../../ORDRE.md), oppdatert i a464f389, krever: «Tom godkjenner hovedarkene.» Etter vurderingen skal godkjent Pig-hovedark følge som bilde to i nye figurark.
 
-`seriekildeko.json` forbereder alle ni kildeark og 241 ruteoppføringer. 37 har færre enn 40 synlige originalpiksler; ingen er ren magenta. Ekte løse ringer, kapper, fragmenter, utliggere og lysglimt må bevares i sine kildefaser, ikke tegnes inn som permanent utstyr. Køen er forberedelse, ingen ny leveransetelling. Pig har fortsatt 4 av 9 gjeldende resultatfiler; dette betyr ikke visuell godkjenning.
+`seriekildeko.json` forbereder alle ni kildeark og 241 ruteoppføringer. 37 har færre enn 40 synlige originalpiksler; ingen er ren magenta. Ekte løse ringer, kapper, fragmenter, utliggere og lysglimt må bevares i sine kildefaser, ikke tegnes inn som permanent utstyr. Køen alene er ingen leveranse. Den nye serien har nå [seks direkteleverte ark og tre HOLD-underlag](../pig-serie-20261011/TIL-CLAUDE.md), pluss to separate native rettingsplater. Samlet tidligere Pig-dekning er 7/9 fordi gamle 05 er bevart; ny hovedarkbasert direkteleveranse er 6/9.
 
-Neste handling: de ni Pig-arkene tegnes med det godkjente hovedarket som bilde to, samme konstruksjon og kildefasen som fasit. Claude kontrollerer import, mod og animasjon etter leveringen. Dette hovedarket er ikke importert eller spilltestet av root.
+Claude må konsumere separate rettinger for 05/07, løse 064s komponentmål/anker og teste animasjonen. Hovedarkgodkjenningen innebærer ingen automatisk godkjenning av serieark eller spillimport.

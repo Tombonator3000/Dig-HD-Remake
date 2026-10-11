@@ -15,10 +15,11 @@
   "status": "hovedark_godkjent_av_Tom",
   "tom_approved": true,
   "series_ready": true,
-  "series_delivered_in_this_turn": 0,
+  "series_delivered_in_this_turn": 6,
   "current_Pig_job_delivery_coverage": {
-    "jobs": 4,
+    "jobs": 7,
     "of": 9,
+    "includes_previous05": true,
     "visual_approval": false
   },
   "user_correction": "Pig er en automatisert null-G-utstyrscontainer med utstyr og ladninger, ikke selve sprengladningen.",
@@ -45,7 +46,7 @@
   },
   "runtime_tested": false,
   "claude_receipt_confirmed": false,
-  "original_files_unchanged": 44,
+  "original_files_unchanged": 36,
   "unrelated_dirty_files_unchanged": 38,
   "final_prompt": "rapporter/samarbeid-20261010/pig-hovedark-20261011/prompter/master-forsok04.txt",
   "approval": {
@@ -58,5 +59,19 @@
     "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
     "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
     "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+  },
+  "new_master_series": {
+    "direct_deliveries": 6,
+    "of": 9,
+    "hold": [
+      "fig007_03",
+      "fig007_05",
+      "fig007_07"
+    ],
+    "separate_native_correction_plates": 2,
+    "correction_frame_ids": 6,
+    "report": "rapporter/samarbeid-20261010/pig-serie-20261011/leveranser.json",
+    "runtime_tested": false,
+    "Claude_receipt_confirmed": false
   }
 }

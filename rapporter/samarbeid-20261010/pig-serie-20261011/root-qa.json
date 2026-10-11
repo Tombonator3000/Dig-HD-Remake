@@ -1,0 +1,79 @@
+{
+  "fig007_01": {
+    "ready_for_delivery": true,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett01a4 på grå bakgrunn mot original.162 har igjen ekte brudd og delvis senterskive;155 er et ekte lite strekkfragment, ikke magenta. Alle26kilder har kobling. Faktisk import25ok og1sjekk; gjenværende formavvik dokumenteres. Nativealfa er urørt. Spilltest gjenstår."
+  },
+  "fig007_02": {
+    "ready_for_delivery": true,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett original, native på grått og faktisk importkontakt. Alle35importoppføringer ok.056 har to faseglimt; løse ringer er lilla. Ekstra native-skive[1129,898,70,60] er uttrykkelig utelatt i060-kartet og er ikke en kildedel.060s korrekte øvre kappe sitter tettere på kroppen enn i originalen; posisjonsforbehold beholdes selv om import rapporterer ok. Ingen nativeetterbehandling."
+  },
+  "fig007_03": {
+    "ready_for_delivery": false,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett original, native og faktisk importkontakt. Kompakt kropp og faser er bevart; feilplasserte kontrollstriper er fjernet.064s ekte svarte utligger[173,133] er ikke native eller bevart via fallback. VERSION2 forstørrer064 til888x592,IoU0.010,dekning0.079. Kun064 har eksplisitt import-HOLD; Claude må bevare originalutligger uten å strekke kroppen.17andreimportoppføringer ok. Grafikkleveranse er ikke importgodkjenning.",
+    "import_hold_frames": [
+      "costume007_064"
+    ],
+    "candidate_ready_for_handoff": true,
+    "in_automatic_delivery_ledger": false
+  },
+  "fig007_04": {
+    "ready_for_delivery": true,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett hele native på grå bakgrunn og originalreferansen. Ring/skive-grupper, ekte hull087/092/097 og to faseglimt098 er bevart. Alle31isolerte importoppføringer ok; mottak og spilltest gjenstår."
+  },
+  "fig007_05": {
+    "ready_for_delivery": false,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Beste hovedplate05a2 beholdes som HOLD.113s kappeberøring og117s to ringbrudd er feil. Senere helearkforsøk3/4/5 skadet riktige faser, og er avvist. Separat native korreksjonsplate113/117 er produsert; faktisk isolert import kontrolleres før Claude får underlaget for per-ruteoverstyring.126 har mindre konturforbehold. Ingen automatisk ny05-leveranse eller runtimegodkjenning.",
+    "import_hold_frames": [
+      "costume007_113",
+      "costume007_117"
+    ],
+    "separate_correction_report": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_05/leveranse.json",
+    "separate_correction_import_ok": 2,
+    "candidate_ready_for_handoff": true,
+    "in_automatic_delivery_ledger": false
+  },
+  "fig007_06": {
+    "ready_for_delivery": true,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett original/native og faktisk importkontakt. Rotasjonsretning172/177 og brutte småbuer er bevart.153 har et mindre form-/småflekkforbehold.000/008/005/004/170 har lavpixelavvik og fortsatt sjekkstatus; ingen originalfallback påstås.36ok,6sjekk,0mangler. Spilltest gjenstår."
+  },
+  "fig007_07": {
+    "ready_for_delivery": false,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett07a4 mot godkjentmaster og originalgeometri. Blåsentrene180/185 og brutte ytterbuer er tilbake. Fire øvre kroppsfaser182/186/187/192 har fortsatt nye lyse sølvkonsentriske endetrinn, derfor HOLD. Faktisk VERSION2 gir46ok,2sjekk og bruker23 ekte under40-originalfragmenter som fallback.25 nativegrupper er kartlagt. Ikke48HD-tegninger. Separat fire-rute nativekandidat avventes; ikke automatisk mottak.",
+    "import_hold_frames": [
+      "costume007_182",
+      "costume007_186",
+      "costume007_187",
+      "costume007_192"
+    ],
+    "separate_correction_report": "rapporter/samarbeid-20261010/pig-serie-20261011/rettinger/fig007_07/leveranse.json",
+    "separate_correction_import_ok": 4,
+    "candidate_ready_for_handoff": true,
+    "in_automatic_delivery_ledger": false
+  },
+  "fig007_08": {
+    "ready_for_delivery": true,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett originalreferansen og hele native på grått. Fem faser, glimt003/002 og lukket mørk side002/001 er bevart etter forsøk2. Alle5isolerte importoppføringer ok. Lys ytterkontur og masterens små indikatorer er dokumentert; runtime gjenstår."
+  },
+  "fig007_09": {
+    "ready_for_delivery": true,
+    "native_and_source_seen_by_root": true,
+    "runtime_tested": false,
+    "observation": "Root har sett09a4 i faktisk gråalfakompositt mot originalfasene. Alle8 kroppsfaser koblet[7,1]; innvendig tverrstag i240 er fjernet.239/240 mørke åpninger er bevart;238 har lysere sidefelt og rød merking som kilde. Ingen nye store hvite glimt. Lys ytterkontur og dybdeskygge er opplyste materialforbehold. Faktisk VERSION2 alle8ok. Rå boksoverlapp alene er ikke runtimeartefakt; komponentmaskering brukes. Spilltest gjenstår."
+  }
+}
