@@ -1,0 +1,563 @@
+{
+  "status": "IMPORT_HOLD_064",
+  "job": "fig007_03",
+  "source_id": "costume007_064",
+  "purpose": "Isolert diagnose, ingen levering eller kodeendring",
+  "paths": {
+    "original": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/extract-nyordre/costumes/costume007_064.png",
+    "native_sheet": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/pig-serie-godkjent-20261011/agent01/fig007_03-attempt2-native.png",
+    "actual_import": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/pig-serie-godkjent-20261011/isolert-import/fig007_03-03a44bb00993/costumes/costume007_064_hd.png",
+    "unmodified_myk": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/code-v2/pipeline/dighd/myk.py"
+  },
+  "sha256": {
+    "original": "b2a9b5740d560221e473d19f466ac31c4baf34057695edc0b8605cd4e88d2f2e",
+    "native_sheet": "03a44bb00993f6682721fbbded92701c7ff8f93309f56925ee198966e3a1d61e",
+    "actual_import": "65c4c81ba589d50c3ee96ec85a3637d9a6f631c9f0a4a1796a47b29cf4c0e2b4",
+    "myk": "7cb20ae673d0576a0f51ecc62f18a289c9c3f1e5b79cff6b9b0cd521f44b6176"
+  },
+  "code_commit": "36cd09f13eb0201cff190d8d0c99c788a8bcaa6b",
+  "myk_VERSION": 2,
+  "original": {
+    "size": [
+      174,
+      134
+    ],
+    "visible_pixels": 1271,
+    "components": [
+      {
+        "component": 2,
+        "pixels": 1053,
+        "box": [
+          10,
+          6,
+          51,
+          48
+        ],
+        "centroid": [
+          33.346628679962016,
+          30.020892687559353
+        ]
+      },
+      {
+        "component": 1,
+        "pixels": 216,
+        "box": [
+          0,
+          0,
+          19,
+          15
+        ],
+        "centroid": [
+          9.087962962962964,
+          6.939814814814815
+        ]
+      },
+      {
+        "component": 3,
+        "pixels": 1,
+        "box": [
+          54,
+          23,
+          1,
+          1
+        ],
+        "centroid": [
+          54.0,
+          23.0
+        ],
+        "pixel_rgba": [
+          {
+            "xy": [
+              54,
+              23
+            ],
+            "rgba": [
+              23,
+              19,
+              35,
+              255
+            ]
+          }
+        ]
+      },
+      {
+        "component": 4,
+        "pixels": 1,
+        "box": [
+          173,
+          133,
+          1,
+          1
+        ],
+        "centroid": [
+          173.0,
+          133.0
+        ],
+        "pixel_rgba": [
+          {
+            "xy": [
+              173,
+              133
+            ],
+            "rgba": [
+              0,
+              0,
+              0,
+              255
+            ]
+          }
+        ]
+      }
+    ],
+    "expected_components_in_actual_export": [
+      {
+        "original_component": 2,
+        "source_pixels": 1053,
+        "box_export_expected_4x": [
+          136,
+          52,
+          204,
+          192
+        ]
+      },
+      {
+        "original_component": 1,
+        "source_pixels": 216,
+        "box_export_expected_4x": [
+          96,
+          28,
+          76,
+          60
+        ]
+      },
+      {
+        "original_component": 3,
+        "source_pixels": 1,
+        "box_export_expected_4x": [
+          312,
+          120,
+          4,
+          4
+        ]
+      },
+      {
+        "original_component": 4,
+        "source_pixels": 1,
+        "box_export_expected_4x": [
+          788,
+          560,
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  "native": {
+    "sheet_alpha128_box": [
+      412,
+      41,
+      265,
+      232
+    ],
+    "assigned_component_numbers": [
+      1,
+      2
+    ],
+    "assigned_alpha128_components_on_sheet": [
+      {
+        "nr": 1,
+        "areal": 4518,
+        "boks": [
+          412,
+          41,
+          83,
+          70
+        ],
+        "senter": [
+          453.3162903939796,
+          75.43182824258521
+        ]
+      },
+      {
+        "nr": 2,
+        "areal": 19637,
+        "boks": [
+          458,
+          70,
+          219,
+          203
+        ],
+        "senter": [
+          562.3472017110556,
+          173.84244029128686
+        ]
+      }
+    ],
+    "drawing_with_soft_edges_sheet_box": [
+      406,
+      38,
+      274,
+      237
+    ],
+    "drawing_core_box_local": [
+      6,
+      3,
+      265,
+      232
+    ],
+    "components_local": [
+      {
+        "component": 2,
+        "pixels": 19637,
+        "box": [
+          52,
+          32,
+          219,
+          203
+        ],
+        "centroid": [
+          156.34720171105565,
+          135.84244029128686
+        ]
+      },
+      {
+        "component": 1,
+        "pixels": 4518,
+        "box": [
+          6,
+          3,
+          83,
+          70
+        ],
+        "centroid": [
+          47.316290393979635,
+          37.43182824258521
+        ]
+      }
+    ],
+    "isolated_far_source_pixel_native_status": "not visibly generated"
+  },
+  "actual_import": {
+    "root_report": {
+      "status": "sjekk",
+      "kilde": "arket",
+      "fil": "costumes/costume007_064_hd.png",
+      "sha256": "65c4c81ba589d50c3ee96ec85a3637d9a6f631c9f0a4a1796a47b29cf4c0e2b4",
+      "storrelse": [
+        888,
+        592
+      ],
+      "marg": [
+        24,
+        7
+      ],
+      "flytt_hd": [
+        -251,
+        -24
+      ],
+      "snitt_union": 0.01,
+      "dekning": 0.079,
+      "deler": 2,
+      "skala": 2.3103,
+      "tilpasset": true,
+      "skala_xy": [
+        2.5876,
+        2.3103
+      ],
+      "kostyme": 7,
+      "rute": 64,
+      "animasjon": 6,
+      "retning": 2,
+      "lag": 0
+    },
+    "exact_reproduction_matches_saved_import_pixels": true,
+    "components": [
+      {
+        "component": 2,
+        "pixels": 116161,
+        "box": [
+          0,
+          79,
+          546,
+          468
+        ],
+        "centroid": [
+          253.25626501149267,
+          317.6268971513675
+        ]
+      },
+      {
+        "component": 1,
+        "pixels": 8521,
+        "box": [
+          0,
+          14,
+          75,
+          155
+        ],
+        "centroid": [
+          30.64065250557446,
+          90.50217110667762
+        ]
+      }
+    ],
+    "plain_placement": {
+      "margx": 24,
+      "margy": 7,
+      "flytt": [
+        -213,
+        -24
+      ],
+      "snitt_union": 0.011,
+      "dekning": 0.083,
+      "kuttet": true,
+      "size": [
+        888,
+        592
+      ],
+      "core_box_export": [
+        0,
+        11,
+        509,
+        536
+      ],
+      "core_pixels": 115838,
+      "visible_box_export": [
+        0,
+        4,
+        516,
+        548
+      ],
+      "visible_pixels": 130700,
+      "components": [
+        {
+          "component": 2,
+          "pixels": 104836,
+          "box": [
+            4,
+            79,
+            505,
+            468
+          ],
+          "centroid": [
+            244.88984699912243,
+            318.765405013545
+          ]
+        },
+        {
+          "component": 1,
+          "pixels": 11002,
+          "box": [
+            0,
+            11,
+            88,
+            161
+          ],
+          "centroid": [
+            36.76686057080531,
+            90.70732594073804
+          ]
+        }
+      ]
+    },
+    "fitted_placement": {
+      "margx": 24,
+      "margy": 7,
+      "flytt": [
+        -251,
+        -24
+      ],
+      "snitt_union": 0.01,
+      "dekning": 0.079,
+      "kuttet": true,
+      "size": [
+        888,
+        592
+      ],
+      "core_box_export": [
+        0,
+        14,
+        546,
+        533
+      ],
+      "core_pixels": 124682,
+      "visible_box_export": [
+        0,
+        8,
+        554,
+        544
+      ],
+      "visible_pixels": 140326,
+      "components": [
+        {
+          "component": 2,
+          "pixels": 116161,
+          "box": [
+            0,
+            79,
+            546,
+            468
+          ],
+          "centroid": [
+            253.25626501149267,
+            317.6268971513675
+          ]
+        },
+        {
+          "component": 1,
+          "pixels": 8521,
+          "box": [
+            0,
+            14,
+            75,
+            155
+          ],
+          "centroid": [
+            30.64065250557446,
+            90.50217110667762
+          ]
+        }
+      ]
+    },
+    "far_source_point_expected_export_box": [
+      788,
+      560,
+      4,
+      4
+    ],
+    "far_source_point_alpha128_count_at_expected_location": 0
+  },
+  "grouping": {
+    "info064": {
+      "oh": 134,
+      "nh": 232,
+      "x": 541.9538397847236,
+      "y": 156.5
+    },
+    "row_group_key": [
+      6,
+      0,
+      0
+    ],
+    "row_group_members": [
+      "costume007_064"
+    ],
+    "computed_scale": 2.310344827586207,
+    "height_formula": "134*4/232 = 2.310344827586207",
+    "fit_scales": [
+      2.587586206896552,
+      2.310344827586207
+    ]
+  },
+  "diagnostic_counterfactual_not_original_not_delivery": {
+    "mutation": "Only in-memory originalRGBA copy: pixel[173,133] cleared; sourcefile unchanged",
+    "pixel_before": [
+      0,
+      0,
+      0,
+      255
+    ],
+    "height_without_far_pixel": 54,
+    "derived_scale": 0.9310344827586207,
+    "placement_target_without_far_pixel": {
+      "margx": 3,
+      "margy": 2,
+      "flytt": [
+        -8,
+        -4
+      ],
+      "snitt_union": 0.891,
+      "dekning": 0.951,
+      "kuttet": false,
+      "tilpasset": true,
+      "skala_xy": [
+        0.9208,
+        0.931
+      ],
+      "size": [
+        720,
+        552
+      ],
+      "core_box_export": [
+        10,
+        7,
+        243,
+        216
+      ],
+      "core_pixels": 20687,
+      "components": [
+        {
+          "component": 2,
+          "pixels": 16815,
+          "box": [
+            52,
+            34,
+            201,
+            189
+          ],
+          "centroid": [
+            147.77264347308952,
+            130.6427594409753
+          ]
+        },
+        {
+          "component": 1,
+          "pixels": 3872,
+          "box": [
+            10,
+            7,
+            76,
+            65
+          ],
+          "centroid": [
+            47.44344008264463,
+            38.921487603305785
+          ]
+        }
+      ]
+    },
+    "same_reduced_scale_against_unmodified_original": {
+      "margx": 7,
+      "margy": 2,
+      "flytt": [
+        -23,
+        291
+      ],
+      "snitt_union": 0.0,
+      "dekning": 0.0,
+      "kuttet": false,
+      "tilpasset": true,
+      "skala_xy": [
+        1.0428,
+        1.0428
+      ],
+      "size": [
+        752,
+        552
+      ],
+      "core_box_export": [
+        12,
+        302,
+        276,
+        242
+      ],
+      "core_pixels": 26268
+    },
+    "limits": "This does not implement proper mixed-component fitting or preserve the true distant pixel. It isolates causal contribution of outlier to scale/bottom anchor. Not a replacement original or delivery."
+  },
+  "conclusion": [
+    "True distant1px source component extends originalvisible height54 to134 and width61 to174.",
+    "064 forms its own native-row group; sheet_scale uses contaminated originalheight134, creating2.3103 rather than compactextent54*4/232=0.9310.",
+    "fit_scales also uses all visible originalpixels, increasesX to allowed1.12*scale=2.5876.",
+    "place uses bottommost sourcepixel at y133 as bottom anchor; native bottom is bodybottom because distantpixel is absent, shifting body toward outlierline. IoU search is limited to16px plusfine1px, so cannot undo structuralanchorerror.",
+    "from_original fallback is only for entirecel under40visiblepixels with noassignednativeparts;064 has1271visiblepixels and2assignednativeparts, so nofragmentfallback is performed.",
+    "Code must fit and position the meaningful corresponding components independently from retained isolatedsourcefragments; maintain fullsourcecanvas174x134 and preserve sourceoutlierseparately. Do not enlarge nativebody to compensate."
+  ],
+  "canonical_code_verified_at_commit": true,
+  "followup_graphics_attempt": {
+    "artifact": "/home/tombonator3000t/.codex/tasks/the-dig-romlag-brink-20261010/pig-serie-godkjent-20261011/agent01/avvist03correction.json",
+    "status": "rejected; stable03a2 retained with importHOLD064",
+    "not_a_code_fix": true,
+    "further_attempts": "none"
+  }
+}

@@ -1,9 +1,19 @@
 {
   "purpose": "Kildebundet kø for ny Pig-serie etter godkjent hovedark",
   "not_delivery": true,
-  "status": "venter_tom_hovedark",
+  "status": "produksjon_autorisert",
   "required_master": "hovedark/pig.png",
-  "master_approval": null,
+  "master_approval": {
+    "approved": true,
+    "date": "2026-10-11",
+    "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+    "source": "Direkte menneskelig svar i denne chatten",
+    "user_reply": "Godkjenner",
+    "asset": "hovedark/pig.png",
+    "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+    "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+    "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+  },
   "semantic_correction": "Pig er en automatisert null-G-utstyrscontainer, ikke selve sprengladningen. Ikke tegn oppdiktet innhold eller logoer.",
   "design_authority": "originale RGBA fra DIG.LA0/LA1 og referanse.png",
   "provenance": "rapporter/samarbeid-20261010/nyordre-mottakskontroll/originaluttrekk.json",

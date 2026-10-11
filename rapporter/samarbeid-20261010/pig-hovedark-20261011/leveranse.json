@@ -12,9 +12,9 @@
   "creative_postprocessing": false,
   "tool": "innebygd ChatGPT-bildegenerator",
   "exact_model_version": "ikke eksponert av verktøyet",
-  "status": "til_Toms_vurdering",
-  "tom_approved": false,
-  "series_ready": false,
+  "status": "hovedark_godkjent_av_Tom",
+  "tom_approved": true,
+  "series_ready": true,
   "series_delivered_in_this_turn": 0,
   "current_Pig_job_delivery_coverage": {
     "jobs": 4,
@@ -47,5 +47,16 @@
   "claude_receipt_confirmed": false,
   "original_files_unchanged": 44,
   "unrelated_dirty_files_unchanged": 38,
-  "final_prompt": "rapporter/samarbeid-20261010/pig-hovedark-20261011/prompter/master-forsok04.txt"
+  "final_prompt": "rapporter/samarbeid-20261010/pig-hovedark-20261011/prompter/master-forsok04.txt",
+  "approval": {
+    "approved": true,
+    "date": "2026-10-11",
+    "recorded_at": "2026-10-11T17:26:07.958494+00:00",
+    "source": "Direkte menneskelig svar i denne chatten",
+    "user_reply": "Godkjenner",
+    "asset": "hovedark/pig.png",
+    "sha256": "0a8f82028f5365932ec737443abde290fd96ac66de15bc634a3b0b5786bf4a7c",
+    "candidate_commit": "8021ef44a5e0dfba4264464ca21c6507bd72fb4a",
+    "scope": "Godkjent hovedark som grunnlag for ny Pig-serie fig007_01 til fig007_09. Ikke automatisk godkjenning av fremtidige serieark eller spillimport."
+  }
 }
