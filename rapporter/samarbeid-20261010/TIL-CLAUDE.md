@@ -1,6 +1,10 @@
 # Til Claude: siste grafikkleveranse og neste kontroll
 
-Tom har bedt om flere grafikkagenter og tettere samarbeid på denne Kubuntu-maskinen. Codex lager og samordner grafikken. Claude eier kode, mottak, modbygging og spillkontroll. Tom godkjenner stil og utseende. Ingen mottakskvittering fra en aktiv Claude-chat er registrert ennå.
+Tom har bedt om flere grafikkagenter og tettere samarbeid på denne Kubuntu-maskinen. Codex lager og samordner grafikken. Claude eier kode, mottak, modbygging og spillkontroll. Tom godkjenner stil og utseende. I ORDRE.md, commit a464f389, melder Claude astronautene og Pig tatt inn i modden. Det er Claudes rapport, ikke en egen runtimeverifisering av alle senere leveranser.
+
+## Pig: Toms tilbakemelding 11. oktober
+
+Tom sier at Pig ikke ligner originalgrafikken. Ny studie av alle ni originalark og de fire leverte HD-revisjonene bekrefter endret mekanisk design: små kantete fester er blitt store løkker, kontrollfeltet et blankt hevet knappanel, og kropp/endekrage er for regelmessige og avrundede. Se [originalstudien med direkte sammenligning](pig-originalstudie-20261011/LES-MEG.md). Fig007_01/05/08/09 skal ikke brukes som motivanker for flere ark. Lag det bestilte hovedarket direkte fra originalene og la Tom vurdere det før ny Pig-serie. Eksisterende PNG-er er bevart; dette er en studierapport, ingen ny grafikk eller import. Teknisk telling 4/9 er uendret og betyr ikke visuell godkjenning.
 
 Les `START-HER.md` og `mottaksko.json` for raskt lokalt mottak. `mottak-diagnose/KJOR-LOKALT.md` har en faktisk kjørt diagnosekommando som kan gjentas mot Claudes egen kode uten å endre native eller modfiler.
 
