@@ -1,0 +1,69 @@
+Using configuration file: /home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-small-rod-r9/final-native-room27-231s2/config.ini
+Debuglevel (from command line): 1
+Using SDL Video Driver "dummy"
+creating SurfaceSDL graphics manager
+creating OpenGL graphics manager
+creating SurfaceSDL graphics manager
+Using SDL Audio Driver "dummy"
+Output sample rate: 44100 Hz
+Output buffer size: 1024 samples
+Output channels: 2
+WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!
+HardwareInput with ID 'JOY_START' not known
+HardwareInput with ID 'JOY_LEFT_STICK_Y-' not known
+HardwareInput with ID 'JOY_LEFT_STICK_Y+' not known
+HardwareInput with ID 'JOY_LEFT_STICK_X-' not known
+HardwareInput with ID 'JOY_LEFT_STICK_X+' not known
+HardwareInput with ID 'JOY_RIGHT_SHOULDER' not known
+CPU extensions:
+SSE2(enabled) AVX2(enabled) NEON(not supported)
+User picked target 'dig' (engine ID 'scumm', game ID 'dig')...
+Using gameid dig, variant , extra 
+  SCUMM version 7, HE version 0
+Using MD5 'd8323015ecb8b10bf53474f6e6b0ae33'
+Setting 640 x 480 -> 640 x 480 -- 1
+WARNING: generateZipSet: Could not find 'gui-icons.dat'!
+WARNING: Could not find theme 'scummremastered' falling back to builtin!
+HardwareInput with ID 'JOY_A' not known
+HardwareInput with ID 'JOY_B' not known
+HardwareInput with ID 'JOY_LEFT_SHOULDER' not known
+HardwareInput with ID 'JOY_Y' not known
+HardwareInput with ID 'JOY_X' not known
+HardwareInput with ID 'JOY_UP' not known
+HardwareInput with ID 'JOY_DOWN' not known
+HardwareInput with ID 'JOY_LEFT' not known
+HardwareInput with ID 'JOY_RIGHT' not known
+DigHD: mod '/home/tombonator3000t/Skrivebord/TheDigHD-Linux-20261012-test/usr/share/the-dig-hd/mods/gpt', scale 4, text xbr
+DigHD: screen 1280x800, 2 bytes per pixel
+Setting 1280 x 800 -> 1280 x 800 -- 1
+DigHD: room 64 loaded (1280x800)
+State loaded from 'dig.s03'
+Backward seeking in GZipReadStream detected
+DigHD: test, jumping to room 27
+DigHD: HD cursor object 851 state 1 (144x120)
+DigHD: HD cursor object 851 state 1 (144x120)
+DigHD: room 27 loaded (2048x3120)
+DigHD: costume 13 in room 27 with palette 0: codes through AKPL and the actor palette
+DigHD: no HD for costume 13 cel 0 (13x13 at 14,178)
+DigHD: test, object 231 state 2 at frame 56, at 240,120 48x32, 2 images
+DigHD: no HD for costume 13 cel 0 (13x13 at 14,178)
+DigHD: no HD for costume 13 cel 0 (13x13 at 14,178)
+DigHD: no HD for costume 13 cel 0 (13x13 at 14,178)
+DigHD: no HD for costume 13 cel 0 (13x13 at 14,178)
+DigHD: verify frame 95: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 95: 20799 of 1022448 HD pixels differ strongly from the original (2.034%)
+DigHD: verify frame 95: colour cycling, 348 of 1552 HD pixels differ strongly (smooth colour map, left out above)
+DigHD: dumped frame 95 (room 27, smush 0) HD room px 575171, HD object px 4473, HD sprite px 0, original px 325452, cycled HD px 1175
+DigHD: whole screen frame 95 (room 27, screen at 30,0): HD room px 63232, HD object px 639, HD sprite px 0, original px 129 (background without HD 0, figure without HD 129), HD text px 0, cycled HD px 97, soft figure px 0
+DigHD: test object 231 state 2 frame 95: drawn yes, HD image yes, object px 639, HD object px 639, at 240,120 48x32, on screen 1536 px: HD room px 897, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)
+DigHD: costumes drawn: actor 2 costume 13 (0 cels HD, 1 without)
+DigHD: no HD for costume 13 cel 0 (13x13 at 14,178)
+DigHD: no HD for costume 13 cel 0 (13x13 at 14,178)
+DigHD: verify frame 110: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 110: 20799 of 1022448 HD pixels differ strongly from the original (2.034%)
+DigHD: verify frame 110: colour cycling, 357 of 1552 HD pixels differ strongly (smooth colour map, left out above)
+DigHD: dumped frame 110 (room 27, smush 0) HD room px 316376, HD object px 3195, HD sprite px 0, original px 128645, cycled HD px 582
+DigHD: whole screen frame 110 (room 27, screen at 30,0): HD room px 63232, HD object px 639, HD sprite px 0, original px 129 (background without HD 0, figure without HD 129), HD text px 0, cycled HD px 97, soft figure px 0
+DigHD: test object 231 state 2 frame 110: drawn yes, HD image yes, object px 639, HD object px 639, at 240,120 48x32, on screen 1536 px: HD room px 897, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)
+DigHD: costumes drawn: actor 2 costume 13 (0 cels HD, 1 without)
+DigHD: frame 110, HD room px 0, HD object px 0, HD sprite px 0, original px 0

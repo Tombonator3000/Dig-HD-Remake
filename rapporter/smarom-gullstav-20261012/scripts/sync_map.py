@@ -1,0 +1,8 @@
+from pathlib import Path
+from PIL import Image,ImageFilter
+import numpy as np,json,hashlib
+Q=Path(__file__).resolve().parent;G=Path('/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk');R=G/'rapporter/smarom-gullstav-20261012';M=Path('/home/tombonator3000t/Skrivebord/TheDigHD-Linux-20261012-test/usr/share/the-dig-hd/mods/gpt');d=json.loads((R/'IMPORT-LAG.json').read_text());room=Image.open(M/'rooms/room077.png').convert('RGBA');records=[]
+for e in d['entries']:
+ if e['room']!=77:continue
+ n=e['object'];x,y,w,h=e['rect'];old=Image.open(M/'objects'/f'{n}.png').convert('RGBA');job=json.loads((G/'jobber'/e['job']/'jobb.json').read_text());rimg=Image.open(G/'jobber'/e['job']/'resultat.png').convert('RGBA');ox,oy=job['plassering'];rx,ry,_,_=job['region'];hd=rimg.crop(((x-rx+ox)*4,(y-ry+oy)*4,(x-rx+ox+w)*4,(y-ry+oy+h)*4));hd.putalpha(old.getchannel('A'));src=np.array(Image.open(Q/'extract/objects'/f'{n}.png').convert('RGBA'));mask=((src[:,:,0]>200)&(src[:,:,1]>20)&(src[:,:,2]<25)&(src[:,:,3]>0));a=Image.fromarray(mask.astype(np.uint8)*255).resize(hd.size,Image.Resampling.BICUBIC).filter(ImageFilter.GaussianBlur(2.2));bg=room.crop((x*4,y*4,(x+w)*4,(y+h)*4));out=Image.composite(hd,bg,a);out.putalpha(hd.getchannel('A'));out.save(M/'objects'/f'{n}.png');e['sha256']=hashlib.sha256((M/'objects'/f'{n}.png').read_bytes()).hexdigest();e['background_sync']='Outside original neon ray pixels, use exact HD room77 crop to prevent rectangular seams';records.append({'object':n,'ray_native_pixels':int(mask.sum()),'sha256':e['sha256']})
+(R/'IMPORT-LAG.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');(R/'MAP-BACKGROUND-SYNC.json').write_text(json.dumps(records,indent=2)+'\n');print(records)

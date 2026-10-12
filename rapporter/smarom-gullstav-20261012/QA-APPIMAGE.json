@@ -1,0 +1,885 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": {
+        "tag": "room23-178s2-179s3",
+        "room": 23,
+        "state": "178:2,179:3",
+        "objects": [
+          "obj178_02",
+          "obj179_03"
+        ],
+        "camx": 730,
+        "camy": -1
+      },
+      "tag": "packaged-room23-178s2-179s3",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        23
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room25-217s1-218s1-219s1",
+        "room": 25,
+        "state": "217:1,218:1,219:1",
+        "objects": [
+          "obj217_01",
+          "obj218_01",
+          "obj219_01"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room25-217s1-218s1-219s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        25
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": false,
+      "original_cycle_phase_comparison": {
+        "reason": "room25 water colour-cycle phase varies with elapsed wall time; original flat frame also differs",
+        "hd_differing_pixels": 67934,
+        "original_flat_differing_pixels": 49840,
+        "outside_3_native_pixel_neighbourhood": 3,
+        "maximum_channel_difference_outside": 8,
+        "comparison_status": "informational, not pixel-identical; within-run redraw checks and packaged-content hashes are the pass criteria"
+      }
+    },
+    {
+      "case": {
+        "tag": "room26-224s1-226s1-227s1",
+        "room": 26,
+        "state": "224:1,226:1,227:1",
+        "objects": [
+          "obj224_01",
+          "obj226_01",
+          "obj227_01"
+        ],
+        "camx": 368,
+        "camy": -1
+      },
+      "tag": "packaged-room26-224s1-226s1-227s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        26
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room27-231s2",
+        "room": 27,
+        "state": "231:2",
+        "objects": [
+          "obj231_02"
+        ],
+        "camx": 264,
+        "camy": -1
+      },
+      "tag": "packaged-room27-231s2",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        27
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room32-256s1",
+        "room": 32,
+        "state": "256:1",
+        "objects": [
+          "obj256_01"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room32-256s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 96,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        32
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room32-256s2",
+        "room": 32,
+        "state": "256:2",
+        "objects": [
+          "obj256_02"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room32-256s2",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        32
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room32-256s3",
+        "room": 32,
+        "state": "256:3",
+        "objects": [
+          "obj256_03"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room32-256s3",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        32
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room32-256s4",
+        "room": 32,
+        "state": "256:4",
+        "objects": [
+          "obj256_04"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room32-256s4",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        32
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room32-257s1",
+        "room": 32,
+        "state": "257:1",
+        "objects": [
+          "obj257_01"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room32-257s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        32
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room32-256s5",
+        "room": 32,
+        "state": "256:5",
+        "objects": [
+          "obj256_05"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room32-256s5",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        32
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room32-257s2",
+        "room": 32,
+        "state": "257:2",
+        "objects": [
+          "obj257_02"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room32-257s2",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        32
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+        "room": 77,
+        "state": "525:1,527:1,529:1,530:1,531:1,532:1,533:1",
+        "objects": [
+          "obj525_01",
+          "obj527_01",
+          "obj529_01",
+          "obj530_01",
+          "obj531_01",
+          "obj532_01",
+          "obj533_01"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        77
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room88-579s1",
+        "room": 88,
+        "state": "579:1",
+        "objects": [
+          "obj579_01"
+        ],
+        "camx": -1,
+        "camy": 400
+      },
+      "tag": "packaged-room88-579s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room88-581s1",
+        "room": 88,
+        "state": "581:1",
+        "objects": [
+          "obj581_01"
+        ],
+        "camx": -1,
+        "camy": 400
+      },
+      "tag": "packaged-room88-581s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room88-582s1",
+        "room": 88,
+        "state": "582:1",
+        "objects": [
+          "obj582_01"
+        ],
+        "camx": -1,
+        "camy": 400
+      },
+      "tag": "packaged-room88-582s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room88-585s1",
+        "room": 88,
+        "state": "585:1",
+        "objects": [
+          "obj585_01"
+        ],
+        "camx": -1,
+        "camy": 400
+      },
+      "tag": "packaged-room88-585s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 96,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room88-587s1",
+        "room": 88,
+        "state": "587:1",
+        "objects": [
+          "obj587_01"
+        ],
+        "camx": -1,
+        "camy": 400
+      },
+      "tag": "packaged-room88-587s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "room90-593s1-594s1-595s1",
+        "room": 90,
+        "state": "593:1,594:1,595:1",
+        "objects": [
+          "obj593_01",
+          "obj594_01",
+          "obj595_01"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-room90-593s1-594s1-595s1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        90
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "gold-state1",
+        "room": 50,
+        "state": "884:1",
+        "objects": [
+          "obj884_01"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-gold-state1",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 96,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "gold-state2",
+        "room": 50,
+        "state": "884:2",
+        "objects": [
+          "obj884_02"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-gold-state2",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    },
+    {
+      "case": {
+        "tag": "gold-state3",
+        "room": 50,
+        "state": "884:3",
+        "objects": [
+          "obj884_03"
+        ],
+        "camx": -1,
+        "camy": -1
+      },
+      "tag": "packaged-gold-state3",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 95,
+          "pixels": 0
+        },
+        {
+          "frame": 110,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "native_final_frame_pixel_identical": true,
+      "original_cycle_phase_comparison": null
+    }
+  ],
+  "cases_count": 21,
+  "redraw_checks": 42,
+  "native_final_frames_pixel_identical": 20,
+  "nonidentical_animated_frame_comparisons": 1,
+  "requested_object_states": 31,
+  "rod_states": 3,
+  "visibility_evidence": [
+    {
+      "case": "room23-178s2-179s3",
+      "object": "obj178_02",
+      "evidence": "DigHD: test object 178 state 2 frame 110: drawn yes, HD image yes, object px 183, HD object px 183, at 808,40 32x32, on screen 1024 px: HD room px 841, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room23-178s2-179s3",
+      "object": "obj179_03",
+      "evidence": "DigHD: test object 179 state 3 frame 110: drawn yes, HD image yes, object px 0, HD object px 0, at 584,48 40x24, on screen 960 px: HD room px 960, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room25-217s1-218s1-219s1",
+      "object": "obj217_01",
+      "evidence": "DigHD: test object 217 state 1 frame 110: drawn yes, HD image yes, object px 409, HD object px 409, at 24,24 72x88, on screen 5808 px: HD room px 2793, other HD object px 0, HD sprite px 0, original px 2606 (without HD 2606)"
+    },
+    {
+      "case": "room25-217s1-218s1-219s1",
+      "object": "obj218_01",
+      "evidence": "DigHD: test object 218 state 1 frame 110: drawn yes, HD image yes, object px 0, HD object px 0, at 216,72 24x16, on screen 384 px: HD room px 384, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room25-217s1-218s1-219s1",
+      "object": "obj219_01",
+      "evidence": "DigHD: test object 219 state 1 frame 110: drawn yes, HD image yes, object px 71, HD object px 71, at 160,64 24x24, on screen 576 px: HD room px 505, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room26-224s1-226s1-227s1",
+      "object": "obj224_01",
+      "evidence": "DigHD: test object 224 state 1 frame 110: drawn yes, HD image yes, object px 13, HD object px 13, at 368,160 8x8, on screen 64 px: HD room px 35, other HD object px 16, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room26-224s1-226s1-227s1",
+      "object": "obj226_01",
+      "evidence": "DigHD: test object 226 state 1 frame 110: drawn yes, HD image yes, object px 13, HD object px 13, at 360,160 16x8, on screen 128 px: HD room px 86, other HD object px 29, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room26-224s1-226s1-227s1",
+      "object": "obj227_01",
+      "evidence": "DigHD: test object 227 state 1 frame 110: drawn yes, HD image yes, object px 16, HD object px 16, at 376,160 8x8, on screen 64 px: HD room px 25, other HD object px 23, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room27-231s2",
+      "object": "obj231_02",
+      "evidence": "DigHD: test object 231 state 2 frame 110: drawn yes, HD image yes, object px 639, HD object px 639, at 240,120 48x32, on screen 1536 px: HD room px 897, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room32-256s1",
+      "object": "obj256_01",
+      "evidence": "DigHD: test object 256 state 1 frame 110: drawn yes, HD image yes, object px 294, HD object px 294, at 48,144 64x32, on screen 2048 px: HD room px 1754, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room32-256s2",
+      "object": "obj256_02",
+      "evidence": "DigHD: test object 256 state 2 frame 110: drawn yes, HD image yes, object px 294, HD object px 294, at 48,144 64x32, on screen 2048 px: HD room px 1754, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room32-256s3",
+      "object": "obj256_03",
+      "evidence": "DigHD: test object 256 state 3 frame 110: drawn yes, HD image yes, object px 363, HD object px 363, at 48,144 64x32, on screen 2048 px: HD room px 1685, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room32-256s4",
+      "object": "obj256_04",
+      "evidence": "DigHD: test object 256 state 4 frame 110: drawn yes, HD image yes, object px 338, HD object px 338, at 48,144 64x32, on screen 2048 px: HD room px 1710, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room32-257s1",
+      "object": "obj257_01",
+      "evidence": "DigHD: test object 257 state 1 frame 110: drawn yes, HD image yes, object px 735, HD object px 735, at 48,144 64x32, on screen 2048 px: HD room px 1313, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room32-256s5",
+      "object": "obj256_05",
+      "evidence": "DigHD: test object 256 state 5 frame 110: drawn yes, HD image yes, object px 340, HD object px 340, at 48,144 64x32, on screen 2048 px: HD room px 1708, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room32-257s2",
+      "object": "obj257_02",
+      "evidence": "DigHD: test object 257 state 2 frame 110: drawn yes, HD image yes, object px 924, HD object px 924, at 48,144 64x32, on screen 2048 px: HD room px 1124, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "object": "obj525_01",
+      "evidence": "DigHD: test object 525 state 1 frame 110: drawn yes, HD image yes, object px 759, HD object px 759, at 136,64 32x24, on screen 768 px: HD room px 0, other HD object px 0, HD sprite px 0, original px 9 (without HD 9)"
+    },
+    {
+      "case": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "object": "obj527_01",
+      "evidence": "DigHD: test object 527 state 1 frame 110: drawn yes, HD image yes, object px 2511, HD object px 2511, at 216,24 32x80, on screen 2560 px: HD room px 16, other HD object px 0, HD sprite px 0, original px 33 (without HD 33)"
+    },
+    {
+      "case": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "object": "obj529_01",
+      "evidence": "DigHD: test object 529 state 1 frame 110: drawn yes, HD image yes, object px 337, HD object px 337, at 40,96 112x8, on screen 896 px: HD room px 549, other HD object px 0, HD sprite px 0, original px 10 (without HD 10)"
+    },
+    {
+      "case": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "object": "obj530_01",
+      "evidence": "DigHD: test object 530 state 1 frame 110: drawn yes, HD image yes, object px 489, HD object px 489, at 136,104 48x40, on screen 1920 px: HD room px 1407, other HD object px 0, HD sprite px 0, original px 24 (without HD 24)"
+    },
+    {
+      "case": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "object": "obj531_01",
+      "evidence": "DigHD: test object 531 state 1 frame 110: drawn yes, HD image yes, object px 85, HD object px 85, at 128,72 40x24, on screen 960 px: HD room px 339, other HD object px 503, HD sprite px 0, original px 33 (without HD 33)"
+    },
+    {
+      "case": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "object": "obj532_01",
+      "evidence": "DigHD: test object 532 state 1 frame 110: drawn yes, HD image yes, object px 216, HD object px 216, at 168,64 72x32, on screen 2304 px: HD room px 1304, other HD object px 733, HD sprite px 0, original px 51 (without HD 51)"
+    },
+    {
+      "case": "room77-525s1-527s1-529s1-530s1-531s1-532s1-533s1",
+      "object": "obj533_01",
+      "evidence": "DigHD: test object 533 state 1 frame 110: drawn yes, HD image yes, object px 322, HD object px 322, at 184,96 80x24, on screen 1920 px: HD room px 1348, other HD object px 250, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room88-579s1",
+      "object": "obj579_01",
+      "evidence": "DigHD: test object 579 state 1 frame 110: drawn yes, HD image yes, object px 2187, HD object px 2187, at 112,352 72x72, on screen 5184 px: HD room px 2073, other HD object px 924, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room88-581s1",
+      "object": "obj581_01",
+      "evidence": "DigHD: test object 581 state 1 frame 110: drawn yes, HD image yes, object px 1652, HD object px 1652, at 16,296 96x96, on screen 7544 px: HD room px 5847, other HD object px 45, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room88-582s1",
+      "object": "obj582_01",
+      "evidence": "DigHD: test object 582 state 1 frame 110: drawn yes, HD image yes, object px 2609, HD object px 2609, at 80,368 112x64, on screen 7168 px: HD room px 3409, other HD object px 1150, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room88-585s1",
+      "object": "obj585_01",
+      "evidence": "DigHD: test object 585 state 1 frame 110: drawn yes, HD image yes, object px 1055, HD object px 1055, at 64,384 64x48, on screen 3072 px: HD room px 2017, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room88-587s1",
+      "object": "obj587_01",
+      "evidence": "DigHD: test object 587 state 1 frame 110: drawn yes, HD image yes, object px 1438, HD object px 1438, at 128,384 88x48, on screen 4224 px: HD room px 2786, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room90-593s1-594s1-595s1",
+      "object": "obj593_01",
+      "evidence": "DigHD: test object 593 state 1 frame 110: drawn yes, HD image yes, object px 889, HD object px 889, at 144,40 32x32, on screen 1024 px: HD room px 135, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room90-593s1-594s1-595s1",
+      "object": "obj594_01",
+      "evidence": "DigHD: test object 594 state 1 frame 110: drawn yes, HD image yes, object px 87, HD object px 87, at 112,112 16x8, on screen 128 px: HD room px 41, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "room90-593s1-594s1-595s1",
+      "object": "obj595_01",
+      "evidence": "DigHD: test object 595 state 1 frame 110: drawn yes, HD image yes, object px 320, HD object px 320, at 200,168 40x8, on screen 320 px: HD room px 0, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "gold-state1",
+      "object": "obj884_01",
+      "evidence": "DigHD: test object 884 state 1 frame 110: drawn yes, HD image yes, object px 2524, HD object px 2524, at 0,88 160x112, on screen 17920 px: HD room px 15395, other HD object px 0, HD sprite px 0, original px 1 (without HD 1)"
+    },
+    {
+      "case": "gold-state2",
+      "object": "obj884_02",
+      "evidence": "DigHD: test object 884 state 2 frame 110: drawn yes, HD image yes, object px 2543, HD object px 2543, at 0,88 160x112, on screen 17920 px: HD room px 15377, other HD object px 0, HD sprite px 0, original px 0 (without HD 0)"
+    },
+    {
+      "case": "gold-state3",
+      "object": "obj884_03",
+      "evidence": "DigHD: test object 884 state 3 frame 110: drawn yes, HD image yes, object px 2440, HD object px 2440, at 0,88 160x112, on screen 17920 px: HD room px 15464, other HD object px 0, HD sprite px 0, original px 16 (without HD 16)"
+    }
+  ],
+  "object_sources_reused_as_HD_room": [
+    "obj179_03",
+    "obj218_01"
+  ],
+  "scope": "Isolated saved-game copies, forced object states, not full playthrough or physical keyboard test. Room77 fixture simultaneously shows markers for coverage; this is not a normal progression state. Every requested image loads; source pixels identical to background can be rendered as HD room rather than HD object.",
+  "manual_visual_KS_pending": [
+    "lag027_03_del2av8",
+    "lag032_05",
+    "lag032_07"
+  ]
+}

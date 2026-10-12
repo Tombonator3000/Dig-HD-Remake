@@ -1,0 +1,161 @@
+{
+  "sources": {
+    "strip25701": {
+      "path": "/home/tombonator3000t/.codex/generated_images/01a12ef9-b3db-7603-9fd9-e7f8474c5dcf/exec-c9fafb11-b5eb-47d1-a721-26ce7d017c32.png",
+      "prompt": "Faithful smooth HD redraw of IMAGE1 only. Image1 is an irregular BLUE-GRAY ROCKY ledge patch: two disconnected horizontal strips with TRANSPARENT MIDDLE. The upper strip lies in top quarter, starts about25% across and runs to right edge; lower strip lies along BOTTOM15%, starts about25% across and runs to right edge. Lower strip is a THIN blue-gray stone/bone sliver with a MUTED PINK TOP EDGE, NOT a skull or broad jaw. Maintain identical proportions and overall2:1 image layout, silhouette, positions and transparency. REPAINT the visible pixelated strips with smooth painted blue-gray surface, natural edges and dark crevices. No square pixel blocks. Image2 is brushwork and blue lighting reference ONLY; output just the isolated source patch, no room, no plants, no water. Transparent background and central empty gap. Exactly1536x768 source proportions.",
+      "saved": "assets/strip25701.png",
+      "sha256": "062f268ce08e94ea2006ed7265d93aa9d4933d0a06c2de9991113d1669cd4420"
+    },
+    "isolated257": {
+      "path": "/home/tombonator3000t/.codex/generated_images/01a12ef9-b3db-7603-9fd9-e7f8474c5dcf/exec-da982312-1341-4b46-9ee2-bd33d5eb6dcf.png",
+      "prompt": "Use case: precise-object-edit. Production redraw of SOURCE IMAGE1 for The Dig HD. It is an irregular blue-gray fossil/bone-and-rock background patch in a dark coastal pool, with a narrow upper strip and wider lower strip separated by transparent negative space. REPAINT every visible part of image1 in smooth hand-painted high definition. REMOVE ALL BIG SQUARE PIXELS and rectangular pixel blocks. The lower strip is a flat blue-gray oblique elongated fossil slab/jaw with a pink-purple upper rim, three small dark cavities along the bottom, and a smooth curved lower edge. Upper strip is blue-gray weathered rocky/bony ledge with dark clefts. Same overall horizontal proportions, same silhouette and positions, same blue-gray with muted pink rim. Image2 is approved room for brushwork and blue/orange lighting only. Preserve true transparency of source, including central empty area. No new creature, no live animal, no generic white human skull, no ground plane behind it. Output one transparent 1536x768 patch matching source2:1 proportions, smoothly painted and anti-aliased.",
+      "saved": "assets/isolated257.png",
+      "sha256": "ea68847fb5de2270b248d8e4b0f55969fa01b6b30e2e7c74484577b2388122eb"
+    },
+    "bar219": {
+      "path": "/home/tombonator3000t/.codex/generated_images/01a12ef9-b3db-7603-9fd9-e7f8474c5dcf/exec-4fc48a3a-43ce-4657-b415-ee5d3dd206a9.png",
+      "prompt": "Faithful HD game sprite redraw of image1 ONLY. The source is a VERY NARROW VERTICAL BLUE INDICATOR BAR on transparent background, not a plaque, not a building or another object. Draw one smooth flat luminous blue indicator stroke with original taper and gradient (lighter medium blue top fading to darker cobalt bottom). Same height/width proportions and shape as visible blue stroke of image1. No extra glow, border, bevel, black background, or other objects. Keep all remaining canvas transparent. Image2 is color/style reference only. It will be cropped by true alpha and precisely placed at its original native position in the game. Output square1024x1024 with genuine alpha.",
+      "saved": "assets/bar219.png",
+      "sha256": "716d8c9dae579e5d7a0a498c46402681c8fe50c65375554ca74bf0ebef3c30b9"
+    },
+    "lights26": {
+      "path": "/home/tombonator3000t/.codex/generated_images/01a12ef9-b3db-7603-9fd9-e7f8474c5dcf/exec-a91ccb5d-dd2b-4a90-abc6-93adfd251784.png",
+      "prompt": "Faithful precise HD repaint of IMAGE1. This is a close detail of SIX SMALL BLUE VERTICAL LIGHT STREAKS projected in the dark central opening of an alien control well in The Dig. Smoothly redraw image1 same exact composition, scale, placement, colors and negative spaces. Several blue streaks have different heights; preserve all SIX exactly with their blue vertical highlights and deep violet shadows. No new pillars, crystals, people, structures or symbols. Dark teal stone edge above, black-purple recessed well below; same simple geometry. Replace pixel squares with clean painted gradients and crisp smooth blue streak edges, no enormous bloom. Image2 is whole approved room style reference ONLY; output ONLY the tight image1 detail rectangle, NOT full room. Exact source aspect176:120. No text or borders.",
+      "saved": "assets/lights26.png",
+      "sha256": "bc2161b4ea7196b5442dfbdbd55788404a1e9ffa623a305181625121990e0587",
+      "usage": "Avvist detaljforsøk; ikke brukt i noen leveranse eller som stilanker. Native maskekontroll styrer antall og plassering."
+    }
+  },
+  "masters": [
+    {
+      "job": "lag025_01_del1av3",
+      "canvas": "/home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-small-rod-r9/lag025_01_del1av3-assembled.png",
+      "sha256": "67d2a4f0c9ea713e3ff02bebb690769d6a2ac26386e302bbe098e45e3054e2a0",
+      "parts": [
+        {
+          "object": "obj218_01",
+          "dest": [
+            864,
+            400
+          ],
+          "native_alpha_bbox": [
+            3,
+            0,
+            6,
+            16
+          ],
+          "source": "bar219"
+        },
+        {
+          "object": "obj219_01",
+          "dest": [
+            640,
+            368
+          ],
+          "native_alpha_bbox": [
+            3,
+            0,
+            6,
+            24
+          ],
+          "source": "bar219"
+        }
+      ],
+      "method": "technical atlas placement only; generated surfaces fitted to exact native alpha bounds; no code-painted content"
+    },
+    {
+      "job": "lag026_03_del2av3",
+      "canvas": "/home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-small-rod-r9/lag026_03_del2av3-assembled.png",
+      "sha256": "53a78471ae95d1fedcfd2061336ac8e7da503e7ad39af810bfd73071c51b4872",
+      "parts": [
+        {
+          "object": "obj224_01",
+          "dest": [
+            768,
+            752
+          ],
+          "native_alpha_bbox": [
+            2,
+            3,
+            6,
+            7
+          ],
+          "source": "bar219"
+        },
+        {
+          "object": "obj226_01",
+          "dest": [
+            736,
+            752
+          ],
+          "native_alpha_bbox": [
+            5,
+            1,
+            8,
+            6
+          ],
+          "source": "bar219"
+        },
+        {
+          "object": "obj227_01",
+          "dest": [
+            800,
+            752
+          ],
+          "native_alpha_bbox": [
+            0,
+            0,
+            3,
+            7
+          ],
+          "source": "bar219"
+        }
+      ],
+      "method": "technical atlas placement only; generated surfaces fitted to exact native alpha bounds; no code-painted content"
+    },
+    {
+      "job": "lag032_05",
+      "canvas": "/home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-small-rod-r9/lag032_05-assembled.png",
+      "sha256": "10d8b0bc1a8d550fc1966a1406b7ded74bb98d18070e78ec670f52db288f90da",
+      "parts": [
+        {
+          "object": "obj257_01",
+          "dest": [
+            320,
+            688
+          ],
+          "native_alpha_bbox": [
+            16,
+            0,
+            64,
+            32
+          ],
+          "source": "strip25701"
+        }
+      ],
+      "method": "technical atlas placement only; generated surfaces fitted to exact native alpha bounds; no code-painted content"
+    },
+    {
+      "job": "lag032_07",
+      "canvas": "/home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-small-rod-r9/lag032_07-assembled.png",
+      "sha256": "187b5544a02684bd257bf76857b61cd417fb67ac099e25be542bb9f48fd76920",
+      "parts": [
+        {
+          "object": "obj257_02",
+          "dest": [
+            320,
+            688
+          ],
+          "native_alpha_bbox": [
+            16,
+            0,
+            64,
+            32
+          ],
+          "source": "isolated257"
+        }
+      ],
+      "method": "technical atlas placement only; generated surfaces fitted to exact native alpha bounds; no code-painted content"
+    }
+  ]
+}
