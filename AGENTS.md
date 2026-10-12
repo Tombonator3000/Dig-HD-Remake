@@ -4,12 +4,18 @@ Denne grenen er arbeidsbordet for HD-grafikken til The Dig HD Remake. Du er graf
 
 Les `ORDRE.md` først. Den er siste beskjed fra Claude, med jobbene du skal gjøre nå. Les deretter `BESTILLING.md`, som gjelder foran alt annet her.
 
+## Kildetro grafikk før produksjon
+
+Les [remake-skillen i main](https://github.com/Tombonator3000/Dig-HD-Remake/blob/main/docs/skills/scumm-hd-remake/SKILL.md), særlig «Før HD-produksjon: avklar motiv og design», før stilpilot og nytegning. Avklar motiv, funksjon, riktig palett, person/drakt og design fra originalen i spillkontekst. Bruk spillets egne godkjente stilankere og dokumenter grunnlaget i eksisterende analyse og jobbnotat. Kontroller samme identitet gjennom hele animasjonen og hode/kropp samlet i spillet; alfa og ruteantall beviser ikke riktig motiv.
+
+Regelen gjelder også når jobbformatet ber om ordrett prompt. Ved påvist feil premiss: behold beskyttede jobbfiler, legg korrigert prompt og kildebegrunnelse i et separat notat, og bruk rettelsen. Avklar bare nødvendig manglende betydning eller design; eksisterende godkjenninger gjelder fortsatt. Fortsett uavhengig arbeid som allerede er autorisert.
+
 ## Faste regler
 
 - Jobb bare i denne grenen (`gpt-arbeid`). Aldri push til `main`, og lag ikke egne grener eller PR-er for grafikken.
 - Endre aldri `referanse.png`, `original_1x.png`, `prompt.txt` eller `jobb.json`.
 - Lever `jobber/<jobb>/resultat.png` og `jobber/<jobb>/notat.md`. Resultatet kan være hele lerretet (1536 x 1024 med grå kant) eller bare bildet i samme sideforhold som utsnittet (16:10 for vanlige rom).
-- Bruk `prompt.txt` ordrett. Legg ved stilankeret fra `stil/` som bilde to når det finnes, eller det bildet ordren sier.
+- Bruk `prompt.txt` ordrett når premisset stemmer. Ved påvist feil premiss gjelder rettelsen beskrevet over. Legg ved stilankeret fra `stil/` som bilde to når det finnes, eller det bildet ordren sier.
 - Jobbene heter `romNNN` (rombakgrunner), `objNNN_SS` (objektjobber: store bilder som spillet tegner over rommet, som nærbilder, kart og paneler), `lagNNN_KK` (lagjobber), `ikonNN` (ikonark) eller `figCCC_KK` (figurark). Alle lages og leveres på samme måte. I en objektjobb viser `referanse.png` objektet lagt over rommet. Mal hele bildet som en bakgrunn. Leverer du bare bildet, skal det ha objektets sideforhold (`bilde_i_lerret` i `jobb.json`).
 - Objekter med flere tilstander (for eksempel `obj884_01`, `_02`, `_03`): lag tilstand 01 først. For de andre legger du ved `jobber/<objekt>_01/resultat.png` som bilde to i stedet for stilankeret. Claude gjør det som er likt, helt likt etterpå.
 - Lagjobber (`lagNNN_KK`, for eksempel `lag023_01_del3av6`): rommet med små objekter (dører, brytere, lys, ting) tegnet på plass. Mal alt trofast. Objektene klippes ut etter posisjonen, så hvert objekt må ligge nøyaktig der det er, med samme størrelse, omriss og farger, og ingen må mangle. Legg ved det godkjente HD-bildet som står i ordren (`bilde_to` i `jobb.json`, for eksempel `jobber/rom023_del3av6/resultat.png`) som bilde to i stedet for stilankeret. Står det i ordren at jobben skal lages etter en annen, vent til den er godkjent.
