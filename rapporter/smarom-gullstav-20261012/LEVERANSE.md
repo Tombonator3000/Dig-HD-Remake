@@ -25,3 +25,5 @@ Størrelse: 1485683192 byte. Publisering og lokal snarvei er verifisert nedenfor
 Lokal stabil AppImage peker nå til r9. Snarveien `The Dig HD - NY r9.desktop` er opprettet med verifisert mål. R8-filen og r8-snarveien er bevart. Snarveien er ikke fysisk klikk-testet. Se LOCAL-DELIVERY.json.
 
 GitHub Linux-releasen er oppdatert til r9 som Latest. Den stabile AppImage-nedlastingen har samme SHA256 og størrelse som den lokalt kontrollerte pakken. R8 er bevart som datert releasefil. Se PUBLISHED-R9.json.
+
+Rom 32 og de syv jobblerretenes romkontekst er senere rettet i r10 etter Toms presisering av inngravering i stein. Tallene 16 råresultater / fire atlas ovenfor gjelder den historiske r9-leveransen. R9s runtime-objektbilder er uendret i r10. Se rapporter/rom032-inngravering-20261013/LEVERANSE.md.

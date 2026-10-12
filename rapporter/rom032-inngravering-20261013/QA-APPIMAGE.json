@@ -1,0 +1,122 @@
+{
+  "passed": true,
+  "cases_count": 8,
+  "redraw_checks": 16,
+  "all_redraw_differences_zero": true,
+  "complete_frames_pixel_identical_to_native": 8,
+  "entries": [
+    {
+      "case": "room32-base",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": []
+    },
+    {
+      "case": "room32-256s1",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": [
+        {
+          "name": "obj256_01",
+          "drawn": true,
+          "HD_image_loaded": true,
+          "object_pixels": 294,
+          "HD_object_pixels": 294
+        }
+      ]
+    },
+    {
+      "case": "room32-256s2",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": [
+        {
+          "name": "obj256_02",
+          "drawn": true,
+          "HD_image_loaded": true,
+          "object_pixels": 294,
+          "HD_object_pixels": 294
+        }
+      ]
+    },
+    {
+      "case": "room32-256s3",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": [
+        {
+          "name": "obj256_03",
+          "drawn": true,
+          "HD_image_loaded": true,
+          "object_pixels": 363,
+          "HD_object_pixels": 363
+        }
+      ]
+    },
+    {
+      "case": "room32-256s4",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": [
+        {
+          "name": "obj256_04",
+          "drawn": true,
+          "HD_image_loaded": true,
+          "object_pixels": 338,
+          "HD_object_pixels": 338
+        }
+      ]
+    },
+    {
+      "case": "room32-257s1",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": [
+        {
+          "name": "obj257_01",
+          "drawn": true,
+          "HD_image_loaded": true,
+          "object_pixels": 735,
+          "HD_object_pixels": 735
+        }
+      ]
+    },
+    {
+      "case": "room32-256s5",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": [
+        {
+          "name": "obj256_05",
+          "drawn": true,
+          "HD_image_loaded": true,
+          "object_pixels": 340,
+          "HD_object_pixels": 340
+        }
+      ]
+    },
+    {
+      "case": "room32-257s2",
+      "passed": true,
+      "checks": 2,
+      "pixel_identical_to_native": true,
+      "objects": [
+        {
+          "name": "obj257_02",
+          "drawn": true,
+          "HD_image_loaded": true,
+          "object_pixels": 924,
+          "HD_object_pixels": 924
+        }
+      ]
+    }
+  ],
+  "scope": "Actual AppImage/FUSE, room32 base plus seven forced object states, isolated save copies. No full playthrough, normal puzzle progression or physical keyboard test. User visual approval remains pending."
+}

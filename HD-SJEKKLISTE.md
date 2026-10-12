@@ -1,6 +1,6 @@
 # HD-sjekkliste for The Dig
 
-Kontrollgrunnlag: Linux 20261013-r9, kontrollert mot faktisk AppImage og jobbfilene 13. oktober 2026. Opprinnelig restansetelling er fra r8. Sjekklisten skal oppdateres med leveransereferanse når et punkt er utført. En resultatfil er ikke det samme som godkjent og integrert grafikk.
+Kontrollgrunnlag: Linux 20261013-r10, kontrollert mot faktisk AppImage og jobbfilene 13. oktober 2026. R9s øvrige ressurser er uendret; rom 32 er rettet og testet på nytt i r10. Opprinnelig restansetelling er fra r8. Sjekklisten skal oppdateres med leveransereferanse når et punkt er utført. En resultatfil er ikke det samme som godkjent og integrert grafikk.
 
 ## Overordnet dekning
 
@@ -13,11 +13,13 @@ Kontrollgrunnlag: Linux 20261013-r9, kontrollert mot faktisk AppImage og jobbfil
 - [ ] PIG: samme konstruksjon gjennom hele serien må kontrolleres og rettes mot nyeste formfasit. Se TODO.md og rapporter/feilrapport-20261012/.
 - [ ] Plukkegrafikk: kontroller gjenstand i rom, markering, plukking, peker, inventar og bruk som én sammenhengende kjede.
 - [x] Gullstaven i rod-nærbildet: ny glatt stav/hånd og korrigert grunnpalett i r9. Alle tre obj884-tilstander er kontrollert i AppImage.
-- [ ] Gullstaven: brukerens visuelle KS og godkjenning av r9.
+- [ ] Gullstaven: brukerens visuelle KS og godkjenning av r9/r10.
+- [x] Rom 32: søylemotivet rettet til inngravering i stein, uten dusj, utstikkende armatur eller vannstråle. Romanker og syv lagkontekster er rettet. Åtte tester og 16 opptegningskontroller i faktisk r10-AppImage er bestått.
+- [ ] Rom 32: brukerens visuelle KS og godkjenning av r10. Se rapporter/rom032-inngravering-20261013/LEVERANSE.md.
 
 ## Bestilt nå: små romobjekter
 
-Før teknisk avkryssing: kilde/motiv avklart, råtegninger lagret, plassering og tilstander kontrollert, importert i faktisk pakke og sett i avgrenset romtest. Fire jobblerreter er tekniske atlas med separat genererte detaljer; se DETAIL-ATLAS.json. Kolonnene skiller tegning fra integrasjon og kontroll.
+Før teknisk avkryssing: kilde/motiv avklart, råtegninger lagret, plassering og tilstander kontrollert, importert i faktisk pakke og sett i avgrenset romtest. R9 ble levert med fire tekniske atlas med separat genererte detaljer; se DETAIL-ATLAS.json. I r10 er alle syv rom32-lag oppdatert til tekniske atlas med korrigert romanker og uendrede HD-objekter. Samlet er ni av de 20 nåværende jobblerretene tekniske atlas. Se rapporter/rom032-inngravering-20261013/LAYER-CONTEXTS.json. Kolonnene skiller tegning fra integrasjon og kontroll.
 
 | Jobb | Rom | Objektbilder | Grafikk levert | Importert | Romtest i AppImage | Bruker-KS |
 | --- | --- | --- | --- | --- | --- | --- |
