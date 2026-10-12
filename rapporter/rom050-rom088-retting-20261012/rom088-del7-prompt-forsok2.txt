@@ -1,0 +1,7 @@
+Use case: precise-object-edit. Asset: fixed game background tile, exactly 1536x1024. There is ONE input image. Edit this image, do not compose a new picture.
+
+Restore the attached original 1995 The Dig painted artwork in smoother high resolution, using the existing shapes as a strict stencil. All objects, their extents and their boundaries MUST remain at the same raster coordinates. Make surface detail cleaner inside existing shapes only. Preserve original light/dark balance and golden orange palette. Preserve the original triangular door and its EXACT original geometric incised pattern, the rough boulder left of the door, wall silhouette, floor cracks and all bright regions without redesign.
+
+The top 192 rows, y=0 through 191, are a full-width pure black rectangle. Keep them pure black and exactly 192 pixels tall. The scene starts at y=192, not higher or lower. Do NOT make the cave extend into this rectangle. No recentering to make the composition look better. No zoom, pan, crop, stretch, shift or perspective change. In particular do not move the scene upward: the previous rejected attempt shifted it upward by about 26 image pixels. That rejected image is NOT attached or a reference. Only this original controls geometry.
+
+Do not add objects, cracks, glyphs, rocks, creatures or decoration. Do not turn the low rough boulder into a smooth ball. No lettering, label, watermark, border, frame, photo look or 3D redesign. Return only the edited original image at the same dimensions.

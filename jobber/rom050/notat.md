@@ -23,3 +23,8 @@ Referanse SHA256: 0e922adfbd1c35821f370554f44b094f1aaeb7521124a976eb2a4223410e60
 Prompt SHA256: 65bb9f27c5c2a869b891e18d4245944771ed1babe5209363856f7b5648e4e684
 Stilanker SHA256: fd37d46069b111b1f5c85bdfde9f429dbc5f8a7f8333efc9d24ab466fc6c2ba4
 Resultat SHA256: 7e269e943ac1f4282bd3e0322c63e747053fea3b3a1e3ec49fe145644f095856
+
+
+## Godkjent av Tom 12. oktober 2026
+
+Tom godkjente den viste kandidaten etter sammenligning med originalen. Ingen ny tegning er laget, og resultat.png er uendret: SHA256 7e269e943ac1f4282bd3e0322c63e747053fea3b3a1e3ec49fe145644f095856. Godkjenningen gjelder denne konkrete filen. Bakgrunnen er importert med standard beskjæring, kantbehandling og fargelås, og kontrollert i motoren. Den automatiske kontrollen varsler fortsatt lokalt avvik på 6,87 originalpiksler og har status avvist. Toms manuelle godkjenning er dokumentert separat og overstyrer det estetiske valget for denne leveransen; automatisk kontroll kalles ikke bestått. Separate krystall-/stavtilstander er egne objekter og inngår ikke i denne bakgrunnsrettelsen. Linux-pakken og kontrollene dokumenteres i rapporter/rom050-rom088-retting-20261012/.

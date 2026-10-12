@@ -23,3 +23,16 @@ Referanse SHA256: 7ac35280c7bee36df35607faa805df7245a059bf2d026fcb51068906d3a27f
 Prompt SHA256: 8dc5a0784a65d3185f2dd7699b75c28f1cbac75f8262aacf17dd0d24dd0e96ad
 Stilanker SHA256: fd37d46069b111b1f5c85bdfde9f429dbc5f8a7f8333efc9d24ab466fc6c2ba4
 Resultat SHA256: 731ca39be28e3469ba0a4c015960e762e6d524abe374010baeff5e08ffd23627
+
+
+## Rettet 12. oktober 2026
+
+Tom bestilte retting og bygging av rom 88. Ny leveranse erstatter den tidligere avviste kandidaten.
+
+Verktøy: innebygd ChatGPT Images i Codex. Verktøyet eksponerer ikke eksakt modell eller versjon. Originalfilen er kopiert direkte til resultat.png. Korrigert prompt og kildeanalyse ligger i rapporter/rom050-rom088-retting-20261012/. Originalens prompt.txt, referanse.png, original_1x.png og jobb.json er uendret.
+
+Valgt forsøk i denne runden: forsok1. Bilde 1 var denne jobbens beskyttede referanse.png. Bilde 2 var den teknisk godkjente nabodel 5, bare som stilreferanse.
+
+Svartfelt, søyle, gulvsprekker, dør og små skapninger er kontrollert mot originalen der de berøres. Alle ni deler har status godkjent i den opprinnelige delkontrollen. Sammensatt bakgrunn og fire kameravinkler er kontrollert i motoren. Den ekstra helbildekontrollen har status sjekk ved lokalt avvik 1,15 originalpiksler; det er dokumentert og ikke skjult. Hele spillets objekter og animasjoner er ikke ferdige i HD. Native skjermtegning passerer alle ti kontroller i de fem romprøvene. Kontroll av ferdig Linux-pakke dokumenteres i samme rapportmappe.
+
+Resultat SHA256: 045997271ebb973ae70af5dc579be14a7b4eb9ef7be53e58143a3d8795ca4a47

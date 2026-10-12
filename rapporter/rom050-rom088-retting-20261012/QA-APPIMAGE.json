@@ -1,0 +1,199 @@
+{
+  "cases": [
+    {
+      "tag": "packaged-room50",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "camera": [
+        160,
+        100
+      ],
+      "hd_room_loaded": true,
+      "frame_comparisons": [
+        {
+          "frame": 80,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        },
+        {
+          "frame": 160,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        }
+      ],
+      "reviewed_runtime_frame_sha256": "e296f6e776a4d9ebf3643de41a516ddc98008980bece9f00f4139ffe8a20ea1c"
+    },
+    {
+      "tag": "packaged-room88-left",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "camera": [
+        160,
+        400
+      ],
+      "hd_room_loaded": true,
+      "frame_comparisons": [
+        {
+          "frame": 80,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        },
+        {
+          "frame": 160,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        }
+      ],
+      "reviewed_runtime_frame_sha256": "ad78616cd3bc1c3bf7bf465493367cb30ed4acef32d93a4e7cec46056fad7179"
+    },
+    {
+      "tag": "packaged-room88-center",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "camera": [
+        400,
+        400
+      ],
+      "hd_room_loaded": true,
+      "frame_comparisons": [
+        {
+          "frame": 80,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        },
+        {
+          "frame": 160,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        }
+      ],
+      "reviewed_runtime_frame_sha256": "7a6f2595e85d2652708b2baec0b940cabd65305ec95a0157078f71c9521766a8"
+    },
+    {
+      "tag": "packaged-room88-right",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "camera": [
+        640,
+        400
+      ],
+      "hd_room_loaded": true,
+      "frame_comparisons": [
+        {
+          "frame": 80,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        },
+        {
+          "frame": 160,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        }
+      ],
+      "reviewed_runtime_frame_sha256": "8968ff315874b846d2c8c1317f7f759e9473d61e1799684a8e698cc7ffd1e03b"
+    },
+    {
+      "tag": "packaged-room88-upper",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        88
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "camera": [
+        640,
+        200
+      ],
+      "hd_room_loaded": true,
+      "frame_comparisons": [
+        {
+          "frame": 80,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        },
+        {
+          "frame": 160,
+          "differing_pixels": 0,
+          "native_matches_AppImage_pixel_for_pixel": true
+        }
+      ],
+      "reviewed_runtime_frame_sha256": "0d833b9e7f2ddc85a00654244963947f24dff4962c0c98039408cd90925682d4"
+    }
+  ],
+  "passed": true,
+  "redraw_checks": 10,
+  "pixel_identical_complete_frames": 10,
+  "visual_review": "Packaged room50 and room88 left/right inspected. All five native camera views were inspected before packaging. Background seams, black fields, door, pillar, floor and creature identity checked.",
+  "limits": "Isolated room tests, not a full playthrough or new physical keyboard test. Some separate objects and guard animations still use original graphics."
+}
