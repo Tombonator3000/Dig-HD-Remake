@@ -1,3 +1,5 @@
+> Rettelse 13. oktober 2026: Tom har presisert at søylemotivet er en inngravering i stein. Den historiske vanntolkningen nedenfor er feil og erstattet av rapporter/rom032-inngravering-20261013/.
+
 # Rom 32 importert, rom 50 og 88 til kontroll
 
 Bestilling: «Importer 32, vis rom 50 og 88 så jeg får kontrollert».
