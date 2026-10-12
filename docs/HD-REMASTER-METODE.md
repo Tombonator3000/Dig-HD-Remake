@@ -4,6 +4,12 @@ Dato: 10. oktober 2026. Forfatter: Codex. Grunnlag: main ved commit 57c5588d5dfa
 
 Denne planen beskriver videre arbeid. Den er ikke en rapport om nye tester eller implementerte funksjoner. Den supplerer BESTILLING-CHATGPT.md og endrer ikke Toms godkjente glatte figurstil, Exo 2, originalens spillregler eller beslutningen om at filmene venter.
 
+## Før nytegning: motiv og design
+
+Følg [remake-skillen](skills/scumm-hd-remake/SKILL.md), delen «Før HD-produksjon: avklar motiv og design», før stilpilot og produksjon. Avklar hva hver ressurs forestiller og gjør i originalens riktige palett og spilltilstand. Før kilde, funksjon, låst figuridentitet, materialer, stilanker og reell usikkerhet inn i eksisterende analyse og bestilling. Bevar spillets egne stilvalg gjennom hele animasjoner og varianter.
+
+Et påvist feil premiss i en prompt skal rettes før generering, med korrigert grunnlag i separat notat når jobbfilene er beskyttet. Kontroller motiv og design samlet i spillet i tillegg til alfa, geometri og rutekobling. Denne regelen er innført 12. oktober 2026; den innebærer ikke at analysen eller spillkontrollen av alle ressurser allerede er utført.
+
 ## 1. Målet
 
 Samme spill og visuelle identitet i klar HD. Behold komposisjon, former, figuridentitet, lys, palett og gåteledetråder. Mer detalj er bare nyttig når den forklarer originalen. Ikke legg til materialer, effekter eller former bare fordi verktøyet kan.

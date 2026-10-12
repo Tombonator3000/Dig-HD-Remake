@@ -94,3 +94,9 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 ## Arbeidsmetode 10. oktober 2026
 - Tom ba om at erfaringene fra DOTT og Monkey Island-remasterne ble lagt i dette repoet for videre arbeid. `docs/HD-REMASTER-METODE.md` samler kilder, gjennomgang av dagens mottak og prioritert forbedringsplan.
 - Dette er dokumentasjon og forslag, ikke ny kode eller nye godkjenningsstatusverdier. Godkjent glatt figurstil, ekte alfa, Exo 2 og utsatte filmer beholdes. Teknisk mottak skal skilles fra visuell godkjenning i videre rapportering.
+
+## Kildetro grafikk og design (12. oktober 2026)
+- Tom ba om samme regel i remake-skillen i Dig, Sam & Max og Zak: avklar motiv, funksjon, palett, figuridentitet og design fra riktig originalkontekst før grafisk HD-arbeid, også stilpilot.
+- Skillen ligger i `docs/skills/scumm-hd-remake/SKILL.md`. Den er koblet fra AGENTS, remastermetoden, bestillingen og malen for grafikkgrenen. Spillets egne stilvalg gjelder; Dig sine figurer og materialer er ikke designfasit for de andre spillene.
+- Rett påviste feil i produksjonsgrunnlaget før generering. Beskyttede jobbfiler beholdes; korrigert prompt og kildebegrunnelse leveres i et separat notat.
+- Visuell kontroll av mening, identitet og hele animasjoner i spillet kommer i tillegg til teknisk mottak. Innført regel er ikke bevis for at alle ressursene er analysert eller spilltestet.

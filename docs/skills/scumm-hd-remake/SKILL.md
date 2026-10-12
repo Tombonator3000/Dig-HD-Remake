@@ -1,6 +1,6 @@
 ---
 name: "scumm-hd-remake"
-description: "Bruk når Tom vil lage en HD-utgave av et LucasArts/SCUMM-spill (Sam & Max, Zak McKracken, Monkey Island, DOTT, Full Throttle osv.), eller når du lager eller retter HD-grafikk til The Dig HD: fremgangsmåte, grafikkregler og lærdom fra The Dig HD."
+description: "Bruk ved HD-remake av LucasArts/SCUMM-spill eller når HD-grafikk lages eller rettes. Avklar originalens motiv, funksjon, figuridentitet og design før produksjon, og følg grafikkreglene og den tekniske fremgangsmåten fra The Dig HD."
 ---
 
 # HD-utgave av et SCUMM-spill
@@ -14,7 +14,20 @@ Dette er fremgangsmåten fra The Dig HD Remake (oktober 2026), skrevet ned for n
 
 Denne utgaven er for ChatGPT og Codex. Rollene i prosjektet: Claude skriver koden (motor, pipeline, tester og verktøy) og kontrollerer grafikken, ChatGPT/Codex lager HD-grafikken i grenen `gpt-arbeid` og tar kodeoppgaver Tom gir, og Tom godkjenner stil og resultater. Der det står at Claude gjør noe, er det for at du skal vite hvordan resten av løypa virker. Delene som gjelder deg mest er Forbildene, Grafikk fra ChatGPT/Codex og Arbeidsform med Tom.
 
-Bare The Dig (SCUMM v7) er bygget og testet. Alt om andre spill under er plan, ikke testet. Sist oppdatert 10. oktober 2026, etter Toms første runde med Linux-pakken (inventar, avslutning, F5, HD-skrift, astronautene, fast figurstørrelse) og en gjennomgang av de offisielle remasterne fra LucasArts og Double Fine.
+Det tekniske erfaringsgrunnlaget nedenfor ble skrevet 10. oktober 2026 fra The Dig (SCUMM v7). Tilpasningene til andre spill er forslag fra den gjennomgangen, ikke en oppdatert statusrapport. Bruk alltid det aktuelle repoets `AGENTS.md`, `memory.md`, `STATUS.md` og motordokumentasjon for dagens beslutninger og testresultater. Grafikkregelen nedenfor er oppdatert 12. oktober 2026 etter Toms rettelser av feil motiv og figuridentitet.
+
+## Før HD-produksjon: avklar motiv og design
+
+Forstå hva originalen forestiller og gjør før noe tegnes om, også før stilpiloten. En penere tegning er feil når den endrer personen, materialet, funksjonen eller hendelsen. Denne regelen gjelder rom, forgrunn, figurer, animasjoner, objekter, ikoner, effekter og grensesnitt.
+
+1. **Se riktig original i sammenheng.** Fastslå spillutgave, ressurs-ID, rom, kostyme, palett og tilstand. Se motivet i spillet og fasene før, under og etter en handling. Et filnavn, ett utsnitt, en rå eksport med feil palett eller en gammel generering er ikke nok til å avgjøre hva et uklart motiv er. Bruk original, skript, dialog, metadata og dokumenterte primærkilder ved behov.
+2. **Beskriv betydning og funksjon.** Skriv hva motivet er, hva det gjør og hvilke materialer og egenskaper som formidler det. I The Dig er energivesenet energi, ikke røyk; forgrunnsplantene må forstås som planter før de tegnes. Et redskap må fortsatt være riktig redskap, med riktig grep og kontaktpunkt. Bevar gåteledetråder, symboler, tekst og tilsiktede tilstandsendringer.
+3. **Avklar identitet og design.** Bruk godkjent figurreferanse med navn, ansikt, hår, alder, kroppsform, klær, utstyr, farger og proporsjoner. Koble hver drakt og hvert kostyme til riktig person. Hode og kropp skal passe sammen, og den samme figuren skal kjennes igjen i gange, tale, handlinger og mellomsekvenser. Avviste bilder er feilbeskrivelser, aldri nye stil- eller identitetsankere.
+4. **Bruk spillets egne stilvalg.** Fastslå streker, fargeflater, lys, materialer, kantbehandling, alfa, oppløsning og feste-/kontaktpunkter før produksjon. Beskriv hva som kan forbedres og hva som skal ligge fast. Sam & Max beholder tegneserieuttrykket; Zak bruker den valgte spillutgaven; The Dig følger sine godkjente referanser. Gjenbruk metoden mellom spillene, ikke automatisk persondesign, palett eller tegnestil. Et UI-forslag gir ikke i seg selv tillatelse til å endre spillets handlinger eller regler.
+5. **Før analysen inn i bestillingen.** Bruk eksisterende `docs/ANALYSE.md`, figur-/romnotater og jobbens brief eller notat. Før opp kilde, betydning, låste kjennetegn, stilanker og reell usikkerhet. Skill dokumenterte fakta fra tolkning. Rett et påvist feil premiss før videre generering. Behold beskyttede originaler og jobbfiler; legg en nødvendig korrigert prompt og kildebegrunnelse i et separat notat og bruk rettelsen fremfor en kjent feil prompt.
+6. **Kontroller betydning og teknikk hver for seg.** Sammenlign med originalen og godkjent design, både isolert og samlet i spillet, ved relevant zoom, lys og palett. Se hele berørte animasjoner med hode/kropp og hånd/redskap samlet, også overganger og små oversiktsfigurer. Alfa, rutekart, sjekksummer og automatisk kantlikhet beviser ikke riktig motiv eller identitet. Ved avvik: finn feilen i kilde, tegning, rutekobling, import eller motor før serien fortsetter. Den faktiske leverte pakken må inneholde de kontrollerte filene.
+
+Hvis avgjørende betydning eller et nødvendig designvalg fortsatt mangler, avklar det før den berørte grafikken produseres. Fortsett uavhengig, autorisert arbeid. Behold Toms eksisterende godkjenninger; regelen innfører ikke nye bekreftelser for allerede avklart arbeid. Logg presist hva som er avklart, kontrollert og fortsatt utestet.
 
 ## Referansen
 
@@ -111,6 +124,7 @@ Offisielle remastere: Monkey Island SE (LucasArts 2009), Monkey Island 2 SE (201
    - Tell rom, objektbilder, kostymer og ruter, filmer og fonter.
    - Tell z-plan, paletter og fargesykling.
    - Lag en romliste (CSV).
+   - Avklar motiv, funksjon, figuridentitet og design etter «Før HD-produksjon» over, og før grunnlaget inn i bestillingene før stilpilot eller nytegning.
 4. **Uttrekk.**
    - Rom, objekter (hver tilstand) og kostymeruter som indekserte PNG med palett, pluss JSON med metadata.
    - Sjekk tellingene mot spillfilene.
@@ -124,6 +138,7 @@ Offisielle remastere: Monkey Island SE (LucasArts 2009), Monkey Island 2 SE (201
    - `build-mod` med automatisk oppskalering, så alt finnes i HD fra dag én.
    - Deretter jobbene til grafikerne.
 7. **Stilpilot med Tom, før noe bestilles i mengde:**
+   - motiv, identitet og design er avklart etter regelen over
    - ett rom og ett figurark, sett i motoren
    - stilankere
    - master-figurark for hver hovedperson, med navn på alle kostymer og drakter

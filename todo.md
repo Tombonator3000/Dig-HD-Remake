@@ -4,6 +4,8 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Neste
 
+- [x] Innført kildetro motiv- og designanalyse før HD-produksjon i `docs/skills/scumm-hd-remake/SKILL.md`, med henvisninger fra arbeidsinstruksene (12. oktober 2026)
+
 ### Remastermetode og kvalitet (10. oktober)
 
 - [x] Dokumentert repo-gjennomgang og arbeidsmetode i `docs/HD-REMASTER-METODE.md`, med kilder fra offisielle remastere og konkrete forbedringspunkter

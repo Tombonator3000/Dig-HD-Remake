@@ -396,3 +396,9 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Testet uten skjerm med motoren fra PR 45: Toms lagring i rom 4 med klikk, 1500 bilder, 60 kontroller med 0 avvik, Pig med nye ruter i hele scenen. Testkroken for kostyme 7: 149 kontroller, 0 avvik, ingen Pig-rute uten HD. Sju ruter for Boston i romdrakt mangler HD (HOLD hos Codex).
 - Linux-pakken startet på nytt med den nye modden. Kvittering til Codex i `gpt-arbeid` (`fra-claude/pig-mottak-20261011.json`, 2a8a19d).
 - Ikke gjort: rom 32 og 77 (krever dekoderne), robotarmen og de andre hovedarkene (venter på Codex).
+
+## 2026-10-12 15:33 (Codex)
+- Tom ba om regelen for kildetro motiv- og designanalyse i remake-skillen i Dig, Sam & Max og Zak. Oppdatert `docs/skills/scumm-hd-remake/SKILL.md` i Dig og lagt samme skill inn her i alle tre repoer.
+- Regelen krever avklart originalkontekst, motiv, funksjon, palett, person/drakt og design før stilpilot eller nytegning. Hele animasjoner og sammensatte figurdeler kontrolleres visuelt i spillet i tillegg til teknisk mottak. Spillets egne stilvalg gjelder.
+- Koblet regelen fra AGENTS, remastermetoden, bestillingen og malen for grafikkgrenen. Presisert at påviste feil i en prompt rettes i separat notat før generering når jobbfilene er beskyttet. Eksisterende godkjenninger gjelder fortsatt.
+- Kontroll: skill-validatoren bestått for alle tre kopier, identiske skill-filer bekreftet med SHA-256, og lokale lenker og henvisninger til riktig repo kontrollert. `git diff --check` bestått. Ingen motor- eller pipelineendring; spillet er ikke startet på nytt og ingen ny grafikk er laget i denne oppgaven.
