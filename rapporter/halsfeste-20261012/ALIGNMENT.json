@@ -1,0 +1,2722 @@
+{
+  "source_revision": "20261012-r3",
+  "target_revision": "20261012-r4",
+  "costume": 14,
+  "method": "constant neck-joint translation per direction; no drawing, scale, index or gameplay changes",
+  "joints": [
+    {
+      "direction": 0,
+      "body": 16,
+      "head": 3,
+      "relative_original": [
+        9,
+        -10
+      ],
+      "body_neck_anchor": [
+        53.78358208955224,
+        4.253731343283583
+      ],
+      "head_neck_anchor_before": [
+        52.5,
+        -1.5
+      ],
+      "head_shift_hd": [
+        1,
+        6
+      ]
+    },
+    {
+      "direction": 1,
+      "body": 17,
+      "head": 25,
+      "relative_original": [
+        5,
+        -10
+      ],
+      "body_neck_anchor": [
+        40.680672268907564,
+        1.8571428571428577
+      ],
+      "head_neck_anchor_before": [
+        37.25555555555555,
+        -2.5111111111111057
+      ],
+      "head_shift_hd": [
+        3,
+        4
+      ]
+    },
+    {
+      "direction": 2,
+      "body": 18,
+      "head": 19,
+      "relative_original": [
+        2,
+        -10
+      ],
+      "body_neck_anchor": [
+        27.41803278688525,
+        5.368852459016393
+      ],
+      "head_neck_anchor_before": [
+        26.523809523809526,
+        2.214285714285708
+      ],
+      "head_shift_hd": [
+        1,
+        3
+      ]
+    },
+    {
+      "direction": 3,
+      "body": 20,
+      "head": 29,
+      "relative_original": [
+        6,
+        -6
+      ],
+      "body_neck_anchor": [
+        43.68023255813954,
+        19.191860465116278
+      ],
+      "head_neck_anchor_before": [
+        44.0,
+        13.285714285714292
+      ],
+      "head_shift_hd": [
+        3,
+        6
+      ]
+    },
+    {
+      "direction": 4,
+      "body": 31,
+      "head": 35,
+      "relative_original": [
+        8,
+        -8
+      ],
+      "body_neck_anchor": [
+        49.55497382198953,
+        12.56020942408377
+      ],
+      "head_neck_anchor_before": [
+        49.270270270270274,
+        5.297297297297291
+      ],
+      "head_shift_hd": [
+        0,
+        7
+      ]
+    },
+    {
+      "direction": 5,
+      "body": 42,
+      "head": 43,
+      "relative_original": [
+        6,
+        -6
+      ],
+      "body_neck_anchor": [
+        42.53020134228188,
+        18.91275167785235
+      ],
+      "head_neck_anchor_before": [
+        43.50819672131148,
+        12.114754098360649
+      ],
+      "head_shift_hd": [
+        -3,
+        7
+      ]
+    },
+    {
+      "direction": 6,
+      "body": 45,
+      "head": 48,
+      "relative_original": [
+        3,
+        -10
+      ],
+      "body_neck_anchor": [
+        34.84313725490196,
+        3.9411764705882355
+      ],
+      "head_neck_anchor_before": [
+        32.476190476190474,
+        2.214285714285708
+      ],
+      "head_shift_hd": [
+        2,
+        2
+      ]
+    },
+    {
+      "direction": 7,
+      "body": 58,
+      "head": 27,
+      "relative_original": [
+        6,
+        -10
+      ],
+      "body_neck_anchor": [
+        42.17741935483871,
+        4.274193548387096
+      ],
+      "head_neck_anchor_before": [
+        48.19512195121951,
+        -1.7195121951219505
+      ],
+      "head_shift_hd": [
+        -6,
+        6
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "costumes/costume014_019_hd.png",
+      "direction": 2,
+      "animation": 1,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "5e4bc1a4b23fe6690795926de9d236472fb5f304b8d54d22629ceb9596aa3add",
+      "sha256": "44f386dc24d43d3a3ac9546474c58552a6b488a8d836cf08d6082ca0616a2884",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_048_hd.png",
+      "direction": 6,
+      "animation": 1,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "0fb8703883304bed8e3507614fd2e4c49bd0eaa2ff0c2b8cb2b4e88f2a789fd1",
+      "sha256": "3aee3df461f6ce72e06aa85151e547dc2c60166d193a64bdede3985f59d63d06",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_035_hd.png",
+      "direction": 4,
+      "animation": 1,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "13b3f729f335dadddfd206f9ed9c0e41e9a4aeafb13b460d314affe442dd7005",
+      "sha256": "f64bd8ca098d4faca59dbc59371a70c55d3524af6e0647d6381ff8048f24ae8a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_003_hd.png",
+      "direction": 0,
+      "animation": 1,
+      "shift_hd": [
+        1,
+        6
+      ],
+      "input_sha256": "b242af9ba879cec56b3282f08139ae900835a4b8ca2ebeb04decc4c11a480fb2",
+      "sha256": "d2bdc32ab913f39514e7fb2a175791890a264e49ab29d82fc64028094bd1d2c6",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_029_hd.png",
+      "direction": 3,
+      "animation": 1,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "a78a2c589fbb1b9f191731816cb4f9077f7d2c31c16bf7ffec94963e9c7d4c59",
+      "sha256": "222062127d815e7d99836ccb08493a841f9a8488eb155a0ee5ccf615a831ae81",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_043_hd.png",
+      "direction": 5,
+      "animation": 1,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "a9624d7b1094a9106198b82d5b09af73460d26df05a3fb20ef40e733a70326f0",
+      "sha256": "e9aa0520b4f8412ee7e111cd0434f27673f5cb08142a8333b7207f78bf005c01",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_025_hd.png",
+      "direction": 1,
+      "animation": 1,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "7873e3ea5d67b9cc43e9d423dc9be46adada3033fbb4e0f213f82ee4cb4df624",
+      "sha256": "acf96895e5acb37de3aad22ca04d74c1ee68979585b7e69ee12106d87bd62946",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_027_hd.png",
+      "direction": 7,
+      "animation": 1,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "86fed77d2ce0d51fe05f5d87c2ae0f03073bb6fc5f90cdcfa3f1dcbd334bad87",
+      "sha256": "2eaa6f75ce939af912af4ceb8e3304c74a856e1fd56105ffbf03e068f7390697",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_622_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "4b5ed719e71cbf36c3853e2d08b52db75ba5cffe03b195c4f3aa0cd0400bcc19",
+      "sha256": "67701b23e400e27f61aef95a8e42f8b459550195599c0d0c8c555885c351d0bd",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_621_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "93b34e1b5664d5e3793355d17094a036be535b1c04cfa9fe020b0c68ba6c0b30",
+      "sha256": "82e18290b81a59f18d56cb2ec6b827343fab7d32b9104766685fb71170180716",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_618_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "00d9efd437a402cd0fde1ee06df38d9dcb97ed13a1619299ce1bde22ded3d04f",
+      "sha256": "25e288dca733ab004ef1babdbab0432a9ca394cc57cc801b2ddb017956bc13c0",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_617_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "57580f385e802638c5be4c2e67e439641dbcb661965554fb3264833485f4a3e3",
+      "sha256": "a5c4cf360432f9b185d55a83ef29cb02e31dea6fbac7a988004a61b01bcbb251",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_616_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "14b74bac46e30fca64ce879849303bce76160a4d31ce66fef514dd19c89c2066",
+      "sha256": "ae6a0c88e5af3a6d9f595098339b985b9602ba65d7b8d57290d3dd988290ea9b",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_131_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "777cd94bfba4320ad8ee193fc6dd7b4f083477981aba882e57f9ac042a79d033",
+      "sha256": "fe76069acd62b0d5c47dc32b7f43d0c6fc922a261d74fb6fc81f1bd6c320e166",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_615_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "b1f6f88ac744160104c420322d70162cb6e18ade3ce6e3e8673b5f70087669d2",
+      "sha256": "2db47f37bb19aa70e5bedd30748e74d4e2c7a6d91edd40f7e48b5bca2c59e990",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_614_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "34fc6b7f4fec6f79b8aa0a009572c0e16705974a4d624d60d4ebb9f67e71acd1",
+      "sha256": "f230669fb288dc90675d47817afd19ff1951d87ddda6326df277a290f119812f",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_613_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "d6829517e9493a031a400a3b9efc9edc6f27b743e0f58af789dd76609011a7c8",
+      "sha256": "4f2281ce4ce98b69101e9b7333eb9409f11ea83df9dec2b1c1b1b598593551ab",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_612_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "c6ba3fbca95447da5912436c62f0ec853c896687c0f3334413d65c2a152ffbe0",
+      "sha256": "373ea69e3da2c03ef1d8a15ec0d047164492ae629810355d7041a2b7279c8dae",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_611_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "89d5e1bb5a89f6a7bd21bf403c8657dcd7dbc1e04030ab24b5051c9f67c522c6",
+      "sha256": "4e33cf1e667f13a94eb0d2183d4da9282a9e5cebc6db493e007512ce349bb9a4",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_610_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "d57a9ed68b603765605d62dd50db7e5b91cadf01f28c799b22a9e129911d28b3",
+      "sha256": "9da54df38d2f67b418f078961b22c856a5d020a929d02edd5b2406c4dd49de0c",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_605_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "910972637faed3977628b0b2ebf3ae3a44cee749003cb9757f5e54a6101b79f3",
+      "sha256": "76588397a9a11f0f9a3cf16dbec662db84e9dea46d51ee01435e016fab7831cc",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_604_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "cacb5d99159f0492a87d58765dfa3d216b98336ef75c1c635d6feba70c31f391",
+      "sha256": "d80d70a4e443255b44a06afc9246a8e4a90ba3f522cc22b35026122accca756d",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_603_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "08cb89550634753910016dd7f8e2fc3f288fe1d1de3710fe40f1bf246ea054c4",
+      "sha256": "161dc0b0def63f645775a16d986b5b3678939517261f74720d4c1ade378c384a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_602_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "21e7d57119d4d0a88b167794deaee50a2f485b0f1fc02fb05dcd16cb9abe20f1",
+      "sha256": "a654681780353d54fcb67d338fd5f5fd5b0e5d4efc1064bfca36507c20795770",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_601_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "ed1359d5c1b8387ebe4ac80fcae6201b663e226a613dfe426d60c02421a7f783",
+      "sha256": "e108fce8f671b96521973d9e818ceac25b85d0555da8aba5a460b37895c44d4e",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_600_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "2c9dea0fb09786a410009bd90ad47512b825d9926cfb40b2b3b04d98b72f566b",
+      "sha256": "67f2ea4f60309e9d6016693055447465b1d0472ca6fe57ec574542a70486dcc0",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_599_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "7c214f8ea34c14ffb4fd94b3eb04c9abe00d2dec59fe688b4057a26de176b3af",
+      "sha256": "37583bc8a76a3264064e176d076c0c6738c030baebc496e91208c993baa9037d",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_598_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "aab5b66b6565f619e2268b558cf5534f54dae68a14a8b372a1f505c0f33553e6",
+      "sha256": "a7cad2da26e99b6e33d4fecea5f91a73d2caea29fdc6675b77ecd8aee2a0df42",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_595_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "439706ba6ec33e39fc8038a7b3a949ff61460c55d985e3aba05a9ece78aa0374",
+      "sha256": "56a132d61e29917d4889ba5cbea9cced6f0e297bae1c6f106e36f97e462c1b03",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_594_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "ffa0baaccb9a76bc0d16e66b6dc80a6df20f3cd6d0b82bb6fddd8bc1ea789b51",
+      "sha256": "29b86ea9abeef5e96cd07ce0a6dc9cd89d277ce1f08b40bf5348e875cd5c0881",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_593_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "35497802840b723a8c712f049ecfa1b245187f5591ad7ce46e3a933d35eae2ae",
+      "sha256": "be41956bebb9ae491ff1cafdf6758b26505f2da8e1eccf84ea57a2bf55bb2134",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_592_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "e9375e61f7c4875e3018c21c2776d99e425c107ba0635b616845a1dd62fa6a71",
+      "sha256": "a31a9d6236b6ee5a5c3d141bb6fe132526b587b2b923901f1d65001c00a25c36",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_591_hd.png",
+      "direction": 2,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "092dcaaf40a47059f4cd568af5fa0cab3cbcfef17a082b59bb51bbeb06915cdd",
+      "sha256": "5e26569581dda330365ed0591053d235613499b2175cd013b67b7f8546a901be",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_457_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "acf2b2a5ca105e78a5b0d03589b50dd34907da091b1a0bf17e6b86361779dd63",
+      "sha256": "8324cb1dc99b0c50891fe4b14fa141dde463177459cd4057e265fd0016dd58e1",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_456_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "1a7d7913feaed3aa744f213bb6b5455bd858003a71a8cb586b61749711b1cf8d",
+      "sha256": "802affafa91c36807f1361ec324f84b67b50140cefa74b716da011514d276156",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_455_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "ab4db81359220e6e999cb84969dafc5be48584675546ede6158da2b437ebcec1",
+      "sha256": "61eab0d88e316e3bb07d6020cd8f749edd1b81945bb4e519bf0b29c5216de3b9",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_454_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "ceaf3f3b42fd3267352523e4cd77d924199989996c57553be8cf99f547aad3a2",
+      "sha256": "ba58d524b21fc4c14a077877e170e3db3fc130bce6a36f29f462215be3270b50",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_452_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "3a4d4f5af6f88bfd75ec300152a85cebb72222c69ebfa7c5f4d3b3c98ed03061",
+      "sha256": "c26e17be0c6f2cb08ecbdfeb6760a669e8df31ac95c0f4bd6a5744f6c5017d61",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_127_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "bf87aca80b5f8b505f965c745095fb4434c6698a54ffe2c2db4f40932cd83312",
+      "sha256": "7710ca5e4324a1f941cf53387e8986a7f51bfed159cf3b478b3d36394b2dc52a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_451_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "a86a9942c6f4014f6be23fa3cad0d98e68d923d2e185e4eb4ebc889adadd05e0",
+      "sha256": "104e33f4fdb3646bea72629e8cc47f2f3dd8114a046dd234df9f271c24a947db",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_450_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "d0698414e57fe3e350b034930f131218bf7b83d6043f4d9817ecedfaf9b36013",
+      "sha256": "7754a20ff109a11edecf0f818296a51019490ce06ba456219947ed0704b8e3fa",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_449_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "1dcf1951c63c285791ae68617d43dee14bc03a6d164684536d24789795dfee9b",
+      "sha256": "2b473c08c6ae55cf70d1fb8bf744a1d003358ce56c34a2e4dbc5225f75ecf881",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_448_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "50f2a51a58738a6991eedb280054f868b14b6598d53caf52d9d61bd19b4064c6",
+      "sha256": "00d58282b538d216cc76ebc372924cd7419e56867ea9a50eacb09900f6cb5adf",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_447_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "dfa6b72de5a55dec4da17c8ae416edf9ad57b26c5e6cd7920f8c655b669002c3",
+      "sha256": "7e57566872ff2c0ff9af6995135ebee81012c91c23bf48810ecd4f1f20710787",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_446_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "d9eab7b602f70be693cfacb09e372a8ca4002baf214bb574d0f56bc5ce3f2398",
+      "sha256": "b3ba16f6975cf251d93b5aa2f3f1f0a06132e397f399b4f623de674206a5c57a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_445_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "fdfa5aa87bbb44d077d177f794f07d9cdb8883d1ac066fc36c20bd5b35e85c37",
+      "sha256": "b2181cfe47f65f405ab8e56c02ec41c305ca1d47b823a6384755850f4d8bb2e1",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_444_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "1cb221efabca43da66636259b546d44ba89f1f1660d19c9572f5fc7f4cda55c9",
+      "sha256": "581602bc4ac84f3e11e7f0fe79f138352b6da4eaf67c0e18627d5043295ae2c5",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_442_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "a0cef47148e8744c4951eb4dc219852c544cf7bc946e4c5f39f8a5a7e743666b",
+      "sha256": "a0b9ffee13b95500d783304a28abab94a33b9c1cb23c0e93aa1656892c29804c",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_441_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "493226c9fd0a1b2e30d614a138dd7247cdd1e86245ab02255756209281c71819",
+      "sha256": "f6d05efa3a0e28e3d762cf345f4cfb659b2a60cfff583c736ac72bfdd5dca062",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_440_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "6deb42e208cf6b05e7239d6bd13159522345a3433c6ff10d1bc55ce6bd84fc2d",
+      "sha256": "1201d7c6630ff9d12f90cdf14535e5d17152bcf27494d9bd49775dd21b688421",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_439_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "bbdfa6af058f20e8309ef52ced6a5081996609a81f5b7994fe2a81d645a04770",
+      "sha256": "af92b1c5171284dea0537c0317315f000cc0a3c45764e72cb30f9dfa91a7f5d6",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_437_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "91b1c7a6144774353f1869f8e6cdf3b0d80296cabd8eb2b0006e1b83cbf540b4",
+      "sha256": "b8a109e86765569302770753fca9b70c3774867c739aa0d6cb6ec9a3f65888f7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_436_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "a0237a23efd3c76faf084d12acece27dc77bf567d590edcbfdece271fdd35a54",
+      "sha256": "90fffd158fd0d88274b82282c4de8fba3a41cf0ca62b753ab949dd8bf5cc1fc3",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_435_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "2cc9beaa67b74fe830fd194968d288022c2e5559877aa81550d7f769adfad103",
+      "sha256": "ad7f73fc2c9e246ad65a0743d0016179255cc27c26dd7fd5a0ead4886b72bcbc",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_434_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "8571c277bb46985aa4ddb29a17158c690ee58193b10f655e7f45e4a11cec39e4",
+      "sha256": "dcd5268dcf78be389785257d51771e701ba4a2c4e6210b8c3fb357466750cb86",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_433_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "1ea088405c679504c6e88fab86098b822c62923e69d77bec59b15053c9c53ae9",
+      "sha256": "0139fc8049d2a2383b3b358d11cf1317a684844c04bbe42af9d5e89b381110be",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_431_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "5e68673362085da1544858f9c5c3347f71029e56698d6e1c1c871216707bb755",
+      "sha256": "bf4c14a2adbe41b0d176ba521085162400d4c763873823f8ed16e32a9211b075",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_430_hd.png",
+      "direction": 6,
+      "animation": 4,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "0ec343bea04de64bdc22bf395f69c2e983662cd03336f5ede077881356568ff7",
+      "sha256": "aebcfe77f4620366af04801de430394d56f49a3f29f29b233e56475425f912c2",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_548_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "e176e457e54700dc9ece306ede33d8d94be523be22061eb3ee83a57a0c00ef1f",
+      "sha256": "0f47ddc865a1069d50bbf71a3a133947c7c4860eabecf7161eb6862c3e0be056",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_546_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "99739a02b4852b9dcc2213b23261813cc20bb302962e51bf9acbe6f64680e886",
+      "sha256": "4c4eb5f447dfddddf7b8320cedb1de906de50052bf7de5a9de87a4b0fdb2a0f2",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_545_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "33ef23772b5a6c658bab30c55529546031cd7f48d26efb7a608df6b45b410639",
+      "sha256": "72940cece45735eed4b35aa00344e4fa39a26e23f10e26b99e3d9e92375eaf4e",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_544_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "d2fa98f2b51c22ee5b0b590a64df3685a86151417236b2b8493c72da334efb85",
+      "sha256": "814b36b1fb633a826f5630256cf4e1cd20b1ddd56849d36c1967e248cbdf0d4a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_543_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "e8a0730cef32ded379e0be1be6002da146e119cf8d45ad2b10395e3e7e2f8c0f",
+      "sha256": "6e13787865b67281f47a500996fd5a7c361dd08738fd8cd812fc1624d2762caa",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_198_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "550f344784c6d5d97a35382d56042a4f11978fd01a3d98b8100fb9d1f8079403",
+      "sha256": "82029cf32fd38f25dbd445dccab37d44a39ffa7a96c168a5060cd9f63424ea07",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_542_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "e91fc89e20e83a3dcf5a4ad0e6a4e536569e1a88a45cb5de35a7eefe59586d25",
+      "sha256": "541c2aecd4497db79e699f0440ebe90f45a1fb748535beb227ff4c4e76102eee",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_541_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "3ef4b1ed8d065a15dfafc1bccd8c327923020451b87c3f279c1eeff8caa8ebbc",
+      "sha256": "89cd12dedd27098e436c2b84a19eeee99793d7263c3066d137e0531b943ac6aa",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_540_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "956932f178445691e85fd18960e5c75ae4c0e54a2313f8b4f95142732eb455f9",
+      "sha256": "7bedaa9575e1251cab636bc1e973088282f52ad09e3aa3ac31354622cab83e39",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_539_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "acd86ce1ceb07f84c562ed46ff5bb71bd5b146301fe277096dada73c4d226270",
+      "sha256": "6578ce9259779c2865ab44e8fbeec28461b169e0195c830cd7f5a88b8cb2da58",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_538_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "848561827479edacf1f1f661cd5aaa2f89171bd802cd5f71731e9558739a072c",
+      "sha256": "0de5fb2e81788f1fa232fb4a556638a8efa68bfb130f00050882a1e0ce3cc183",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_537_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "13843257db692332d1c5ff3b4b9f56480225473cd8e57c16150196670967bc0b",
+      "sha256": "2d645da57057a716d7283f8e23a14a5d444dcc216127dab501e42e0c4fc75446",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_536_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "ffa39523ac70b066c4f7d1af2bb8cc5161ae6397cae10a53cd32070be79c9166",
+      "sha256": "c277ba2877ee9c9d3885f01f1a937d728d455c19532c5dcd7b8a20ff26e53ac2",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_535_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "acc48501ce55bdb7f45c0ab5d04b6a8338f8370699969c5dc5624fe2dcfbf2c9",
+      "sha256": "097f850de374155dd515071c98b1f99b145b3f0a5f5cd2f28309a26b39dda7f7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_534_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "f3c6ab00c9d3567d0e68aaa84be02fc4b253041e76380f4cd20e4168156b3e85",
+      "sha256": "8af1dd5cf60efd7a6f776647d295d65746d46233f8edf1200b2e1515308da044",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_532_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "dcebe6a3f7759763f50c8b9fe4a3ec3e5e1e11384a2fff5c77531233cfad0d1b",
+      "sha256": "51a4089f2a0536f177e09d3b3d2b7906ac8879818c8f8443e9ca2133143fde16",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_531_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "b65cc6135cb8b12109ad445967ac24d11d1e9b3f08b80ca0a475659a66d1e578",
+      "sha256": "10414673cd954940fb4f501d74d59d9ec77fe2432a5bb6872858944a007c862b",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_530_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "25dbbac1e226a66cdc681149312de773629c936c723991ea3b72bb86983726fb",
+      "sha256": "20eb7d9d1857c5124f0a7f5c6bf040575fec87b2f5d6ed8a2a6be564015d80b7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_529_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "a793a3e4d5aff1edabd643c6f4ed1dad79e50c60993ebddd39a928f7d8ccbcdd",
+      "sha256": "70cdfde138585a4bdf22d228f843f83e26822b7895b7afe85c487ebe582e64eb",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_528_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "dafc3b60d17250cc050c25e0621f81d120c9a4513f86907b2fcb6e616a2bdabb",
+      "sha256": "4be58a2aa635b5aada665a43bc0e82165ad215cb8113b131da17b24d446eb565",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_213_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "1eef788dcb4c31a39259fa8354da87eb17770075e6f9743c4d67d14610ad854b",
+      "sha256": "b372a701db2f9b563795a94922c66cd79fc061a9fe9ae0bf12c6d29d576254e0",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_527_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "1801a8d4b46fe8d194d00263cdf843fa11d1f4149dfff8af0dd286ca2a08aba0",
+      "sha256": "d487fcc3151d4341f2830d1bfd2377441b40151fd53c3d5ea39021ba01bc5935",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_526_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "0529a3846f6d6636bc419744e5be89cb9972c10807ad18d667c327ee3780936c",
+      "sha256": "c7e8ecf5d8a50e4005d4fc73ec53fe141c5974015510464ab4063d80144996ef",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_524_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "4a90b5fa855dcd73dd96d1e27ff212dc62e4b38ed7eebe0266c0f9a3c76f1751",
+      "sha256": "90b2386740cbf47acfcd99ce3e16c5f863b44fba6fb56ddbc3594791e034deed",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_523_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "e507c7963a7e607e3e29d254677fb85b0bff9378424a3e22382a86ab81024cf0",
+      "sha256": "ef3c1cd943027a15cf46d13997227c8f20724847bcb7f93468ebba5feeaaa900",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_218_hd.png",
+      "direction": 4,
+      "animation": 4,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "7e3f7990d356326cf0f37b5136035766424790acc7f17aaf8df0f3fd3d28e8aa",
+      "sha256": "e01471a01e4d1c281f199fc4bd4a422737acd89a488bbca3f757268ae2d1fbd6",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_651_hd.png",
+      "direction": 0,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        6
+      ],
+      "input_sha256": "f9f384648acf5fd6e1662cebae23df6958a979d55379fa3d2354017a2addcf7a",
+      "sha256": "7ba910bdd8ff6aa7d2b05abfb055997d42971e500eb740e389233fe01aa537a2",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_650_hd.png",
+      "direction": 0,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        6
+      ],
+      "input_sha256": "286fc24a6fd13ea08ed07be8fbf69d6822c8194d9570e7fc61ae4eeb39db84b3",
+      "sha256": "8f0aaed16d1fd65f5de172bba757ee313b519ccb9ae7ea982f965e6a8d4add05",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_647_hd.png",
+      "direction": 0,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        6
+      ],
+      "input_sha256": "f4b575df8e0fe65c3a04e093980ba29203eb42ef09fcad3a5d114df3a3dc8305",
+      "sha256": "1e7b511b149bd44c4e15afd9eac3276492aaa936c8f11781691aedff5958788e",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_646_hd.png",
+      "direction": 0,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        6
+      ],
+      "input_sha256": "6ac5a93e2214b9f9850b2cf6381bc938033818ac8d6ad933c8cf1539dcd71a24",
+      "sha256": "8f972f7750580b784a2408312da32793330c0e0a5e76ebf19cedfef5415fef0a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_644_hd.png",
+      "direction": 0,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        6
+      ],
+      "input_sha256": "6663e045d3973dbe118048fca42103f0afb569443a32e39f5604b42ad325666b",
+      "sha256": "5ff5d4b2e6b8f71807c09e60bccc2402f6605117c8a4d28894d6983e4defd52a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_279_hd.png",
+      "direction": 0,
+      "animation": 4,
+      "shift_hd": [
+        1,
+        6
+      ],
+      "input_sha256": "8341e7275b2aa60b1c599bc90f7d4ecac5a0cb825ba50613d956c4d8212e7ba7",
+      "sha256": "4089fefaa5c3da5f4de987ec3d6977fe69673b6724c442077e8c35b8a8bf53cf",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_164_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "43070739e2cf8d0d3136b5e08fd2255202d3d7c5c4430161c5eb156f387b7db0",
+      "sha256": "1a1289d03db6c0488ccfaaef182755d3fffdf249ec35f0386c05e63126b57a32",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_590_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "e25058276b7b268e52aeb7ea834acffd711e0f7dcb2ef9fc088eed5a2a60d11d",
+      "sha256": "c3afc043afc9c28501f45ced343d0f1cc4499f6568b1dd0483ddf8b81282c9fd",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_589_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "e1fde953314ca71a1604c0f012deb08706babbb969d593890cefce9c914e5061",
+      "sha256": "d693364b6f34d21f763904e150a254b0effc309053b0dbc38f326d4d080226a6",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_588_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "5633c3c2f6f064e99d238db21cb2bb6675a83d39ff0ce7cd0436f00f50468ec4",
+      "sha256": "23752c8811020d10d2a3167ab205d32281624c3c357b021e38add5ad082c66ed",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_587_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "0aa0fd580704ef51f8e49fb2407887e40500adb2fd7598c0045424f4fb4d63e9",
+      "sha256": "0a2de1ce8880f5965868a8519b8acebca1c3969a5bc4da545f1e329a4a0363b2",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_583_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "8eb11a8568ef87acfa7b41374928adb5b9ce31519a6430cc3f33cf83c203831b",
+      "sha256": "069f33936a1df2ea936f9bc39cdb6c9b068432f0363e851a5d303c3bd33a05ae",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_582_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "95f8a3631fe67ada03b2cc297e539362b94688bd335bd8a1884254518ef26489",
+      "sha256": "143f424d5ac81c7c98752e4da3a57ea471cc176381e0f1bb26ce45cc384bf908",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_581_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "de9783abbd03803d3a096955b8b5e45ceb578f9f5e99e6cb93ef5f4b7cc2f2e2",
+      "sha256": "6f354a287044b9818ab23b8ad52a34e604b6ac8db1563a4c85c3eafdedf88ce0",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_580_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "fe4097610da445cdbd046c59b4267bf02a40517c2d73567b5d85b89261d3e8fb",
+      "sha256": "8afa38425795c8bb436c82445814ced5cfbbf30a54714c535938a30fd734adf7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_579_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "b8e3dfd17ef077a76026c3d5178abce6e16c33c990c4e5fc04e187c7a1072e47",
+      "sha256": "049f5fa5585f0954ada98ba8c8f9e7008ee3318848a0b1115d40dbec225c1141",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_578_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "2d8f6e942e5a1d3cbc20d36caf9915b80660eb858e8abc5bdbb669788c46cd70",
+      "sha256": "d2ed837c0699370342a5f9cd8b02948fd1b8fd5cda1ba9f990dd314fc6064793",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_577_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "8208cc3ba93f37e16fe068621e97f487e6fff2a6d89e0c17f3386629c04ccc48",
+      "sha256": "0487729a1321faced70eb3873762df92b080b3357a98bc0293d827928b3d3e37",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_576_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "595f353929909b9344c8f8c0fdd04d61fc84ec6f34bd72221ad373dcb666adc8",
+      "sha256": "7ab658fc66815520f22b838a8e4c7e399cf02fc4576f9263906d117c3287b3d1",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_573_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "b122320cb3b2a1ff7551e1a90ea55527fde65eefbe96feac073b8ca298a8f57d",
+      "sha256": "c1e97b64185dff0456814180da991235c83d88f9c3ca716a3036e3e13900103d",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_572_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "a2f78011db416359c63a7ab4db650903dbd2fffd061c81b270405e2eb1f4adda",
+      "sha256": "8a99c4d53f32d6e0499a5eb6cb020add858204f79aa7d6b88b6163efb4945835",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_569_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "1aa17dda535386f8629baf9ee30d89c45b5e183a92503d0bec780f84bfa2dac2",
+      "sha256": "65c2a11c6a89aa55dbd69bbb41cba8841ef5423203300e919b2ad2ca3c53e917",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_568_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "e7f1a944e7eed20423f32f89b51552bdb5889d4a869e2a262c1f388aa9f64927",
+      "sha256": "6207eb2878c99097738eca6388c071974dd58ef4e2f0599c1b2febbb470895a4",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_567_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "2aa9437ed9c25d535953a75408473b0cf8783e632aec054c5fd150fd0949bb5d",
+      "sha256": "44e3f07da148550c52ae9e1276a07aaeedaef39148be820997b0662d3fde715e",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_566_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "c6e96649a416df04cddcee491347f7174e81a2876e8358f06e607b5ae6bd8a35",
+      "sha256": "128a416f004a5501dd140799608a606859b324bd1b275682551f8e4553f272f4",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_565_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "b621d0d73d7140a143ccf1425e5c7ac3e8f0b0119d615ff9b98c9ffec002fb23",
+      "sha256": "17d59d620b27e925b17cd029937965faf950edcde7aaa8954448df2a32ba4118",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_562_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "64d8977513b80945db2846234a5391857327048bcccf9d3d9749ce1c46e31ebf",
+      "sha256": "2692ad4f4387876653201c7a64e08a1f38aafda1843f93009efa28c5b297f8a0",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_561_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "5c603be97878a53cc550791c3fb64e1acf3d41f3b3c5409113b8852ca668f5be",
+      "sha256": "234ccdc936c877750d3700c5164518137a3e9624719cd9cebf30017dea0d8a92",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_560_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "19dbb4b12ac5f042b74b1b823e37b07d64f02b14b19318e4ed7300aa3caa1d79",
+      "sha256": "972fb6ff6319d693b7546b8f2a22e2a74b459a0cacef4720d59ab677ee673feb",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_559_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "d2695812428a714b897b8c8f0d2622b09ade884f449dc9b22e2d2daf7448a86e",
+      "sha256": "2f14103af16b65a4c2d5f8dcc8976522b366447d4e1e3a3181109aae07fd377b",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_558_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "e094d7a0c36c1fe12907e29ac7d4ae7ace2539fbd211a59901e8e0b1256cdb2b",
+      "sha256": "132b7dccb60d6d71ac4475a00d31ec8e320a7dddd169e3b83ff751d1eca2dcd0",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_557_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "b46d1e441ca0b2324a5afb18f0dd44aa1f007d826efbd879a7754c4f609a606f",
+      "sha256": "84bd73a30aa38e8c69362f7b64ee5cf65f37acff929612f19bc8db5ea4744c27",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_556_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "d00ac9ce96506118fc9c25dc66281ff8372c7a5d8f6e3b5b63f2f4bac417e5bd",
+      "sha256": "2bbe3ca0c20d721650563dc751742198aaa07fc2ce003bb7771c9628d1b3db08",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_555_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "3e00b730d899a5f4d481acfc3990d9f41458953a63b5a6ade0909936cbb10ec8",
+      "sha256": "dad2f66d77635aaebf15608be82dda33ee7252f0ef96784651bfa595e19748f7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_551_hd.png",
+      "direction": 3,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "781a84c67f1f9fc6abcde80cb05a7d953f494af8f62725a6ad3f2b2f98962e60",
+      "sha256": "8eaf1cb76467eab42427b3cad53bac5a0dbcb800ce7128f047a11b984134e983",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_219_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "80f5d20b857f717e88e324923a2565ef34b65f49411d5d7ce4d05a04d5c04610",
+      "sha256": "8768e108be490bb60e1490150bd91b0d3bf68a19f84d4547a6b154ce673fe77d",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_522_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "52845ab3181a7097004a69ce406849d3b24c44241c9da869c40d7748640f26b2",
+      "sha256": "90ab320eb7b6a32a5a6f14beeee92a6db79b775af028019b65857b76fbdef608",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_521_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "8a2350d1d25c17107e63ead95515f81cc09fed42938c8cebae8d663b3c84a975",
+      "sha256": "b2cdd55e9bb294d456fbce34b8b79ee888239bea49bf1e3e39360e6320f902c5",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_520_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "ce33236f0d9043499559a6873cb2a428b2c0de593ba48b6e872c61e3dde3df10",
+      "sha256": "001efb01c3db589de9c244bfce52e8cb86dc3acd740beeb04c8bd25974f12761",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_517_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "d9f80e566ad30001bdd1ae5b872e51bfaeac3db081f25ec9e9f1f242a73d6f60",
+      "sha256": "7151a7e286992b556f0c1693ab40b9cc8204e58d9d931f67de0bfbe2fa84c0c3",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_516_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "c05b798be07ffd844b8ed3d1b1c9693ce95aa8bd0cd639d67f8f2010cd640cdb",
+      "sha256": "1e29fa2bc515844ac7077be4451cbc838ece4cac0c48a91e5e4a5d27e5502daf",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_515_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "01e7c040a6b0bf7b0741dd3eb7aa65fdad802283e37e831d257cae8899a21152",
+      "sha256": "6aa8b232251c528fbf801ad75aa6eecdd56baf41eb8e92fdbb53215d6fd1d735",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_513_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "0e09be2988c6a9791367903816d74f7ac00a45e352789c0cb9140a98846c432b",
+      "sha256": "5a68915d414ed6f854d02d6fc043582b5e26d0825f69be2964bf57fc9263034f",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_512_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "af6e5d59db258ae66fcde34c3ea6445bdceb2dee4de1ecb99aa9e06120f30025",
+      "sha256": "ebc48655c957e02eda243b429fddb4ca71480da18c210066321215eae9f5e6dc",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_509_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "e4f4bc102857bbefdf08ee3ac76d61fe9c942703947e2a77eaafe35068b30c8c",
+      "sha256": "040a6df820fad35016b35ef8e40865fda92ccd83ccbe3da966fe000e82fea44f",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_508_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "049d0b6e74d08b271925543e7b19661da4654257d6111a02a0360b48933b40f2",
+      "sha256": "9c6c5abfe2dfd06d99f9817ad2ea6fd9ed8ef3ce9309fc440321b3d619763ae8",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_507_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "20fcaa1345c5066819d868588a95fbb2072e2f1cde803a21f2063e72a0859eb7",
+      "sha256": "b708a157b762046add4268fb8f2d2d63da917bcb62983e1d56028866a0c8d591",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_506_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "02ee2a40a8b3a8eef0c896000f06376d01d93271d6c8ba3272ce31e6cf114148",
+      "sha256": "bfadfe8e6ed18f9b00394351b8726493b2a9b392363e215237d62ab910283b68",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_505_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "17d7fbac05b0d67b831e2c18a5e0e9f6b80fb6f6bbf0223885986f6abc951b3f",
+      "sha256": "a219d54e5c2b8998d68aaae0b6366e9ad6d28e2293906721895e43c6737d0625",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_504_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "28e76790fa7772a8c52bbbd47ddb80cc38336471b9ede850b07be121656a8c1e",
+      "sha256": "b5b6610536bd2a9c4222758a4ed422cbb2de44cc820d16f11e91f9edec4ccfde",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_503_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "b034b73713dcca9ef444eeeafc072925c62cb3acd88ed1041b91bc47a7a9df9e",
+      "sha256": "81f594ae2e86bf53998a9fdea6e8f996ae1d75439c392b8d6dd61805c5bc0daf",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_502_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "7f59c9aa6be571b9bdb896f1e978f9f592b28cc7ad7b9c40cf7fe7e26013bd8b",
+      "sha256": "d5439533acadcd0c19e2af7228bac03a95d6a8de36a1907e6910bd578dbc1424",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_501_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "9566d5ac8baaab9ace34502394977da8a1b4e97c21a617fcecd0a7a59e5f5137",
+      "sha256": "2289721b268e6d89fea7fe2522483df37497931abbe36669df468284313ec7e1",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_500_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "f8ac459d71eb8707e7c1ecaa03872c0b546393370e38ded52b55a3bfbf261855",
+      "sha256": "9ced6a8fb04623eae135eee7767787be793d1bf999df984aa61fc9e4aac4c3c9",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_499_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "c1676f5aae6ccab36c55cd62ac92f073cf95ad8fb6844e72e4abdfc96a043351",
+      "sha256": "dac91524ec1a926624148e9e2a7c7ff13227df1e561c64fdf58b825ddf1dfca5",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_498_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "2d50bfb3b9ae701665f19d2448e0df718bd834402aa4211999a4daffdeb9e47e",
+      "sha256": "eb9db5f3c3a1a2bfc8ce7eae268bb3721d74b850887371c7b08070e869745a25",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_497_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "1c334a9cf892864e525c8e549d635cd8ed0d5e1056eb1f764f2e1355711e6c7b",
+      "sha256": "9b977f5891ac04117f32de22f336b75b4c705a4d61eb96544f810c100a5bf1d6",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_491_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "aa2dc0ebe9be4acc3cd2d6bf8b77ac2474cbdcf27caf7ef63cb0249ae27d2180",
+      "sha256": "574548ebd611dff3b93115369c8a1f31c16fdb8f860b63e0e7c6d24203b7a9e3",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_480_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "3f1fdd030e51c84db3a796b4d56c971f39c3ea8f4fd2e31ae7185dd90abff551",
+      "sha256": "4e32fd07c2e5caeec5f544bd30c2324c1ebaf4c7369b80f00f905e22584dc28e",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_463_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "98ae5cb1029a08c34b39b845d203a0cea2eb392e15aebdb9293ec7a0401f5a66",
+      "sha256": "2b00aa90808f7da26c86771f79d542f9dafcb983e060760f4b968cae834e92d9",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_462_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "8692c66eb1af8e24adb0b95461f8cf1d35379c74a533e9649918252e89a2031a",
+      "sha256": "9bc9083e261b4469aede582d598629421d33bd628b3972ee8b3dab66eace01ae",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_461_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "26a95355abadf15a8206b34570ade5938692cef76ca6e9a671150ba689f12ffc",
+      "sha256": "540f130625c16959982a9349d6ade1d58a9788716183d9df53b2ceca31fd5db7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_460_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "904b0f29d80374ad855141dd0dc278e56d05ec4dae4b6e45341c9a0c5cce1b36",
+      "sha256": "c8725071a6e913be5a9233e3f0fb9b274569df7452ae10abbdcddf0e38c1a6a3",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_458_hd.png",
+      "direction": 5,
+      "animation": 4,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "f186fbb945b777e159bf335eb0d77ebd3a265e817bfbae0abc6775abc164938e",
+      "sha256": "c3b138b402c1677eb876ddb379145e71ba3ed5f42293fc808f4b516db91066ea",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_273_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "49c833eebffbdf4b36d5406c9c5dc4fea5e74e7b0c9ed88fba42903691fe12a7",
+      "sha256": "c56431fecad15ab4ae9889c0991c7f189ee0eb24bfc5a74e357cfd4f3f82f861",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_643_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "599619d18c8b5a27c9ef2b7ea2e38c71fb752dc29fbcf730e10a57be993aad25",
+      "sha256": "3323fc832b3f0b6e0f98ce81aa19c293fe63aab006088b2d65e9790fdeb5c9a7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_642_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "2d9f784177834a64da775880a483c72a94350b3732369df20c2d63df7f833e62",
+      "sha256": "a550041e9ee849f99bb39d34ec304e527c48aecd3217f2d37103e0d5034a97f0",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_641_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "332a12896a416e9b42b9f2a9905eda9f8485112cdac3fd34c672f9517bb45d8b",
+      "sha256": "485e6f3ab9ecaf6531a929e2b92d3aa7dc4b05d864586d08ec778f2d42f0f3b4",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_640_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "87403b6785dfad2027a19f8c6bc6b37da74ffad8df3bd8bbd2b84b368dcaaf92",
+      "sha256": "fff5ecac82bff6f0239b938bf7cc00a71b7d5b2561351768faa2155a466a33bc",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_637_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "d8e1e3287f1efba9cd3f1ea53c3bb779da3148d40eb3d082ac716b729d15bdd6",
+      "sha256": "ed6d1bc6404954f4c82f73125bc3f8934cc5036d82934ae3311c98d30a6dca1a",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_636_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "ce5cc054ead840901b7001e33fc7eb8eda16261697f4feeaf90e59be35fc1cad",
+      "sha256": "f440bf13b717826a5ca1b652d08b603bc8f8783e72518b451b5e5ba39a17019b",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_128_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "6e1a96b3c19821cc42a388d1170b4aac765abdfb946e8333c2dc9577a07bba71",
+      "sha256": "84da456fad2c73e3a594e613b374960df2f292fdd35d46745ad29bf7747e3798",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_253_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "1a06df7ab7f1de0c4db95e11f30eb76852cef2efee109d770863a321e067d173",
+      "sha256": "de283dac2b482865c5cecb746d9781dbb4e5b8bebb55da8051da1dd9498bfb73",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_635_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "246bdb39d297fae1979214503899ec53b80e7151799cc142157f5361d9e704a3",
+      "sha256": "4399e572915949ebd59988b95bab4c922e5cfe1f9918f27a555200295ccaaab1",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_633_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "d2841464afe6fadfecee533324ff66deb6a20851038bdd0dee50ee08a10c6ddd",
+      "sha256": "d4b8af98b72c310fc106fc587232bc1c5b036beb9c318d593cd7a9c7cc455897",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_144_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "9e53c81a0f0c6edcccf16eddb3aa529f507b802f57d6ada68f4dd7d7097ddd4a",
+      "sha256": "a67662b2bd2b0473a35a010e5d46f834d9129d07e32d87853a245b52c9bc4523",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_632_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "774c38bd4c3d673fab480e37cca1c3311dbb113f026479a7b82a6e762f675e91",
+      "sha256": "919d31a8b9a9cc42d7f42a0fd104b393925d05abd3f6f26e29d73525ef2c9989",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_631_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "8cc5760c29435457e1b6eb5215c0f7dc4da2711f19efec4b20daf67c5b5f9fc9",
+      "sha256": "b112687b5f369a25d22b76264838555038f8b12fe1a365079e8d2003db1ad44c",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_630_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "9b16d4241fb51f29c98e800bfd1d99a860d71e76ec7847b7da9166100b420cd9",
+      "sha256": "e1c1ea235749a78255f4802bd359420e0a76464160da5ddc5bc85b1876ed8979",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_629_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "604c423728567339ffb2403a56b51f5bc110322d696c9ab8152a0fd48f01ddad",
+      "sha256": "3b77285f16a1f1cb0d60b2d4db1af24712adfb6a45b0726c379e2720c9782e8e",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_628_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "25979fe853be1f0f1cabfd6e00c1fe12a2640b4970ca97974591281e7b808957",
+      "sha256": "0527e5a1eae2cbded8ed97a85a13595307f40ce7503bebd4e481f59e3b2f9116",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_624_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "b154442d57f6a454290652d82c9cabbca2e8e952190faf81fc6c415df0ea9bfe",
+      "sha256": "9832cced69a3b65fccc2849521f8d05a2b75e9e57ef34d81e2e859b7ec1fdfee",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_623_hd.png",
+      "direction": 1,
+      "animation": 4,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "ce4cc6ab6f34c27930927af6dbbb5eb802f73e1737d0f41f115f3c364ed9dc49",
+      "sha256": "92f6f145899305adbc54a59065247a3529fed026d4e4454daebbf895ddec50a5",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_120_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "cbd936243564fd6f8e7e7049897a8424ad7c818c2d9f0f280b482a866644b165",
+      "sha256": "f7472c04b4c1e97a1153076e273b7fea2c0f9235eaa5a9c1d50ae398074aa7c7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_429_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "6088f3a404ffe596ac1b5a6000e4fcb7d8cb8475eb9ea2545a0c2563e2f9109d",
+      "sha256": "7cdb50a61b1199d5f31f75cc97f735b0f06b7f92d4110caae81be6aa96b281c6",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_428_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "3bdbf2f85c80b5abe3fb4c32c8ba7f59d019cb108545a4fbe0d4c728c45f70c5",
+      "sha256": "d3a861cddd8f37920785918d65692097d701256966163815cdcca4cbcf8adf2d",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_426_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "ec54a69f41b47557c4ef2f9af5081971882d88fb14240a459af36da472f633d7",
+      "sha256": "9391b1bca4f40c4d82cd1d908c9b81e936f012dcff27d7a0473e90f1ca2ccc33",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_425_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "75c0901cb7a0f56ff58c641da3b397b618400072e7dfe673f8284b7c518b776c",
+      "sha256": "83d7d05fd68b15c5485745fa9dafd5dc316300640c3b4ab9cc77d40423e422bd",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_424_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "520a8237b7fe9e618804b78ad755bf78e9d234388f1f7879ddb4dd0175c9cb22",
+      "sha256": "4d67d060f23cf1a66cb2201221437fdcd9423c6c7cd639f00c9a68de2ff3af05",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_119_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "17691705df576c5b21833e1d77627ba6cb077084917a9e71947dea6e87f038ca",
+      "sha256": "27c11278f6ec430cdcad978cf9fa4b2f8222f324c0825a63b87cb1a49abe23bd",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_280_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "e8a8920e82db47659d770465f0b4a245abc371232b2c684f53d1765f6ded44c9",
+      "sha256": "c2706b61599dd5fb171743f225b1781736e558272c3953f3dac59d62b66570f5",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_422_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "8fada56973f80c890c2db4b1c19bac2351c4ecb64a3d88a8cea4871105774835",
+      "sha256": "5a7421077ef0696b42c313e5956790c9726dddcd495da8694be71a5481ce9a0b",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_421_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "e075808cfd14f1b2cafcf5319485a3525abccd2d334a4447a53b2e47470979e2",
+      "sha256": "8c211dad36001736df207f530c8bbd9a205e8d0cfccdcd5d50ef2fd7e95d72d5",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_283_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "ae0c63dd17cb0ea58c07e44764fd07d08483f77ea3f06a5581d7f6826d31bcc9",
+      "sha256": "1b8e15652c00643f71aa40d31dd99ada96042fe5a86da1985f4e7dcc042af301",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_420_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "3586f7aa135e52d410901be2ad9783ae834a328020698c50e9c8f2ff0046b366",
+      "sha256": "25ca846eda707abbaa2f4b024943bc216e5240826ddaee9fb4f536e28c344dcd",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_419_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "1893d4802060a0549529d6637034fa0ad3e4b24d6301e33302b9576de4603c97",
+      "sha256": "8e391a0c04558f7cc592643467b4870ebb666135a5181d6bccecfd59bd7a921c",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_418_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "ce24d599fc33b751ec9f5e0a3b6792c6dcf950b82009199d28f86358e7735589",
+      "sha256": "ef310cae2c261e175267d6262e43cda534807da80af8bc8c75062ba668eca102",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_415_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "1f10d98893f7c3bcc85efbfcf91589e29b894d4f0a5f55a092604b933069c737",
+      "sha256": "6b9c5e35099a33202c26d632d71120b2c6a7076f7b21c1ae821940004665b24e",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_414_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "58ef71c466b00808698ed6fd39db909cfe476a407649749c20bc83aa3e118a2d",
+      "sha256": "bb058e08abd487f85689147ad5b7d165c4aaa081d529c3c2806833b576b9fc86",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_413_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "d33f95c016c91496891011e482c4f3270e09dd21d3b4918ef4982d02279c6c6e",
+      "sha256": "e49a9136f670bea7e0884fca4c77befd477c1e1f995c9d85c7f94388ceb3c615",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_412_hd.png",
+      "direction": 7,
+      "animation": 4,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "902bd357caab14bd777e620b9dbc44b805a08695bc4d4f11c5a3fc6695eeed17",
+      "sha256": "d58cd28a2088bc8643008c53d50a71010baf208412d72feaff96991807625e68",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_409_hd.png",
+      "direction": 2,
+      "animation": 5,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "b27fb84dc61324ce43355607eb554f90a2de83e890f7a1785f28f70c90785bfe",
+      "sha256": "6595bc95ab6cb317159567bd92b64f60c2fa78ed025f21b7fe1fd5ec4e309e83",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_407_hd.png",
+      "direction": 6,
+      "animation": 5,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "8b8067f4290c688d75bdc52e735ba5aa7eba58cd57819f1ec1eac36c0cb96355",
+      "sha256": "a62f06dcf7b5a9a97c2906d30236ce041e80c9f74a372c21c4ff4ca6997817b1",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_041_hd.png",
+      "direction": 4,
+      "animation": 5,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "9a18b54186fac054def63224a2a30940f1e748ab65437d402e0fa8bb5f94a298",
+      "sha256": "0825609304107cabc9708189d71b88c7051882b93da8ec5271ed5a00f14e5581",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_113_hd.png",
+      "direction": 3,
+      "animation": 5,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "6e4fd6cb5c39c22d2824e99a535ade38ee139e5babb23807b734f870e3599b3c",
+      "sha256": "973f3f81077ec5d2b3a5e2c73f76a537810a7a52da2bd4b503ad102fc3bd7110",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_408_hd.png",
+      "direction": 5,
+      "animation": 5,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "6a769a431d2373e36aa78ae7d49f1bf2fe1108e2833633dbeca591bb35bf39e9",
+      "sha256": "22d185f27b0141a07644eaf395d2a5205549703ac9e7cdf8b7b7150acb45f3b2",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_411_hd.png",
+      "direction": 1,
+      "animation": 5,
+      "shift_hd": [
+        3,
+        4
+      ],
+      "input_sha256": "4e754e6f16e8802efc6fd1c6e58a814285c5d8bd6243d843fb43393849197c17",
+      "sha256": "7959d22911c9ab1f2c6a69bfd4282a675f0bdbd1e3b3049cf46f61d5ba3d1a83",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_406_hd.png",
+      "direction": 7,
+      "animation": 5,
+      "shift_hd": [
+        -6,
+        6
+      ],
+      "input_sha256": "59a219c81a6b4a9b9027214f3a896512d94d8876b9d0f7379c00f59831852a2a",
+      "sha256": "71d5c72b860769dcae98c25227f5d14191812dd9f6371684f82983e4cf5a1699",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_006_hd.png",
+      "direction": 2,
+      "animation": 53,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "5f03681d2c60657eed1e5e36cf4e07082c9e922a0a27e0b18b7fcfc84d6871fc",
+      "sha256": "9649745df349fd11a0d7a68972b5417dfcfb6e0e238610a82529ab40ae9547c4",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_821_hd.png",
+      "direction": 2,
+      "animation": 53,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "fb4e8255b71594abea7cec32f0e406cff62c79fb4c2dbec860a7fa7b0f278039",
+      "sha256": "3acdfb7515f0ecaaf1460ae41df763d6da57508f0f25d836f4cfc69f05643be4",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_822_hd.png",
+      "direction": 2,
+      "animation": 53,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "096997a8f37ae359a85cd57da2077c861b9b239b2a3faceffff0cc79eeca95b2",
+      "sha256": "8aed3e7d5fdbec97108fd8019fab9cd4943ed71cbc33da095809b057ac9684e8",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_823_hd.png",
+      "direction": 2,
+      "animation": 53,
+      "shift_hd": [
+        1,
+        3
+      ],
+      "input_sha256": "d6e2e44920c8bd92acccff08e0e2a56d72570cdbd4a0e2a84dc39dd1e01faa32",
+      "sha256": "0fa547406aa25fe40ccd325cb604a276cfbe119966eddd9f3136758afbf7548c",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_000_hd.png",
+      "direction": 6,
+      "animation": 53,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "cd9d6e7fee727aa8265eb567edb04014fb3d08112e33433f3098badc5d210e13",
+      "sha256": "3cf7d6709d20623dcccad6520f1b48fd1e910a0de4e209afa6e1da915f94c3b4",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_837_hd.png",
+      "direction": 6,
+      "animation": 53,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "6f1b4b59de5ba5b7cb6b0017cc4e90980d2a40577ca7d3f276a6a724b952213f",
+      "sha256": "ca28d3761f32e4b2a84a1a246aa11fb13b25aa5de7cd0ab4c84d2ceb126845bc",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_838_hd.png",
+      "direction": 6,
+      "animation": 53,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "79a9fef23c7d8a937efe4d269e2fdda8ab4936c50b2d7432ebf590535b609864",
+      "sha256": "00bf99a3f931a8d3ae3fe8771251c7946c8a857cd24a4054963601e165730712",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_839_hd.png",
+      "direction": 6,
+      "animation": 53,
+      "shift_hd": [
+        2,
+        2
+      ],
+      "input_sha256": "5ff208136f5330b4790a44a1a8b7abbf3a3c504f2e9c799b979577b83668181a",
+      "sha256": "de6526e1f41754abaf921bbd8454d6ea3055cd9cc7eca186a361645c5c722251",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_004_hd.png",
+      "direction": 4,
+      "animation": 53,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "7286ed5e7f74bff14da03a4b08257b694f4c0780e70e0a2a344b2fe4f8cbdeb6",
+      "sha256": "de4564469b5e9bd45b17772809b96eaba49ba94750aab9fe974a9f10744558ea",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_829_hd.png",
+      "direction": 4,
+      "animation": 53,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "c76de4d430788aeb372c6dbb5a16a42e56563b2f00abdb0de4927a2aa9b2a633",
+      "sha256": "c1792697d2993a4d630e36c9a3c48a75037875f5302c1d440e6ddcd19edcc8f8",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_830_hd.png",
+      "direction": 4,
+      "animation": 53,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "2ea8185c378e06d7712705109ee441801c7df5465f477da87255bdcec3ab823b",
+      "sha256": "a6f0c1ddc49d9083e9e3707bac3ed87a5f19acf9af7fb7ac9a0436b9e2b47d6f",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_831_hd.png",
+      "direction": 4,
+      "animation": 53,
+      "shift_hd": [
+        0,
+        7
+      ],
+      "input_sha256": "b49177e3ae714d00c0e4ae33f13d136634be5e254a61f611b51692cfecdb8152",
+      "sha256": "d4c33a301447b28a285974c974dcb8f575ce3969c5e340a5f4fa373b2b447703",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_005_hd.png",
+      "direction": 3,
+      "animation": 53,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "28653919968a7216e38e9f3fbbf32da4cc023128402b060fd05aca9ffdcad434",
+      "sha256": "d06c3e3321e102353c4a43ffdd8fc27fecd0f8c1ca7eb86a64533aaaa1a9ce18",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_825_hd.png",
+      "direction": 3,
+      "animation": 53,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "96b5ca8ddd45cfc0c1ee066f40f71109fb4381fcc11dba3f5f4c26dfb1705520",
+      "sha256": "bb1416dd3478115d65f3c10423f0858e8ee14b5f644f7880412f1f3246121603",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_826_hd.png",
+      "direction": 3,
+      "animation": 53,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "f1b82fdb73868667d44ea63cece4fbfab108ff7c9da9e25cc95a91e725b59daa",
+      "sha256": "b67c66b3e56bae8a96f2e80675e3eee2df7afd5602506bf39bed75708cbb5fc7",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_827_hd.png",
+      "direction": 3,
+      "animation": 53,
+      "shift_hd": [
+        3,
+        6
+      ],
+      "input_sha256": "4be0bda3b8c85336df5661036b182aecda74cc4d1033f748d858410234c10863",
+      "sha256": "d9a711f1fdaf700f36f183225e38309d6f93f2bb8b56ad1f485f600933fd3951",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_002_hd.png",
+      "direction": 5,
+      "animation": 53,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "971b11d8cd7d878855cb41b691213532998f4a3fa768913e5f4038ec74464207",
+      "sha256": "d9b333ffe2fd99d01cdad4c049aaeb15f8feabe17ea6b7b3ae257d7b1f745d9f",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_833_hd.png",
+      "direction": 5,
+      "animation": 53,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "a8a010f082949402d28a301903888e84c1e5ea611ae8a0bafed59855efcbfc81",
+      "sha256": "2058cab6275a66e2d05eff17ebb819d8faa6bc6795a3eb8807977a6bc75854f2",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_834_hd.png",
+      "direction": 5,
+      "animation": 53,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "cc98b1ce6552d0d2d9aee7f727fd7812dcfbf21797cc48ce3548db415ddb3850",
+      "sha256": "c8966845948ab2cd615207f63e50cce2565d2813e617dd51ba0077e91d472039",
+      "rgba_drawing_unchanged": true
+    },
+    {
+      "file": "costumes/costume014_835_hd.png",
+      "direction": 5,
+      "animation": 53,
+      "shift_hd": [
+        -3,
+        7
+      ],
+      "input_sha256": "53fb1001ba604bc945107f43ee630b6b99ae1c9509e970117c073f91990aac76",
+      "sha256": "e18dd088b04b394d7bdd6fab1d5148d9ccb3a1700a8146cb4848a87f20f17d40",
+      "rgba_drawing_unchanged": true
+    }
+  ]
+}
