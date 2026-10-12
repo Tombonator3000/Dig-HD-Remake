@@ -1,0 +1,464 @@
+{
+  "cases": [
+    {
+      "tag": "scene-packaged",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged"
+    },
+    {
+      "tag": "all15-packaged",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 20,
+          "pixels": 0
+        },
+        {
+          "frame": 40,
+          "pixels": 0
+        },
+        {
+          "frame": 60,
+          "pixels": 0
+        },
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 100,
+          "pixels": 0
+        },
+        {
+          "frame": 120,
+          "pixels": 0
+        },
+        {
+          "frame": 140,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        },
+        {
+          "frame": 180,
+          "pixels": 0
+        },
+        {
+          "frame": 200,
+          "pixels": 0
+        },
+        {
+          "frame": 220,
+          "pixels": 0
+        },
+        {
+          "frame": 240,
+          "pixels": 0
+        },
+        {
+          "frame": 260,
+          "pixels": 0
+        },
+        {
+          "frame": 280,
+          "pixels": 0
+        },
+        {
+          "frame": 300,
+          "pixels": 0
+        },
+        {
+          "frame": 320,
+          "pixels": 0
+        },
+        {
+          "frame": 340,
+          "pixels": 0
+        },
+        {
+          "frame": 360,
+          "pixels": 0
+        },
+        {
+          "frame": 380,
+          "pixels": 0
+        },
+        {
+          "frame": 400,
+          "pixels": 0
+        },
+        {
+          "frame": 420,
+          "pixels": 0
+        },
+        {
+          "frame": 440,
+          "pixels": 0
+        },
+        {
+          "frame": 460,
+          "pixels": 0
+        },
+        {
+          "frame": 480,
+          "pixels": 0
+        },
+        {
+          "frame": 500,
+          "pixels": 0
+        },
+        {
+          "frame": 520,
+          "pixels": 0
+        },
+        {
+          "frame": 540,
+          "pixels": 0
+        },
+        {
+          "frame": 560,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50,
+        64
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+      "all15_crystal_cells_rendered": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "tag": "entry-packaged",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 12,
+          "pixels": 0
+        },
+        {
+          "frame": 24,
+          "pixels": 0
+        },
+        {
+          "frame": 36,
+          "pixels": 0
+        },
+        {
+          "frame": 48,
+          "pixels": 0
+        },
+        {
+          "frame": 60,
+          "pixels": 0
+        },
+        {
+          "frame": 72,
+          "pixels": 0
+        },
+        {
+          "frame": 84,
+          "pixels": 0
+        },
+        {
+          "frame": 96,
+          "pixels": 0
+        },
+        {
+          "frame": 108,
+          "pixels": 0
+        },
+        {
+          "frame": 120,
+          "pixels": 0
+        },
+        {
+          "frame": 132,
+          "pixels": 0
+        },
+        {
+          "frame": 144,
+          "pixels": 0
+        },
+        {
+          "frame": 156,
+          "pixels": 0
+        },
+        {
+          "frame": 168,
+          "pixels": 0
+        },
+        {
+          "frame": 180,
+          "pixels": 0
+        },
+        {
+          "frame": 192,
+          "pixels": 0
+        },
+        {
+          "frame": 204,
+          "pixels": 0
+        },
+        {
+          "frame": 216,
+          "pixels": 0
+        },
+        {
+          "frame": 228,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50,
+        64
+      ],
+      "passed": true,
+      "test_mode": "AppImage",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged"
+    }
+  ],
+  "passed": true,
+  "redraw_checks": 49,
+  "pixel_identical_complete_frames": 40,
+  "frame_comparisons": [
+    {
+      "case": "scene-packaged",
+      "frame": 80,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "scene-packaged",
+      "frame": 160,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 80,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 100,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 120,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 140,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 160,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 180,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 200,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 220,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 240,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 260,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 280,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 300,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 320,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 340,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 360,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 380,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 400,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 420,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 440,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 460,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 480,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 500,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 520,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 540,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "all15-packaged",
+      "frame": 560,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 84,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 96,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 108,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 120,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 132,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 144,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 156,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 168,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 180,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 192,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 204,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 216,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "case": "entry-packaged",
+      "frame": 228,
+      "native_matches_AppImage_pixel_for_pixel": true
+    }
+  ],
+  "all_15_crystal_states_rendered_from_actual_AppImage": true,
+  "early_cross_run_comparison_excluded": "Frames below80 may still show the room entry wipe or restored previous room. Their within-run incremental/full redraw checks all pass, including the previously failing entry frames40 and48.",
+  "visual_review": "The fifteen native runtime states and normal scene were inspected. All forty completed packaged frames match native pixels; packaged normal room50 frame160 is also inspected before delivery.",
+  "scope": "Isolated room, state-cycle and entry-edge tests; no full playthrough or new physical keyboard test."
+}

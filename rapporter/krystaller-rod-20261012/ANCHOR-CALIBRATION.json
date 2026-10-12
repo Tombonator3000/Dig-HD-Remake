@@ -1,0 +1,45 @@
+{
+  "frame": "costume319_012",
+  "translation_HD_pixels": [
+    0,
+    2
+  ],
+  "translation_original_pixels": [
+    0,
+    0.5
+  ],
+  "reason": "Blue octahedron antialias tip extended above its original first screen row. First incremental presentation missed 4 pixels at x832-835,y191 during room entry; whole redraw drew them. A 1-HD-pixel offset reduced this to one low-alpha pixel. The final 2-HD-pixel import offset puts the tip into its original first pixel block. Generated source pixels and alpha are unchanged.",
+  "before_sha256": "b12c005171cdcd93a79bf972f984ff5d2bdba7d9f56663465215d80d7a3710c3",
+  "after_sha256": "d0050b056853a86fbf5aa6bfa464a42b94deba884e2ddf61ba8f629238161764",
+  "drawing_pixels_not_clipped": true,
+  "source_generator_PNG_unchanged": true,
+  "checks_before": [
+    {
+      "tag": "all-states-native",
+      "frame": 48,
+      "stale_pixels": 4
+    },
+    {
+      "tag": "all15-native",
+      "frame": 40,
+      "stale_pixels": 4
+    }
+  ],
+  "one_HD_pixel_offset_trial": [
+    {
+      "tag": "all15-fixed-native",
+      "frame": 40,
+      "stale_pixels": 1
+    },
+    {
+      "tag": "entry-fixed-native",
+      "frame": 48,
+      "stale_pixels": 1
+    }
+  ],
+  "baseline_r7_injected_case_pixels_at48": 0,
+  "needs_repeat_verification": false,
+  "final_repeat_frame40_stale_pixels": 0,
+  "final_repeat_frame48_stale_pixels": 0,
+  "all_49_final_native_redraw_checks_zero": true
+}

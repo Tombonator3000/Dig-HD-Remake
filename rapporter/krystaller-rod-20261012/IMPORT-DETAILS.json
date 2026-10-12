@@ -1,0 +1,461 @@
+{
+  "myk_version": 3,
+  "source_pipeline": {
+    "repo": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk",
+    "revision": "6a8c63387bf1421f189e127a019711b13b56d684",
+    "paths": [
+      "docs/kostymefarger.csv",
+      "pipeline/dighd/__init__.py",
+      "pipeline/dighd/cli.py",
+      "pipeline/dighd/export.py",
+      "pipeline/dighd/figur.py",
+      "pipeline/dighd/gamedata.py",
+      "pipeline/dighd/gpt.py",
+      "pipeline/dighd/modpack.py",
+      "pipeline/dighd/myk.py",
+      "pipeline/dighd/skrift.py",
+      "pipeline/dighd/skrifter/exo2/OFL.txt",
+      "pipeline/dighd/skrifter/exo2/exo-2-latin-600-normal.woff",
+      "pipeline/dighd/skrifter/exo2/exo-2-latin-700-normal.woff",
+      "pipeline/dighd/upscale.py",
+      "pipeline/pyproject.toml",
+      "pipeline/tests/test_pipeline.py"
+    ]
+  },
+  "resolved_originals": "/home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-crystals-r8/extract",
+  "sheets": {
+    "fig319_02": {
+      "metode": "rader",
+      "skala": 0.8387,
+      "grupper": 3,
+      "deler_paa_arket": 3,
+      "ruter": {
+        "costume319_003": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_003_hd.png",
+          "sha256": "fe5da5972e33e941d0129cb183c4ffa7597cc4b10ebe86dbb0e498773aaea1b7",
+          "storrelse": [
+            264,
+            224
+          ],
+          "marg": [
+            2,
+            2
+          ],
+          "flytt_hd": [
+            -3,
+            -1
+          ],
+          "snitt_union": 0.941,
+          "dekning": 0.946,
+          "deler": 1,
+          "skala": 0.8387,
+          "tilpasset": true,
+          "skala_xy": [
+            0.9018,
+            0.8387
+          ],
+          "kostyme": 319,
+          "rute": 3,
+          "animasjon": 9,
+          "retning": 2,
+          "lag": 0
+        },
+        "costume319_004": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_004_hd.png",
+          "sha256": "56a374a43d77277bb1e77ac071d107f7d8c563298a4254e65f1eef887c4470ed",
+          "storrelse": [
+            288,
+            264
+          ],
+          "marg": [
+            2,
+            3
+          ],
+          "flytt_hd": [
+            8,
+            -1
+          ],
+          "snitt_union": 0.918,
+          "dekning": 0.92,
+          "deler": 1,
+          "skala": 0.8276,
+          "tilpasset": true,
+          "skala_xy": [
+            0.9269,
+            0.8276
+          ],
+          "kostyme": 319,
+          "rute": 4,
+          "animasjon": 10,
+          "retning": 2,
+          "lag": 0
+        },
+        "costume319_005": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_005_hd.png",
+          "sha256": "c846fdfd5f296d4291121510c547000a8e1338716bad84e604e7570766c324de",
+          "storrelse": [
+            264,
+            236
+          ],
+          "marg": [
+            4,
+            3
+          ],
+          "flytt_hd": [
+            -11,
+            -3
+          ],
+          "snitt_union": 0.968,
+          "dekning": 0.977,
+          "deler": 1,
+          "skala": 0.906,
+          "tilpasset": true,
+          "skala_xy": [
+            0.8958,
+            0.906
+          ],
+          "kostyme": 319,
+          "rute": 5,
+          "animasjon": 11,
+          "retning": 2,
+          "lag": 0
+        }
+      },
+      "source_sheet": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/krystaller-rod-20261012/assets/fig319_02-native.png",
+      "source_sha256": "42fac5fe590240da3bc4e5c48b2223be3633fbf0dfff487326d6de746df6baf0",
+      "job_sha256": "b499d232fb1907ee2ceecd8890914d79810091932a48dcdfc2c11391fdb0a68b"
+    },
+    "fig319_03": {
+      "metode": "rader",
+      "skala": 0.9383,
+      "grupper": 3,
+      "deler_paa_arket": 3,
+      "ruter": {
+        "costume319_006": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_006_hd.png",
+          "sha256": "8c39f4646f61f990d22e47c5d14524e41c5af8f95518d8b42295b12e777b53f7",
+          "storrelse": [
+            312,
+            264
+          ],
+          "marg": [
+            2,
+            3
+          ],
+          "flytt_hd": [
+            -3,
+            -6
+          ],
+          "snitt_union": 0.958,
+          "dekning": 0.995,
+          "deler": 1,
+          "skala": 0.9562,
+          "tilpasset": true,
+          "skala_xy": [
+            1.035,
+            0.9562
+          ],
+          "kostyme": 319,
+          "rute": 6,
+          "animasjon": 12,
+          "retning": 2,
+          "lag": 0
+        },
+        "costume319_007": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_007_hd.png",
+          "sha256": "f33c3c42023d899d75a0857111d04d9e33455692713fcac2ad052e8f8c63d596",
+          "storrelse": [
+            292,
+            252
+          ],
+          "marg": [
+            2,
+            3
+          ],
+          "flytt_hd": [
+            -4,
+            -5
+          ],
+          "snitt_union": 0.961,
+          "dekning": 0.967,
+          "deler": 1,
+          "skala": 0.9383,
+          "tilpasset": true,
+          "skala_xy": [
+            0.9857,
+            0.9383
+          ],
+          "kostyme": 319,
+          "rute": 7,
+          "animasjon": 13,
+          "retning": 2,
+          "lag": 0
+        },
+        "costume319_008": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_008_hd.png",
+          "sha256": "535ae8c0e14978a84930530f779b983df233029ed042e3801ee5f64484e3e1ea",
+          "storrelse": [
+            272,
+            232
+          ],
+          "marg": [
+            2,
+            3
+          ],
+          "flytt_hd": [
+            -3,
+            -1
+          ],
+          "snitt_union": 0.957,
+          "dekning": 0.971,
+          "deler": 1,
+          "skala": 0.9327,
+          "tilpasset": true,
+          "skala_xy": [
+            0.9771,
+            0.9327
+          ],
+          "kostyme": 319,
+          "rute": 8,
+          "animasjon": 14,
+          "retning": 2,
+          "lag": 0
+        }
+      },
+      "source_sheet": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/krystaller-rod-20261012/assets/fig319_03-native.png",
+      "source_sha256": "73e0d26a598e47df28713b5f632c445ad99377fae1ec152e8610d85ae4aca6e3",
+      "job_sha256": "36dfe694bd83e56465cfd0ed2e11989c2123713aa399ead280df8a8a53d00a43"
+    },
+    "fig319_04": {
+      "metode": "rader",
+      "skala": 0.8971,
+      "grupper": 3,
+      "deler_paa_arket": 3,
+      "ruter": {
+        "costume319_009": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_009_hd.png",
+          "sha256": "f138d8cc2352f4703858f3bb52791a62806eafafb0dc9e8be1a152009e04cf06",
+          "storrelse": [
+            304,
+            260
+          ],
+          "marg": [
+            4,
+            2
+          ],
+          "flytt_hd": [
+            -9,
+            -4
+          ],
+          "snitt_union": 0.966,
+          "dekning": 0.983,
+          "deler": 1,
+          "skala": 0.8971,
+          "tilpasset": true,
+          "skala_xy": [
+            0.9749,
+            0.8971
+          ],
+          "kostyme": 319,
+          "rute": 9,
+          "animasjon": 15,
+          "retning": 2,
+          "lag": 0
+        },
+        "costume319_010": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_010_hd.png",
+          "sha256": "7f5302f4727f4cc4906d65918c82c6697b609cca43477e042cc4dc9de60b093e",
+          "storrelse": [
+            256,
+            228
+          ],
+          "marg": [
+            3,
+            2
+          ],
+          "flytt_hd": [
+            -5,
+            -2
+          ],
+          "snitt_union": 0.97,
+          "dekning": 0.987,
+          "deler": 1,
+          "skala": 0.8724,
+          "tilpasset": true,
+          "skala_xy": [
+            0.8286,
+            0.8724
+          ],
+          "kostyme": 319,
+          "rute": 10,
+          "animasjon": 16,
+          "retning": 2,
+          "lag": 0
+        },
+        "costume319_011": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_011_hd.png",
+          "sha256": "03817af64f52c006cfd51d82471038443f79273638f1461155550414abf446a1",
+          "storrelse": [
+            300,
+            252
+          ],
+          "marg": [
+            2,
+            3
+          ],
+          "flytt_hd": [
+            -2,
+            -6
+          ],
+          "snitt_union": 0.945,
+          "dekning": 0.984,
+          "deler": 1,
+          "skala": 0.8976,
+          "tilpasset": true,
+          "skala_xy": [
+            1.0054,
+            0.8976
+          ],
+          "kostyme": 319,
+          "rute": 11,
+          "animasjon": 17,
+          "retning": 2,
+          "lag": 0
+        }
+      },
+      "source_sheet": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/krystaller-rod-20261012/assets/fig319_04-native.png",
+      "source_sha256": "22f4948589f552212723f9fc2bf0bd400fca7a80e67a178a9717d84e2d523457",
+      "job_sha256": "34282e6ae724140a663e99d372244e0d0423b85d5d2b5c33df10e6021741743b"
+    },
+    "fig319_05": {
+      "metode": "rader",
+      "skala": 0.9349,
+      "grupper": 3,
+      "deler_paa_arket": 3,
+      "ruter": {
+        "costume319_012": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_012_hd.png",
+          "sha256": "d0050b056853a86fbf5aa6bfa464a42b94deba884e2ddf61ba8f629238161764",
+          "storrelse": [
+            288,
+            240
+          ],
+          "marg": [
+            2,
+            2
+          ],
+          "flytt_hd": [
+            -4,
+            -4
+          ],
+          "snitt_union": 0.971,
+          "dekning": 0.979,
+          "deler": 1,
+          "skala": 0.9614,
+          "tilpasset": true,
+          "skala_xy": [
+            0.9927,
+            0.9614
+          ],
+          "kostyme": 319,
+          "rute": 12,
+          "animasjon": 18,
+          "retning": 2,
+          "lag": 0,
+          "import_sha256_before_anchor": "b12c005171cdcd93a79bf972f984ff5d2bdba7d9f56663465215d80d7a3710c3",
+          "post_import_anchor_HD": [
+            0,
+            2
+          ]
+        },
+        "costume319_013": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_013_hd.png",
+          "sha256": "01f5395675c9d14df2b88f9f2980ab24a01f07f94edcb38ba17b3d4c741b6c3e",
+          "storrelse": [
+            284,
+            240
+          ],
+          "marg": [
+            4,
+            4
+          ],
+          "flytt_hd": [
+            -9,
+            -2
+          ],
+          "snitt_union": 0.968,
+          "dekning": 0.98,
+          "deler": 1,
+          "skala": 0.9083,
+          "tilpasset": true,
+          "skala_xy": [
+            0.9692,
+            0.9083
+          ],
+          "kostyme": 319,
+          "rute": 13,
+          "animasjon": 19,
+          "retning": 2,
+          "lag": 0
+        },
+        "costume319_014": {
+          "status": "ok",
+          "kilde": "arket",
+          "fil": "costumes/costume319_014_hd.png",
+          "sha256": "e55ce95952293f5fbb2bb3267aacee25c841895948b3b8057d3f727e98b26b0b",
+          "storrelse": [
+            300,
+            276
+          ],
+          "marg": [
+            4,
+            4
+          ],
+          "flytt_hd": [
+            -6,
+            -9
+          ],
+          "snitt_union": 0.961,
+          "dekning": 0.979,
+          "deler": 1,
+          "skala": 0.9349,
+          "tilpasset": true,
+          "skala_xy": [
+            1.0113,
+            0.9349
+          ],
+          "kostyme": 319,
+          "rute": 14,
+          "animasjon": 20,
+          "retning": 2,
+          "lag": 0
+        }
+      },
+      "source_sheet": "/home/tombonator3000t/Documents/Codex/Dig-HD-Remake-gpt-grafikk/rapporter/krystaller-rod-20261012/assets/fig319_05-native.png",
+      "source_sha256": "5f14620e5634eac742da663d64e21ab8c2fcda82fcba5c7b67a55fa6ca45967c",
+      "job_sha256": "bb5fdedfe2e58f0982ae483486d8d086df20305500b96bb3e56be8007f089e28"
+    }
+  }
+}

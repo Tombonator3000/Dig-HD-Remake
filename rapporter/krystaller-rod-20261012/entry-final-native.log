@@ -1,0 +1,384 @@
+Using configuration file: /home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-crystals-r8/entry-final-native/config.ini
+Debuglevel (from command line): 1
+Using SDL Video Driver "dummy"
+creating SurfaceSDL graphics manager
+creating OpenGL graphics manager
+creating SurfaceSDL graphics manager
+Using SDL Audio Driver "dummy"
+Output sample rate: 44100 Hz
+Output buffer size: 1024 samples
+Output channels: 2
+WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!
+HardwareInput with ID 'JOY_START' not known
+HardwareInput with ID 'JOY_LEFT_STICK_Y-' not known
+HardwareInput with ID 'JOY_LEFT_STICK_Y+' not known
+HardwareInput with ID 'JOY_LEFT_STICK_X-' not known
+HardwareInput with ID 'JOY_LEFT_STICK_X+' not known
+HardwareInput with ID 'JOY_RIGHT_SHOULDER' not known
+CPU extensions:
+SSE2(enabled) AVX2(enabled) NEON(not supported)
+User picked target 'dig' (engine ID 'scumm', game ID 'dig')...
+Using gameid dig, variant , extra 
+  SCUMM version 7, HE version 0
+Using MD5 'd8323015ecb8b10bf53474f6e6b0ae33'
+Setting 640 x 480 -> 640 x 480 -- 1
+WARNING: generateZipSet: Could not find 'gui-icons.dat'!
+WARNING: Could not find theme 'scummremastered' falling back to builtin!
+HardwareInput with ID 'JOY_A' not known
+HardwareInput with ID 'JOY_B' not known
+HardwareInput with ID 'JOY_LEFT_SHOULDER' not known
+HardwareInput with ID 'JOY_Y' not known
+HardwareInput with ID 'JOY_X' not known
+HardwareInput with ID 'JOY_UP' not known
+HardwareInput with ID 'JOY_DOWN' not known
+HardwareInput with ID 'JOY_LEFT' not known
+HardwareInput with ID 'JOY_RIGHT' not known
+DigHD: mod '/home/tombonator3000t/Skrivebord/TheDigHD-Linux-20261012-test/usr/share/the-dig-hd/mods/gpt', scale 4, text xbr
+DigHD: screen 1280x800, 2 bytes per pixel
+Setting 1280 x 800 -> 1280 x 800 -- 1
+DigHD: room 64 loaded (1280x800)
+State loaded from 'dig.s03'
+Backward seeking in GZipReadStream detected
+DigHD: test, jumping to room 50
+DigHD: verify frame 12: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 12: 0 of 1024000 HD pixels differ strongly from the original (0.000%)
+DigHD: dumped frame 12 (room 64, smush 0) HD room px 0, HD object px 0, HD sprite px 0, original px 426240
+DigHD: whole screen frame 12 (room 64, screen at 0,0): HD room px 0, HD object px 0, HD sprite px 0, original px 64000 (background without HD 64000, figure without HD 0), HD text px 0, cycled HD px 0, soft figure px 0
+DigHD: verify frame 24: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 24: 0 of 1024000 HD pixels differ strongly from the original (0.000%)
+DigHD: dumped frame 24 (room 64, smush 0) HD room px 0, HD object px 0, HD sprite px 0, original px 343808
+DigHD: whole screen frame 24 (room 64, screen at 0,0): HD room px 0, HD object px 0, HD sprite px 0, original px 64000 (background without HD 64000, figure without HD 0), HD text px 0, cycled HD px 0, soft figure px 0
+DigHD: HD cursor object 851 state 1 (144x120)
+DigHD: HD cursor object 851 state 1 (144x120)
+DigHD: room 50 loaded (1280x800)
+DigHD: costume 319 in room 50 with palette 3: codes through AKPL and the actor palette
+DigHD: frame 26 soft cel 9 costume 319 slot 288 seq 2 at 270,-5 48x42
+DigHD: frame 26 soft cel 2 costume 319 slot 256 seq 3 at 226,22 48x40
+DigHD: frame 26 soft cel 12 costume 319 slot 224 seq 4 at 182,48 48x40
+DigHD: frame 26 soft cel 2 costume 319 slot 192 seq 5 at 139,74 48x40
+DigHD: frame 27 flush soft 136,0 184x118, 1 live soft cels
+DigHD: test, actor scale 255
+DigHD: test, actor 29 with costume 319 at 200,170
+DigHD: test, actor 29 animation 8 (chore 1, direction 0) at frame 31
+DigHD: verify frame 36: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 36: 11469 of 1024000 HD pixels differ strongly from the original (1.120%)
+DigHD: dumped frame 36 (room 50, smush 0) HD room px 160621, HD object px 6019, HD sprite px 0, original px 219488, soft figure px 10427
+DigHD: whole screen frame 36 (room 50, screen at 0,0): HD room px 39231, HD object px 1457, HD sprite px 0, original px 23312 (background without HD 16, figure without HD 23296), HD text px 0, cycled HD px 0, soft figure px 2418
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without)
+DigHD: test, actor 29 animation 9 (chore 1, direction 1) at frame 43
+DigHD: verify frame 48: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 48: 29235 of 1024000 HD pixels differ strongly from the original (2.855%)
+DigHD: dumped frame 48 (room 50, smush 0) HD room px 204737, HD object px 7951, HD sprite px 0, original px 131120, soft figure px 16278
+DigHD: whole screen frame 48 (room 50, screen at 0,0): HD room px 60608, HD object px 2352, HD sprite px 0, original px 1040 (background without HD 16, figure without HD 1024), HD text px 0, cycled HD px 0, soft figure px 4670
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without)
+DigHD: HD typeface for 10 game fonts
+DigHD: typeface exo2, 94 letters
+DigHD: test, actor 29 animation 10 (chore 1, direction 2) at frame 55
+DigHD: frame 59 soft cel 9 costume 319 slot 288 seq 6 at 270,-5 48x42
+DigHD: frame 59 soft cel 2 costume 319 slot 256 seq 7 at 226,22 48x40
+DigHD: frame 59 soft cel 12 costume 319 slot 224 seq 8 at 182,48 48x40
+DigHD: frame 59 soft cel 2 costume 319 slot 192 seq 9 at 139,74 48x40
+DigHD: frame 59 soft cel 0 costume 319 slot 928 seq 10 at 169,150 58x53
+DigHD: frame 60 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 60 flush soft 165,147 66x53, 5 live soft cels
+DigHD: verify frame 60: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 60: 35285 of 1021712 HD pixels differ strongly from the original (3.454%)
+DigHD: verify frame 60: HD text, 695 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 60 (room 50, smush 0) HD room px 229045, HD object px 7621, HD sprite px 0, original px 128048, HD text px 756, soft figure px 34284
+DigHD: whole screen frame 60 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6738
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 60 soft cel 9 costume 319 slot 288 seq 11 at 270,-5 48x42
+DigHD: frame 60 soft cel 2 costume 319 slot 256 seq 12 at 226,22 48x40
+DigHD: frame 60 soft cel 12 costume 319 slot 224 seq 13 at 182,48 48x40
+DigHD: frame 60 soft cel 2 costume 319 slot 192 seq 14 at 139,74 48x40
+DigHD: frame 60 soft cel 0 costume 319 slot 928 seq 15 at 169,150 58x53
+DigHD: frame 61 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 61 flush soft 165,147 66x53, 5 live soft cels
+DigHD: test, actor 29 animation 11 (chore 1, direction 3) at frame 67
+DigHD: frame 68 soft cel 9 costume 319 slot 288 seq 16 at 270,-5 48x42
+DigHD: frame 68 soft cel 2 costume 319 slot 256 seq 17 at 226,22 48x40
+DigHD: frame 68 soft cel 12 costume 319 slot 224 seq 18 at 182,48 48x40
+DigHD: frame 68 soft cel 2 costume 319 slot 192 seq 19 at 139,74 48x40
+DigHD: frame 68 soft cel 0 costume 319 slot 928 seq 20 at 169,150 58x53
+DigHD: frame 69 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 69 flush soft 165,147 66x53, 5 live soft cels
+DigHD: verify frame 72: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 72: 35285 of 1021712 HD pixels differ strongly from the original (3.454%)
+DigHD: verify frame 72: HD text, 695 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 72 (room 50, smush 0) HD room px 268306, HD object px 7570, HD sprite px 0, original px 128048, HD text px 797, soft figure px 47142
+DigHD: whole screen frame 72 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6738
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 72 soft cel 9 costume 319 slot 288 seq 21 at 270,-5 48x42
+DigHD: frame 72 soft cel 2 costume 319 slot 256 seq 22 at 226,22 48x40
+DigHD: frame 72 soft cel 12 costume 319 slot 224 seq 23 at 182,48 48x40
+DigHD: frame 72 soft cel 2 costume 319 slot 192 seq 24 at 139,74 48x40
+DigHD: frame 72 soft cel 0 costume 319 slot 928 seq 25 at 169,150 58x53
+DigHD: frame 73 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 73 flush soft 165,147 66x53, 5 live soft cels
+DigHD: test, actor 29 animation 12 (chore 1, direction 4) at frame 79
+DigHD: frame 80 soft cel 9 costume 319 slot 288 seq 26 at 270,-5 48x42
+DigHD: frame 80 soft cel 2 costume 319 slot 256 seq 27 at 226,22 48x40
+DigHD: frame 80 soft cel 12 costume 319 slot 224 seq 28 at 182,48 48x40
+DigHD: frame 80 soft cel 2 costume 319 slot 192 seq 29 at 139,74 48x40
+DigHD: frame 80 soft cel 0 costume 319 slot 928 seq 30 at 169,150 58x53
+DigHD: frame 81 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 81 flush soft 165,147 66x53, 5 live soft cels
+DigHD: verify frame 84: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 84: 35285 of 1021712 HD pixels differ strongly from the original (3.454%)
+DigHD: verify frame 84: HD text, 695 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 84 (room 50, smush 0) HD room px 268306, HD object px 7570, HD sprite px 0, original px 128048, HD text px 797, soft figure px 47142
+DigHD: whole screen frame 84 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6738
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 84 soft cel 9 costume 319 slot 288 seq 31 at 270,-5 48x42
+DigHD: frame 84 soft cel 2 costume 319 slot 256 seq 32 at 226,22 48x40
+DigHD: frame 84 soft cel 12 costume 319 slot 224 seq 33 at 182,48 48x40
+DigHD: frame 84 soft cel 2 costume 319 slot 192 seq 34 at 139,74 48x40
+DigHD: frame 84 soft cel 0 costume 319 slot 928 seq 35 at 169,150 58x53
+DigHD: frame 85 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 85 flush soft 165,147 66x53, 5 live soft cels
+DigHD: test, actor 29 animation 13 (chore 1, direction 5) at frame 91
+DigHD: frame 92 soft cel 9 costume 319 slot 288 seq 36 at 270,-5 48x42
+DigHD: frame 92 soft cel 2 costume 319 slot 256 seq 37 at 226,22 48x40
+DigHD: frame 92 soft cel 12 costume 319 slot 224 seq 38 at 182,48 48x40
+DigHD: frame 92 soft cel 2 costume 319 slot 192 seq 39 at 139,74 48x40
+DigHD: frame 92 soft cel 0 costume 319 slot 928 seq 40 at 169,150 58x53
+DigHD: frame 93 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 93 flush soft 165,147 66x53, 5 live soft cels
+DigHD: verify frame 96: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 96: 35285 of 1021712 HD pixels differ strongly from the original (3.454%)
+DigHD: verify frame 96: HD text, 695 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 96 (room 50, smush 0) HD room px 268306, HD object px 7570, HD sprite px 0, original px 128048, HD text px 797, soft figure px 47142
+DigHD: whole screen frame 96 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6738
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 96 soft cel 9 costume 319 slot 288 seq 41 at 270,-5 48x42
+DigHD: frame 96 soft cel 2 costume 319 slot 256 seq 42 at 226,22 48x40
+DigHD: frame 96 soft cel 12 costume 319 slot 224 seq 43 at 182,48 48x40
+DigHD: frame 96 soft cel 2 costume 319 slot 192 seq 44 at 139,74 48x40
+DigHD: frame 96 soft cel 0 costume 319 slot 928 seq 45 at 169,150 58x53
+DigHD: frame 97 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 97 flush soft 165,147 66x53, 5 live soft cels
+DigHD: test, actor 29 animation 14 (chore 1, direction 6) at frame 103
+DigHD: frame 104 soft cel 9 costume 319 slot 288 seq 46 at 270,-5 48x42
+DigHD: frame 104 soft cel 2 costume 319 slot 256 seq 47 at 226,22 48x40
+DigHD: frame 104 soft cel 12 costume 319 slot 224 seq 48 at 182,48 48x40
+DigHD: frame 104 soft cel 2 costume 319 slot 192 seq 49 at 139,74 48x40
+DigHD: frame 104 soft cel 0 costume 319 slot 928 seq 50 at 169,150 58x53
+DigHD: frame 105 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 105 flush soft 165,147 66x53, 5 live soft cels
+DigHD: verify frame 108: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 108: 35285 of 1021712 HD pixels differ strongly from the original (3.454%)
+DigHD: verify frame 108: HD text, 695 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 108 (room 50, smush 0) HD room px 268306, HD object px 7570, HD sprite px 0, original px 128048, HD text px 797, soft figure px 47142
+DigHD: whole screen frame 108 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6738
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 108 soft cel 9 costume 319 slot 288 seq 51 at 270,-5 48x42
+DigHD: frame 108 soft cel 2 costume 319 slot 256 seq 52 at 226,22 48x40
+DigHD: frame 108 soft cel 12 costume 319 slot 224 seq 53 at 182,48 48x40
+DigHD: frame 108 soft cel 2 costume 319 slot 192 seq 54 at 139,74 48x40
+DigHD: frame 108 soft cel 0 costume 319 slot 928 seq 55 at 169,150 58x53
+DigHD: frame 109 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 109 flush soft 165,147 66x53, 5 live soft cels
+DigHD: test, actor 29 animation 15 (chore 1, direction 7) at frame 115
+DigHD: frame 116 soft cel 9 costume 319 slot 288 seq 56 at 270,-5 48x42
+DigHD: frame 116 soft cel 2 costume 319 slot 256 seq 57 at 226,22 48x40
+DigHD: frame 116 soft cel 12 costume 319 slot 224 seq 58 at 182,48 48x40
+DigHD: frame 116 soft cel 2 costume 319 slot 192 seq 59 at 139,74 48x40
+DigHD: frame 116 soft cel 0 costume 319 slot 928 seq 60 at 169,150 58x53
+DigHD: frame 117 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 117 flush soft 165,147 66x53, 5 live soft cels
+DigHD: verify frame 120: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 120: 35285 of 1021712 HD pixels differ strongly from the original (3.454%)
+DigHD: verify frame 120: HD text, 695 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 120 (room 50, smush 0) HD room px 268306, HD object px 7570, HD sprite px 0, original px 128048, HD text px 797, soft figure px 47142
+DigHD: whole screen frame 120 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6738
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 120 soft cel 9 costume 319 slot 288 seq 61 at 270,-5 48x42
+DigHD: frame 120 soft cel 2 costume 319 slot 256 seq 62 at 226,22 48x40
+DigHD: frame 120 soft cel 12 costume 319 slot 224 seq 63 at 182,48 48x40
+DigHD: frame 120 soft cel 2 costume 319 slot 192 seq 64 at 139,74 48x40
+DigHD: frame 120 soft cel 0 costume 319 slot 928 seq 65 at 169,150 58x53
+DigHD: frame 121 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 121 flush soft 165,147 66x53, 5 live soft cels
+DigHD: test, actor 29 animation 48 (chore 6, direction 0) at frame 127
+DigHD: frame 128 soft cel 9 costume 319 slot 288 seq 66 at 270,-5 48x42
+DigHD: frame 128 soft cel 2 costume 319 slot 256 seq 67 at 226,22 48x40
+DigHD: frame 128 soft cel 12 costume 319 slot 224 seq 68 at 182,48 48x40
+DigHD: frame 128 soft cel 2 costume 319 slot 192 seq 69 at 139,74 48x40
+DigHD: frame 128 soft cel 0 costume 319 slot 928 seq 70 at 170,140 58x53
+DigHD: frame 129 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 129 flush soft 165,137 67x63, 5 live soft cels
+DigHD: verify frame 132: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 132: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 132: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 132 (room 50, smush 0) HD room px 269029, HD object px 7570, HD sprite px 0, original px 128048, HD text px 797, soft figure px 47408
+DigHD: whole screen frame 132 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 132 soft cel 9 costume 319 slot 288 seq 71 at 270,-5 48x42
+DigHD: frame 132 soft cel 2 costume 319 slot 256 seq 72 at 226,22 48x40
+DigHD: frame 132 soft cel 12 costume 319 slot 224 seq 73 at 182,48 48x40
+DigHD: frame 132 soft cel 2 costume 319 slot 192 seq 74 at 139,74 48x40
+DigHD: frame 132 soft cel 0 costume 319 slot 928 seq 75 at 170,140 58x53
+DigHD: frame 133 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 133 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 49 (chore 6, direction 1) at frame 139
+DigHD: frame 140 soft cel 9 costume 319 slot 288 seq 76 at 270,-5 48x42
+DigHD: frame 140 soft cel 2 costume 319 slot 256 seq 77 at 226,22 48x40
+DigHD: frame 140 soft cel 12 costume 319 slot 224 seq 78 at 182,48 48x40
+DigHD: frame 140 soft cel 2 costume 319 slot 192 seq 79 at 139,74 48x40
+DigHD: frame 140 soft cel 0 costume 319 slot 928 seq 80 at 170,140 58x53
+DigHD: frame 141 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 141 flush soft 166,137 66x59, 5 live soft cels
+DigHD: verify frame 144: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 144: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 144: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 144 (room 50, smush 0) HD room px 268266, HD object px 7570, HD sprite px 0, original px 128048, HD text px 791, soft figure px 47503
+DigHD: whole screen frame 144 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 144 soft cel 9 costume 319 slot 288 seq 81 at 270,-5 48x42
+DigHD: frame 144 soft cel 2 costume 319 slot 256 seq 82 at 226,22 48x40
+DigHD: frame 144 soft cel 12 costume 319 slot 224 seq 83 at 182,48 48x40
+DigHD: frame 144 soft cel 2 costume 319 slot 192 seq 84 at 139,74 48x40
+DigHD: frame 144 soft cel 0 costume 319 slot 928 seq 85 at 170,140 58x53
+DigHD: frame 145 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 145 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 50 (chore 6, direction 2) at frame 151
+DigHD: frame 152 soft cel 9 costume 319 slot 288 seq 86 at 270,-5 48x42
+DigHD: frame 152 soft cel 2 costume 319 slot 256 seq 87 at 226,22 48x40
+DigHD: frame 152 soft cel 12 costume 319 slot 224 seq 88 at 182,48 48x40
+DigHD: frame 152 soft cel 2 costume 319 slot 192 seq 89 at 139,74 48x40
+DigHD: frame 152 soft cel 0 costume 319 slot 928 seq 90 at 170,140 58x53
+DigHD: frame 153 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 153 flush soft 166,137 66x59, 5 live soft cels
+DigHD: verify frame 156: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 156: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 156: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 156 (room 50, smush 0) HD room px 268266, HD object px 7570, HD sprite px 0, original px 128048, HD text px 791, soft figure px 47503
+DigHD: whole screen frame 156 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 156 soft cel 9 costume 319 slot 288 seq 91 at 270,-5 48x42
+DigHD: frame 156 soft cel 2 costume 319 slot 256 seq 92 at 226,22 48x40
+DigHD: frame 156 soft cel 12 costume 319 slot 224 seq 93 at 182,48 48x40
+DigHD: frame 156 soft cel 2 costume 319 slot 192 seq 94 at 139,74 48x40
+DigHD: frame 156 soft cel 0 costume 319 slot 928 seq 95 at 170,140 58x53
+DigHD: frame 157 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 157 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 51 (chore 6, direction 3) at frame 163
+DigHD: frame 164 soft cel 9 costume 319 slot 288 seq 96 at 270,-5 48x42
+DigHD: frame 164 soft cel 2 costume 319 slot 256 seq 97 at 226,22 48x40
+DigHD: frame 164 soft cel 12 costume 319 slot 224 seq 98 at 182,48 48x40
+DigHD: frame 164 soft cel 2 costume 319 slot 192 seq 99 at 139,74 48x40
+DigHD: frame 164 soft cel 0 costume 319 slot 928 seq 100 at 170,140 58x53
+DigHD: frame 165 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 165 flush soft 166,137 66x59, 5 live soft cels
+DigHD: verify frame 168: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 168: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 168: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 168 (room 50, smush 0) HD room px 268266, HD object px 7570, HD sprite px 0, original px 128048, HD text px 791, soft figure px 47503
+DigHD: whole screen frame 168 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 168 soft cel 9 costume 319 slot 288 seq 101 at 270,-5 48x42
+DigHD: frame 168 soft cel 2 costume 319 slot 256 seq 102 at 226,22 48x40
+DigHD: frame 168 soft cel 12 costume 319 slot 224 seq 103 at 182,48 48x40
+DigHD: frame 168 soft cel 2 costume 319 slot 192 seq 104 at 139,74 48x40
+DigHD: frame 168 soft cel 0 costume 319 slot 928 seq 105 at 170,140 58x53
+DigHD: frame 169 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 169 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 52 (chore 6, direction 4) at frame 175
+DigHD: frame 176 soft cel 9 costume 319 slot 288 seq 106 at 270,-5 48x42
+DigHD: frame 176 soft cel 2 costume 319 slot 256 seq 107 at 226,22 48x40
+DigHD: frame 176 soft cel 12 costume 319 slot 224 seq 108 at 182,48 48x40
+DigHD: frame 176 soft cel 2 costume 319 slot 192 seq 109 at 139,74 48x40
+DigHD: frame 176 soft cel 0 costume 319 slot 928 seq 110 at 170,140 58x53
+DigHD: frame 177 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 177 flush soft 166,137 66x59, 5 live soft cels
+DigHD: verify frame 180: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 180: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 180: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 180 (room 50, smush 0) HD room px 268266, HD object px 7570, HD sprite px 0, original px 128048, HD text px 791, soft figure px 47503
+DigHD: whole screen frame 180 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 180 soft cel 9 costume 319 slot 288 seq 111 at 270,-5 48x42
+DigHD: frame 180 soft cel 2 costume 319 slot 256 seq 112 at 226,22 48x40
+DigHD: frame 180 soft cel 12 costume 319 slot 224 seq 113 at 182,48 48x40
+DigHD: frame 180 soft cel 2 costume 319 slot 192 seq 114 at 139,74 48x40
+DigHD: frame 180 soft cel 0 costume 319 slot 928 seq 115 at 170,140 58x53
+DigHD: frame 181 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 181 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 53 (chore 6, direction 5) at frame 187
+DigHD: frame 188 soft cel 9 costume 319 slot 288 seq 116 at 270,-5 48x42
+DigHD: frame 188 soft cel 2 costume 319 slot 256 seq 117 at 226,22 48x40
+DigHD: frame 188 soft cel 12 costume 319 slot 224 seq 118 at 182,48 48x40
+DigHD: frame 188 soft cel 2 costume 319 slot 192 seq 119 at 139,74 48x40
+DigHD: frame 188 soft cel 0 costume 319 slot 928 seq 120 at 170,140 58x53
+DigHD: frame 189 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 189 flush soft 166,137 66x59, 5 live soft cels
+DigHD: verify frame 192: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 192: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 192: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 192 (room 50, smush 0) HD room px 268266, HD object px 7570, HD sprite px 0, original px 128048, HD text px 791, soft figure px 47503
+DigHD: whole screen frame 192 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 192 soft cel 9 costume 319 slot 288 seq 121 at 270,-5 48x42
+DigHD: frame 192 soft cel 2 costume 319 slot 256 seq 122 at 226,22 48x40
+DigHD: frame 192 soft cel 12 costume 319 slot 224 seq 123 at 182,48 48x40
+DigHD: frame 192 soft cel 2 costume 319 slot 192 seq 124 at 139,74 48x40
+DigHD: frame 192 soft cel 0 costume 319 slot 928 seq 125 at 170,140 58x53
+DigHD: frame 193 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 193 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 54 (chore 6, direction 6) at frame 199
+DigHD: frame 200 soft cel 9 costume 319 slot 288 seq 126 at 270,-5 48x42
+DigHD: frame 200 soft cel 2 costume 319 slot 256 seq 127 at 226,22 48x40
+DigHD: frame 200 soft cel 12 costume 319 slot 224 seq 128 at 182,48 48x40
+DigHD: frame 200 soft cel 2 costume 319 slot 192 seq 129 at 139,74 48x40
+DigHD: frame 200 soft cel 0 costume 319 slot 928 seq 130 at 170,140 58x53
+DigHD: frame 201 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 201 flush soft 166,137 66x59, 5 live soft cels
+DigHD: verify frame 204: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 204: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 204: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 204 (room 50, smush 0) HD room px 268266, HD object px 7570, HD sprite px 0, original px 128048, HD text px 791, soft figure px 47503
+DigHD: whole screen frame 204 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 204 soft cel 9 costume 319 slot 288 seq 131 at 270,-5 48x42
+DigHD: frame 204 soft cel 2 costume 319 slot 256 seq 132 at 226,22 48x40
+DigHD: frame 204 soft cel 12 costume 319 slot 224 seq 133 at 182,48 48x40
+DigHD: frame 204 soft cel 2 costume 319 slot 192 seq 134 at 139,74 48x40
+DigHD: frame 204 soft cel 0 costume 319 slot 928 seq 135 at 170,140 58x53
+DigHD: frame 205 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 205 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 55 (chore 6, direction 7) at frame 211
+DigHD: frame 212 soft cel 9 costume 319 slot 288 seq 136 at 270,-5 48x42
+DigHD: frame 212 soft cel 2 costume 319 slot 256 seq 137 at 226,22 48x40
+DigHD: frame 212 soft cel 12 costume 319 slot 224 seq 138 at 182,48 48x40
+DigHD: frame 212 soft cel 2 costume 319 slot 192 seq 139 at 139,74 48x40
+DigHD: frame 212 soft cel 0 costume 319 slot 928 seq 140 at 170,140 58x53
+DigHD: frame 213 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 213 flush soft 166,137 66x59, 5 live soft cels
+DigHD: verify frame 216: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 216: 35410 of 1021712 HD pixels differ strongly from the original (3.466%)
+DigHD: verify frame 216: HD text, 671 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 216 (room 50, smush 0) HD room px 268266, HD object px 7570, HD sprite px 0, original px 128048, HD text px 791, soft figure px 47503
+DigHD: whole screen frame 216 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 6791
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 216 soft cel 9 costume 319 slot 288 seq 141 at 270,-5 48x42
+DigHD: frame 216 soft cel 2 costume 319 slot 256 seq 142 at 226,22 48x40
+DigHD: frame 216 soft cel 12 costume 319 slot 224 seq 143 at 182,48 48x40
+DigHD: frame 216 soft cel 2 costume 319 slot 192 seq 144 at 139,74 48x40
+DigHD: frame 216 soft cel 0 costume 319 slot 928 seq 145 at 170,140 58x53
+DigHD: frame 217 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 217 flush soft 166,137 66x59, 5 live soft cels
+DigHD: test, actor 29 animation 56 (chore 7, direction 0) at frame 223
+DigHD: frame 224 soft cel 9 costume 319 slot 288 seq 146 at 270,-5 48x42
+DigHD: frame 224 soft cel 2 costume 319 slot 256 seq 147 at 226,22 48x40
+DigHD: frame 224 soft cel 12 costume 319 slot 224 seq 148 at 182,48 48x40
+DigHD: frame 224 soft cel 2 costume 319 slot 192 seq 149 at 139,74 48x40
+DigHD: frame 224 soft cel 1 costume 319 slot 928 seq 150 at 166,141 69x57
+DigHD: frame 225 flush soft 136,0 184x118, 5 live soft cels
+DigHD: frame 225 flush soft 162,137 77x63, 5 live soft cels
+DigHD: verify frame 228: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 228: 40918 of 1021712 HD pixels differ strongly from the original (4.005%)
+DigHD: verify frame 228: HD text, 700 of 2288 HD pixels differ strongly (smooth glyph edges, left out above)
+DigHD: dumped frame 228 (room 50, smush 0) HD room px 270607, HD object px 7570, HD sprite px 0, original px 128048, HD text px 818, soft figure px 55706
+DigHD: whole screen frame 228 (room 50, screen at 0,0): HD room px 61544, HD object px 2440, HD sprite px 0, original px 16 (background without HD 16, figure without HD 0), HD text px 143, cycled HD px 0, soft figure px 8431
+DigHD: costumes drawn: actor 6 costume 319 (1 cels HD, 0 without), actor 7 costume 319 (1 cels HD, 0 without), actor 8 costume 319 (1 cels HD, 0 without), actor 9 costume 319 (1 cels HD, 0 without), actor 29 costume 319 (1 cels HD, 0 without)
+DigHD: frame 228, HD room px 0, HD object px 0, HD sprite px 0, original px 0

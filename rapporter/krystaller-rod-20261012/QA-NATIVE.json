@@ -1,0 +1,261 @@
+{
+  "cases": [
+    {
+      "tag": "scene-final-native",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50
+      ],
+      "passed": true,
+      "test_mode": "native with staged mod",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged"
+    },
+    {
+      "tag": "all15-final-native",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 20,
+          "pixels": 0
+        },
+        {
+          "frame": 40,
+          "pixels": 0
+        },
+        {
+          "frame": 60,
+          "pixels": 0
+        },
+        {
+          "frame": 80,
+          "pixels": 0
+        },
+        {
+          "frame": 100,
+          "pixels": 0
+        },
+        {
+          "frame": 120,
+          "pixels": 0
+        },
+        {
+          "frame": 140,
+          "pixels": 0
+        },
+        {
+          "frame": 160,
+          "pixels": 0
+        },
+        {
+          "frame": 180,
+          "pixels": 0
+        },
+        {
+          "frame": 200,
+          "pixels": 0
+        },
+        {
+          "frame": 220,
+          "pixels": 0
+        },
+        {
+          "frame": 240,
+          "pixels": 0
+        },
+        {
+          "frame": 260,
+          "pixels": 0
+        },
+        {
+          "frame": 280,
+          "pixels": 0
+        },
+        {
+          "frame": 300,
+          "pixels": 0
+        },
+        {
+          "frame": 320,
+          "pixels": 0
+        },
+        {
+          "frame": 340,
+          "pixels": 0
+        },
+        {
+          "frame": 360,
+          "pixels": 0
+        },
+        {
+          "frame": 380,
+          "pixels": 0
+        },
+        {
+          "frame": 400,
+          "pixels": 0
+        },
+        {
+          "frame": 420,
+          "pixels": 0
+        },
+        {
+          "frame": 440,
+          "pixels": 0
+        },
+        {
+          "frame": 460,
+          "pixels": 0
+        },
+        {
+          "frame": 480,
+          "pixels": 0
+        },
+        {
+          "frame": 500,
+          "pixels": 0
+        },
+        {
+          "frame": 520,
+          "pixels": 0
+        },
+        {
+          "frame": 540,
+          "pixels": 0
+        },
+        {
+          "frame": 560,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50,
+        64
+      ],
+      "passed": true,
+      "test_mode": "native with staged mod",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged"
+    },
+    {
+      "tag": "entry-final-native",
+      "exit_code": 0,
+      "checks": [
+        {
+          "frame": 12,
+          "pixels": 0
+        },
+        {
+          "frame": 24,
+          "pixels": 0
+        },
+        {
+          "frame": 36,
+          "pixels": 0
+        },
+        {
+          "frame": 48,
+          "pixels": 0
+        },
+        {
+          "frame": 60,
+          "pixels": 0
+        },
+        {
+          "frame": 72,
+          "pixels": 0
+        },
+        {
+          "frame": 84,
+          "pixels": 0
+        },
+        {
+          "frame": 96,
+          "pixels": 0
+        },
+        {
+          "frame": 108,
+          "pixels": 0
+        },
+        {
+          "frame": 120,
+          "pixels": 0
+        },
+        {
+          "frame": 132,
+          "pixels": 0
+        },
+        {
+          "frame": 144,
+          "pixels": 0
+        },
+        {
+          "frame": 156,
+          "pixels": 0
+        },
+        {
+          "frame": 168,
+          "pixels": 0
+        },
+        {
+          "frame": 180,
+          "pixels": 0
+        },
+        {
+          "frame": 192,
+          "pixels": 0
+        },
+        {
+          "frame": 204,
+          "pixels": 0
+        },
+        {
+          "frame": 216,
+          "pixels": 0
+        },
+        {
+          "frame": 228,
+          "pixels": 0
+        }
+      ],
+      "rooms": [
+        50,
+        64
+      ],
+      "passed": true,
+      "test_mode": "native with staged mod",
+      "save_source": "isolated copies from before-save3/saves; user saves unchanged"
+    }
+  ],
+  "passed": true,
+  "redraw_checks": 49,
+  "all_15_costume319_HD_cells_rendered": true,
+  "gallery_frames_by_cel": {
+    "0": 80,
+    "1": 120,
+    "2": 140,
+    "3": 180,
+    "4": 220,
+    "5": 240,
+    "6": 280,
+    "7": 300,
+    "8": 340,
+    "9": 380,
+    "10": 400,
+    "11": 440,
+    "12": 460,
+    "13": 500,
+    "14": 540
+  },
+  "visual_review_pending": false,
+  "test_scope": "Normal room50 scene, injected actor showing every color/form state, and entry-edge regression. Isolated save copies; no physical input or full playthrough.",
+  "visual_review": "Normal room50 and contact sheet of all fifteen actual runtime states inspected: correct red/green/blue assignment, five different polyhedral forms, consistent glass/refraction material, smooth edges and no visible stray borders. Generated sheets compared with originals before import."
+}
