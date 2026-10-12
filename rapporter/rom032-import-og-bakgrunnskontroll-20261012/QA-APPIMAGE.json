@@ -1,0 +1,52 @@
+{
+  "tag": "packaged-room32",
+  "exit_code": 0,
+  "checks": [
+    {
+      "frame": 40,
+      "pixels": 0
+    },
+    {
+      "frame": 80,
+      "pixels": 0
+    },
+    {
+      "frame": 120,
+      "pixels": 0
+    },
+    {
+      "frame": 160,
+      "pixels": 0
+    },
+    {
+      "frame": 200,
+      "pixels": 0
+    }
+  ],
+  "rooms": [
+    32
+  ],
+  "passed": true,
+  "test_mode": "AppImage",
+  "save_source": "isolated copies from before-save3/saves; user saves unchanged",
+  "frame_comparisons": [
+    {
+      "frame": 80,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "frame": 120,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "frame": 160,
+      "native_matches_AppImage_pixel_for_pixel": true
+    },
+    {
+      "frame": 200,
+      "native_matches_AppImage_pixel_for_pixel": true
+    }
+  ],
+  "frame40_cross_run_comparison_excluded": "Room-entry iris wipe is still in progress, with different timing; both incremental/full redraw checks pass. All four later complete frames match exactly.",
+  "room032_loaded_hd": true
+}

@@ -1,0 +1,142 @@
+Using configuration file: /home/tombonator3000t/.codex/tasks/the-dig-linux-20261012/qa-room32-r6/packaged-room32/config/the-dig-hd/scummvm.ini
+Debuglevel (from command line): 1
+Using SDL Video Driver "dummy"
+creating SurfaceSDL graphics manager
+creating OpenGL graphics manager
+creating SurfaceSDL graphics manager
+Using SDL Audio Driver "dummy"
+Output sample rate: 44100 Hz
+Output buffer size: 1024 samples
+Output channels: 2
+HardwareInput with ID 'JOY_START' not known
+HardwareInput with ID 'JOY_LEFT_STICK_Y-' not known
+HardwareInput with ID 'JOY_LEFT_STICK_Y+' not known
+HardwareInput with ID 'JOY_LEFT_STICK_X-' not known
+HardwareInput with ID 'JOY_LEFT_STICK_X+' not known
+HardwareInput with ID 'JOY_RIGHT_SHOULDER' not known
+CPU extensions:
+SSE2(enabled) AVX2(enabled) NEON(not supported)
+User picked target 'dig' (engine ID 'scumm', game ID 'dig')...
+Using gameid dig, variant , extra 
+  SCUMM version 7, HE version 0
+Using MD5 'd8323015ecb8b10bf53474f6e6b0ae33'
+Setting 640 x 480 -> 640 x 480 -- 1
+WARNING: generateZipSet: Could not find 'gui-icons.dat'!
+WARNING: Couldn't load font 'helvb12.bdf'/'LiberationSans-Bold.ttf'!
+
+  File <File Stream>, line 155:
+<language id = '*'   scalable_file = 'LiberationSans-Bold.ttf'/>
+		</font>
+
+Parser error: Error loading localized Font in theme engine.
+
+WARNING: Failed to parse STX file 'remastered_gfx.stx'!
+WARNING: Failed to load theme '/tmp/.mount_TheDigmJPPfH/usr/share/the-dig-hd/scummremastered.zip'!
+HardwareInput with ID 'JOY_A' not known
+HardwareInput with ID 'JOY_B' not known
+HardwareInput with ID 'JOY_LEFT_SHOULDER' not known
+HardwareInput with ID 'JOY_Y' not known
+HardwareInput with ID 'JOY_X' not known
+HardwareInput with ID 'JOY_UP' not known
+HardwareInput with ID 'JOY_DOWN' not known
+HardwareInput with ID 'JOY_LEFT' not known
+HardwareInput with ID 'JOY_RIGHT' not known
+DigHD: mod '/tmp/.mount_TheDigmJPPfH/usr/share/the-dig-hd/mods/gpt', scale 4, text xbr
+DigHD: screen 1280x800, 2 bytes per pixel
+Setting 1280 x 800 -> 1280 x 800 -- 1
+DigHD: room 64 loaded (1280x800)
+State loaded from 'dig.s03'
+Backward seeking in GZipReadStream detected
+DigHD: test, jumping to room 32
+DigHD: HD cursor object 851 state 1 (144x120)
+DigHD: HD cursor object 851 state 1 (144x120)
+DigHD: room 32 loaded (1280x800)
+DigHD: costume 116 in room 32 with palette 0: codes through AKPL and the actor palette
+DigHD: no HD for costume 116 cel 6 (2x2 at 201,25)
+DigHD: no HD for costume 116 cel 9 (5x3 at 138,29)
+DigHD: no HD for costume 116 cel 10 (15x4 at 293,102)
+DigHD: no HD for costume 116 cel 12 (2x1 at 306,105)
+DigHD: costume 13 in room 32 with palette 0: codes through AKPL and the actor palette
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: verify frame 40: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 40: 21966 of 862768 HD pixels differ strongly from the original (2.546%)
+DigHD: verify frame 40: colour cycling, 6781 of 161232 HD pixels differ strongly (smooth colour map, left out above)
+DigHD: dumped frame 40 (room 32, smush 0) HD room px 202017, HD object px 0, HD sprite px 0, original px 366431, cycled HD px 40576
+DigHD: whole screen frame 40 (room 32, screen at 0,0): HD room px 50009, HD object px 0, HD sprite px 0, original px 13991 (background without HD 0, figure without HD 13991), HD text px 0, cycled HD px 10077, soft figure px 0
+DigHD: costumes drawn: actor 2 costume 13 (0 cels HD, 1 without), actor 18 costume 116 (0 cels HD, 4 without)
+DigHD: no HD for costume 116 cel 8 (2x1 at 204,28)
+DigHD: no HD for costume 116 cel 52 (3x4 at 142,28)
+DigHD: no HD for costume 116 cel 12 (2x1 at 294,105)
+DigHD: no HD for costume 116 cel 40 (7x3 at 297,103)
+DigHD: no HD for costume 116 cel 39 (5x1 at 304,105)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 4 (1x1 at 203,27)
+DigHD: no HD for costume 116 cel 37 (5x2 at 145,28)
+DigHD: no HD for costume 116 cel 36 (6x2 at 299,99)
+DigHD: no HD for costume 116 cel 35 (3x1 at 292,105)
+DigHD: no HD for costume 116 cel 13 (1x1 at 302,105)
+DigHD: no HD for costume 116 cel 13 (1x1 at 307,105)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 34 (1x1 at 205,28)
+DigHD: no HD for costume 116 cel 33 (4x3 at 149,30)
+DigHD: no HD for costume 116 cel 15 (4x3 at 304,97)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: verify frame 80: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 80: 32123 of 856944 HD pixels differ strongly from the original (3.749%)
+DigHD: verify frame 80: colour cycling, 8208 of 167056 HD pixels differ strongly (smooth colour map, left out above)
+DigHD: dumped frame 80 (room 32, smush 0) HD room px 253476, HD object px 0, HD sprite px 0, original px 128892, cycled HD px 52581
+DigHD: whole screen frame 80 (room 32, screen at 0,0): HD room px 63856, HD object px 0, HD sprite px 0, original px 144 (background without HD 0, figure without HD 144), HD text px 0, cycled HD px 10441, soft figure px 0
+DigHD: costumes drawn: actor 2 costume 13 (0 cels HD, 1 without), actor 18 costume 116 (0 cels HD, 3 without)
+DigHD: no HD for costume 116 cel 4 (1x1 at 207,29)
+DigHD: no HD for costume 116 cel 16 (3x3 at 153,31)
+DigHD: no HD for costume 116 cel 17 (5x4 at 308,91)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 4 (1x1 at 209,30)
+DigHD: no HD for costume 116 cel 18 (5x2 at 153,33)
+DigHD: no HD for costume 116 cel 19 (5x2 at 310,92)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 20 (4x3 at 155,37)
+DigHD: no HD for costume 116 cel 21 (4x2 at 316,90)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 22 (3x3 at 156,43)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 23 (3x3 at 154,47)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: verify frame 120: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 120: 32123 of 856944 HD pixels differ strongly from the original (3.749%)
+DigHD: verify frame 120: colour cycling, 8214 of 167056 HD pixels differ strongly (smooth colour map, left out above)
+DigHD: dumped frame 120 (room 32, smush 0) HD room px 253213, HD object px 0, HD sprite px 0, original px 129099, cycled HD px 62656
+DigHD: whole screen frame 120 (room 32, screen at 0,0): HD room px 63864, HD object px 0, HD sprite px 0, original px 136 (background without HD 0, figure without HD 136), HD text px 0, cycled HD px 10441, soft figure px 0
+DigHD: costumes drawn: actor 2 costume 13 (0 cels HD, 1 without), actor 18 costume 116 (0 cels HD, 1 without)
+DigHD: no HD for costume 116 cel 24 (5x2 at 150,51)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 25 (3x3 at 146,49)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 26 (4x2 at 142,46)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 27 (3x2 at 139,45)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 28 (4x2 at 138,47)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: verify frame 160: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 160: 32123 of 856944 HD pixels differ strongly from the original (3.749%)
+DigHD: verify frame 160: colour cycling, 7566 of 167056 HD pixels differ strongly (smooth colour map, left out above)
+DigHD: dumped frame 160 (room 32, smush 0) HD room px 281054, HD object px 0, HD sprite px 0, original px 129074, cycled HD px 83538
+DigHD: whole screen frame 160 (room 32, screen at 0,0): HD room px 63866, HD object px 0, HD sprite px 0, original px 134 (background without HD 0, figure without HD 134), HD text px 0, cycled HD px 10441, soft figure px 0
+DigHD: costumes drawn: actor 2 costume 13 (0 cels HD, 1 without), actor 18 costume 116 (0 cels HD, 1 without)
+DigHD: no HD for costume 116 cel 29 (1x2 at 138,48)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 30 (3x1 at 136,49)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 31 (3x3 at 135,48)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 116 cel 32 (3x2 at 135,49)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: no HD for costume 13 cel 0 (13x13 at 8,178)
+DigHD: verify frame 200: 0 screen pixels differ from the whole screen built again
+DigHD: verify frame 200: 32123 of 856944 HD pixels differ strongly from the original (3.749%)
+DigHD: verify frame 200: colour cycling, 7532 of 167056 HD pixels differ strongly (smooth colour map, left out above)
+DigHD: dumped frame 200 (room 32, smush 0) HD room px 263233, HD object px 0, HD sprite px 0, original px 129047, cycled HD px 73097
+DigHD: whole screen frame 200 (room 32, screen at 0,0): HD room px 63871, HD object px 0, HD sprite px 0, original px 129 (background without HD 0, figure without HD 129), HD text px 0, cycled HD px 10441, soft figure px 0
+DigHD: costumes drawn: actor 2 costume 13 (0 cels HD, 1 without), actor 18 costume 116 (0 cels HD, 1 without)
+DigHD: frame 200, HD room px 0, HD object px 0, HD sprite px 0, original px 0
