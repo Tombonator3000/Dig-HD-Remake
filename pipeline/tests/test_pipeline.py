@@ -1300,3 +1300,101 @@ def test_rejected_soft_sheet():
     assert myk.rejected_sheet(rej, "fig002_01", "hva som helst")     # "*" gjelder alle
     assert myk.rejected_sheet(rej, "fig003_01", "abc") is None      # sjekk er ikke avvist
     assert myk.rejected_sheet(None, "fig004_01", "abc") is None
+
+
+def _soft_sheet_case(tmp_path, originals, drawings):
+    """Lager et uttrekk med originalrutene og et ark med tegningene på rad, med rutekart.
+    originals/drawings: navn -> RGBA (numpy). Gir (ark, rutene, boksene, uttrekk)."""
+    import numpy as np
+    ex = tmp_path / "ex"
+    (ex / "costumes").mkdir(parents=True)
+    for b, o in originals.items():
+        Image.fromarray(o, "RGBA").save(ex / "costumes" / f"{b}.png")
+    width = sum(d.shape[1] + 20 for d in drawings.values()) + 20
+    height = max(d.shape[0] for d in drawings.values()) + 40
+    sheet = np.zeros((height, width, 4), np.uint8)
+    boxes, x = {}, 20
+    for b, d in drawings.items():
+        sheet[20:20 + d.shape[0], x:x + d.shape[1]] = d
+        ys, xs = np.nonzero(d[..., 3] >= 128)
+        boxes[b] = [x + int(xs.min()), 20 + int(ys.min()), int(xs.max() - xs.min() + 1), int(ys.max() - ys.min() + 1)]
+        x += d.shape[1] + 20
+    cels = [{"bilde": b, "animasjon": 1, "lag": 0} for b in originals]
+    return sheet, cels, boxes, ex
+
+
+def test_soft_cel_technical_and_outliers(tmp_path):
+    # Versjon 3: tekniske magentapiksler og en fjern utligger styrer ikke skala og fotfeste (Pig 064),
+    # utliggeren legges inn fra originalen, og en rute med bare magenta får ikke HD-bilde
+    import numpy as np
+    from dighd import myk
+
+    o = np.zeros((60, 80, 4), np.uint8)
+    o[4:30, 6:30] = (90, 80, 140, 255)                 # kroppen
+    o[30:33, 4:34] = (255, 87, 255, 255)               # skyggemerke under
+    o[58, 78] = (0, 0, 0, 255)                         # ekte svart utligger langt unna
+    mask, outlier = myk.measure_mask(o)
+    assert mask.sum() == 26 * 24 and outlier.sum() == 1 and outlier[58, 78]
+    assert myk.technical(o).sum() == 3 * 30
+
+    shadow_only = np.zeros((2, 4, 4), np.uint8)
+    shadow_only[...] = (255, 63, 255, 255)
+    d = np.zeros((120, 110, 4), np.uint8)
+    d[5:109, 5:101] = (90, 80, 140, 255)               # tegnet kropp, 96 x 104 = 24 x 26 i 4x
+    sheet, cels, boxes, ex = _soft_sheet_case(tmp_path, {"costume007_064": o, "costume007_001": shadow_only},
+                                              {"costume007_064": d})
+    out = tmp_path / "ut"
+    rep = myk.import_sheet(sheet, cels, boxes, ex, out)["ruter"]
+    r = rep["costume007_064"]
+    assert r["status"] == "ok" and r["snitt_union"] > 0.9, r
+    assert abs(r["skala"] - 1.0) < 0.02, r                 # skala fra kroppen, ikke 60 piksler høy rute
+    assert "utliggerpiksler" in r["kilde"]
+    with Image.open(out / "costumes" / "costume007_064_hd.png") as im:
+        n = np.asarray(im.convert("RGBA"))
+    mx, my = r["marg"]
+    assert n[(my + 58) * 4 + 2, (mx + 78) * 4 + 2, 3] > 128   # utliggeren er med
+    assert rep["costume007_001"]["status"] == "teknisk"
+    assert not (out / "costumes" / "costume007_001_hd.png").exists()
+
+
+def test_soft_cel_no_head_pulse(tmp_path):
+    # Codex 11. oktober: munnstillinger der originalen er 12 og 13 piksler høy og tegningene like høye,
+    # fikk hodet strukket 8 prosent. Når tegningene ikke sprer mer enn originalene, brukes gruppens skala.
+    import numpy as np
+    from dighd import myk
+
+    originals, drawings = {}, {}
+    for i, h in enumerate((12, 13, 13)):
+        o = np.zeros((16, 10, 4), np.uint8)
+        o[1:1 + h, 1:9] = (200, 160, 140, 255)
+        originals[f"costume016_05{i}"] = o
+        d = np.zeros((80, 50, 4), np.uint8)
+        d[4:72, 5:45] = (200, 160, 140, 255)           # alle tre 40 x 68
+        drawings[f"costume016_05{i}"] = d
+    sheet, cels, boxes, ex = _soft_sheet_case(tmp_path, originals, drawings)
+    rep = myk.import_sheet(sheet, cels, boxes, ex, tmp_path / "ut")["ruter"]
+    heights, factors = set(), set()
+    for b in originals:
+        with Image.open(tmp_path / "ut" / "costumes" / f"{b}_hd.png") as im:
+            a = np.asarray(im.convert("RGBA"))[..., 3] >= 128
+        ys = np.nonzero(a.any(axis=1))[0]
+        heights.add(int(ys[-1] - ys[0] + 1))
+        factors.add(tuple(rep[b]["skala_xy"] or (rep[b]["skala"], rep[b]["skala"])))
+    assert len(heights) == 1 and len(factors) == 1, (heights, factors)
+
+
+def test_soft_cel_override_sheet(tmp_path):
+    # En rute kan tas fra et eget rettingsark (fra-claude/mottak-per-rute.json), med egen skala
+    import numpy as np
+    from dighd import myk
+
+    o = np.zeros((20, 12, 4), np.uint8)
+    o[2:18, 2:10] = (120, 120, 200, 255)
+    bad = np.zeros((40, 40, 4), np.uint8)
+    bad[2:12, 2:38] = (120, 120, 200, 255)            # feil form på hovedarket
+    sheet, cels, boxes, ex = _soft_sheet_case(tmp_path, {"costume007_113": o}, {"costume007_113": bad})
+    fix = np.zeros((200, 200, 4), np.uint8)
+    fix[50:178, 60:124] = (120, 120, 200, 255)        # 64 x 128: riktig form, annen skala
+    rep = myk.import_sheet(sheet, cels, boxes, ex, tmp_path / "ut",
+                           {"costume007_113": (fix, [60, 50, 64, 128])})["ruter"]["costume007_113"]
+    assert rep["kilde"] == "rettingsark" and rep["status"] == "ok" and rep["snitt_union"] > 0.9, rep
