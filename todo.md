@@ -4,6 +4,11 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Neste
 
+- [x] [HD] Inventory beholder HD ved horisontal scroll, testet fra Toms lagring5
+- [x] [HD] Luftslusens palettmasker bevarer HD-underlaget
+- [x] [HD] Produsert/registrert manglende krystall-, vann-, sparks- og lysfaser i r11-kandidat
+- [ ] Tom gjennomgår de korrigerte animasjonene i den publiserte pakken
+
 - [x] Innført kildetro motiv- og designanalyse før HD-produksjon i `docs/skills/scumm-hd-remake/SKILL.md`, med henvisninger fra arbeidsinstruksene (12. oktober 2026)
 
 ### Remastermetode og kvalitet (10. oktober)

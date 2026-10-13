@@ -101,3 +101,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Rett påviste feil i produksjonsgrunnlaget før generering. Beskyttede jobbfiler beholdes; korrigert prompt og kildebegrunnelse leveres i et separat notat.
 - Visuell kontroll av mening, identitet og hele animasjoner i spillet kommer i tillegg til teknisk mottak. Innført regel er ikke bevis for at alle ressursene er analysert eller spilltestet.
 - Deling (13. oktober 2026): Tom tillater at grafikk og annet fra spillet deles utenfor repoet til hans eget private bruk (egne enheter, private steder). Offentlige sider og pakker har fortsatt ingen spillgrafikk. Spillfilene og det som lages fra dem holdes fortsatt utenfor `main`.
+
+## Spillfunn 13. oktober 2026
+- Inventory-feilen i lagring5 skyldes xstart416 som ble klippet mot pitch328. Bufferforskyvning og synlig vindu er forskjellige størrelser i SCUMM.
+- Kostyme75 i luftslusen er en skyggemaske. Kostyme35 i canyon er lys/energi, ikke fysisk klær. Krystallformene i nærbildet er kostyme286 til289; orange matte er ikke steinramme.
+- Teknisk kontroll og grafikkleveranser fra denne runden: docs/HD-RETTINGER-20261013.md. Tom har ikke visuelt godkjent hele serien.
