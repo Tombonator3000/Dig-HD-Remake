@@ -11,3 +11,5 @@ Lys: generert gjennomskinnelig filamentfelt registreres til 240 opprinnelige lys
 De to blå stavfasene gjenbruker eksisterende stavgrafikk med korrekt originalindeks. Originalfiler, prompt.txt, jobb.json og referansefiler er uendret.
 
 Teknisk kontroll og gjennomgang av kandidatbilder er dokumentert separat fra Toms visuelle godkjenning.
+
+De239eksisterende produksjonsarkene er også satt sammen på nytt fra de samme registrerte rutene, med opprinnelig rutekart og uendrede beskyttede jobb-filer. Dermed blir de gamle stein-/klesmotivene ikke stående som siste resultat i de berørte jobbene. Arkmottak gjennom generisk myke-figurer er ikke kjørt på nytt; den verifiserte komplette runtime-modden er publisert separat. Se KANONISKE-ARK.json.
