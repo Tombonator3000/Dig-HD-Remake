@@ -95,7 +95,7 @@ index dcfe41db..bd1264b6 100644
  	// pointer to various parts of the costume resource
  	const AkosHeader *_akhd; // Header
 diff --git a/engines/scumm/base-costume.cpp b/engines/scumm/base-costume.cpp
-index d93b33e2..27ad5407 100644
+index d93b33e2..cdd4cb46 100644
 --- a/engines/scumm/base-costume.cpp
 +++ b/engines/scumm/base-costume.cpp
 @@ -24,6 +24,9 @@
@@ -127,15 +127,16 @@ index d93b33e2..27ad5407 100644
  		byleRLEDecodeFast(compData, xmap);
  		return;
  	}
-@@ -340,6 +346,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
+@@ -340,6 +346,8 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
  
  					if (color && !masked) {
  						uint16 pcolor;
 +						bool digPaletteMask = false;
++						const byte digBefore = *dst;
  
  						if (!_akosRendering) {
  							if (_shadowMode & 0x20) {
-@@ -354,6 +361,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
+@@ -354,6 +362,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
  
  							if (_shadowMode == 1) {
  								if (pcolor == 13) {
@@ -143,7 +144,7 @@ index d93b33e2..27ad5407 100644
  									// In shadow mode 1 skipColumn works more or less the same way as in shadow
  									// mode 3. It is only ever checked and applied if pcolor is 13.
  									skipColumn = (lastColumnX == compData.x);
-@@ -378,6 +386,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
+@@ -378,6 +387,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
  									pcolor = (pcolor << 8) + *dst;
  									pcolor = xmap[pcolor];
  								} else if (pcolor < 8) {
@@ -151,16 +152,16 @@ index d93b33e2..27ad5407 100644
  									// This mode is used in COMI. The column skip only takes place when the shading
  									// is actually applied (for pcolor < 8). The skip avoids shading of pixels that
  									// already have been shaded.
-@@ -392,6 +401,8 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
+@@ -392,6 +402,8 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
  								WRITE_UINT16(dst, pcolor);
  							} else {
  								*dst = pcolor;
 +								if (_vm->_digHD && _akosRendering)
-+									_vm->_digHD->recordCelPixel(dst, compData.sourceColumn, _height - height, digPaletteMask);
++									_vm->_digHD->recordCelPixel(dst, compData.sourceColumn, _height - height, digPaletteMask, digBefore);
  							}
  						}
  					}
-@@ -401,6 +412,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
+@@ -401,6 +413,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
  				y++;
  			}
  			if (!--height) {
@@ -168,7 +169,7 @@ index d93b33e2..27ad5407 100644
  				if (!--compData.skipWidth)
  					return;
  				height = _height;
-@@ -437,6 +449,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
+@@ -437,6 +450,7 @@ void BaseCostumeRenderer::byleRLEDecode(ByleRLEData &compData, int16 actorHitX,
  }
  
  void BaseCostumeRenderer::skipCelLines(ByleRLEData &compData, int num) {
@@ -299,10 +300,10 @@ index 21938706..83829720 100644
  	width *= 8;
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..c0501047
+index 00000000..f4e36ef2
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,4389 @@
+@@ -0,0 +1,4447 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -411,6 +412,7 @@ index 00000000..c0501047
 +void DigHD::Image::free() {
 +	hd.free();
 +	idx.free();
++	opacity.clear();
 +	transparent = -1;
 +	soft = false;
 +	padX = padY = 0;
@@ -738,6 +740,31 @@ index 00000000..c0501047
 +	const Graphics::Palette &pal = idxDec.getPalette();
 +	memcpy(out.basePal, pal.data(), MIN<uint>(pal.size() * 3, sizeof(out.basePal)));
 +	out.transparent = transparent;
++	// SMAP images can mix opaque and transparent strips. A palette-wide
++	// tRNS index loses opaque black pixels in PDA photos and buttons.
++	// New extracts supply the decoder's exact per-pixel drawing coverage;
++	// older packages retain their original palette transparency fallback.
++	const Common::String idxName = idxFile.toString();
++	Common::FSNode maskNode(_modPath.join(Common::Path(idxName.substr(0, idxName.size() - 8) + "_mask.png")));
++	if (maskNode.exists()) {
++		::Image::PNGDecoder md;
++		Common::SeekableReadStream *ms = maskNode.createReadStream();
++		const bool mok = ms && md.loadStream(*ms);
++		delete ms;
++		if (mok && md.getSurface()->w == is->w && md.getSurface()->h == is->h) {
++			const Graphics::Palette &mp = md.getPalette();
++			Graphics::Surface *mask = md.getSurface()->convertTo(_rgba, mp.size() ? mp.data() : nullptr, mp.size());
++			out.opacity.resize(is->w * is->h);
++			for (int yy = 0; yy < is->h; yy++)
++				for (int xx = 0; xx < is->w; xx++) {
++					byte mr, mg, mb;
++					_rgba.colorToRGB(READ_UINT32(mask->getBasePtr(xx, yy)), mr, mg, mb);
++					out.opacity[yy * is->w + xx] = mr >= 128;
++				}
++			mask->free(); delete mask;
++		} else
++			warning("DigHD: invalid coverage mask %s", maskNode.getPath().toString().c_str());
++	}
 +	out.soft = pad;
 +	out.padX = padX;
 +	out.padY = padY;
@@ -1255,7 +1282,7 @@ index 00000000..c0501047
 +		debug("DigHD: frame %u soft cel %d costume %d slot %d seq %u at %d,%d %dx%d", _frameNo, cel, c.costume, (int)(&c - _cels), c.seq, c.rx, c.ry, c.rw, c.rh);
 +}
 +
-+void DigHD::recordCelPixel(const byte *dest, int sourceX, int sourceY, bool paletteMask) {
++void DigHD::recordCelPixel(const byte *dest, int sourceX, int sourceY, bool paletteMask, byte before) {
 +	if (_recordSlot < 0 || !_celMain.base || dest < _celMain.base || dest >= _celMain.base + _celMain.size)
 +		return;
 +	CelSlot &c = _cels[_recordSlot];
@@ -1270,6 +1297,21 @@ index 00000000..c0501047
 +		for (int k = 0; k < 3; k++)
 +			c.trueSum[k] -= c.image->basePal[m.code * 3 + k];
 +	}
++	// A palette mask transforms the pixel already present, including actors.
++	// Retain that drawing's provenance before replacing the ownership mark.
++	uint32 underSeq = 0;
++	uint16 underSlot = 0;
++	byte underCode = 0, pre = before;
++	if (paletteMask && m.seq && m.val == before && _cels[m.slot].seq == m.seq) {
++		if (m.paletteMask) {
++			underSeq = m.underSeq; underSlot = m.underSlot;
++			underCode = m.underCode; pre = m.pre;
++		} else {
++			underSeq = m.seq; underSlot = m.slot; underCode = m.code;
++		}
++	}
++	m.pre = pre;
++	m.underSeq = underSeq; m.underSlot = underSlot; m.underCode = underCode;
 +	m.seq = c.seq;
 +	m.slot = _recordSlot;
 +	m.val = *dest;
@@ -1386,6 +1428,7 @@ index 00000000..c0501047
 +					if (c.soft && scaled && backBuf && buf[off] != backBuf[off] && nearColour(col[x - x0], cy)) {
 +						CelMark &m = marks[off];
 +						m.seq = c.seq;
++					m.paletteMask = false; m.underSeq = 0;
 +						m.slot = slot;
 +						m.val = buf[off];
 +					}
@@ -1393,6 +1436,7 @@ index 00000000..c0501047
 +				}
 +				CelMark &m = marks[off];
 +				m.seq = c.seq;
++					m.paletteMask = false; m.underSeq = 0;
 +				m.slot = slot;
 +				m.val = buf[off];
 +				if (backBuf && buf[off] != backBuf[off] && !wildColour(c.image->basePal + code * 3, _pal + buf[off] * 3)) {
@@ -1420,6 +1464,7 @@ index 00000000..c0501047
 +				if (m.seq && m.val == buf[off] && _cels[m.slot].seq == m.seq && _cels[m.slot].used)
 +					continue;
 +				m.seq = c.seq;
++					m.paletteMask = false; m.underSeq = 0;
 +				m.slot = slot;
 +				m.val = buf[off];
 +			}
@@ -1666,10 +1711,11 @@ index 00000000..c0501047
 +							pb = (uint32)acc[2];
 +							pa = (uint32)(acc[3] * 255);
 +						}
-+						// The sliding crystal rods enter holes in the floor.
-+						// Feather the visible side of their original z-mask at HD
-+						// resolution; hidden source pixels remain fully hidden.
-+						if (zbuf && c.costume >= 298 && c.costume <= 300) {
++						// Rods entering the floor and the museum's distant panorama
++						// meet a hard original foreground z-mask. Feather only its
++						// visible side at HD resolution: hidden source pixels remain
++						// fully hidden, so the panorama cannot cover the room floor.
++						if (zbuf && (c.costume == 119 || (c.costume >= 298 && c.costume <= 300))) {
 +							const float zx = rx + (dx + .5f) / n - .5f;
 +							const float zy = vy + (dy + .5f) / n - .5f;
 +							const int x0 = (int)floorf(zx), y0 = (int)floorf(zy);
@@ -1796,8 +1842,21 @@ index 00000000..c0501047
 +				// cel's (under a glyph: the value under the glyph).
 +				const size_t off = textOff + (size_t)r * pitch + c;
 +				if (celMarks && off < _celMain.size) {
-+					const CelMark &m = celMarks[off];
++					CelMark m = celMarks[off];
 +					if (m.seq && m.val == idx && _cels[m.slot].seq == m.seq) {
++						// Undo only an actual decoder mask. Compose the underlying
++						// HD actor/background, then reapply the colour transform.
++						if (m.paletteMask && _cels[m.slot].precise) {
++							const byte post = shade ? (shade & 0xFF) : idx;
++							shade = (uint16)((m.pre << 8) | post);
++							idx = baseIdx = m.pre;
++							softBase = true;
++							coverSeq = kCoverNone;
++							m.seq = m.underSeq; m.slot = m.underSlot;
++							m.code = m.underCode; m.val = m.pre;
++							m.paletteMask = false;
++						}
++						if (m.seq && _cels[m.slot].seq == m.seq) {
 +						const CelSlot &cs = _cels[m.slot];
 +						const int lx = vs->xstart + x + c - cs.rx, ly = ry - cs.ry;
 +						coverSeq = m.seq;
@@ -1849,6 +1908,7 @@ index 00000000..c0501047
 +						} else if (cs.missing) {
 +							source = kSrcFlatMissing;  // a figure without HD image
 +						}
++						}
 +					}
 +				}
 +			} else if (b) {
@@ -1856,28 +1916,27 @@ index 00000000..c0501047
 +			}
 +			if (blastKind != kBlastImage && blastKind != kBlastPlain && b && (b[c] == idx || softBase)) {
 +				const int rx = vs->xstart + x + c;
-+				if (haveRoom && rx >= 0 && rx < roomW && ry >= 0 && ry < roomH &&
-+				    *((const byte *)_roomImage.idx.getBasePtr(rx, ry)) == baseIdx) {
-+					source = packRoom(rx, ry);
-+				} else {
-+					// Most recently drawn object image that matches this pixel.
-+					// Without one, this background pixel has no HD image.
-+					source = kSrcFlatMissing;
-+					uint32 bestSeq = 0;
-+					for (uint i = 0; i < _drawn.size(); i++) {
-+						const DrawnObject &d = _drawn[i];
-+						if (!d.image || d.blast || d.seq < bestSeq)
-+							continue;
-+						const int ox = rx - d.x, oy = ry - d.y;
-+						if (ox < 0 || oy < 0 || ox >= d.image->idx.w || oy >= d.image->idx.h)
-+							continue;
-+						const byte oi = *((const byte *)d.image->idx.getBasePtr(ox, oy));
-+						if (oi == baseIdx && (int)oi != d.image->transparent) {
-+							source = packObject(i, ox, oy);
-+							bestSeq = d.seq;
-+						}
++				// Opaque object pixels own their drawn area even when their
++				// palette index equals the room beneath (white PDA highlights).
++				// Removed or replaced object states cannot claim pixels later.
++				const bool roomMatches = haveRoom && rx >= 0 && rx < roomW && ry >= 0 && ry < roomH &&
++				    *((const byte *)_roomImage.idx.getBasePtr(rx, ry)) == baseIdx;
++				source = roomMatches ? packRoom(rx, ry) : kSrcFlatMissing;
++				uint32 bestSeq = 0;
++				for (uint i = 0; i < _drawn.size(); i++) {
++					const DrawnObject &d = _drawn[i];
++					if (!d.image || d.blast || d.seq < bestSeq || _vm->getState(d.obj) != d.state ||
++					    (roomMatches && d.image->opacity.empty()))
++						continue;
++					const int ox = rx - d.x, oy = ry - d.y;
++					if (ox < 0 || oy < 0 || ox >= d.image->idx.w || oy >= d.image->idx.h)
++						continue;
++					if (*((const byte *)d.image->idx.getBasePtr(ox, oy)) == baseIdx && d.image->visibleAt(ox, oy)) {
++						source = packObject(i, ox, oy);
++						bestSeq = d.seq;
 +					}
 +				}
++
 +			}
 +			if (sx >= _debugPixelX && sy >= _debugPixelY && sx <= _debugPixelX2 && sy <= _debugPixelY2 &&
 +			    _frameNo >= (uint32)_debugPixelFrom) {
@@ -4694,10 +4753,10 @@ index 00000000..c0501047
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..181fa441
+index 00000000..051eee7a
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,565 @@
+@@ -0,0 +1,573 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -4881,7 +4940,7 @@ index 00000000..181fa441
 +	 */
 +	void noteCel(int cel, int left, int top, int width, int height, bool mirror, int xstart, bool raw, bool precise = false, int shadowMode = 0);
 +	/** Byle RLE: called immediately after a real, unmasked pixel write. */
-+	void recordCelPixel(const byte *dest, int sourceX, int sourceY, bool paletteMask = false);
++	void recordCelPixel(const byte *dest, int sourceX, int sourceY, bool paletteMask = false, byte before = 0);
 +
 +	/** Called right before OSystem::updateScreen(); handles frame dumps and test hooks. */
 +	void beforeUpdateScreen();
@@ -4923,6 +4982,10 @@ index 00000000..181fa441
 +		Graphics::Surface hd;   // RGBA32, scale x original
 +		Graphics::Surface idx;  // CLUT8, original size
 +		byte basePal[768];
++		Common::Array<byte> opacity; // optional per-pixel SMAP drawing coverage
++		bool visibleAt(int x, int y) const {
++			return opacity.empty() ? (int)*((const byte *)idx.getBasePtr(x, y)) != transparent : opacity[y * idx.w + x] != 0;
++		}
 +		int transparent = -1;
 +		// A soft cel (costumeCCC_NNN_hd.png): the HD image has a margin of padX and
 +		// padY original pixels on each side, and its own alpha (see drawSoftCels())
@@ -4967,6 +5030,10 @@ index 00000000..181fa441
 +		byte val;     // palette index the cel left in the pixel
 +		byte code;    // exact original image code when CelSlot::precise is true
 +		bool paletteMask; // decoder actually applied a shadow-table lookup
++		byte pre;     // colour before this mask (or the first stacked mask)
++		uint32 underSeq; // original actor drawing underneath a palette mask
++		uint16 underSlot;
++		byte underCode;
 +	};
 +	struct CelLayer {
 +		const byte *base = nullptr;  // the main virtual screen buffer

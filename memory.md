@@ -106,3 +106,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Inventory-feilen i lagring5 skyldes xstart416 som ble klippet mot pitch328. Bufferforskyvning og synlig vindu er forskjellige størrelser i SCUMM.
 - Kostyme75 i luftslusen er en skyggemaske. Kostyme35 i canyon er lys/energi, ikke fysisk klær. Krystallformene i nærbildet er kostyme286 til289; orange matte er ikke steinramme.
 - Teknisk kontroll og grafikkleveranser fra denne runden: docs/HD-RETTINGER-20261013.md. Tom har ikke visuelt godkjent hele serien.
+
+## Dekningsmasker og luftsluse (r12-kandidat 13. oktober 2026)
+- Valgfri `objects/objNNN_SS_mask.png` angir eksakt SMAP-dekning, inkludert ugjennomsiktig svart i blandede striper. Den beholdes som originaloppløsning i modpakken.
+- Aktive objekter med eksakt maske kan få forrang ved lik indeks med rommet. Uten maske beholdes tidligere romprioritet. Palettmasker bevarer HD-figuren under luftsluseglasset.
+- Kilde og begrensninger: `docs/HD-RETTINGER-r12-20261013.md`. Dette er kandidatstatus, ikke bekreftelse på en publisert pakke eller Toms visuelle godkjenning.
