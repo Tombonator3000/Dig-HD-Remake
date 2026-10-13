@@ -409,3 +409,8 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Kort avsnitt i `docs/HD-REMASTER-METODE.md`. Bildet er ikke lagt i repoet (grafikken tilhører Disney/Lucasfilm).
 - 10:41 Presisert punktet om rom og objekter i skillen: malte bakgrunner beholder malt lys og fargeoverganger, figurene får flate farger. Skillen er lik i alle tre repoer.
 - 10:46 Codex påpekte at DOTT-punktet i skillen tvang tegneseriestil på alle spill og påsto at Double Fine tegnet over originalen. Rettet: punktene om form (samme figur, pikselklynger blir det de forestiller, farge per flate, ingenting nytt) gjelder alle spill; ren strek og flate farger gjelder bare tegneseriespill (DOTT, Sam & Max, Zak), og The Dig beholder sin malte stil. Overskriften sier nå «sett i DOTT Remastered», ikke «slik de gjorde det». Skillen er lik i alle tre repoer.
+
+## 2026-10-13 12:55 (Codex)
+- Rettet inventory ved horisontal scroll og HD-behandling av luftslusens faktiske palettmasker. Samlet motorpatchen med de tidligere r10-pakkerettingene, uten å endre låst ScummVM-base.
+- Nye registreringsverktøy for kildestyrt HD-vann, krystaller og lys. Teknisk analyse, originaltopologi, validering og begrensninger: docs/HD-RETTINGER-20261013.md.
+- 30 pipeline-tester bestått. Nearest- og helnytegningkontroller bestått i målscenene. Spilldata og grafikk er ikke lagt i kodegrenen.

@@ -1,5 +1,7 @@
 # Status
 
+13. oktober 2026: Inventory ved scroll og luftslusemasker er rettet i r11-kandidaten. 1157 HD-ruter er komplettert/korrigert med kildestyrt registrering. 30 pipeline-tester og målrettede native kontroller er bestått. Se `docs/HD-RETTINGER-20261013.md` for dokumentert omfang og begrensninger. Publiserte pakker verifiseres separat.
+
 Oppdatert 9. oktober 2026, kveld. Siste runde med ChatGPT står i `work/gpt/RAPPORT.md` og i grenen `gpt-arbeid`.
 
 ## Kort
