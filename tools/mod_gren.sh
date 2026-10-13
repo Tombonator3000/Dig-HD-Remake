@@ -28,7 +28,14 @@ send)
 	echo "Modden er publisert i grenen $BRANCH ($(du -sh "$MOD" | cut -f1))."
 	;;
 hent)
-	git -C "$ROOT" fetch -q --depth 1 origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
+	# A release pins the asset revision before compiling. A later update to
+	# hd-mod must not change the graphics halfway through that build.
+	if [ -n "${HD_MOD_REF:-}" ]; then
+		git -C "$ROOT" fetch -q --depth 1 origin "$HD_MOD_REF"
+		git -C "$ROOT" update-ref "refs/remotes/origin/$BRANCH" FETCH_HEAD
+	else
+		git -C "$ROOT" fetch -q --depth 1 origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
+	fi
 	rm -rf "$MOD"
 	mkdir -p "$MOD"
 	git -C "$ROOT" archive "refs/remotes/origin/$BRANCH" | tar -x -C "$MOD"

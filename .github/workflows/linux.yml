@@ -31,12 +31,14 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       bygg: ${{ steps.mod.outputs.bygg }}
+      mod_sha: ${{ steps.mod.outputs.mod_sha }}
     steps:
       - id: mod
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           MOD=$(gh api repos/${{ github.repository }}/git/ref/heads/hd-mod --jq .object.sha)
+          echo "mod_sha=$MOD" >> "$GITHUB_OUTPUT"
           SIST=$(gh api repos/${{ github.repository }}/releases/tags/linux --jq .body 2>/dev/null || true)
           if [ "${{ github.event_name }}" = schedule ] && echo "$SIST" | grep -q "hd-mod: $MOD"; then
             echo "HD-modden er den samme som i pakken ($MOD). Ingen ny pakke."
@@ -63,6 +65,8 @@ jobs:
         run: tools/hent_spilldata.sh
 
       - name: HD-modden (grenen hd-mod)
+        env:
+          HD_MOD_REF: ${{ needs.sjekk.outputs.mod_sha }}
         run: tools/mod_gren.sh hent
 
       - name: linuxdeploy og appimagetool

@@ -414,3 +414,8 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Rettet inventory ved horisontal scroll og HD-behandling av luftslusens faktiske palettmasker. Samlet motorpatchen med de tidligere r10-pakkerettingene, uten å endre låst ScummVM-base.
 - Nye registreringsverktøy for kildestyrt HD-vann, krystaller og lys. Teknisk analyse, originaltopologi, validering og begrensninger: docs/HD-RETTINGER-20261013.md.
 - 30 pipeline-tester bestått. Nearest- og helnytegningkontroller bestått i målscenene. Spilldata og grafikk er ikke lagt i kodegrenen.
+
+## 2026-10-13 13:25 (Codex)
+- Linux-byggingen låser nå HD-mod-SHA i første steg og henter akkurat denne revisjonen etter motorkompilering. `HD_MOD_REF` i mod_gren.sh er valgfri; vanlig lokal henting følger fortsatt siste hd-mod. Dermed kan en mod-publisering under kompileringen ikke bytte grafikken i pakken.
+- Årsaken var et r11-bygg som startet mens den komplette modden ble lastet opp. Dette gamle mod-bygget brukes ikke som endelig r11-levering. Komplett r11-mod er bekreftet som113523ba12fd10fbf2a9ff49b3823cd9aa8095c6.
+- Shellsyntaks kontrollert; CI og den faktiske Linux-pakken kontrolleres etterpå.
