@@ -1,0 +1,72 @@
+{
+  "object": "obj187_01",
+  "room": 23,
+  "source_rect": [
+    608,
+    112,
+    40,
+    32
+  ],
+  "source_sha256": "0f32f5948ce261e6320c531db9028ee37db70a6dc455d798b517a7cb1715205d",
+  "source_idx_sha256": "349f16857e935a2c642b734e0e1fa1eab57356f24b6d25064617654469a3b538",
+  "exact_smap_mask_sha256": "6c0034a21014a491b502efd82922cb83b0466f861069260e573a6ae2e660813b",
+  "hd_background_sha256": "e8634b3dec2567d5330d6ffcba6883acc19c0b72929b9e56d94694b407c00877",
+  "background_crop": [
+    2432,
+    448,
+    2592,
+    576
+  ],
+  "generated_source_cells": {
+    "costume061_001_hd.png": "93897fb6ac3379d01303397d9d32042d1b798ddeea1f76a04ea350aa77f372f5",
+    "costume061_000_hd.png": "06219b630e221afa2bf5f619bba103c3883ab39ed2486bc9e8831186ed79d71f"
+  },
+  "source_positions": {
+    "costume061_001": [
+      623,
+      126
+    ],
+    "costume061_000": [
+      624,
+      128
+    ]
+  },
+  "original_mask_preserved": true,
+  "before_sha256": "3a7665c79365c5872874948c75140e8bbbafc9e95b7fe816fb2dd6f12f2a3164",
+  "after_sha256": "35db253e3a6e4f592bfd439584a13395a953a647e37b1dc58b76bbcbeb95c446",
+  "finding": "Visible coarse sparks are baked into object187_01; replacing costumes061_000/001 alone yielded pixel-identical runtime frame120. Generated source-faithful base art is therefore composited into the active object layer. Existing room background and exact SMAP coverage determine all other pixels.",
+  "runtime": {
+    "tag": "actual-latest-save6-sparks187",
+    "exit_code": 0,
+    "checks": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "rooms": [
+      23
+    ],
+    "passed": true,
+    "log_sha256": "a6f70053c0da4c04900d7b9f6881ebc1e5f98de78af2fffde7e45baf251445ca",
+    "frame120_sha256": "411672f0fee5ef9c6100c99289688b73ac2dce4d531fba99508abcd3c78d75ce",
+    "same_frame_actor_only_change_pixels": 0,
+    "object_change_pixels": 1845,
+    "object_change_bbox_screen": [
+      828,
+      504,
+      904,
+      540
+    ]
+  },
+  "master_sha256": "a34d1cd4e68fb4cc1093ee301a062ecee869c64932feb5fdb93f64a69b81d74c",
+  "prompt_sha256": "d5e5f2dc58c6803a3a0a741a8652f9febcc7ef1a08179d0507d869b15737dbcc",
+  "generator": "built-in image_gen, exact model version not exposed",
+  "source_reference_sha256": "adc135217b8b3ed602d535aa005682b990e97ab87ac7a5808eeacb648baa74af",
+  "actor_61_restored_to_r11": true,
+  "all_54_actor_cells_match_initial_audit": true
+}

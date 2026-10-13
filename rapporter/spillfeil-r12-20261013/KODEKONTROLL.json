@@ -1,0 +1,160 @@
+{
+  "status": "passed_code_review_and_local_checks",
+  "reviewed_at": "2026-10-13T21:26:00+02:00",
+  "branch": "codex/dighd-r12-masks",
+  "base_commit": "c41d9466e5842cb08d8c2f4ef27cdc8d21f4e50d",
+  "native_source_changed_by_review": true,
+  "findings": [],
+  "changes": [
+    "Coverage tests run independently of digart in CI, with two optional real decoder conformance tests retained",
+    "Synthetic export checks exact alpha and unchanged original indices",
+    "Both mod build routes preserve masks and remove stale masks when source extraction lacks them",
+    "Docs precisely limit object-over-room priority to exact-mask assets; legacy behavior preserved"
+  ],
+  "tests": {
+    "pipeline": {
+      "passed": 42,
+      "deselected_game": 2,
+      "seconds": 27.17,
+      "log": "/home/tombonator3000t/.codex/tasks/the-dig-r12-20261013/pipeline-tests-r12-reviewed.log"
+    },
+    "coverage_without_digart": {
+      "passed": 10,
+      "optional_real_decoder_skipped": 2,
+      "log": "/home/tombonator3000t/.codex/tasks/the-dig-r12-20261013/coverage-tests-no-digart.log"
+    },
+    "pages": {
+      "passed": 15,
+      "log": "/home/tombonator3000t/.codex/tasks/the-dig-r12-20261013/pages-tests-r12-reviewed.log"
+    },
+    "patch_forward_check_locked_head": true,
+    "patch_reverse_check_working_source": true,
+    "patch_matches_complete_native_diff": true,
+    "code_and_native_diff_check": true
+  },
+  "locked_scummvm": "c9091321060acfc8f037767c18f8279a86305b7e",
+  "sha256": {
+    "pipeline/dighd/coverage.py": "c05d518fb20fbb601c57784b7b03f440d32e5b156e7334dbf1b976f0e68ce387",
+    "pipeline/tests/test_coverage.py": "e606e6caf988e0ef620bb33a4ffcdc7ce18e561585c619831e5de96f676ab8be",
+    "pipeline/dighd/export.py": "6a087cb86cc2c75244cac62088430127c65949b0933400b5115ace97b44bc4e0",
+    "pipeline/dighd/modpack.py": "6cbbf81246e535d324610e0de25167a65c30b8ae6e47df22c265af273e53f05b",
+    "engine/patches/0001-dighd-hd-grafikk.patch": "6e57334180f3ebe34ecf7a54e8c3936b7b7838d19bf45c92701cb3d330865077",
+    "docs/HD-RETTINGER-r12-20261013.md": "8a871cef6a5973089fd48455fab144c7eefae3a581651361d05b60586c9f46d5"
+  },
+  "limitations": [
+    "Native museum119 follow-up rebuilt both engines; three camera positions passed whole-screen and z-mask checks",
+    "Runtime screenshots and package validation remain parent-owned; unit tests do not establish artwork accuracy or visual approval",
+    "Remote CI not run in this subtask; no commit, push, PR, merge or publication performed"
+  ],
+  "museum119_followup": {
+    "scope": "Museum room 34 parallax costume 119",
+    "source": "Original room034 ENCD sets actor14 costume119 at (103-((cameraX-160)*111/388),0), alwaysZClip3",
+    "finding": "The bright vertical gap near screen x950 at camera160 is present in original flat rendering. It is retained as an original foreground opening, not removed as a supposed floor leak.",
+    "repair": "Activate the existing soft panorama and feather only the visible side of the original z-mask at HD resolution. Every source pixel hidden by the original mask is still skipped entirely.",
+    "native_build": "passed; existing system libpng linked with -l:libpng16.so.16",
+    "windows_build": "passed; x86_64-w64-mingw32, stripped",
+    "changed_hd_pixels_at_camera160": 8652,
+    "runtime": [
+      {
+        "tag": "museum119-smooth-x160",
+        "exit_code": 0,
+        "checks": [
+          0,
+          0,
+          0
+        ],
+        "rooms": [
+          34
+        ],
+        "passed": true,
+        "zplane_checks": [
+          [
+            0,
+            26474,
+            14899
+          ],
+          [
+            0,
+            26474,
+            14899
+          ],
+          [
+            0,
+            26474,
+            14899
+          ]
+        ]
+      },
+      {
+        "tag": "museum119-smooth-x360",
+        "exit_code": 0,
+        "checks": [
+          0,
+          0,
+          0
+        ],
+        "rooms": [
+          34
+        ],
+        "passed": true,
+        "zplane_checks": [
+          [
+            0,
+            39040,
+            23029
+          ],
+          [
+            0,
+            39040,
+            23029
+          ],
+          [
+            0,
+            39040,
+            23029
+          ]
+        ]
+      },
+      {
+        "tag": "museum119-smooth-x548",
+        "exit_code": 0,
+        "checks": [
+          0,
+          0,
+          0
+        ],
+        "rooms": [
+          34
+        ],
+        "passed": true,
+        "zplane_checks": [
+          [
+            0,
+            39040,
+            23109
+          ],
+          [
+            0,
+            39040,
+            23109
+          ],
+          [
+            0,
+            39040,
+            23109
+          ]
+        ]
+      }
+    ],
+    "sha256": {
+      "native/scummvm": "d4d8444cf52bfeb4cb8241adb47fa671cde15f9eedde87dbda2e3de47c6fce6e",
+      "windows-build/scummvm.exe": "5138ffbc87deec0044cdc0aae4da3a81ffcaada55d47139dadfafec6995d39be",
+      "code/engine/patches/0001-dighd-hd-grafikk.patch": "6e57334180f3ebe34ecf7a54e8c3936b7b7838d19bf45c92701cb3d330865077"
+    },
+    "status": "native_runtime_checked_not_user_visual_approval",
+    "limitations": [
+      "No physical Windows runtime test performed in this subtask",
+      "Mask uses original geometry; no invented foreground coverage"
+    ]
+  }
+}

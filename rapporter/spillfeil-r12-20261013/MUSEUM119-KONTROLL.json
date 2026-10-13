@@ -1,0 +1,111 @@
+{
+  "scope": "Museum room 34 parallax costume 119",
+  "source": "Original room034 ENCD sets actor14 costume119 at (103-((cameraX-160)*111/388),0), alwaysZClip3",
+  "finding": "The bright vertical gap near screen x950 at camera160 is present in original flat rendering. It is retained as an original foreground opening, not removed as a supposed floor leak.",
+  "repair": "Activate the existing soft panorama and feather only the visible side of the original z-mask at HD resolution. Every source pixel hidden by the original mask is still skipped entirely.",
+  "native_build": "passed; existing system libpng linked with -l:libpng16.so.16",
+  "windows_build": "passed; x86_64-w64-mingw32, stripped",
+  "changed_hd_pixels_at_camera160": 8652,
+  "runtime": [
+    {
+      "tag": "museum119-smooth-x160",
+      "exit_code": 0,
+      "checks": [
+        0,
+        0,
+        0
+      ],
+      "rooms": [
+        34
+      ],
+      "passed": true,
+      "zplane_checks": [
+        [
+          0,
+          26474,
+          14899
+        ],
+        [
+          0,
+          26474,
+          14899
+        ],
+        [
+          0,
+          26474,
+          14899
+        ]
+      ]
+    },
+    {
+      "tag": "museum119-smooth-x360",
+      "exit_code": 0,
+      "checks": [
+        0,
+        0,
+        0
+      ],
+      "rooms": [
+        34
+      ],
+      "passed": true,
+      "zplane_checks": [
+        [
+          0,
+          39040,
+          23029
+        ],
+        [
+          0,
+          39040,
+          23029
+        ],
+        [
+          0,
+          39040,
+          23029
+        ]
+      ]
+    },
+    {
+      "tag": "museum119-smooth-x548",
+      "exit_code": 0,
+      "checks": [
+        0,
+        0,
+        0
+      ],
+      "rooms": [
+        34
+      ],
+      "passed": true,
+      "zplane_checks": [
+        [
+          0,
+          39040,
+          23109
+        ],
+        [
+          0,
+          39040,
+          23109
+        ],
+        [
+          0,
+          39040,
+          23109
+        ]
+      ]
+    }
+  ],
+  "sha256": {
+    "native/scummvm": "d4d8444cf52bfeb4cb8241adb47fa671cde15f9eedde87dbda2e3de47c6fce6e",
+    "windows-build/scummvm.exe": "5138ffbc87deec0044cdc0aae4da3a81ffcaada55d47139dadfafec6995d39be",
+    "code/engine/patches/0001-dighd-hd-grafikk.patch": "6e57334180f3ebe34ecf7a54e8c3936b7b7838d19bf45c92701cb3d330865077"
+  },
+  "status": "native_runtime_checked_not_user_visual_approval",
+  "limitations": [
+    "No physical Windows runtime test performed in this subtask",
+    "Mask uses original geometry; no invented foreground coverage"
+  ]
+}
