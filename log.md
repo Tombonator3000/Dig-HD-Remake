@@ -423,3 +423,21 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Linux-byggingen låser nå HD-mod-SHA i første steg og henter akkurat denne revisjonen etter motorkompilering. `HD_MOD_REF` i mod_gren.sh er valgfri; vanlig lokal henting følger fortsatt siste hd-mod. Dermed kan en mod-publisering under kompileringen ikke bytte grafikken i pakken.
 - Årsaken var et r11-bygg som startet mens den komplette modden ble lastet opp. Dette gamle mod-bygget brukes ikke som endelig r11-levering. Komplett r11-mod er bekreftet som113523ba12fd10fbf2a9ff49b3823cd9aa8095c6.
 - Shellsyntaks kontrollert; CI og den faktiske Linux-pakken kontrolleres etterpå.
+
+
+## 2026-10-13 (Codex, r12)
+- Gjenskapt Boston-feilen bak luftsluseglasset og bevart figurens HD-eierskap gjennom faktiske palettmasker.
+- PDA: eksakt SMAP-dekning bevarer ugjennomsiktig svart i blandede striper. Aktive HD-objekter med eksakt dekningsmaske får forrang når de deler palettindeks med bakgrunnen; eldre pakker beholder romprioriteten.
+- 33 lokale pipeline-tester bestått. Målrettede native skjermbilder og kontroller gjennomført. Grafikk og brukerlagringer ligger utenfor kodegrenen.
+- Detaljer og begrensninger: `docs/HD-RETTINGER-r12-20261013.md`.
+
+## 2026-10-13 21:26 (Codex, kodekontroll r12)
+- Lest maskebevaring, objektprioritet og eksportkoblingen. Ingen motorendring var nødvendig i denne kontrollen.
+- Utvidet dekningstestene med uavhengig dekoderkontrakt, flerraders stripplassering, alfabevaring, uendrede indeksfiler og begge mod-byggveier med og uten maskefil.
+- 42 pipeline-tester og 15 Pages-tester bestått. Ti nye dekningstester bestod også uten digart; to reelle kodektester krever denne valgfrie avhengigheten og bestod lokalt.
+- Full motorpatch matcher native arbeidsdiff byte for byte. Foroverkontroll mot låst ScummVM-revisjon, reverskontroll og diffkontroll bestått.
+
+## 2026-10-13 21:31 (Codex, museum119)
+- Aktivert mykt panorama og utvidet eksisterende kantutjevning til kostyme119. Utjevningen berører bare synlige maskeområder; originalens skjulte forgrunn forblir skjult.
+- Den lyse åpningen ved kamera160 finnes også i originaldumpen og er beholdt.
+- Native og Windows bygget på nytt. Ni native dumper fordelt over tre kameraposisjoner har null avvik mot full nytegning og z-masken. Full patch regenerert og forover-/reverskontrollert.

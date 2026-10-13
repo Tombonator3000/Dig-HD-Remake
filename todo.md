@@ -4,6 +4,10 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 ## Neste
 
+- [x] [HD] Boston beholder HD bak luftslusens glass i r12-kandidaten
+- [x] [HD] Eksakt SMAP-dekning og objektprioritet for PDA-portretter og knapper
+- [ ] Verifiser r12-pakkene separat fra lokal motor og grafikkandidat
+
 - [x] [HD] Inventory beholder HD ved horisontal scroll, testet fra Toms lagring5
 - [x] [HD] Luftslusens palettmasker bevarer HD-underlaget
 - [x] [HD] Produsert/registrert manglende krystall-, vann-, sparks- og lysfaser i r11-kandidat

@@ -39,7 +39,7 @@ install -m 755 "$SRC/scummvm" "$APPDIR/usr/bin/scummvm"
 strip "$APPDIR/usr/bin/scummvm" 2>/dev/null || true
 cp -r "$ROOT/game/DIG.LA0" "$ROOT/game/DIG.LA1" "$ROOT/game/DIGMUSIC.BUN" "$ROOT/game/DIGVOICE.BUN" "$ROOT/game/VIDEO" "$DATA/game/"
 cp -r "$ROOT/mods/gpt" "$DATA/mods/gpt"
-rm -f "$DATA/mods/gpt/README.md"
+# Keep every file covered by the mod's SHA256SUMS in the downloadable package.
 # ScummVM sine temaer og hjelpefiler (menyene i ScummVM selv), samme liste som engine/build-pages.py
 for name in achievements.dat classicmacfonts.dat encoding.dat gui-icons.dat helpdialog.zip macgui.dat \
 	residualvm.zip scummclassic.zip scummmodern.zip scummremastered.zip shaders.dat translations.dat; do

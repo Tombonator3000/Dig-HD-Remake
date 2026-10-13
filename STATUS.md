@@ -1,3 +1,5 @@
+R12-kandidat 13. oktober: luftslusens palettmasker bevarer også HD-figurer under glasset. Valgfrie SMAP-masker og forrang for aktive objekter med eksakt dekning retter hull i PDA-bilder. Gamle pakker beholder romprioritet ved like indekser. 42 pipeline-tester og 15 Pages-tester bestått lokalt; se `docs/HD-RETTINGER-r12-20261013.md`. Pakkelevering rapporteres separat.
+
 # Status
 
 13. oktober 2026: Inventory ved scroll og luftslusemasker er rettet i r11-kandidaten. 1157 HD-ruter er komplettert/korrigert med kildestyrt registrering. 30 pipeline-tester og målrettede native kontroller er bestått. Se `docs/HD-RETTINGER-20261013.md` for dokumentert omfang og begrensninger. Publiserte pakker verifiseres separat.
