@@ -1,0 +1,44 @@
+{
+  "windows": {
+    "file": "TheDigHD-Windows-x64-r11.zip",
+    "bytes": 1754320528,
+    "sha256": "2ef22a0f009c15e236b78b4bb6f19a4e39cb131d1f587d97ba1aed36a50ed947",
+    "engine_sha256": "8630924b1dda3a30b47d5a8cd0f91cda36af7fb6bce8cc61399235e8f1569b5d",
+    "url": "https://github.com/Tombonator3000/Dig-HD-Remake/releases/download/windows/TheDigHD-Windows-x64.zip",
+    "published_name": "TheDigHD-Windows-x64.zip",
+    "asset_id": 636787165
+  },
+  "source": {
+    "file": "TheDigHD-r11-engine-source.tar.gz",
+    "sha256": "748d7b3bb1d2843d9a634ab624f8124eefdcb8ab9654d8f06690cb3ea401a858"
+  },
+  "code_commit": "85ce7e5f2afa0404b8f6e6e7c048501255a0c7d2",
+  "graphics_commit": "48edcda3",
+  "hd_mod_commit": "113523ba12fd10fbf2a9ff49b3823cd9aa8095c6",
+  "Windows_physical_tested": false,
+  "Windows_Wine_QA": true,
+  "user_visual_QA_pending": true,
+  "linux": {
+    "file": "/home/tombonator3000t/.codex/tasks/the-dig-observasjoner-20261013/TheDigHD-r11-portable-x86_64.AppImage",
+    "url": "https://github.com/Tombonator3000/Dig-HD-Remake/releases/download/linux/TheDigHD-x86_64.AppImage",
+    "asset_id": 636842551,
+    "bytes": 1704700408,
+    "sha256": "f659d3aa3062b4dbd7a77b92af7c08494209968a6e511af6f377f2f3118ffca1",
+    "hd_mod_commit": "113523ba12fd10fbf2a9ff49b3823cd9aa8095c6",
+    "CI_run": 38390612591,
+    "passed": true,
+    "engine_sha256": "07877885aefda0ca207e09c8b36b1242dcf4bf70c2fbf3ba9ab92d29702a570d",
+    "max_glibc_symbol": "2.34",
+    "CI_runtime_passed": true,
+    "local_public_package_passed": true
+  },
+  "graphics_canonical_sheets_commit": "f0a96002275f4c5172ccb01010c567f74cd28ec6",
+  "build_pin_commit": "5b98cf534bfc35c1e557a43dc21912e23fc557e0",
+  "Windows_source_validation_commit": "6af83079be5684d84acb74bcf3b67e689816a7d2",
+  "cleanup": {
+    "passed": true,
+    "free_bytes_increase": 17739370496,
+    "linux_release_program_count": 1
+  },
+  "original_save5_sha256": "4f89566a2daec02f35060983f8e42d9b4c908de7b1deb0a3aead2004dc0500a4"
+}
