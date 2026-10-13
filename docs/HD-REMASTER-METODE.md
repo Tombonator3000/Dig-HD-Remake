@@ -29,6 +29,8 @@ Grundigere gjennomgang av alle fem remasterne, kritikken av dem og tiltak for Th
 
 Konsekvens for oss: DOTT er det nærmeste forbildet for trofast nytegning. Bevar originalens handlinger når UI endres. Ikke påstå at alle prosjektene brukte samme hjul eller identisk arbeidsmetode.
 
+**Fra piksel til HD-strek.** Tom viste 13. oktober 2026 Bernard, Laverne og Hoagie fra DOTT side om side, original og remaster. Remasteren viser den samme figuren i HD: samme positur, silhuett, proporsjoner og plass, hver pikselklynge tolket som det den forestiller (briller, navneskilt, joggesko, hodeskalle med flammer), samme farge per flate, ren mørk kontur, flate farger med ett skyggetrinn og ingen nye detaljer. For The Dig gjelder reglene om form, farge per flate og ingenting nytt; strek og skyggelegging følger Digs egne godkjente stilankere, ikke DOTT sin tegneseriestil. Detaljene står i remake-skillen under «Fra piksel til HD-strek».
+
 Kildene dokumenterer prinsippene og omfanget. Lagstrukturen og kontrollpunktene nedenfor er vårt forslag, ikke en påstand om hvilket tegneprogram eller hvilken eksakt overtegningsprosedyre Double Fine brukte.
 
 Kilder:
