@@ -1,0 +1,1 @@
+Samme fysiske blå krystallstav, alternativ lysfase. Eksisterende HD fra fig298_01 er gjenbrukt uendret; ingen ny bildegenerering. Originalens rute 001 og palett beholdes. De to kilderutene har identisk størrelse og praktisk talt samme silhuett. Kontrollert i isolert r10-kandidat.

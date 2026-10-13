@@ -1,0 +1,1 @@
+Motiv: havvann og skum i rom101, kostyme301. Første r10-bilde var feilaktig tegnet som stein. Ny master produsert med innebygd ChatGPT-bildegenerator fra originalrute000, med ekte alfa. Alle 24 originalfaser registreres med et felles HD-vannfelt og originalens vann- og skummasker. Spilldata, gangflater og tempo endres ikke. Ingen av Toms feilbilder er brukt som genereringsanker.
