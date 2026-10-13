@@ -27,7 +27,7 @@ Instrukser for alle KI-agenter som jobber i dette repoet (Claude, Codex, ChatGPT
 ## Regler
 
 - Spillfiler (`*.LA0`, `*.LA1`, `*.BUN`, `*.SAN`, `*.NUT`, `*.TRS`) og alt som lages fra dem (`work/`, `mods/`, HD-bilder) skal aldri inn i `main` eller kodegrener. De ligger i egne grener (se under).
-- Repoet er offentlig etter Toms valg (9. oktober 2026). *The Dig* tilhører Disney/Lucasfilm. Ingenting fra spillet deles utenfor repoet.
+- Repoet er offentlig etter Toms valg (9. oktober 2026). *The Dig* tilhører Disney/Lucasfilm. Tom har bestemt (13. oktober 2026) at grafikk og annet fra spillet kan deles utenfor repoet til hans eget, private bruk, for eksempel på testsider på GitHub Pages eller som filer til egne maskiner og telefoner. Spillfilene og alt som lages fra dem holdes fortsatt utenfor `main` og kodegrenene.
 - Konseptbildene i `docs/konsept/` er laget av en Reddit-tegner. Spør og krediter før noe vises offentlig.
 - Kjør testene før du committer endringer i pipelinen eller motoren.
 - Kodeendringer går via PR mot `main` og flettes når CI er grønn. Logg, status, todo og minne kan committes rett i `main`.
