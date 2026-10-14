@@ -2,7 +2,27 @@
 
 Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `log.md`.
 
+## Til komplett utgave (oversikt 14. oktober, rettet 09:48, mot hd-mod 05179ed / r12)
+
+Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/fig*/original_1x.png`). Ruter med bare skyggemerker (magenta, 362 i alt) og tomme ruter trenger ikke HD og er ikke regnet som mangler. Rom (106), objekter (640 av 642, to rutenett tatt ut med vilje), alle 149 inventarbilder og teksten er med. Ruter uten HD vises som originalpiksler i 4 x 4-blokker, og blir gule med Ctrl+Shift+H. Hvilke ruter som faktisk vises i spillet, er ikke kontrollert.
+
+- [ ] Romdrakt, 92 ruter uten HD (Tom så ingen i gjennomspillingen på Linux 14. oktober, så de vises kanskje sjelden eller ikke):
+  - Boston (kostyme 1) rute 62 til 82: sitter i stolen med jetpakken og snur seg (fig001_20, HOLD)
+  - Mannskapet med jetpakke og verktøy i rom 5 (kostyme 8): 52 ruter, 1 av 53 har HD
+  - Brink og Maggie i tunnelen (kostyme 22 og 23, rom 10): 9 og 10 ruter. Samme omriss som kostyme 3 og 2, men andre farger, så HD-tegningene derfra kan trolig fargelegges om
+- [ ] Hovedpersonene ellers, 66 ruter: Boston og Brink i lockup (kostyme 229) 25, Boston og Maggie i theeye (213, 214, 222) 20, robotarmen (5) 13, Boston i nexus (71) 8
+- [ ] Andre kostymer: 10 158 ruter med figurgrafikk uten HD, pluss 4 500 bitte små (under 40 piksler, mest lysglimt). 101 kostymer har ingen HD. Største: trikkekartet (270, 268, 272, 274, 276) 959, portrettene i håndcomputeren (newton 224, 225, 227, 228) 658, de preglede figurene (emboss 31, 318, 320, 326) 498, pool (101, 113) 339, energivirvelen i eyehub (247) 281, plandoor (183) 194
+- [ ] Filmene (SAN): 0 av 12 638 rammer i HD. Venter på Tom (metode: oppskalering av video, og helst avspilling som video i stedet for PNG-er)
+- [ ] Toms visuelle godkjenning av r12 (`human_visual_approval` er false i `mod.json`) og én full gjennomspilling med HD. Tom har spilt r12 på Linux fram til slutten (14. oktober), slutten gjenstår; han sier fra når den er gjennomført
+- [ ] Windows-pakken prøvd på en ekte Windows-maskin (bare Wine til nå)
+- [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasen heter «r11», men pakken er bygget med r12-modden
+- [ ] Helt til slutt: mindre HD-filer (se Senere)
+
 ## Neste
+
+- [x] [HD] Boston beholder HD bak luftslusens glass i r12-kandidaten
+- [x] [HD] Eksakt SMAP-dekning og objektprioritet for PDA-portretter og knapper
+- [ ] Verifiser r12-pakkene separat fra lokal motor og grafikkandidat
 
 - [x] [HD] Inventory beholder HD ved horisontal scroll, testet fra Toms lagring5
 - [x] [HD] Luftslusens palettmasker bevarer HD-underlaget

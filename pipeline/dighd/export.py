@@ -85,7 +85,10 @@ def export_la1(game: Path, out: Path, rooms_filter: set[int] | None = None) -> d
             idx.convert("RGBA").save(out / "objects" / f"{bmp.name}.png")
         written += 1
 
+    from .coverage import export_object_coverage
+    masks = export_object_coverage(data, rooms, out, la1mod._decompress_bitmap, rooms_filter)
     meta = {
+        "smap_coverage_masks": masks,
         "game_md5_la0": index.md5,
         "engine_version": index.engine_version,
         "rooms": {

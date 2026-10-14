@@ -423,3 +423,39 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Linux-byggingen låser nå HD-mod-SHA i første steg og henter akkurat denne revisjonen etter motorkompilering. `HD_MOD_REF` i mod_gren.sh er valgfri; vanlig lokal henting følger fortsatt siste hd-mod. Dermed kan en mod-publisering under kompileringen ikke bytte grafikken i pakken.
 - Årsaken var et r11-bygg som startet mens den komplette modden ble lastet opp. Dette gamle mod-bygget brukes ikke som endelig r11-levering. Komplett r11-mod er bekreftet som113523ba12fd10fbf2a9ff49b3823cd9aa8095c6.
 - Shellsyntaks kontrollert; CI og den faktiske Linux-pakken kontrolleres etterpå.
+
+
+## 2026-10-13 (Codex, r12)
+- Gjenskapt Boston-feilen bak luftsluseglasset og bevart figurens HD-eierskap gjennom faktiske palettmasker.
+- PDA: eksakt SMAP-dekning bevarer ugjennomsiktig svart i blandede striper. Aktive HD-objekter med eksakt dekningsmaske får forrang når de deler palettindeks med bakgrunnen; eldre pakker beholder romprioriteten.
+- 33 lokale pipeline-tester bestått. Målrettede native skjermbilder og kontroller gjennomført. Grafikk og brukerlagringer ligger utenfor kodegrenen.
+- Detaljer og begrensninger: `docs/HD-RETTINGER-r12-20261013.md`.
+
+## 2026-10-13 21:26 (Codex, kodekontroll r12)
+- Lest maskebevaring, objektprioritet og eksportkoblingen. Ingen motorendring var nødvendig i denne kontrollen.
+- Utvidet dekningstestene med uavhengig dekoderkontrakt, flerraders stripplassering, alfabevaring, uendrede indeksfiler og begge mod-byggveier med og uten maskefil.
+- 42 pipeline-tester og 15 Pages-tester bestått. Ti nye dekningstester bestod også uten digart; to reelle kodektester krever denne valgfrie avhengigheten og bestod lokalt.
+- Full motorpatch matcher native arbeidsdiff byte for byte. Foroverkontroll mot låst ScummVM-revisjon, reverskontroll og diffkontroll bestått.
+
+## 2026-10-13 21:31 (Codex, museum119)
+- Aktivert mykt panorama og utvidet eksisterende kantutjevning til kostyme119. Utjevningen berører bare synlige maskeområder; originalens skjulte forgrunn forblir skjult.
+- Den lyse åpningen ved kamera160 finnes også i originaldumpen og er beholdt.
+- Native og Windows bygget på nytt. Ni native dumper fordelt over tre kameraposisjoner har null avvik mot full nytegning og z-masken. Full patch regenerert og forover-/reverskontrollert.
+
+## 2026-10-14 09:37 (Claude)
+- Tom spurte hva som mangler for å kalle HD-utgaven komplett. Ingen kode, grafikk eller pakke endret.
+- Sjekket: main a7f3d67 (PR 51 flettet, ingen åpne PR-er), `hd-mod` 05179ed (r12, 13. oktober 19:56), `gpt-arbeid` 5bee7c6. Linux-releasen har AppImage bygget 13. oktober 20:05 med r12-modden, men heter fortsatt «r11». Windows-releasen er r12 (testet i Wine).
+- Telt i `hd-mod` mot `docs/figurer.csv`: 106 rom, 640 objektbilder, 149 ikoner, 225 av 331 kostymer med HD, 13 268 av 28 481 synlige figurruter (47 prosent), 0 filmrammer. Hovedpersonene på planeten 8 086 av 8 235, i romdrakt 559 av 870 (mannskapet 1 av 73). De 268 andre kostymene 4 662 av 19 376; 106 kostymer uten HD.
+- `status.csv` og `ORDRE.md` i `gpt-arbeid` er fra 10. og 11. oktober og stemmer ikke med r12 (Codex har levert videre utenom runden). STATUS.md er heller ikke oppdatert til r12.
+- Lagt til «Til komplett utgave» øverst i `todo.md`.
+
+## 2026-10-14 09:49 (Claude)
+- Tom spilte gjennom Linux-pakken og så ingen romdrakter uten HD, og inventaret var HD. Ba om en dobbeltsjekk av grafikken.
+- Telt på nytt mot originalrutene i alle 4 032 figurjobbene i `gpt-arbeid` (`original_1x.png` og `rekt` i `jobb.json`). Tellingen 09:37 regnet ruter med bare skyggemerker (magenta) som manglende HD; de trenger ikke HD. 362 slike i alt, 239 av dem i romdraktene. Tallet «559» for romdraktene i forrige oppføring var feil, riktig er 519 ruter med HD.
+- Romdraktene: Maggie og Brink (kostyme 2 og 3) er komplette. Det som gjenstår er Boston rute 62 til 82 (kostyme 1, fig001_20 på HOLD), mannskapet med jetpakke i rom 5 (kostyme 8, 52 ruter) og tunnelutgavene i rom 10 (kostyme 22 og 23, 9 og 10 ruter, samme omriss som 3 og 2 med andre farger). Ikke kontrollert om disse vises i vanlig spill.
+- Inventaret: alle 149 myke inventarbilder er i modden. Bekreftet.
+- Hovedpersonene ellers 66 ruter. Andre kostymer 10 158 ruter med figurgrafikk og 4 500 bitte små uten HD; 101 kostymer uten HD. Motoren tegner ruter uten HD som originalpiksler (`kindFlat`), ingen utjevning.
+- Oppdatert «Til komplett utgave» i `todo.md`. Ingen kode, grafikk eller pakke endret.
+
+## 2026-10-14 09:56 (Claude)
+- Tom har spilt r12 på Linux fram til slutten. Slutten gjenstår, og han sier fra når hele gjennomspillingen er gjort. Notert ved punktet i «Til komplett utgave» i `todo.md`, ikke krysset av.

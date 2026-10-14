@@ -122,6 +122,7 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
                     ohd = _upscale_object_in_context(base, oim, obj["x"], obj["y"], scale, method, **upscale_kw)
                 ohd.save(out / "objects" / f"{name}.png")
                 shutil.copyfile(extract / "objects" / f"{name}_idx.png", out / "objects" / f"{name}_idx.png")
+                _copy_object_mask(extract, out, name)
                 done_objects.append(name)
 
     has_own_cels = bool(own and (own / "costumes").is_dir() and any((own / "costumes").glob("costume*.png")))  # også _hd.png
@@ -149,6 +150,15 @@ def build_mod(extract: Path, out: Path, *, scale: int, method: str, rooms: set[i
     return manifest
 
 
+def _copy_object_mask(extract: Path, out: Path, name: str) -> None:
+    mask = extract / "objects" / f"{name}_mask.png"
+    dest = out / "objects" / mask.name
+    if mask.exists():
+        shutil.copyfile(mask, dest)
+    elif dest.exists():
+        dest.unlink()  # Never reuse coverage from another source extraction.
+
+
 def _own_objects_only(extract: Path, out: Path, own: Path, info: dict, scale: int) -> list[str]:
     """Egne objektbilder for et rom som ikke er med i modden. Ingen bakgrunn, ingen automatisk oppskalering."""
     done = []
@@ -166,6 +176,7 @@ def _own_objects_only(extract: Path, out: Path, own: Path, info: dict, scale: in
                 continue
             ohd.save(out / "objects" / f"{name}.png")
             shutil.copyfile(extract / "objects" / f"{name}_idx.png", out / "objects" / f"{name}_idx.png")
+            _copy_object_mask(extract, out, name)
             done.append(name)
     return done
 
