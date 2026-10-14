@@ -100,7 +100,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Skillen ligger i `docs/skills/scumm-hd-remake/SKILL.md`. Den er koblet fra AGENTS, remastermetoden, bestillingen og malen for grafikkgrenen. Spillets egne stilvalg gjelder; Dig sine figurer og materialer er ikke designfasit for de andre spillene.
 - Rett påviste feil i produksjonsgrunnlaget før generering. Beskyttede jobbfiler beholdes; korrigert prompt og kildebegrunnelse leveres i et separat notat.
 - Visuell kontroll av mening, identitet og hele animasjoner i spillet kommer i tillegg til teknisk mottak. Innført regel er ikke bevis for at alle ressursene er analysert eller spilltestet.
-- Deling (13. oktober 2026): Tom tillater at grafikk og annet fra spillet deles utenfor repoet til hans eget private bruk (egne enheter, private steder). Offentlige sider og pakker har fortsatt ingen spillgrafikk. Spillfilene og det som lages fra dem holdes fortsatt utenfor `main`.
+- Deling (13. oktober 2026): Tom tillater at grafikk og annet fra spillet deles utenfor repoet til hans eget private bruk (egne enheter, private steder). Spillfilene og det som lages fra dem holdes fortsatt utenfor `main`.
+- Releaser (15. oktober 2026): Tom sier releasene kan ha spillgrafikk og hele spillet, «drit i det». Linux- og Windows-pakken i releasene `linux` og `windows` er offentlige fordi repoet er offentlig. Nettsiden på Pages har fortsatt ingen spillgrafikk.
 
 ## Spillfunn 13. oktober 2026
 - Inventory-feilen i lagring5 skyldes xstart416 som ble klippet mot pitch328. Bufferforskyvning og synlig vindu er forskjellige størrelser i SCUMM.
