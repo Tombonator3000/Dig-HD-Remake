@@ -15,10 +15,13 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 - [ ] Filmene (SAN): 0 av 12 638 rammer i HD. Venter på Tom (metode: oppskalering av video, og helst avspilling som video i stedet for PNG-er)
 - [ ] Toms visuelle godkjenning av r12 (`human_visual_approval` er false i `mod.json`) og én full gjennomspilling med HD. Tom har spilt r12 på Linux fram til slutten (14. oktober), slutten gjenstår; han sier fra når den er gjennomført
 - [ ] Windows-pakken prøvd på en ekte Windows-maskin (bare Wine til nå)
-- [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasen heter «r11», men pakken er bygget med r12-modden
+- [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasen heter «r11», men pakken er bygget med r12-modden. `ORDRE.md` i `gpt-arbeid` er fra 11. oktober
 - [ ] Helt til slutt: mindre HD-filer (se Senere)
 
 ## Neste
+
+- [ ] Sikre r11- og r12-rettingene før neste runde: `tools/gpt_runde.sh` bygger modden på nytt fra `work/gpt-ferdig` uten Codex sine overstyringer (`gpt-arbeid/rapporter/spillfeil-20261013/mod-overrides` og `rapporter/spillfeil-r12-20261013/mod-overrides`) og tvangspusher den til `hd-mod`. Runden må bygge videre på publisert `hd-mod` eller legge på manifestene, og stoppe hvis filer forsvinner eller endres uten at det er meningen. Kjør ikke runden før dette er gjort (funnet 15. oktober)
+- [ ] Finn ut hvilke figurruter, objekter og filmer som faktisk vises uten HD: motoren skriver hver ny rute uten HD én gang til en fil i lagringsmappen, så vanlig spilling gir den ekte listen (forslag 15. oktober)
 
 - [x] [HD] Boston beholder HD bak luftslusens glass i r12-kandidaten
 - [x] [HD] Eksakt SMAP-dekning og objektprioritet for PDA-portretter og knapper
@@ -41,7 +44,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 - [ ] Samstem README, STATUS og pakketellinger fra samme verifiserte hd-mod-SHA; skill levert, ok, sjekk og visuelt godkjent
 - [ ] Test flere myke figurer over hverandre, z-masker, skalering og menyer i ekte spilltilstand
 - [x] Gjennomgang av hvordan LucasArts og Double Fine laget remasterne, med tiltak: `docs/REMASTER-FORBILDER.md`
-- [ ] Master-figurark for Boston, Brink, Maggie og Pig (forfra, profil, bakfra, i drakt og uten), godkjent av Tom, og påbudt som referanse i alle figurjobber for dem. Bestilt i ORDRE.md 11. oktober (`hovedark/`), venter på Codex og så Tom
+- [ ] Master-figurark for Boston, Brink, Maggie og Pig (forfra, profil, bakfra, i drakt og uten), godkjent av Tom, og påbudt som referanse i alle figurjobber for dem. Bestilt i ORDRE.md 11. oktober. Levert av Codex 12. oktober: `hovedark/boston.png`, `maggie.png`, `brink.png` og `robotarm.png` i `gpt-arbeid`, oversikt i `rapporter/hovedark-20261012/OVERSIKT.png` (Pig godkjent 11. oktober). Venter på Tom, og robotarmen (kostyme 4 og 5) tegnes ikke på nytt før det
 - [ ] Visuell kontroll av figur mot rom i ekte spillbilde: samme kantmykhet, lysretning og metning
 - [ ] Merk feil i todo som `[original]` eller `[HD]` (påbegynt 11. oktober i Motor), og skriv i HD-MOTOR.md om hver motorendring leser tilstand, endrer tilstand eller lapper skript
 

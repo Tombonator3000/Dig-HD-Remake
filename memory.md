@@ -111,3 +111,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Valgfri `objects/objNNN_SS_mask.png` angir eksakt SMAP-dekning, inkludert ugjennomsiktig svart i blandede striper. Den beholdes som originaloppløsning i modpakken.
 - Aktive objekter med eksakt maske kan få forrang ved lik indeks med rommet. Uten maske beholdes tidligere romprioritet. Palettmasker bevarer HD-figuren under luftsluseglasset.
 - Kilde og begrensninger: `docs/HD-RETTINGER-r12-20261013.md`. Dette er kandidatstatus, ikke bekreftelse på en publisert pakke eller Toms visuelle godkjenning.
+
+## Overstyringer fra Codex (r11 og r12, funnet 15. oktober 2026)
+- Codex leverte r11 og r12 (13. oktober) som filer lagt oppå en vanlig modbygging: `gpt-arbeid/rapporter/spillfeil-20261013/mod-overrides` (manifest `MOD-OVERRIDES.json`) og `gpt-arbeid/rapporter/spillfeil-r12-20261013/mod-overrides` (manifest `OVERSTYRINGER-MANIFEST.json`, legges på med `verktoy/apply-overrides.py <modmappe>`). Den publiserte `hd-mod` 05179ed er fasit: 28 472 filer, hash for SHA256SUMS c7b650b0 (`MOD-FROZEN.json` i r12-mappen).
+- `tools/gpt_runde.sh` kjenner ikke overstyringene. Den sletter `mods/gpt`, bygger på nytt fra `work/gpt-ferdig` og tvangspusher til `hd-mod`. Uten retting fjerner neste runde med noe nytt godkjent r11- og r12-rettingene, og nettsiden og nattbygget av Linux-pakken henter det som ligger i `hd-mod`.

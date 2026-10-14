@@ -459,3 +459,13 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 
 ## 2026-10-14 09:56 (Claude)
 - Tom har spilt r12 på Linux fram til slutten. Slutten gjenstår, og han sier fra når hele gjennomspillingen er gjort. Notert ved punktet i «Til komplett utgave» i `todo.md`, ikke krysset av.
+
+## 2026-10-15 00:22 (Claude)
+- Tom spurte hva vi bør gjøre nå, ut fra todo. Ingen kode, grafikk eller pakke endret.
+- Sjekket: main 267f71f, ingen åpne PR-er, `hd-mod` 05179ed (r12), `gpt-arbeid` 5bee7c6 (13. oktober 22:00). Ingenting nytt fra Codex siden r12.
+- Funnet: r11- og r12-rettingene til Codex finnes bare som overstyringer i `gpt-arbeid` (`rapporter/spillfeil-20261013/mod-overrides` og `rapporter/spillfeil-r12-20261013/mod-overrides`, med manifest og `verktoy/apply-overrides.py`) og i den publiserte `hd-mod`. `tools/gpt_runde.sh` sletter `mods/gpt`, bygger på nytt uten dem og tvangspusher til `hd-mod`. Codex skriver det selv i `METODE-FRA-NAA.md`. Lagt i todo og memory.
+- Hovedarkene for Boston, Maggie, Brink og robotarmen ble levert av Codex 12. oktober (`hovedark/`, oversikt i `rapporter/hovedark-20261012/OVERSIKT.png`). De venter på Tom. Rettet i todo.
+- `ORDRE.md` i `gpt-arbeid` er fra 11. oktober 02:20. Linux-releasen heter fortsatt «r11» (byggeinfo viser hd-mod 05179ed).
+- Repoet er offentlig (GitHub-API: public), så releasene `linux` og `windows` med hele spillet er offentlige. AGENTS sier at releaser ikke har spillgrafikk, og STATUS kaller `linux` privat. Sagt fra til Tom, ikke endret.
+- Motoren har bare en feilsøkingsmelding per tegning for ruter uten HD (`DigHD: no HD for costume`, med `_debugSoft`), ingen logg over hva som faktisk vises i spillet.
+- Anbefalt til Tom: 1) sikre r12 i runden, 2) logg i motoren over hva som vises uten HD, 3) Tom ser på hovedarkene og spiller ferdig, 4) hovedpersonenes hull med Codex, 5) opprydding (STATUS, README, releasenavn, ORDRE).
