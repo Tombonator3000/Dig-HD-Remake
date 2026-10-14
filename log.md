@@ -456,3 +456,6 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Inventaret: alle 149 myke inventarbilder er i modden. Bekreftet.
 - Hovedpersonene ellers 66 ruter. Andre kostymer 10 158 ruter med figurgrafikk og 4 500 bitte små uten HD; 101 kostymer uten HD. Motoren tegner ruter uten HD som originalpiksler (`kindFlat`), ingen utjevning.
 - Oppdatert «Til komplett utgave» i `todo.md`. Ingen kode, grafikk eller pakke endret.
+
+## 2026-10-14 09:56 (Claude)
+- Tom har spilt r12 på Linux fram til slutten. Slutten gjenstår, og han sier fra når hele gjennomspillingen er gjort. Notert ved punktet i «Til komplett utgave» i `todo.md`, ikke krysset av.
