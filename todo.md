@@ -2,6 +2,19 @@
 
 Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `log.md`.
 
+## Til komplett utgave (oversikt 14. oktober, mot hd-mod 05179ed / r12)
+
+Tellet fra filene i `hd-mod` mot `docs/figurer.csv`. Rom (106), objekter (640 av 642, to rutenett tatt ut med vilje), ikoner (149) og tekst er med. Ruter uten HD vises som originalpiksler.
+
+- [ ] Figurer utenom hovedpersonene: 268 kostymer (skapninger, effekter, trikkevinduene, kartet, biblioteket, laboratoriet og liknende) har HD for 4 662 av 19 376 synlige ruter. 106 kostymer har ingen HD. Største hull: kostyme 208 (worldmap, 766 ruter), 101 (pool, 469), 51 (wreck, 388), 247 (eyehub, 308)
+- [ ] Hovedpersonene i romdrakt: Boston 96, Maggie 92 og Brink 91 ruter uten HD, mannskapet i romdrakt 72 av 73
+- [ ] Hovedpersonene på planeten (inkludert Pig og robotarmen): 8 086 av 8 235 ruter har HD, 149 mangler
+- [ ] Filmene (SAN): 0 av 12 638 rammer i HD. Venter på Tom (metode: oppskalering av video, og helst avspilling som video i stedet for PNG-er)
+- [ ] Toms visuelle godkjenning av r12 (`human_visual_approval` er false i `mod.json`) og én full gjennomspilling med HD
+- [ ] Windows-pakken prøvd på en ekte Windows-maskin (bare Wine til nå)
+- [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasen heter «r11», men pakken er bygget med r12-modden
+- [ ] Helt til slutt: mindre HD-filer (se Senere)
+
 ## Neste
 
 - [x] [HD] Boston beholder HD bak luftslusens glass i r12-kandidaten

@@ -441,3 +441,10 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Aktivert mykt panorama og utvidet eksisterende kantutjevning til kostyme119. Utjevningen berører bare synlige maskeområder; originalens skjulte forgrunn forblir skjult.
 - Den lyse åpningen ved kamera160 finnes også i originaldumpen og er beholdt.
 - Native og Windows bygget på nytt. Ni native dumper fordelt over tre kameraposisjoner har null avvik mot full nytegning og z-masken. Full patch regenerert og forover-/reverskontrollert.
+
+## 2026-10-14 09:37 (Claude)
+- Tom spurte hva som mangler for å kalle HD-utgaven komplett. Ingen kode, grafikk eller pakke endret.
+- Sjekket: main a7f3d67 (PR 51 flettet, ingen åpne PR-er), `hd-mod` 05179ed (r12, 13. oktober 19:56), `gpt-arbeid` 5bee7c6. Linux-releasen har AppImage bygget 13. oktober 20:05 med r12-modden, men heter fortsatt «r11». Windows-releasen er r12 (testet i Wine).
+- Telt i `hd-mod` mot `docs/figurer.csv`: 106 rom, 640 objektbilder, 149 ikoner, 225 av 331 kostymer med HD, 13 268 av 28 481 synlige figurruter (47 prosent), 0 filmrammer. Hovedpersonene på planeten 8 086 av 8 235, i romdrakt 559 av 870 (mannskapet 1 av 73). De 268 andre kostymene 4 662 av 19 376; 106 kostymer uten HD.
+- `status.csv` og `ORDRE.md` i `gpt-arbeid` er fra 10. og 11. oktober og stemmer ikke med r12 (Codex har levert videre utenom runden). STATUS.md er heller ikke oppdatert til r12.
+- Lagt til «Til komplett utgave» øverst i `todo.md`.
