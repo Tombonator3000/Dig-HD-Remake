@@ -249,7 +249,8 @@ def prune_dumps(res: Result, out: Path) -> None:
 
 # ---------------------------------------------------------------- loggen
 
-RE_JUMP = re.compile(r"DigHD: test, jumping to room (\d+)")
+# "keeping restored room": the game already stands in the room, no jump is needed
+RE_JUMP = re.compile(r"DigHD: test, (?:jumping to|keeping restored) room (\d+)")
 RE_NOJUMP = re.compile(r"DigHD: test, room (\d+) is (\d+)x(\d+), smaller than the screen: no jump")
 RE_LOADED = re.compile(r"DigHD: room (\d+) loaded \((\d+)x(\d+)\)")
 RE_NOHD = re.compile(r"DigHD: no HD background for room (\d+)")

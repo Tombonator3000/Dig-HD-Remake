@@ -111,3 +111,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Valgfri `objects/objNNN_SS_mask.png` angir eksakt SMAP-dekning, inkludert ugjennomsiktig svart i blandede striper. Den beholdes som originaloppløsning i modpakken.
 - Aktive objekter med eksakt maske kan få forrang ved lik indeks med rommet. Uten maske beholdes tidligere romprioritet. Palettmasker bevarer HD-figuren under luftsluseglasset.
 - Kilde og begrensninger: `docs/HD-RETTINGER-r12-20261013.md`. Dette er kandidatstatus, ikke bekreftelse på en publisert pakke eller Toms visuelle godkjenning.
+
+## Felles motorpatch med Sam-Max-HD (15. oktober 2026)
+- `engine/patches/0001-dighd-hd-grafikk.patch` er den samme i Dig-HD-Remake og Sam-Max-HD. Det som gjelder bestemte kostymer, objekter eller rom i ett spill, sperres med `_vm->_game.id` (`GID_DIG`, `GID_SAMNMAX`) eller `_game.version`.
+- Endrer noen patchen i ett repo, må den kopieres til det andre eller slås sammen tre-veis (felles base: forrige felles patch). Beskrivelse i `docs/HD-MOTOR.md`, «Felles patch med Sam & Max».

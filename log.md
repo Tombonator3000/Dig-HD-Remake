@@ -459,3 +459,9 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 
 ## 2026-10-14 09:56 (Claude)
 - Tom har spilt r12 på Linux fram til slutten. Slutten gjenstår, og han sier fra når hele gjennomspillingen er gjort. Notert ved punktet i «Til komplett utgave» i `todo.md`, ikke krysset av.
+
+## 2026-10-15 01:23 (Claude)
+- Felles motorpatch med Sam-Max-HD. Sam & Max ble kopiert herfra (main 36cd09f) 10. oktober, og begge patchene er endret siden. Slått sammen tre-veis (10 konflikter), lagt i `engine/patches/`. Beskrevet i `docs/HD-MOTOR.md` under «Felles patch med Sam & Max».
+- Det Dig har lagt til (presise AKOS-merker, palettmasker, myke blast-objekter, objektdekning, harde z-kanter, bølgene, standardkorset) er beholdt; kostyme- og objektnumrene gjelder bare The Dig (`GID_DIG`). Fra Sam & Max kommer kanter på skalerte figurer, glattede ruter, farge med tak for svarte piksler, tekstnivå, ett spor per objekttilstand, glatt z-maske, skalerte blast-objekter og minnelekkasjen i filsystemet på nettsiden.
+- Testet uten skjerm med modden fra hd-mod: introen 3000 bilder med `DIGHD_VERIFY` (0 avvik mot full ombygging i alle 12 kontroller, med begge patchene), romtest med ett kamera i 106 rom (samme resultat med Digs patch og den felles). Nearest-testen (`engine/test.sh`) er ikke kjørt: dekoderne i `uttrekk` lot seg ikke hente fra maskinen, så `dighd extract` gikk ikke. pytest 40 bestått.
+- `tools/romtest.py`: «keeping restored room» telles som hopp (spillet står alt i rommet, som rom 2 ved start).
