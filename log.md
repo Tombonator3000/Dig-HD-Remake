@@ -448,3 +448,11 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Telt i `hd-mod` mot `docs/figurer.csv`: 106 rom, 640 objektbilder, 149 ikoner, 225 av 331 kostymer med HD, 13 268 av 28 481 synlige figurruter (47 prosent), 0 filmrammer. Hovedpersonene på planeten 8 086 av 8 235, i romdrakt 559 av 870 (mannskapet 1 av 73). De 268 andre kostymene 4 662 av 19 376; 106 kostymer uten HD.
 - `status.csv` og `ORDRE.md` i `gpt-arbeid` er fra 10. og 11. oktober og stemmer ikke med r12 (Codex har levert videre utenom runden). STATUS.md er heller ikke oppdatert til r12.
 - Lagt til «Til komplett utgave» øverst i `todo.md`.
+
+## 2026-10-14 09:49 (Claude)
+- Tom spilte gjennom Linux-pakken og så ingen romdrakter uten HD, og inventaret var HD. Ba om en dobbeltsjekk av grafikken.
+- Telt på nytt mot originalrutene i alle 4 032 figurjobbene i `gpt-arbeid` (`original_1x.png` og `rekt` i `jobb.json`). Tellingen 09:37 regnet ruter med bare skyggemerker (magenta) som manglende HD; de trenger ikke HD. 362 slike i alt, 239 av dem i romdraktene. Tallet «559» for romdraktene i forrige oppføring var feil, riktig er 519 ruter med HD.
+- Romdraktene: Maggie og Brink (kostyme 2 og 3) er komplette. Det som gjenstår er Boston rute 62 til 82 (kostyme 1, fig001_20 på HOLD), mannskapet med jetpakke i rom 5 (kostyme 8, 52 ruter) og tunnelutgavene i rom 10 (kostyme 22 og 23, 9 og 10 ruter, samme omriss som 3 og 2 med andre farger). Ikke kontrollert om disse vises i vanlig spill.
+- Inventaret: alle 149 myke inventarbilder er i modden. Bekreftet.
+- Hovedpersonene ellers 66 ruter. Andre kostymer 10 158 ruter med figurgrafikk og 4 500 bitte små uten HD; 101 kostymer uten HD. Motoren tegner ruter uten HD som originalpiksler (`kindFlat`), ingen utjevning.
+- Oppdatert «Til komplett utgave» i `todo.md`. Ingen kode, grafikk eller pakke endret.
