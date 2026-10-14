@@ -62,10 +62,12 @@ engine/run.sh gpt                # spill med HD-modden i mods/gpt
 En runde, kjøres jevnlig (omtrent hver halvtime når ChatGPT leverer):
 
 ```sh
-tools/gpt_runde.sh [--beskjed "tekst til ChatGPT"]
+tools/gpt_runde.sh [--beskjed "tekst til ChatGPT"] [--erstatt MØNSTER] [--fjern MØNSTER]
 ```
 
-Den henter grenen `gpt-arbeid`, kjører kontrollen, bygger modden av alle godkjente rom når noe nytt er godkjent, publiserer den i `hd-mod`, skriver ny `ORDRE.md` og sender status, rapport og retur tilbake. Etterpå: se på forhåndsvisningene av nye godkjente bilder i `work/gpt/forhandsvisning/<jobb>.png` før du rapporterer til Tom.
+Den henter grenen `gpt-arbeid`, kjører kontrollen, bygger en kandidat av alt som er godkjent når noe nytt er godkjent, fletter den inn i den publiserte `hd-mod` og publiserer resultatet, skriver ny `ORDRE.md` og sender status, rapport og retur tilbake. Etterpå: se på forhåndsvisningene av nye godkjente bilder i `work/gpt/forhandsvisning/<jobb>.png` før du rapporterer til Tom.
+
+Den publiserte `hd-mod` er fasit. Codex sine rettinger (r3 til r12) finnes bare der og kan ikke bygges på nytt fra arbeidsbordet. Flettingen (`dighd flett-mod`, `pipeline/dighd/modflett.py`) legger derfor bare til enheter (rom, objektbilder, kostymeruter) som ikke er publisert, og fyller ruter som bare har indeksbilde. En publisert enhet byttes bare med `--erstatt 'costumes/costume004_*'` og tas bare ut med `--fjern`. Rapporten står i `work/mod-flett.json`. `tools/mod_gren.sh send` stopper en mod som mister eller endrer publiserte filer uten at det står i `mod.json` (siste runde under `runder`). Bruk `--tving` bare når Tom vil erstatte hele modden.
 
 Enkeltsteg:
 
@@ -74,8 +76,10 @@ dighd gpt-pakke                  # jobbene i work/gpt (referanse, prompt, metada
 tools/gpt_gren.sh send|hent      # jobber, status og ordre til og fra grenen gpt-arbeid
 dighd gpt-inn                    # plassering, fargelås, sammensying, RAPPORT.md og retur.md
 dighd gpt-ordre                  # ORDRE.md med de neste jobbene
-dighd build-mod --name gpt --egne work/gpt-ferdig
-tools/mod_gren.sh send|hent      # modden til og fra grenen hd-mod
+dighd build-mod --name gpt-kandidat --egne work/gpt-ferdig
+tools/mod_gren.sh hent mods/gpt-publisert
+dighd flett-mod --publisert mods/gpt-publisert --kandidat mods/gpt-kandidat --ut mods/gpt
+tools/mod_gren.sh send|hent      # modden til og fra grenen hd-mod (send sjekker mot den publiserte)
 ```
 
 Romnotater til promptene: `docs/gpt-romnotater.csv`. Grensene for godkjenning står øverst i `pipeline/dighd/gpt.py`. AGENTS.md for ChatGPT i grenen `gpt-arbeid` lages fra `docs/gpt-arbeid-AGENTS.md`.

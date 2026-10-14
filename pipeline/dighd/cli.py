@@ -10,6 +10,8 @@
   dighd gpt-inn                      Tar imot bilder fra ChatGPT, sjekker dem og lager HD-rom og HD-objekter
   dighd gpt-ordre                    Skriver ORDRE.md med neste jobber til ChatGPT
   dighd myke-figurer                 Tar inn figurarkene i glatt stil (ekte alfa) som myke kostymeruter
+  dighd flett-mod                    Bygger videre på den publiserte modden: bare nye enheter fra kandidaten
+  dighd sjekk-mod                    Stopper en mod som mister eller endrer filer mot den publiserte
 """
 from __future__ import annotations
 
@@ -18,7 +20,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import export, gamedata, gpt, modpack, myk
+from . import export, gamedata, gpt, modflett, modpack, myk
 from .upscale import METHODS
 
 KNOWN_LA0_MD5 = "d8323015ecb8b10bf53474f6e6b0ae33"
@@ -184,6 +186,21 @@ def cmd_myke_figurer(a) -> int:
     return 0
 
 
+def cmd_flett_mod(a) -> int:
+    args = ["flett", "--publisert", a.publisert, "--kandidat", a.kandidat, "--ut", a.ut]
+    for pat in a.erstatt:
+        args += ["--erstatt", pat]
+    for pat in a.fjern:
+        args += ["--fjern", pat]
+    if a.rapport:
+        args += ["--rapport", a.rapport]
+    return modflett.main(args)
+
+
+def cmd_sjekk_mod(a) -> int:
+    return modflett.main(["sjekk", "--publisert", a.publisert, "--ut", a.ut] + (["--tving"] if a.tving else []))
+
+
 def main(argv: list[str] | None = None) -> int:
     root = _repo_root()
     ap = argparse.ArgumentParser(prog="dighd", description="HD-pipeline for The Dig")
@@ -272,10 +289,25 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--avvisninger", default=str(root / "docs" / "gpt-avvisninger.csv"),
                    help="avviste ark (jobb, sha256_resultat, status avvist) tas ikke inn")
 
+    p = sub.add_parser("flett-mod", help="bygg videre på den publiserte modden: bare nye enheter fra kandidaten")
+    p.add_argument("--publisert", required=True, help="den publiserte modden (tools/mod_gren.sh hent DIR)")
+    p.add_argument("--kandidat", required=True, help="den nye byggingen (dighd build-mod)")
+    p.add_argument("--ut", required=True, help="mappen som lages, for eksempel mods/gpt")
+    p.add_argument("--erstatt", action="append", default=[],
+                   help="enheter der kandidaten erstatter den publiserte, for eksempel 'costumes/costume004_*'")
+    p.add_argument("--fjern", action="append", default=[], help="enheter som skal ut av modden")
+    p.add_argument("--rapport", help="rapporten med alle enhetene som JSON")
+
+    p = sub.add_parser("sjekk-mod", help="stopp en mod som mister eller endrer filer mot den publiserte")
+    p.add_argument("--publisert", required=True, help="SHA256SUMS fra den publiserte modden")
+    p.add_argument("--ut", required=True, help="modden som skal publiseres")
+    p.add_argument("--tving", action="store_true", help="godta likevel (bare når Tom vil erstatte hele modden)")
+
     a = ap.parse_args(argv)
     return {"info": cmd_info, "extract": cmd_extract, "build-mod": cmd_build_mod,
             "compare": cmd_compare, "san": cmd_san, "gpt-pakke": cmd_gpt_pakke,
-            "gpt-inn": cmd_gpt_inn, "gpt-ordre": cmd_gpt_ordre, "myke-figurer": cmd_myke_figurer}[a.command](a)
+            "gpt-inn": cmd_gpt_inn, "gpt-ordre": cmd_gpt_ordre, "myke-figurer": cmd_myke_figurer,
+            "flett-mod": cmd_flett_mod, "sjekk-mod": cmd_sjekk_mod}[a.command](a)
 
 
 if __name__ == "__main__":

@@ -20,7 +20,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 
 ## Neste
 
-- [ ] Sikre r11- og r12-rettingene før neste runde: `tools/gpt_runde.sh` bygger modden på nytt fra `work/gpt-ferdig` uten Codex sine overstyringer (`gpt-arbeid/rapporter/spillfeil-20261013/mod-overrides` og `rapporter/spillfeil-r12-20261013/mod-overrides`) og tvangspusher den til `hd-mod`. Runden må bygge videre på publisert `hd-mod` eller legge på manifestene, og stoppe hvis filer forsvinner eller endres uten at det er meningen. Kjør ikke runden før dette er gjort (funnet 15. oktober)
+- [x] Sikre r11- og r12-rettingene før neste runde (15. oktober: runden fletter inn i den publiserte modden, `send` stopper tap): `tools/gpt_runde.sh` bygger modden på nytt fra `work/gpt-ferdig` uten Codex sine overstyringer (`gpt-arbeid/rapporter/spillfeil-20261013/mod-overrides` og `rapporter/spillfeil-r12-20261013/mod-overrides`) og tvangspusher den til `hd-mod`. Runden må bygge videre på publisert `hd-mod` eller legge på manifestene, og stoppe hvis filer forsvinner eller endres uten at det er meningen. (funnet 15. oktober)
 - [ ] Finn ut hvilke figurruter, objekter og filmer som faktisk vises uten HD: motoren skriver hver ny rute uten HD én gang til en fil i lagringsmappen, så vanlig spilling gir den ekte listen (forslag 15. oktober)
 
 - [x] [HD] Boston beholder HD bak luftslusens glass i r12-kandidaten
