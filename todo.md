@@ -21,7 +21,9 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 ## Neste
 
 - [x] Sikre r11- og r12-rettingene før neste runde (15. oktober: runden fletter inn i den publiserte modden, `send` stopper tap): `tools/gpt_runde.sh` bygger modden på nytt fra `work/gpt-ferdig` uten Codex sine overstyringer (`gpt-arbeid/rapporter/spillfeil-20261013/mod-overrides` og `rapporter/spillfeil-r12-20261013/mod-overrides`) og tvangspusher den til `hd-mod`. Runden må bygge videre på publisert `hd-mod` eller legge på manifestene, og stoppe hvis filer forsvinner eller endres uten at det er meningen. (funnet 15. oktober)
-- [ ] Finn ut hvilke figurruter, objekter og filmer som faktisk vises uten HD: motoren skriver hver ny rute uten HD én gang til en fil i lagringsmappen, så vanlig spilling gir den ekte listen (forslag 15. oktober)
+- [x] Motoren skriver det som vises uten HD til `dighd-uten-hd.txt` i lagringsmappen, og `dighd mangler` lager oversikten (15. oktober, testet uten skjerm)
+- [ ] Tom spiller med en pakke bygget etter at PR-en er flettet, og sender `dighd-uten-hd.txt` (Linux: `~/.local/share/the-dig-hd/saves/`). Claude lager bestillingen ut fra `dighd mangler`
+- [ ] Etter fletting: kopier patchen til Dig-HD-Web, så nettsiden får samme motor. Windows-pakken bygges på nytt (Codex)
 
 - [x] [HD] Boston beholder HD bak luftslusens glass i r12-kandidaten
 - [x] [HD] Eksakt SMAP-dekning og objektprioritet for PDA-portretter og knapper

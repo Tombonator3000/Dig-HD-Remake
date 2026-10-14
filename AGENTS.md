@@ -55,6 +55,7 @@ cd pipeline && pytest            # etter endringer i pipelinen (game-testen hopp
 pytest -m "not game"             # det CI kjører
 engine/test.sh                   # etter endringer i patchen: 0 avvik for bakgrunner og uskalerte figurer
 engine/run.sh gpt                # spill med HD-modden i mods/gpt
+dighd mangler dighd-uten-hd.txt  # oversikt over det motoren har vist uten HD (fila fra lagringsmappen)
 ```
 
 ## ChatGPT-runder

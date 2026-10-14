@@ -12,6 +12,7 @@
   dighd myke-figurer                 Tar inn figurarkene i glatt stil (ekte alfa) som myke kostymeruter
   dighd flett-mod                    Bygger videre på den publiserte modden: bare nye enheter fra kandidaten
   dighd sjekk-mod                    Stopper en mod som mister eller endrer filer mot den publiserte
+  dighd mangler FIL                  Oversikt over det motoren har vist uten HD (dighd-uten-hd.txt)
 """
 from __future__ import annotations
 
@@ -20,7 +21,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import export, gamedata, gpt, modflett, modpack, myk
+from . import export, gamedata, gpt, mangler, modflett, modpack, myk
 from .upscale import METHODS
 
 KNOWN_LA0_MD5 = "d8323015ecb8b10bf53474f6e6b0ae33"
@@ -201,6 +202,18 @@ def cmd_sjekk_mod(a) -> int:
     return modflett.main(["sjekk", "--publisert", a.publisert, "--ut", a.ut] + (["--tving"] if a.tving else []))
 
 
+def cmd_mangler(a) -> int:
+    s = mangler.summarize(mangler.read_log(Path(a.fil)), mangler.read_figures(Path(a.figurliste) if a.figurliste else None))
+    text = mangler.markdown(s)
+    if a.ut:
+        Path(a.ut).parent.mkdir(parents=True, exist_ok=True)
+        Path(a.ut).write_text(text)
+        print(f"Oversikt: {a.ut}")
+    else:
+        print(text, end="")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     root = _repo_root()
     ap = argparse.ArgumentParser(prog="dighd", description="HD-pipeline for The Dig")
@@ -303,11 +316,16 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--ut", required=True, help="modden som skal publiseres")
     p.add_argument("--tving", action="store_true", help="godta likevel (bare når Tom vil erstatte hele modden)")
 
+    p = sub.add_parser("mangler", help="oversikt over det motoren har vist uten HD (dighd-uten-hd.txt)")
+    p.add_argument("fil", help="dighd-uten-hd.txt fra lagringsmappen")
+    p.add_argument("--figurliste", default=str(root / "docs" / "figurer.csv"), help="navn på kostymene")
+    p.add_argument("--ut", help="skriv oversikten (Markdown) hit i stedet for til skjermen")
+
     a = ap.parse_args(argv)
     return {"info": cmd_info, "extract": cmd_extract, "build-mod": cmd_build_mod,
             "compare": cmd_compare, "san": cmd_san, "gpt-pakke": cmd_gpt_pakke,
             "gpt-inn": cmd_gpt_inn, "gpt-ordre": cmd_gpt_ordre, "myke-figurer": cmd_myke_figurer,
-            "flett-mod": cmd_flett_mod, "sjekk-mod": cmd_sjekk_mod}[a.command](a)
+            "flett-mod": cmd_flett_mod, "sjekk-mod": cmd_sjekk_mod, "mangler": cmd_mangler}[a.command](a)
 
 
 if __name__ == "__main__":

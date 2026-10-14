@@ -249,3 +249,28 @@ def test_mod_gren_send_stops_a_mod_that_loses_published_files(tmp_path):
     # Arbeidskopien er ikke blitt en delvis klone av at sjekksummene ble hentet uten bildene
     promisor = subprocess.run(["git", "config", "--get", "remote.origin.promisor"], cwd=repo, capture_output=True)
     assert promisor.returncode != 0
+
+
+def test_missing_list_groups_cels_per_costume_and_sorts_by_exposure(tmp_path):
+    from dighd import mangler
+    log = tmp_path / "dighd-uten-hd.txt"
+    log.write_text(
+        "# The Dig HD: vist uten HD-bilde\n# type\tid\trom\tbilder\tpiksler\tsett_forst\n"
+        "film\tSQ1\t1\t240\t64000\t2026-10-15 20:00\n"
+        "rute\tcostume008_010\t5\t30\t400\t2026-10-15 20:05\n"
+        "rute\tcostume008_011\t5\t20\t420\t2026-10-15 20:04\n"
+        "rute\tcostume008_012\t6\t5\t100\t2026-10-15 20:09\n"
+        "rute\tcostume229_003\t49\t200\t900\t2026-10-15 21:00\n"
+        "objekt\tobj187_01\t61\t12\t1280\t2026-10-15 21:10\n"
+        "ugyldig linje\n")
+    figures = tmp_path / "figurer.csv"
+    figures.write_text("rekkefolge,kostyme,figur,hva\n1,8,Mannskapet,Med jetpakke\n")
+    s = mangler.summarize(mangler.read_log(log), mangler.read_figures(figures))
+    assert [k["kostyme"] for k in s["kostymer"]] == [229, 8]
+    crew = s["kostymer"][1]
+    assert crew["ruter"] == [10, 11, 12] and crew["rom"] == [5, 6] and crew["bilder"] == 55
+    assert crew["piksler"] == 420 and crew["forst"] == "2026-10-15 20:04" and crew["figur"] == "Mannskapet"
+    assert [r["id"] for r in s["objekt"]] == ["obj187_01"] and s["film"][0]["bilder"] == 240
+    text = mangler.markdown(s)
+    assert "| 8 | Mannskapet (Med jetpakke) | 3: 10-12 | 5, 6 | 55 | 420 |" in text
+    assert mangler.ranges([1, 2, 3, 7, 9, 10]) == "1-3, 7, 9-10"
