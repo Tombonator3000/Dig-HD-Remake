@@ -105,7 +105,7 @@ fullskjerm) og Toms egen maskin.
 
 ## Linux-pakken
 
-Én fil med alt: `TheDigHD-x86_64.AppImage` (1,44 GB 10. oktober 10:56 UTC, Dig-HD-Remake 36cd09f, hd-mod fdad5c7) i den private releasen
+Én fil med alt: `TheDigHD-x86_64.AppImage` (1,44 GB 10. oktober 10:56 UTC, Dig-HD-Remake 36cd09f, hd-mod fdad5c7) i releasen
 [linux](https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux):
 ScummVM med HD-patchen, spillet, musikk, tale og HD-modden. Starter rett i
 spillet i fullskjerm. Innstillinger i `~/.config/the-dig-hd`, lagrede spill i
@@ -142,6 +142,11 @@ mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
 - PR 45 (venter på fletting): skalerte myke figurer etterlater ikke lenger originalpiksler i kanten. Testet uten skjerm, se PR-en.
 
 - Kveld: Pig-serien etter Toms godkjente hovedark tatt inn med mottak versjon 3 (PR 46). Alle 1290 ark tatt inn på nytt: 10 703 ruter ok, 968 sjekk, 277 bare skyggemerker (ingen HD). Modden `hd-mod` 3f5f769. Testet uten skjerm fra Toms lagring i rom 4: Pig vises med de nye rutene, 0 avvik mot skjermen bygget på nytt. Linux-pakken bygges på nytt.
+
+## Endret 15. oktober
+
+- Runden bygger videre på den publiserte `hd-mod` i stedet for å erstatte den (`dighd flett-mod`): bare enheter som ikke er publisert, legges til, og publiserte byttes bare med `--erstatt`. `tools/mod_gren.sh send` stopper en mod som mister eller endrer publiserte filer. Testet med 10 tester (også `mod_gren.sh` mot et lokalt repo) og mot den ekte r12-modden: en fletting med 13 nye filer lot alle 28 470 publiserte filer stå, og sjekken stoppet en mod som manglet dem.
+- Motoren skriver det som vises uten HD til `dighd-uten-hd.txt` i lagringsmappen, og `dighd mangler` lager en oversikt per kostyme. Testet uten skjerm med r12-modden (se `docs/HD-MOTOR.md`, Liste over det som vises uten HD): ingen ruter uten HD ved start, i rom 4, 5, 10 og 28 eller med Boston i rom 22; med en mod uten figurer og objekter kom Boston-rutene og tavla i rom 28 med. 34 av 34 kontroller mot full nytegning uten avvik, og samme fart som før. Ikke testet på ekte skjerm, i nettleseren eller på Windows. Kommer med i Linux-pakken når PR-en er flettet.
 
 ## Kjente begrensninger
 

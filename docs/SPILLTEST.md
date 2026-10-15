@@ -207,3 +207,5 @@ Pakken lages av arbeidsflyten Linux-pakke (`.github/workflows/linux.yml`) på Ub
 ## Si fra
 
 Skriv hva du så, i hvilket rom og omtrent hvor, og legg ved skjermbilde (Alt+S) hvis du kan. Gi det til Claude i chatten, eller legg det i `rapporter/` i grenen `gpt-arbeid`.
+
+Legg også ved `dighd-uten-hd.txt` fra mappen med de lagrede spillene (Linux-pakken: `~/.local/share/the-dig-hd/saves/`). Motoren skriver der alt som har stått på skjermen uten HD mens du spilte i HD, med rom og hvor lenge. Fila vokser over flere kvelder; slett den for å begynne på nytt. Se `docs/HD-MOTOR.md`, Liste over det som vises uten HD.

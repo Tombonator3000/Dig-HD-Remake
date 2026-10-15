@@ -214,6 +214,32 @@ Valg av taster: SCUMM-motoren bruker Ctrl med tallene, F, G, T, V, K og C (og B,
 
 Ytelse: når begge er av, er bildebyggingen like rask som før. Målt uten skjerm med 300 hele skjermbilder i rom 22 og 28 (beste tid): 8,0 til 8,9 ms per bilde både før og etter endringen, og 0,3 til 0,5 ms for å finne kildene til et helt bilde. Med gult felt på ble tidene de samme i disse rommene. Figurer uten HD finnes nå med de samme merkene som figurer med HD (se Hvilke piksler som viser en figur), så det er ingen egen runde for dem lenger. Klassisk modus er raskere, under 1 ms per bilde. Tider etter fargesyklingen står under Hva som er testet.
 
+## Liste over det som vises uten HD
+
+Mens spillet spilles i HD, skriver motoren alt som står på skjermen som originalpiksler fordi modden mangler HD-bilde, til `dighd-uten-hd.txt` i lagringsmappen (Linux-pakken: `~/.local/share/the-dig-hd/saves/`, ellers mappen ScummVM lagrer spillene i). Da gir vanlig spilling lista over det som faktisk mangler, i stedet for tellinger av alle rutene i spillfilene, der mange aldri vises.
+
+Én linje per bilde og rom, med tabulator mellom feltene:
+
+```
+# type	id	rom	bilder	piksler	sett_forst
+rute	costume008_010	5	123	412	2026-10-15 20:05
+objekt	obj241_01	28	1128	63906	2026-10-15 20:09
+rom	room093	93	14	2210	2026-10-15 21:00
+film	SQ1	1	240	64000	2026-10-15 19:58
+```
+
+- `rute`: en kostymerute uten HD (`costumeCCC_NNN`, samme navn som i modden), `objekt`: et objektbilde uten HD (`objNNN_SS`, tilstanden heksadesimalt), `rom`: bakgrunnspiksler som verken stemmer med HD-bakgrunnen eller et objekt, `film`: filmrammer uten HD-ramme.
+- `bilder`: hvor mange bilder (frames) det sto på skjermen uten HD. `piksler`: flest originalpiksler av det på skjermen i ett bilde.
+- `sett_forst`: dato og klokkeslett første gang.
+
+Slik telles det: når spillskjermen sendes gjennom motoren (`blitVirtScreen()`, `blitSmush()`), noteres det for hver piksel som blir originalpiksel fordi HD mangler, hvilket bilde den hører til (`_missOwner`): ruten for en figur uten HD-bilde, ellers objektet uten HD-bilde som ble tegnet sist der (rektangelet), ellers rommet. Én gang per bilde (`beforeUpdateScreen()`) telles det som står på skjermen (`flushMissing()`). Svarte piksler regnes ikke med (de ser like ut i HD), heller ikke rom 0 (ingen rom, før spillet og mellom filmer). Det som er originalt med vilje (skygger, effekter, syklede farger på figurer, tekst, bannere, menyer), kommer ikke med, akkurat som i gult felt. I klassisk grafikk telles ingenting.
+
+Fila skrives hvert 20. sekund når noe nytt er kommet til, og når spillet avsluttes. Ved start leses fila inn igjen, så en gjennomspilling over flere kvelder havner i én liste (bildene legges sammen, `sett_forst` står). Slett fila for å begynne på nytt. `DIGHD_MANGLER=0` (eller `dighd_mangler=false` i scummvm.ini) slår loggen av, `DIGHD_MANGLER=navn.txt` gir et annet filnavn.
+
+`dighd mangler dighd-uten-hd.txt` samler rutene per kostyme med navnene fra `docs/figurer.csv` og sorterer etter hvor mye de ble vist (`--ut work/mangler.md` skriver oversikten til fil).
+
+Testet 15. oktober uten skjerm med den publiserte r12-modden (`hd-mod` 05179ed): ny start til rom 2, hopp til rom 4, 5, 10 og 28, og Boston (`DIGHD_TEST_COSTUME=14`) i rom 22 ga ingenting uten HD utenom introfilmen. Med en mod uten figurer og objekter kom 31 Boston-ruter (63 til 70 bilder, opptil 1002 piksler) og tavla `obj241_01` i rom 28 (1128 bilder, 63 906 piksler). Klassisk grafikk og `DIGHD_MANGLER=0` gir ingen fil. To kjøringer etter hverandre la bildene sammen. `DIGHD_VERIFY=1`: skjermen lik hele skjermen bygget på nytt i alle dumper (34 av 34). Samme kjøring (2000 bilder, rom 22 med Boston) brukte 10,3 til 10,6 sekunder CPU både før og etter endringen. Ikke testet på ekte skjerm, i nettleseren eller på Windows.
+
 ## Undertekster over filmer
 
 SmushPlayer tegner undertekster og annen filmtekst rett inn i filmrammen (8 bit), etter at rammen er pakket ut. En HD-ramme dekker hele bildet, så teksten må legges oppå HD-rammen igjen. Slik gjøres det:
@@ -332,6 +358,7 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger hvordan gly
 | `DIGHD_CLASSIC=1` / `dighd_classic=true` | Starter i klassisk grafikk. HD Graphics i menyen og Ctrl+H bytter og skriver `dighd_classic` i `[scummvm]` |
 | `DIGHD_SHOW_MISSING=1` / `dighd_show_missing=true` | Starter med gult felt der HD mangler (Ctrl+Shift+H slår av og på) |
 | `DIGHD_TEXT` / `dighd_text` | Teksten: `font` (standard, HD-skriften fra `fonts/` i modden, ellers xBR), `xbr`, `scale4x`, `nearest` eller `off` (tekst som originalpiksler) |
+| `DIGHD_MANGLER` / `dighd_mangler` | Lista over det som vises uten HD (`dighd-uten-hd.txt` i lagringsmappen), standard på. `0` eller `false` slår av, et filnavn gir en annen fil. Se Liste over det som vises uten HD |
 
 Miljøvariabelen går foran nøkkelen i scummvm.ini. `DIGHD_CLASSIC=0` gir HD selv om `dighd_classic=true` står i filen.
 
