@@ -116,6 +116,12 @@ Valg og begrunnelse. Den myke kanten må blandes med det som er bak figuren, ogs
 | Myk alfa i 4x innenfor en utvidet maske | Bedre kanter, men et omriss som stikker utenfor originalen kuttes |
 | Legge bildet over etter blokkene, med bakgrunnen under ruten (valgt) | Fritt omriss og ekte blanding. Krever bakgrunnen under rutens egne piksler, rekkefølgen mellom rutene, z-masken og at margen bygges på nytt når figuren flytter seg |
 
+## Myke kanter på romobjekter
+
+Fra Sam & Max HD (PR 29 der, 15. oktober 2026, bilen i rom 9): et romobjekt bygges per originalpiksel, så kanten følger originalens maske i trinn på 4 x 4 HD-piksler. Når objektbildet (`objNNN_SS.png`, uten marg) har myk alfa, legger motoren kanten over HD-rommet etter at blokkene er bygget (`drawSoftObjectEdges`): inni objektet skinner HD-rommet gjennom der alfa er under full, og på bakgrunnspikslene rett ved objektet legges objektets HD-piksler over med sin alfa. Bare rom- og objektpiksler endres.
+
+I The Dig har ingen objektbilder i `hd-mod` myk alfa (sjekket 15. oktober: 640 bilder, alle har bare 0 og 255), så ingenting endres her før modden får det. I Sam & Max gir `build-mod` malte objekter myk alfa (`soft_alpha`).
+
 ## Kostymer med kodek 5 og 16
 
 Kodeken står i AKHD-blokken i hvert kostyme. Av de 331 kostymene har 182 kodek 1 (Byle RLE), 144 kodek 5 (BOMP) og 5 kodek 16 (MajMin). Alle tre får HD-sprites på samme måte: tegneren melder hver rute til DigHD (`noteCel`) etter at den er tegnet, med rektangelet før klipping og om den er speilvendt.
