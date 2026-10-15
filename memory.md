@@ -100,7 +100,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Skillen ligger i `docs/skills/scumm-hd-remake/SKILL.md`. Den er koblet fra AGENTS, remastermetoden, bestillingen og malen for grafikkgrenen. Spillets egne stilvalg gjelder; Dig sine figurer og materialer er ikke designfasit for de andre spillene.
 - Rett påviste feil i produksjonsgrunnlaget før generering. Beskyttede jobbfiler beholdes; korrigert prompt og kildebegrunnelse leveres i et separat notat.
 - Visuell kontroll av mening, identitet og hele animasjoner i spillet kommer i tillegg til teknisk mottak. Innført regel er ikke bevis for at alle ressursene er analysert eller spilltestet.
-- Deling (13. oktober 2026): Tom tillater at grafikk og annet fra spillet deles utenfor repoet til hans eget private bruk (egne enheter, private steder). Offentlige sider og pakker har fortsatt ingen spillgrafikk. Spillfilene og det som lages fra dem holdes fortsatt utenfor `main`.
+- Deling (13. oktober 2026): Tom tillater at grafikk og annet fra spillet deles utenfor repoet til hans eget private bruk (egne enheter, private steder). Spillfilene og det som lages fra dem holdes fortsatt utenfor `main`.
+- Releaser (15. oktober 2026): Tom sier releasene kan ha spillgrafikk og hele spillet, «drit i det». Linux- og Windows-pakken i releasene `linux` og `windows` er offentlige fordi repoet er offentlig. Nettsiden på Pages har fortsatt ingen spillgrafikk.
 
 ## Spillfunn 13. oktober 2026
 - Inventory-feilen i lagring5 skyldes xstart416 som ble klippet mot pitch328. Bufferforskyvning og synlig vindu er forskjellige størrelser i SCUMM.
@@ -111,6 +112,18 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Valgfri `objects/objNNN_SS_mask.png` angir eksakt SMAP-dekning, inkludert ugjennomsiktig svart i blandede striper. Den beholdes som originaloppløsning i modpakken.
 - Aktive objekter med eksakt maske kan få forrang ved lik indeks med rommet. Uten maske beholdes tidligere romprioritet. Palettmasker bevarer HD-figuren under luftsluseglasset.
 - Kilde og begrensninger: `docs/HD-RETTINGER-r12-20261013.md`. Dette er kandidatstatus, ikke bekreftelse på en publisert pakke eller Toms visuelle godkjenning.
+
+## Overstyringer fra Codex (r11 og r12, funnet 15. oktober 2026)
+- Codex leverte r11 og r12 (13. oktober) som filer lagt oppå en vanlig modbygging: `gpt-arbeid/rapporter/spillfeil-20261013/mod-overrides` (manifest `MOD-OVERRIDES.json`) og `gpt-arbeid/rapporter/spillfeil-r12-20261013/mod-overrides` (manifest `OVERSTYRINGER-MANIFEST.json`, legges på med `verktoy/apply-overrides.py <modmappe>`). Den publiserte `hd-mod` 05179ed er fasit: 28 472 filer, hash for SHA256SUMS c7b650b0 (`MOD-FROZEN.json` i r12-mappen).
+- `tools/gpt_runde.sh` kjenner ikke overstyringene. Den sletter `mods/gpt`, bygger på nytt fra `work/gpt-ferdig` og tvangspusher til `hd-mod`. Uten retting fjerner neste runde med noe nytt godkjent r11- og r12-rettingene, og nettsiden og nattbygget av Linux-pakken henter det som ligger i `hd-mod`.
+- Rettet 15. oktober: runden fletter kandidaten inn i den publiserte modden (`dighd flett-mod`). Bare enheter som ikke er publisert, legges til; publiserte byttes bare med `--erstatt` og tas ut med `--fjern`. `tools/mod_gren.sh send` henter sjekksummene til den publiserte (bare trærne, i en egen tom git-mappe) og stopper ved tap eller endring som ikke står i `mod.json` (`runder`). `--tving` bare etter Toms ord. Prøvd på den ekte r12-modden: 25 sekunder for 1,2 GB, alle publiserte filer urørt.
+
+## Lista over det som vises uten HD (15. oktober 2026)
+- Motoren skriver alt som står på skjermen som originalpiksler fordi HD mangler, til `dighd-uten-hd.txt` i lagringsmappen (Linux-pakken: `~/.local/share/the-dig-hd/saves/`). Én linje per bilde og rom: type (rute, objekt, rom, film), id som i modden, rom, bilder, piksler, sett først. Standard på; `DIGHD_MANGLER=0` slår av. Leses inn igjen ved start, så den vokser over flere økter.
+- Svart og rom 0 telles ikke, og ingenting i klassisk grafikk. Det som er originalt med vilje, telles ikke (samme regler som gult felt).
+- `dighd mangler FIL` gir oversikten per kostyme med navn fra `docs/figurer.csv`, sortert etter hvor mye det ble vist. Dette er grunnlaget for å bestille det som faktisk synes, i stedet for alle 10 158 rutene i tellingen fra spillfilene.
+- Testkroken `DIGHD_TEST_ROOM` alene setter ingen figurer i rommet. Bruk `DIGHD_TEST_COSTUME` for å teste figurer.
+- Dekoderne (thedig-textures) kan heller ikke hentes fra Claudes skyøkt (15. oktober, «could not read Username»), så `engine/test.sh` med nearest-modden går ikke her. Motorendringer testes da med den ekte modden og `DIGHD_VERIFY=1`.
 
 ## Felles motorpatch med Sam-Max-HD (15. oktober 2026)
 - `engine/patches/0001-dighd-hd-grafikk.patch` er den samme i Dig-HD-Remake og Sam-Max-HD. Det som gjelder bestemte kostymer, objekter eller rom i ett spill, sperres med `_vm->_game.id` (`GID_DIG`, `GID_SAMNMAX`) eller `_game.version`.

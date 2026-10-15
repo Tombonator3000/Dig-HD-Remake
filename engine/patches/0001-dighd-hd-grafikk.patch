@@ -611,10 +611,10 @@ index 21938706..17d0c967 100644
  	width *= 8;
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..1169bddb
+index 00000000..245a93ff
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,5022 @@
+@@ -0,0 +1,5202 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -638,12 +638,14 @@ index 00000000..1169bddb
 +
 +#define FORBIDDEN_SYMBOL_EXCEPTION_getenv
 +
++#include "common/algorithm.h"
 +#include "common/config-manager.h"
 +#include "common/debug.h"
 +#include "common/endian.h"
 +#include "common/file.h"
 +#include "common/fs.h"
 +#include "common/memstream.h"
++#include "common/savefile.h"
 +#include "common/system.h"
 +#include "common/textconsole.h"
 +#include "common/tokenizer.h"
@@ -884,6 +886,18 @@ index 00000000..1169bddb
 +	_showMissing = envInt("DIGHD_SHOW_MISSING", confBool("dighd_show_missing")) != 0;
 +	_dumpFlat = envInt("DIGHD_DUMP_FLAT", 0) != 0;
 +
++	// What is shown without HD goes to a text file in the save folder: on
++	// unless DIGHD_MANGLER=0 (or dighd_mangler=false); DIGHD_MANGLER=name.txt
++	// chooses the file name
++	Common::String miss = ConfMan.hasKey("dighd_mangler") ? ConfMan.get("dighd_mangler") : Common::String();
++	if (const char *env = getenv("DIGHD_MANGLER"))
++		miss = env;
++	_missLog = !(miss == "0" || miss.equalsIgnoreCase("false") || miss.equalsIgnoreCase("off") || miss.equalsIgnoreCase("nei"));
++	_missFile = (miss.empty() || miss == "1" || miss.equalsIgnoreCase("true") || miss.equalsIgnoreCase("ja")) ?
++	            Common::String("dighd-uten-hd.txt") : miss;
++	if (_missLog)
++		readMissingLog();
++
 +	// How glyphs are made: font (standard: the HD typeface where the mod has
 +	// one, else xbr), xbr, scale4x, nearest (for tests: the HD text is then the
 +	// original text), or off (text as original pixels)
@@ -991,6 +1005,11 @@ index 00000000..1169bddb
 +}
 +
 +DigHD::~DigHD() {
++	if (_missLog) {
++		flushMissing();
++		if (_missDirty)
++			writeMissingLog();
++	}
 +	_cursorImage.free();
 +	clearRoom();
 +	_smushFrame.free();
@@ -1008,6 +1027,7 @@ index 00000000..1169bddb
 +	_coverSlot.resize(_w * _h);
 +	_softBase.resize(_w * _h);
 +	_shade.resize(_w * _h);
++	_missOwner.resize(_w * _h);
 +	_softBlastRef.resize(_w * _h);
 +	for (uint i = 0; i < _coverSeq.size(); i++)
 +		_coverSeq[i] = kCoverAll;
@@ -1188,6 +1208,9 @@ index 00000000..1169bddb
 +	for (uint i = 0; i < _source.size(); i++)
 +		if (_source[i] & kSrcMask)
 +			_source[i] = kSrcFlat;
++	// Shown without HD: counted for the old room already (flushMissing())
++	if (!_missOwner.empty())
++		memset(_missOwner.data(), 0, _missOwner.size() * sizeof(uint32));
 +	// Nothing is laid over these pixels until they are drawn again
 +	for (uint i = 0; i < _coverSeq.size(); i++)
 +		_coverSeq[i] = kCoverAll;
@@ -1267,11 +1290,13 @@ index 00000000..1169bddb
 +			_drawn[i].y = y;
 +			_drawn[i].image = img;
 +			_drawn[i].seq = ++_seq;
++			_drawn[i].w = width;
++			_drawn[i].h = height;
 +			return;
 +		}
 +	}
 +	if (_drawn.size() < 255) {
-+		DrawnObject d = { obj, state, x, y, img, ++_seq, false };
++		DrawnObject d = { obj, state, x, y, img, ++_seq, false, width, height };
 +		_drawn.push_back(d);
 +	}
 +}
@@ -1370,7 +1395,7 @@ index 00000000..1169bddb
 +	}
 +	if (_drawn.size() >= 255)
 +		return -1;
-+	DrawnObject d = { obj, state, 0, 0, img, ++_seq, true };
++	DrawnObject d = { obj, state, 0, 0, img, ++_seq, true, width, height };
 +	_drawn.push_back(d);
 +	return _drawn.size() - 1;
 +}
@@ -2317,6 +2342,10 @@ index 00000000..1169bddb
 +	const CelMark *celMarks = celOn ? _celMain.mark.data() : nullptr;
 +	const bool blastOn = mapping && !_blastMarks.empty() && vbase == _blastBase && _blastSize == vsize &&
 +	                     keyPitch == _blastPitch && keySrc >= vbase && textOff < _blastSize;
++	// Which image an original pixel shown for want of HD belongs to, for the
++	// list of what is missing (flushMissing()). Not for room 0 (no room: before
++	// the game and between films).
++	const bool countMissing = _missLog && !_classic && _room > 0;
 +
 +	// For each object slot, the slot of the same object's latest drawing
 +	int newest[256];
@@ -2362,6 +2391,7 @@ index 00000000..1169bddb
 +				}
 +			}
 +			uint32 source = kSrcFlat;
++			uint32 missOwner = 0;
 +			uint32 coverSeq = kCoverAll;  // something other than a figure, until known
 +			uint16 coverSlot = 0;
 +			bool softBase = false;
@@ -2491,6 +2521,8 @@ index 00000000..1169bddb
 +								source = packCel(m.slot, lx, ly);
 +						} else if (cs.missing) {
 +							source = kSrcFlatMissing;  // a figure without HD image
++							if (countMissing)
++								missOwner = kMissCel | ((uint32)(cs.costume & 0xFFF) << 12) | (uint32)(cs.cel & 0xFFF);
 +						}
 +						}
 +					}
@@ -2534,6 +2566,8 @@ index 00000000..1169bddb
 +						bestSeq = d.seq;
 +					}
 +				}
++				if (countMissing && source == kSrcFlatMissing)
++					missOwner = missingBackgroundOwner(rx, ry);
 +			}
 +			if (sx >= _debugPixelX && sy >= _debugPixelY && sx <= _debugPixelX2 && sy <= _debugPixelY2 &&
 +			    _frameNo >= (uint32)_debugPixelFrom) {
@@ -2550,6 +2584,7 @@ index 00000000..1169bddb
 +			_softBlastRef[sy * _w + sx] = softBlast;
 +			_text[sy * _w + sx] = text;
 +			_source[sy * _w + sx] = source;
++			_missOwner[sy * _w + sx] = source == kSrcFlatMissing ? missOwner : 0;
 +			setCover(sy * _w + sx, coverSeq, coverSlot);
 +		}
 +	}
@@ -2568,6 +2603,7 @@ index 00000000..1169bddb
 +				continue;
 +			_shadow[sy * _w + sx] = _base[sy * _w + sx] = src[r * pitch + c];
 +			_source[sy * _w + sx] = kSrcFlat;
++			_missOwner[sy * _w + sx] = 0;
 +			_text[sy * _w + sx] = 0;
 +			_softBase[sy * _w + sx] = 0;
 +			_shade[sy * _w + sx] = 0;
@@ -2652,6 +2688,15 @@ index 00000000..1169bddb
 +	// original pixels on purpose, also over an HD frame. Everything else comes
 +	// from the HD frame, and a frame without an HD version lacks HD as a whole.
 +	const uint32 picture = _smushLoaded ? kSrcSan : (haveFrame ? kSrcFlat : kSrcFlatMissing);
++	uint32 filmOwner = 0;
++	if (picture == kSrcFlatMissing && _missLog && !_classic) {
++		uint i = 0;
++		while (i < _missFilms.size() && _missFilms[i] != name)
++			i++;
++		if (i == _missFilms.size())
++			_missFilms.push_back(name);
++		filmOwner = kMissFilm | i;
++	}
 +	const bool textOn = text && _textSmush.any && _textSmush.base == _smushTextBase && pitch == _textSmush.pitch;
 +	const size_t textOff = textOn ? (size_t)(src - _smushTextBase) : 0;
 +	if (textOn && !_textSmush.pending.empty())
@@ -2667,6 +2712,7 @@ index 00000000..1169bddb
 +			_base[r * _w + c] = idx;
 +			_text[r * _w + c] = glyph;
 +			_source[r * _w + c] = (!glyph && text && text[r * pitch + c]) ? kSrcFlat : picture;
++			_missOwner[r * _w + c] = _source[r * _w + c] == kSrcFlatMissing ? filmOwner : 0;
 +			_softBase[r * _w + c] = 0;
 +			_shade[r * _w + c] = 0;
 +			_softBlastRef[r * _w + c] = 0;
@@ -4589,6 +4635,7 @@ index 00000000..1169bddb
 +			if (fx >= 0 && fx < _w && fy >= 0 && fy < _h) {
 +				_shadow[y * _w + x] = _base[y * _w + x] = sh[fy * _w + fx];
 +				_source[y * _w + x] = kSrcFlat;
++				_missOwner[y * _w + x] = 0;
 +				_text[y * _w + x] = 0;
 +				_softBase[y * _w + x] = 0;
 +				_shade[y * _w + x] = 0;
@@ -4734,6 +4781,7 @@ index 00000000..1169bddb
 +
 +void DigHD::beforeUpdateScreen() {
 +	_frameNo++;
++	flushMissing();
 +	// Soft cels that were drawn, moved or removed since the last frame
 +	flushSoft();
 +	if (_cursorPending)
@@ -5310,6 +5358,138 @@ index 00000000..1169bddb
 +	writeRect(0, 0, _w, _h);
 +}
 +
++uint32 DigHD::missingBackgroundOwner(int rx, int ry) const {
++	// A background pixel shown as the original: an object image without HD
++	// drawn there (the one drawn last), else the room's own picture
++	int best = -1;
++	for (uint i = 0; i < _drawn.size(); i++) {
++		const DrawnObject &d = _drawn[i];
++		if (d.image || d.blast || _vm->getState(d.obj) != d.state ||
++		    rx < d.x || ry < d.y || rx >= d.x + d.w || ry >= d.y + d.h)
++			continue;
++		if (best < 0 || d.seq > _drawn[best].seq)
++			best = i;
++	}
++	if (best < 0)
++		return kMissRoom | (uint32)(_room & 0xFFFF);
++	return kMissObject | ((uint32)(_drawn[best].obj & 0x1FFFFF) << 8) | (uint32)(_drawn[best].state & 0xFF);
++}
++
++void DigHD::noteMissing(const Common::String &key, uint32 px) {
++	MissingItem &m = _missing[key];
++	if (!m.frames) {
++		TimeDate t;
++		g_system->getTimeAndDate(t);
++		m.first = Common::String::format("%04d-%02d-%02d %02d:%02d", t.tm_year + 1900, t.tm_mon + 1, t.tm_mday,
++		                                 t.tm_hour, t.tm_min);
++		debug("DigHD: shown without HD: %s (%u px)", key.c_str(), px);
++	}
++	m.frames++;
++	m.maxPx = MAX(m.maxPx, px);
++	_missDirty = true;
++}
++
++void DigHD::flushMissing() {
++	if (!_missLog || _classic || _missOwner.empty())
++		return;
++	// What is on the screen now without HD, per image. Black looks the same in
++	// HD and is left out (also a fade to black).
++	_missCount.clear();
++	uint32 runOwner = 0, run = 0;
++	for (uint i = 0; i < _missOwner.size(); i++) {
++		uint32 o = _missOwner[i];
++		if (o) {
++			const byte *c = _pal + _shadow[i] * 3;
++			if (!(c[0] | c[1] | c[2]))
++				o = 0;
++		}
++		if (o == runOwner) {
++			run++;
++			continue;
++		}
++		if (runOwner)
++			_missCount[runOwner] += run;
++		runOwner = o;
++		run = 1;
++	}
++	if (runOwner)
++		_missCount[runOwner] += run;
++	for (Common::HashMap<uint32, uint32>::const_iterator it = _missCount.begin(); it != _missCount.end(); ++it) {
++		const uint32 o = it->_key;
++		Common::String key;
++		switch (o & (7u << 29)) {
++		case kMissCel:
++			key = Common::String::format("rute\tcostume%03d_%03d\t%d", (int)((o >> 12) & 0xFFF), (int)(o & 0xFFF), _room);
++			break;
++		case kMissObject:
++			key = Common::String::format("objekt\tobj%03d_%02X\t%d", (int)((o >> 8) & 0x1FFFFF), (int)(o & 0xFF), _room);
++			break;
++		case kMissRoom:
++			key = Common::String::format("rom\troom%03d\t%d", (int)(o & 0xFFFF), (int)(o & 0xFFFF));
++			break;
++		case kMissFilm:
++			if ((o & 0xFFFF) < _missFilms.size())
++				key = Common::String::format("film\t%s\t%d", _missFilms[o & 0xFFFF].c_str(), (int)_vm->_currentRoom);
++			break;
++		default:
++			break;
++		}
++		if (!key.empty())
++			noteMissing(key, it->_value);
++	}
++	if (_missDirty && g_system->getMillis() - _missWrittenAt >= 20000)
++		writeMissingLog();
++}
++
++void DigHD::readMissingLog() {
++	Common::InSaveFile *in = g_system->getSavefileManager()->openForLoading(_missFile);
++	if (!in)
++		return;
++	while (!in->eos() && !in->err()) {
++		const Common::String line = in->readLine();
++		if (line.empty() || line[0] == '#')
++			continue;
++		// type, id, room, frames, pixels, first seen
++		Common::Array<Common::String> f;
++		Common::StringTokenizer tok(line, "\t");
++		while (!tok.empty())
++			f.push_back(tok.nextToken());
++		if (f.size() < 6)
++			continue;
++		MissingItem &m = _missing[f[0] + "\t" + f[1] + "\t" + f[2]];
++		m.frames = MAX<uint32>(1, (uint32)atoi(f[3].c_str()));
++		m.maxPx = (uint32)atoi(f[4].c_str());
++		m.first = f[5];
++	}
++	delete in;
++	debug("DigHD: %u images without HD in %s from earlier play", _missing.size(), _missFile.c_str());
++}
++
++void DigHD::writeMissingLog() {
++	_missDirty = false;
++	_missWrittenAt = g_system->getMillis();
++	Common::OutSaveFile *out = g_system->getSavefileManager()->openForSaving(_missFile, false);
++	if (!out) {
++		warning("DigHD: cannot write %s", _missFile.c_str());
++		return;
++	}
++	Common::Array<Common::String> keys;
++	for (Common::HashMap<Common::String, MissingItem>::const_iterator it = _missing.begin(); it != _missing.end(); ++it)
++		keys.push_back(it->_key);
++	Common::sort(keys.begin(), keys.end());
++	out->writeString("# HD-motoren: vist uten HD-bilde, en linje per bilde og rom. DIGHD_MANGLER=0 slaar av loggen.\n");
++	out->writeString("# bilder: antall bilder (frames) det ble vist, piksler: flest originalpiksler i ett bilde\n");
++	out->writeString("# type\tid\trom\tbilder\tpiksler\tsett_forst\n");
++	for (uint i = 0; i < keys.size(); i++) {
++		const MissingItem &m = _missing[keys[i]];
++		out->writeString(Common::String::format("%s\t%u\t%u\t%s\n", keys[i].c_str(), m.frames, m.maxPx, m.first.c_str()));
++	}
++	out->finalize();
++	if (out->err())
++		warning("DigHD: could not finish %s", _missFile.c_str());
++	delete out;
++}
++
 +Common::String DigHD::statText() const {
 +	Common::String s = Common::String::format("HD room px %u, HD object px %u, HD sprite px %u, original px %u",
 +	                                          _statRoom, _statObject, _statCel, _statFlat);
@@ -5639,10 +5819,10 @@ index 00000000..1169bddb
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..f8c12ec6
+index 00000000..26bc7a8e
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,602 @@
+@@ -0,0 +1,637 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -5698,6 +5878,11 @@ index 00000000..f8c12ec6
 + * original pixels scaled up, same screen size) and Ctrl+Shift+H puts a
 + * yellow tint on pixels that are shown as original pixels because no HD
 + * image exists for them.
++ *
++ * What is shown without an HD image (costume cels, object images, room
++ * backgrounds, film frames) is written to dighd-uten-hd.txt in the save
++ * folder, one line per image and room, so normal play gives the list of
++ * what is still missing (see noteMissing(); DIGHD_MANGLER=0 turns it off).
 + */
 +
 +#ifndef SCUMM_DIGHD_H
@@ -5948,6 +6133,7 @@ index 00000000..f8c12ec6
 +		Image *image;
 +		uint32 seq;
 +		bool blast;  // a blast object: not matched against the background
++		int w, h;    // size of the object image in original pixels
 +	};
 +	struct BlastMark {
 +		uint32 gen;   // _blastGen when drawn; older marks are gone
@@ -6240,6 +6426,35 @@ index 00000000..f8c12ec6
 +	bool _noir = false;      // film noir mode: the output is made gray in writeRect()
 +	uint32 _statShadeCel = 0;  // figure px drawn through the shadow table, built from the HD background
 +	Common::String statText() const;
++
++	// What is shown without HD (on unless DIGHD_MANGLER=0 or dighd_mangler=false).
++	// blitVirtScreen() and blitSmush() note per screen pixel which image is
++	// shown as original pixels because the mod has no HD image for it
++	// (_missOwner: a costume cel, an object image, the room background or a
++	// film). Once per frame, flushMissing() counts what is on the screen and
++	// adds it to _missing, which is written to a text file in the save folder
++	// (_missFile) every 20 seconds and when the game ends. Lines from earlier
++	// sessions are read at start, so a playthrough over several evenings ends
++	// up in one list.
++	struct MissingItem {
++		uint32 frames = 0;     // frames in which it was on the screen without HD
++		uint32 maxPx = 0;      // most original pixels of it on the screen in one frame
++		Common::String first;  // date and time it was first seen
++	};
++	enum : uint32 { kMissCel = 1u << 29, kMissObject = 2u << 29, kMissRoom = 3u << 29, kMissFilm = 4u << 29 };
++	bool _missLog = false;
++	Common::String _missFile;
++	Common::HashMap<Common::String, MissingItem> _missing;  // "type\tid\troom" -> item
++	bool _missDirty = false;
++	uint32 _missWrittenAt = 0;            // g_system->getMillis() of the last write
++	Common::Array<uint32> _missOwner;     // per screen pixel: kMiss* | which image, 0 = not missing
++	Common::Array<Common::String> _missFilms;  // film names for kMissFilm
++	Common::HashMap<uint32, uint32> _missCount;  // owner -> pixels on the screen this frame
++	uint32 missingBackgroundOwner(int rx, int ry) const;
++	void noteMissing(const Common::String &key, uint32 px);
++	void flushMissing();
++	void readMissingLog();
++	void writeMissingLog();
 +};
 +
 +} // End of namespace Scumm

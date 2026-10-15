@@ -27,7 +27,7 @@ Instrukser for alle KI-agenter som jobber i dette repoet (Claude, Codex, ChatGPT
 ## Regler
 
 - Spillfiler (`*.LA0`, `*.LA1`, `*.BUN`, `*.SAN`, `*.NUT`, `*.TRS`) og alt som lages fra dem (`work/`, `mods/`, HD-bilder) skal aldri inn i `main` eller kodegrener. De ligger i egne grener (se under).
-- Repoet er offentlig etter Toms valg (9. oktober 2026). *The Dig* tilhører Disney/Lucasfilm. Tom har bestemt (13. oktober 2026) at grafikk og annet fra spillet kan deles utenfor repoet til hans eget, private bruk: som filer til egne maskiner og telefoner, eller på private steder bare han har tilgang til. Offentlige sider og pakker (GitHub Pages, releaser) har fortsatt ingen spillgrafikk. Spillfilene og alt som lages fra dem holdes fortsatt utenfor `main` og kodegrenene.
+- Repoet er offentlig etter Toms valg (9. oktober 2026). *The Dig* tilhører Disney/Lucasfilm. Tom har bestemt (13. oktober 2026) at grafikk og annet fra spillet kan deles utenfor repoet til hans eget, private bruk: som filer til egne maskiner og telefoner, eller på private steder bare han har tilgang til. Releasene (Linux- og Windows-pakken) kan ha hele spillet og HD-grafikken; Tom bestemte 15. oktober 2026 at det ikke er noe hinder, så ta ikke hensyn til det. Nettsiden på GitHub Pages har fortsatt ingen spillgrafikk, den henter spillet fra grenene. Spillfilene og alt som lages fra dem holdes fortsatt utenfor `main` og kodegrenene.
 - Konseptbildene i `docs/konsept/` er laget av en Reddit-tegner. Spør og krediter før noe vises offentlig.
 - Kjør testene før du committer endringer i pipelinen eller motoren.
 - Kodeendringer går via PR mot `main` og flettes når CI er grønn. Logg, status, todo og minne kan committes rett i `main`.
@@ -55,6 +55,7 @@ cd pipeline && pytest            # etter endringer i pipelinen (game-testen hopp
 pytest -m "not game"             # det CI kjører
 engine/test.sh                   # etter endringer i patchen: 0 avvik for bakgrunner og uskalerte figurer
 engine/run.sh gpt                # spill med HD-modden i mods/gpt
+dighd mangler dighd-uten-hd.txt  # oversikt over det motoren har vist uten HD (fila fra lagringsmappen)
 ```
 
 ## ChatGPT-runder
@@ -62,10 +63,12 @@ engine/run.sh gpt                # spill med HD-modden i mods/gpt
 En runde, kjøres jevnlig (omtrent hver halvtime når ChatGPT leverer):
 
 ```sh
-tools/gpt_runde.sh [--beskjed "tekst til ChatGPT"]
+tools/gpt_runde.sh [--beskjed "tekst til ChatGPT"] [--erstatt MØNSTER] [--fjern MØNSTER]
 ```
 
-Den henter grenen `gpt-arbeid`, kjører kontrollen, bygger modden av alle godkjente rom når noe nytt er godkjent, publiserer den i `hd-mod`, skriver ny `ORDRE.md` og sender status, rapport og retur tilbake. Etterpå: se på forhåndsvisningene av nye godkjente bilder i `work/gpt/forhandsvisning/<jobb>.png` før du rapporterer til Tom.
+Den henter grenen `gpt-arbeid`, kjører kontrollen, bygger en kandidat av alt som er godkjent når noe nytt er godkjent, fletter den inn i den publiserte `hd-mod` og publiserer resultatet, skriver ny `ORDRE.md` og sender status, rapport og retur tilbake. Etterpå: se på forhåndsvisningene av nye godkjente bilder i `work/gpt/forhandsvisning/<jobb>.png` før du rapporterer til Tom.
+
+Den publiserte `hd-mod` er fasit. Codex sine rettinger (r3 til r12) finnes bare der og kan ikke bygges på nytt fra arbeidsbordet. Flettingen (`dighd flett-mod`, `pipeline/dighd/modflett.py`) legger derfor bare til enheter (rom, objektbilder, kostymeruter) som ikke er publisert, og fyller ruter som bare har indeksbilde. En publisert enhet byttes bare med `--erstatt 'costumes/costume004_*'` og tas bare ut med `--fjern`. Rapporten står i `work/mod-flett.json`. `tools/mod_gren.sh send` stopper en mod som mister eller endrer publiserte filer uten at det står i `mod.json` (siste runde under `runder`). Bruk `--tving` bare når Tom vil erstatte hele modden.
 
 Enkeltsteg:
 
@@ -74,8 +77,10 @@ dighd gpt-pakke                  # jobbene i work/gpt (referanse, prompt, metada
 tools/gpt_gren.sh send|hent      # jobber, status og ordre til og fra grenen gpt-arbeid
 dighd gpt-inn                    # plassering, fargelås, sammensying, RAPPORT.md og retur.md
 dighd gpt-ordre                  # ORDRE.md med de neste jobbene
-dighd build-mod --name gpt --egne work/gpt-ferdig
-tools/mod_gren.sh send|hent      # modden til og fra grenen hd-mod
+dighd build-mod --name gpt-kandidat --egne work/gpt-ferdig
+tools/mod_gren.sh hent mods/gpt-publisert
+dighd flett-mod --publisert mods/gpt-publisert --kandidat mods/gpt-kandidat --ut mods/gpt
+tools/mod_gren.sh send|hent      # modden til og fra grenen hd-mod (send sjekker mot den publiserte)
 ```
 
 Romnotater til promptene: `docs/gpt-romnotater.csv`. Grensene for godkjenning står øverst i `pipeline/dighd/gpt.py`. AGENTS.md for ChatGPT i grenen `gpt-arbeid` lages fra `docs/gpt-arbeid-AGENTS.md`.
