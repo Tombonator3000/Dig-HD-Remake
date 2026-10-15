@@ -503,3 +503,9 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 ## 2026-10-15 05:05 (Claude)
 - Tom: fiks 1 og 2. PR 53 (felles motorpatch med Sam & Max og lista) flettet (822f662), CI grønn.
 - Rettingen fra kontrollen: bakgrunn under en myk figur telles ikke i lista (`!softBase` i `blitVirtScreen()`). Patchen laget på nytt fra main og prøvd på en fersk utsjekk av c9091321. Testet uten skjerm med r12-modden: start og rom 5 uten rom-linjer, uten figurer og objekter 31 Boston-ruter og tavla som før, 18 av 18 kontroller uten avvik mot full nytegning. HD-MOTOR rettet.
+
+## 2026-10-15 05:55 (Claude)
+- Tom: kopier patchen til Dig-HD-Web og fiks Zak FM-Towns.
+- Dig-HD-Web PR 2: 0001 lik main, nettleserpatchen for filsystemet laget på nytt oppå den, 0003 og 0004 tatt ut (er med i den felles patchen). WebAssembly-bygget og filsystemtesten grønne i Actions.
+- Zak: HD-laget virker med FM-Towns-lagene av (ZakMcKracken-HD main 879c226). Tre små tillegg i den felles patchen, bare for Zak: `GID_ZAK` i `DigHD::create`, `objNNN_01` uansett tilstand i v3, og testhoppet mot spillflaten. Patchen her er laget på nytt fra Digs kopi (samme format som før).
+- Testet med denne patchen: The Dig start (6 av 6), Boston uten HD-ruter (6 av 6, 31 ruter i lista), tavla i rom 28 (4 av 4); Sam & Max `engine/test.sh` 12 av 12, avvikene i rom 3 som før.

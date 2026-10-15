@@ -365,6 +365,8 @@ Testet 15. oktober 2026 uten skjerm, med HD-modden fra `hd-mod` (nearest-testen 
 - Romtest med ett kamera i alle 106 rom: samme resultat med begge patchene (105 lastet, 0 krasj, 0 heng, 104 med HD-bakgrunn, 0 kjøringer der skjermen er ulik full ombygging). Svarte felt: 8 mot 9 kjøringer, og den ene er en annen gangstilling i rom 82.
 - Sam & Max: `engine/test.sh` med 0 avvik.
 
+Zak McKracken (FM-Towns, SCUMM v3) bruker den samme patchen fra 15. oktober 2026. Det som er lagt til for Zak, gjelder bare Zak: `DigHD::create` godtar `GID_ZAK` (og er av i et bygg med FM-Towns-lagene på, med en melding i loggen), objektene slår opp `objNNN_01` uansett tilstand i SCUMM v3 (ett bilde per objekt), og testhoppet sammenligner romhøyden med høyden på spillflaten (`_virtscr[kMainVirtScreen].h`) i stedet for hele skjermen. Zak-motoren bygges med `DISABLE_TOWNS_DUAL_LAYER_MODE` (ZakMcKracken-HD, `engine/build.sh`). Testet her med The Dig (start, Boston uten HD-ruter, tavla i rom 28; 16 av 16 kontroller uten avvik) og med Sam & Max (`engine/test.sh`, 12 av 12, som før).
+
 ## Innstillinger
 
 | Variabel / nøkkel i scummvm.ini | Betydning |
