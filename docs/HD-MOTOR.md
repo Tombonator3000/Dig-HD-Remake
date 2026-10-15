@@ -348,6 +348,22 @@ Innstillingen `DIGHD_TEXT` (eller `dighd_text` i scummvm.ini) velger hvordan gly
 | `akos.cpp`, `akos.h`, `base-costume.cpp` | Melder hvilke kostymeruter som tegnes (kodek 1, 5 og 16), hvor, om de er speilvendt, om kodene er tegnet rett som palettindekser, om de tegnes i skjermbufferen eller i bakgrunnsbufferen, og hvilken z-maske skuespilleren har |
 | `cursor.cpp`, `input.cpp`, `saveload.cpp` | Musepeker i HD, museposisjon delt på skala, hurtigtastene Ctrl+H og Ctrl+Shift+H. F-tastene logges og får sin vanlige ASCII-kode. En forespørsel om å avslutte som ikke kommer fra Quit i menyen, åpner menyen |
 | `smush/smush_player.cpp` | Filmrammer og filmpalett via DigHD. Filmteksten tegnes også i laget til DigHD, og DigHD får beskjed når en ny ramme er pakket ut |
+| `costume.cpp`, `costume.h`, `charset.h`, `script_v6.cpp` | Bare for Sam & Max (SCUMM v6): klassiske kostymer, tekst og menyraden. Rører ikke The Dig |
+| `backends/fs/emscripten/http-fs.cpp`, `http-fs.h` | Nettsiden: filsystemet over HTTP leser `index.json` én gang per mappe og holder ikke på svarene. Før lakk det rundt 3,5 MB per fil til nettleseren gikk tom for minne (funnet i Sam & Max) |
+
+### Felles patch med Sam & Max
+
+Fra 15. oktober 2026 er patchen den samme i Dig-HD-Remake og Sam-Max-HD. Sam & Max ble kopiert fra Dig (main 36cd09f) 10. oktober, og begge ble endret etterpå. Endringene er slått sammen slik:
+
+- Fra Dig: presise figurmerker for AKOS (`recordCelPixel`, `sourceColumn`), palettmasker (CDAT, luftslusen), myke blast-objekter, objektpiksler som eier sitt område (`opacity`, `visibleAt`), harde z-kanter for kostyme 119 og 298 til 300, bølgene (kostyme 301, 35, 61 og 78 til 91), standardkorset i pekeren (objekt 650 og 688). Det som gjelder bestemte kostymer og objekter, er nå sperret til The Dig (`GID_DIG`).
+- Fra Sam & Max: kanter på skalerte figurer (`nearCode`, `softCelColour`), glattede ruter uten HD-bilde (`smoothCel`), farge i fast punkt med tak for svarte piksler (`tintFactors`), `writeRect` én piksel større, tekstnivå og dekkesjekk, ett spor per objekttilstand (`newest[]`), glatt z-maske for myke figurer (xBR), skalerte blast-objekter og blast-objekter med fargetabell, filsystemet på nettsiden.
+- Objektoppslaget: et objekt teller bare når den siste tegnede tilstanden fortsatt er objektets tilstand (Dig), og en tidligere tilstand teller bare der den siste er gjennomsiktig (Sam & Max, lapper over et helt bilde).
+
+Testet 15. oktober 2026 uten skjerm, med HD-modden fra `hd-mod` (nearest-testen kunne ikke kjøres, dekoderne i `uttrekk` lot seg ikke hente):
+
+- Introen, 3000 bilder med `DIGHD_VERIFY`: skjermen lik hele skjermen bygget på nytt i alle 12 kontroller, med Digs egen patch og med den felles. Bilder for bilder varierer like mye mellom to kjøringer med samme motor (animasjonen følger klokka), så forskjellene ble sett på i bildene. Sam & Max-patchen alene ga kantete originalpiksler i kanten av skalerte astronauter; den felles patchen gjør ikke det.
+- Romtest med ett kamera i alle 106 rom: samme resultat med begge patchene (105 lastet, 0 krasj, 0 heng, 104 med HD-bakgrunn, 0 kjøringer der skjermen er ulik full ombygging). Svarte felt: 8 mot 9 kjøringer, og den ene er en annen gangstilling i rom 82.
+- Sam & Max: `engine/test.sh` med 0 avvik.
 
 ## Innstillinger
 

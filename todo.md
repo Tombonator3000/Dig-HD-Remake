@@ -111,6 +111,9 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 
 ## Motor
 
+- [x] Felles patch med Sam-Max-HD (15. oktober, Claude). Endringer i patchen bør gjøres i begge repoer, eller slås sammen på nytt
+- [ ] Kjør `engine/test.sh` (nearest) med den felles patchen på en maskin der dekoderne kan hentes
+
 - [x] Lagring i Linux-pakken undersøkt (10. oktober): virker uten skjerm og med ekte X11-inndata, ingen feil funnet. Patchen i `saveload.cpp` flytter bare pekeren etter lasting
 - [ ] Tom prøver lagring fra F5-menyen igjen på laptopen og sier fra (hvor det stopper hvis det ikke virker)
 - [x] Inventaret i HD (blast-objekter med skygge, ikonene med HD-bilde), PR 44

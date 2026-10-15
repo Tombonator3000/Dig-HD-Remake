@@ -124,3 +124,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - `dighd mangler FIL` gir oversikten per kostyme med navn fra `docs/figurer.csv`, sortert etter hvor mye det ble vist. Dette er grunnlaget for å bestille det som faktisk synes, i stedet for alle 10 158 rutene i tellingen fra spillfilene.
 - Testkroken `DIGHD_TEST_ROOM` alene setter ingen figurer i rommet. Bruk `DIGHD_TEST_COSTUME` for å teste figurer.
 - Dekoderne (thedig-textures) kan heller ikke hentes fra Claudes skyøkt (15. oktober, «could not read Username»), så `engine/test.sh` med nearest-modden går ikke her. Motorendringer testes da med den ekte modden og `DIGHD_VERIFY=1`.
+
+## Felles motorpatch med Sam-Max-HD (15. oktober 2026)
+- `engine/patches/0001-dighd-hd-grafikk.patch` er den samme i Dig-HD-Remake og Sam-Max-HD. Det som gjelder bestemte kostymer, objekter eller rom i ett spill, sperres med `_vm->_game.id` (`GID_DIG`, `GID_SAMNMAX`) eller `_game.version`.
+- Endrer noen patchen i ett repo, må den kopieres til det andre eller slås sammen tre-veis (felles base: forrige felles patch). Beskrivelse i `docs/HD-MOTOR.md`, «Felles patch med Sam & Max».
