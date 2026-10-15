@@ -509,3 +509,7 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Dig-HD-Web PR 2: 0001 lik main, nettleserpatchen for filsystemet laget på nytt oppå den, 0003 og 0004 tatt ut (er med i den felles patchen). WebAssembly-bygget og filsystemtesten grønne i Actions.
 - Zak: HD-laget virker med FM-Towns-lagene av (ZakMcKracken-HD main 879c226). Tre små tillegg i den felles patchen, bare for Zak: `GID_ZAK` i `DigHD::create`, `objNNN_01` uansett tilstand i v3, og testhoppet mot spillflaten. Patchen her er laget på nytt fra Digs kopi (samme format som før).
 - Testet med denne patchen: The Dig start (6 av 6), Boston uten HD-ruter (6 av 6, 31 ruter i lista), tavla i rom 28 (4 av 4); Sam & Max `engine/test.sh` 12 av 12, avvikene i rom 3 som før.
+
+## 2026-10-15 06:10 (Claude)
+- PR 55 (felles patch med Zak) flettet etter grønn CI (8bc0ddc), sammen med Sam-Max-HD PR 23 og Dig-HD-Web PR 2. `engine/patches/0001-dighd-hd-grafikk.patch` er byte for byte lik i The Dig, Sam & Max, Zak og Dig-HD-Web (sha256 e3b49808).
+- Zak: romtesten med nearest-mod ga HD-bakgrunn i 52 av 59 rom og 0 avvik. Rom 21 og 24 farges om av skriptet (`SO_ROOM_COLOR`), så uttrekket der må ta med omfargingen. Står i Zak sin todo.
