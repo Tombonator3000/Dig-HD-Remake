@@ -513,3 +513,19 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 ## 2026-10-15 06:10 (Claude)
 - PR 55 (felles patch med Zak) flettet etter grønn CI (8bc0ddc), sammen med Sam-Max-HD PR 23 og Dig-HD-Web PR 2. `engine/patches/0001-dighd-hd-grafikk.patch` er byte for byte lik i The Dig, Sam & Max, Zak og Dig-HD-Web (sha256 e3b49808).
 - Zak: romtesten med nearest-mod ga HD-bakgrunn i 52 av 59 rom og 0 avvik. Rom 21 og 24 farges om av skriptet (`SO_ROOM_COLOR`), så uttrekket der må ta med omfargingen. Står i Zak sin todo.
+
+
+## 2026-10-15 08:46 (Codex, grafikkgjennomgang)
+- Tom ba om å sjekke repoet for manglende grafikk og hva videre arbeid trenger. Gjennomgang av main 790dc3e, gpt-arbeid 5bee7c6 og publisert hd-mod 05179ed. Ingen grafikk eller kode endret; ingen publisering.
+- Bekreftet direkte fra git-trærne: 106 rombakgrunner, 640 objektbilder, 149 myke objektbilder for inventaret og 13 268 myke kostymeruter. Alle 29 vanlige kostymebilder har også en myk variant. Ingen SAN-filer i modden. Manifestets costume_cels=13502 er ikke antall tilgjengelige myke ruter.
+- Detaljerte resttall er fra Claudes korrigerte kildeopptelling 14. oktober 09:49 og todo: 92 romdraktruter, 66 øvrige hovedpersonruter, 10 158 andre figurruter og 4500 små ruter uten HD. Datagrenene er uendret siden den opptellingen. Originalenes alfa, tomme ruter og tekniske markører er ikke talt på nytt i denne økta.
+- Lest r12-dekning og visuell QA. 22 mørke linsefragmenter har uavklart runtime-palett/visuell tilstand selv om HD-filer finnes. Fildekning er ikke bevis for visuell godkjenning. Hovedark for Boston, Maggie, Brink og robotarm ligger i gpt-arbeid, med notater om ventende godkjenning.
+- GitHub-release kontrollert: Linux-AppImage oppdatert 15. oktober 04:05 UTC, kode 8bc0ddcd med mangellogg, hd-mod 05179ed. Windows-ZIP er fortsatt fra 13. oktober med motor 7933eac7. README, STATUS og ORDRE.md er eldre enn publisert grafikk.
+- Ingen dighd-uten-hd.txt funnet under lokale ~/.local/share/the-dig-hd, ~/.local/share/scummvm eller ~/Documents. Videre prioritering trenger loggen fra vanlig spilling med ny motor, relevante lagringer for feil og Toms vurdering av hovedarkene. Filmene er fortsatt utsatt etter eksisterende beslutning.
+- Ikke gjort: ny grafikkproduksjon, visuell kontroll av alle bilder, motorbygging, spilltest eller gjennomspilling. Ingen tester nødvendig for denne lesegjennomgangen og loggoppføringen.
+
+
+## 2026-10-15 08:52 (Codex, Toms hovedarkgodkjenning)
+- Tom: «2:godkjent.» Godkjenningen gjelder eksisterende hovedark for Boston, Maggie, Brink og robotarmen som referanser i videre grafikkarbeid.
+- Verifisert alle fire SHA-256-er mot bildefilene i gpt-arbeid 5bee7c6. Registrert godkjenning, dato og omfang i leveranse.json og GODKJENNING.md, med tillegg i hovedarknotatene og ORDRE.md.
+- Oppdatert todo og memory. Ingen bilder, animasjonsruter, motor, spillpakker eller spillteststatus endret. Ingen kodeendring; kontrollert JSON og dokumentdiff.

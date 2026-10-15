@@ -46,7 +46,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 - [ ] Samstem README, STATUS og pakketellinger fra samme verifiserte hd-mod-SHA; skill levert, ok, sjekk og visuelt godkjent
 - [ ] Test flere myke figurer over hverandre, z-masker, skalering og menyer i ekte spilltilstand
 - [x] Gjennomgang av hvordan LucasArts og Double Fine laget remasterne, med tiltak: `docs/REMASTER-FORBILDER.md`
-- [ ] Master-figurark for Boston, Brink, Maggie og Pig (forfra, profil, bakfra, i drakt og uten), godkjent av Tom, og påbudt som referanse i alle figurjobber for dem. Bestilt i ORDRE.md 11. oktober. Levert av Codex 12. oktober: `hovedark/boston.png`, `maggie.png`, `brink.png` og `robotarm.png` i `gpt-arbeid`, oversikt i `rapporter/hovedark-20261012/OVERSIKT.png` (Pig godkjent 11. oktober). Venter på Tom, og robotarmen (kostyme 4 og 5) tegnes ikke på nytt før det
+- [x] Master-figurark for Boston, Brink, Maggie og Pig (forfra, profil, bakfra, i drakt og uten), godkjent av Tom, og påbudt som referanse i alle figurjobber for dem. Bestilt i ORDRE.md 11. oktober. Levert av Codex 12. oktober: `hovedark/boston.png`, `maggie.png`, `brink.png` og `robotarm.png` i `gpt-arbeid`, oversikt i `rapporter/hovedark-20261012/OVERSIKT.png` (Pig godkjent 11. oktober). Tom godkjente Boston, Maggie, Brink og robotarmen 15. oktober 2026. Godkjenning med SHA-256 er registrert i `gpt-arbeid/rapporter/hovedark-20261012/GODKJENNING.md`; riktig hovedark brukes i nye figurjobber
 - [ ] Visuell kontroll av figur mot rom i ekte spillbilde: samme kantmykhet, lysretning og metning
 - [ ] Merk feil i todo som `[original]` eller `[HD]` (påbegynt 11. oktober i Motor), og skriv i HD-MOTOR.md om hver motorendring leser tilstand, endrer tilstand eller lapper skript
 

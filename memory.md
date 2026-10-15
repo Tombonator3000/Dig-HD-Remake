@@ -128,3 +128,9 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 ## Felles motorpatch med Sam-Max-HD (15. oktober 2026)
 - `engine/patches/0001-dighd-hd-grafikk.patch` er den samme i Dig-HD-Remake og Sam-Max-HD. Det som gjelder bestemte kostymer, objekter eller rom i ett spill, sperres med `_vm->_game.id` (`GID_DIG`, `GID_SAMNMAX`) eller `_game.version`.
 - Endrer noen patchen i ett repo, må den kopieres til det andre eller slås sammen tre-veis (felles base: forrige felles patch). Beskrivelse i `docs/HD-MOTOR.md`, «Felles patch med Sam & Max».
+
+
+## Hovedark godkjent 15. oktober 2026
+- Tom svarte «2:godkjent.» på vurderingen av hovedarkene for Boston, Maggie, Brink og robotarmen. Alle fire er godkjent som referanser for videre grafikkarbeid.
+- Godkjenningen er bundet til SHA-256 for eksisterende bilder i `gpt-arbeid/rapporter/hovedark-20261012/GODKJENNING.md` og registrert i leveranse.json. Bruk riktig hovedark som bilde to i nye figurjobber.
+- Dette godkjenner ikke alle animasjonsruter, r12-pakken eller full gjennomspilling. Tidligere Pig-godkjenning beholdes.
