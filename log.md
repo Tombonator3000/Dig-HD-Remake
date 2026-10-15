@@ -489,3 +489,17 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Løst konflikten i PR 53 mot main. Main hadde fått PR 52 (motoren skriver det som vises uten HD til `dighd-uten-hd.txt` i lagringsmappen). Den endringen er slått inn i den felles patchen (to små konflikter i dighd.cpp: tellingen av manglende HD ved siden av Sam & Max sine variabelnavn, og eieren av en bakgrunnspiksel uten HD etter objektoppslaget). Overskriften i filen sier nå «HD-motoren» i stedet for «The Dig HD», siden patchen er felles.
 - log.md og memory.md: begge sider beholdt, mains oppføringer først.
 - Testet: The Dig introen 3000 bilder med `DIGHD_VERIFY`, 12 av 12 kontroller lik full ombygging. Sam & Max `engine/test.sh` 0 avvik. Sam & Max rom 7 med modden: `dighd-uten-hd.txt` skrives (rom 1, LucasArts-logoen, uten HD). Patchen passer på ScummVM c9091321 (`git apply --check`).
+
+## 2026-10-15 04:37 (Claude)
+- Tom spurte om Sam & Max, The Dig og Zak bruker samme motor nå. Lest Sam-Max-HD (main 409da61) og ZakMcKracken-HD (main d37e88d). Ingenting endret.
+- Alle tre er låst til ScummVM c9091321 og har DigHD-laget i `engine/patches/0001-dighd-hd-grafikk.patch`, men patchen er ulik i alle tre. Dig main har PR 52 (lista over det som mangler HD). Sam main har den felles patchen fra en annen Claude-økt (Dig og Sam slått sammen tre-veis, Sam PR 21), uten lista. Zak har en eldre kopi av Sam-patchen pluss `0002-verbhjul.patch`, og DigHD er ikke i bruk der (FM-Towns tegner forbi krokene).
+- PR 53 (felles patch inn i Dig) har konflikt med main etter PR 52; GitHub viser «dirty».
+
+## 2026-10-15 04:52 (Claude)
+- Tom: ja til å slå sammen den felles patchen med lista over det som mangler HD. Den andre Claude-økta hadde alt gjort det 04:40 (PR 53, 8afd89ad, samme patch på grenen ccr-f99918a6-v2s5v1 i Sam-Max-HD). Ikke gjort på nytt her.
+- Kontrollert PR 53 uavhengig: patchen legger seg på c9091321 og bygger. Alle stedene som setter kilden for en piksel, setter også eieren for lista. Samme tester som for PR 52, med r12-modden: 28 av 28 kontroller uten avvik mot full nytegning, klassisk og `DIGHD_MANGLER=0` gir ingen fil, uten figurer og objekter kommer 31 Boston-ruter og tavla med.
+- Funn: med den felles patchen kom to små rom-linjer som Dig-patchen ikke ga (rom 2 opptil 14 piksler, rom 5 opptil 97). Det er bakgrunnspiksler under myke figurer, som figuren dekker; dumpen med gult felt viste ingen gule piksler. Rettet lokalt ved å ikke telle bakgrunn under myke figurer (`!softBase`): linjene forsvant, tavla ble fortsatt fanget. Ikke pushet; legges inn etter at PR 53 er flettet.
+
+## 2026-10-15 05:05 (Claude)
+- Tom: fiks 1 og 2. PR 53 (felles motorpatch med Sam & Max og lista) flettet (822f662), CI grønn.
+- Rettingen fra kontrollen: bakgrunn under en myk figur telles ikke i lista (`!softBase` i `blitVirtScreen()`). Patchen laget på nytt fra main og prøvd på en fersk utsjekk av c9091321. Testet uten skjerm med r12-modden: start og rom 5 uten rom-linjer, uten figurer og objekter 31 Boston-ruter og tavla som før, 18 av 18 kontroller uten avvik mot full nytegning. HD-MOTOR rettet.

@@ -611,10 +611,10 @@ index 21938706..17d0c967 100644
  	width *= 8;
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..245a93ff
+index 00000000..ecaeeb33
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,5202 @@
+@@ -0,0 +1,5203 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -2566,7 +2566,8 @@ index 00000000..245a93ff
 +						bestSeq = d.seq;
 +					}
 +				}
-+				if (countMissing && source == kSrcFlatMissing)
++				// Under a soft cel the cel is laid over the picture: not shown
++				if (countMissing && source == kSrcFlatMissing && !softBase)
 +					missOwner = missingBackgroundOwner(rx, ry);
 +			}
 +			if (sx >= _debugPixelX && sy >= _debugPixelY && sx <= _debugPixelX2 && sy <= _debugPixelY2 &&
