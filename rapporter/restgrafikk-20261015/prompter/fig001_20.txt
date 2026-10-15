@@ -1,0 +1,48 @@
+Task: HD remaster of a sheet of animation frames from the 1995 adventure game The Dig (LucasArts), in the smooth, detailed style approved for the main characters. This is a production asset. Every frame is fitted to the original frame's size and position afterwards, and the game lays it over the HD background with its own soft edges.
+
+Input: the attached image is the original low-resolution sheet enlarged 4x with hard pixel edges. The frames stand apart on a plain flat cyan background (#00C8C8). Around the sheet is a plain gray (#808080) border. The border is only padding.
+
+All frames on this sheet are animation frames of the same character or thing (one costume in the game), in different poses. On this sheet, row by row from left to right: animation 24, facing toward the viewer (21 frames).
+
+Do:
+- Repaint every frame in high resolution with clean, natural detail: smooth shading instead of dithering, smooth anti-aliased outlines (no pixel steps), believable cloth, skin, hair and material.
+- Keep the original look: the same character, the same colors, light direction, shadows and contrast, in the painted style of the approved HD sheets.
+- Make all frames look identical apart from the pose: the same face, hair, clothes, colors and light in every frame. The frames are played one after another in the game, so any difference between them flickers.
+- Keep the pose, proportions and silhouette of every frame as in the input, and keep each frame in its place on the sheet, in the same rows and the same order.
+- Glowing effects (light, energy, lightning, sparks) are painted as soft glow that fades into transparency.
+
+Do not:
+- Do not add, remove, merge or redesign frames. Do not add anything between the frames: no shadows, floor, text, numbers, labels, frames or grid lines.
+- Do not let frames touch or overlap each other.
+- Some frames show only part of the character, for example a body without a head or a head alone, because the game draws the parts separately. Paint them as they are and do not complete them.
+- Small bright magenta marks under the feet or at the edges are shadow markers used by the game. Leave them out; the game draws the shadow itself.
+- No photorealism, no modern 3D look, no film grain, no vignette, no watermark, no signature.
+
+Output: one PNG image, exactly 1536 x 1024 pixels, with a fully transparent background (real alpha, no background color and no gray border) and the frames in the same layout as the input. List the delivery with its sha256 in the fremdrift.json of your report and add a rutekart (the box around each frame's drawing) as for the main characters.
+
+If a second image is attached, it is an already approved HD sheet of the same character, or an approved HD picture from the same game. Paint the character exactly as in that image: the same face, hair, clothes, colors and level of detail. Take all poses and the layout from the first image.
+
+Production clarification: every figure is BOSTON LOW, the mature male astronaut, costume 001, sitting in the maneuvering-unit chair/jetpack, as identified by the original animation and approved Boston model sheet (image 2). Never Maggie or a generic astronaut. Image 1 dictates 21 source poses in exactly THREE ROWS OF SEVEN at the same locations, seated legs bent, hands resting on the chair controls, turning from front through his right profile to showing his backpack. Keep the large gray rectangular maneuvering pack, white suit, gold helmet rim, red top beacon, the source's asymmetric yellow leg bands and equipment. Boston's short brown hair with gray temples and square mature face follow image 2, with the face only visible where image 1 shows it. Do not copy the standing pose, body proportions or layout from image 2. Preserve sitting rather than standing. The 11 initial nearly front-facing poses have their individual subtle expressions; keep same head size and suit design. No cyan/gray background, no labels, no invented stool, no floor. Exact 1536 by 1024 with real transparent alpha.
+
+Exact original frame envelopes in the 1536x1024 output (x,y,width,height in HD pixels; keep drawing within its original envelope, keeping the same internal negative spaces):
+Frame 1 (costume001_082): 80,48,156,256.
+Frame 2 (costume001_081): 268,48,156,256.
+Frame 3 (costume001_080): 456,48,156,256.
+Frame 4 (costume001_079): 644,48,156,256.
+Frame 5 (costume001_078): 832,48,156,256.
+Frame 6 (costume001_077): 1020,48,156,256.
+Frame 7 (costume001_076): 1208,48,156,256.
+Frame 8 (costume001_075): 80,340,156,256.
+Frame 9 (costume001_074): 268,340,156,256.
+Frame 10 (costume001_073): 456,340,156,256.
+Frame 11 (costume001_072): 644,340,156,256.
+Frame 12 (costume001_071): 832,340,160,256.
+Frame 13 (costume001_070): 1024,340,168,256.
+Frame 14 (costume001_069): 1224,336,164,260.
+Frame 15 (costume001_068): 80,628,164,260.
+Frame 16 (costume001_067): 276,636,168,252.
+Frame 17 (costume001_066): 476,636,164,252.
+Frame 18 (costume001_065): 672,640,148,248.
+Frame 19 (costume001_064): 852,640,152,248.
+Frame 20 (costume001_063): 1036,640,148,248.
+Frame 21 (costume001_062): 1216,640,144,248.

@@ -1,0 +1,10 @@
+Use case: precise-object-edit. Production sprite-sheet correction for The Dig, costume005_011 and costume005_012. INPUT 1 IS THE GEOMETRY TO TRACE EXACTLY. INPUT 2 supplies the drawing style only, and is REJECTED for geometry; it expanded and rearranged the arms. INPUT 3 is the approved mechanical identity.
+
+Redraw exactly the TWO arm poses of image 1 in smooth HD on transparent alpha. Keep the 1536x1024 canvas but do NOT enlarge or center the drawings to fill it: leave everything below y=580 and right of x=1220 TRANSPARENT.
+Frame1 bounding envelope x80,y48,width560,height532.
+Frame2 bounding envelope x672,y48,width548,height532.
+Trace image1's exact silhouette and internal gaps. The short upright mounting post in frame1 is centered near x=272, from y=85 down to y=242. Its horizontal arm runs from x=272 to x=521 at approximately y=85. The elbow is near x=531,y=90, and its long downward segment goes to the source bottom near x=616,y=580. The low base remains x80..406, y230..307, not farther down. Frame2 has the corresponding translated parts, and its original cropped pale end/base must remain different from frame1. Use source1 for precise points, these rounded landmarks merely prevent rearrangement.
+
+Keep all original lengths, widths, angles and every contact point. Top bar almost horizontal, lower arm slants right by the same small angle as source. Do NOT copy the proportions from image2 or the model sheet. Same thin dark clean outlines and softly painted blue-white metal, gray base, red lower-arm mark, yellow elbow bracket and cable as approved image3. Do not add mechanisms or decorative elements. The right end is only the cropped component shown in image1, not a new fully designed gripper.
+
+No magenta, gray or other background; real transparent alpha, no glow or shadow matte, no text or labels. Output exactly 1536x1024 PNG with just the two assemblies in the original source slots.

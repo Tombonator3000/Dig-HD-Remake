@@ -1,3 +1,17 @@
+# Ny leveranse 15. oktober 2026: fig001_20
+
+Verktøy: innebygd ChatGPT-bildegenerator. Eksakt modellnavn er ikke oppgitt av verktøyet. 1 bildeforsøk. Valgt PNG er kopiert byteidentisk fra generatoren; alfa er bevart.
+
+Resultat: `resultat-20261015.png`. SHA-256: `f9fffad9ea98eb32fdb00a8459c640a4108416e1e9f2d915a9af79b6e3922b39`. 21 ruter med eksplisitt kobling i `rapporter/restgrafikk-20261015/rutekart.json`. Riktig godkjent hovedark: `hovedark/boston.png`.
+
+Motiv: Boston Low i EVA-drakt, sittende i manøvreringsstolen med jetpakken, kostyme 001, animasjon 24. Tre rader med sju ruter, fra forfra til ryggvendt. Boston er den voksne mannen med brunt hår og grå tinninger. Kildeposene bestemmer sete, håndkontroller, beina, hjelm og den store grå pakken; hovedarket bestemmer identitet. Den generiske gamle betegnelsen «mannskapet» er presisert i separat produksjonsprompt.
+
+Alle ruter er sett mot original og godkjent hovedark. RGBA, 1536 x 1024, ekte gjennomsiktighet og ruteantall er kontrollert. Alfa er også sett over hvitt, grønt og svart. Prompter, målinger og åpent kontrollbehov står i `rapporter/restgrafikk-20261015/RAPPORT.md`.
+
+Dette er en grafikkleveranse til mottak, ikke en rapport om ferdig import eller spilltest. Full animasjon i originalens tempo, retninger, kontaktpunkter og overgangen til eksisterende ruter må kontrolleres i motoren. Toms godkjenning av hovedarket overføres ikke til ferdig animasjon.
+
+## Tidligere leveransenotat, bevart
+
 # Leveransenotat
 
 Levert 10. oktober 2026. Innebygd ChatGPT-bildegenerator, 1 bildeforsøk i valgt forsøksspor. Verktøyet oppgir ikke et bekreftet modellnavn. Tidligere uvalgte forsøk er bevart lokalt.
