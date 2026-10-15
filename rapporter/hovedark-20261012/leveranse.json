@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12T16:27:07.682222+02:00",
-  "status": "fire hovedarkkandidater, visuelt kildekontrollert og utstyr samstemt; venter på Tom",
+  "status": "Fire hovedark visuelt godkjent av Tom 15. oktober 2026 som referanser for videre figurarbeid",
   "is_sprite_delivery": false,
   "counts_toward_existing_sprite_progress": false,
   "delivered": [
@@ -47,10 +47,12 @@
         "rapporter/hovedark-20261012/prompter/boston-forsok01.txt",
         "rapporter/hovedark-20261012/prompter/boston-forsok02.txt"
       ],
-      "visually_approved_by_tom": false,
+      "visually_approved_by_tom": true,
       "used_in_sprite_production": false,
       "imported_to_game": false,
-      "game_tested": false
+      "game_tested": false,
+      "approval_record": "rapporter/hovedark-20261012/GODKJENNING.md",
+      "approval_recorded_at": "2026-10-15T08:52:59+02:00"
     },
     {
       "id": "maggie",
@@ -95,7 +97,7 @@
         "rapporter/hovedark-20261012/prompter/maggie-forsok01.txt",
         "rapporter/hovedark-20261012/prompter/maggie-forsok02.txt"
       ],
-      "visually_approved_by_tom": false,
+      "visually_approved_by_tom": true,
       "used_in_sprite_production": false,
       "imported_to_game": false,
       "game_tested": false,
@@ -104,7 +106,9 @@
         "path": "hovedark/boston.png",
         "sha256": "ae20a2ece7d1ccb2fd965932fa18611f1afd73c1730671321d3e73e26cdb1a0b"
       },
-      "equipment_consistency_review": "Front og bakside samstemt med Boston. Profilen er fortsatt en kildebundet perspektivtolkning; ingen motorimport eller animasjonskontroll påstås."
+      "equipment_consistency_review": "Front og bakside samstemt med Boston. Profilen er fortsatt en kildebundet perspektivtolkning; ingen motorimport eller animasjonskontroll påstås.",
+      "approval_record": "rapporter/hovedark-20261012/GODKJENNING.md",
+      "approval_recorded_at": "2026-10-15T08:52:59+02:00"
     },
     {
       "id": "brink",
@@ -150,7 +154,7 @@
         "rapporter/hovedark-20261012/prompter/brink-forsok02.txt",
         "rapporter/hovedark-20261012/prompter/brink-forsok03.txt"
       ],
-      "visually_approved_by_tom": false,
+      "visually_approved_by_tom": true,
       "used_in_sprite_production": false,
       "imported_to_game": false,
       "game_tested": false,
@@ -159,7 +163,9 @@
         "path": "hovedark/boston.png",
         "sha256": "ae20a2ece7d1ccb2fd965932fa18611f1afd73c1730671321d3e73e26cdb1a0b"
       },
-      "equipment_consistency_review": "Front og bakside samstemt med Boston. Profilen er fortsatt en kildebundet perspektivtolkning; ingen motorimport eller animasjonskontroll påstås."
+      "equipment_consistency_review": "Front og bakside samstemt med Boston. Profilen er fortsatt en kildebundet perspektivtolkning; ingen motorimport eller animasjonskontroll påstås.",
+      "approval_record": "rapporter/hovedark-20261012/GODKJENNING.md",
+      "approval_recorded_at": "2026-10-15T08:52:59+02:00"
     },
     {
       "id": "robotarm",
@@ -207,13 +213,22 @@
       "prompts": [
         "rapporter/hovedark-20261012/prompter/robotarm-forsok01.txt"
       ],
-      "visually_approved_by_tom": false,
+      "visually_approved_by_tom": true,
       "used_in_sprite_production": false,
       "imported_to_game": false,
-      "game_tested": false
+      "game_tested": false,
+      "approval_record": "rapporter/hovedark-20261012/GODKJENNING.md",
+      "approval_recorded_at": "2026-10-15T08:52:59+02:00"
     }
   ],
   "generation_attempts": 8,
   "approval_required_by": "ORDRE.md, punkt 1 og 2 fra Claude 11. oktober",
-  "game_tests": "Ikke utført. Ingen nye sprites, import, motorendring eller spillpakke i denne runden."
+  "game_tests": "Ikke utført. Ingen nye sprites, import, motorendring eller spillpakke i denne runden.",
+  "approval": {
+    "approved_by": "Tom",
+    "recorded_at": "2026-10-15T08:52:59+02:00",
+    "user_message": "2:godkjent.",
+    "scope": "Hovedarkene for Boston, Maggie, Brink og robotarmen som stil- og identitetsreferanser i videre grafikkarbeid. Godkjenningen gjelder de oppførte SHA-256-ene. Den er ikke en godkjenning av alle animasjonsruter, r12-pakken eller full gjennomspilling.",
+    "source_branch_commit": "5bee7c63cd17b6c5631368e60a422b5c899ec481"
+  }
 }

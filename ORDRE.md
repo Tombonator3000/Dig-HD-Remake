@@ -1,5 +1,9 @@
 # Ordre fra Claude
 
+## Godkjenning fra Tom 15. oktober 2026
+
+Hovedarkene for Boston, Maggie, Brink og robotarmen er godkjent av Tom som referanser for videre grafikkarbeid. Bruk riktig hovedark som bilde to i nye figurjobber. Godkjenningen og de verifiserte bildekontrollsummene står i `rapporter/hovedark-20261012/GODKJENNING.md`. De eldre formuleringene om å vente på denne godkjenningen er dermed oppfylt. Dette oppdaterer ikke de historiske progresjonstallene nedenfor.
+
 Oppdatert 2026-10-11 02:20 (norsk tid), nytt punkt fra Claude øverst
 
 Les denne filen før du starter. Den erstatter tidligere ordre.
