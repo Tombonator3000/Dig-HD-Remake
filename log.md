@@ -534,3 +534,11 @@ Alt som gjøres i prosjektet, med tidspunkt (norsk tid). Nyeste nederst.
 - Ny 0001 fra Zak McKracken HD (5782de2): `compose()` i `dighd.cpp` kopierer HD-pikslene rett når fargen er uendret, uten tak og med 32-bits skjerm i samme format som HD-bildet (alfa 255 som før). Ellers den gamle veien; 16-bits skjerm er uendret.
 - Målt i Zak (OpenGL under Xvfb, nearest-mod): 4,7 til 5,9 ms ned til 1,6 til 2,7 ms for hele skjermen. `engine/test.sh` 0 avvik med 16 og 32 bit, og bilder byte for byte like med gammel motor. Ikke testet med dette spillet.
 - Bare `engine/patches/0001-dighd-hd-grafikk.patch` endret, byte for byte lik den i Zak, Sam & Max, The Dig og Dig-HD-Web.
+
+## 2026-10-15 18:34 (Claude)
+
+Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
+
+- `engine/patches/0001-dighd-hd-grafikk.patch` er byte for byte lik den i Sam-Max-HD main etter PR 29 der (myke kanter på romobjekter, `drawSoftObjectEdges`). Før dette var patchene like (Dig PR 56).
+- Virker bare for objektbilder med myk alfa. Sjekket alle 640 objektbilder i Digs `hd-mod`: ingen har myk alfa, så The Dig ser ut som før. Beskrevet i `docs/HD-MOTOR.md`.
+- Testet i Sam-Max-HD: kompilert, `engine/test.sh` 12 av 12 kontroller lik full ombygging, rom 9 med bilen. Ikke kjørt med The Dig her (dekoderne til Dig-uttrekket lot seg ikke hente fra denne maskinen tidligere i dag).

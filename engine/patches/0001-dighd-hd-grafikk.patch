@@ -611,10 +611,10 @@ index 21938706..17d0c967 100644
  	width *= 8;
 diff --git a/engines/scumm/dighd.cpp b/engines/scumm/dighd.cpp
 new file mode 100644
-index 00000000..fce9ef41
+index 00000000..d69f127a
 --- /dev/null
 +++ b/engines/scumm/dighd.cpp
-@@ -0,0 +1,5232 @@
+@@ -0,0 +1,5357 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -790,6 +790,7 @@ index 00000000..fce9ef41
 +	opacity.clear();
 +	transparent = -1;
 +	soft = false;
++	softEdge = false;
 +	padX = padY = 0;
 +	nearCycle.clear();
 +	nearCycleGen = 0;
@@ -1206,6 +1207,20 @@ index 00000000..fce9ef41
 +	out.hd.copyFrom(*conv);
 +	conv->free();
 +	delete conv;
++	if (!pad) {
++		// Soft alpha values (not only 0 and 255): the edge is drawn soft over the HD room
++		for (int yy = 0; yy < out.hd.h && !out.softEdge; yy++) {
++			const uint32 *row = (const uint32 *)out.hd.getBasePtr(0, yy);
++			for (int xx = 0; xx < out.hd.w; xx++) {
++				byte a, r, g, b;
++				_rgba.colorToARGB(row[xx], a, r, g, b);
++				if (a && a != 255) {
++					out.softEdge = true;
++					break;
++				}
++			}
++		}
++	}
 +	return true;
 +}
 +
@@ -1603,6 +1618,112 @@ index 00000000..fce9ef41
 +	}
 +	for (int ch = 0; ch < 3; ch++)
 +		gain[ch] = base[ch] ? MIN<uint32>(512, shown[ch] * 256 / base[ch]) : 256;
++}
++
++// Room objects are built per original pixel: an object pixel shows the object's
++// HD block, a background pixel the room's. With the original's hard mask the
++// edge of a painted object becomes 4 x 4 steps (the car in room 9, Tom 15
++// October 2026). An object image with soft alpha (softEdge) is blended here:
++// inside the object, the HD room under it shows through where the alpha is
++// below full; on background pixels next to the object, the object's HD pixels
++// are laid over the room with their alpha. Only room and object pixels are
++// touched, so figures, text and other objects in front stay as they are.
++void DigHD::drawSoftObjectEdges(int x, int y, int width, int height) {
++	if (!_roomImage.valid())
++		return;
++	int soft[256], nSoft = 0;
++	for (uint i = 0; i < _drawn.size() && nSoft < 256; i++)
++		if (_drawn[i].image && !_drawn[i].blast && _drawn[i].image->softEdge)
++			soft[nSoft++] = i;
++	if (!nSoft)
++		return;
++	const int n = _scale, bpp = _fmt.bytesPerPixel, pitch = width * n * bpp;
++	const Image &room = _roomImage;
++	const int roomW = room.idx.w, roomH = room.idx.h;
++	auto blend = [&](byte *out, uint32 top, int topGain[3], const uint32 *under, int underGain[3]) {
++		byte a, r, g, b;
++		_rgba.colorToARGB(top, a, r, g, b);
++		const uint32 dst = bpp == 4 ? READ_UINT32(out) : READ_UINT16(out);
++		byte dr, dg, db;
++		if (under) {
++			byte ua;
++			_rgba.colorToARGB(*under, ua, dr, dg, db);
++			dr = MIN(255, dr * underGain[0] >> 8);
++			dg = MIN(255, dg * underGain[1] >> 8);
++			db = MIN(255, db * underGain[2] >> 8);
++			// The object's own (already tinted) colour is what the block holds
++			_fmt.colorToRGB(dst, r, g, b);
++		} else {
++			_fmt.colorToRGB(dst, dr, dg, db);
++			r = MIN(255, r * topGain[0] >> 8);
++			g = MIN(255, g * topGain[1] >> 8);
++			b = MIN(255, b * topGain[2] >> 8);
++		}
++		const uint32 col = _fmt.RGBToColor((r * a + dr * (255 - a) + 127) / 255, (g * a + dg * (255 - a) + 127) / 255,
++		                                  (b * a + db * (255 - a) + 127) / 255);
++		if (bpp == 4) WRITE_UINT32(out, col); else WRITE_UINT16(out, col);
++	};
++	for (int k = 0; k < nSoft; k++) {
++		const int slot = soft[k];
++		const DrawnObject &d = _drawn[slot];
++		const Image &im = *d.image;
++		int gain[3];
++		objectPaletteGain(im.idx, im.transparent, im.basePal, _pal, gain);
++		for (int r = 0; r < height; r++) {
++			const int sy = y + r;
++			for (int c = 0; c < width; c++) {
++				const int sx = x + c;
++				const uint32 src = _source[sy * _w + sx];
++				const uint32 kind = src & kSrcMask;
++				if (_cycleArea[sy * _w + sx] || _text[sy * _w + sx] || _softBase[sy * _w + sx] ||
++				    _shade[sy * _w + sx] || _softBlastRef[sy * _w + sx])
++					continue;
++				int ox, oy, rx, ry;
++				bool own;
++				if (kind == kSrcObject && (int)((src >> 22) & 0xFF) == slot) {
++					ox = src & 0x7FF;
++					oy = (src >> 11) & 0x7FF;
++					rx = d.x + ox;
++					ry = d.y + oy;
++					own = true;
++				} else if (kind == kSrcRoom) {
++					rx = src & 0x7FFF;
++					ry = (src >> 15) & 0x7FFF;
++					ox = rx - d.x;
++					oy = ry - d.y;
++					if (ox < 0 || oy < 0 || ox >= im.idx.w || oy >= im.idx.h || im.visibleAt(ox, oy))
++						continue;
++					// Only next to a pixel the object shows now (not a removed state)
++					bool next = false;
++					for (int ny = MAX(sy - 1, 0); ny <= MIN(sy + 1, _h - 1) && !next; ny++)
++						for (int nx = MAX(sx - 1, 0); nx <= MIN(sx + 1, _w - 1) && !next; nx++) {
++							const uint32 s2 = _source[ny * _w + nx];
++							next = (s2 & kSrcMask) == kSrcObject && (int)((s2 >> 22) & 0xFF) == slot;
++						}
++					if (!next)
++						continue;
++					own = false;
++				} else {
++					continue;
++				}
++				if (rx < 0 || ry < 0 || rx >= roomW || ry >= roomH)
++					continue;
++				byte *out = _outBuf.data() + (r * n) * pitch + (c * n) * bpp;
++				for (int dy = 0; dy < n; dy++) {
++					const uint32 *top = (const uint32 *)im.hd.getBasePtr(ox * n, oy * n + dy);
++					const uint32 *under = (const uint32 *)room.hd.getBasePtr(rx * n, ry * n + dy);
++					byte *o = out + dy * pitch;
++					for (int dx = 0; dx < n; dx++, o += bpp) {
++						byte a, rr, gg, bb;
++						_rgba.colorToARGB(top[dx], a, rr, gg, bb);
++						if (own ? a == 255 : a == 0)
++							continue;
++						blend(o, top[dx], gain, own ? under + dx : nullptr, gain);
++					}
++				}
++			}
++		}
++	}
 +}
 +
 +void DigHD::drawSoftBlasts(int x, int y, int width, int height) {
@@ -4460,6 +4581,10 @@ index 00000000..fce9ef41
 +		}
 +	}
 +
++	// Soft edges of room objects over the HD room, under the figures
++	if (!flatOnly && !_vm->isSmushActive())
++		drawSoftObjectEdges(x, y, width, height);
++
 +	// Soft cels over the blocks built above, under the text
 +	if (!flatOnly && !_vm->isSmushActive())
 +		drawSoftCels(x, y, width, height);
@@ -5849,10 +5974,10 @@ index 00000000..fce9ef41
 +} // End of namespace Scumm
 diff --git a/engines/scumm/dighd.h b/engines/scumm/dighd.h
 new file mode 100644
-index 00000000..26bc7a8e
+index 00000000..5bdea476
 --- /dev/null
 +++ b/engines/scumm/dighd.h
-@@ -0,0 +1,637 @@
+@@ -0,0 +1,641 @@
 +/* ScummVM - Graphic Adventure Engine
 + *
 + * ScummVM is the legal property of its developers, whose names
@@ -6103,6 +6228,9 @@ index 00000000..26bc7a8e
 +		// padY original pixels on each side, and its own alpha (see drawSoftCels())
 +		bool soft = false;
 +		int padX = 0, padY = 0;
++		// A room object image (objNNN_SS.png, no margin) whose alpha has soft
++		// values: its edge is blended over the HD room (drawSoftObjectEdges())
++		bool softEdge = false;
 +		Common::Array<byte> nearCycle;  // per original pixel: cycles or touches a cycled pixel
 +		uint32 nearCycleGen = 0;        // _cycledGen the mask was made for
 +		bool valid() const { return hd.getPixels() && idx.getPixels(); }
@@ -6184,6 +6312,7 @@ index 00000000..26bc7a8e
 +	bool _savedBlasts = false;
 +	Common::Array<uint16> _softBlastRef;  // top soft blast instance per screen pixel
 +	void drawSoftBlasts(int x, int y, int width, int height);
++	void drawSoftObjectEdges(int x, int y, int width, int height);
 +
 +	bool loadImage(const Common::Path &hdFile, const Common::Path &idxFile, int origW, int origH, Image &out, bool pad = false);
 +	void loadRoom(int room);
