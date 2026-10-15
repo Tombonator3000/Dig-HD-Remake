@@ -1,3 +1,21 @@
+# Ny leveranse for restgruppen på 66, 15. oktober 2026
+
+Jobb: fig222_18. Resultat: `resultat-rest66-20261015.png`. SHA-256: `4d324a5c5dc01fa17f077e6447d5c3092ffb338dc73a779719725ff4719f4c1d`. 5 mål-ID-er i det eksplisitte rutekartet `rapporter/zz-ovrige-66-20261015/rutekart.json`.
+
+Spredte grå/elfenbensfargede spiralfragmenter i theeye. Originalens konkrete faser, farger, tomrom og separate deler er innholdsfasiten. Generisk kostymenavn er ikke tolket som at hver rute viser en hel person. Korrigert produksjonsprompt er bevart separat; beskyttede jobbfiler er urørt.
+
+Verktøy: innebygd ChatGPT-bildegenerator. Modellversjon er ikke eksponert. Valgt forsøk 01 for kilden fig214_18. Native PNG og alfa er kopiert byteidentisk, uten retusjering, fargelås, skalering eller ny pikselmaske.
+
+Originalreferansen og original_1x.png er byteidentiske med fig214_18, og rektangler/farger er like. Samme native kunst er derfor gjenbrukt uten bildeendring, med egne mål-ID-er for kostyme 222. Indekskoder må fortsatt følge hvert originalkostyme.
+
+Kontrollert: 1536 x 1024 RGBA, ekte alfa, ruteantall, fasevinduer og SHA. Original og native er sett side om side og med faktisk alfa over hvitt, grønt og svart. Boksene bruker alfa 16 for å beholde svake fragmenter.
+
+Omrissmålingene er diagnostikk etter boksnormalisering, ikke bestått motorregistrering. Særlig spredte spiralflekker må kontrolleres per fase i riktig palett, med originalens rekkefølge og tempo. Kostyme 229 krever ekte kildeindekser; like RGB-farger beviser ikke like indekskoder. Det er ikke laget nye indeksfiler i denne leveransen.
+
+Levert til teknisk mottak. Ingen motorimport, spilltest eller ny hd-mod/pakke er utført. Toms godkjente hovedark er brukt for synlige personer, men nye animasjoner er ikke godkjent av Tom gjennom dette notatet. Se samlet RAPPORT.md og dekning-66.json.
+
+## Tidligere notat, historikk for eldre resultat
+
 # Leveransenotat
 
 Levert 9. oktober 2026. Kontrollert gjenbruk fra fig214_18. Ingen nye bildeforsøk for dette arket. Kildearket ble laget med innebygd ChatGPT-bildegenerator, som ikke bekrefter et eksakt modellnavn. Original_1x.png er byteidentisk mellom de to jobbene, og resultatfilen er kopiert byteidentisk. Kildeprompt og opprinnelig forsøksspor er dokumentert i sporingsfilen.

@@ -1,0 +1,13 @@
+Production HD repaint for The Dig (LucasArts, 1995). Use image 1 as an exact geometry and color map. Output a 1536 x 1024 RGBA PNG with genuine fully transparent background, anti-aliased smooth painted edges. Source background colors and gray borders become transparent. No floor, cast shadow, labels, text, numbers, border or grid. Preserve every requested frame, original order, silhouette, position, size, internal gaps, disconnected fragments and local color. No compositional rearrangement, new objects, new poses or invented anatomy. Keep source-specific variations between animation phases. Do not clone one generic phase. Keep every frame separate. More detail is allowed only inside existing source forms. A small glowing edge may fade softly into alpha, but do not enlarge the effect or replace the source's empty areas with haze.
+
+These are the EIGHT selected ending phases of costume 071 (Boston on a rope with sparks, nexus, room 23). The source now contains fragmented rusty brown/orange rope/figure remnants and occasional small amber sparks, not eight intact Boston bodies. Repaint ONLY the first eight substantial original entries: SIX on the first row and TWO at the left of the second row. Preserve the tall thin broken brown structures, small detached brown fragments, original dark gaps and the amber/gold spark ONLY where it exists in the corresponding source pose. Do not invent a full person, full rope, flame, smoke cloud, portal, continuous swirl, additional spark or face. The overall fading/breakup pattern and source-specific fragment shapes must remain. The thirteen minute source entries after these first eight are outside this 66-route subset and remain source fallback; leave their atlas slots empty rather than enlarging them into invented objects. Cyan and gray padding must be transparent.
+
+Exact target envelopes in HD canvas pixels, x,y,width,height (source coordinates, not new design):
+1. costume071_159: 80,68,208,324.
+2. costume071_160: 320,100,228,292.
+3. costume071_161: 580,68,228,324.
+4. costume071_162: 840,60,228,332.
+5. costume071_163: 1100,52,136,340.
+6. costume071_164: 1268,48,136,344.
+7. costume071_165: 80,444,116,300.
+8. costume071_166: 228,424,116,320.

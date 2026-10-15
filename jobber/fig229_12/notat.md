@@ -1,3 +1,19 @@
+# Ny leveranse for restgruppen på 66, 15. oktober 2026
+
+Jobb: fig229_12. Resultat: `resultat-rest66-20261015.png`. SHA-256: `7a3f302e03ec660842cb342f811c3df692de3a801ce380c5d28beae69d6c643d`. 20 mål-ID-er i det eksplisitte rutekartet `rapporter/zz-ovrige-66-20261015/rutekart.json`.
+
+Lilla/gule energifaser i lockup. Originalens konkrete faser, farger, tomrom og separate deler er innholdsfasiten. Generisk kostymenavn er ikke tolket som at hver rute viser en hel person. Korrigert produksjonsprompt er bevart separat; beskyttede jobbfiler er urørt.
+
+Verktøy: innebygd ChatGPT-bildegenerator. Modellversjon er ikke eksponert. Valgt forsøk 02 for kilden fig229_12. Native PNG og alfa er kopiert byteidentisk, uten retusjering, fargelås, skalering eller ny pikselmaske.
+
+Kontrollert: 1536 x 1024 RGBA, ekte alfa, ruteantall, fasevinduer og SHA. Original og native er sett side om side og med faktisk alfa over hvitt, grønt og svart. Boksene bruker alfa 16 for å beholde svake fragmenter.
+
+Omrissmålingene er diagnostikk etter boksnormalisering, ikke bestått motorregistrering. Særlig spredte spiralflekker må kontrolleres per fase i riktig palett, med originalens rekkefølge og tempo. Kostyme 229 krever ekte kildeindekser; like RGB-farger beviser ikke like indekskoder. Det er ikke laget nye indeksfiler i denne leveransen.
+
+Levert til teknisk mottak. Ingen motorimport, spilltest eller ny hd-mod/pakke er utført. Toms godkjente hovedark er brukt for synlige personer, men nye animasjoner er ikke godkjent av Tom gjennom dette notatet. Se samlet RAPPORT.md og dekning-66.json.
+
+## Tidligere notat, historikk for eldre resultat
+
 # Leveransenotat
 
 Revidert 10. oktober 2026 etter Toms beskjed «Ja, bruk dette Brink-utseendet videre». Det godkjente stilankeret er rapporter/romlag-brink-20261010/brink/stilanker-godkjent.png. Ekte energifaser uten personer, kostyme 229. Variant: Med lyn.

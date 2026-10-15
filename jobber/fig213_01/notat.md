@@ -1,3 +1,19 @@
+# Ny leveranse for restgruppen på 66, 15. oktober 2026
+
+Jobb: fig213_01. Resultat: `resultat-rest66-20261015.png`. SHA-256: `593d98a5bba193eab24ffbe30978ca850e289cd4cee5655b71e918910ae6d235`. 2 mål-ID-er i det eksplisitte rutekartet `rapporter/zz-ovrige-66-20261015/rutekart.json`.
+
+Sammensatt scene med tre personer og skapningen, og en separat grå/brun fragmentform. Originalens konkrete faser, farger, tomrom og separate deler er innholdsfasiten. Generisk kostymenavn er ikke tolket som at hver rute viser en hel person. Korrigert produksjonsprompt er bevart separat; beskyttede jobbfiler er urørt.
+
+Verktøy: innebygd ChatGPT-bildegenerator. Modellversjon er ikke eksponert. Valgt forsøk 02 for kilden fig213_01. Native PNG og alfa er kopiert byteidentisk, uten retusjering, fargelås, skalering eller ny pikselmaske.
+
+Kontrollert: 1536 x 1024 RGBA, ekte alfa, ruteantall, fasevinduer og SHA. Original og native er sett side om side og med faktisk alfa over hvitt, grønt og svart. Boksene bruker alfa 16 for å beholde svake fragmenter.
+
+Omrissmålingene er diagnostikk etter boksnormalisering, ikke bestått motorregistrering. Særlig spredte spiralflekker må kontrolleres per fase i riktig palett, med originalens rekkefølge og tempo. Kostyme 229 krever ekte kildeindekser; like RGB-farger beviser ikke like indekskoder. Det er ikke laget nye indeksfiler i denne leveransen.
+
+Levert til teknisk mottak. Ingen motorimport, spilltest eller ny hd-mod/pakke er utført. Toms godkjente hovedark er brukt for synlige personer, men nye animasjoner er ikke godkjent av Tom gjennom dette notatet. Se samlet RAPPORT.md og dekning-66.json.
+
+## Tidligere notat, historikk for eldre resultat
+
 # Leveransenotat
 
 Levert 9. oktober 2026. Innebygd ChatGPT-bildegenerator, 3 bildeforsøk i valgt forsøksspor. Verktøyet oppgir ikke et bekreftet modellnavn. Tidligere uvalgte forsøk er bevart lokalt.
