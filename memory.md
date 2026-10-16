@@ -36,6 +36,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Nettleser: `./spill.sh --nettleser` bygger WebAssembly-versjonen (Emscripten 4.0.10 i `engine/emsdk`, kilde i `engine/scummvm-web`) og serverer den bare på 127.0.0.1:8000. Aldri på en åpen adresse (Disney/Lucasfilm).
 - Spille fra repoet: `./spill.sh` (valg `--rom N`, `--klassisk`, `--gult`, `--auto`, `--fort`, `--programvare`). Testliste i `docs/SPILLTEST.md`.
 - SAN-rammenummer: filnavn = SmushPlayer `_frame - 1`.
+- 16. oktober 2026 (Tom): komprimert HD-video og oppstartsintroen skal inn via PR. `san/SQ1.ivf` er VP8, 3772 bilder i 1280 x 800, 12 fps, 22 775 540 byte etter AnimeSR v2. SAN styrer fortsatt timing, lyd og tekst. Video velges før PNG, med tilbakefall til PNG/original. Filmen ligger bare i datagrenen; motoren og Dig-HD-Web får samme støtte. Se `docs/HD-VIDEO.md`.
 - Fargesyklede områder i HD-bakgrunner og HD-objekter: forholdet mellom nåværende og opprinnelig farge interpoleres med kvadratisk B-spline fra 3 x 3 originalpiksler og ganges inn i HD-pikselen. På figurer er syklede farger originalpiksler.
 - Tekst i HD: tegnsettene i DIG.LA1 (`CharsetRendererV7`) og NUT-fontene i filmene melder hver glyf til DigHD, som tegner en xBR-skalert glyf. `DIGHD_TEXT` = xbr (standard), scale4x, nearest eller off.
 - Motor: Ctrl+H bytter HD og klassisk, Ctrl+Shift+H viser gult felt der HD mangler. `DIGHD_CLASSIC=1`, `DIGHD_SHOW_MISSING=1`, `DIGHD_TEST_KEYS=ramme:tast,...` for test uten skjerm. Binær her: /home/claude/scummvm.

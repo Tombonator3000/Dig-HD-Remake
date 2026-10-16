@@ -27,6 +27,16 @@ jobs:
         run: pytest -m "not game" -q
       - name: Ingen spillfiler i grenen
         run: |
-          if git ls-files | grep -iE '\.(la0|la1|bun|san|nut|trs)$|^work/|^mods/'; then
+          if git ls-files | grep -iE '\.(la0|la1|bun|san|nut|trs|ivf)$|^work/|^mods/'; then
             echo "Spillfiler eller avledede filer er sjekket inn"; exit 1
           fi
+  hd-video:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Byggepakker og syntetisk videokilde
+        run: sudo apt-get update && sudo apt-get install -y build-essential pkg-config libsdl2-dev libpng-dev zlib1g-dev libvpx-dev libvorbis-dev libogg-dev ffmpeg
+      - name: Bygg motor med VP8
+        run: JOBS=2 engine/build.sh && grep -q '^USE_VPX=1' engine/scummvm/config.mk
+      - name: Dekoding, rammenummer og skadde filer uten spilldata
+        run: engine/tests/test-hd-video.sh engine/scummvm

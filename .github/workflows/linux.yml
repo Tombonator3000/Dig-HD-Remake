@@ -56,7 +56,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Byggepakker
-        run: sudo apt-get update && sudo apt-get install -y build-essential pkg-config libsdl2-dev libpng-dev zlib1g-dev libfuse2 file
+        run: sudo apt-get update && sudo apt-get install -y build-essential pkg-config libsdl2-dev libpng-dev zlib1g-dev libvpx-dev libvorbis-dev libogg-dev libfuse2 file
 
       - name: Bygg ScummVM med HD-patchen
         run: JOBS=$(nproc) engine/build.sh

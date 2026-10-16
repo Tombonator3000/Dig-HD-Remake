@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Bygger ScummVM med Dig HD-patchen.
 #
-# Krever: git, make, g++ (eller clang++), SDL2 og libpng med utviklingsfiler.
-#   Ubuntu/Debian: sudo apt install build-essential git libsdl2-dev libpng-dev zlib1g-dev
+# Krever: git, make, g++ (eller clang++), SDL2, PNG og VP8 med utviklingsfiler.
+#   Ubuntu/Debian: sudo apt install build-essential git pkg-config libsdl2-dev libpng-dev zlib1g-dev libvpx-dev libvorbis-dev libogg-dev
 #
 # Bruk:  engine/build.sh            (kildekoden havner i engine/scummvm)
 #        SCUMMVM_SRC=/annen/mappe engine/build.sh
@@ -31,13 +31,15 @@ for p in "$HERE"/patches/*.patch; do
 done
 
 cd "$SRC"
-if [ ! -f config.mk ] || [ "${RECONFIGURE:-0}" = "1" ]; then
+CONFIG_ID="$(cat "$HERE/SCUMMVM_COMMIT" "$HERE"/patches/*.patch "$HERE/build.sh" | sha256sum | cut -d' ' -f1)"
+if [ ! -f config.mk ] || [ "$(cat .dighd-config 2>/dev/null || true)" != "$CONFIG_ID" ] || [ "${RECONFIGURE:-0}" = "1" ]; then
 	echo "Konfigurerer (bare SCUMM-motoren) ..."
 	./configure --disable-all-engines --enable-engine=scumm,scumm-7-8 \
 		--disable-engine=he,rebel2-psx --disable-detection-full \
 		--disable-debug --enable-optimizations \
 		--disable-mt32emu --disable-fluidsynth --disable-cloud --disable-libcurl \
 		--disable-sdlnet --disable-tts --disable-eventrecorder > configure.log
+	echo "$CONFIG_ID" > .dighd-config
 fi
 
 echo "Bygger med $JOBS tråder (første gang tar det noen minutter) ..."
