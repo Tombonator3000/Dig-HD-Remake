@@ -21,3 +21,7 @@ Alle de resterende 54 SAN-filene er behandlet i nummerrekkefølge fra SQ2, deret
 SQ3 beholder 14 fps, SQ19A 15 fps; øvrige filmer er 12 fps. SQ14SC07 har en tom første SAN-ramme som er bevart uten å forskyve de 32 bildene etter den. Motoren følger fortsatt SAN-rammenummeret og original lyd, tekst og skript. Den tidligere godkjente SQ5-masteren og den publiserte SQ1-filen er beholdt.
 
 Alle nye filmer er dekodet i sin helhet, og dimensjoner, antall, tidsstempler og komprimering er kontrollert. Sju effektsekvenser fikk høyere bitrate for å nå SSIM minst 0,98 mot AnimeSR-masteren. Ett original/HD-bilde per film er sett på; full visuell kontroll i bevegelse og i alle spilltilstander gjenstår. Rapport og produksjonsrekkefølge: `san/VIDEO-HD.json`; hver film har egen JSON og SHA-256 i `SHA256SUMS`. Alle tidligere publiserte grafikkfiler er bevart.
+
+Runde 2026-10-16 10:15 UTC: 0 nye enheter, 2194 erstattet og 0 fjernet (runder i mod.json).
+
+16. oktober: r16-rettingene fra rapporter/spillfeil-20261016 er integrert etter Toms bestilling. 2223 grafikkfiler registrert; alle 55 publiserte HD-filmer beholdes. Motorpatch0006 kreves.
