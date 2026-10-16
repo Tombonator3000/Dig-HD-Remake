@@ -152,3 +152,5 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 ## Integrert r16 og Linux-pakke, 16. oktober 2026
 
 PR61,62,63 og nettleser-PR5 er flettet. Publisert Linux-AppImage fra e71da0d4/cb4415a9 har alle2223 rettinger og alle55 filmer. Nedlastet pakke, mod-sjekksummer og 550 oppdateringer er kontrollert, null avvik i fem fullnytegningskontroller. Full gjennomspilling og visuell godkjenning av alle ruter gjenstår. Fem nye funn behandles i neste grafikkrunde.
+
+- 16. oktober 2026, r18: Tom bekrefter at siste feilbilder er fra ny AppImage. Avviste HD-bilder brukes aldri som designanker. Separate måner148/149 og laser233/234/235 bruker faktisk rompalett via AKPL, ikke RGBS-råfarger. Tram-skjermbildet i siste serie er rom80. Ferdig r17-grafikk ligger i utkast-PR64; r18 er ikke publisert.

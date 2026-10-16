@@ -2,6 +2,15 @@
 
 Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `log.md`.
 
+## Neste, 16. oktober 14:59
+
+- [x] R16 integrert via PR62/63, Linux-AppImage publisert og kontrollert med alle55 filmer.
+- [x] Ferdig r17-grafikk til repo og utkast-PR64, uten uferdig pole178.
+- [ ] R18: alle hovedpersoners hode/kropp og varianter, pole178, skalering og strengere kontaktkontroll.
+- [ ] R18: to måner148/149, mer detaljert plateau og sømløs utgravd åpning387/388.
+- [ ] R18: faktisk tram-gangbro i rom80, edderkoppsilhuett136, tett rist356/357, laser233/234/235.
+- [ ] Native kontroller, kode-PR ved motorendring, grafikkrapport og PR for ferdig r18.
+
 ## Til komplett utgave (oversikt 14. oktober, rettet 09:48, mot hd-mod 05179ed / r12)
 
 Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/fig*/original_1x.png`). Ruter med bare skyggemerker (magenta, 362 i alt) og tomme ruter trenger ikke HD og er ikke regnet som mangler. Rom (106), objekter (640 av 642, to rutenett tatt ut med vilje), alle 149 inventarbilder og teksten er med. Ruter uten HD vises som originalpiksler i 4 x 4-blokker, og blir gule med Ctrl+Shift+H. Hvilke ruter som faktisk vises i spillet, er ikke kontrollert.

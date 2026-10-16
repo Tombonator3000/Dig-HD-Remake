@@ -1,3 +1,5 @@
+16. oktober 2026, 14:59: R16 er publisert og kontrollert som Linux-AppImage, se logg 12:48. R17 med øvrige dørkrystaller, fjernvann, dowel og scepter-ikoner ligger i utkast-PR64, ikke flettet. R18 fra Toms nye AppImage-funn er under arbeid: figurkontakter/farger, to måner, detaljert plateau og utgravd åpning, tram-gangbro, edderkoppsilhuett, tett rist og laserstråler. Ikke utgitt.
+
 16. oktober 2026: Lokal rettingskandidat for figurregistrering, Brink-scener, sonde, krystaller, stavikoner, skjelett, museum og gjennomsiktige lag. 77 native tilfeller/656 nytegningskontroller samt 13 ekstra tilfeller består. Ikke levert som ny release. Visuell vurdering og gjennomspilling gjenstår. Se `docs/HD-RETTINGER-20261016.md`.
 
 R12-kandidat 13. oktober: luftslusens palettmasker bevarer også HD-figurer under glasset. Valgfrie SMAP-masker og forrang for aktive objekter med eksakt dekning retter hull i PDA-bilder. Gamle pakker beholder romprioritet ved like indekser. 42 pipeline-tester og 15 Pages-tester bestått lokalt; se `docs/HD-RETTINGER-r12-20261013.md`. Pakkelevering rapporteres separat.

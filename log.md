@@ -605,3 +605,14 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Lastet ned den publiserte AppImage-filen: 1 779 378 680 byte, SHA256 8ab662f44fc1b25c4f1006741baec10f2da8dfcc5da3bfb4babf5da6cf4e0d90. Alle28 583 mod-sjekksummer, alle2223 grafikkrettinger og alle55 filmer kontrollert. 550 skjermoppdateringer med intro, tekst og HD/klassisk-bytte, fem fullnytegningskontroller, null avvik. Egne testmapper, ingen vanlige lagringer endret.
 - Publisert oppdatert kildearkiv med eksakt patchet motor fra e71da0d4: SHA256 bb458423b6e9b723ddc0409480fbee0d485937eaabec9eb82282333983608301. Kontrollrapport og les-meg oppdatert. Full gjennomspilling, alle ruters visuelle godkjenning, Windows og mobil gjenstår.
 - Neste fem funn lokalisert: øvrige dørlåser kostyme290 til297, fjernvann301, pole-handling Boston178, dowel objekt474 i rom68, scepter-ikoner666/667. Arbeid fortsetter separat fra den publiserte r16.
+
+## 2026-10-16 14:59 (Codex)
+
+- Ferdige r17-bilder sikret i gpt-arbeid e5ab5a1 og utkast-PR64 (codex/grafikkrettinger-r17, 91489be6). Silver scepter er faktisk objekt864, gold667; tidligere antakelse666 er rettet og uvedkommende ikon beholdt. Pole178 holdt utenfor PR64 mens figurregistrering undersøkes.
+- Tom bekrefter at nye skjermbilder er fra publisert AppImage. Logget alle åtte nye punkter i grafikkrapporten spillfeil-r18-20261016/BRIEF.md. Vedlegg kopiert som tom-1 til tom-9.
+- Gjenskapt Boston-hals ved moon map fra kopi av Toms lagring (testslot15). Undersøker felles aktørskala i stedet for avrundet størrelse per hode/kropp. Foreløpig halsforlengelse flytter ikke ansikt/hår. Ingen r18-motorendring publisert ennå.
+- Brink16/17 hadde i tillegg manuell avmetning av hodet, som er fjernet i kandidaten; spillets faktiske palettjustering beholdes. Nye originaluttrekk og godkjente pilotavledede hodeatlas brukes ved figurkontroll.
+- Originalkontekst bekrefter separate måner148/149 og laserfamilier233/234/235. RGBS-råfargene var misvisende for disse. Nytegning og registrering pågår.
+- Skjermbildet med manglende tram-bro er identifisert som rom80 ved bildepunktmatching (197 geometriske treff), ikke rom29 som først antatt. Den blå kulen er riktig tram. Broens faktiske tegne-/animasjonslag undersøkes før endring.
+- Native omtegning i r17: avvikene i kunstige romhopp skjer bare ved første kontroll, frame80. Senere24 kontroller i hvert av rom97/98/99 har null avvik; uendret r16-rom97 har samme førsteavvik. Rapport/PR presiseres før eventuell ferdigmelding.
+- Alle tester bruker egne mapper og kopierte lagringer. R18 er arbeid og er ikke visuell godkjenning eller ny distro.
