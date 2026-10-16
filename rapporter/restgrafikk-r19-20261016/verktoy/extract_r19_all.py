@@ -1,0 +1,40 @@
+import os
+from pathlib import Path
+import sys,struct,json
+import numpy as np
+from PIL import Image
+R=Path(os.environ.get("DIGHD_WORKSPACE", Path(__file__).resolve().parents[4]));sys.path.insert(0,str(R/'kode/pipeline'))
+from dighd import gamedata as g
+from dighd.export import costume_palette,read_costume_colours
+G=Path('/home/tom/Documents/Codex/2026-10-16-the-dig-hd-remake-sp-rsm/testing/linux-release/AppDir/usr/share/the-dig-hd/game');d=(G/'DIG.LA1').read_bytes();ix=g.read_index(G/'DIG.LA0');rooms=g.read_rooms(G/'DIG.LA1');O=R/'testing/source/costumes';O.mkdir(parents=True,exist_ok=True)
+for cid in range(1,len(ix.costume_dir)):
+ if not ix.costume_dir[cid][0]:continue
+ rn,ofs=ix.costume_dir[cid];p=rooms[rn].offset+ofs;b={t:d[o+8:o+s] for t,o,s in g.children(d,p+8,p+g.be32(d,p+4))};arrays=[]
+ codec=g.le16(b[b'AKHD'],8)
+ if codec not in [1,5]:continue
+ for j in range(len(b[b'AKOF'])//6):
+  do,co=struct.unpack_from('<IH',b[b'AKOF'],j*6);w,h=struct.unpack_from('<HH',b[b'AKCI'],co);raw=b[b'AKCD'];q=do;pixels=[]
+  if codec==5:
+   for y in range(h):
+    n=struct.unpack_from('<H',raw,q)[0];k=q+2;line=[]
+    while len(line)<w:
+     code=raw[k];k+=1;count=min((code>>1)+1,w-len(line))
+     if code&1:line.extend([raw[k]]*count);k+=1
+     else:line.extend(raw[k:k+count]);k+=count
+    pixels.extend(line);q+=n+2
+   arr=np.array(pixels,dtype=np.uint8).reshape(h,w);trans=255
+  else:
+   nc=len(b[b'AKPL']);shr=3 if nc==32 else 2 if nc==64 else 4;runmask=(1<<shr)-1
+   while len(pixels)<w*h:
+    code=raw[q];q+=1;color=code>>shr;n=code&runmask
+    if not n:n=raw[q];q+=1
+    pixels.extend([color]*n)
+   assert len(pixels)==w*h,(cid,j,len(pixels),w*h)
+   arr=np.array(pixels,dtype=np.uint8).reshape(w,h).T.copy();trans=0
+  arrays.append((arr,trans))
+ pal,how=costume_palette(codec,b.get(b'AKPL',b''),b.get(b'RGBS',b''),rn,rooms,arrays,read_costume_colours(R/'kode/docs/kostymefarger.csv').get(cid))
+ for j,(a,t) in enumerate(arrays):
+  im=Image.fromarray(a,'P');im.putpalette(pal);im.info['transparency']=t;im.save(O/f'costume{cid:03d}_{j:03d}_idx.png');im.convert('RGBA').save(O/f'costume{cid:03d}_{j:03d}.png')
+  old=R/'hd-leveranse/costumes'/f'costume{cid:03d}_{j:03d}_idx.png'
+  if old.exists() and not np.array_equal(np.asarray(Image.open(old)),a):print('INDEX_DIFFERENCE',cid,j)
+ print(cid,len(arrays),how,'original indexed data verified when available')
