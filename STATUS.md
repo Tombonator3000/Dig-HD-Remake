@@ -185,3 +185,7 @@ mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
 ## HD-filmene, 16. oktober 2026
 
 Alle de 54 resterende filmene er produsert i rekkefølge, 8866 nye rammer og 86,66 MB. PR 60 mot hd-mod inneholder bare komprimerte videoer og metadata. Full dekoding med FFmpeg og motorens faktiske dekoder er bestått, inkludert riktige rammenumre, RGB32, prøver i RGB565, repetisjon og hopp bakover. Kompresjons-SSIM minst 0,98. Midtrammen i hver film er sammenlignet visuelt med originalen; full gjennomspilling er ikke gjort. Ingen av de tidligere publiserte bildene eller SQ1 er endret. Se [produksjonsrekkefølge og kontroll](docs/VIDEO-PRODUKSJON.md). PR 60 er flettet av Tom, og Linux-pakken er bygget på nytt med alle 55 filmene. Pakken er kontrollert separat, se Linux-pakken ovenfor.
+
+## Integrert r16 og Linux-pakke, 16. oktober 2026
+
+PR61,62,63 og nettleser-PR5 er flettet. Publisert Linux-AppImage fra e71da0d4/cb4415a9 har alle2223 rettinger og alle55 filmer. Nedlastet pakke, mod-sjekksummer og 550 oppdateringer er kontrollert, null avvik i fem fullnytegningskontroller. Full gjennomspilling og visuell godkjenning av alle ruter gjenstår. Fem nye funn behandles i neste grafikkrunde.

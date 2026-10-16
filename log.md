@@ -598,3 +598,10 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Integrert 2223 overstyringer i 2194 deklarerte enheter oppå hd-mod b2cd6b3 med modflett. Ingen publiserte filer borte eller utilsiktet endret. Alle55 HD-filmer og deres metadata bevart byte for byte. Data-PR62 mot hd-mod.
 - Automatisk Linux-bygg38885355933 feilet i Debian12-kontrollen fordi ECR-speilet svarte toomanyrequests/Data limit exceeded. Motorbygg og den foregående pakketesten bestod. Lagt til eksplisitt pull og reserve mot offisielt debian:12-slim; Debian-testen beholdes. Bash-syntaks og simulerte primær/reserve/begge-feiler-tilfeller består. Nytt bygg kjøres etter fletting med eksakt integrert hd-mod.
 - Neste grafikkrunde er krystaller ved andre dører, vann sett på avstand, Boston ved pole-opptak, dowel på planetariumstrappen og avlange krystaller for silver/gold scepter. Nye funn tas separat etter første distro.
+
+## 2026-10-16 12:48 (Codex)
+
+- Flettet grafikk-PR62 og byggretting63 etter grønn CI. Ny Linux-kjøring38886980892 består, inkludert Debian12. Kode e71da0d4 og hd-mod cb4415a9.
+- Lastet ned den publiserte AppImage-filen: 1 779 378 680 byte, SHA256 8ab662f44fc1b25c4f1006741baec10f2da8dfcc5da3bfb4babf5da6cf4e0d90. Alle28 583 mod-sjekksummer, alle2223 grafikkrettinger og alle55 filmer kontrollert. 550 skjermoppdateringer med intro, tekst og HD/klassisk-bytte, fem fullnytegningskontroller, null avvik. Egne testmapper, ingen vanlige lagringer endret.
+- Publisert oppdatert kildearkiv med eksakt patchet motor fra e71da0d4: SHA256 bb458423b6e9b723ddc0409480fbee0d485937eaabec9eb82282333983608301. Kontrollrapport og les-meg oppdatert. Full gjennomspilling, alle ruters visuelle godkjenning, Windows og mobil gjenstår.
+- Neste fem funn lokalisert: øvrige dørlåser kostyme290 til297, fjernvann301, pole-handling Boston178, dowel objekt474 i rom68, scepter-ikoner666/667. Arbeid fortsetter separat fra den publiserte r16.

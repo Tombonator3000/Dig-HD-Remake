@@ -148,3 +148,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Sonden i energikammeret bruker kostyme78 til83; mørk kropp må være ugjennomsiktig. Engraved rods er objekt633,634,636,652 og678, med både myke HD-bilder og reservebilder.
 - Den lokale rettingskandidaten og nye patch0006 er dokumentert i docs/HD-RETTINGER-20261016.md. Ikke en ny publisert AppImage eller visuell godkjenning av alle nye ruter.
 - Alle nye rammer er lest med motorens dekoder i RGB32; de første fem per film i RGB565. Repetisjon/bakoverhopp og nettleserfilter er kontrollert. Kompresjons-SSIM minst 0,98 etter omkoding av sju effektsekvenser. Full visuell kontroll i bevegelse og i alle spilltilstander gjenstår. PR 60 er flettet av Tom; Linux-bygg 38880540065 har alle 55 filmene og er kontrollert med SHA-256, alle modfiler, Debian 12 og 550 skjermoppdateringer med tekst og HD/klassisk-bytte. Se docs/VIDEO-PRODUKSJON.md.
+
+## Integrert r16 og Linux-pakke, 16. oktober 2026
+
+PR61,62,63 og nettleser-PR5 er flettet. Publisert Linux-AppImage fra e71da0d4/cb4415a9 har alle2223 rettinger og alle55 filmer. Nedlastet pakke, mod-sjekksummer og 550 oppdateringer er kontrollert, null avvik i fem fullnytegningskontroller. Full gjennomspilling og visuell godkjenning av alle ruter gjenstår. Fem nye funn behandles i neste grafikkrunde.

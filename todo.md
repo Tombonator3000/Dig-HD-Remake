@@ -22,7 +22,9 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 ## Neste
 
 - [x] Lokal kandidat for Toms grafikkfeil 16. oktober, med hovedark, original registrering og motorregresjoner.
-- [ ] Tom: vurder kandidaten i bevegelse, spesielt gjenoppstandelsen og skjelettet; bygg deretter ønsket ny spillpakke etter PR/CI.
+- [x] Integrert r16 via PR61/62/63 og nettleser-PR5. Ny publisert Linux-pakke lastet ned og kontrollert.
+- [ ] Tom vurderer r16 i bevegelse. Full visuell godkjenning gjenstår.
+- [ ] Neste fem grafikkfunn: andre dørlåser, fjernvann, pole-handling, dowel og silver/gold scepter.
 - [ ] Kontroller patch0006 i Windows, mobil og 32-bit OpenGL, samt full gjennomspilling.
 - [x] Etter Toms fletting av PR 60: ny Linux-pakke med alle 55 HD-videoer. Bygg, Debian 12, nedlastet AppImage og alle mod-sjekksummer kontrollert 16. oktober.
 
