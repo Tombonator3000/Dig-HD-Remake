@@ -10,7 +10,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] R18-kandidat: to måner148/149, detaljert plateau og tilpasset åpning387/388.
 - [x] R18-kandidat: tram-gangflate890 i rom80, edderkoppsilhuett136, tett rist356/357, laser233/234/235.
 - [x] Native kontroller, grafikkrapport og PR64/65 samt nettleser-PR6.
-- [ ] Toms visuelle gjennomgang av r17/r18 og full naturlig spill-/overgangstest; deretter eventuell fletting/pakking når det bestilles.
+- [x] Flettet PR64/65 og nettleser-PR6 etter Toms bestilling, lokale repoer oppdatert.
+- [ ] Kontroller ny publisert r18-AppImage når automatisk Linux-bygg38921046042 er ferdig.
+- [ ] Toms visuelle gjennomgang av r17/r18 og full naturlig spill-/overgangstest.
 
 ## Til komplett utgave (oversikt 14. oktober, rettet 09:48, mot hd-mod 05179ed / r12)
 
