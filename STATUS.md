@@ -21,7 +21,7 @@ Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og 
 | Store objektbilder | 30 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
 | Mindre objektbilder | 167 | 609 | ChatGPT | 149 ikoner i ikonark (alle) og 18 av 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå), blant dem håndcomputeren i rom 79. Resten: automatisk oppskalering. |
 | Kostymeruter | 2957 | 28 490 | ChatGPT/Codex | Glatt stil med myke kanter for Boston, Brink og Maggie (54 kostymer, 509 ark, 7683 ruter): 148 ark levert, 2957 ruter tatt inn med `dighd myke-figurer` (392 av dem har et omriss som er ganske ulikt originalen og står til gjennomsyn i `myke.json`). Den gamle fig014_01 er erstattet av det glatte ark 1. Alle kostymer gir 4031 ark. |
-| Filmrammer | 12 638 produsert | 12 638 | AnimeSR v2 | SQ1 er publisert; resten ligger i PR 60 mot hd-mod. Alle 55 filmer gir 109,43 MB VP8/IVF, med original lyd og undertekster. Full visuell kontroll i bevegelse gjenstår. |
+| Filmrammer | 12 638 produsert | 12 638 | AnimeSR v2 | Alle 55 er publisert i hd-mod og Linux-pakken etter fletting av PR 60. Filmene gir 109,43 MB VP8/IVF, med original lyd og undertekster. Full visuell kontroll i bevegelse gjenstår. |
 
 Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 (i `gpt-arbeid/stil/`).
 
@@ -34,7 +34,7 @@ Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 
 | Motor: bakgrunner og objekter | HD der originalen viser uendret bakgrunn eller et kjent objektbilde | `engine/test.sh` med nearest-mod: 0 avvikende piksler i rom 2, 26, 34 og 105 |
 | Motor: figurer | HD-sprites for kostymeruter med kodek 1, 5 og 16. Kodek 5 og 16 fargelegges med rompaletten der kostymet vises | 0 avvik for uskalerte figurer, under 0,25 prosent for skalerte (jevn skalering, ventet). Kodek 5 og 16: nearest-mod i 19 rom og med testkroken `DIGHD_TEST_COSTUME`, 0 avvik; 96 til 100 prosent av figurpikslene får HD |
 | Spille fra repoet | `./spill.sh` henter spillfiler og HD-mod, bygger motoren og starter spillet. Valg for rom, klassisk, gult felt og automatisk oppskalering | Kjørt fra en fersk `git clone` her: alt hentet og bygget, spillet startet i rom 22 med HD-bakgrunnen (uten skjerm, med `--programvare`). `--auto`-modden bygget på 86 sekunder med ChatGPT-rommene i |
-| Motor: filmer | PNG-rammer eller komprimert VP8/IVF per SAN-fil, med tekstlaget oppå. SQ1: AnimeSR v2, 3772 bilder, 22,78 MB, egne PR-er | Hele SQ1 kjørt i Linux-motoren uten skjerm; alle 3772 bilder dekodes, 32 dumper med 0 avvik ved nybygging av skjermen. Tekst, HD/klassisk, Escape og PNG/original-tilbakefall kontrollert. Native og WebAssembly-dekodertest består. Se `docs/HD-VIDEO.md` |
+| Motor: filmer | PNG-rammer eller komprimert VP8/IVF per SAN-fil, med tekstlaget oppå. Alle 55: AnimeSR v2, 12 638 bilder og 109,43 MB, publisert i hd-mod og Linux-pakken | Alle 55 nedlastede IVF-filer lest med motorens DigHDVideo: 12 638 rammer i RGB32, første fem per film i RGB565, repetisjon og bakoverhopp bestått. Hele SQ1 tidligere kjørt i Linux-motoren uten skjerm; alle 3772 bilder dekodes, 32 dumper med 0 avvik ved nybygging av skjermen. Tekst, HD/klassisk, Escape og PNG/original-tilbakefall kontrollert. Native og WebAssembly-dekodertest består. Se `docs/HD-VIDEO.md` |
 | Motor: tekst | All tekst i spillet (tegnsettene i DIG.LA1) og i filmene (NUT-fontene) tegnes med HD-bokstaver på samme sted og med samme farger. Bokstavene tegnes med skriften Exo 2 når modden har `fonts/` (standard fra `dighd build-mod`), ellers med xBR fra spillets egne fonter. `DIGHD_TEXT` velger | Rom 2 og introen med undertekster: med `nearest` 0 avvik i 45 dumper med tekst, plasseringen stemmer i 47 av 47, ingen tekst står igjen, ingen målbar tidsøkning i rommet. Exo 2 (9. oktober): dialogen i rom 2, menyen i rom 22 og undertekstene i introen uten skjerm, og menyen på den publiserte nettsiden i Chromium. Ikke testet på ekte skjerm |
 | Motor: farger | Fade og palettbytte følger med. Fargesyklede områder (vann, fosser) vises med HD-bildet og følger syklingen | Rom 22 med ChatGPT-bakgrunn og rom 11 og 43 med lanczos-sharp: vannet beveger seg uten rutenett eller glorie. Ett syklingssteg i rom 22 tar 2,0 ms (før 7,8 ms) |
 | Motor: brytere | HD Graphics i spillets meny (F5) og Ctrl+H bytter mellom HD og originalgrafikk, og valget huskes (`dighd_classic`). Ctrl+Shift+H farger gult der HD mangler (også `DIGHD_CLASSIC`, `DIGHD_SHOW_MISSING`). Fram til PR 43 (10. oktober) byttet Ctrl+Shift+H til klassisk grafikk i stedet | Uten skjerm med `DIGHD_TEST_KEYS`: klassisk dump lik originalen i rom 22 og 28, gult felt riktig i intro og rom 2; samme fart som før (8 til 9 ms per bilde). Menyen uten skjerm med `DIGHD_TEST_CLICKS` og i nettleseren med musklikk: byttet virker og huskes ved neste start. Ikke prøvd med ekte tastatur |
@@ -107,15 +107,20 @@ fullskjerm) og Toms egen maskin.
 
 ## Linux-pakken
 
-Oppdatert 16. oktober 2026: ny AppImage med komprimert HD-intro SQ1. Arbeidsflyt
-[38862486162](https://github.com/Tombonator3000/Dig-HD-Remake/actions/runs/38862486162)
-er bestått, inkludert Debian 12-testen. Den faktiske nedlastingen er kontrollert
-med SHA-256 og alle mod-sjekksummer; bare IVF og JSON ligger under `san/`.
-550 skjermoppdateringer uten skjerm med intro, undertekster og HD/klassisk-bytte
-er bestått uten videofeil. Motorkilden, byggeoppskriften og kontrollrapporten
-finnes som egne nedlastinger i releasen. Full gjennomspilling er ikke gjort.
+Oppdatert 16. oktober 2026: ny AppImage med alle 55 HD-filmer, 12 638 rammer og
+109,43 MB komprimert VP8/IVF. Arbeidsflyt
+[38880540065](https://github.com/Tombonator3000/Dig-HD-Remake/actions/runs/38880540065)
+er bestått, inkludert oppstart, meny/grafikkvalg og Debian 12 uten byggepakker.
+Den faktiske nedlastingen er kontrollert med SHA-256 og alle 28 583
+mod-sjekksummer. Alle 55 originale SAN-filer har en HD-video, og bare IVF/JSON
+ligger under `san/`. Ingen PNG-videorammer følger med.
+550 skjermoppdateringer med intro, undertekster og HD/klassisk-bytte er bestått;
+11 kontroller mot full nybygging av skjermen gir null avvik. Motorkilden og
+byggeoppskriften er uendret og følger fortsatt som separat nedlasting.
+Kontrollrapporten er oppdatert. Full gjennomspilling og visuell kontroll av
+alle filmene i bevegelse er ikke gjort.
 
-Én fil med alt: `TheDigHD-x86_64.AppImage` (1,70 GB, 16. oktober 2026, kode 37ad8c43, hd-mod fad3f008) i releasen
+Én fil med alt: `TheDigHD-x86_64.AppImage` (1,78 GB, 16. oktober 2026, kode 5616131b, hd-mod b2cd6b38) i releasen
 [linux](https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux):
 ScummVM med HD-patchen, spillet, musikk, tale og HD-modden. Starter rett i
 spillet i fullskjerm. Innstillinger i `~/.config/the-dig-hd`, lagrede spill i
@@ -179,4 +184,4 @@ mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
 
 ## HD-filmene, 16. oktober 2026
 
-Alle de 54 resterende filmene er produsert i rekkefølge, 8866 nye rammer og 86,66 MB. PR 60 mot hd-mod inneholder bare komprimerte videoer og metadata. Full dekoding med FFmpeg og motorens faktiske dekoder er bestått, inkludert riktige rammenumre, RGB32, prøver i RGB565, repetisjon og hopp bakover. Kompresjons-SSIM minst 0,98. Midtrammen i hver film er sammenlignet visuelt med originalen; full gjennomspilling er ikke gjort. Ingen av de tidligere publiserte bildene eller SQ1 er endret. Se [produksjonsrekkefølge og kontroll](docs/VIDEO-PRODUKSJON.md). Linux-pakken fra tidligere i dag har fortsatt bare SQ1 i HD; nytt bygg trengs etter fletting.
+Alle de 54 resterende filmene er produsert i rekkefølge, 8866 nye rammer og 86,66 MB. PR 60 mot hd-mod inneholder bare komprimerte videoer og metadata. Full dekoding med FFmpeg og motorens faktiske dekoder er bestått, inkludert riktige rammenumre, RGB32, prøver i RGB565, repetisjon og hopp bakover. Kompresjons-SSIM minst 0,98. Midtrammen i hver film er sammenlignet visuelt med originalen; full gjennomspilling er ikke gjort. Ingen av de tidligere publiserte bildene eller SQ1 er endret. Se [produksjonsrekkefølge og kontroll](docs/VIDEO-PRODUKSJON.md). PR 60 er flettet av Tom, og Linux-pakken er bygget på nytt med alle 55 filmene. Pakken er kontrollert separat, se Linux-pakken ovenfor.
