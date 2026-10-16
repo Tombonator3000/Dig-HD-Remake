@@ -19,7 +19,7 @@ Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og 
 | Store objektbilder | 30 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
 | Mindre objektbilder | 167 | 609 | ChatGPT | 149 ikoner i ikonark (alle) og 18 av 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå), blant dem håndcomputeren i rom 79. Resten: automatisk oppskalering. |
 | Kostymeruter | 2957 | 28 490 | ChatGPT/Codex | Glatt stil med myke kanter for Boston, Brink og Maggie (54 kostymer, 509 ark, 7683 ruter): 148 ark levert, 2957 ruter tatt inn med `dighd myke-figurer` (392 av dem har et omriss som er ganske ulikt originalen og står til gjennomsyn i `myke.json`). Den gamle fig014_01 er erstattet av det glatte ark 1. Alle kostymer gir 4031 ark. |
-| Filmrammer | 0 | 12 638 | | Utskifting virker. Videooppskalering senere. |
+| Filmrammer | 3772 | 12 638 | AnimeSR v2 | SQ1-introen er publisert som VP8/IVF på 22,78 MB, med original lyd og undertekster. |
 
 Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 (i `gpt-arbeid/stil/`).
 
@@ -105,7 +105,15 @@ fullskjerm) og Toms egen maskin.
 
 ## Linux-pakken
 
-Én fil med alt: `TheDigHD-x86_64.AppImage` (1,44 GB 10. oktober 10:56 UTC, Dig-HD-Remake 36cd09f, hd-mod fdad5c7) i releasen
+Oppdatert 16. oktober 2026: ny AppImage med komprimert HD-intro SQ1. Arbeidsflyt
+[38862486162](https://github.com/Tombonator3000/Dig-HD-Remake/actions/runs/38862486162)
+er bestått, inkludert Debian 12-testen. Den faktiske nedlastingen er kontrollert
+med SHA-256 og alle mod-sjekksummer; bare IVF og JSON ligger under `san/`.
+550 skjermoppdateringer uten skjerm med intro, undertekster og HD/klassisk-bytte
+er bestått uten videofeil. Motorkilden, byggeoppskriften og kontrollrapporten
+finnes som egne nedlastinger i releasen. Full gjennomspilling er ikke gjort.
+
+Én fil med alt: `TheDigHD-x86_64.AppImage` (1,70 GB, 16. oktober 2026, kode 37ad8c43, hd-mod fad3f008) i releasen
 [linux](https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux):
 ScummVM med HD-patchen, spillet, musikk, tale og HD-modden. Starter rett i
 spillet i fullskjerm. Innstillinger i `~/.config/the-dig-hd`, lagrede spill i

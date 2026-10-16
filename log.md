@@ -554,3 +554,12 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Introen legges i egen PR mot hd-mod, med sjekksummer og produksjonsdata; alle 28 472 tidligere sjekksummede filer er bevart, bortsett fra oppdatert rot-README og mod.json. Ingen spillgrafikk/video i kodegrenen. Kode-PR mot main og tilsvarende PR i Dig-HD-Web. Ingenting flettet eller publisert i denne jobben. Windows, mobil og full visuell godkjenning i bevegelse gjenstår.
 
 - PR-er opprettet: Dig-HD-Remake #59 (motor/kode), #58 (intro mot hd-mod), Dig-HD-Web #4 (nettleser). Presisert pikselgeometrien: IVF har ikke SAR; avspillingen følger eksisterende HD-flate, uten ny 4:3-korreksjon.
+
+## 2026-10-16 08:53 (Codex)
+
+- Tom ba om en ny nedlastbar Linux-pakke på repoet. Forrige automatbygg tok hd-mod 05179ed før intro-PR-en ble flettet, så et nytt manuelt bygg ble startet: Linux-pakke 38862486162. Kode 37ad8c43 og hd-mod fad3f008 er brukt.
+- Arbeidsflyten er bestått, inkludert oppstart/meny/grafikkvalg og Debian 12 uten byggepakker. Ny TheDigHD-x86_64.AppImage er publisert i releasen linux: 1 697 212 920 byte, SHA-256 3f79057ca886fce412f79b69e9c1dede12d854fb33c479af8805016b2b12157b.
+- Lastet ned den faktiske releasefilen og kontrollert SHA-256 mot både .sha256-filen og GitHub-digesten. Alle mod-sjekksummer stemmer. 28 475 modfiler, bare SQ1.ivf (22 775 540 byte) og SQ1.json under san; ingen PNG-videorammer. libvpx følger pakken.
+- Kjørt nedlastet pakke uten skjerm på denne PC-en med egne XDG-mapper: komprimert intro, undertekster, Ctrl+H til/fra klassisk og 550 skjermoppdateringer, ingen videofeil eller avvik mot full nybygging av skjermen. Ingen vanlige lagringer/innstillinger berørt. Første forsøk brukte et ikke-støttet testflagg (--windowed); rettet til --no-fullscreen og kjørt på nytt med bestått resultat.
+- Publisert oppdatert LES-MEG-LINUX.txt, release-navn/notater, kontroll-linux.json og separat motorkilde med sjekksum. Kildearkivet har eksakt patchet ScummVM-kilde, alle patcher og Linux-byggeoppskriften, uten spilldata/video; kontrollert mot 37ad8c43. Source SHA-256 fee6c8a0f8872ffe40011319f7066984c05ced230620342b752aeaae3762f991.
+- Oppdatert Linux-status, filmdekning, todo og memory. Ingen motor-/pipelinekode endret i denne pakkejobben. Full gjennomspilling og visuell kontroll av all grafikk gjenstår.
