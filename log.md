@@ -625,3 +625,12 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Nye scenebilder er registrert mot originalgeometrien. Native motivkontroll viser to måner, stråler, edderkoppsilhuett og tett rist. Tram-gangflaten har samme source-rektangel og deles mellom stasjonens overlappende bilder. Endelig leveranse-/PR-status føres etter fil- og regresjonskontroll.
 
 - Hele r18-figurregresjonen består:77 tilfeller/656 nytegningskontroller.13 utvidede tilfeller/330 kontroller består. Modflett bevarer alle55 filmer, fjerner ingen filer og endrer bare eksplisitt deklarerte enheter.
+
+## 2026-10-16 15:46 (Codex)
+
+- Motor-PR65 og nettleser-PR6 opprettet og tilknyttet samtalen. CI grønn for kodeendringen. Grafikk-PR64 er oppdatert fra utkast til klar for gjennomgang og inneholder r17/r18. Ikke flettet; ingen ny r18-distro publisert.
+- Seks native kontroller på ferdig flettet leveranse består (116 nytegningskontroller). Alle2218 førsteoverstyringer stemte med rapporten, leveransemappen og PR-payloaden.
+- Ekstra native kontroller av38/47/48/188,4000 oppdateringer hver og172 nytegningskontroller, består. De dekker de første animasjonene, ikke hele AKCH-serien for de største variantene. Fanget løs atlasrest over Maggies hode i47. Små frakoblede alfaområder fjernet i895 hoderuter, uten endring av RGB eller gjenværende piksler. Ansiktene flyttes ikke. Endelig overstyringstall2223, hvorav1830 myke HD-bilder. Hele figurregresjonen gjentas etter oppryddingen.
+- Tom bekrefter at bro-punktet er gangbroen inn i den blå kulen. Native tram-call-test traff knapp859. Innstigningsklikket kom mens trammen var underveis og traff ingen inngang, så full normal innstigning er ikke rapportert som bestått. Tvungne sluttstilstander er kontrollert separat.
+
+- Avsluttende kontroll etter alfaopprydding:1511 sammensatte poseringer uten flagg og77 nye native tilfeller/656 nytegningskontroller uten avvik. Alle55 filmer fortsatt byteidentiske.
