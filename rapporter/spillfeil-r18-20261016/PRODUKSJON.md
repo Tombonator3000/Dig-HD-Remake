@@ -15,3 +15,5 @@ Promptgrunnlaget er Toms korrigeringer i BRIEF.md, riktig originalkontekst og de
 Hoder bruker eksisterende atlas fra r16, avledet fra hovedark/boston.png, maggie.png og brink.png. Ingen av Toms avviste feilbilder brukes som nytt persondesign.
 
 `register_r18_scenes.py` kjøres før `register_r18_moon_overlap.py` og `register_r18_particles.py`. Deretter bridge-skriptet. Neck-skriptet kjøres før Brink-farger og ekstra hoder; pole har eget skript. De endelige sjekksummene i OVERRIDES.json er fasit for akkurat denne leveransen.
+
+Kjør clean_r18_head_components.py helt til slutt på ferdig registrerte hoder. Den fjerner bare små frakoblede alfaområder og beholder den største hodeflaten pixelidentisk. HEAD-CLEANUP-FILES.json lister alle895 endrede ruter fra siste opprydding.
