@@ -20,6 +20,10 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 
 ## Neste
 
+- [x] Lokal kandidat for Toms grafikkfeil 16. oktober, med hovedark, original registrering og motorregresjoner.
+- [ ] Tom: vurder kandidaten i bevegelse, spesielt gjenoppstandelsen og skjelettet; bygg deretter ønsket ny spillpakke etter PR/CI.
+- [ ] Kontroller patch0006 i Windows, mobil og 32-bit OpenGL, samt full gjennomspilling.
+
 - [x] Satt opp og kjørt de 54 resterende HD-videoene i rekkefølge, med teknisk kontroll, komprimering og PR 60 (16. oktober).
 
 - [x] Ny nedlastbar Linux-pakke med komprimert SQ1-intro, oppdatert motorkilde og sjekksummer. Bygg, Debian 12 og nedlastet pakke kontrollert 16. oktober.
