@@ -591,3 +591,10 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Kjørte den eksisterende testen av motorens faktiske DigHDVideo på alle de 55 nedlastede IVF-filene: alle 12 638 rammer i RGB32, fem per film i RGB565, repetisjon og hopp bakover. Bestått. Kjørte den nedlastede pakkens AppRun uten skjerm med egne XDG-mapper: intro, tekst, HD/klassisk-bytte og 550 skjermoppdateringer. 11 kontroller mot full nybygging av skjermen gir null avvik; ingen videofeil. Vanlige innstillinger og lagringer er ikke berørt.
 - Motorpatcher, låst ScummVM-commit og Linux-byggeoppskrift er byte-identiske med det allerede publiserte GPL-kildearkivet fra 37ad8c43. Eksisterende kildearkiv og sjekksum beholdes. Oppdatert release-navn, notater, LES-MEG-LINUX.txt og kontroll-linux.json for alle 55 filmer.
 - Oppdatert README, STATUS, todo, memory og produksjonsdokumentet. Ingen motor-/pipelinekode endret. Full gjennomspilling, ekte skjerm/lydkontroll og full visuell kontroll av alle filmene i bevegelse gjenstår.
+
+## 2026-10-16 12:18 (Codex)
+
+- Tom ba om integrasjon av forrige grafikkrunde, PR og ny distro før neste fem rettinger. Kode-PR61 var allerede flettet til main46160acb. Flettet nettleser-PR5 etter grønn CI.
+- Integrert 2223 overstyringer i 2194 deklarerte enheter oppå hd-mod b2cd6b3 med modflett. Ingen publiserte filer borte eller utilsiktet endret. Alle55 HD-filmer og deres metadata bevart byte for byte. Data-PR62 mot hd-mod.
+- Automatisk Linux-bygg38885355933 feilet i Debian12-kontrollen fordi ECR-speilet svarte toomanyrequests/Data limit exceeded. Motorbygg og den foregående pakketesten bestod. Lagt til eksplisitt pull og reserve mot offisielt debian:12-slim; Debian-testen beholdes. Bash-syntaks og simulerte primær/reserve/begge-feiler-tilfeller består. Nytt bygg kjøres etter fletting med eksakt integrert hd-mod.
+- Neste grafikkrunde er krystaller ved andre dører, vann sett på avstand, Boston ved pole-opptak, dowel på planetariumstrappen og avlange krystaller for silver/gold scepter. Nye funn tas separat etter første distro.
