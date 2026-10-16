@@ -982,7 +982,9 @@
     "costume330"
   ],
   "costume_cels": 13502,
-  "films": [],
+  "films": [
+    "SQ1"
+  ],
   "fonts": {
     "exo2": 94
   },
@@ -1116,5 +1118,18 @@
     "human_visual_approval": false,
     "full_game_hd_complete": false,
     "engine_pull_request": 51
+  },
+  "compressed_films": {
+    "SQ1": {
+      "path": "san/SQ1.ivf",
+      "codec": "vp8",
+      "container": "ivf",
+      "width": 1280,
+      "height": 800,
+      "frames": 3772,
+      "fps": 12,
+      "clock": "original SAN",
+      "sha256": "31a5f3c99af6d836d2be7837f06528e1c4d1931685c9050d057cdd9278441906"
+    }
   }
 }
