@@ -1,6 +1,6 @@
 # Produksjon av de resterende HD-filmene
 
-16. oktober 2026. Leveranse: [PR 60 mot hd-mod](https://github.com/Tombonator3000/Dig-HD-Remake/pull/60).
+16. oktober 2026. Leveranse, flettet av Tom: [PR 60 mot hd-mod](https://github.com/Tombonator3000/Dig-HD-Remake/pull/60).
 
 Alle 54 resterende SAN-filer er behandlet, én om gangen i rekkefølgen nedenfor. 8866 nye rammer i 1280 x 800 og 86.66 MB VP8/IVF. Med publisert SQ1 er alle 55 filmer og 12 638 rammer produsert, 109.43 MB video i alt. Ingen PNG-videorammer er lagt i repoet.
 
@@ -21,7 +21,9 @@ PNG-mellomfiler slettes etter godkjent teknisk kontroll av hver video. Bare komp
 
 ## Levering
 
-PR 60 legger bare til IVF-filer og JSON-rapporter under san/, samt oppdatert rotmanifest, README og SHA256SUMS. Motoren trenger ingen ny kode. Nettleseren henter filmene når datagrenen oppdateres. Linux-pakken må bygges på nytt etter fletting; den publiserte pakken fra tidligere i dag inneholder fortsatt bare SQ1 i HD.
+PR 60 er flettet av Tom til hd-mod b2cd6b38. Den legger bare til IVF-filer og JSON-rapporter under san/, samt oppdatert rotmanifest, README og SHA256SUMS. Motoren trenger ingen ny kode. Nettleseren henter filmene fra den oppdaterte datagrenen.
+
+Ny Linux-pakke med alle 55 filmene er publisert i [releasen linux](https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux), bygg 38880540065, kode 5616131b. AppImage er 1 783 798 264 byte. SHA-256: a9943ec748ab1ae0b669040edd4edeeb3d9d72d1aeb2392d7899160f672ce2c5. Debian 12, alle 28 583 mod-sjekksummer og 550 skjermoppdateringer med intro/tekst/HD-bytte er bestått. Motorens DigHDVideo er dessuten kjørt på alle 12 638 rammer fra den faktiske nedlastingen i RGB32, med fem rammer per film i RGB565, repetisjon og bakoverhopp: bestått. Full gjennomspilling og visuell kontroll av alle filmer i bevegelse gjenstår.
 
 Produksjonsrapporten følger datagrenen som san/VIDEO-HD.json, med én JSON per film. Produksjonskø og verktøy ligger i denne lokale arbeidsmappen under resultater/video-ko og verktoy.
 

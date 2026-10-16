@@ -12,13 +12,16 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
   - Brink og Maggie i tunnelen (kostyme 22 og 23, rom 10): 9 og 10 ruter. Samme omriss som kostyme 3 og 2, men andre farger, så HD-tegningene derfra kan trolig fargelegges om
 - [ ] Hovedpersonene ellers, 66 ruter: Boston og Brink i lockup (kostyme 229) 25, Boston og Maggie i theeye (213, 214, 222) 20, robotarmen (5) 13, Boston i nexus (71) 8
 - [ ] Andre kostymer: 10 158 ruter med figurgrafikk uten HD, pluss 4 500 bitte små (under 40 piksler, mest lysglimt). 101 kostymer har ingen HD. Største: trikkekartet (270, 268, 272, 274, 276) 959, portrettene i håndcomputeren (newton 224, 225, 227, 228) 658, de preglede figurene (emboss 31, 318, 320, 326) 498, pool (101, 113) 339, energivirvelen i eyehub (247) 281, plandoor (183) 194
-- [ ] Filmene (SAN): alle 55 og 12 638 rammer produsert i HD. SQ1 finnes i Linux-pakken; de resterende 54 ligger i PR 60 mot hd-mod (86,66 MB). Full visuell kontroll i bevegelse, fletting og nytt Linux-bygg gjenstår. Se docs/VIDEO-PRODUKSJON.md.
+- [x] Filmene (SAN): alle 55 og 12 638 rammer produsert i HD, publisert i hd-mod etter Toms fletting av PR 60 og pakket i ny Linux-AppImage (1,78 GB). Filmene tar 109,43 MB uten PNG-video. Se docs/VIDEO-PRODUKSJON.md.
+- [ ] Full visuell kontroll av alle 55 filmene i bevegelse og vanlig spilling.
 - [ ] Toms visuelle godkjenning av r12 (`human_visual_approval` er false i `mod.json`) og én full gjennomspilling med HD. Tom har spilt r12 på Linux fram til slutten (14. oktober), slutten gjenstår; han sier fra når den er gjennomført
 - [ ] Windows-pakken prøvd på en ekte Windows-maskin (bare Wine til nå)
-- [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasens navn og les-meg er oppdatert 16. oktober, med r12 og komprimert intro. `ORDRE.md` i `gpt-arbeid` er fra 11. oktober
+- [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasens navn og les-meg er oppdatert 16. oktober, med r12 og alle 55 HD-filmer. `ORDRE.md` i `gpt-arbeid` er fra 11. oktober
 - [ ] Helt til slutt: mindre HD-filer (se Senere)
 
 ## Neste
+
+- [x] Etter Toms fletting av PR 60: ny Linux-pakke med alle 55 HD-videoer. Bygg, Debian 12, nedlastet AppImage og alle mod-sjekksummer kontrollert 16. oktober.
 
 - [x] Satt opp og kjørt de 54 resterende HD-videoene i rekkefølge, med teknisk kontroll, komprimering og PR 60 (16. oktober).
 
@@ -106,7 +109,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 - [ ] Resten av hovedfigurene fra Codex (361 ark), tas inn av runden av seg selv
 - [x] Alle de andre figurene bestilt i glatt stil: 4031 figurark (28481 ruter), beskjed i ORDRE.md 9. oktober
 - [ ] Figurarkene fra Codex, tas inn av runden av seg selv
-- [ ] Filmene (SAN) i HD: SQ1 ferdig oppskalert og komprimert 16. oktober, resten gjenstår
+- [x] Filmene (SAN) i HD: alle 55 oppskalert, komprimert, publisert og med i Linux-pakken 16. oktober. Full visuell kontroll i bevegelse står separat over.
 - [ ] Myke figurer: kant mot forgrunnen i 4 x 4-blokker; prøv å følge den myke kanten i HD-rommet
 - [ ] Myke figurer på ekte skjerm: flere figurer over hverandre, skalerte figurer, banner og meny over, nedtoning
 - [ ] Ansiktet til Boston nærmere originalen i de neste arkene (eldre, grått hår ved tinningene)
