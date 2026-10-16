@@ -1,0 +1,39 @@
+{
+  "film": "TRAM3",
+  "source": "VIDEO/TRAM3.SAN",
+  "source_sha256": "557afc7ce41b5542f013e48190a9007cd0cf240dcedeaa98ccccd2a1b875763e",
+  "animesr_commit": "80a24bf7a5270907c703158ff6affb3248bf0dc2",
+  "model": "AnimeSR_v2.pth",
+  "model_sha256": "d0f29c8966b53718828bd424bbdc306e7ff0cbf6350beadaf8b5b2500b108548",
+  "scale": 4,
+  "raster": [
+    1280,
+    800
+  ],
+  "frames": 148,
+  "fps": "12/1",
+  "duration_seconds": 12.333333333333334,
+  "scene_cuts": [
+    0,
+    30,
+    104,
+    148
+  ],
+  "warmup_frames_per_cut": 8,
+  "empty_original_frames": [],
+  "reused_approved_master": false,
+  "encoder": "VP8 libvpx CRF10, 1M, good, cpu2, g120, yuv420p, no alt-ref/lag",
+  "video_bytes": 1474358,
+  "video_sha256": "55b08e3b1f6aa0e69670714d0817be1dffa154362124f9ca2579fb4cd61cd12e",
+  "ssim_all_frames_yuv420p": 0.991194,
+  "audio_subtitles": "Original SAN and engine",
+  "queue_limit_cpu_frames": 6,
+  "technical_validation": "Full decode, dimensions, count, consecutive timestamps, visible packets, SSIM",
+  "visual_approval": "Ikke automatisk godkjent; sammenligningsbilder ligger lokalt",
+  "source_branch": "spilldata",
+  "source_commit": "8863daa8479a4a11de5e5234fe7d519eccf227c7",
+  "scene_cut_detection": "Original RGB mean absolute change >= 20/255; SQ5 keeps previously approved manual cuts",
+  "inference": "Official AnimeSR frame inference FP32; bounded CPU write queue, no precision change",
+  "display_aspect": "Existing ScummVM HD surface, native raster 1280x800, no SAR in IVF",
+  "visual_inspection": "Mid-frame original/HD contact sheet inspected; full movement and in-game contexts not fully reviewed"
+}
