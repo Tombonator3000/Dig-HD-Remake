@@ -1,0 +1,521 @@
+{
+  "date": "2026-10-16",
+  "published_parent": "fad3f0080300046ee132bad453d845c5c4e301e6",
+  "source_commit": "8863daa8479a4a11de5e5234fe7d519eccf227c7",
+  "new_movies": 54,
+  "new_frames": 8866,
+  "all_movies": 55,
+  "all_frames": 12638,
+  "new_video_bytes": 86659409,
+  "all_video_bytes": 109434949,
+  "output_raster": [
+    1280,
+    800
+  ],
+  "method": "AnimeSR v2 FP32, 8 warmups per shot, sequential production, VP8/IVF",
+  "no_interpolated_frames": true,
+  "empty_frame_handling": "SQ14SC07 frame 0 has no FOBJ. Preserved as initial palette colour; remaining 32 decoded pictures retain SAN indices 1..32.",
+  "special_frame_rates": {
+    "SQ3": 14,
+    "SQ19A": 15
+  },
+  "compression_control": "All new movies SSIM >=0.98 against AnimeSR masters in YUV420P; 7 noisy effect sequences encoded at higher bitrate",
+  "inspection": "One original/HD mid-frame pair for each of 54 movies; five-frame contact sheets retained locally. Full subjective review in motion and game is pending.",
+  "runtime_validation": {
+    "result": "PASS",
+    "native_decoder": "DigHDVideo from pinned/patched ScummVM",
+    "movies": 54,
+    "sequential_RGB32_frames": 8866,
+    "RGB565_test": "first five frames per movie",
+    "extra_cases": "repeated and backwards frames",
+    "full_game_playthrough": false
+  },
+  "films": [
+    {
+      "film": "SQ2",
+      "order": 1,
+      "frames": 1100,
+      "fps": "12/1",
+      "video_bytes": 7990258,
+      "sha256": "a1113a95cb0d28bb6a3b72168193a2e80e006abc27f102dd419f3beacbf2b78e",
+      "ssim_yuv420p": 0.991495
+    },
+    {
+      "film": "SQ3",
+      "order": 2,
+      "frames": 883,
+      "fps": "14/1",
+      "video_bytes": 7205375,
+      "sha256": "0aedc5f6a15981fbd17e96901a54e49cce0aeae0a4c6347187e1ca508bbc0f4a",
+      "ssim_yuv420p": 0.986983
+    },
+    {
+      "film": "SQ4",
+      "order": 3,
+      "frames": 172,
+      "fps": "12/1",
+      "video_bytes": 1552497,
+      "sha256": "de1319e78513f8cc0f08b3cd8d63525886f32c5d92f954ec02cc5887331512a2",
+      "ssim_yuv420p": 0.984631
+    },
+    {
+      "film": "SQ5",
+      "order": 4,
+      "frames": 169,
+      "fps": "12/1",
+      "video_bytes": 1637312,
+      "sha256": "cc02086e3ae557cfa8d1ac42a0e2a8ebffb7c28aa5c9226eaab6a7b97d9f2d48",
+      "ssim_yuv420p": 0.985003
+    },
+    {
+      "film": "SQ6",
+      "order": 5,
+      "frames": 58,
+      "fps": "12/1",
+      "video_bytes": 501139,
+      "sha256": "de7628cf87ab0b58de320fb6d8c0dda13c8c746d398143c54a7eb42934829541",
+      "ssim_yuv420p": 0.989592
+    },
+    {
+      "film": "SQ6SC3",
+      "order": 6,
+      "frames": 13,
+      "fps": "12/1",
+      "video_bytes": 169606,
+      "sha256": "ecb0f9971a2a037455e61f28b8c16a7ea4a044ba38936060426e7a7b709ecff4",
+      "ssim_yuv420p": 0.990153
+    },
+    {
+      "film": "SQ7",
+      "order": 7,
+      "frames": 86,
+      "fps": "12/1",
+      "video_bytes": 3101277,
+      "sha256": "aff46b0c6b898f6f275b46dcb123d450fd85269a46d4e242fc84f41d1d20cb15",
+      "ssim_yuv420p": 0.984804
+    },
+    {
+      "film": "SQ8A",
+      "order": 8,
+      "frames": 130,
+      "fps": "12/1",
+      "video_bytes": 798654,
+      "sha256": "bf6395ac8fa5706c0d0fda1929598c2804a02c0aa8fadebfef50d0a2f0f43589",
+      "ssim_yuv420p": 0.990824
+    },
+    {
+      "film": "SQ8A1",
+      "order": 9,
+      "frames": 66,
+      "fps": "12/1",
+      "video_bytes": 555401,
+      "sha256": "b5bebd48f53696cbe12e506753a3acad0312e2584ab481c8b94cafff8742b11b",
+      "ssim_yuv420p": 0.989367
+    },
+    {
+      "film": "SQ8B",
+      "order": 10,
+      "frames": 48,
+      "fps": "12/1",
+      "video_bytes": 242176,
+      "sha256": "a649f3370e065283e9d9acd50c4847584f04e55596f7b3a5db1ccd028362196a",
+      "ssim_yuv420p": 0.993101
+    },
+    {
+      "film": "SQ8C",
+      "order": 11,
+      "frames": 77,
+      "fps": "12/1",
+      "video_bytes": 468176,
+      "sha256": "a3deaaf5d9cb98d43d073d2b51a787e86cac8aed3a984b338e7764e8b4620ca3",
+      "ssim_yuv420p": 0.992382
+    },
+    {
+      "film": "SQ9",
+      "order": 12,
+      "frames": 553,
+      "fps": "12/1",
+      "video_bytes": 3895623,
+      "sha256": "966cf392c9eeb0889cbd98d70333d7764dc97f25d5c4b104f444dec3e92333f0",
+      "ssim_yuv420p": 0.990017
+    },
+    {
+      "film": "SQ10",
+      "order": 13,
+      "frames": 203,
+      "fps": "12/1",
+      "video_bytes": 3785757,
+      "sha256": "09ea97b97d6df251a8eb01ea80b98e0a7844009a726ba9ae15a1c9b418ffd8b8",
+      "ssim_yuv420p": 0.983051
+    },
+    {
+      "film": "SQ11",
+      "order": 14,
+      "frames": 69,
+      "fps": "12/1",
+      "video_bytes": 581851,
+      "sha256": "6833b3d4105c3e0e2ac71e41109874ff513014fb7faf7a6d2d63e2dc30709131",
+      "ssim_yuv420p": 0.98868
+    },
+    {
+      "film": "SQ12A",
+      "order": 15,
+      "frames": 51,
+      "fps": "12/1",
+      "video_bytes": 462488,
+      "sha256": "cd133950f98868130bf031836b83f6a36b3ebbd3df5ac56e5b22a22dabfd41cd",
+      "ssim_yuv420p": 0.98965
+    },
+    {
+      "film": "SQ12B",
+      "order": 16,
+      "frames": 88,
+      "fps": "12/1",
+      "video_bytes": 1954403,
+      "sha256": "bfe429a87e2ca3b3383a7feda776533237d4986785d5c44142b8537ad5ad9d56",
+      "ssim_yuv420p": 0.986436
+    },
+    {
+      "film": "SQ13",
+      "order": 17,
+      "frames": 182,
+      "fps": "12/1",
+      "video_bytes": 1573529,
+      "sha256": "9a8ce0357a2b79504cba57728759a422dd20f591a1ce30a458b2da6b29a4a91d",
+      "ssim_yuv420p": 0.982713
+    },
+    {
+      "film": "SQ14B",
+      "order": 18,
+      "frames": 190,
+      "fps": "12/1",
+      "video_bytes": 1561994,
+      "sha256": "5d9fab6c160fb86d66f40efd5caa1a7f3b2ef310d4587e2707dffae12435e065",
+      "ssim_yuv420p": 0.991061
+    },
+    {
+      "film": "SQ14SC04",
+      "order": 19,
+      "frames": 48,
+      "fps": "12/1",
+      "video_bytes": 165094,
+      "sha256": "706594ef9dc621cfb4009a44bc6550dd894cdf7311bebb816095efdbe20438ae",
+      "ssim_yuv420p": 0.994257
+    },
+    {
+      "film": "SQ14SC07",
+      "order": 20,
+      "frames": 33,
+      "fps": "12/1",
+      "video_bytes": 189204,
+      "sha256": "d658c2d8fa62c18e482fbc7dbc04df54854d6554acda2d0636dd9ad55735f7dd",
+      "ssim_yuv420p": 0.989801
+    },
+    {
+      "film": "SQ14SC11",
+      "order": 21,
+      "frames": 24,
+      "fps": "12/1",
+      "video_bytes": 115774,
+      "sha256": "68c4f4134714c5708d0e3cdaee8521a546b9af2c3eaad4eb93b53d99cdc25802",
+      "ssim_yuv420p": 0.993684
+    },
+    {
+      "film": "SQ14SC14",
+      "order": 22,
+      "frames": 13,
+      "fps": "12/1",
+      "video_bytes": 167623,
+      "sha256": "e6dfbdc23efd86ff9a0b2d62a256daf149450263d1c5874ea7426c8da4fb6c1c",
+      "ssim_yuv420p": 0.993242
+    },
+    {
+      "film": "SQ14SC16",
+      "order": 23,
+      "frames": 43,
+      "fps": "12/1",
+      "video_bytes": 483347,
+      "sha256": "0058285f0173d05f52d78d9725d8b46a49729bba2a5aa3c7b76589844fb21bf3",
+      "ssim_yuv420p": 0.985851
+    },
+    {
+      "film": "SQ14SC19",
+      "order": 24,
+      "frames": 53,
+      "fps": "12/1",
+      "video_bytes": 2034998,
+      "sha256": "c2f060ee73ed9b73b93f7ebb667fc6292f41ee385cd96c7319d69fbce8b076d6",
+      "ssim_yuv420p": 0.986229
+    },
+    {
+      "film": "SQ14SC22",
+      "order": 25,
+      "frames": 199,
+      "fps": "12/1",
+      "video_bytes": 873240,
+      "sha256": "bb77b43233ee4979efe3cc95f0493a0012fc79a5a3a1e9c984598c5534713a86",
+      "ssim_yuv420p": 0.992118
+    },
+    {
+      "film": "SQ15A",
+      "order": 26,
+      "frames": 49,
+      "fps": "12/1",
+      "video_bytes": 1852806,
+      "sha256": "f7c81a6fc488b9477e8ab58ba15800bc05a33917ec56701081a2499e040a90e0",
+      "ssim_yuv420p": 0.986736
+    },
+    {
+      "film": "SQ15B",
+      "order": 27,
+      "frames": 84,
+      "fps": "12/1",
+      "video_bytes": 3417344,
+      "sha256": "d385e8dd49ca103e3ca55b7c5abfd990985d481c92a4e9c174cff2b0562e9985",
+      "ssim_yuv420p": 0.987391
+    },
+    {
+      "film": "SQ17",
+      "order": 28,
+      "frames": 806,
+      "fps": "12/1",
+      "video_bytes": 6096085,
+      "sha256": "a8abfb8f1b301220f209bc6b39b5bd91989f114cab642124d7a4f49ee5e622eb",
+      "ssim_yuv420p": 0.982083
+    },
+    {
+      "film": "SQ18A",
+      "order": 29,
+      "frames": 110,
+      "fps": "12/1",
+      "video_bytes": 932985,
+      "sha256": "09e01a023ea02da1c74b6fb3f87c237d0f09ebb032ffded7e9333f8c2433a1f4",
+      "ssim_yuv420p": 0.99225
+    },
+    {
+      "film": "SQ18B",
+      "order": 30,
+      "frames": 141,
+      "fps": "12/1",
+      "video_bytes": 947583,
+      "sha256": "5e0cfabb4327f77c0092a5cecec1fed4d2ad978995e536fe196a223713856ec1",
+      "ssim_yuv420p": 0.993715
+    },
+    {
+      "film": "SQ18SC15",
+      "order": 31,
+      "frames": 94,
+      "fps": "12/1",
+      "video_bytes": 858900,
+      "sha256": "ff25746fd44e9e5f1380fe8297767884d1867766c6292af40efd986fb635921b",
+      "ssim_yuv420p": 0.993337
+    },
+    {
+      "film": "SQ19A",
+      "order": 32,
+      "frames": 97,
+      "fps": "15/1",
+      "video_bytes": 727172,
+      "sha256": "78d50181f39ac80777d1d9f668cf17a4847bb132b1b098039aae772893605a4c",
+      "ssim_yuv420p": 0.990317
+    },
+    {
+      "film": "SQ19B",
+      "order": 33,
+      "frames": 231,
+      "fps": "12/1",
+      "video_bytes": 2272365,
+      "sha256": "71ddea4796539dc19d8d25d07385f7a3b39fbc7fd4ad436e74e296f5a5801c4a",
+      "ssim_yuv420p": 0.9905
+    },
+    {
+      "film": "SQ19C",
+      "order": 34,
+      "frames": 124,
+      "fps": "12/1",
+      "video_bytes": 1134550,
+      "sha256": "173ac215f20b9ded94669569cd13c1664fdb471d6535c162e0e2ccf242b18ee1",
+      "ssim_yuv420p": 0.991078
+    },
+    {
+      "film": "ALCOVE",
+      "order": 35,
+      "frames": 66,
+      "fps": "12/1",
+      "video_bytes": 552481,
+      "sha256": "2e0cc365b9a97c9093256e2073c01a41cde9dcd700afa594b6de8c8755524b84",
+      "ssim_yuv420p": 0.993649
+    },
+    {
+      "film": "ASTTUN",
+      "order": 36,
+      "frames": 253,
+      "fps": "12/1",
+      "video_bytes": 2564197,
+      "sha256": "ef6f261a530273e7b080f90a2d9648f4dfa257287fadf116f85a4753e412ab09",
+      "ssim_yuv420p": 0.990557
+    },
+    {
+      "film": "DARKCAVE",
+      "order": 37,
+      "frames": 461,
+      "fps": "12/1",
+      "video_bytes": 3895590,
+      "sha256": "51bc8bd6048c0074e325a52ecea48df0b620f90fa089325f4a6546ee91a02bd6",
+      "ssim_yuv420p": 0.993945
+    },
+    {
+      "film": "M1",
+      "order": 38,
+      "frames": 91,
+      "fps": "12/1",
+      "video_bytes": 1004803,
+      "sha256": "784c39b5d8bf053d0f68861499498cb9912eff1f6691b53298332f2b670a70c8",
+      "ssim_yuv420p": 0.988986
+    },
+    {
+      "film": "M2",
+      "order": 39,
+      "frames": 84,
+      "fps": "12/1",
+      "video_bytes": 948496,
+      "sha256": "5675b16b5995c939f6727068d24a7872548cce1abeb6b53a870f86a0f1dd55e9",
+      "ssim_yuv420p": 0.989407
+    },
+    {
+      "film": "NEXUSPAN",
+      "order": 40,
+      "frames": 95,
+      "fps": "12/1",
+      "video_bytes": 922653,
+      "sha256": "276f06cff48147a2f1c684a3460325fb3e5620b1b09c7aea98d5d157f28ec8ec",
+      "ssim_yuv420p": 0.988133
+    },
+    {
+      "film": "PIGOUT",
+      "order": 41,
+      "frames": 76,
+      "fps": "12/1",
+      "video_bytes": 812665,
+      "sha256": "c5f66a3b717699c654f763b16be1951efe13ba09660fa74690fc6f753bbaf5b2",
+      "ssim_yuv420p": 0.980303
+    },
+    {
+      "film": "RTRAM1",
+      "order": 42,
+      "frames": 149,
+      "fps": "12/1",
+      "video_bytes": 1574993,
+      "sha256": "0f7399ba2987dcb7295b8a590fc7182b339ca7ef361091b0baf2339e4ae60bf6",
+      "ssim_yuv420p": 0.989059
+    },
+    {
+      "film": "RTRAM2",
+      "order": 43,
+      "frames": 119,
+      "fps": "12/1",
+      "video_bytes": 1239738,
+      "sha256": "38b7bbfd7bdaf2f4183c238f8197f481d2bac0e769da7afc4bbf609828feb330",
+      "ssim_yuv420p": 0.985988
+    },
+    {
+      "film": "RTRAM3",
+      "order": 44,
+      "frames": 100,
+      "fps": "12/1",
+      "video_bytes": 1077167,
+      "sha256": "1e1a1758dee26aca676c000251f849fe05f4e7bcf7c491d59dfdad1a9b0804dc",
+      "ssim_yuv420p": 0.986276
+    },
+    {
+      "film": "RTRAM4",
+      "order": 45,
+      "frames": 100,
+      "fps": "12/1",
+      "video_bytes": 1041090,
+      "sha256": "41e44e8e0d588d983789e3fb317bc3c6a57b092ae6a6d7c6a339581984145a32",
+      "ssim_yuv420p": 0.990733
+    },
+    {
+      "film": "RTRAM5",
+      "order": 46,
+      "frames": 112,
+      "fps": "12/1",
+      "video_bytes": 1254382,
+      "sha256": "5bf4900d56fa2fb4b64429429f70b057aac168bbe4daa99f1423b08dec358dec",
+      "ssim_yuv420p": 0.986954
+    },
+    {
+      "film": "SKY",
+      "order": 47,
+      "frames": 47,
+      "fps": "12/1",
+      "video_bytes": 1022636,
+      "sha256": "dc179733a05510b74cf877bde5f051bb06dc729c7626c7b574b1f7d83e34d257",
+      "ssim_yuv420p": 0.981341
+    },
+    {
+      "film": "TOMBDWN1",
+      "order": 48,
+      "frames": 90,
+      "fps": "12/1",
+      "video_bytes": 1024986,
+      "sha256": "88e073a3b48481efedf4469b01e11ec1334fa81bd3a0f9a00af6f9f8447c4d8e",
+      "ssim_yuv420p": 0.989682
+    },
+    {
+      "film": "TOMBDWN2",
+      "order": 49,
+      "frames": 90,
+      "fps": "12/1",
+      "video_bytes": 1021006,
+      "sha256": "2bcafda5fa52e1a2c1d22b98a7cc2db5543cb1d21def13b3dbb323bac480d537",
+      "ssim_yuv420p": 0.989173
+    },
+    {
+      "film": "TRAM1",
+      "order": 50,
+      "frames": 100,
+      "fps": "12/1",
+      "video_bytes": 1101180,
+      "sha256": "5832c49b74e15ab4194ce548d861e2d565f9f4af9d16fdc6b48b453111b392b5",
+      "ssim_yuv420p": 0.987719
+    },
+    {
+      "film": "TRAM2",
+      "order": 51,
+      "frames": 112,
+      "fps": "12/1",
+      "video_bytes": 1226278,
+      "sha256": "271560429d37d0a27a1b19015e2f9f455310b7a0cf4f788fc3cf82c651af4ebe",
+      "ssim_yuv420p": 0.990256
+    },
+    {
+      "film": "TRAM3",
+      "order": 52,
+      "frames": 148,
+      "fps": "12/1",
+      "video_bytes": 1474358,
+      "sha256": "55b08e3b1f6aa0e69670714d0817be1dffa154362124f9ca2579fb4cd61cd12e",
+      "ssim_yuv420p": 0.991194
+    },
+    {
+      "film": "TRAM4",
+      "order": 53,
+      "frames": 121,
+      "fps": "12/1",
+      "video_bytes": 847234,
+      "sha256": "ca39bc1e2e429c83a4cddf45989c44bfe6b38b1b0737751b8f5cc19a4069f0e8",
+      "ssim_yuv420p": 0.992611
+    },
+    {
+      "film": "TRAM5",
+      "order": 54,
+      "frames": 165,
+      "fps": "12/1",
+      "video_bytes": 1746890,
+      "sha256": "13ce584121036c16c30c28b711213d262f9c3444a50984f31d17a8495317023e",
+      "ssim_yuv420p": 0.989376
+    }
+  ]
+}

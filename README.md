@@ -13,3 +13,11 @@ Dette er en integrert og teknisk kontrollert leveranse. Hele spillet er ikke gje
 Krever motoren med komprimert HD-video og libvpx (Dig-HD-Remake PR #59, nettleser PR Dig-HD-Web #4). Original `VIDEO/SQ1.SAN` og spillets lydfiler må fortsatt være tilgjengelige; de styrer timing, lyd og undertekster. Videoen har bare bildeflaten. Visningen følger motorens eksisterende HD-flate. Motoren faller tilbake til PNG eller originalbildet hvis videoen mangler eller feiler. Ingen andre publiserte bilder er endret. Produksjonsdata og sjekksummer: `san/SQ1.json` og `SHA256SUMS`.
 
 Kontrollert: alle 3772 videobilder dekodes, hele introen kjørt i Linux-motoren uten skjerm, tekst tegnes over HD-bildene, bytte til/fra klassisk grafikk og avbrudd med Escape. Full visuell godkjenning i bevegelse og kontroll på Windows/mobil gjenstår.
+
+## Resten av HD-filmene, 16. oktober 2026
+
+Alle de resterende 54 SAN-filene er behandlet i nummerrekkefølge fra SQ2, deretter de navngitte spillsekvensene. De gir 8866 nye rammer i 1280 x 800 og 86.66 MB komprimert VP8-video. Sammen med SQ1 finnes nå alle 55 filmer og 12 638 rammer, 109.43 MB video i alt. Ingen PNG-videorammer er lagt til.
+
+SQ3 beholder 14 fps, SQ19A 15 fps; øvrige filmer er 12 fps. SQ14SC07 har en tom første SAN-ramme som er bevart uten å forskyve de 32 bildene etter den. Motoren følger fortsatt SAN-rammenummeret og original lyd, tekst og skript. Den tidligere godkjente SQ5-masteren og den publiserte SQ1-filen er beholdt.
+
+Alle nye filmer er dekodet i sin helhet, og dimensjoner, antall, tidsstempler og komprimering er kontrollert. Sju effektsekvenser fikk høyere bitrate for å nå SSIM minst 0,98 mot AnimeSR-masteren. Ett original/HD-bilde per film er sett på; full visuell kontroll i bevegelse og i alle spilltilstander gjenstår. Rapport og produksjonsrekkefølge: `san/VIDEO-HD.json`; hver film har egen JSON og SHA-256 i `SHA256SUMS`. Alle tidligere publiserte grafikkfiler er bevart.
