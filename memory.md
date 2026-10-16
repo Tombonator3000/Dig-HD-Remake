@@ -136,3 +136,8 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Tom svarte «2:godkjent.» på vurderingen av hovedarkene for Boston, Maggie, Brink og robotarmen. Alle fire er godkjent som referanser for videre grafikkarbeid.
 - Godkjenningen er bundet til SHA-256 for eksisterende bilder i `gpt-arbeid/rapporter/hovedark-20261012/GODKJENNING.md` og registrert i leveranse.json. Bruk riktig hovedark som bilde to i nye figurjobber.
 - Dette godkjenner ikke alle animasjonsruter, r12-pakken eller full gjennomspilling. Tidligere Pig-godkjenning beholdes.
+
+## HD-filmer 16. oktober 2026
+- Tom ba om å sette opp resten av videoene for HD i rekkefølge. Alle 54 resterende er produsert, 8866 nye rammer, 86 659 409 byte. Med SQ1: 55 filmer, 12 638 rammer og 109 434 949 byte video. PR 60 mot hd-mod, med alle tidligere grafikkfiler bevart og ingen nye PNG-videorammer.
+- SQ3 er 14 fps, SQ19A 15 fps, resten 12. SQ14SC07 har en tom første SAN-ramme; denne beholdes for å unngå forskyvning. AnimeSR FP32, 8 oppvarmingsrammer per klipp, avgrenset skrivekø på 6 CPU-rammer. SQ5 bruker den tidligere godkjente masteren.
+- Alle nye rammer er lest med motorens dekoder i RGB32; de første fem per film i RGB565. Repetisjon/bakoverhopp og nettleserfilter er kontrollert. Kompresjons-SSIM minst 0,98 etter omkoding av sju effektsekvenser. Full visuell kontroll i bevegelse og i alle spilltilstander gjenstår; Linux-pakken må bygges på nytt etter fletting. Se docs/VIDEO-PRODUKSJON.md.

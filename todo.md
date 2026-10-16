@@ -12,13 +12,15 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
   - Brink og Maggie i tunnelen (kostyme 22 og 23, rom 10): 9 og 10 ruter. Samme omriss som kostyme 3 og 2, men andre farger, så HD-tegningene derfra kan trolig fargelegges om
 - [ ] Hovedpersonene ellers, 66 ruter: Boston og Brink i lockup (kostyme 229) 25, Boston og Maggie i theeye (213, 214, 222) 20, robotarmen (5) 13, Boston i nexus (71) 8
 - [ ] Andre kostymer: 10 158 ruter med figurgrafikk uten HD, pluss 4 500 bitte små (under 40 piksler, mest lysglimt). 101 kostymer har ingen HD. Største: trikkekartet (270, 268, 272, 274, 276) 959, portrettene i håndcomputeren (newton 224, 225, 227, 228) 658, de preglede figurene (emboss 31, 318, 320, 326) 498, pool (101, 113) 339, energivirvelen i eyehub (247) 281, plandoor (183) 194
-- [ ] Filmene (SAN): SQ1 publisert i Linux-pakken 16. oktober, 3772 av 12 638 rammer, AnimeSR v2 og VP8 (22,78 MB). Motorstøtten og nettleserspeilet er flettet. Resterende filmer gjenstår.
+- [ ] Filmene (SAN): alle 55 og 12 638 rammer produsert i HD. SQ1 finnes i Linux-pakken; de resterende 54 ligger i PR 60 mot hd-mod (86,66 MB). Full visuell kontroll i bevegelse, fletting og nytt Linux-bygg gjenstår. Se docs/VIDEO-PRODUKSJON.md.
 - [ ] Toms visuelle godkjenning av r12 (`human_visual_approval` er false i `mod.json`) og én full gjennomspilling med HD. Tom har spilt r12 på Linux fram til slutten (14. oktober), slutten gjenstår; han sier fra når den er gjennomført
 - [ ] Windows-pakken prøvd på en ekte Windows-maskin (bare Wine til nå)
 - [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasens navn og les-meg er oppdatert 16. oktober, med r12 og komprimert intro. `ORDRE.md` i `gpt-arbeid` er fra 11. oktober
 - [ ] Helt til slutt: mindre HD-filer (se Senere)
 
 ## Neste
+
+- [x] Satt opp og kjørt de 54 resterende HD-videoene i rekkefølge, med teknisk kontroll, komprimering og PR 60 (16. oktober).
 
 - [x] Ny nedlastbar Linux-pakke med komprimert SQ1-intro, oppdatert motorkilde og sjekksummer. Bygg, Debian 12 og nedlastet pakke kontrollert 16. oktober.
 

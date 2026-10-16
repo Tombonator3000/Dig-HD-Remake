@@ -19,7 +19,7 @@ Motoren og verktøyene er ferdige nok til at grafikken kan lages rom for rom og 
 | Store objektbilder | 30 | 30 | ChatGPT | Nærbilder, kart, trikken og liknende som dekker mye av skjermen. I rom 28 dekker tavla (obj241) nesten hele bildet. 2 ensfargede rutenett i inventaret (rom 93) er tatt ut. |
 | Mindre objektbilder | 167 | 609 | ChatGPT | 149 ikoner i ikonark (alle) og 18 av 460 i lagjobber (rommet med objektene på plass, klippes ut etterpå), blant dem håndcomputeren i rom 79. Resten: automatisk oppskalering. |
 | Kostymeruter | 2957 | 28 490 | ChatGPT/Codex | Glatt stil med myke kanter for Boston, Brink og Maggie (54 kostymer, 509 ark, 7683 ruter): 148 ark levert, 2957 ruter tatt inn med `dighd myke-figurer` (392 av dem har et omriss som er ganske ulikt originalen og står til gjennomsyn i `myke.json`). Den gamle fig014_01 er erstattet av det glatte ark 1. Alle kostymer gir 4031 ark. |
-| Filmrammer | 3772 | 12 638 | AnimeSR v2 | SQ1-introen er publisert som VP8/IVF på 22,78 MB, med original lyd og undertekster. |
+| Filmrammer | 12 638 produsert | 12 638 | AnimeSR v2 | SQ1 er publisert; resten ligger i PR 60 mot hd-mod. Alle 55 filmer gir 109,43 MB VP8/IVF, med original lyd og undertekster. Full visuell kontroll i bevegelse gjenstår. |
 
 Stil: trofast HD, samme motiv og farger med mer detalj. Stilankere: rom 9 og 22 (i `gpt-arbeid/stil/`).
 
@@ -174,3 +174,7 @@ mangler), så ScummVMs egen meny (Ctrl+F5) bruker det innebygde temaet.
 | `gpt-arbeid` | Jobber, resultater, status, ORDRE.md og stilankere for ChatGPT, privat |
 | `hd-mod` | Siste ferdige HD-mod, privat |
 | `grafikkdata/pilot-20261006` | Grafikkpiloten fra Codex, privat |
+
+## HD-filmene, 16. oktober 2026
+
+Alle de 54 resterende filmene er produsert i rekkefølge, 8866 nye rammer og 86,66 MB. PR 60 mot hd-mod inneholder bare komprimerte videoer og metadata. Full dekoding med FFmpeg og motorens faktiske dekoder er bestått, inkludert riktige rammenumre, RGB32, prøver i RGB565, repetisjon og hopp bakover. Kompresjons-SSIM minst 0,98. Midtrammen i hver film er sammenlignet visuelt med originalen; full gjennomspilling er ikke gjort. Ingen av de tidligere publiserte bildene eller SQ1 er endret. Se [produksjonsrekkefølge og kontroll](docs/VIDEO-PRODUKSJON.md). Linux-pakken fra tidligere i dag har fortsatt bare SQ1 i HD; nytt bygg trengs etter fletting.
