@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-16",
+  "status": "kandidat, venter pa Toms visuelle vurdering",
+  "human_visual_approval": false,
+  "base_hd_mod": "fad3f008",
+  "approved_models": [
+    {
+      "path": "hovedark/boston.png",
+      "sha256": "ae20a2ece7d1ccb2fd965932fa18611f1afd73c1730671321d3e73e26cdb1a0b"
+    },
+    {
+      "path": "hovedark/brink.png",
+      "sha256": "2b0539afa513e5d888c17a0c8467948b0776b45bf387bfb31ad8c85329c80cb5"
+    },
+    {
+      "path": "hovedark/maggie.png",
+      "sha256": "126134f72d43fb427ff5d6332ca006cb5adcbf10c5344bf0b1580c0e14c5c52e"
+    }
+  ],
+  "generated_masters": [
+    {
+      "path": "produksjon/boston-heads.png",
+      "sha256": "65f13615fe4bafda11070af977bc99aaf7fc605abe552b9184ccd487f2eaf3f9",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "produksjon/boston103-master.png",
+      "sha256": "ea9bc07ec3290f8c07912fe1687b7af0887bc8799ee5225bf3052519f2d6cf05",
+      "dimensions": [
+        1438,
+        1093
+      ]
+    },
+    {
+      "path": "produksjon/brink-heads.png",
+      "sha256": "6263ceacdb84d9c30a4c36ffe00a80bebb01223db76650260590d2b89d2f02d6",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "produksjon/brink67-master.png",
+      "sha256": "10cbc14d10eb137b640ea64ca6892944794b9fd2465baa9158a5a92f6915a011",
+      "dimensions": [
+        1161,
+        1355
+      ]
+    },
+    {
+      "path": "produksjon/dead60-master.png",
+      "sha256": "fe4a154082838c87b447b0e2c760842444cc99f04cd3262ba299f06a675a5a31",
+      "dimensions": [
+        1374,
+        1145
+      ]
+    },
+    {
+      "path": "produksjon/maggie-heads.png",
+      "sha256": "603d886c1c0d6fffcb25e269496c8f4ee977757ae20c2937bca3ffe854f6eebb",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "produksjon/probe78-master.png",
+      "sha256": "7ae69e5fc9c74ab29841576d9458e177b63e81e1d757a742a255ab647fd67dde",
+      "dimensions": [
+        1402,
+        1122
+      ]
+    },
+    {
+      "path": "produksjon/rods-master.png",
+      "sha256": "5f06d480ff73f5c764718e6e6fe1d6c2f3411179bbf5064f5bb401a6cc580a5f",
+      "dimensions": [
+        2172,
+        724
+      ]
+    }
+  ],
+  "tool": "built-in image_gen, native outputs retained",
+  "overrides_files": 2223,
+  "override_manifest_sha256": "6332b09da510a6203e1fc67777925e90e5878f786db0475c761b0c5ef9c92816",
+  "original_indices": "All index pixel values preserved. Costume103 corrects its placeholder RGBS palette to original AKPL + room32 palette0.",
+  "tests": {
+    "native_main_cases": 77,
+    "native_redraw_checks": 656,
+    "expanded_cases": 13,
+    "assembled_part_previews": 627,
+    "stand_gap_flags": 0,
+    "overlay_integration": "passed"
+  },
+  "limitations": [
+    "16-bit SDL dummy screenshots; Windows/mobile/32-bit OpenGL not tested",
+    "No full playthrough",
+    "Automatic head/collar checks do not determine identity or drawing style",
+    "Original source geometry and game interaction kept; final motion/style approval remains human"
+  ]
+}
