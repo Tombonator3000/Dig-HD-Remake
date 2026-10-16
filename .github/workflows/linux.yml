@@ -105,7 +105,13 @@ jobs:
       # GitHub-maskinene når grensen er nådd (toomanyrequests, 9. oktober 2026).
       - name: Test pakken på Debian 12 uten byggepakker
         run: |
-          docker run --rm -v "$PWD/out/linux:/pakke:ro" public.ecr.aws/docker/library/debian:12-slim sh -c '
+          DEBIAN_TEST_IMAGE=public.ecr.aws/docker/library/debian:12-slim
+          if ! docker pull "$DEBIAN_TEST_IMAGE"; then
+            echo "ECR-speilet kunne ikke hentes; prøver Debian sitt offisielle Docker Hub-bilde."
+            DEBIAN_TEST_IMAGE=debian:12-slim
+            docker pull "$DEBIAN_TEST_IMAGE"
+          fi
+          docker run --rm -v "$PWD/out/linux:/pakke:ro" "$DEBIAN_TEST_IMAGE" sh -c '
             apt-get update -qq && apt-get install -y -qq libgl1 libasound2 libfreetype6 libgbm1 libwayland-client0 libwayland-cursor0 libwayland-egl1 libxkbcommon0 > /dev/null
             cd /tmp && /pakke/TheDigHD-x86_64.AppImage --appimage-extract > /dev/null
             echo "Biblioteker som mangler:"; LD_LIBRARY_PATH=squashfs-root/usr/lib ldd squashfs-root/usr/bin/scummvm | grep "not found" || echo "ingen"
