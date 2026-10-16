@@ -6,10 +6,11 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 
 - [x] R16 integrert via PR62/63, Linux-AppImage publisert og kontrollert med alle55 filmer.
 - [x] Ferdig r17-grafikk til repo og utkast-PR64, uten uferdig pole178.
-- [ ] R18: alle hovedpersoners hode/kropp og varianter, pole178, skalering og strengere kontaktkontroll.
-- [ ] R18: to måner148/149, mer detaljert plateau og sømløs utgravd åpning387/388.
-- [ ] R18: faktisk tram-gangbro i rom80, edderkoppsilhuett136, tett rist356/357, laser233/234/235.
-- [ ] Native kontroller, kode-PR ved motorendring, grafikkrapport og PR for ferdig r18.
+- [x] R18-kandidat: figurkontakter, talevarianter, pole178, felles aktørskala og strengere kontaktkontroll.
+- [x] R18-kandidat: to måner148/149, detaljert plateau og tilpasset åpning387/388.
+- [x] R18-kandidat: tram-gangflate890 i rom80, edderkoppsilhuett136, tett rist356/357, laser233/234/235.
+- [x] Native kontroller, grafikkrapport og PR64/65 samt nettleser-PR6.
+- [ ] Toms visuelle gjennomgang av r17/r18 og full naturlig spill-/overgangstest; deretter eventuell fletting/pakking når det bestilles.
 
 ## Til komplett utgave (oversikt 14. oktober, rettet 09:48, mot hd-mod 05179ed / r12)
 

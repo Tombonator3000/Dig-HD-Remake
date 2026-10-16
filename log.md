@@ -616,3 +616,23 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Skjermbildet med manglende tram-bro er identifisert som rom80 ved bildepunktmatching (197 geometriske treff), ikke rom29 som først antatt. Den blå kulen er riktig tram. Broens faktiske tegne-/animasjonslag undersøkes før endring.
 - Native omtegning i r17: avvikene i kunstige romhopp skjer bare ved første kontroll, frame80. Senere24 kontroller i hvert av rom97/98/99 har null avvik; uendret r16-rom97 har samme førsteavvik. Rapport/PR presiseres før eventuell ferdigmelding.
 - Alle tester bruker egne mapper og kopierte lagringer. R18 er arbeid og er ikke visuell godkjenning eller ny distro.
+
+## 2026-10-16 15:27 (Codex)
+
+- R18 patch0007 bruker aktørens skala for HD-delene og final dekoderproveniens til kontinuerlig plassering. Lokal kompilering og nøyaktig kontroll av hele patchstakken består. Testverktøyet kontrollerer også talehoder og kontaktbredde.
+-18 skala-/retningskombinasjoner,36 native kjøringer med gammel/ny motor: originale aktørpiksler uendret, fullstørrelse-HD identisk,252 nytegningskontroller uten avvik. Bakgrunnens tidsstyrte blink ble først feilaktig inkludert i sammenligningen; kontrollen bruker nå faktiske aktørrektangler. Én gammel-motor-kjøring krasjet ved avslutning etter ferdig bilde220; separat gjentakelse og senere komplette kjøringer avsluttet normalt. Årsaken er ikke bevist.
+-1511 kildebaserte stå-/tale-/handlingskombinasjoner for17 kostymer har ingen flagget halskontakt. Korrigerte Brink-farger, ekstra talevarianter og285 pole-ruter er i kandidaten. Visuell kontroll er adskilt fra de geometriske målene.
+- Nye scenebilder er registrert mot originalgeometrien. Native motivkontroll viser to måner, stråler, edderkoppsilhuett og tett rist. Tram-gangflaten har samme source-rektangel og deles mellom stasjonens overlappende bilder. Endelig leveranse-/PR-status føres etter fil- og regresjonskontroll.
+
+- Hele r18-figurregresjonen består:77 tilfeller/656 nytegningskontroller.13 utvidede tilfeller/330 kontroller består. Modflett bevarer alle55 filmer, fjerner ingen filer og endrer bare eksplisitt deklarerte enheter.
+
+## 2026-10-16 15:46 (Codex)
+
+- Motor-PR65 og nettleser-PR6 opprettet og tilknyttet samtalen. CI grønn for kodeendringen. Grafikk-PR64 er oppdatert fra utkast til klar for gjennomgang og inneholder r17/r18. Ikke flettet; ingen ny r18-distro publisert.
+- Seks native kontroller på ferdig flettet leveranse består (116 nytegningskontroller). Alle2218 førsteoverstyringer stemte med rapporten, leveransemappen og PR-payloaden.
+- Ekstra native kontroller av38/47/48/188,4000 oppdateringer hver og172 nytegningskontroller, består. De dekker de første animasjonene, ikke hele AKCH-serien for de største variantene. Fanget løs atlasrest over Maggies hode i47. Små frakoblede alfaområder fjernet i895 hoderuter, uten endring av RGB eller gjenværende piksler. Ansiktene flyttes ikke. Endelig overstyringstall2223, hvorav1830 myke HD-bilder. Hele figurregresjonen gjentas etter oppryddingen.
+- Tom bekrefter at bro-punktet er gangbroen inn i den blå kulen. Native tram-call-test traff knapp859. Innstigningsklikket kom mens trammen var underveis og traff ingen inngang, så full normal innstigning er ikke rapportert som bestått. Tvungne sluttstilstander er kontrollert separat.
+
+- Avsluttende kontroll etter alfaopprydding:1511 sammensatte poseringer uten flagg og77 nye native tilfeller/656 nytegningskontroller uten avvik. Alle55 filmer fortsatt byteidentiske.
+
+- Alle60 navngitte menneske-/romdraktkostymer inventarisert:52 med2422 sammensatte poseringer, åtte hele-figurvarianter uten separat kontaktmåling. Ett par i137 er allerede44,56 originalpiksler atskilt i originalen, bekreftet i native original/HD. Verktøyet skiller nå dette fra nye HD-gap. Ingen nye kontaktavvik flagget. Full visuell godkjenning av hvert bilde er fortsatt ikke gjort.
