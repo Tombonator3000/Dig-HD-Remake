@@ -140,4 +140,11 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 ## HD-filmer 16. oktober 2026
 - Tom ba om å sette opp resten av videoene for HD i rekkefølge. Alle 54 resterende er produsert, 8866 nye rammer, 86 659 409 byte. Med SQ1: 55 filmer, 12 638 rammer og 109 434 949 byte video. PR 60 mot hd-mod, med alle tidligere grafikkfiler bevart og ingen nye PNG-videorammer.
 - SQ3 er 14 fps, SQ19A 15 fps, resten 12. SQ14SC07 har en tom første SAN-ramme; denne beholdes for å unngå forskyvning. AnimeSR FP32, 8 oppvarmingsrammer per klipp, avgrenset skrivekø på 6 CPU-rammer. SQ5 bruker den tidligere godkjente masteren.
+- Alle nye rammer er lest med motorens dekoder i RGB32; de første fem per film i RGB565. Repetisjon/bakoverhopp og nettleserfilter er kontrollert. Kompresjons-SSIM minst 0,98 etter omkoding av sju effektsekvenser. Full visuell kontroll i bevegelse og i alle spilltilstander gjenstår; Linux-pakken må bygges på nytt etter fletting. Se docs/VIDEO-PRODUKSJON.md.
+
+## Grafikkfeil 16. oktober 2026
+- Gjenoppstandelsen med solbriller er kostyme67. Boston ved vannets gjenoppliving er kostyme103; dets RGBS er en plassholder-hudrampe. Originalen bruker AKPL i rom32 palett0. Hovedarkene er fortsatt stilfasit.
+- Skjelettets puslespill er rom36/kostyme121. Originalens silhuetter og ledd må styre registreringen. Tekniske palettmasker skal ikke inngå som malt figur i histogrammet for HD-fargetilpasning.
+- Sonden i energikammeret bruker kostyme78 til83; mørk kropp må være ugjennomsiktig. Engraved rods er objekt633,634,636,652 og678, med både myke HD-bilder og reservebilder.
+- Den lokale rettingskandidaten og nye patch0006 er dokumentert i docs/HD-RETTINGER-20261016.md. Ikke en ny publisert AppImage eller visuell godkjenning av alle nye ruter.
 - Alle nye rammer er lest med motorens dekoder i RGB32; de første fem per film i RGB565. Repetisjon/bakoverhopp og nettleserfilter er kontrollert. Kompresjons-SSIM minst 0,98 etter omkoding av sju effektsekvenser. Full visuell kontroll i bevegelse og i alle spilltilstander gjenstår. PR 60 er flettet av Tom; Linux-bygg 38880540065 har alle 55 filmene og er kontrollert med SHA-256, alle modfiler, Debian 12 og 550 skjermoppdateringer med tekst og HD/klassisk-bytte. Se docs/VIDEO-PRODUKSJON.md.

@@ -1,4 +1,8 @@
-# Motortester uten spillfiler
+# Motortester
+
+## Gjennomsiktige lag med private spillfiler
+
+`test-hd-overlays.py` bruker ekte spilldata og en kopiert PDA-lagring. Den kontrollerer eksakt nearest-visning og at inventaret ikke preger originaltekstur inn i et konstant HD-bilde. Kommando og avgrensning står i [HD-RETTINGER-20261016](../../docs/HD-RETTINGER-20261016.md). Denne integrasjonstesten kjøres manuelt når private data er tilgjengelige.
 
 ## Komprimert video
 

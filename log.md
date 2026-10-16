@@ -574,6 +574,15 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Data-PR 60 fra codex/resten-hd-video til hd-mod: 112 filer, bare IVF/JSON og tre rotmetadatafiler. Alle 28 474 tidligere sjekksummede filer bevart, bortsett fra tilsiktet README/mod.json. Ingen nye PNG-filer, ingen spillgrafikk i main. Rapport san/VIDEO-HD.json og én JSON per film.
 - Oppdatert produksjonsrekkefølge, status, todo og memory. Ingen motor-/pipelinekode endret. Linux-pakken fra tidligere i dag inneholder fortsatt bare SQ1 i HD og må bygges på nytt etter fletting.
 
+## 2026-10-16 11:43 (Codex)
+
+- Tom rapporterte figur-/halsfeil, feil Brink-scener, gammel grafikk gjennom glass/inventar, krystallrammer/størrelse, manglende sondekropp, museumskanter, avrundede engraved rods, feil skjelettgeometri/farge og feil Boston ved gjenoppliving ved vannet.
+- Laget separat lokal motor og grafikkandidat. Godkjente hovedark fra 15. oktober er brukt som faktiske bildereferanser. 2223 grafikkfiler registrert i gpt-arbeid/rapporter/spillfeil-20261016 med originaldata, masterfiler, SHA-256 og kontrollbilder. Originalens indeksverdier er bevart; kostyme103 får korrekt AKPL/rompalett i stedet for RGBS-hudrampe.
+- Ny patch0006: presis CDAT/BOMP-proveniens, faktiske palettmasker og blast-skyggetabeller, HD-skyggetransformasjon uten gammel tekstur, ekte nearest-gjenkjenning, histogram uten tekniske skyggefarger og museumskant med antialias over grensepiksler. Spillregler og normal animasjonstiming er uendret.
+- Kontrollverktøy setter sammen originale AKSQ-delgrupper og separate stålag, lager kontaktark og varsler om hode/kropp-glipper. 627 utsnitt, ingen ståglipper større enn ett originalpiksel. Identitet/stil og komplette animasjoner vurderes fortsatt visuelt.
+- Native bygget, patchrekke kontrollert mot låst kilde og kompilert arbeidskilde. 77 tilfeller/656 nytegningskontroller samt 13 ekstra tilfeller bestått. Regresjon: eksakt nearest-inventar/krystaller og konstant HD gjennom inventar bestått; gammel motor ga 23 farger i den siste testen, ny motor1. Pipeline50 bestått/2 hoppet/2 game ikke valgt.
+- Lokal starter bruker rettet motor/mod og vanlige lagringer, med separat konfigurasjon. Testene bruker kopierte lagringer. Installert AppImage og offentlig release ikke endret. Windows/mobil/32-bit OpenGL/full gjennomspilling ikke testet. Eksisterende introhopp-avvik ved bilde20 og uinitialisert skyggtabell ved direkte hopp til skjelettrom er dokumentert separat.
+- Kode legges i PR mot main og samme motorpatch i PR mot Dig-HD-Web; grafikk bare i gpt-arbeid. Se docs/HD-RETTINGER-20261016.md.
 ## 2026-10-16 11:41 (Codex)
 
 - Tom meldte at PR 60 er flettet og ba om alle HD-videoene i repoet og en ny Linux-pakke. Bekreftet PR-fletting til hd-mod b2cd6b3879cc4909cc5211a12f9ff574b9273ba4. Alle 55 IVF-filer og sjekksumlisten er byte-identiske med den kontrollerte leveransen. Ingen ny datakopi eller PNG-video lagt inn.
