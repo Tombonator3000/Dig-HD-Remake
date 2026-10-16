@@ -33,6 +33,19 @@ def main():
    if body and head:
     bc,hc=body[-1]['ruter'][-1],head[-1]['ruter'][-1]
     if bc in single and hc in single:poses.append((f'stand-{direction}',[single[bc],single[hc]]))
+  # Speech heads can differ from the standing head. Check every source
+  # combination on matching animation layers, retaining original positions.
+  # These are conservative candidate pairs, not a reconstruction of timing.
+  for action in (1,4,5):
+   for direction in range(8):
+    heads=[z for z in anim if z['animasjon']==action and z['lag']==1 and z['retning']==direction]
+    bodies=[z for z in anim if z['animasjon']==action and z['lag']==0 and z['retning']==direction]
+    if not bodies:bodies=[z for z in anim if z['animasjon']==1 and z['lag']==0 and z['retning']==direction]
+    for body in bodies:
+     for head in heads:
+      for bc in body['ruter']:
+       for hc in head['ruter']:
+        if bc in single and hc in single:poses.append((f'layers-{action}-{direction}',[single[bc],single[hc]]))
   poses += [(f'aksq-{off}',parts) for off,parts in steps if len(parts)>1]
   seen=set();panels=[]
   for name,parts in poses:
@@ -49,14 +62,17 @@ def main():
    im=Image.new('RGBA',(x1-x0+16,y1-y0+16));masks=[]
    for layer,x,y,c,size in layers:
     im.alpha_composite(layer,(x-x0+8,y-y0+8));mask=Image.new('L',im.size);mask.paste(layer.getchannel('A'),(x-x0+8,y-y0+8));masks.append(np.asarray(mask)>128)
-   gap=None
-   if name.startswith('stand-') and len(masks)==2:
+   gap=None;contact=None
+   if name.startswith(('stand-','layers-')) and len(masks)==2:
     h,b=np.where(masks[1]),np.where(masks[0]);headpoints=np.stack(h,1);bodypoints=np.stack(b,1)
     if len(headpoints) and len(bodypoints):
      # Collar/body nearest distance, in HD pixels; no face/style inference.
      import scipy.ndimage as nd
-     gap=float(nd.distance_transform_edt(~masks[0])[masks[1]].min())
-   rec={'costume':cid,'pose':name,'parts':[c for _,_,_,c,_ in layers],'head_body_gap_hd':gap,'needs_review':gap is not None and gap>4};receipt.append(rec)
+     distance=nd.distance_transform_edt(~masks[0]);gap=float(distance[masks[1]].min())
+     # One touching pixel is not a sound neck joint after downscaling.
+     # Report the width of the contact as well as its nearest distance.
+     contact=int(np.count_nonzero(np.any((distance<=2)&masks[1],axis=0)))
+   rec={'costume':cid,'pose':name,'parts':[c for _,_,_,c,_ in layers],'head_body_gap_hd':gap,'contact_width_hd':contact,'needs_review':gap is not None and (gap>4 or contact<3),'candidate_layer_pair':name.startswith('layers-')};receipt.append(rec)
    panel=Image.new('RGB',(260,310),'#666677');im.thumbnail((252,280));panel.paste(im,((260-im.width)//2,24),im);ImageDraw.Draw(panel).text((5,4),name+(' GAP' if rec['needs_review'] else ''),fill='white');panels.append(panel)
   for page,start in enumerate(range(0,len(panels),48)):
    chunk=panels[start:start+48];sheet=Image.new('RGB',(260*6,310*((len(chunk)+5)//6)),'#666677')

@@ -30,3 +30,5 @@ testbro for nettverkskall. Den prøver 90 000 oppslag i en mappe med 30 000 file
 stabilt minnebruk etter oppvarming, mappeindekser, manglende filer, omdirigering,
 normalisering og nytt forsøk etter feil. Den krever ingen nettleser eller nøkkel.
 Lagring i IndexedDB, brukerinput og ytelse på mobil krever egen kontroll.
+
+`test-character-scale.py` sammenligner en ferdig kompilert kandidat med en tidligere motor ved tre aktørstørrelser, begge sidevendte retninger og Boston/Brink/Maggie. Krever private spill-/modfiler og en kopi av en lagring fra moon map (rom65). Alle lagringer, innstillinger, XDG-mapper og skjermbilder skrives under `--out`. Se `--help`. Ingen grafikkfixturer lagres i kodegrenen.
