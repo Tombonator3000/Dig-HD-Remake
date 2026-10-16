@@ -25,7 +25,7 @@ Detaljer, tester og kjente begrensninger: [STATUS.md](STATUS.md). Hva som gjenst
 ## Spille med HD-grafikken
 
 ```sh
-sudo apt install build-essential git pkg-config libsdl2-dev libpng-dev zlib1g-dev   # én gang (Ubuntu/Debian)
+sudo apt install build-essential git pkg-config libsdl2-dev libpng-dev zlib1g-dev libvpx-dev libvorbis-dev libogg-dev   # én gang (Ubuntu/Debian)
 git clone https://github.com/Tombonator3000/Dig-HD-Remake.git && cd Dig-HD-Remake
 ./spill.sh
 ```

@@ -248,6 +248,10 @@ Testet 15. oktober uten skjerm med den publiserte r12-modden (`hd-mod` 05179ed):
 
 ## Undertekster over filmer
 
+Komprimert HD-video støttes som `san/SQ1.ivf` (VP8) i tillegg til PNG-rammene.
+SAN beholder timing og lyd; tekstlaget nedenfor legges over det dekodede bildet.
+Se [format, bygging og introtesten](HD-VIDEO.md).
+
 SmushPlayer tegner undertekster og annen filmtekst rett inn i filmrammen (8 bit), etter at rammen er pakket ut. En HD-ramme dekker hele bildet, så teksten må legges oppå HD-rammen igjen. Slik gjøres det:
 
 1. Før teksten tegnes, lager DigHD et lag med hele filmrammen der hver byte er invertert (XOR 0xFF).

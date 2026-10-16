@@ -12,7 +12,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
   - Brink og Maggie i tunnelen (kostyme 22 og 23, rom 10): 9 og 10 ruter. Samme omriss som kostyme 3 og 2, men andre farger, så HD-tegningene derfra kan trolig fargelegges om
 - [ ] Hovedpersonene ellers, 66 ruter: Boston og Brink i lockup (kostyme 229) 25, Boston og Maggie i theeye (213, 214, 222) 20, robotarmen (5) 13, Boston i nexus (71) 8
 - [ ] Andre kostymer: 10 158 ruter med figurgrafikk uten HD, pluss 4 500 bitte små (under 40 piksler, mest lysglimt). 101 kostymer har ingen HD. Største: trikkekartet (270, 268, 272, 274, 276) 959, portrettene i håndcomputeren (newton 224, 225, 227, 228) 658, de preglede figurene (emboss 31, 318, 320, 326) 498, pool (101, 113) 339, energivirvelen i eyehub (247) 281, plandoor (183) 194
-- [ ] Filmene (SAN): 0 av 12 638 rammer i HD. Venter på Tom (metode: oppskalering av video, og helst avspilling som video i stedet for PNG-er)
+- [ ] Filmene (SAN): SQ1 klar i egen PR, 3772 av 12 638 rammer, AnimeSR v2 og VP8 (22,78 MB). Motorstøtte i kode-PR, speiles til Dig-HD-Web. Resterende filmer gjenstår.
 - [ ] Toms visuelle godkjenning av r12 (`human_visual_approval` er false i `mod.json`) og én full gjennomspilling med HD. Tom har spilt r12 på Linux fram til slutten (14. oktober), slutten gjenstår; han sier fra når den er gjennomført
 - [ ] Windows-pakken prøvd på en ekte Windows-maskin (bare Wine til nå)
 - [ ] STATUS.md og README samstemt med r12 (STATUS sier fortsatt 103 rom og 2957 myke ruter; modden har 13 268). Linux-releasen heter «r11», men pakken er bygget med r12-modden. `ORDRE.md` i `gpt-arbeid` er fra 11. oktober
@@ -102,7 +102,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 - [ ] Resten av hovedfigurene fra Codex (361 ark), tas inn av runden av seg selv
 - [x] Alle de andre figurene bestilt i glatt stil: 4031 figurark (28481 ruter), beskjed i ORDRE.md 9. oktober
 - [ ] Figurarkene fra Codex, tas inn av runden av seg selv
-- [ ] Filmene (SAN) i HD: venter, Tom kan ikke skalere dem opp nå
+- [ ] Filmene (SAN) i HD: SQ1 ferdig oppskalert og komprimert 16. oktober, resten gjenstår
 - [ ] Myke figurer: kant mot forgrunnen i 4 x 4-blokker; prøv å følge den myke kanten i HD-rommet
 - [ ] Myke figurer på ekte skjerm: flere figurer over hverandre, skalerte figurer, banner og meny over, nedtoning
 - [ ] Ansiktet til Boston nærmere originalen i de neste arkene (eldre, grått hår ved tinningene)
@@ -154,7 +154,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 - [x] HD-figur skinte svakt gjennom bannere og hovedmenyen (rettet i PR 10, merker per piksel)
 - [ ] Tekst over et banner som tas bort, vises trolig som originalpiksler i én skjermoppdatering (ikke testet)
 - [x] Fargesyklede områder i HD (fargekart med kvadratisk B-spline, PR 8)
-- [ ] Spille av rene filmer som MP4/WebM i stedet for tusenvis av PNG-er
+- [x] Komprimert HD-video: VP8 i IVF per SAN-fil, følger SAN-rammene og beholder lyd/tekst, med PNG/original som tilbakefall (16. oktober, via PR)
 - [ ] Prøv en nyere ScummVM-commit og oppdater patchen
 
 ## Senere
