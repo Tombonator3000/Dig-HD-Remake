@@ -634,3 +634,5 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Tom bekrefter at bro-punktet er gangbroen inn i den blå kulen. Native tram-call-test traff knapp859. Innstigningsklikket kom mens trammen var underveis og traff ingen inngang, så full normal innstigning er ikke rapportert som bestått. Tvungne sluttstilstander er kontrollert separat.
 
 - Avsluttende kontroll etter alfaopprydding:1511 sammensatte poseringer uten flagg og77 nye native tilfeller/656 nytegningskontroller uten avvik. Alle55 filmer fortsatt byteidentiske.
+
+- Alle60 navngitte menneske-/romdraktkostymer inventarisert:52 med2422 sammensatte poseringer, åtte hele-figurvarianter uten separat kontaktmåling. Ett par i137 er allerede44,56 originalpiksler atskilt i originalen, bekreftet i native original/HD. Verktøyet skiller nå dette fra nye HD-gap. Ingen nye kontaktavvik flagget. Full visuell godkjenning av hvert bilde er fortsatt ikke gjort.

@@ -51,28 +51,33 @@ def main():
   for name,parts in poses:
    key=tuple(parts)
    if key in seen:continue
-   seen.add(key);layers=[]
+   seen.add(key);layers=[];originals=[]
    for c,x,y in parts:
     stem=f'costume{cid:03d}_{c:03d}';idx=a.mod/'costumes'/(stem+'_idx.png');hd=a.mod/'costumes'/(stem+'_hd.png')
     if not idx.exists() or not hd.exists():continue
     src=Image.open(idx);art=Image.open(hd).convert('RGBA');px=(art.width//4-src.width)//2;py=(art.height//4-src.height)//2;layers.append((art,(x-px)*4,(y-py)*4,c,src.size))
+    rgba=np.asarray(src.convert('RGBA'));valid=(rgba[:,:,3]>128)&~((rgba[:,:,0]>180)&(rgba[:,:,2]>150)&(rgba[:,:,1]<100));original=Image.new('L',art.size);original.paste(Image.fromarray(valid.astype('uint8')*255).resize((src.width*4,src.height*4),Image.Resampling.NEAREST),(px*4,py*4));originals.append(original)
    if not layers:continue
    x0=min(x for im,x,y,c,s in layers);y0=min(y for im,x,y,c,s in layers);x1=max(x+im.width for im,x,y,c,s in layers);y1=max(y+im.height for im,x,y,c,s in layers)
    if max(x1-x0,y1-y0)>2048:continue
-   im=Image.new('RGBA',(x1-x0+16,y1-y0+16));masks=[]
-   for layer,x,y,c,size in layers:
-    im.alpha_composite(layer,(x-x0+8,y-y0+8));mask=Image.new('L',im.size);mask.paste(layer.getchannel('A'),(x-x0+8,y-y0+8));masks.append(np.asarray(mask)>128)
-   gap=None;contact=None
+   im=Image.new('RGBA',(x1-x0+16,y1-y0+16));masks=[];source_masks=[]
+   for (layer,x,y,c,size),original in zip(layers,originals):
+    im.alpha_composite(layer,(x-x0+8,y-y0+8));mask=Image.new('L',im.size);mask.paste(layer.getchannel('A'),(x-x0+8,y-y0+8));masks.append(np.asarray(mask)>128);source=Image.new('L',im.size);source.paste(original,(x-x0+8,y-y0+8));source_masks.append(np.asarray(source)>128)
+   gap=None;contact=None;source_gap=None
    if name.startswith(('stand-','layers-')) and len(masks)==2:
     h,b=np.where(masks[1]),np.where(masks[0]);headpoints=np.stack(h,1);bodypoints=np.stack(b,1)
     if len(headpoints) and len(bodypoints):
      # Collar/body nearest distance, in HD pixels; no face/style inference.
      import scipy.ndimage as nd
      distance=nd.distance_transform_edt(~masks[0]);gap=float(distance[masks[1]].min())
+     if source_masks[0].any() and source_masks[1].any():source_gap=float(nd.distance_transform_edt(~source_masks[0])[source_masks[1]].min())/4
      # One touching pixel is not a sound neck joint after downscaling.
      # Report the width of the contact as well as its nearest distance.
      contact=int(np.count_nonzero(np.any((distance<=2)&masks[1],axis=0)))
-   rec={'costume':cid,'pose':name,'parts':[c for _,_,_,c,_ in layers],'head_body_gap_hd':gap,'contact_width_hd':contact,'needs_review':gap is not None and (gap>4 or contact<3),'candidate_layer_pair':name.startswith('layers-')};receipt.append(rec)
+   # A cel can occur at several original positions. A conservative layer
+   # pair already separated in the source is not evidence of an HD neck gap.
+   eligible=source_gap is not None and source_gap<=2
+   rec={'costume':cid,'pose':name,'parts':[c for _,_,_,c,_ in layers],'head_body_gap_hd':gap,'contact_width_hd':contact,'source_gap_px':source_gap,'originally_separated_candidate':source_gap is not None and not eligible,'needs_review':gap is not None and eligible and (gap>4 or contact<3),'candidate_layer_pair':name.startswith('layers-')};receipt.append(rec)
    panel=Image.new('RGB',(260,310),'#666677');im.thumbnail((252,280));panel.paste(im,((260-im.width)//2,24),im);ImageDraw.Draw(panel).text((5,4),name+(' GAP' if rec['needs_review'] else ''),fill='white');panels.append(panel)
   for page,start in enumerate(range(0,len(panels),48)):
    chunk=panels[start:start+48];sheet=Image.new('RGB',(260*6,310*((len(chunk)+5)//6)),'#666677')
