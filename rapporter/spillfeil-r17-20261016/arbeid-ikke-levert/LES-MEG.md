@@ -1,0 +1,1 @@
+Pole-registreringen er arbeid under kontroll, ikke med i mod-overrides eller data-PR. Halskontakt har fortsatt avvik i enkelte knebøyfaser. Tas videre sammen med Toms nye bestilling om alle figurark. Ikke bruk denne mappen som godkjent grafikk.
