@@ -25,3 +25,7 @@ Alle nye filmer er dekodet i sin helhet, og dimensjoner, antall, tidsstempler og
 Runde 2026-10-16 10:15 UTC: 0 nye enheter, 2194 erstattet og 0 fjernet (runder i mod.json).
 
 16. oktober: r16-rettingene fra rapporter/spillfeil-20261016 er integrert etter Toms bestilling. 2223 grafikkfiler registrert; alle 55 publiserte HD-filmer beholdes. Motorpatch0006 kreves.
+
+Runde 2026-10-16 11:39 UTC: 661 nye enheter, 88 erstattet og 0 fjernet (runder i mod.json).
+
+16. oktober: r17 retter øvrige krystallåser, fjernvann, dowel og scepter-ikoner. Alle r16-rettinger og55 HD-filmer bevart. Full gjennomspilling og Toms visuelle godkjenning av alle nye ruter gjenstår.
