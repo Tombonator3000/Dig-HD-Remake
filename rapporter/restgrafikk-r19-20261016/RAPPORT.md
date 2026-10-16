@@ -2,7 +2,7 @@
 
 Tom har bekreftet at oppdraget gjelder all restgrafikk i hele spillet. Arbeidet er ikke ferdig. Rapporten er et etterprøvbart mellomlager, ikke en utgivelse eller visuell godkjenning.
 
-Kandidaten har 1676 nye HD-ruter. Den siste opptellingen har 12343 originalruter uten HD, hvorav 7947 har minst 40 synlige originalpiksler. Små fragmenter telles separat. Ingen ny distro er bygget fra denne kandidaten.
+Kandidaten har 1787 nye HD-ruter. Den siste opptellingen har 12232 originalruter uten HD, hvorav 7838 har minst 40 synlige originalpiksler. Små fragmenter telles separat. Ingen ny distro er bygget fra denne kandidaten.
 
 ## Kilder og metode
 
@@ -22,13 +22,19 @@ De fire kommunikasjonsportrettene beholder original identitet, uttrykk og signal
 * Spiralfaser med nytegnet materiale registrert mot originalens hull og fragmenter.
 * Brink, Maggie, Ken og Cora på PDA, inkludert uttrykk og signalstøy. Støy uten figur er teknisk oppskalering av originalsignalet.
 * 670 krystallfaser gjenbruker den eksisterende krystalltegningen, tilpasset originalens fasegeometri og farge. Brune matter rundt krystallene fjernes.
-* 70 manglende nærbildefaser av Maggies bakhode, skulder og hånd. Kostyme 328 og 329 har identiske originale bilder, kontrollert før gjenbruk. To smale hudfragmenter bevarer originalformen teknisk. Manglende avklipte håndstrimler i to native faser gjenbruker en nytegnet nabofase. Dette står eksplisitt i maggie-registration.json.
+* 70 manglende nærbildefaser av Maggies bakhode, skulder og hånd. To ytterligere ruter er enkeltpiksler som er bevart som tekniske fragmenter. Kostyme 328 og 329 har identiske originale bilder, kontrollert før gjenbruk. To smale hudfragmenter bevarer originalformen teknisk. Manglende avklipte håndstrimler i to native faser gjenbruker en nytegnet nabofase. Dette står eksplisitt i maggie-registration.json.
+
+57 nye ruter i Maggies vending i laboratoriet er registrert. De 38 første fasene deler en uendret bakfrafigur, mens bevegelsen i steinflatens originalsignal overføres mekanisk. De 19 vendingsposene er nytegnet hver for seg. Ansikter bruker native alfa; originalens pikselmaske klipper ikke kinn eller nese. Se labturn-registration.json.
+
+872 originalruter i de fire MajMin-kostymene 95, 118, 266 og 267 er nå lest direkte fra spilldata. Dette er kildeklargjøring, ikke ferdig HD. Det finnes ingen publiserte indeksbilder for disse seriene. I stedet er alle 872 avkodede originalruter sammenlignet med de beskyttede originaljobbene: ingen RGB-avvik og ingen avvik i gjennomsiktighetsmaskene. Se codec16-job-reference-check.json.
+
+52 dialogruter i kostyme 331 er registrert fra 20 valgte representanter blant 21 nytegnede deler. Originalens munn- og øyeposer velger passende tegning. Små originale forskyvninger overføres med et felt begrenset til 3 originalpiksler. Ingen gamle ansiktspiksler legges over de nye. Høyre arm og stein bruker ett felles nytegnet grunnlag. De tre delte kildeparene 24/25, 30/31 og 42/41 får samme samlede originalfelt før registrering, så de møtes ved samme bevegelse og størrelse. Se labtalk-registration.json. Dette er kontrollert gjenbruk, ikke 52 uavhengig nytegnede portretter.
 
 ## Kontroller og begrensninger
 
 kontroller/ inneholder råresultater fra isolerte spillmotortester. Skjermbufferen sammenlignes med full omtegning. Ruter som faktisk ble tegnet registreres. En test uten synlig HD-figur teller ikke som figurtest, selv om skjermbufferen er stabil. Tidlige tester med feil kameraposisjon er bevart som diagnostikk; senere sentrerte tester viser den faktiske dekningen.
 
-base-preservation.json kontrollerer alle 30 378 publiserte r18-filer mot Git-innholdet. Kandidaten legger til ruter og endrer ikke disse filene. ADDITIONS.json er hashmanifestet for tilleggene.
+base-preservation.json kontrollerer alle 30 378 publiserte r18-filer mot Git-innholdet. Alle publiserte filer er bevart bortsett fra to dokumenterte HD-erstatninger i OVERRIDES.json. Startrutene 330_000 og 330_001 er klippet fra samme nye tegning som resten av vendingen, slik at en eldre fotografisk tegning ikke blinker frem i starten. Originale indeksfiler er uendret. ADDITIONS.json er hashmanifestet for tilleggene.
 
 Dette er ikke en full gjennomspilling. Flere tekniske tester dekker bare utvalgte animasjonsvalg. Hode, kropp og stil må vurderes samlet gjennom overgangene. Tom har ikke visuelt godkjent disse nye arkene. Krystalltester som bare viser en eller to faser beviser ikke hele seriens visuelle kvalitet.
 
