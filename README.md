@@ -30,6 +30,4 @@ Runde 2026-10-16 11:39 UTC: 661 nye enheter, 88 erstattet og 0 fjernet (runder i
 
 16. oktober: r17 retter øvrige krystallåser, fjernvann, dowel og scepter-ikoner. Alle r16-rettinger og55 HD-filmer bevart. Full gjennomspilling og Toms visuelle godkjenning av alle nye ruter gjenstår.
 
-Runde 2026-10-16 13:24 UTC: 173 nye enheter, 1662 erstattet og 0 fjernet (runder i mod.json).
-
 16. oktober: r18 retter figurkontakter, pole, måner, plateau, tram-gangflate, edderkopp, rist og laserstråler. R17 er med. Alle r16-rettinger og55 HD-filmer bevart. Full gjennomspilling og Toms visuelle godkjenning av alle nye ruter gjenstår.
