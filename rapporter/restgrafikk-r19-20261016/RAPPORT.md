@@ -2,7 +2,7 @@
 
 Tom har bekreftet at oppdraget gjelder all restgrafikk i hele spillet. Arbeidet er ikke ferdig. Rapporten er et etterprøvbart mellomlager, ikke en utgivelse eller visuell godkjenning.
 
-Kandidaten har 7097 nye HD-ruter. Den siste råopptellingen har 6944 originalruter uten HD, hvorav 6943 har minst 40 synlige originalpiksler. 712 av de manglende rutene er bekreftede palettmasker som motoren tegner som effekter, og krever ikke selvstendige HD-bilder. Disse er fortsatt med i råopptellingen, men skilles ut i semantic-coverage.json. Ingen ny distro er bygget fra denne kandidaten.
+Kandidaten har 7097 nye HD-ruter. Den siste råopptellingen har 6944 originalruter uten HD, hvorav 6943 har minst 40 synlige originalpiksler. 712 av de manglende rutene er bekreftede palettmasker som motoren tegner som effekter, og krever ikke selvstendige HD-bilder. Disse er fortsatt med i råopptellingen, men skilles ut i semantic-coverage.json. Den integrerte grafikken er pakket som r19-AppImage 17. oktober 2026; se leveransestatus nederst.
 
 ## Kilder og metode
 
@@ -77,3 +77,9 @@ verktoy/ bevarer registreringsoppskrifter. Sett DIGHD_WORKSPACE til arbeidsroten
 ## Integrert 17. oktober 2026
 
 Tom ba om integrasjon, pull og ny distro. Data-PR66 er flettet til hd-mod 630cadb3ebb398ac8ade1f4e1ea759f8a783cd5a. Integrasjonen legger til alle 14173 manifestfiler og gjør bare de to dokumenterte Maggie-erstatningene. Alle tidligere ressurser og 55 HD-filmer er bevart. Se integration-r19.json. Nye kontroller på integrert mod viser Brink46 (15 ruter), trikkapsel270 (30), rotte183 (37) og Maggie331 (52) uten omtegningsavvik. Det første Maggie-testhoppet gikk til feil rom og så ingen nye ruter; korrekt rom111 er testet separat. Linux-distro bygges og kontrolleres separat; dette er ikke en ferdigmelding for all restgrafikken.
+
+## Linux-distro publisert og kontrollert
+
+Linux-bygg39027347179 består begge pakketestene, inkludert Debian12. Faktisk nedlastet AppImage:2123475448 byte, SHA25647b04c1bc468cb4dccd35cc33a6241504ea0cefaac6b87d144cd963c652c9b7a. Kode c2c9b8e0 og hd-mod630cadb3. Alle44551 mod-manifestfiler og hele tilleggspartiet stemmer, uten ekstra filer. Standard AppRun-oppstart, intro, tekst og HD/klassisk-bytte gir null omtegningsavvik over550 oppdateringer. Pakkens egen motor viser også Brink15, Maggie52, kapsel30 og rotte37 ruter i isolerte tester, alle bestått. Tvungen surfacesdl/vindusoppstart feilet før spillinitialisering i lokal hodeløs SDL; ordinær oppstart og CI består. Se distro-r19-kontroll.json og distro-r19-bygg.json. Ingen vanlige lagringer er berørt.
+
+Eksakt motorkilde med gjeldende patch0007 er også oppdatert i releasen. Nedlasting: https://github.com/Tombonator3000/Dig-HD-Remake/releases/tag/linux. Hele restgrafikken er fortsatt uferdig. Videre produksjon bør starte fra publisert r19; de arkiverte r19-oppskriftene og basiskontrollene er knyttet til sitt opprinnelige r18-grunnlag og skal ikke kjøres ukritisk over den nye modden.
