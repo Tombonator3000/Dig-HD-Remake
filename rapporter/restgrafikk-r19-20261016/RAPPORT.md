@@ -2,7 +2,7 @@
 
 Tom har bekreftet at oppdraget gjelder all restgrafikk i hele spillet. Arbeidet er ikke ferdig. Rapporten er et etterprøvbart mellomlager, ikke en utgivelse eller visuell godkjenning.
 
-Kandidaten har 6469 nye HD-ruter. Den siste opptellingen har 7572 originalruter uten HD, hvorav 7571 har minst 40 synlige originalpiksler. Små fragmenter telles separat. Ingen ny distro er bygget fra denne kandidaten.
+Kandidaten har 7097 nye HD-ruter. Den siste råopptellingen har 6944 originalruter uten HD, hvorav 6943 har minst 40 synlige originalpiksler. 712 av de manglende rutene er bekreftede palettmasker som motoren tegner som effekter, og krever ikke selvstendige HD-bilder. Disse er fortsatt med i råopptellingen, men skilles ut i semantic-coverage.json. Ingen ny distro er bygget fra denne kandidaten.
 
 ## Kilder og metode
 
@@ -42,6 +42,26 @@ Ytterligere 3 810 små originalfragmenter er behandlet med den eksisterende SMAL
 
 ## Kontroller og begrensninger
 
+Rotte- og felleserien 183 har 194 nye ruter. Fire ark med åtte rotteposer hver gir 171 faser. Ett eget ark gir 19 faser med dyr under ribbeinsfellen og fire fragmenter som gjenbruker det nye malte stangmaterialet mot originalens fragmentform. Rom 68 palett 1 og AKPL bekrefter dyrets farger. Skyggekode 13 tegnes ikke som rosa kunst. Originalskriptene bruker shadow mode 1, ikke en synlig magenta skygge. En walkthrough ble brukt for å avklare ribbeinsfellens funksjon: https://gamefaqs.gamespot.com/pc/9487-the-dig/faqs/39833. Se rat183-plan.json, rat183-registration.json, rat183-trap-registration.json og prompter/rat183*.txt.
+
+Første registreringsforsøk klippet dyrets hode og kropp med originalens grove kontur og feiltolket sammensatte felleruter. Dette ble forkastet før levering. Dyret bruker nå den nytegnede alfaformen og ett samlet, begrenset bevegelsesfelt. Felle og stang har egne referanser. Alle 194 nye ruter ble faktisk sett samlet over de endelige, tvungne animasjonsvalgene med korrekt rompalett og høyre kamerautsitt. De fire siste stangfragmentene ble kontrollert på nytt etter materialretting. Tester med venstre kamerautsitt så ingen nye ruter og teller ikke som vellykket visning. Testen er ikke en full naturlig gjennomspilling av fellepuslespillet.
+
+25 videre ruter gjenbruker eksisterende HD-bilder helt uendret etter sammenligning av identiske originale RGBA-piksler og bildemål. Dette omfatter 18 Boston-faser fra den nye svømmeserien, to eksisterende Boston-utsnitt, to steinfragmenter og tre beinfragmenter. Elleve andre nøyaktige originaltreff ble avvist fordi den tilgjengelige HD-figuren hadde brun skjorte og beige bukse, som avviker fra pilotarket. En kilde som finnes er ikke automatisk riktig grafikk. Se identical-source-registration.json.
+
+24 av disse 25 gjenbruksrutene ble sett i motortestene. Beinfragmentet 212_002 er fortsatt ikke observert; en stabil skjermbuffer er ikke bevis for den rutens visning. Den eksakte originale RGBA-likheten og den uendrede HD-kopien er likevel kontrollert. Se kontroller/r19-identical*-results.json.
+
+Brinks spadeserie 46 har 15 nye selvstendige tegninger på to ark. global174 identifiserer aktør 5 som Brink og setter kostyme 46 i rom 15 før han begynner å grave. Derfor brukes AKPL gjennom rom 15 palett 0, i stedet for jobbeksportens feilaktige brunfarger. Det godkjente pilotarket hovedark/brink.png styrer identitet og klær. Hode, kropp og spade transformeres som én figur per pose, og den nytegnede alfaformen beholdes. Fysiske pikselindekser er uendret. Se brink46-plan.json, brink46-registration.json, brink46-preview.png og prompter/brink46*.txt.
+
+Testhopp til rom 15 ble avbrutt av spillets eksisterende tilbakevending til rommet i lagringen og så ingen nye ruter. Derfor testes spadeserien isolert i rom 23. Alle 20 palettkodene som brukes av figuren er byteidentiske mellom rom 15 palett 0 og rom 23 palett 0, kontrollert mot originale spilldata og lagret i brink46-plan.json. Den isolerte testen er ikke en full avspilling av Brinks fallsekvens.
+
+Alle 15 nye Brink-ruter ble faktisk sett i den isolerte testen uten avvik mellom løpende skjermbuffer og full omtegning. Se kontroller/r19-brink46-isolated-results.json og kontroller/brink46-i-spill.png. Dette er teknisk kontroll, ikke Toms visuelle godkjenning.
+
+Trikkapslene har 394 nye HD-ruter i åtte kostymer. Fem nye ark med åtte blå kapseltegninger hver gir 378 fasebilder. De siste 16 manglende rutene i 92, 122 og 166 gjenbruker allerede publiserte HD-tegninger i samme kostyme. Originalens geometri og utsnitt styrer plasseringen; et begrenset, glatt bevegelsesfelt tilpasser den nytegnede overflaten. Alle 394 ruter ble faktisk sett samlet i isolerte tester av ankomst og avgang. Enkelttester uten nye ruter er beholdt som negative dekningstester og teller ikke som vellykket visning. Det tvungne testoppsettet kan vise en ekstra kapsel ved siden av rommets vanlige kapsel og beviser ikke normal iscenesettelse. Se tram-art-registration.json, tram-art-preview.png og kontroller/r19-tram*-results.json.
+
+822 originalruter i trikkostymene er palettmasker. AKPL-koder, opprinnelige romskript og AKOS-animasjonene bekrefter at samtlige brukes i skyggeanimasjonene 9 til 11 med shadow mode 3, mens de egentlige kapseltegningene bruker 6 til 8. 712 maskefiler mangler HD i råinventaret. De telles ikke som nytegnet kunst og fylles ikke med tomme lokkefiler. Se tram-mask-classification.json, tram-chore-classification.json og semantic-coverage.json. Originalskriptene ble lest lokalt med offisielle ScummVM Tools, revisjon 8665aa1d3221a6cc884026f5ed7144fac512e0e9. Komplette spillskript er ikke lagt i repoet. Noen andre skript gir dekompileringsfeil; dokumentasjonen bygger på de konkrete relevante kommandoene, ikke på en påstand om feilfri dekoding av hele spillet.
+
+Prosjektbibliotekets losninger/testing/logg-over-det-som-mangler-hd.md brukes for å skille faktisk tegnede ruter fra råinventaret. losninger/grafikk/scumm-v6-kostymer-skygge-og-soppelruter.md ga bakgrunn om palettmasker, men dens v6-spesifikke regler er ikke overført ukritisk til Dig v7. Klassifiseringen over er kontrollert mot dette spillets egne data og motorens palettmaskekode.
+
 kontroller/ inneholder råresultater fra isolerte spillmotortester. Skjermbufferen sammenlignes med full omtegning. Ruter som faktisk ble tegnet registreres. En test uten synlig HD-figur teller ikke som figurtest, selv om skjermbufferen er stabil. Tidlige tester med feil kameraposisjon er bevart som diagnostikk; senere sentrerte tester viser den faktiske dekningen.
 
 base-preservation.json kontrollerer alle 30 378 publiserte r18-filer mot Git-innholdet. Alle publiserte filer er bevart bortsett fra to dokumenterte HD-erstatninger i OVERRIDES.json. Startrutene 330_000 og 330_001 er klippet fra samme nye tegning som resten av vendingen, slik at en eldre fotografisk tegning ikke blinker frem i starten. Originale indeksfiler er uendret. ADDITIONS.json er hashmanifestet for tilleggene.
@@ -50,6 +70,6 @@ Dette er ikke en full gjennomspilling. Flere tekniske tester dekker bare utvalgt
 
 ## Gjenstående arbeid
 
-dekning-arbeid.json er den konkrete listen. Neste arbeid omfatter øvrige nærbilder, figurer, skapninger, mekanismer og effekter. Noen eksporterte paletter viser tekniske farger eller masker. Disse må avklares i original spillkontekst før nytegning; de skal ikke males bokstavelig som nakne figurer eller røde kjøretøy.
+dekning-arbeid.json er den konkrete listen over fysisk manglende bilder. Den må suppleres med gjennomgang av allerede eksisterende figurark: opptellingen fanger ikke opp ferdige filer med feil identitet, klær eller hodeplassering. Kontrollen av gjenbruk avdekket slike eldre referanser, blant annet kostyme 170 og 57, som trenger egen retting før grafikkpakken kan kalles konsekvent. Neste arbeid omfatter øvrige nærbilder, figurer, skapninger, mekanismer og effekter. Noen eksporterte paletter viser tekniske farger eller masker. Disse må avklares i original spillkontekst før nytegning; de skal ikke males bokstavelig som nakne figurer eller røde kjøretøy.
 
 verktoy/ bevarer registreringsoppskrifter. Sett DIGHD_WORKSPACE til arbeidsroten med kode/, grafikk/, hd-leveranse/, kandidat-r19/ og testing/source/ ved reproduksjon. Skriptene er arbeidsverktøy og krever kildedataene som rapporten viser til. Ikke kjør import_r19.py ukritisk over senere rettede spiralfaser.
