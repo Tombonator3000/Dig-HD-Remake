@@ -169,3 +169,10 @@ PR61,62,63 og nettleser-PR5 er flettet. Publisert Linux-AppImage fra e71da0d4/cb
 - Alle 221 observert i native motorprøver; 561 fullomtegningskontroller etter oppstart uten avvik. Canyon-romhopp omdirigeres av de brukte lagringene; isolert rom23-prøve bruker beviselig samme karakterfarger som rom15. Naturlig scene og full gjennomspilling gjenstår.
 - Eldre costume034_050 og 108 har feil personer/klær. De 100 tidligere HD-rutene i serien må gjennomgås, og det er ikke rettet ved å fylle de nye 25 manglene. Hele serien er fortsatt ikke visuelt ferdig.
 - R20 er en arbeidskandidat, ikke integrert i hd-mod eller pakket. 6 011 faktiske bilder mangler i r20-listen, pluss eldre figurfeil. Restoppdraget og Toms visuelle godkjenning er fortsatt åpne.
+
+## R21, canyon-figurer, 17. oktober 2026
+
+- Kostyme34 har 130 fysiske ruter i arbeidskandidaten. R20 la til25; r21 tegner om de105 eldre. Forrige telling100 utelot125 til129 fra jobbinventaret; disse er faktisk brukt i motoren.
+- Indeksbildenes palett brukes ved HD-fargetilpasning. Gamle RGBS-farger i costume34 gav rød hud/klær selv med riktig ny tegning. AKPL koblet gjennom rom15 palett0 retter dette, uten å endre noen fysiske indeksverdier.105 HD-bilder og105 indeksbilder er eksplisitte erstatninger.
+- Alle130 vist i fire isolerte native animasjonsprøver,172 fullomtegningskontroller etter oppstart uten avvik. Etter siste108-retting er animasjon8 prøvd igjen, øvrige tilfeller videreført etter SHA-kontroll. Ikke naturlig canyon-gjennomspilling, ikke Toms nye godkjenning.
+- Kandidat-r21 og grafikkgrenen inneholder arbeidet. Ingen ny integrering eller distro. R19 publisert, r20s221 tillegg og55 filmer bevart.6011 manglende faktiske bilder gjenstår, samt øvrige eldre feil.

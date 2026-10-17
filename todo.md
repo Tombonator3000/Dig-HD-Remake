@@ -10,7 +10,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Kildearkiv oppdatert med gjeldende motorpatch 0007 og eksakt byggeoppskrift.
 - [x] Pakkens egne figurtester: Brink46 15, Maggie331 52, kapsel270 30 og rotte183 37 ruter, ingen omtegningsavvik.
 - [x] R20-arbeidsrunde: 196 nye Nexus-dørfaser og 25 nye canyon-ruter, alle observert i motoren. 561 kontroller etter oppstart uten omtegningsavvik. Grafikk i gpt-arbeid, ikke ny distro.
-- [ ] Gå gjennom de 100 eldre HD-rutene i costume034. Blant annet 050 og 108 har feil personer/klær; hele canyon-serien er fortsatt ikke visuelt sammenhengende.
+- [x] R21: gjennomgått og tegnet om alle 105 eldre HD-ruter i costume034, inkludert 125 til 129 som forrige opptelling utelot. Retter også 105 indeksreferansepaletter. Alle 130 ruter observert i motoren; 172 fullomtegningskontroller etter oppstart uten avvik. Naturlig sceneovergang og Toms visuelle godkjenning gjenstår.
 - [ ] Fortsett all restgrafikken: 6 011 faktiske bilder i r20-arbeidslisten etter utskilling av 712 palettmasker, samt øvrige eldre figurfeil.
 - [ ] Toms visuelle godkjenning og full naturlig spill-/overgangstest. Windows og mobil er ikke testet i denne leveransen.
 
