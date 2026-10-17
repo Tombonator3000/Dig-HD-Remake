@@ -1,0 +1,110 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "model": "not reported by tool",
+  "base_atlas_prompt": "Use case: identity-preserve. Edit image 1 into a production sprite atlas for The Dig 1995, tracing the exact source poses and exact partial body boundaries. Image 1 is the ONLY composition/pose reference. Images 2,3,4 are APPROVED identity/style sheets for Boston Low, Maggie and Brink respectively; use only planet clothes. FOUR equal columns and TWO equal rows on a 1536x1024 TRANSPARENT canvas; same number and location of occupied slots as image1. Every source pixel cluster becomes the smooth drawn shape it represents, same head size, same limb sizes, same silhouette, same direction and exact arm/hand contact. Boston is the brown-haired man with grey temples, dark NAVY/TEAL short sleeved shirt, ORANGE trousers, black boots. Maggie is the black bob-haired woman in ORANGE jumpsuit. Brink is the BLOND man in GREY jacket, dark undershirt and ORANGE trousers, no sunglasses. Distinguish these three exactly. Where the source shows a fragment, draw ONLY that fragment; it may deliberately end through a head, shoulder, arm or torso. Do not invent cropped-off anatomy. Do not enlarge heads or muscles. Do not fill gaps between arms/bodies. Where only Boston occurs, do not add people. Preserve relative size, overlap and pose of all people in each composite; never separate or reposition heads. Clean dark contours and restrained painted/cel shading EXACTLY like the approved sheets. No photorealism, no redesign, no additional detail or accessories, no floor, no shadows, no text/grid/labels. Genuine transparent background and transparent holes. Do not let any artwork cross a tile boundary. All empty source slots must stay empty.",
+  "atlas_retries": [
+    {
+      "atlas": 1,
+      "prompt": "Use case: identity-preserve. Image1 is an exact source sprite atlas, FOUR columns TWO rows. ALL EIGHT tiles show the SAME man BOSTON LOW, including cropped fragments. Image2 is his approved identity and style reference. Repaint ALL existing pixel poses precisely as drawn, keep every silhouette and original proportions. Boston has short BROWN hair with GREY TEMPLES, angular mature face, NAVY short-sleeved shirt and ORANGE trousers, black boots. Top-left tile shows Boston crouching; top row tiles2,3,4 show ONLY an extended bare forearm and the top fragment of BOSTON's BROWN head, cropped flat at the bottom, no shirt/body. Bottom-left and tile2 show Boston's head/arms/upper navy shirt, other tiles upper body reaching. Never substitute a woman or a blond man. No orange sleeves, no grey sleeves. Keep original fragment boundaries and orientations exactly, NO extra anatomy. Smooth precise drawn contours, restrained cel/paint shading like image2, not realistic, not huge muscles or enlarged head. Same four columns two rows on transparent1536x1024canvas. No floor/shadows/labels/grid, no tile crossing, genuine alpha including holes.",
+      "model_sheets": [
+        "boston"
+      ]
+    },
+    {
+      "atlas": 2,
+      "prompt": "Use case: identity-preserve. Image1 is an EXACT eight-cel sprite atlas for Boston Low ONLY. Every tile shows the SAME Boston, with short BROWN hair, grey temples, NAVY short sleeved shirt, ORANGE trousers. Image2 is Boston's approved identity/style sheet. Four columns, two rows,1536x1024, true transparent background. Repaint each source pose as drawn without enlarging heads/arms/muscles or adding anatomy outside the cropped source silhouette. Some top tiles deliberately cut the torso horizontally at the waist. Bottom tiles show Boston crouching and bracing with his arms. Keep all eight different poses, same silhouette, orientation and proportions. Smooth precise clean drawn outlines and restrained cel shading matching image2, no photorealism, no floor/shadow/labels/grid. Every tile contains Boston ONLY, never a woman, never a blond man.",
+      "model_sheets": [
+        "boston"
+      ]
+    },
+    {
+      "atlas": 5,
+      "prompt": "Use case: identity-preserve. Edit image 1 into a production sprite atlas for The Dig 1995, tracing the exact source poses and exact partial body boundaries. Image 1 is the ONLY composition/pose reference. Images 2,3,4 are APPROVED identity/style sheets for Boston Low, Maggie and Brink respectively; use only planet clothes. FOUR equal columns and TWO equal rows on a 1536x1024 TRANSPARENT canvas; same number and location of occupied slots as image1. Every source pixel cluster becomes the smooth drawn shape it represents, same head size, same limb sizes, same silhouette, same direction and exact arm/hand contact. Boston is the brown-haired man with grey temples, dark NAVY/TEAL short sleeved shirt, ORANGE trousers, black boots. Maggie is the black bob-haired woman in ORANGE jumpsuit. Brink is the BLOND man in GREY jacket, dark undershirt and ORANGE trousers, no sunglasses. Distinguish these three exactly. Where the source shows a fragment, draw ONLY that fragment; it may deliberately end through a head, shoulder, arm or torso. Do not invent cropped-off anatomy. Do not enlarge heads or muscles. Do not fill gaps between arms/bodies. Where only Boston occurs, do not add people. Preserve relative size, overlap and pose of all people in each composite; never separate or reposition heads. Clean dark contours and restrained painted/cel shading EXACTLY like the approved sheets. No photorealism, no redesign, no additional detail or accessories, no floor, no shadows, no text/grid/labels. Genuine transparent background and transparent holes. Do not let any artwork cross a tile boundary. All empty source slots must stay empty. CRITICAL ALL EIGHT tiles contain BOSTON on the LEFT and MAGGIE on the RIGHT. Exactly this pair in every tile, including TOP RIGHT and BOTTOM RIGHT. NEVER draw Brink, never blond hair or grey jacket anywhere. Boston's navy shirt and brown/grey hair must match across all eight poses.",
+      "model_sheets": [
+        "boston",
+        "maggie"
+      ]
+    }
+  ],
+  "single_repairs": [
+    {
+      "cel": 78,
+      "prompt": "Use case: identity-preserve. Precisely redraw Image1's ONE physical sprite cel. Images2,3,4 are approved Boston, Maggie, Brink identity/style sheets in PLANET CLOTHES. Boston is crouching on the left, gripping Brink's raised hand. The grey arm slopes down right to ONLY the TOP HALF of blond Brink's head at bottom right. Preserve the FLAT BOTTOM CUT across Brink's face, ONLY forehead, eye and hair visible. Do NOT add neck, mouth or full head. Trace every source silhouette, body proportion, overlap, head size, hand contact and visible fragment boundary. Same pose and arrangement as image1, no reposing, mirroring or moving heads. Smooth fine dark contours and restrained cel-painted shading like approved sheets, no photorealism or extra detail. Boston has brown hair with grey temples, navy short-sleeved shirt, orange trousers. Maggie has black bob, orange jumpsuit. Brink has blond hair, grey jacket, orange trousers. Draw only the people/parts in image1; if cropped off, leave cropped off. 1024x1024 true transparent canvas, ONE composite centered with ample margin. No background/floor/shadows/labels, preserve transparent holes, no added props.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    },
+    {
+      "cel": 79,
+      "prompt": "Use case: identity-preserve. Precisely redraw Image1's ONE physical sprite cel. Images2,3,4 are approved Boston, Maggie, Brink identity/style sheets in PLANET CLOTHES. Crouching Boston holds Brink's raised hand on the right, grey cloth sleeve slopes down to ONLY a TOP PATCH of BLOND HAIR at lower right. NO face, no eye, no head outline, no elbow below bottom cut. Trace every source silhouette, body proportion, overlap, head size, hand contact and visible fragment boundary. Same pose and arrangement as image1, no reposing, mirroring or moving heads. Smooth fine dark contours and restrained cel-painted shading like approved sheets, no photorealism or extra detail. Boston has brown hair with grey temples, navy short-sleeved shirt, orange trousers. Maggie has black bob, orange jumpsuit. Brink has blond hair, grey jacket, orange trousers. Draw only the people/parts in image1; if cropped off, leave cropped off. 1024x1024 true transparent canvas, ONE composite centered with ample margin. No background/floor/shadows/labels, preserve transparent holes, no added props.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    },
+    {
+      "cel": 80,
+      "prompt": "Use case: identity-preserve. Precisely redraw Image1's ONE physical sprite cel. Images2,3,4 are approved Boston, Maggie, Brink identity/style sheets in PLANET CLOTHES. Crouching Boston holds Brink's raised hand, grey cloth sleeve slopes down right and ends at a very SMALL flat BLOND HAIR SLIVER on the bottom right edge. No face, no head, no tube, no yellow hand. Trace every source silhouette, body proportion, overlap, head size, hand contact and visible fragment boundary. Same pose and arrangement as image1, no reposing, mirroring or moving heads. Smooth fine dark contours and restrained cel-painted shading like approved sheets, no photorealism or extra detail. Boston has brown hair with grey temples, navy short-sleeved shirt, orange trousers. Maggie has black bob, orange jumpsuit. Brink has blond hair, grey jacket, orange trousers. Draw only the people/parts in image1; if cropped off, leave cropped off. 1024x1024 true transparent canvas, ONE composite centered with ample margin. No background/floor/shadows/labels, preserve transparent holes, no added props.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    },
+    {
+      "cel": 81,
+      "prompt": "Use case: identity-preserve. Precisely redraw Image1's ONE physical sprite cel. Images2,3,4 are approved Boston, Maggie, Brink identity/style sheets in PLANET CLOTHES. Crouching Boston grips ONLY Brink's hand at the right, and the GREY CLOTH SLEEVE leads downwards out of the frame. NO blond hair or head is visible. The grey shape is a BENT ARM INSIDE A GREY FABRIC JACKET SLEEVE, absolutely not a metal pipe or prosthetic. Preserve original flat cut at bottom. Trace every source silhouette, body proportion, overlap, head size, hand contact and visible fragment boundary. Same pose and arrangement as image1, no reposing, mirroring or moving heads. Smooth fine dark contours and restrained cel-painted shading like approved sheets, no photorealism or extra detail. Boston has brown hair with grey temples, navy short-sleeved shirt, orange trousers. Maggie has black bob, orange jumpsuit. Brink has blond hair, grey jacket, orange trousers. Draw only the people/parts in image1; if cropped off, leave cropped off. 1024x1024 true transparent canvas, ONE composite centered with ample margin. No background/floor/shadows/labels, preserve transparent holes, no added props.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    },
+    {
+      "cel": 89,
+      "prompt": "Use case: identity-preserve. Precisely redraw Image1's ONE physical sprite cel. Images2,3,4 are approved Boston, Maggie, Brink identity/style sheets in PLANET CLOTHES. Standing Boston on the left, Maggie in front on the right with her BACK toward camera. Maggie's BLACK BOB partly blends with transparency in source; draw full existing black bob, no blond hair, no grey jacket, no Brink. Preserve both entire standing bodies and foot positions. Trace every source silhouette, body proportion, overlap, head size, hand contact and visible fragment boundary. Same pose and arrangement as image1, no reposing, mirroring or moving heads. Smooth fine dark contours and restrained cel-painted shading like approved sheets, no photorealism or extra detail. Boston has brown hair with grey temples, navy short-sleeved shirt, orange trousers. Maggie has black bob, orange jumpsuit. Brink has blond hair, grey jacket, orange trousers. Draw only the people/parts in image1; if cropped off, leave cropped off. 1024x1024 true transparent canvas, ONE composite centered with ample margin. No background/floor/shadows/labels, preserve transparent holes, no added props.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    },
+    {
+      "cel": 95,
+      "prompt": "Use case: identity-preserve. Precisely redraw Image1's ONE physical sprite cel. Images2,3,4 are approved Boston, Maggie, Brink identity/style sheets in PLANET CLOTHES. Maggie stands in the LEFT foreground with her BACK toward camera, orange jumpsuit black bob, one leg extended diagonally down toward right. Boston crouches partly obscured BEHIND her to the RIGHT, navy shirt, right arm extended down right, orange trousers. Preserve exactly this relative overlapping placement and widths, NOT two standing people or added body parts. Trace every source silhouette, body proportion, overlap, head size, hand contact and visible fragment boundary. Same pose and arrangement as image1, no reposing, mirroring or moving heads. Smooth fine dark contours and restrained cel-painted shading like approved sheets, no photorealism or extra detail. Boston has brown hair with grey temples, navy short-sleeved shirt, orange trousers. Maggie has black bob, orange jumpsuit. Brink has blond hair, grey jacket, orange trousers. Draw only the people/parts in image1; if cropped off, leave cropped off. 1024x1024 true transparent canvas, ONE composite centered with ample margin. No background/floor/shadows/labels, preserve transparent holes, no added props.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    },
+    {
+      "cel": 111,
+      "prompt": "Use case: identity-preserve. Precisely redraw Image1's ONE physical sprite cel. Images2,3,4 are approved Boston, Maggie, Brink identity/style sheets in PLANET CLOTHES. Maggie stands on LEFT, mostly BACK/side view facing right, orange jumpsuit black bob. Boston is in the middle in NAVY shirt with orange knees bent forward to the RIGHT, his left arm reaching to the right to grip Brink's raised hand. Blond Brink on the RIGHT in GREY jacket crouches with head bowed down left, his left sleeve raised steeply diagonally toward Boston's hand. Copy the leaning orientation, knee/foot placement and triangular arm contact, not generic three people. Trace every source silhouette, body proportion, overlap, head size, hand contact and visible fragment boundary. Same pose and arrangement as image1, no reposing, mirroring or moving heads. Smooth fine dark contours and restrained cel-painted shading like approved sheets, no photorealism or extra detail. Boston has brown hair with grey temples, navy short-sleeved shirt, orange trousers. Maggie has black bob, orange jumpsuit. Brink has blond hair, grey jacket, orange trousers. Draw only the people/parts in image1; if cropped off, leave cropped off. 1024x1024 true transparent canvas, ONE composite centered with ample margin. No background/floor/shadows/labels, preserve transparent holes, no added props.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    },
+    {
+      "cel": 108,
+      "prompt": "Use case: identity-preserve. Image1 is ONE exact original physical sprite cel. Images2,3,4 are approved Boston, Maggie and Brink model sheets. Repaint this one composite in their approved smooth drawn style on a 1024x1024 transparent canvas. Keep the exact source poses, relative proportions, positions, silhouettes and overlaps. Maggie is STANDING at the LEFT in orange jumpsuit with BLACK BOB, side/back view facing right. Draw ALL of her existing silhouette and BOTH boots, do not cut off her left back, hair, shoulder or arm. Boston is crouching in the CENTER, brown hair grey temples, NAVY short sleeved shirt, ORANGE trousers, one knee raised high to the right and his other hand braced low left. He grips Brink's raised hand at the right. Brink is on the RIGHT: ONLY BLOND head and grey jacket upper chest/raised arm are visible above the FLAT BOTTOM CROP. Do NOT add Brink's legs or missing lower torso, do NOT remove any of Maggie. Trace exact pose and proportions from image1, not generic helping poses. Same original head sizes and hand contact. No separate head scaling, no redesigned anatomy, no photorealism, no extras, no floor/shadow, no text/grid. ONE composite only, centered within ample transparent margins so all existing anatomy fits. Keep genuine alpha holes and the deliberate partial fragment boundary of Brink.",
+      "model_sheets": [
+        "boston",
+        "maggie",
+        "brink"
+      ]
+    }
+  ],
+  "initial_reference_roles": [
+    "Image1 exact palette-correct original source poses",
+    "Image2 Boston approved sheet",
+    "Image3 Maggie approved sheet",
+    "Image4 Brink approved sheet"
+  ],
+  "atlas14_suffix": " Only the TOP LEFT tile is occupied: one Boston standing three-quarter view. The other SEVEN slots are completely empty."
+}
