@@ -9,7 +9,9 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] Ny Linux-AppImage r19 publisert i bygg39027347179; nedlastet fil, alle 44 551 manifestfiler og faktisk AppRun kontrollert.
 - [x] Kildearkiv oppdatert med gjeldende motorpatch 0007 og eksakt byggeoppskrift.
 - [x] Pakkens egne figurtester: Brink46 15, Maggie331 52, kapsel270 30 og rotte183 37 ruter, ingen omtegningsavvik.
-- [ ] Fortsett all restgrafikken: omtrent 6 232 faktiske bilder etter utskilling av 712 palettmasker, samt gjennomgang av eldre figurfeil.
+- [x] R20-arbeidsrunde: 196 nye Nexus-dørfaser og 25 nye canyon-ruter, alle observert i motoren. 561 kontroller etter oppstart uten omtegningsavvik. Grafikk i gpt-arbeid, ikke ny distro.
+- [ ] Gå gjennom de 100 eldre HD-rutene i costume034. Blant annet 050 og 108 har feil personer/klær; hele canyon-serien er fortsatt ikke visuelt sammenhengende.
+- [ ] Fortsett all restgrafikken: 6 011 faktiske bilder i r20-arbeidslisten etter utskilling av 712 palettmasker, samt øvrige eldre figurfeil.
 - [ ] Toms visuelle godkjenning og full naturlig spill-/overgangstest. Windows og mobil er ikke testet i denne leveransen.
 
 ## Historikk, 16. oktober 14:59

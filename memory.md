@@ -162,3 +162,10 @@ PR61,62,63 og nettleser-PR5 er flettet. Publisert Linux-AppImage fra e71da0d4/cb
 - Linux-bygg39027347179 er grønt, kode c2c9b8e0. AppImage på 2 123 475 448 byte, SHA25647b04c1bc468cb4dccd35cc33a6241504ea0cefaac6b87d144cd963c652c9b7a. Faktisk nedlastet fil kontrollert mot SHA-fil og GitHub-digest, alle 44 551 mod-manifestfiler og opprinnelig LA0/LA1.
 - Standard AppRun: intro, tekst, HD/klassisk over 550 oppdateringer, fem kontroller med null omtegningsavvik. Pakkens egne figurtester: Brink 15, Maggie 52, kapsel 30, rotte 37 HD-ruter, alle bestått. Tvungen surfacesdl/vindusoppstart feilet lokalt før spillinitialisering med hodeløs SDL; dette er separat fra standardoppstarten som består. Ingen vanlige lagringer er endret.
 - GPL-kildearkivet i releasen var fra r16 og manglet patch 0007. Oppdatert eksakt patchet kilde og oppskrift uten spilldata/HD:262499909 byte, SHA256b3d35f9ac36c6e227426bb9044317797a01e04c1e5db23f78f8206f675826dfd. Se kontroll-linux.json i releasen.
+
+## 2026-10-17, r20 under arbeid
+
+- Grafikkrapport rapporter/restgrafikk-r20-20261017 i gpt-arbeid: 221 nye HD-ruter, 196 registrerte Nexus-faser fra 91 malte referanseposer og 25 selvstendig tegnede canyon-ruter i costume034 etter alle tre godkjente hovedark. Ingen publiserte ressurser endret. 442 rene filtillegg, 44 551 r19-manifestfiler og 55 filmer bevart.
+- Alle 221 observert i native motorprøver; 561 fullomtegningskontroller etter oppstart uten avvik. Canyon-romhopp omdirigeres av de brukte lagringene; isolert rom23-prøve bruker beviselig samme karakterfarger som rom15. Naturlig scene og full gjennomspilling gjenstår.
+- Eldre costume034_050 og 108 har feil personer/klær. De 100 tidligere HD-rutene i serien må gjennomgås, og det er ikke rettet ved å fylle de nye 25 manglene. Hele serien er fortsatt ikke visuelt ferdig.
+- R20 er en arbeidskandidat, ikke integrert i hd-mod eller pakket. 6 011 faktiske bilder mangler i r20-listen, pluss eldre figurfeil. Restoppdraget og Toms visuelle godkjenning er fortsatt åpne.
