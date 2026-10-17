@@ -2,7 +2,7 @@
 
 Tom har bekreftet at oppdraget gjelder all restgrafikk i hele spillet. Arbeidet er ikke ferdig. Rapporten er et etterprøvbart mellomlager, ikke en utgivelse eller visuell godkjenning.
 
-Kandidaten har 1787 nye HD-ruter. Den siste opptellingen har 12232 originalruter uten HD, hvorav 7838 har minst 40 synlige originalpiksler. Små fragmenter telles separat. Ingen ny distro er bygget fra denne kandidaten.
+Kandidaten har 6469 nye HD-ruter. Den siste opptellingen har 7572 originalruter uten HD, hvorav 7571 har minst 40 synlige originalpiksler. Små fragmenter telles separat. Ingen ny distro er bygget fra denne kandidaten.
 
 ## Kilder og metode
 
@@ -29,6 +29,16 @@ De fire kommunikasjonsportrettene beholder original identitet, uttrykk og signal
 872 originalruter i de fire MajMin-kostymene 95, 118, 266 og 267 er nå lest direkte fra spilldata. Dette er kildeklargjøring, ikke ferdig HD. Det finnes ingen publiserte indeksbilder for disse seriene. I stedet er alle 872 avkodede originalruter sammenlignet med de beskyttede originaljobbene: ingen RGB-avvik og ingen avvik i gjennomsiktighetsmaskene. Se codec16-job-reference-check.json.
 
 52 dialogruter i kostyme 331 er registrert fra 20 valgte representanter blant 21 nytegnede deler. Originalens munn- og øyeposer velger passende tegning. Små originale forskyvninger overføres med et felt begrenset til 3 originalpiksler. Ingen gamle ansiktspiksler legges over de nye. Høyre arm og stein bruker ett felles nytegnet grunnlag. De tre delte kildeparene 24/25, 30/31 og 42/41 får samme samlede originalfelt før registrering, så de møtes ved samme bevegelse og størrelse. Se labtalk-registration.json. Dette er kontrollert gjenbruk, ikke 52 uavhengig nytegnede portretter. Den sammenhengende figuren er også forankret til originalens nedre kant med en liten felles vertikal tilpasning av hode og torso. Dette retter et avklipt skjorteparti som omtegningskontrollen alene ikke oppdaget. Se maggie331-nedre-kant-rettet.png.
+
+## Nye serier og tekniske fragmenter
+
+Bibliotekets kostymer 266 og 267 har 511 nye ruter. Alle 247 ruter i 266 og 222 små ruter i 267 er tekniske detaljer, glimt og oppdateringsstriper som bevarer originalsignalet med myk oppskalering. De 42 større rutene i 267 gjenbruker det malte HD-rommet og overfører originalens endring i lys og fase. Dette gjelder bildene i krystallkabinettets søyler, kuler og pyramideformer. Det er ikke 511 nye selvstendige illustrasjoner. Se library-registration.json og library-three-images-comparison.png.
+
+Lynserien 95 har 180 ruter, hvorav 70 større faser gjenbruker den malte HD-himmelen med originalens lysendring, og 110 er små tekniske signalfragmenter. Alle 180 ble faktisk sett i de seks endelige motortestene. Kameraet i dette rommet begynner 104 originalpiksler inn i scenen. Testaktøren bruker samme forskyvning før plasseringene registreres, så lynet ligger over himmel og sjø. Tidlig test med aktøren ved 0,0 ga feil bakgrunnsutsnitt og er ikke leveransen. Se lightning-registration.json og context_r19_connect.py.
+
+Svømmeserien 118 har 181 ruter. 143 større figurer, boblegrupper eller vannkomposisjoner er nytegnet på 18 ark. Vannfragment 001 gjenbruker den nye skumtegningen i 062, og den siste fjerne stående profilen 180 gjenbruker sidefiguren fra det godkjente Boston-pilotarket. De øvrige 36 rutene er små originale fragmenter. Hele kroppen registreres samlet mot originalens kroppspalett; hode og torso transformeres aldri hver for seg. Bobler registreres separat rundt originalens små boblekjerner og har begrenset diameter. Kombinerte skum- og figurutsnitt beholder hele komposisjonen. Fire feiltolkede bakfrafigurer i andre ark ble omtegnet forfra før import. Se swim-registration.json, prompter/ og boston118-i-spill.png. Alle 181 ruter ble sett samlet over tre endelige testplasseringer. Testen er en tvungen visning i rom 33, ikke bevis på den normale spillsekvensens iscenesettelse.
+
+Ytterligere 3 810 små originalfragmenter er behandlet med den eksisterende SMALL-metoden i dighd.myk. Både jobbinventaret og avkodet original må ha under 40 synlige piksler. Publiserte indeksbilder kontrolleres for identiske pikselindekser før gjenbruk, og publiserte filer overskrives ikke. Disse rutene er teknisk oppskalering med original palett og form, ikke nytegnet HD-kunst. Kostyme 169 rute 070 ble utelatt fordi avkodingen har 142 synlige piksler, selv om jobbinventaret telte den som liten. Se small-fragment-registration.json. Dette skillet er viktig når totaltallet vurderes.
 
 ## Kontroller og begrensninger
 
