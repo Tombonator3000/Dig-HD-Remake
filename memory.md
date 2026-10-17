@@ -154,3 +154,11 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 PR61,62,63 og nettleser-PR5 er flettet. Publisert Linux-AppImage fra e71da0d4/cb4415a9 har alle2223 rettinger og alle55 filmer. Nedlastet pakke, mod-sjekksummer og 550 oppdateringer er kontrollert, null avvik i fem fullnytegningskontroller. Full gjennomspilling og visuell godkjenning av alle ruter gjenstår. Fem nye funn behandles i neste grafikkrunde.
 
 - 16. oktober 2026, r18: Tom bekrefter at siste feilbilder er fra ny AppImage. Avviste HD-bilder brukes aldri som designanker. Separate måner148/149 og laser233/234/235 bruker faktisk rompalett via AKPL, ikke RGBS-råfarger. Tram-skjermbildet i siste serie er rom80. R17/r18 er flettet: PR64 til hd-mod4a0ab61e, PR65 til maindcc09e3f og nettleser-PR6 til mainb8ea79ba. Ny Linux-pakke bygges automatisk; publisering og pakketest rapporteres separat.
+
+## R19 integrasjon og Linux, 17. oktober 2026
+
+- Tom ba om integrasjon, pull og ny distro av den produserte restgrafikken. Data-PR66 er flettet til hd-mod630cadb3ebb398ac8ade1f4e1ea759f8a783cd5a. Grafikkgrunnlag f5a23834 i gpt-arbeid; rapport rapporter/restgrafikk-r19-20261016.
+- Modden legger til 14 173 filer med 7 097 HD-ruter, inkludert små tekniske fragmenter og kontrollert gjenbruk. Bare to dokumenterte Maggie-bilder erstattes. Ingen tidligere ressurser eller55 HD-filmer mistes. Omtrent6232 faktiske bilder og gjennomgang av eldre figurfeil gjenstår; all grafikken er ikke ferdig.
+- Linux-bygg39027347179 er grønt, kode c2c9b8e0. AppImage på 2 123 475 448 byte, SHA25647b04c1bc468cb4dccd35cc33a6241504ea0cefaac6b87d144cd963c652c9b7a. Faktisk nedlastet fil kontrollert mot SHA-fil og GitHub-digest, alle 44 551 mod-manifestfiler og opprinnelig LA0/LA1.
+- Standard AppRun: intro, tekst, HD/klassisk over 550 oppdateringer, fem kontroller med null omtegningsavvik. Pakkens egne figurtester: Brink 15, Maggie 52, kapsel 30, rotte 37 HD-ruter, alle bestått. Tvungen surfacesdl/vindusoppstart feilet lokalt før spillinitialisering med hodeløs SDL; dette er separat fra standardoppstarten som består. Ingen vanlige lagringer er endret.
+- GPL-kildearkivet i releasen var fra r16 og manglet patch 0007. Oppdatert eksakt patchet kilde og oppskrift uten spilldata/HD:262499909 byte, SHA256b3d35f9ac36c6e227426bb9044317797a01e04c1e5db23f78f8206f675826dfd. Se kontroll-linux.json i releasen.

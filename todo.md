@@ -2,7 +2,17 @@
 
 Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `log.md`.
 
-## Neste, 16. oktober 14:59
+## Neste, 17. oktober 2026
+
+- [x] Integrert produsert r19-grafikk via PR66 til hd-mod 630cadb3.
+- [x] Hentet kode/main, grafikk/gpt-arbeid, web/main og oppdatert lokal hd-mod med fast-forward.
+- [x] Ny Linux-AppImage r19 publisert i bygg39027347179; nedlastet fil, alle 44 551 manifestfiler og faktisk AppRun kontrollert.
+- [x] Kildearkiv oppdatert med gjeldende motorpatch 0007 og eksakt byggeoppskrift.
+- [x] Pakkens egne figurtester: Brink46 15, Maggie331 52, kapsel270 30 og rotte183 37 ruter, ingen omtegningsavvik.
+- [ ] Fortsett all restgrafikken: omtrent 6 232 faktiske bilder etter utskilling av 712 palettmasker, samt gjennomgang av eldre figurfeil.
+- [ ] Toms visuelle godkjenning og full naturlig spill-/overgangstest. Windows og mobil er ikke testet i denne leveransen.
+
+## Historikk, 16. oktober 14:59
 
 - [x] R16 integrert via PR62/63, Linux-AppImage publisert og kontrollert med alle55 filmer.
 - [x] Ferdig r17-grafikk til repo og utkast-PR64, uten uferdig pole178.
@@ -11,7 +21,7 @@ Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `l
 - [x] R18-kandidat: tram-gangflate890 i rom80, edderkoppsilhuett136, tett rist356/357, laser233/234/235.
 - [x] Native kontroller, grafikkrapport og PR64/65 samt nettleser-PR6.
 - [x] Flettet PR64/65 og nettleser-PR6 etter Toms bestilling, lokale repoer oppdatert.
-- [ ] Kontroller ny publisert r18-AppImage når automatisk Linux-bygg38921046042 er ferdig.
+- [x] R18 er avløst av integrert og etterkontrollert r19-AppImage, se nyeste leveranse over.
 - [ ] Toms visuelle gjennomgang av r17/r18 og full naturlig spill-/overgangstest.
 
 ## Til komplett utgave (oversikt 14. oktober, rettet 09:48, mot hd-mod 05179ed / r12)
