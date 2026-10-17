@@ -31,3 +31,7 @@ Runde 2026-10-16 11:39 UTC: 661 nye enheter, 88 erstattet og 0 fjernet (runder i
 16. oktober: r17 retter øvrige krystallåser, fjernvann, dowel og scepter-ikoner. Alle r16-rettinger og55 HD-filmer bevart. Full gjennomspilling og Toms visuelle godkjenning av alle nye ruter gjenstår.
 
 16. oktober: r18 retter figurkontakter, pole, måner, plateau, tram-gangflate, edderkopp, rist og laserstråler. R17 er med. Alle r16-rettinger og55 HD-filmer bevart. Full gjennomspilling og Toms visuelle godkjenning av alle nye ruter gjenstår.
+
+Runde 2026-10-17 10:58 UTC: 7097 nye enheter, 2 erstattet og 0 fjernet (runder i mod.json).
+
+17. oktober 2026: r19 legger til 7097 HD-ruter, inkludert tekniske småfragmenter og kontrollert gjenbruk. To eldre Maggie-bilder er erstattet. Alle tidligere r18-rettinger og 55 HD-filmer er bevart. Hele restgrafikken er ikke ferdig: 6232 faktiske bilder og gjennomgang av eldre figurfeil gjenstår. Nye bilder er ikke visuelt godkjent av Tom.
