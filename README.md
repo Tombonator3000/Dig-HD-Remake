@@ -35,3 +35,7 @@ Runde 2026-10-16 11:39 UTC: 661 nye enheter, 88 erstattet og 0 fjernet (runder i
 Runde 2026-10-17 10:58 UTC: 7097 nye enheter, 2 erstattet og 0 fjernet (runder i mod.json).
 
 17. oktober 2026: r19 legger til 7097 HD-ruter, inkludert tekniske småfragmenter og kontrollert gjenbruk. To eldre Maggie-bilder er erstattet. Alle tidligere r18-rettinger og 55 HD-filmer er bevart. Hele restgrafikken er ikke ferdig: 6232 faktiske bilder og gjennomgang av eldre figurfeil gjenstår. Nye bilder er ikke visuelt godkjent av Tom.
+
+Runde 2026-10-18 08:40 UTC: 221 nye enheter, 105 erstattet og 0 fjernet (runder i mod.json).
+
+18. oktober 2026: r20 og r21 integrert.221 nye HD-ruter:196 Nexus-faser og25 canyon-ruter.105 eldre canyon-ruter og105 indeksreferansepaletter rettet. Tidligere rettinger og55 HD-filmer bevart.6011 faktiske bilder og øvrige eldre grafikkfeil gjenstår. Nye ruter er ikke visuelt godkjent av Tom, og full gjennomspilling er ikke gjort.
