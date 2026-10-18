@@ -1,5 +1,7 @@
 # Restgrafikk r20, arbeidsrunde 17. oktober 2026
 
+Oppdatert 18. oktober: r20 og r21 er integrert via PR67 og publisert i kontrollert Linux-AppImage. Se [integrasjonen](../integrering-r20-r21-20261018/RAPPORT.md). Teksten nedenfor dokumenterer arbeidsrunden før integrering.
+
 221 manglende HD-ruter er laget som en arbeidskandidat oppå publisert r19, hd-mod 630cadb3. De består av 196 dørfaser og 25 selvstendig tegnede figurruter. Alle 221 er observert i den native motoren. 561 fullomtegningskontroller etter oppstart gir null avvik. Hele restgrafikken og gjennomgangen av eldre figurfeil er fortsatt uferdig. Runden er ikke integrert i hd-mod eller pakket som distro.
 
 ## Dørene i Nexus

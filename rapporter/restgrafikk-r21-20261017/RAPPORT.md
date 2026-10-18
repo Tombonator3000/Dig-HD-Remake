@@ -1,5 +1,7 @@
 # Canyon-figurer, r21, 17. oktober 2026
 
+Oppdatert 18. oktober: r20 og r21 er integrert via PR67 og publisert i kontrollert Linux-AppImage. Se [integrasjonen](../integrering-r20-r21-20261018/RAPPORT.md). Teksten nedenfor dokumenterer arbeidsrunden før integrering.
+
 105 eldre HD-ruter i kostyme 34 er tegnet om etter de godkjente hovedarkene. Boston har igjen brunt hår med grå tinninger, mørk blå trøye og oransje bukser. Maggie har svart bob og oransje drakt. Brink er blond med grå jakke. Hver fysisk rute er tegnet og registrert som én samlet figur eller gruppe. Hodene flyttes eller skaleres ikke separat.
 
 Dette er en arbeidsleveranse i gpt-arbeid og kandidat-r21. Den er ikke integrert i hd-mod eller utgitt som distro. Toms visuelle godkjenning og naturlig gjennomspilling gjenstår.
