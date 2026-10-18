@@ -51,7 +51,7 @@ Telt fra filene i `hd-mod` mot originalrutene i jobbene i `gpt-arbeid` (`jobber/
 
 ## Neste
 - [x] R22: ferdigstill seks holdte Boston-ruter, integrer alle48 og91 palettrettede små originalfragmenter via PR68, pull lokalt.
-- [ ] R22: kontroller og dokumenter ferdig Linux-pakke fra bygg39117793203.
+- [x] R22: kontrollert og dokumentert ferdig Linux-pakke fra bygg 39117793203, alle 48 nye ruter sett med pakkens motor.
 
 - [x] Lokal kandidat for Toms grafikkfeil 16. oktober, med hovedark, original registrering og motorregresjoner.
 - [x] Integrert r16 via PR61/62/63 og nettleser-PR5. Ny publisert Linux-pakke lastet ned og kontrollert.

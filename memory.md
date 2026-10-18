@@ -20,6 +20,7 @@ Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 - Romliste: `docs/rom-oversikt.csv`.
 
 ## Teknisk oppsett
+- Gjeldende Linux-pakke, r22 18. oktober 2026: kode 64df34e0, hd-mod 044ae88e5 via PR68. 48 nye Boston-ruter opp av vannet og 91 palettrettede små originalfragmenter. AppImage 2141702648 byte, SHA-256 38724ce36c6e00a15640ac51b9f2334ce3f229c038fea4cf83a561759caedb37. Alle 45 089 manifestfiler kontrollert. Pakkens motor viste alle 48 nye ruter med 61 fullomtegningskontroller etter oppstart uten avvik. 5963 ruter gjenstår i arbeidsinventaret. Full gjennomspilling og Toms visuelle godkjenning gjenstår.
 - Motor: ScummVM med patchen i `engine/patches/`, låst til commit i `engine/SCUMMVM_COMMIT`. Spillet går i 8 bit internt. DigHD bygger HD-bildet i siste steg.
 - HD-kilder per piksel: bakgrunn (lik i begge buffere og lik `_idx`-bildet), objekt (lik objekt som nettopp er tegnet), kostymerute (forskjellig fra bakgrunnsbufferen og innenfor en tegnet rute), ellers originalpikselen.
 - Mod-mappe: `rooms/roomNNN(.png|_idx.png)`, `objects/objNNN_SS(.png|_idx.png)` (SS heksadesimalt), `costumes/costumeCCC_NNN(.png|_idx.png)`, `costumes/costumeCCC_NNN_hd.png` (myk rute med marg og egen alfa, brukes før den vanlige), `san/FILM/NNNNN.png`. Skala 4.

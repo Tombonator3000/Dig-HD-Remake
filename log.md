@@ -691,3 +691,10 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Alle48 nye ruter sett i rom32 med47 fullomtegningskontroller etter oppstart uten avvik. Naturlig gjennomspilling og Toms godkjenning er ikke utført.
 - Linux-bygg39117793203 startet med fast mod og uendret motorkode. Ny nedlasting kontrolleres før ferdigmelding.
 - Lagret Toms føring om at pull, fletting og integrering skal inngå i videre grafikkleveranser.
+
+## 2026-10-18 12:15 (Codex)
+
+- R22 Linux-bygg 39117793203 er publisert og grønt, inkludert oppstart, grafikkvalg og Debian 12.
+- Faktisk AppImage-nedlasting er kontrollert: 2141702648 byte, SHA-256 38724ce36c6e00a15640ac51b9f2334ce3f229c038fea4cf83a561759caedb37. Alle 45 089 manifestfiler og 278 leveransefiler stemmer. Alle 55 HD-filmer er bevart.
+- Standard AppRun, intro og HD/klassisk-bytte består 550 oppdateringer og fem opptegningskontroller uten avvik. Pakkens egen motor viser alle 48 nye ruter med 61 fullomtegningskontroller etter oppstart uten avvik. Logger, kontrollfil og faktiske pakkeskjermbilder ligger i grafikkrapporten.
+- Tidligere GPL-kildearkiv er uendret og fortsatt dekkende for uendrede motorpatcher og byggeoppskrift. Releasekontroll og les-meg er oppdatert. Naturlig gjennomspilling og Toms visuelle godkjenning er ikke utført.
