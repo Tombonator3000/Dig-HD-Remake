@@ -1,5 +1,7 @@
 # Restgrafikk, arbeidsrunde r21, 17. oktober 2026
 
+Oppdatert18. oktober: denne arbeidsrunden er nå integrert via PR67 til hd-mod29cff6583. Se [integrasjonen](INTEGRERING-r20-r21-20261018.md) for gjeldende leveransestatus. Teksten nedenfor dokumenterer arbeidsrunden før integrering.
+
 105 eldre canyon-ruter i kostyme 34 er tegnet om etter de godkjente personarkene. Boston, Maggie og Brink beholder nå riktig identitet og planetklær i disse rutene. Hode og kropp registreres samlet. De 25 nye rutene fra r20 er bevart, totalt 130 fysiske HD-ruter i serien.
 
 Opptellingen i r20 omfattet bare 100 eldre ruter fra jobbinventaret. R21 inkluderer også 125 til 129, som finnes i publisert mod og brukes av motoren. De gamle indeksbildenes RGBS-palett gav dessuten rød hud/klær ved fargetilpasning. 105 indeksbilder får derfor riktig AKPL til rom 15, palett 0. Indeksverdiene og originalanimasjonen er uendret.

@@ -176,3 +176,10 @@ PR61,62,63 og nettleser-PR5 er flettet. Publisert Linux-AppImage fra e71da0d4/cb
 - Indeksbildenes palett brukes ved HD-fargetilpasning. Gamle RGBS-farger i costume34 gav rød hud/klær selv med riktig ny tegning. AKPL koblet gjennom rom15 palett0 retter dette, uten å endre noen fysiske indeksverdier.105 HD-bilder og105 indeksbilder er eksplisitte erstatninger.
 - Alle130 vist i fire isolerte native animasjonsprøver,172 fullomtegningskontroller etter oppstart uten avvik. Etter siste108-retting er animasjon8 prøvd igjen, øvrige tilfeller videreført etter SHA-kontroll. Ikke naturlig canyon-gjennomspilling, ikke Toms nye godkjenning.
 - Kandidat-r21 og grafikkgrenen inneholder arbeidet. Ingen ny integrering eller distro. R19 publisert, r20s221 tillegg og55 filmer bevart.6011 manglende faktiske bilder gjenstår, samt øvrige eldre feil.
+
+## Integrert r20/r21 og Linux, 18. oktober 2026
+
+- PR67 flettet til hd-mod29cff6583dc45ec21bcccb5da0eb16afafa379a5. Lokal hd-leveranse oppdatert; kjor-rettet-spill.sh bruker den.221 nye HD-ruter,105 omtegnede canyon-ruter og105 korrigerte indeksreferansepaletter.442 nye filer,210 eksplisitte erstatninger, ingen slettinger. Alle55 filmer bevart.
+- Sammenføyd mod og nedlastet pakke: hver har11 native tilfeller med543 fullomtegningskontroller etter oppstart uten avvik. Alle196 nye Nexus-faser og130 canyon-ruter observert.44993 mod-manifestfiler og652 leveransefiler kontrollert. Naturlig gjennomspilling og Toms visuelle godkjenning er fortsatt ikke gjort.
+- Linux-bygg39112677913 fra kode7b2f4398457adb34a3b9753102295a5b987d6252 er grønt, inkludert Debian12. AppImage 2140813816 byte, SHA256f6c9786ca4f0ebb5f980e1761c79151e643d68a619f7cb0c37aff7b5f3cbe326. Faktisk nedlasting og standard AppRun med intro/tekst/HD-bytte er kontrollert,550 oppdateringer og fem nytegningskontroller uten avvik.
+- Motorkilder og oppskrift i det tidligere publiserte kildearkivet er uendret og kontrollert mot gjeldende fem patcher og motorcommit. Ingen ny motor-/pipelinekode.6011 faktiske bilder og andre eldre figurfeil gjenstår.

@@ -2,7 +2,13 @@
 
 Det som gjenstår, viktigst først. Kryss av når noe er gjort, og logg det i `log.md`.
 
-## Neste, 17. oktober 2026
+## Neste, 18. oktober 2026
+
+- [x] Integrert r20/r21 via PR67 til hd-mod29cff6583 og hentet den lokalt.44993 manifestfiler og652 leveransefiler kontrollert.
+- [x] Sammenføyd mod:196 nye Nexus-faser og alle130 canyon-ruter observert i11 native tilfeller,543 fullomtegningskontroller etter oppstart uten avvik.
+- [x] Linux-bygg39112677913 publisert. Faktisk nedlasting, alle44993 manifestfiler, intro/HD-valg og pakkens egne11 native tilfeller med543 kontroller uten avvik.
+
+## Historikk, 17. oktober 2026
 
 - [x] Integrert produsert r19-grafikk via PR66 til hd-mod 630cadb3.
 - [x] Hentet kode/main, grafikk/gpt-arbeid, web/main og oppdatert lokal hd-mod med fast-forward.

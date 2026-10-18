@@ -1,5 +1,7 @@
 # Restgrafikk r20, arbeidskandidat
 
+Oppdatert18. oktober: denne arbeidsrunden er nå integrert via PR67 til hd-mod29cff6583. Se [integrasjonen](INTEGRERING-r20-r21-20261018.md) for gjeldende leveransestatus. Teksten nedenfor dokumenterer arbeidsrunden før integrering.
+
 Tom ba om å fortsette med restgrafikken etter publisert Linux r19. En ny grafikkrunde ligger i gpt-arbeid, rapporter/restgrafikk-r20-20261017. Den er ikke integrert i hd-mod eller pakket som distro.
 
 221 manglende HD-ruter er laget: 196 utfoldingsfaser for de fem Nexus-dørene og 25 nye fysiske figurruter av Boston, Maggie og Brink i canyon. Dørfasene bruker 91 malte referanseposer med kontrollert materialgjenbruk, kildepalett, original geometri og antialiasing. Figurrutene er selvstendige tegninger etter alle tre hovedarkene Tom godkjente 15. oktober. Hode og kropp er registrert som én enhet. Syv vanskelige sammensatte poser er tegnet om enkeltvis.
