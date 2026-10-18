@@ -39,3 +39,7 @@ Runde 2026-10-17 10:58 UTC: 7097 nye enheter, 2 erstattet og 0 fjernet (runder i
 Runde 2026-10-18 08:40 UTC: 221 nye enheter, 105 erstattet og 0 fjernet (runder i mod.json).
 
 18. oktober 2026: r20 og r21 integrert.221 nye HD-ruter:196 Nexus-faser og25 canyon-ruter.105 eldre canyon-ruter og105 indeksreferansepaletter rettet. Tidligere rettinger og55 HD-filmer bevart.6011 faktiske bilder og øvrige eldre grafikkfeil gjenstår. Nye ruter er ikke visuelt godkjent av Tom, og full gjennomspilling er ikke gjort.
+
+Runde 2026-10-18 10:01 UTC: 48 nye enheter, 91 erstattet og 0 fjernet (runder i mod.json).
+
+18. oktober 2026: r22 integrert.48 nye Boston-ruter opp av vannet og91 palettrettede sma originalfragmenter. Tidligere rettinger og55 HD-filmer bevart.5963 ruter gjenstar i arbeidsinventaret. Styrt motoravspilling er kontrollert, naturlig gjennomspilling og Toms visuelle godkjenning gjenstar.
