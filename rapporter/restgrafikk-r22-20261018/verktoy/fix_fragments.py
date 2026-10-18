@@ -13,8 +13,8 @@ for f in sorted((R/'testing/source/costumes').glob('costume100_*_idx.png')):
  idx=Image.open(f);codes=np.array(idx);idx.putpalette(colors);a=np.array(idx.convert('RGBA'));a[codes==0]=0
  # The only opaque colours are the native source pixels; no invented art.
  src=Image.fromarray(a);pixels=int((a[:,:,3]>128).sum());assert pixels<=72,(name,pixels)
- assert (R/'hd-leveranse/costumes'/(name+'_hd.png')).exists()
+ assert (R/'testing/r22-published-base/costumes'/(name+'_hd.png')).exists()
  im=Image.fromarray(myk.from_original(a)['bilde']);hd=O/(name+'_hd.png');im.save(hd);idx.save(O/f.name);assert np.array_equal(codes,np.array(Image.open(O/f.name)))
- records.append(dict(name=name,pixels=pixels,method='existing myk.from_original source fragment export with AKPL->room32 palette0; not new AI artwork',file=hd.name,sha256=sha(hd),old_sha256=sha(R/'hd-leveranse/costumes'/hd.name),index=f.name,index_sha256=sha(O/f.name),old_index_sha256=sha(R/'hd-leveranse/costumes'/f.name),index_values_unchanged=True))
+ records.append(dict(name=name,pixels=pixels,method='existing myk.from_original source fragment export with AKPL->room32 palette0; not new AI artwork',file=hd.name,sha256=sha(hd),old_sha256=sha(R/'testing/r22-published-base/costumes'/hd.name),index=f.name,index_sha256=sha(O/f.name),old_index_sha256=sha(R/'testing/r22-published-base/costumes'/f.name),index_values_unchanged=True))
 assert len(records)==91
 manifest={str(f.relative_to(P/'mod-erstatninger')):sha(f) for f in sorted(O.glob('*.png'))};(P/'REPLACEMENTS.json').write_text(json.dumps(manifest,indent=2)+'\n');(P/'fragments.json').write_text(json.dumps(records,indent=2)+'\n');print(len(records),'small fragments, source palette corrected;182 declared replacement files')

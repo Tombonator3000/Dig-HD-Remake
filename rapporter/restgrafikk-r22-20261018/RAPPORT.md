@@ -1,3 +1,5 @@
+R22 er nå integrert og publisert i kontrollert AppImage. Se ../integrering-r22-20261018/RAPPORT.md for den endelige leveransen.
+
 # R22 ferdig for integrering, 18. oktober 2026
 
 Alle 48 utvalgte manglende Boston-ruter er nå nytegnet og har bestått samme formkontroll. De seks tidligere holdte rutene ble tegnet enkeltvis med godkjent Boston-hovedark som referanse. Seks enkelttegninger pluss én skulderrettelse er lagt til de ni tidligere kallene, totalt 16 bildeverktøykall. Ingen kontrollgrenser er senket. registration.json og ADDITIONS.json beskriver de 48 ferdige rutene og 96 nye filer.
