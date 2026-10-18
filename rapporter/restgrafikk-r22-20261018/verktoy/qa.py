@@ -1,0 +1,7 @@
+from pathlib import Path
+import sys,re,json,hashlib,os
+R=Path(__file__).resolve().parents[4];P=Path(__file__).resolve().parents[1];sys.path.insert(0,str(R/'grafikk/rapporter/restgrafikk-r21-20261017/verktoy'));from runqa import run
+run('r22-boston100',dict(SAVE=15,DIGHD_TEST_ROOM=32,DIGHD_TEST_COSTUME=100,DIGHD_TEST_ANIMATION=6,DIGHD_TEST_DIRECTION=2,DIGHD_TEST_POS='59,144',DIGHD_TEST_PALETTE=0,DIGHD_QUIT_AT=1500,DIGHD_TEST_CHORE_EVERY=10000,DIGHD_TEST_STATIC_SCENE=1,DIGHD_SKIP_VIDEO=1,DIGHD_DUMP_EVERY=30),binary=R/'motor/scummvm',mod=R/'kandidat-r22')
+log=(R/'testing/r22-boston100/log.txt').read_text();checks=[(int(f),int(n)) for f,n in re.findall(r'verify frame (\d+): (\d+) screen pixels differ from the whole screen built again',log)];seen={int(v) for v in re.findall(r'soft cel (\d+) costume 100 ',log)};targets={r['cel'] for r in json.loads((P/'registration.json').read_text())};errors=re.findall(r'^.*(?:ERROR|Assertion|failed).*$',log,re.M)
+r=dict(room=32,palette=0,animation=6,direction=2,observed_hd_cells=sorted(seen),new_cells_seen=sorted(targets&seen),new_cells_not_seen=sorted(targets-seen),checks=checks,errors=errors,passed=bool(checks) and not any(n for f,n in checks if f>=100) and not errors and targets<=seen,natural_playthrough=False)
+(P/'qa.json').write_text(json.dumps(r,indent=2)+'\n');print('Seen',len(targets&seen),'/',len(targets),'checks',len(checks),'passed',r['passed'])
