@@ -1,0 +1,14 @@
+"""Use the released package's AppRun/game/libs/mod with copied test saves."""
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+import json,os,subprocess,re,shutil
+R=Path('/home/tom/Documents/ChatGPT/THE DIG');P=R/'grafikk/rapporter/integrering-r22-20261018';T=R/'testing/distro-r22';A=T/'AppDir';targets={100:{c['cel'] for c in json.loads((R/'grafikk/rapporter/restgrafikk-r22-20261018/registration.json').read_text())}}
+cases=[('boston100',100,0,6,2,'59,144')]
+def one(case):
+ name,c,p,a,d,pos=case;S=T/'native'/name;S.mkdir(parents=True,exist_ok=True);(S/'dumps').mkdir(exist_ok=True);saved=S/'data/the-dig-hd/saves';saved.mkdir(parents=True,exist_ok=True);shutil.copy2(R/'testing/saves/dig.s15',saved/'dig.s15')
+ env={k:v for k,v in os.environ.items() if not k.startswith('DIGHD_')};env.update(HOME=str(S/'home'),XDG_CONFIG_HOME=str(S/'config'),XDG_DATA_HOME=str(S/'data'),XDG_CACHE_HOME=str(S/'cache'),SDL_VIDEODRIVER='dummy',SDL_AUDIODRIVER='dummy',DIGHD_VERIFY='1',DIGHD_DEBUG_SOFT='1',DIGHD_MANGLER='0',DIGHD_DUMP_DIR=str(S/'dumps'),DIGHD_DUMP_EVERY='10',DIGHD_TEST_ROOM='32',DIGHD_TEST_COSTUME=str(c),DIGHD_TEST_PALETTE=str(p),DIGHD_TEST_ANIMATION=str(a),DIGHD_TEST_DIRECTION=str(d),DIGHD_TEST_POS=pos,DIGHD_TEST_CAMX='160',DIGHD_TEST_CAMY='100',DIGHD_QUIT_AT='700',DIGHD_TEST_CHORE_EVERY='10000',DIGHD_TEST_STATIC_SCENE='1',DIGHD_SKIP_VIDEO='1')
+ with (S/'log.txt').open('w') as log:subprocess.run([str(A/'AppRun'),'--save-slot=15','--debuglevel=1'],env=env,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=360)
+ s=(S/'log.txt').read_text();checks=[(int(f),int(n)) for f,n in re.findall(r'verify frame (\d+): (\d+) screen pixels differ from the whole screen built again',s)];seen={int(v) for v in re.findall(r'soft cel (\d+) costume '+str(c)+' ',s)};errors=re.findall(r'^.*(?:ERROR|Assertion|failed).*$',s,re.M);print(name,len(seen),flush=True)
+ return dict(case=name,costume=c,checks=checks,seen_hd_cels=sorted(seen),seen_target_cels=sorted(seen&targets[c]),errors=errors,passed=bool(checks) and not errors and all(n==0 for f,n in checks if f>=100))
+with ThreadPoolExecutor(max_workers=3) as pool:results=list(pool.map(one,cases))
+coverage={str(c):dict(expected=len(t),observed=sorted(set().union(*(set(r['seen_target_cels']) for r in results if r['costume']==c))),unseen=sorted(t-set().union(*(set(r['seen_target_cels']) for r in results if r['costume']==c)))) for c,t in targets.items()};report=dict(cases=results,coverage=coverage,post_startup_checks=sum(sum(f>=100 for f,n in r['checks']) for r in results),passed=all(r['passed'] for r in results) and all(not d['unseen'] for d in coverage.values()));(T/'native-tests.json').write_text(json.dumps(report,indent=2)+'\n');assert report['passed'];control=json.loads((T/'kontroll-linux.json').read_text());control['packaged_native_tests']=report;(T/'kontroll-linux.json').write_text(json.dumps(control,indent=2)+'\n');print('PASS',report['post_startup_checks'])

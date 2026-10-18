@@ -4,7 +4,7 @@ Alle 48 utvalgte manglende Boston-ruter er nå nytegnet og har bestått samme fo
 
 91 eldre små originalfragmenter med høyst 72 synlige kildepiksler er eksportert på nytt med eksisterende myk.from_original og riktig AKPL gjennom rom32 palett0. De er palettrettede originalfragmenter, ikke 91 nye KI-tegninger. Deres 182 eksplisitte erstatningsfiler står i REPLACEMENTS.json, med uendrede indeksverdier og gamle/nye kontrollsummer i fragments.json. De feilfargede fragmentene langs vannflaten er borte i den nye prøven.
 
-Ny motoravspilling i rom32 viser alle 48 nye ruter og hele kostyme100-serien med de små fragmentene. 47 fullomtegningskontroller etter oppstart gir null avvik. Ingen motorfeil. kneeling-scene.png, rising-scene.png og standing-scene.png er fornyet etter siste tegning og palettretting. Dette er styrt motoravspilling, ikke en naturlig gjennomspilling eller Toms visuelle godkjenning.
+Ny motoravspilling i rom32 viser alle 48 nye ruter og totalt 138 HD-ruter fra kostyme100. Én liten fysisk kilderute ble ikke observert i denne animasjonen. 47 fullomtegningskontroller etter oppstart gir null avvik. Ingen motorfeil. kneeling-scene.png, rising-scene.png og standing-scene.png er fornyet etter siste tegning og palettretting. Dette er styrt motoravspilling, ikke en naturlig gjennomspilling eller Toms visuelle godkjenning.
 
 Arbeidsrestlisten er nå 5963. Publisert restliste oppdateres når integreringen er kontrollert. Senere integrerings- og distribusjonsbevis føres i rapporter/integrering-r22-20261018. Den historiske statusen under er bevart for sporbarhet.
 
