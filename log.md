@@ -683,3 +683,11 @@ Tom (i Sam & Max-økta): gi Dig HD Remake samme motorpatch som Sam & Max.
 - Pakken har riktige kode-/modreferanser, original LA0/LA1, alle55 HD-filmer og eksakt manifest med44993 filer. Standard AppRun i isolert HOME/XDG: intro, tekst og HD/klassisk-bytte over550 oppdateringer, fem nytegningskontroller uten avvik. Pakkens egne11 native prøver viser alle196 nye Nexus-faser og130 canyon-ruter;543 kontroller etter oppstart uten avvik. Egen skjermdumpprøve av canyon ble kjørt for å bevare et lesbart pakkeeksempel.
 - Kildefilarkivet gjenbrukes etter SHA-kontroll og sammenligning av alle gjeldende motorpatcher og festet commit. Ingen motor-/pipelinekode endret. Kontrollrapport og LES-MEG følger oppdatert release. Rapporter og rå komprimerte logger i grafikkgrenen, integrering-r20-r21-20261018.
 - Ingen vanlige lagringer eller innstillinger endret. Alle nye ruter er fortsatt ikke visuelt godkjent av Tom, naturlig canyon-inngang og full gjennomspilling er ikke gjort.6011 manglende faktiske bilder og øvrige eldre grafikkfeil gjenstår.
+
+## 2026-10-18 12:08 (Codex)
+
+- Fullførte r22 med alle48 nytegnede Boston-ruter etter sju nye bildeverktøykall.91 små originalfragmenter er eksportert med riktig rompalett.
+- PR68 flettet til hd-mod044ae88e5 og pull utført.96 nye filer,182 eksplisitte erstatninger,55 filmer bevart. Alle45 089 manifestfiler kontrollert.
+- Alle48 nye ruter sett i rom32 med47 fullomtegningskontroller etter oppstart uten avvik. Naturlig gjennomspilling og Toms godkjenning er ikke utført.
+- Linux-bygg39117793203 startet med fast mod og uendret motorkode. Ny nedlasting kontrolleres før ferdigmelding.
+- Lagret Toms føring om at pull, fletting og integrering skal inngå i videre grafikkleveranser.

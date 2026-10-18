@@ -3,6 +3,7 @@
 Faste fakta og beslutninger. Oppdateres når noe endrer seg.
 
 ## Mål
+- Tom 18. oktober 2026: Etter grafikkarbeid skal vi alltid pull, flette og integrere ferdige leveranser i spillet. Ikke stopp ved filer klare for innhenting. Bygg og kontroller ny distro når det er del av oppdraget.
 - HD-versjon av The Dig (LucasArts, 1995, SCUMM v7): HD-bakgrunner, HD-sprites, HD-mellomsekvenser.
 
 ## Spillfilene
