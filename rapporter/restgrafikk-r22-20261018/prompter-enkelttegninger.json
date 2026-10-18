@@ -1,0 +1,41 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "model": "not reported",
+  "transparent_background": true,
+  "base_084": "Use case: identity-preserve. Edit image 1, one single original The Dig animation sprite, into clean smooth hand drawn HD. Image 2 is approved Boston Low identity and style reference ONLY, not composition. Trace image1's exact silhouette, internal transparent holes and color regions. This sprite is an extremely shallow cropped view of Boston almost submerged in water facing left. The broad brown shape is the top/back of his short brown hair; only the existing tiny skin fragment is visible, do not invent eyes or a complete profile. The skin-colored thin shape at lower left is the arm. Blue lines are THIN HOLLOW WATER RIPPLES behind the head, not filled shirt. Keep every large hole transparent, maintain original elongated irregular loop path and thickness. Blue ripple path begins left of the head, runs behind and far to its right and returns below; trace the original. Do not turn this into generic swimmer artwork. No new visible anatomy, torso or shoulders. No background, glow, halo, ground, text or shadow. Preserve exact overall bounding aspect ratio, original pose, original relative size and positions of head, arm and ripples. Remove pixel stairs with clean anti-aliased drawn edges and subtle painted shading like the approved character, no photorealism. Output one sprite on fully transparent PNG 1536x1024, same centered placement and width and height as image1. Entirely transparent background with zero alpha outside sprite.",
+  "base_face": "Use case: identity-preserve. Edit image 1, one single original The Dig animation sprite, into clean smooth hand drawn HD. Image 2 is approved Boston Low identity and style reference ONLY, not composition. Trace image1's exact silhouette, internal transparent holes and color regions. This sprite is an extremely shallow cropped view of Boston almost submerged in water facing left. The brown shape is his short brown hair; the visible left-facing angular profile has gray temples. Preserve the EXACT source head size and left-biased placement, about 22 percent along the total sprite width. The skin-colored thin shape at lower left is the arm. Blue lines are THIN HOLLOW WATER RIPPLES behind the head, not filled shirt. Keep every large hole transparent, maintain original elongated irregular loop path and thickness. Blue ripple path begins left of the head, runs behind and far to its right and returns below; trace the original. Do not turn this into generic swimmer artwork. No new visible anatomy, torso or shoulders. His face and extended arm are at the LEFT END of a long thin blue ripple loop which remains completely HOLLOW. The loop extends three head-widths to the right of his neck. Do not fill it with shirt. No background, glow, halo, ground, text or shadow. Preserve exact overall bounding aspect ratio, original pose, original relative size and positions of head, arm and ripples. Remove pixel stairs with clean anti-aliased drawn edges and subtle painted shading like the approved character, no photorealism. Output one sprite on fully transparent PNG 1536x1024, same centered placement and width and height as image1. Entirely transparent background with zero alpha outside sprite.",
+  "base_shoulder": "Use case: identity-preserve. Edit image 1, one single original The Dig animation sprite, into clean smooth hand drawn HD. Image 2 is approved Boston Low identity and style reference ONLY, not composition. Trace image1's exact silhouette, internal transparent holes and color regions. This sprite is an extremely shallow cropped view of Boston almost submerged in water facing left. The brown shape is his short brown hair; the visible left-facing angular profile has gray temples. Preserve the EXACT source head size and left-biased placement, about 22 percent along the total sprite width. The skin-colored thin shape at lower left is the arm. Blue lines are THIN HOLLOW WATER RIPPLES behind the head, not filled shirt. Keep every large hole transparent, maintain original elongated irregular loop path and thickness. Blue ripple path begins left of the head, runs behind and far to its right and returns below; trace the original. Do not turn this into generic swimmer artwork. No new visible anatomy, torso or shoulders. His face and extended arm are at the LEFT END of a long thin blue ripple loop which remains completely HOLLOW. The loop extends three head-widths to the right of his neck. Do not fill it with shirt. No background, glow, halo, ground, text or shadow. Preserve exact overall bounding aspect ratio, original pose, original relative size and positions of head, arm and ripples. Remove pixel stairs with clean anti-aliased drawn edges and subtle painted shading like the approved character, no photorealism. Output one sprite on fully transparent PNG 1536x1024, same centered placement and width and height as image1. Entirely transparent background with zero alpha outside sprite.\nThe original visible shoulder and short navy shirt behind the neck must remain, and the extended forearm extends left to the exact source position. Keep just the same ONE hollow ripple following the source, do not add rings in front. Some trailing ripple pieces are separate fragments, preserve their positions and transparency.",
+  "used": [
+    {
+      "cel": 84,
+      "prompt": "base_084"
+    },
+    {
+      "cel": 71,
+      "prompt": "base_face"
+    },
+    {
+      "cel": 70,
+      "prompt": "base_face"
+    },
+    {
+      "cel": 64,
+      "prompt": "base_face",
+      "selected": false
+    },
+    {
+      "cel": 60,
+      "prompt": "base_face",
+      "suffix": "The original visible shoulder and short navy shirt behind the neck must remain, and the extended forearm extends left to the exact source position. Keep just the same ONE hollow ripple following the source, do not add rings in front."
+    },
+    {
+      "cel": 33,
+      "prompt": "base_shoulder"
+    },
+    {
+      "cel": 64,
+      "prompt": "base_shoulder",
+      "suffix": "For this particular pose, draw the same substantial dark navy collar and shoulder wedge between neck and outstretched arm as the original. Do not render a naked neck floating alone. The source dark blue shape immediately behind the neck IS shirt; the long hollow blue loop farther to the right IS water. Preserve both."
+    }
+  ]
+}

@@ -1,3 +1,15 @@
+# R22 ferdig for integrering, 18. oktober 2026
+
+Alle 48 utvalgte manglende Boston-ruter er nå nytegnet og har bestått samme formkontroll. De seks tidligere holdte rutene ble tegnet enkeltvis med godkjent Boston-hovedark som referanse. Seks enkelttegninger pluss én skulderrettelse er lagt til de ni tidligere kallene, totalt 16 bildeverktøykall. Ingen kontrollgrenser er senket. registration.json og ADDITIONS.json beskriver de 48 ferdige rutene og 96 nye filer.
+
+91 eldre små originalfragmenter med høyst 72 synlige kildepiksler er eksportert på nytt med eksisterende myk.from_original og riktig AKPL gjennom rom32 palett0. De er palettrettede originalfragmenter, ikke 91 nye KI-tegninger. Deres 182 eksplisitte erstatningsfiler står i REPLACEMENTS.json, med uendrede indeksverdier og gamle/nye kontrollsummer i fragments.json. De feilfargede fragmentene langs vannflaten er borte i den nye prøven.
+
+Ny motoravspilling i rom32 viser alle 48 nye ruter og hele kostyme100-serien med de små fragmentene. 47 fullomtegningskontroller etter oppstart gir null avvik. Ingen motorfeil. kneeling-scene.png, rising-scene.png og standing-scene.png er fornyet etter siste tegning og palettretting. Dette er styrt motoravspilling, ikke en naturlig gjennomspilling eller Toms visuelle godkjenning.
+
+Arbeidsrestlisten er nå 5963. Publisert restliste oppdateres når integreringen er kontrollert. Senere integrerings- og distribusjonsbevis føres i rapporter/integrering-r22-20261018. Den historiske statusen under er bevart for sporbarhet.
+
+---
+
 # R22: Boston kommer opp av vannet
 
 18. oktober 2026. 42 nye HD-ruter er laget og klargjort med 42 originale indeksreferanser. Leveransen ligger i `mod-tillegg/costumes`, med kontrollsummer i `ADDITIONS.json`. Kun nye ruter er med. Publisert hd-mod og distro er ikke endret i denne runden.

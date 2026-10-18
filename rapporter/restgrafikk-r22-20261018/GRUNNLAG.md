@@ -7,3 +7,5 @@ Kilde: uendrede DIG.LA0/LA1 i publisert r21-pakke. Fysiske indeksbilder fra test
 Godkjent design: hovedark/boston.png, Tom 15. oktober. Brunt hår med grå tinninger, mørk blågrønn kortermet skjorte, oransje bukser, mørke støvler, ingen briller. Originalen styrer hver positur. Hode og kropp tegnes samlet; ingen uavhengig flytting av hodet. Under vann er bare originalens synlige deler med.
 
 Metode: seks referanseark med åtte ruter hver, deretter native alfa og rutekart for innhenting. Referansearkene er kun kildevisning, ikke HD-resultater. Bildegenereringen bruker innebygd image_gen. Bibliotekskilde: losninger/grafikk/figurark-fast-storrelse.md (PASS i opphavsprosjekt; konkret resultat kontrolleres separat her).
+
+Ferdigstilling: blå løkker bak svømmeren er hule bølgeringer, mens den mørke kilen like bak nakken er synlig skjorte/skulder. Enkeltreferanser gjør dette tydeligere. 91 små fragmenter er fargekorrigert via eksisterende eksportfunksjon, uten ny oppdiktet grafikk.
